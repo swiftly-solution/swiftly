@@ -1,0 +1,1 @@
+{"kind":"type","name":"RelativeLocationType_t","description":"Automatically generated game type from enum RelativeLocationType_t","values":{"WORLD_SPACE_POSITION":0,"RELATIVE_TO_ENTITY_IN_LOCAL_SPACE":1,"RELATIVE_TO_ENTITY_YAW_ONLY":2,"RELATIVE_TO_ENTITY_IN_WORLD_SPACE":3},"games":["cs2"]}

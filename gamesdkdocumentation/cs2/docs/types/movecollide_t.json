@@ -1,0 +1,1 @@
+{"kind":"type","name":"MoveCollide_t","description":"Automatically generated game type from enum MoveCollide_t","values":{"MOVECOLLIDE_DEFAULT":0,"MOVECOLLIDE_FLY_BOUNCE":1,"MOVECOLLIDE_FLY_CUSTOM":2,"MOVECOLLIDE_FLY_SLIDE":3,"MOVECOLLIDE_COUNT":4,"MOVECOLLIDE_MAX_BITS":3},"games":["cs2"]}

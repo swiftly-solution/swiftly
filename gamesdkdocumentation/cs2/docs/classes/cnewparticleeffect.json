@@ -1,0 +1,128 @@
+{
+    "kind": "class",
+    "name": "CNewParticleEffect",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNewParticleEffect"
+    },
+    "properties": [
+        {
+            "name": "Next",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Prev",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Particles",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "DebugName",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "SortOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Scale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Owner",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "OwningParticleProperty",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "FreezeTransitionStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FreezeTransitionDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FreezeTransitionOverride",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FreezeTransitionActive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FreezeTargetState",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CanFreeze",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SplitScreenUser",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AggregationCenter",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RefCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "IParticleEffect",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

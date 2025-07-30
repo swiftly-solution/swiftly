@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleRotationLockType_t","description":"Automatically generated game type from enum ParticleRotationLockType_t","values":{"PARTICLE_ROTATION_LOCK_NONE":0,"PARTICLE_ROTATION_LOCK_ROTATIONS":1,"PARTICLE_ROTATION_LOCK_NORMAL":2},"games":["cs2"]}

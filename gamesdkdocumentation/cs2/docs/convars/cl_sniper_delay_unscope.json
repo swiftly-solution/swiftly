@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_sniper_delay_unscope","description":"<no description>","args":"false","flags":["clientdll","archive","release"],"games":["cs2"]}

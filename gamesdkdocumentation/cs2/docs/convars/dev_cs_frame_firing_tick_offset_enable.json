@@ -1,0 +1,1 @@
+{"kind":"command","name":"dev_cs_frame_firing_tick_offset_enable","description":"Should we offset the current frame to the tick","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

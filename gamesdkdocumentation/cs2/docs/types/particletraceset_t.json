@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleTraceSet_t","description":"Automatically generated game type from enum ParticleTraceSet_t","values":{"PARTICLE_TRACE_SET_ALL":0,"PARTICLE_TRACE_SET_STATIC":1,"PARTICLE_TRACE_SET_STATIC_AND_KEYFRAMED":2,"PARTICLE_TRACE_SET_DYNAMIC":3},"games":["cs2"]}

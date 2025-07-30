@@ -1,0 +1,1 @@
+{"kind":"command","name":"nextmap_print_enabled","description":"When enabled prints next map to clients","args":"false","flags":["gamedll","release"],"games":["cs2"]}

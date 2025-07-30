@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostSpecTargetUpdated","description":"This event is triggered after spec_target_updated is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

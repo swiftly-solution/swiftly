@@ -1,0 +1,1 @@
+{"kind":"command","name":"anim_resource_validate_on_load","description":"Validates the animation group channel list against the animations on load for every animation","args":"true","flags":["release"],"games":["cs2"]}

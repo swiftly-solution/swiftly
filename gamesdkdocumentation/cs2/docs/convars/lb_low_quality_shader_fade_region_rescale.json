@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_low_quality_shader_fade_region_rescale","description":"For envmaps in low quality shader mode, how much of the fade region to scale the envmap box by.","args":"0","flags":["developmentonly","cheat"],"games":["cs2"]}

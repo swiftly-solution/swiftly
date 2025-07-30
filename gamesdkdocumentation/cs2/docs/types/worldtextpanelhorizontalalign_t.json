@@ -1,0 +1,1 @@
+{"kind":"type","name":"WorldTextPanelHorizontalAlign_t","description":"Automatically generated game type from enum WorldTextPanelHorizontalAlign_t","values":{"WORLDTEXT_HORIZONTAL_ALIGN_LEFT":0,"WORLDTEXT_HORIZONTAL_ALIGN_CENTER":1,"WORLDTEXT_HORIZONTAL_ALIGN_RIGHT":2},"games":["cs2"]}

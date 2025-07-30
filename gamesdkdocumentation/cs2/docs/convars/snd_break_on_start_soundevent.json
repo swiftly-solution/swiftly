@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_break_on_start_soundevent","description":"Use to debug break on any soundevent that is started matching this name","args":"\"\"","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CMultiLightProxy",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMultiLightProxy"
+    },
+    "properties": [
+        {
+            "name": "LightNameFilter",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LightClassFilter",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LightRadiusFilter",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BrightnessDelta",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PerformScreenFade",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TargetBrightnessMultiplier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurrentBrightnessMultiplier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CTriggerHurt",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerHurt"
+    },
+    "properties": [
+        {
+            "name": "OriginalDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Damage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DamageCap",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastDmgTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ForgivenessDelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BitsDamageInflict",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DamageModel",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NoDmgForce",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DamageForce",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ThinkAlways",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HurtThinkPeriod",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnHurt",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnHurtPlayer",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

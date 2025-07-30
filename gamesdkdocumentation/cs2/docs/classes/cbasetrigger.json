@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CBaseTrigger",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseTrigger"
+    },
+    "properties": [
+        {
+            "name": "OnStartTouch",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStartTouchAll",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnEndTouch",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnEndTouchAll",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnTouching",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnTouchingEachEntity",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnNotTouching",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "FilterName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Filter",
+            "type": "CBaseFilter",
+            "writable": false
+        },
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseAsyncQueries",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseToggle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

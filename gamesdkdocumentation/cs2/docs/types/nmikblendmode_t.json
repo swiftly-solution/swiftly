@@ -1,0 +1,1 @@
+{"kind":"type","name":"NmIKBlendMode_t","description":"Automatically generated game type from enum NmIKBlendMode_t","values":{"Effector":0,"Pose":1},"games":["cs2"]}

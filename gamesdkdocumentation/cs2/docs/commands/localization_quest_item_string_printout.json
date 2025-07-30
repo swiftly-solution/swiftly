@@ -1,0 +1,1 @@
+{"kind":"command","name":"localization_quest_item_string_printout","description":"localization_quest_item_string_printout","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

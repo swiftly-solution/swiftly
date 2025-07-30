@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_death_drop_c4","description":"Whether c4 is droppable","args":"true","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

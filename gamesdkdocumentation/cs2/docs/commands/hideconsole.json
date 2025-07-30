@@ -1,0 +1,1 @@
+{"kind":"command","name":"hideconsole","description":"Hide the console.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

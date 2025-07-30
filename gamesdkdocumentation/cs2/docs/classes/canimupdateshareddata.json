@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CAnimUpdateSharedData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimUpdateSharedData"
+    },
+    "properties": [
+        {
+            "name": "Settings",
+            "type": "CAnimGraphSettingsManager",
+            "writable": false
+        },
+        {
+            "name": "RootNodePath",
+            "type": "CAnimNodePath",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

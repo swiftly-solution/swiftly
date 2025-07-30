@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "CBaseGrenade",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseGrenade"
+    },
+    "properties": [
+        {
+            "name": "OnPlayerPickup",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnExplode",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "HasWarnedAI",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsSmokeGrenade",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsLive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DmgRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DetonateTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WarnAITime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Damage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BounceSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ExplosionSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Thrower",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "NextAttack",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OriginalThrower",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseFlex",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

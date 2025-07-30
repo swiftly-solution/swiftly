@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnRoundEnd","description":"This event is triggered when round_end is triggered.","arguments":{"winner":"int32","reason":"int32","message":"string","legacy":"int32","player_count":"int32","nomusic":"int32","time":"float"},"return":"void","games":["cs2"]}

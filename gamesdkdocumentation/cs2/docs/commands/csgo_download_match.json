@@ -1,0 +1,1 @@
+{"kind":"command","name":"csgo_download_match","description":"Downloads a match via serial code and starts playback","args":"","flags":["clientdll","dontrecord","clientcmd_can_execute"],"games":["cs2"]}

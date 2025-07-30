@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "FeVertexMapBuild_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeVertexMapBuild_t"
+    },
+    "properties": [
+        {
+            "name": "VertexMapName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NameHash",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "VolumetricSolveStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ScaleSourceNode",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Weights",
+            "type": "float[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

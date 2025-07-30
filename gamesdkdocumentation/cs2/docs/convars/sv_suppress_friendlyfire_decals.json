@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_suppress_friendlyfire_decals","description":"<no description>","args":"true","flags":["developmentonly","gamedll"],"games":["cs2"]}

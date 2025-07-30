@@ -1,0 +1,1 @@
+{"kind":"command","name":"log_verbosity","description":"Set the verbosity of a logging channel.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

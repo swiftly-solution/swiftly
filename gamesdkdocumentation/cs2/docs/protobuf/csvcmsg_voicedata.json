@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"audio","type":"CMsgVoiceAudio"},{"name":"client","type":"int32","default":-1},{"name":"proximity","type":"bool"},{"name":"xuid","type":"fixed64"},{"name":"audibleMask","type":"int32"},{"name":"tick","type":"uint32"},{"name":"passthrough","type":"int32"}],"name":"CSVCMsg_VoiceData","games":["cs2"]}

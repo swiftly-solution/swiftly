@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "ModelMeshBufferData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ModelMeshBufferData_t"
+    },
+    "properties": [
+        {
+            "name": "BlockIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ElementCount",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ElementSizeInBytes",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MeshoptCompressed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MeshoptIndexSequence",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CompressedZSTD",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CreateBufferSRV",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CreateBufferUAV",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CreateRawBuffer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CreatePooledBuffer",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"game_particle_manager_dump_requeue","description":"Dump contents of particle manager requeue","args":"","flags":["developmentonly","clientdll"],"games":["cs2"]}

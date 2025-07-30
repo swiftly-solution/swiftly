@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CFollowAttachmentUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFollowAttachmentUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "OpFixedData",
+            "type": "FollowAttachmentSettings_t",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

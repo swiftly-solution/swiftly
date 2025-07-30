@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CSoundEventEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundEventEntity"
+    },
+    "properties": [
+        {
+            "name": "StartOnSpawn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ToLocalPlayer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StopOnNew",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SaveRestore",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SavedIsPlaying",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SavedElapsedTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SourceEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachmentName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OnSoundFinished",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "ClientCullRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoundName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Source",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "EntityIndexSelection",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

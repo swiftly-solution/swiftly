@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_dev_decaltrace_blood","description":"Shoot out a decal spray that shoots blood.","args":"","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

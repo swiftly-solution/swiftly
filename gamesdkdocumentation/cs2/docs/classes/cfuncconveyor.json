@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CFuncConveyor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncConveyor"
+    },
+    "properties": [
+        {
+            "name": "ConveyorModels",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TransitionDurationSeconds",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MoveEntitySpace",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "MoveDirEntitySpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TargetSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TransitionStartTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TransitionDurationTicks",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TransitionStartSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

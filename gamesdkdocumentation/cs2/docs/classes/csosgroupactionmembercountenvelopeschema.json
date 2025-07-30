@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CSosGroupActionMemberCountEnvelopeSchema",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSosGroupActionMemberCountEnvelopeSchema"
+    },
+    "properties": [
+        {
+            "name": "BaseCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TargetCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BaseValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TargetValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Attack",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Decay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ResultVarName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SaveToGroup",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSosGroupActionSchema",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

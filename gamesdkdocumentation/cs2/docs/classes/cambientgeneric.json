@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CAmbientGeneric",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAmbientGeneric"
+    },
+    "properties": [
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoundLevel",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Dpv",
+            "type": "dynpitchvol_t",
+            "writable": false
+        },
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Looping",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Sound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SourceEntName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundSource",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "SoundSourceEntIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

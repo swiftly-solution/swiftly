@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CovMatrix3",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CovMatrix3"
+    },
+    "properties": [
+        {
+            "name": "Diag",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "XY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "XZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "YZ",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

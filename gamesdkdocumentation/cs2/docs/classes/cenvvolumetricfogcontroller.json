@@ -1,0 +1,208 @@
+{
+    "kind": "class",
+    "name": "CEnvVolumetricFogController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvVolumetricFogController"
+    },
+    "properties": [
+        {
+            "name": "Scattering",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TintColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Anisotropy",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DrawDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeInStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeInEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IndirectStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VolumeDepth",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FirstVolumeSliceThickness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IndirectTextureDimX",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IndirectTextureDimY",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IndirectTextureDimZ",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BoxMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BoxMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartAnisoTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartScatterTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartDrawDistanceTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartAnisotropy",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartScattering",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartDrawDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultAnisotropy",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultScattering",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultDrawDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableIndirect",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsMaster",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForceRefreshCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NoiseSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseScale",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "WindSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WindDirection",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FirstTime",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"mode","type":"uint32"},{"name":"overrideOperatorName","type":"string"}],"name":"CSVCMsg_HltvFixupOperatorStatus","games":["cs2"]}

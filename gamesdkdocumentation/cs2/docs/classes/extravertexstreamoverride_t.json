@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "ExtraVertexStreamOverride_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ExtraVertexStreamOverride_t"
+    },
+    "properties": [
+        {
+            "name": "SubSceneObject",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DrawCallIndex",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AdditionalMeshDrawPrimitiveFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ExtraBufferBinding",
+            "type": "CRenderBufferBinding",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "BaseSceneObjectOverride_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

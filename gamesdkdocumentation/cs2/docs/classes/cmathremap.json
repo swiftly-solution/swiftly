@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CMathRemap",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMathRemap"
+    },
+    "properties": [
+        {
+            "name": "InMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Out1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Out2",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OldInValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnRoseAboveMin",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnRoseAboveMax",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFellBelowMin",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFellBelowMax",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

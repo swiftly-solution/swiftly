@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_give_player_c4","description":"Whether this map should spawn a c4 bomb for a player or not.","args":"true","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

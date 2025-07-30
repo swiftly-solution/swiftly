@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CModelState",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CModelState"
+    },
+    "properties": [
+        {
+            "name": "ModelName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ClientClothCreationSuppressed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MeshGroupMask",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "BodyGroupChoices",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "IdealMotionType",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "ForceLOD",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "ClothUpdateFlags",
+            "type": "int8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

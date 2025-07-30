@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_aoproxy_cull_dist","description":"Distance to cull the AO proxy as a factor of size","args":"12","flags":["developmentonly","defensive"],"games":["cs2"]}

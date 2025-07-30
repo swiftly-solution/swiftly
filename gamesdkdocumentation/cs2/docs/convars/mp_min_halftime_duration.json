@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_min_halftime_duration","description":"Minimum number of seconds that halftime lasts even if team intros are active","args":"8.5","flags":["min:","0,","max:","300,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

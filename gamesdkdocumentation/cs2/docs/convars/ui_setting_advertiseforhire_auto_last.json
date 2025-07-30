@@ -1,0 +1,1 @@
+{"kind":"command","name":"ui_setting_advertiseforhire_auto_last","description":"Which game mode users last used to advertise for invites","args":"\"/competitive\"","flags":["clientdll","archive","release"],"games":["cs2"]}

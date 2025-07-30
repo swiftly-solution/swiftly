@@ -1,0 +1,1 @@
+{"kind":"command","name":"callvote","description":"Start a vote on an issue.","args":"","flags":["gamedll","client_can_execute"],"games":["cs2"]}

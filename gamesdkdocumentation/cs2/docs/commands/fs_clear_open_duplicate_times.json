@@ -1,0 +1,1 @@
+{"kind":"command","name":"fs_clear_open_duplicate_times","description":"Clear the list of files that have been opened.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

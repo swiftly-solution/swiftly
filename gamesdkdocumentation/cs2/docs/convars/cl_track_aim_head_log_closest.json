@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_track_aim_head_log_closest","description":"Log when closest distance to head was reached and what it was","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

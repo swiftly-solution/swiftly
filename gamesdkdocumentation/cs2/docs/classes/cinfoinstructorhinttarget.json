@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CInfoInstructorHintTarget",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CInfoInstructorHintTarget"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

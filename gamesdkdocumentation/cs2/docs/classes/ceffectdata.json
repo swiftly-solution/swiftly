@@ -1,0 +1,123 @@
+{
+    "kind": "class",
+    "name": "CEffectData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEffectData"
+    },
+    "properties": [
+        {
+            "name": "Origin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Start",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Normal",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Angles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Entity",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "OtherEntity",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "Scale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Magnitude",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SurfaceProp",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DamageType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Penetrate",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Material",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "HitBox",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Color",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "AttachmentName",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "EffectName",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "ExplosionType",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "EventProfileStorageAvailable_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EventProfileStorageAvailable_t"
+    },
+    "properties": [
+        {
+            "name": "SplitScreenSlot",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

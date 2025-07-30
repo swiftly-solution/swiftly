@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_gpu_culling","description":"CSGO/Graphics/GPU Culling","args":"true","flags":["developmentonly","clientdll","menubar_item","defensive"],"games":["cs2"]}

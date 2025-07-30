@@ -1,0 +1,1 @@
+{"kind":"command","name":"molotov_throw_detonate_time","description":"<no description>","args":"2","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

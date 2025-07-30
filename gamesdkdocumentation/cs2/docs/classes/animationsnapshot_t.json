@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "AnimationSnapshot_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "AnimationSnapshot_t"
+    },
+    "properties": [
+        {
+            "name": "EntIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ModelName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "AnimationSnapshotBase_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "EventClientPostOutput_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EventClientPostOutput_t"
+    },
+    "properties": [
+        {
+            "name": "LoopState",
+            "type": "EngineLoopState_t",
+            "writable": false
+        },
+        {
+            "name": "RenderTime",
+            "type": "double",
+            "writable": true
+        },
+        {
+            "name": "RenderFrameTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RenderFrameTimeUnbounded",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RenderOnly",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

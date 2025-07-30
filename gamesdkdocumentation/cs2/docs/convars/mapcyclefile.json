@@ -1,0 +1,1 @@
+{"kind":"command","name":"mapcyclefile","description":"Name of the .txt file used to cycle the maps on multiplayer servers","args":"\"mapcycle.txt\"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

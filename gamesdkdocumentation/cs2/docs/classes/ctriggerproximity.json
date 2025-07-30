@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CTriggerProximity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerProximity"
+    },
+    "properties": [
+        {
+            "name": "MeasureTarget",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "MeasureTarget1",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Touchers",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

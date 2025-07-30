@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnWeaponFireOnEmpty","description":"This event is triggered when weapon_fire_on_empty is triggered.","arguments":{"userid":"int32","weapon":"string"},"return":"void","games":["cs2"]}

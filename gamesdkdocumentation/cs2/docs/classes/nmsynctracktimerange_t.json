@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "NmSyncTrackTimeRange_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "NmSyncTrackTimeRange_t"
+    },
+    "properties": [
+        {
+            "name": "StartTime",
+            "type": "NmSyncTrackTime_t",
+            "writable": false
+        },
+        {
+            "name": "EndTime",
+            "type": "NmSyncTrackTime_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

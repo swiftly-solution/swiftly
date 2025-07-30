@@ -1,0 +1,1 @@
+{"kind":"command","name":"dump_entity_report","description":"List all client-side entities in the scene","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"origin","type":"CMsgVector"},{"name":"start","type":"CMsgVector"},{"name":"entity","type":"int32","default":-1},{"name":"hitbox","type":"uint32"},{"name":"index","type":"uint32"}],"name":"CMsgTEDecal","games":["cs2"]}

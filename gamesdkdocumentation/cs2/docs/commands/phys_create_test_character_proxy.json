@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_create_test_character_proxy","description":"Create test character proxy","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

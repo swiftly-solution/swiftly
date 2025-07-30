@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_text","description":"Displays text debugging information about the given entity(ies) on top of the entity (See Overlay Text)","args":"   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}","flags":["gamedll","cheat","vconsole_fuzzy_matching"],"games":["cs2"]}

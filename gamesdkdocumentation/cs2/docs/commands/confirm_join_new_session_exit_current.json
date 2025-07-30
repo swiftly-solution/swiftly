@@ -1,0 +1,1 @@
+{"kind":"command","name":"confirm_join_new_session_exit_current","description":"Confirm that we wish to join a new session, destroying a previous session","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

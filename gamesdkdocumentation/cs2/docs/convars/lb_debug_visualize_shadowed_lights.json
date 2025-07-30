@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_debug_visualize_shadowed_lights","description":"SceneSystem/LightBinner/Debug Visualize Shadowed Lights","args":"0","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

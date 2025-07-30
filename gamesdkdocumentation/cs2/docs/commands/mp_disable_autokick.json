@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_disable_autokick","description":"Prevents a userid from being auto-kicked","args":"","flags":["gamedll","release"],"games":["cs2"]}

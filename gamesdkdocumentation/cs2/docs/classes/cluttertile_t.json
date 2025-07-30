@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "ClutterTile_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ClutterTile_t"
+    },
+    "properties": [
+        {
+            "name": "FirstInstance",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LastInstance",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BoundsWs",
+            "type": "AABB_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

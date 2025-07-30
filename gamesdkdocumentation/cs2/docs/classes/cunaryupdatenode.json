@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CUnaryUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CUnaryUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "ChildNode",
+            "type": "CAnimUpdateNodeRef",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimUpdateNodeBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

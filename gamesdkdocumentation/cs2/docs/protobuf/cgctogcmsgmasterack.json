@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"dirIndex","type":"uint32"},{"name":"gcType","type":"uint32"}],"name":"CGCToGCMsgMasterAck","games":["cs2"]}

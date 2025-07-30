@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CEnvSky",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvSky"
+    },
+    "properties": [
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TintColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "TintColorLightingOnly",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "BrightnessScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FogMinStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogMinEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogMaxStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogMaxEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

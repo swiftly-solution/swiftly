@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CPoseHandle",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPoseHandle"
+    },
+    "properties": [
+        {
+            "name": "Index",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Type",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"god","description":"Toggle by default, or 0 to disable and 1 to enable. Player becomes invulnerable.","args":"","flags":["gamedll","cheat","client_can_execute"],"games":["cs2"]}

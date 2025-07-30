@@ -1,0 +1,148 @@
+{
+    "kind": "class",
+    "name": "CPointClientUIWorldPanel",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointClientUIWorldPanel"
+    },
+    "properties": [
+        {
+            "name": "IgnoreInput",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Lit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FollowPlayerAcrossTeleport",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Width",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Height",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DPI",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InteractDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DepthOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OwnerContext",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HorizontalAlign",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "VerticalAlign",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Orientation",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AllowInteractionFromAllSceneWorlds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CSSClasses",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "Opaque",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoDepth",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RenderBackface",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseOffScreenIndicator",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ExcludeFromSaveGames",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Grabbable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnlyRenderToTexture",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisableMipGen",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ExplicitImageLayout",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseClientUIEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

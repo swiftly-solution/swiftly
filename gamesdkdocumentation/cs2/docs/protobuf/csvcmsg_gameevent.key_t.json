@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"type","type":"int32"},{"name":"valString","type":"string"},{"name":"valFloat","type":"float"},{"name":"valLong","type":"int32"},{"name":"valShort","type":"int32"},{"name":"valByte","type":"int32"},{"name":"valBool","type":"bool"},{"name":"valUint64","type":"uint64"}],"name":"CSVCMsg_GameEvent.key_t","games":["cs2"]}

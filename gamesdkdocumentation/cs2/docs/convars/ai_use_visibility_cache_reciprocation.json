@@ -1,0 +1,1 @@
+{"kind":"command","name":"ai_use_visibility_cache_reciprocation","description":"Sets whether or not the visibility check cache should be reciprocal.","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_force_duck","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

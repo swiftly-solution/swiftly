@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnGameMessage","description":"This event is triggered when game_message is triggered.","arguments":{"target":"int32","text":"string"},"return":"void","games":["cs2"]}

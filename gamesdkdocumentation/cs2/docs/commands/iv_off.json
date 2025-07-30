@@ -1,0 +1,1 @@
+{"kind":"command","name":"iv_off","description":"Turn off all interpolation variable spew.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

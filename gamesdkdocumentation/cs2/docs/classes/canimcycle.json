@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CAnimCycle",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimCycle"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CCycleBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

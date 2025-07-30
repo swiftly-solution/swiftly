@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_dump_symbols","description":"<ESymbolType> Dump all of the symbols in the Panorama symbol table","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"minimap_create","description":"Does a bunch of work to create a minimap","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

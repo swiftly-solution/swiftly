@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_teamid_overhead","description":"Shows teamID over player's heads.  0 = off, 1 = on","args":"true","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

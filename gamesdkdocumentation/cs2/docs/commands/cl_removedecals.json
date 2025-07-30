@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_removedecals","description":"Remove the decals from the entity under the crosshair.","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

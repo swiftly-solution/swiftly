@@ -1,0 +1,1 @@
+{"kind":"command","name":"imgui_enable_input","description":"if imgui should consume input","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

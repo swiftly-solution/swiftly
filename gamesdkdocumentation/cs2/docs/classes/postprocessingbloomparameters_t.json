@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "PostProcessingBloomParameters_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PostProcessingBloomParameters_t"
+    },
+    "properties": [
+        {
+            "name": "BlendMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BloomStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ScreenBloomStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BlurBloomStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BloomThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BloomThresholdWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SkyboxBloomStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BloomStartValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ComputeBloomStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ComputeBloomThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ComputeBloomRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ComputeBloomEffectsScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ComputeBloomLensDirtStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ComputeBloomLensDirtBlackLevel",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BlurWeight",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "BlurTint",
+            "type": "Vector[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"dev_cs_frame_firing_skip_first_frame_enable","description":"Should we skip the first frame of shooting to make the animation punchier?","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

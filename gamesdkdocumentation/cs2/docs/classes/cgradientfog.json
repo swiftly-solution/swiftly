@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "CGradientFog",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGradientFog"
+    },
+    "properties": [
+        {
+            "name": "FogStartDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogEndDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HeightFogEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FogStartHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogEndHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FarZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogMaxOpacity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogFalloffExponent",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogVerticalExponent",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "FogStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GradientFogNeedsTextures",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,42 @@
+{
+    "kind": "class",
+    "name": "CSceneObjectData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSceneObjectData"
+    },
+    "properties": [
+        {
+            "name": "MinBounds",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MaxBounds",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TintColor",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,67 @@
+{
+    "kind": "class",
+    "name": "CMovementComponentUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMovementComponentUpdater"
+    },
+    "properties": [
+        {
+            "name": "FacingDamping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "DefaultMotorIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DefaultRunSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MoveVarsDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NetworkPath",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NetworkFacing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ParamHandles",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimComponentUpdater",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

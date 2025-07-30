@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleOrientationSetMode_t","description":"Automatically generated game type from enum ParticleOrientationSetMode_t","values":{"PARTICLE_ORIENTATION_SET_FROM_VELOCITY":0,"PARTICLE_ORIENTATION_SET_FROM_ROTATIONS":1},"games":["cs2"]}

@@ -1,0 +1,87 @@
+{
+    "kind": "class",
+    "name": "SceneObject_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SceneObject_t"
+    },
+    "properties": [
+        {
+            "name": "ObjectID",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Transform",
+            "type": "Vector4D[]",
+            "writable": true
+        },
+        {
+            "name": "FadeStartDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeEndDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TintColor",
+            "writable": false
+        },
+        {
+            "name": "Skin",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ObjectTypeFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LightingOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OverlayRenderOrder",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "LODOverride",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "CubeMapPrecomputedHandshake",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LightProbeVolumePrecomputedHandshake",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

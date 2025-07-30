@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"period","type":"uint32"},{"name":"missionTemplates","type":"bytes"}],"name":"CMsgRecurringMissionSchema.MissionTemplateList","games":["cs2"]}

@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CPathKeyFrame",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPathKeyFrame"
+    },
+    "properties": [
+        {
+            "name": "Origin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Angles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "NextKey",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NextTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextKey1",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "PrevKey",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "MoveSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

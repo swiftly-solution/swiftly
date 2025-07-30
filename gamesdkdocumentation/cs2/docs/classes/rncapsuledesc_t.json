@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "RnCapsuleDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "RnCapsuleDesc_t"
+    },
+    "properties": [
+        {
+            "name": "Capsule",
+            "type": "RnCapsule_t",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "RnShapeDesc_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

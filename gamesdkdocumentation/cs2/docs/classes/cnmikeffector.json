@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CNmIKEffector",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmIKEffector"
+    },
+    "properties": [
+        {
+            "name": "BodyIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TargetPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Weight",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

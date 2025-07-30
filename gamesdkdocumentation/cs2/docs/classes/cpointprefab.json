@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CPointPrefab",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointPrefab"
+    },
+    "properties": [
+        {
+            "name": "TargetMapName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ForceWorldGroupID",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AssociatedRelayTargetName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "FixupNames",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LoadDynamic",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AssociatedRelayEntity",
+            "type": "CPointPrefab",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CServerOnlyPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

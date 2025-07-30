@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_retake_t_loadout_bonus_card_availability","description":"T bonus card availability pattern for full buy round when playing bomb site retake.","args":"\"1,1,2\"","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

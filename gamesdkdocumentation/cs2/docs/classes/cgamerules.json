@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CGameRules",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGameRules"
+    },
+    "properties": [
+        {
+            "name": "__pChainEntity",
+            "type": "CNetworkVarChainer",
+            "writable": false
+        },
+        {
+            "name": "QuestName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "QuestPhase",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalPausedTicks",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PauseStartTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GamePaused",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

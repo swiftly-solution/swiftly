@@ -1,0 +1,1 @@
+{"kind":"command","name":"dev_cs_frame_firing_insert_idle_pose_now","description":"Should we insert the idle pose at this time to make the animation interpolation punchier?","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

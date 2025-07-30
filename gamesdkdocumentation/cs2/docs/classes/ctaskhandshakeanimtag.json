@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CTaskHandshakeAnimTag",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTaskHandshakeAnimTag"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CHandshakeAnimTagBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

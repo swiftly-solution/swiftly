@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"command","type":"uint32"},{"name":"easeInOut","type":"bool"},{"name":"angle","type":"CMsgVector"},{"name":"duration","type":"float"},{"name":"time","type":"float"}],"name":"CUserMessageScreenTilt","games":["cs2"]}

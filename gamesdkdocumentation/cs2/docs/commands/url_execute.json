@@ -1,0 +1,1 @@
+{"kind":"command","name":"url_execute","description":"Executes url-based commands, used for incoming commands from url-based launches when the game's already running.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

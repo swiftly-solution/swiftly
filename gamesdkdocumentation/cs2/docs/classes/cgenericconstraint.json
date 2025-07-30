@@ -1,0 +1,273 @@
+{
+    "kind": "class",
+    "name": "CGenericConstraint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGenericConstraint"
+    },
+    "properties": [
+        {
+            "name": "LinearMotionX",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LinearMotionY",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LinearMotionZ",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LinearFrequencyX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearFrequencyY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearFrequencyZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearDampingRatioX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearDampingRatioY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearDampingRatioZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxLinearImpulseX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxLinearImpulseY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxLinearImpulseZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakAfterTimeX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakAfterTimeY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakAfterTimeZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakAfterTimeStartTimeX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakAfterTimeStartTimeY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakAfterTimeStartTimeZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakAfterTimeThresholdX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakAfterTimeThresholdY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakAfterTimeThresholdZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceMinTimeX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceMinTimeY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceMinTimeZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceLastTimeX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceLastTimeY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceLastTimeZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AxisNotifiedX",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AxisNotifiedY",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AxisNotifiedZ",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AngularMotionX",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AngularMotionY",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AngularMotionZ",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AngularFrequencyX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularFrequencyY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularFrequencyZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularDampingRatioX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularDampingRatioY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularDampingRatioZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxAngularImpulseX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxAngularImpulseY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxAngularImpulseZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyForceReachedX",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "NotifyForceReachedY",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "NotifyForceReachedZ",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPhysConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

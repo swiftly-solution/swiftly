@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "COrientationWarpUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "COrientationWarpUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Mode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TargetParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TargetPositionParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "FallbackTargetPositionParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TargetOffsetMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TargetOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TargetOffsetParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "Damping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "RootMotionSource",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MaxRootMotionScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnablePreferredRotationDirection",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PreferredRotationDirection",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PreferredRotationThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

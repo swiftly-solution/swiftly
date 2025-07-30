@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CTankTrainAI",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTankTrainAI"
+    },
+    "properties": [
+        {
+            "name": "Train",
+            "type": "CFuncTrackTrain",
+            "writable": false
+        },
+        {
+            "name": "TargetEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "SoundPlaying",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StartSoundName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "EngineSoundName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MovementSoundName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TargetEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

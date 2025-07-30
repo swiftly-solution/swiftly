@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_random_taser_power","description":"Power used when applying the taser effect.","args":"4000","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

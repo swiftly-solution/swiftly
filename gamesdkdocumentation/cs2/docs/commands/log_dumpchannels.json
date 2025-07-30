@@ -1,0 +1,1 @@
+{"kind":"command","name":"log_dumpchannels","description":"Dumps information about all logging channels.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

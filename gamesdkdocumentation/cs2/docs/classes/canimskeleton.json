@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CAnimSkeleton",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimSkeleton"
+    },
+    "properties": [
+        {
+            "name": "BoneNames",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "Parents",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MorphNames",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "LodBoneCounts",
+            "type": "int32[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

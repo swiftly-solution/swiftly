@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CFuncMoveLinearAlias_momentary_door",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncMoveLinearAlias_momentary_door"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CFuncMoveLinear",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

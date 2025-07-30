@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CBoneConstraintRbf",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBoneConstraintRbf"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CBoneConstraintBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

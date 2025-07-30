@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CNavLinkAreaEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNavLinkAreaEntity"
+    },
+    "properties": [
+        {
+            "name": "Width",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LocatorOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LocatorAnglesOffset",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "StrMovementForward",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrMovementReverse",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AllowCrossMovableConnections",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StrFilterName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Filter",
+            "type": "CBaseFilter",
+            "writable": false
+        },
+        {
+            "name": "OnNavLinkStart",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnNavLinkFinish",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "IsTerminus",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Splits",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CMotionGraphConfig",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMotionGraphConfig"
+    },
+    "properties": [
+        {
+            "name": "ParamValues",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MotionIndex",
+            "type": "MotionIndex",
+            "writable": false
+        },
+        {
+            "name": "SampleStart",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SampleCount",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CTargetSelectorUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTargetSelectorUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "AngleMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TargetPosition",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TargetFacePositionParameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "MoveHeadingParameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "DesiredMoveHeadingParameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TargetPositionIsWorldSpace",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TargetFacePositionIsWorldSpace",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnablePhaseMatching",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PhaseMatchingMaxRootMotionSkip",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimUpdateNodeBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

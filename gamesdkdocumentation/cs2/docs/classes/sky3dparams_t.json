@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "sky3dparams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "sky3dparams_t"
+    },
+    "properties": [
+        {
+            "name": "Scale",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "Origin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Clip3DSkyBoxNearToWorldFar",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Clip3DSkyBoxNearToWorldFarOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Fog",
+            "type": "fogparams_t",
+            "writable": false
+        },
+        {
+            "name": "WorldGroupID",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

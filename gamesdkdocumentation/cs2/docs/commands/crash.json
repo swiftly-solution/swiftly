@@ -1,0 +1,1 @@
+{"kind":"command","name":"crash","description":"Crash the client. Optional parameter -- type of crash:","args":" read from NULL","flags":["cheat"],"games":["cs2"]}

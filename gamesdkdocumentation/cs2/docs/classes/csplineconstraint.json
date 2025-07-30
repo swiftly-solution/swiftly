@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CSplineConstraint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSplineConstraint"
+    },
+    "properties": [
+        {
+            "name": "AnchorOffsetRestore",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SplineEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "EnableLateralConstraint",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableVerticalConstraint",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableAngularConstraint",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FireEventsOnPath",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LinearFrequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinarDampingRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PreSolveAnchorPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPhysConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "VMixShaperDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixShaperDesc_t"
+    },
+    "properties": [
+        {
+            "name": "Shape",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FldbDrive",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbOutputGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WetMix",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OversampleFactor",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

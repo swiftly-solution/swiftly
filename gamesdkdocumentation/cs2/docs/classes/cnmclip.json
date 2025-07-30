@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CNmClip",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmClip"
+    },
+    "properties": [
+        {
+            "name": "NumFrames",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CompressedPoseOffsets",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "SyncTrack",
+            "type": "CNmSyncTrack",
+            "writable": false
+        },
+        {
+            "name": "RootMotion",
+            "type": "CNmRootMotionData",
+            "writable": false
+        },
+        {
+            "name": "IsAdditive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ModelSpaceBoneSamplingIndices",
+            "type": "int32[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

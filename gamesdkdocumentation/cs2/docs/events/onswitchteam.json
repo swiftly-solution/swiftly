@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnSwitchTeam","description":"This event is triggered when switch_team is triggered.","arguments":{"numPlayers":"int32","numSpectators":"int32","avg_rank":"int32","numTSlotsFree":"int32","numCTSlotsFree":"int32"},"return":"void","games":["cs2"]}

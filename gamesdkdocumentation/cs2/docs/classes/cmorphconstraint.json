@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CMorphConstraint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMorphConstraint"
+    },
+    "properties": [
+        {
+            "name": "TargetMorph",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SlaveChannel",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Min",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Max",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

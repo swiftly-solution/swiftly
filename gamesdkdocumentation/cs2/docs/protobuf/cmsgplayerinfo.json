@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"name","type":"string"},{"name":"xuid","type":"fixed64"},{"name":"userid","type":"int32"},{"name":"steamid","type":"fixed64"},{"name":"fakeplayer","type":"bool"},{"name":"ishltv","type":"bool"}],"name":"CMsgPlayerInfo","games":["cs2"]}

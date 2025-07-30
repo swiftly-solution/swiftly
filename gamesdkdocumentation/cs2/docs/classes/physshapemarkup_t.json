@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "PhysShapeMarkup_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PhysShapeMarkup_t"
+    },
+    "properties": [
+        {
+            "name": "BodyInAggregate",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShapeInBody",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"auto_bug","description":"auto_bug : create non-interactive bug report.","args":"","flags":["developmentonly","dontrecord","defensive"],"games":["cs2"]}

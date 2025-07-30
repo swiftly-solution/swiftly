@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "VMixVocoderDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixVocoderDesc_t"
+    },
+    "properties": [
+        {
+            "name": "BandCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Bandwidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldBModGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FreqRangeStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FreqRangeEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldBUnvoicedGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AttackTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ReleaseTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DebugBand",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PeakMode",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

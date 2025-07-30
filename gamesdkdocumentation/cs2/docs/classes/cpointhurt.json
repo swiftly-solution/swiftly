@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CPointHurt",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointHurt"
+    },
+    "properties": [
+        {
+            "name": "Damage",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BitsDamageType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Delay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StrTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Activator",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

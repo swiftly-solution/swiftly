@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "VPhysics2ShapeDef_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VPhysics2ShapeDef_t"
+    },
+    "properties": [
+        {
+            "name": "CollisionAttributeIndices",
+            "type": "uint16[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

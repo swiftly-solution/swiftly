@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"filter","type":"string"},{"name":"groupFields","type":"string"}],"name":"CGameServers_AggregationQuery_Request","games":["cs2"]}

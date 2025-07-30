@@ -1,0 +1,1 @@
+{"kind":"command","name":"loop_dump","description":"Print the listeners of the current loop mode","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

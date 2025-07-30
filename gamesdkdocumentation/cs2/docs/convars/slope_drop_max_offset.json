@@ -1,0 +1,1 @@
+{"kind":"command","name":"slope_drop_max_offset","description":"The maximum distance to adjust the view height","args":"16","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

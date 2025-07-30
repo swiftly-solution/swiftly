@@ -1,0 +1,1 @@
+{"kind":"type","name":"SharedMovementGait_t","description":"Automatically generated game type from enum SharedMovementGait_t","values":{"eInvalid":-1,"eSlow":0,"eMedium":1,"eFast":2,"eVeryFast":3,"eCount":4},"games":["cs2"]}

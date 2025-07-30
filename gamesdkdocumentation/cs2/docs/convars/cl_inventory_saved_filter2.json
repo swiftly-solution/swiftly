@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_inventory_saved_filter2","description":"<no description>","args":"\"all\"","flags":["clientdll","archive","release"],"games":["cs2"]}

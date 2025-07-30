@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CMaterialAttributeAnimTag",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMaterialAttributeAnimTag"
+    },
+    "properties": [
+        {
+            "name": "AttributeName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttributeType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Value",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimTagBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

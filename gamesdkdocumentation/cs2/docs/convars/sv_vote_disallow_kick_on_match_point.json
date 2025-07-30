@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vote_disallow_kick_on_match_point","description":"Disallow vote kicking on the match point round.","args":"false","flags":["gamedll","release"],"games":["cs2"]}

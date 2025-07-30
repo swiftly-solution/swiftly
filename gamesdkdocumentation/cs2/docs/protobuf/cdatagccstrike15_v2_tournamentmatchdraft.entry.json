@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"mapid","type":"int32"},{"name":"teamIdCt","type":"int32"}],"name":"CDataGCCStrike15_v2_TournamentMatchDraft.Entry","games":["cs2"]}

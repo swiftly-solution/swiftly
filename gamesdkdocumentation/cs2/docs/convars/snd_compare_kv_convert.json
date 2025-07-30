@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_compare_KV_convert","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

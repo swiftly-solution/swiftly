@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_set_movable_mesh_dormant_flag","description":"Set the movable mesh dormant flag (0=active, 1=dormant)","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

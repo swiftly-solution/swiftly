@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "FeFitMatrix_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeFitMatrix_t"
+    },
+    "properties": [
+        {
+            "name": "Center",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "End",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Node",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "BeginDynamic",
+            "type": "uint16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

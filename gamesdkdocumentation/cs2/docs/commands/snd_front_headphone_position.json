@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_front_headphone_position","description":"Specifies the position (in degrees) of the virtual front left/right headphones.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

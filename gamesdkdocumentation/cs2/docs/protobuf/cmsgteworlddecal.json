@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"origin","type":"CMsgVector"},{"name":"normal","type":"CMsgVector"},{"name":"index","type":"uint32"}],"name":"CMsgTEWorldDecal","games":["cs2"]}

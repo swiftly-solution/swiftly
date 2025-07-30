@@ -1,0 +1,173 @@
+{
+    "kind": "class",
+    "name": "CChicken",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CChicken"
+    },
+    "properties": [
+        {
+            "name": "AttributeManager",
+            "type": "CAttributeContainer",
+            "writable": false
+        },
+        {
+            "name": "UpdateTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "StuckAnchor",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StuckTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "CollisionStuckTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "IsOnGround",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FallVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DesiredActivity",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CurrentActivity",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ActivityTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "TurnRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FleeFrom",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "MoveRateThrottleTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "StartleTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "VocalizeTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "WhenZombified",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "JumpedThisFrame",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Leader",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "ReuseTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "HasBeenUsed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "JumpTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "LastJumpTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InJump",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RepathTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "PathGoal",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ActiveFollowStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FollowMinuteTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "BlockDirectionTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CDynamicProp",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

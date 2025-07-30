@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_replay_colorcorrection","description":"Amount of color correction in deathcam replay","args":"0.5","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

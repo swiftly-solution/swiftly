@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CFilterEnemy",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFilterEnemy"
+    },
+    "properties": [
+        {
+            "name": "EnemyName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OuterRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxSquadmatesPerEnemy",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PlayerName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseFilter",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

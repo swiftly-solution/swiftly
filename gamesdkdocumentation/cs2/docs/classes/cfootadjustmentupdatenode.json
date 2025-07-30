@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CFootAdjustmentUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFootAdjustmentUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Clips",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "BasePoseCacheHandle",
+            "type": "CPoseHandle",
+            "writable": false
+        },
+        {
+            "name": "FacingTarget",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TurnTimeMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TurnTimeMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StepHeightMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StepHeightMaxAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ResetChild",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AnimationDriven",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

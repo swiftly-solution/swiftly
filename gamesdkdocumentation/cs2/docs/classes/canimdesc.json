@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CAnimDesc",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimDesc"
+    },
+    "properties": [
+        {
+            "name": "Flags",
+            "type": "CAnimDesc_Flag",
+            "writable": false
+        },
+        {
+            "name": "Fps",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Data",
+            "type": "CAnimEncodedFrames",
+            "writable": false
+        },
+        {
+            "name": "Framestalltime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RootMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RootMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BoneWorldMin",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "BoneWorldMax",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "SequenceParams",
+            "type": "CAnimSequenceParams",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

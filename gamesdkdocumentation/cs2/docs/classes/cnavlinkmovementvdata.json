@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CNavLinkMovementVData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNavLinkMovementVData"
+    },
+    "properties": [
+        {
+            "name": "IsInterpolated",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RecommendedDistance",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_death_drop_grenade","description":"Which grenade to drop on player death: 0=none, 1=best, 2=current or best, 3=all grenades","args":"2","flags":["min:","0,","max:","2,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

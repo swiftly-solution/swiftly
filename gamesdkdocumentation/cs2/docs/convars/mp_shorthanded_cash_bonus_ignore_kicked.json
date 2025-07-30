@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_shorthanded_cash_bonus_ignore_kicked","description":"Determines whether kicked players are included in the assessment for short-handedness","args":"true","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

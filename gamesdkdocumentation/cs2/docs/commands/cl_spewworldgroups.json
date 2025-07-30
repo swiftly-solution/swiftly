@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_spewworldgroups","description":"Spew world groups (client)","args":"","flags":["developmentonly"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_screenmessage_notifytime","description":"How long to display screen message text","args":"8","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

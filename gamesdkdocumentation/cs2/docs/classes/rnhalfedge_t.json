@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "RnHalfEdge_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "RnHalfEdge_t"
+    },
+    "properties": [
+        {
+            "name": "Next",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Twin",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Origin",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Face",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

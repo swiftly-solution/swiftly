@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "AutoRoomDoorwayPairs_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "AutoRoomDoorwayPairs_t"
+    },
+    "properties": [
+        {
+            "name": "P1",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "P2",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

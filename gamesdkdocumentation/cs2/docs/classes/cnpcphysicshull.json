@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CNPCPhysicsHull",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNPCPhysicsHull"
+    },
+    "properties": [
+        {
+            "name": "Type",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CapsuleHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CapsuleRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CapsuleCenter1",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CapsuleCenter2",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "GroundBoxHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GroundBoxWidth",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

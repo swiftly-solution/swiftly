@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"tick","type":"int32"},{"name":"messagessize","type":"int32"},{"name":"state","type":"bool"}],"name":"CSVCMsg_PacketReliable","games":["cs2"]}

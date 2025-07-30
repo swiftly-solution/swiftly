@@ -1,0 +1,1 @@
+{"kind":"type","name":"TargetWarpAngleMode_t","description":"Automatically generated game type from enum TargetWarpAngleMode_t","values":{"eFacingHeading":0,"eMoveHeading":1},"games":["cs2"]}

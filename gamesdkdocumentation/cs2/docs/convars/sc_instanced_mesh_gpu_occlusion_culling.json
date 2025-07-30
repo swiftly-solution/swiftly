@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_instanced_mesh_gpu_occlusion_culling","description":"Toggles GPU occlusion of instanced meshes","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

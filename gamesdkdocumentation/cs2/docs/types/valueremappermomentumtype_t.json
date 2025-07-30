@@ -1,0 +1,1 @@
+{"kind":"type","name":"ValueRemapperMomentumType_t","description":"Automatically generated game type from enum ValueRemapperMomentumType_t","values":{"MomentumType_None":0,"MomentumType_Friction":1,"MomentumType_SpringTowardSnapValue":2,"MomentumType_SpringAwayFromSnapValue":3},"games":["cs2"]}

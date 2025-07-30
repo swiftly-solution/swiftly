@@ -1,0 +1,1 @@
+{"kind":"command","name":"matchdraft_debug_sendlog","description":"Print debug draft into HTTP log","args":"","flags":["clientdll","hidden","dontrecord","release","clientcmd_can_execute"],"games":["cs2"]}

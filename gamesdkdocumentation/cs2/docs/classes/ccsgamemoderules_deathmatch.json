@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CCSGameModeRules_Deathmatch",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSGameModeRules_Deathmatch"
+    },
+    "properties": [
+        {
+            "name": "DMBonusStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DMBonusTimeLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DMBonusWeapon",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CCSGameModeRules",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

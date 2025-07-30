@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_viewpunch","description":"Used to debug ViewPunch","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

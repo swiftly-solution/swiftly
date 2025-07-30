@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CChoiceUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CChoiceUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Weights",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "BlendTimes",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "ChoiceMethod",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ChoiceChangeMethod",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BlendMethod",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BlendTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CrossFade",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ResetChosen",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DontResetSameSelection",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimUpdateNodeBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

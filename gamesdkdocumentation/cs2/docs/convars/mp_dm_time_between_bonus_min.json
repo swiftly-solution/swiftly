@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_dm_time_between_bonus_min","description":"Minimum time a bonus time will start after the round start or after the last bonus (in seconds)","args":"30","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

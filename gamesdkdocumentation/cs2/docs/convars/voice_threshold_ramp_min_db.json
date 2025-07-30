@@ -1,0 +1,1 @@
+{"kind":"command","name":"voice_threshold_ramp_min_db","description":"A dB floor of when to stop transmitting packets, the volume between this and voice_threshold will still transmit packets to allow for volume ramping.","args":"-60","flags":["developmentonly"],"games":["cs2"]}

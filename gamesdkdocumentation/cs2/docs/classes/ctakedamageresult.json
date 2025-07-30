@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CTakeDamageResult",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTakeDamageResult"
+    },
+    "properties": [
+        {
+            "name": "OriginatingInfo",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "HealthLost",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DamageTaken",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalledHealthLost",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalledDamageTaken",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalledDamageAbsorbed",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

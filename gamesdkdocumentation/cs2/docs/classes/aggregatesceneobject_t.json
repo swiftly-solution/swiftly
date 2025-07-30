@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "AggregateSceneObject_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "AggregateSceneObject_t"
+    },
+    "properties": [
+        {
+            "name": "AllFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AnyFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Layer",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "InstanceStream",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "VertexAlbedoStream",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "VisClusterMembership",
+            "type": "uint16[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

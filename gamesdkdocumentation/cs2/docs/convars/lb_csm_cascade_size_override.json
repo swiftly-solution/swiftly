@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_csm_cascade_size_override","description":"Override width/height of individual cascades in the CSM","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"BBoxVolumeType_t","description":"Automatically generated game type from enum BBoxVolumeType_t","values":{"BBOX_VOLUME":0,"BBOX_DIMENSIONS":1,"BBOX_MINS_MAXS":2},"games":["cs2"]}

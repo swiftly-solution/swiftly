@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "NmCompressionSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "NmCompressionSettings_t"
+    },
+    "properties": [
+        {
+            "name": "IsRotationStatic",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsTranslationStatic",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsScaleStatic",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"ff_damage_bullet_penetration","description":"If friendly fire is off, this will scale the penetration power and damage a bullet does when penetrating another friendly player","args":"0","flags":["min:","0,","max:","1,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

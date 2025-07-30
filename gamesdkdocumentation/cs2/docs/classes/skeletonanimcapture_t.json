@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "SkeletonAnimCapture_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SkeletonAnimCapture_t"
+    },
+    "properties": [
+        {
+            "name": "EntIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EntParent",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ImportedCollision",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "ModelName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CaptureName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "FlexControllers",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Predicted",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

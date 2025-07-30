@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_turbophysics","description":"Turns on turbo physics","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

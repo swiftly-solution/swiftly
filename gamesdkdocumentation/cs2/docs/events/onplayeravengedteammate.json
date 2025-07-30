@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPlayerAvengedTeammate","description":"This event is triggered when player_avenged_teammate is triggered.","arguments":{"avenger_id":"int32","avenged_player_id":"int32"},"return":"void","games":["cs2"]}

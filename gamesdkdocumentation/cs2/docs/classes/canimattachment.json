@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CAnimAttachment",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimAttachment"
+    },
+    "properties": [
+        {
+            "name": "InfluenceOffsets",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "InfluenceIndices",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "InfluenceWeights",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "NumInfluences",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

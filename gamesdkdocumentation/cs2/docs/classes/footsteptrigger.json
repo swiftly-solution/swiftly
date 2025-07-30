@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "FootStepTrigger",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FootStepTrigger"
+    },
+    "properties": [
+        {
+            "name": "Tags",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "FootIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TriggerPhase",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

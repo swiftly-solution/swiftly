@@ -1,0 +1,1 @@
+{"kind":"command","name":"annotation_delete_previous_node_set","description":"Delete the last node set created","args":"","flags":["clientdll","release"],"games":["cs2"]}

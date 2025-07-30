@@ -1,0 +1,1 @@
+{"kind":"command","name":"ss_mimic","description":"Split screen users mimic base player's CUserCmds","args":"0","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

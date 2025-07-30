@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CMotionGraph",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMotionGraph"
+    },
+    "properties": [
+        {
+            "name": "ParamSpans",
+            "type": "CParamSpanUpdater",
+            "writable": false
+        },
+        {
+            "name": "ParameterCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ConfigStartIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ConfigCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Loop",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

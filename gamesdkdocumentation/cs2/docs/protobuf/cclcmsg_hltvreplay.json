@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"request","type":"int32"},{"name":"slowdownLength","type":"float"},{"name":"slowdownRate","type":"float"},{"name":"primaryTarget","type":"int32","default":-1},{"name":"eventTime","type":"float"}],"name":"CCLCMsg_HltvReplay","games":["cs2"]}

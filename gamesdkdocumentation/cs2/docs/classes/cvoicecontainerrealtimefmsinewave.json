@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CVoiceContainerRealtimeFMSineWave",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVoiceContainerRealtimeFMSineWave"
+    },
+    "properties": [
+        {
+            "name": "CarrierFrequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ModulatorFrequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ModulatorAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CVoiceContainerBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

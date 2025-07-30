@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_playcast_showerrors","description":"Set to display headers upon error (e.g. \"CF-Ray,CF-Cache-Status,Body\" )","args":"\"\"","flags":["hidden","release"],"games":["cs2"]}

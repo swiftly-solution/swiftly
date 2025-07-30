@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_interp_ag2_for_non_ag2_entities","description":"<no description>","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

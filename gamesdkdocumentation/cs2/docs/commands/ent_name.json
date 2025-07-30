@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_name","description":"Displays the entity name","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

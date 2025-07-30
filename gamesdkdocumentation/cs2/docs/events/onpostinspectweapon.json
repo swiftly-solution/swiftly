@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostInspectWeapon","description":"This event is triggered after inspect_weapon is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

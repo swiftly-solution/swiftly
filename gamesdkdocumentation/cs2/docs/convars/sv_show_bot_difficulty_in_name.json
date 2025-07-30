@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_show_bot_difficulty_in_name","description":"0 = hide bot difficulty in bot name, 1 = show bot difficulty in bot name","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

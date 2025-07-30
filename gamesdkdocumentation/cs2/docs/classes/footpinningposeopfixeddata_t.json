@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "FootPinningPoseOpFixedData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FootPinningPoseOpFixedData_t"
+    },
+    "properties": [
+        {
+            "name": "BlendTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LockBreakDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxLegTwist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HipBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ApplyLegTwistLimits",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ApplyFootRotationLimits",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

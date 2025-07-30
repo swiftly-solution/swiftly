@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CSeqPoseSetting",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSeqPoseSetting"
+    },
+    "properties": [
+        {
+            "name": "Value",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "X",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Y",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Z",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Type",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

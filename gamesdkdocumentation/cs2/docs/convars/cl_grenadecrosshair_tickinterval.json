@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_grenadecrosshair_tickinterval","description":"<no description>","args":"10","flags":["min:","1,","max:","45,","developmentonly","clientdll"],"games":["cs2"]}

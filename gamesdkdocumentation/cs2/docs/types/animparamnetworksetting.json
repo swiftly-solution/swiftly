@@ -1,0 +1,1 @@
+{"kind":"type","name":"AnimParamNetworkSetting","description":"Automatically generated game type from enum AnimParamNetworkSetting","values":{"Auto":0,"AlwaysNetwork":1,"NeverNetwork":2},"games":["cs2"]}

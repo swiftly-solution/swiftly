@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostTournamentReward","description":"This event is triggered after tournament_reward is triggered.","arguments":{"defindex":"int32","totalrewards":"int32","accountid":"int32"},"return":"void","games":["cs2"]}

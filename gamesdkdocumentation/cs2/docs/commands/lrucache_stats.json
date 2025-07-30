@@ -1,0 +1,1 @@
+{"kind":"command","name":"lrucache_stats","description":"Spews information about all CUtlLRUCaches","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

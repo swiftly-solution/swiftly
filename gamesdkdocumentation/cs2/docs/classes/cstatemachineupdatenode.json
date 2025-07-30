@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CStateMachineUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CStateMachineUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "StateMachine",
+            "type": "CAnimStateMachineUpdater",
+            "writable": false
+        },
+        {
+            "name": "BlockWaningTags",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LockStateWhenWaning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ResetWhenActivated",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimUpdateNodeBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

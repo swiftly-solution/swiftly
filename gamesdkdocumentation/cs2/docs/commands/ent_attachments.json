@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_attachments","description":"Displays the attachment points on an entity.","args":"   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}","flags":["gamedll","cheat"],"games":["cs2"]}

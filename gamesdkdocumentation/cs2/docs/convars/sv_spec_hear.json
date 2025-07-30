@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_spec_hear","description":"Determines who spectators can hear: 0: only spectators; 1: all players; 2: spectated team; 3: self only; 4: nobody","args":"1","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

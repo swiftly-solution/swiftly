@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CNavVolumeAll",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNavVolumeAll"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CNavVolumeVector",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

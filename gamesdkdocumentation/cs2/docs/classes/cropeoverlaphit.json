@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CRopeOverlapHit",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRopeOverlapHit"
+    },
+    "properties": [
+        {
+            "name": "Entity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "OverlappingLinks",
+            "type": "int32[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_shared_team_pvs","description":"PVS is shared between teams","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

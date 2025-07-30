@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CParticleTransformInput",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleTransformInput"
+    },
+    "properties": [
+        {
+            "name": "Type",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FollowNamedValue",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SupportsDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseOrientation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ControlPointRangeMax",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EndCPGrowthTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CParticleInput",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

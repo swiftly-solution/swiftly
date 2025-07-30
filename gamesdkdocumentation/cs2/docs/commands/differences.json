@@ -1,0 +1,1 @@
+{"kind":"command","name":"differences","description":"Show all convars which are not at their default values (optional restricted to specific flags).","args":"","flags":["release"],"games":["cs2"]}

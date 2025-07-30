@@ -1,0 +1,1 @@
+{"kind":"command","name":"pawn_mimic_all","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

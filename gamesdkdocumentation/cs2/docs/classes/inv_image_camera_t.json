@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "inv_image_camera_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "inv_image_camera_t"
+    },
+    "properties": [
+        {
+            "name": "Angle",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Fov",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Znear",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Zfar",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Target",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Target_nudge",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Orbit_distance",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

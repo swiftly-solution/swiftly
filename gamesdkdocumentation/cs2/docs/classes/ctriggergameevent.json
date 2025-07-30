@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CTriggerGameEvent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerGameEvent"
+    },
+    "properties": [
+        {
+            "name": "StrStartTouchEventName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrEndTouchEventName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrTriggerID",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

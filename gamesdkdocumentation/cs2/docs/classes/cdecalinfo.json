@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CDecalInfo",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDecalInfo"
+    },
+    "properties": [
+        {
+            "name": "AnimationScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnimationLifeSpan",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PlaceTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VBSlot",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Position",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BoundingRadiusSqr",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Next",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Prev",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "DecalMaterialIndex",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

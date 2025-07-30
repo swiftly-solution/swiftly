@@ -1,0 +1,1 @@
+{"kind":"command","name":"demo_usefastgoto","description":"Use fast frame skipping when available for demo_goto commands.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

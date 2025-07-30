@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "AggregateMeshInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "AggregateMeshInfo_t"
+    },
+    "properties": [
+        {
+            "name": "VisClusterMemberOffset",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "VisClusterMemberCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "HasTransform",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LODGroupMask",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "DrawCallIndex",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "LODSetupIndex",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "TintColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "ObjectFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LightProbeVolumePrecomputedHandshake",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InstanceStreamOffset",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "VertexAlbedoStreamOffset",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "InstanceStreams",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

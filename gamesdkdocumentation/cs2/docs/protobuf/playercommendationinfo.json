@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"cmdFriendly","type":"uint32"},{"name":"cmdTeaching","type":"uint32"},{"name":"cmdLeader","type":"uint32"}],"name":"PlayerCommendationInfo","games":["cs2"]}

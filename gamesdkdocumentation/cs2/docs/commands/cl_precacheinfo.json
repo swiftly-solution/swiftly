@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_precacheinfo","description":"Show precache info (client).","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

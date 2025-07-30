@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_setname","description":"Sets the targetname of the given entity(s)","args":"   \t<new entity name> <{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}>","flags":["gamedll","cheat"],"games":["cs2"]}

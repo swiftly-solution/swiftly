@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_sendtable_cache_filename","description":"Send tables cache file","args":"\"sendtables.bin\"","flags":["developmentonly","defensive"],"games":["cs2"]}

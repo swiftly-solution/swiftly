@@ -1,0 +1,1 @@
+{"kind":"command","name":"log_color","description":"Set the color of a logging channel.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

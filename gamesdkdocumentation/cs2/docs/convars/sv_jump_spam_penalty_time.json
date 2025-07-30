@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_jump_spam_penalty_time","description":"For subtick jumps, if this much time has elapsed since the last time the user has pressed the jump key, pretend they hadn't. Lowering this makes bunnyhopping easier.","args":"0.015625","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

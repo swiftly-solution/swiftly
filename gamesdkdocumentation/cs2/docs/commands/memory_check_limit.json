@@ -1,0 +1,1 @@
+{"kind":"command","name":"memory_check_limit","description":"Assert if peak memory use is over the limit.","args":"","flags":["developmentonly"],"games":["cs2"]}

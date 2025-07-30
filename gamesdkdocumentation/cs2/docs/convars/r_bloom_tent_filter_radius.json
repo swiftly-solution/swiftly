@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_bloom_tent_filter_radius","description":"bloom mip up-sample filtering radius (using 3x3 tent filter, radius in mip level texels), 0.0 radius => box (2x2) filter with (fixed) 1.0 radius","args":"3.1","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

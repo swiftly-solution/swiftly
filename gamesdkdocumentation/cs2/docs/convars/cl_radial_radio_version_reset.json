@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_radial_radio_version_reset","description":"<no description>","args":"2","flags":["clientdll","archive","release"],"games":["cs2"]}

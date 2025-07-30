@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CItemKevlar",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CItemKevlar"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CItem",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

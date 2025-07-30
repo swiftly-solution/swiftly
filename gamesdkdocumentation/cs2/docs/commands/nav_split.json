@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_split","description":"To split an Area into two, align the split line using your cursor and invoke the split command.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

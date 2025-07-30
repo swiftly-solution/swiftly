@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CMessage",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMessage"
+    },
+    "properties": [
+        {
+            "name": "Message",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MessageVolume",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MessageAttenuation",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Noise",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OnShowMessage",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","values":{"VR_HAND_HAPTIC_PULSE_LIGHT":0,"VR_HAND_HAPTIC_PULSE_MEDIUM":1,"VR_HAND_HAPTIC_PULSE_STRONG":2},"name":"EHapticPulseType","games":["cs2"]}

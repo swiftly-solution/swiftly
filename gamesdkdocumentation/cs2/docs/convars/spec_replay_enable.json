@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_replay_enable","description":"Enable Killer Replay, requires hltv server running (0:off, 1:default, 2:force)","args":"0","flags":["replicated","release","commandline_enforced"],"games":["cs2"]}

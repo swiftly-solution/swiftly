@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CBaseFlex",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseFlex"
+    },
+    "properties": [
+        {
+            "name": "FlexWeight",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "LookTargetPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Blinktoggle",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AllowResponsesEndTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastFlexAnimationTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextSceneEventId",
+            "type": "SceneEventId_t",
+            "writable": false
+        },
+        {
+            "name": "UpdateLayerPriorities",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseAnimGraph",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

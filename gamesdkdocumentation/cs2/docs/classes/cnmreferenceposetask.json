@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CNmReferencePoseTask",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmReferencePoseTask"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CNmPoseTask",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

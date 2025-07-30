@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CEnvEntityMaker",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvEntityMaker"
+    },
+    "properties": [
+        {
+            "name": "EntityMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "EntityMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CurrentInstance",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "CurrentBlocker",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "BlockerOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PostSpawnDirection",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PostSpawnDirectionVariance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PostSpawnSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PostSpawnUseAngles",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Template",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OutputOnSpawned",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OutputOnFailedSpawn",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

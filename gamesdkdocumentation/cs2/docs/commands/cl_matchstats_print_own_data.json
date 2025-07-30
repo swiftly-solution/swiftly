@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_matchstats_print_own_data","description":"cl_matchstats_print_own_data RANGENAME","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

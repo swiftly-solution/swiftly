@@ -1,0 +1,1 @@
+{"kind":"command","name":"model_dump_convert_info","description":"Print model load-time conversion info","args":"","flags":["linked_concommand","developmentonly","gamedll","clientdll","defensive"],"games":["cs2"]}

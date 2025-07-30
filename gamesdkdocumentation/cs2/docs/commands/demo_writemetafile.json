@@ -1,0 +1,1 @@
+{"kind":"command","name":"demo_writemetafile","description":"save current meta file demo_<version>.meta file for use in demo upconversion.","args":"","flags":["developmentonly","dontrecord","defensive"],"games":["cs2"]}

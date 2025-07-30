@@ -1,0 +1,1 @@
+{"kind":"command","name":"gameinstructor_teach_lesson","description":"Force a specific lesson to be triggered","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

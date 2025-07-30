@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_backup_restore_load_file","description":"Loads player cash, KDA, scores and team scores; resets to the next round after the backup","args":"","flags":["gamedll","release"],"games":["cs2"]}

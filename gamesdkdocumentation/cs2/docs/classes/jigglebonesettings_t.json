@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "JiggleBoneSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "JiggleBoneSettings_t"
+    },
+    "properties": [
+        {
+            "name": "BoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpringStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxTimeStep",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Damping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BoundsMaxLS",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BoundsMinLS",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SimSpace",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

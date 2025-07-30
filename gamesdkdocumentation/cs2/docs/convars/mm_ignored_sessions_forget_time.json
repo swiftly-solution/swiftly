@@ -1,0 +1,1 @@
+{"kind":"command","name":"mm_ignored_sessions_forget_time","description":"<no description>","args":"600","flags":["developmentonly"],"games":["cs2"]}

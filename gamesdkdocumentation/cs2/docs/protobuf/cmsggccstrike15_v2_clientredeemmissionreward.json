@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"campaignId","type":"uint32"},{"name":"redeemId","type":"uint32"},{"name":"redeemableBalance","type":"uint32"},{"name":"expectedCost","type":"uint32"},{"name":"bidControl","type":"int32"}],"name":"CMsgGCCstrike15_v2_ClientRedeemMissionReward","games":["cs2"]}

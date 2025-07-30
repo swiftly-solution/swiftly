@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CRetakeGameRules",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRetakeGameRules"
+    },
+    "properties": [
+        {
+            "name": "MatchSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BlockersPresent",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RoundInProgress",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FirstSecondHalfRound",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BombSite",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

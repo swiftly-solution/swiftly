@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "FeNodeIntegrator_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeNodeIntegrator_t"
+    },
+    "properties": [
+        {
+            "name": "PointDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnimationForceAttraction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnimationVertexAttraction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Gravity",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

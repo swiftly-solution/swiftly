@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_freeze_time_lock","description":"Time players are prevented from skipping the freeze cam","args":"1","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

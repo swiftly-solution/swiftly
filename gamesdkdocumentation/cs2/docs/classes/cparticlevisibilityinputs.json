@@ -1,0 +1,123 @@
+{
+    "kind": "class",
+    "name": "CParticleVisibilityInputs",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleVisibilityInputs"
+    },
+    "properties": [
+        {
+            "name": "CameraBias",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CPin",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ProxyRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InputMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InputMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InputPixelVisFade",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoPixelVisibilityFallback",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceInputMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceInputMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DotInputMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DotInputMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DotCPAngles",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DotCameraAngles",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AlphaScaleMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AlphaScaleMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RadiusScaleMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RadiusScaleMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RadiusScaleFOVBase",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RightEye",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

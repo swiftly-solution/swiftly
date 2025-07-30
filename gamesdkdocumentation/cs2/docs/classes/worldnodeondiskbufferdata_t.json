@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "WorldNodeOnDiskBufferData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "WorldNodeOnDiskBufferData_t"
+    },
+    "properties": [
+        {
+            "name": "ElementCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ElementSizeInBytes",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Data",
+            "type": "uint8[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

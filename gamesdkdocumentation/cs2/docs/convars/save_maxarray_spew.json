@@ -1,0 +1,1 @@
+{"kind":"command","name":"save_maxarray_spew","description":"Max number of array entries to spew when using SaveRestoreIO spewing.","args":"10","flags":["gamedll","release"],"games":["cs2"]}

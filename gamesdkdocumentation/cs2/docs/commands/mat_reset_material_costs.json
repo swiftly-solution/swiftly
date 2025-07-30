@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_reset_material_costs","description":"Reset material cost heuristic","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

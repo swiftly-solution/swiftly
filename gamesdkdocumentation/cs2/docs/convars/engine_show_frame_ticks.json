@@ -1,0 +1,1 @@
+{"kind":"command","name":"engine_show_frame_ticks","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

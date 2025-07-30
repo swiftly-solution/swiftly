@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CTriggerPhysics",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerPhysics"
+    },
+    "properties": [
+        {
+            "name": "GravityScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearForce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Frequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DampingRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearForcePointAt",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CollapseToForcePoint",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LinearForcePointAtWorld",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LinearForceDirection",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ConvertToDebrisWhenPossible",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

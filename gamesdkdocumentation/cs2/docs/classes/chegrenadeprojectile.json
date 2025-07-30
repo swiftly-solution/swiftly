@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CHEGrenadeProjectile",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CHEGrenadeProjectile"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CBaseCSGrenadeProjectile",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CTimeRemainingMetricEvaluator",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTimeRemainingMetricEvaluator"
+    },
+    "properties": [
+        {
+            "name": "MatchByTimeRemaining",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MaxTimeRemaining",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FilterByTimeRemaining",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinTimeRemaining",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CMotionMetricEvaluator",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

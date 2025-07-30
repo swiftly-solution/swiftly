@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CTriggerBuoyancy",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerBuoyancy"
+    },
+    "properties": [
+        {
+            "name": "BuoyancyHelper",
+            "type": "CBuoyancyHelper",
+            "writable": false
+        },
+        {
+            "name": "FluidDensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

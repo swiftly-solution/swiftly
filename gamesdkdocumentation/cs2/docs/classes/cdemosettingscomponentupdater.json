@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CDemoSettingsComponentUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDemoSettingsComponentUpdater"
+    },
+    "properties": [
+        {
+            "name": "Settings",
+            "type": "CAnimDemoCaptureSettings",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimComponentUpdater",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

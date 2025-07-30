@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_stop_soundevent_index","description":"Stops a specified soundevent","args":"","flags":["cheat"],"games":["cs2"]}

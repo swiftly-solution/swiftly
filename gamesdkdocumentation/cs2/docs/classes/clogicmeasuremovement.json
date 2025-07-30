@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CLogicMeasureMovement",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicMeasureMovement"
+    },
+    "properties": [
+        {
+            "name": "StrMeasureTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrMeasureReference",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrTargetReference",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MeasureTarget",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "MeasureReference",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Target",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "TargetReference",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Scale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MeasureType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

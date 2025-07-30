@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CWeaponMP5SD",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CWeaponMP5SD"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CCSWeaponBaseGun",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

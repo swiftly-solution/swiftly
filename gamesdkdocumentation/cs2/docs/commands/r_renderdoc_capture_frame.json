@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_renderdoc_capture_frame","description":"Triggers a RenderDoc capture","args":"","flags":["linked_concommand","developmentonly","defensive"],"games":["cs2"]}

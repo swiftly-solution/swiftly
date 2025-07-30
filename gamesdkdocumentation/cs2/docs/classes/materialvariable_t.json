@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "MaterialVariable_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "MaterialVariable_t"
+    },
+    "properties": [
+        {
+            "name": "StrVariable",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "VariableField",
+            "type": "ParticleAttributeIndex_t",
+            "writable": false
+        },
+        {
+            "name": "Scale",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

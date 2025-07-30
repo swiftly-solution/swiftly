@@ -1,0 +1,1 @@
+{"kind":"command","name":"crash_job","description":"Cause the engine to crash in a job thread (Debug!!)","args":"","flags":["cheat"],"games":["cs2"]}

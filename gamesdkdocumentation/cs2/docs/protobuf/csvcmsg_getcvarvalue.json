@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"cookie","type":"int32"},{"name":"cvarName","type":"string"}],"name":"CSVCMsg_GetCvarValue","games":["cs2"]}

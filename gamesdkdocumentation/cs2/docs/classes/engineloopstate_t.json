@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "EngineLoopState_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EngineLoopState_t"
+    },
+    "properties": [
+        {
+            "name": "PlatWindowWidth",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PlatWindowHeight",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RenderWidth",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RenderHeight",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

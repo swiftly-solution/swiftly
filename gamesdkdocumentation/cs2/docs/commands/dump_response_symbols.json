@@ -1,0 +1,1 @@
+{"kind":"command","name":"dump_response_symbols","description":"print all response symbols to the console","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

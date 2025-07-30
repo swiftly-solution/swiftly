@@ -1,0 +1,1 @@
+{"kind":"type","name":"JiggleBoneSimSpace","description":"Automatically generated game type from enum JiggleBoneSimSpace","values":{"SimSpace_Local":0,"SimSpace_Model":1,"SimSpace_World":2},"games":["cs2"]}

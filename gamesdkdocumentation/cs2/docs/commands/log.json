@@ -1,0 +1,1 @@
+{"kind":"command","name":"log","description":"Enables logging to file, console, and udp < on | off >.","args":"","flags":["release"],"games":["cs2"]}

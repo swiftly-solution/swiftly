@@ -1,0 +1,1 @@
+{"kind":"command","name":"dbghist_dump","description":"Dump the debug history to the console. Format: <category id>","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

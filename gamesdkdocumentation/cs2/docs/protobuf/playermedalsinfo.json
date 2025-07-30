@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"displayItemsDefidx","type":"uint32"},{"name":"featuredDisplayItemDefidx","type":"uint32"}],"name":"PlayerMedalsInfo","games":["cs2"]}

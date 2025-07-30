@@ -1,0 +1,1 @@
+{"kind":"command","name":"weapon_near_empty_sound","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

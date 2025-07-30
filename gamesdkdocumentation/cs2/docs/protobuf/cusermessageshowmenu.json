@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"validslots","type":"uint32"},{"name":"displaytime","type":"uint32"},{"name":"needmore","type":"bool"},{"name":"menustring","type":"string"}],"name":"CUserMessageShowMenu","games":["cs2"]}

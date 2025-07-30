@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CAnimLocalHierarchy",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimLocalHierarchy"
+    },
+    "properties": [
+        {
+            "name": "StartFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PeakFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TailFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EndFrame",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

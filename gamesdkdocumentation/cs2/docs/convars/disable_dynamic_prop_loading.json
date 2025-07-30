@@ -1,0 +1,1 @@
+{"kind":"command","name":"disable_dynamic_prop_loading","description":"If non-zero when a map loads, dynamic props won't be loaded","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

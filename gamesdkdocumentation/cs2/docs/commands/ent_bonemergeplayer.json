@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_bonemergeplayer","description":"Bonemerge the player onto the entity under the crosshairs","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

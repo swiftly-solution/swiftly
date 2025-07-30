@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_hud_telemetry_ping_poor","description":"Ping higher than this (ms) is considered 'poor'.","args":"100","flags":["clientdll","archive","release"],"games":["cs2"]}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "EventClientProcessInput_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EventClientProcessInput_t"
+    },
+    "properties": [
+        {
+            "name": "LoopState",
+            "type": "EngineLoopState_t",
+            "writable": false
+        },
+        {
+            "name": "RealTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TickInterval",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TickStartTime",
+            "type": "double",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

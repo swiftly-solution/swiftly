@@ -1,0 +1,1 @@
+{"kind":"command","name":"ammo_buckshot_headshot_mult","description":"You must enable tweaking via tweak_ammo_impulses to use this value.","args":"1","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

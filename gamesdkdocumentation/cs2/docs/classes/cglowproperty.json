@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CGlowProperty",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGlowProperty"
+    },
+    "properties": [
+        {
+            "name": "GlowColor",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "GlowType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowTeam",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowRange",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowRangeMin",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowColorOverride",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Flashing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GlowTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GlowStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EligibleForScreenHighlight",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Glowing",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

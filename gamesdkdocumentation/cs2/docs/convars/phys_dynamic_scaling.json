@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_dynamic_scaling","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

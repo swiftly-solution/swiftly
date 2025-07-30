@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CRagdollPropAlias_physics_prop_ragdoll",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRagdollPropAlias_physics_prop_ragdoll"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CRagdollProp",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_nochat","description":"Don't receive chat messages from other SourceTV spectators","args":"false","flags":["archive","userinfo"],"games":["cs2"]}

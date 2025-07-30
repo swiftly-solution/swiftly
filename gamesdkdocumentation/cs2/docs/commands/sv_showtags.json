@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_showtags","description":"Describe current gametags.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

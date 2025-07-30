@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_upscale_depth_threshold","description":"<no description>","args":"3","flags":["developmentonly","clientdll"],"games":["cs2"]}

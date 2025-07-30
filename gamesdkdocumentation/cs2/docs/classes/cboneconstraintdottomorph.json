@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CBoneConstraintDotToMorph",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBoneConstraintDotToMorph"
+    },
+    "properties": [
+        {
+            "name": "BoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TargetBoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MorphChannelName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Remap",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBoneConstraintBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

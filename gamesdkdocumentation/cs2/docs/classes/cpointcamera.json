@@ -1,0 +1,163 @@
+{
+    "kind": "class",
+    "name": "CPointCamera",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointCamera"
+    },
+    "properties": [
+        {
+            "name": "FOV",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Resolution",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogEnable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FogColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "FogStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogMaxDensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseScreenAspectRatio",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AspectRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoSky",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Brightness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ZFar",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ZNear",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CanHLTVUse",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AlignWithParent",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DofEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DofNearBlurry",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DofNearCrisp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DofFarCrisp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DofFarBlurry",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DofTiltToGround",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TargetFOV",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DegreesPerSecond",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsOn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Next",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

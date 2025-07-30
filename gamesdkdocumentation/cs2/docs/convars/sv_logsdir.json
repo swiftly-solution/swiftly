@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_logsdir","description":"Folder in the game directory where server logs will be stored.","args":"\"logs\"","flags":["archive","release"],"games":["cs2"]}

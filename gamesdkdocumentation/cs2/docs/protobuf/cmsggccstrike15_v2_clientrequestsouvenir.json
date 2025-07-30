@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"itemid","type":"uint64"},{"name":"matchid","type":"uint64"},{"name":"eventid","type":"int32"}],"name":"CMsgGCCStrike15_v2_ClientRequestSouvenir","games":["cs2"]}

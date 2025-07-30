@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CBoneMaskUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBoneMaskUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "WeightListIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RootMotionBlend",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BlendSpace",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FootMotionTiming",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "UseBlendScale",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BlendValueSource",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BlendParameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBinaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

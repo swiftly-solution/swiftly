@@ -1,0 +1,1 @@
+{"kind":"command","name":"button_info","description":"Display information about the specified key or button.","args":"","flags":["release"],"games":["cs2"]}

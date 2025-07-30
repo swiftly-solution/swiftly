@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "VMixModDelayDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixModDelayDesc_t"
+    },
+    "properties": [
+        {
+            "name": "FeedbackFilter",
+            "type": "VMixFilterDesc_t",
+            "writable": false
+        },
+        {
+            "name": "PhaseInvert",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GlideTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Delay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OutputGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FeedbackGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ModRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ModDepth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ApplyAntialiasing",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

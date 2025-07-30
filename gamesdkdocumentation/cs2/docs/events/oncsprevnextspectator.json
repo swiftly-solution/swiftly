@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnCsPrevNextSpectator","description":"This event is triggered when cs_prev_next_spectator is triggered.","arguments":{"next":"bool"},"return":"void","games":["cs2"]}

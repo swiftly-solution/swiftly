@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "audioparams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "audioparams_t"
+    },
+    "properties": [
+        {
+            "name": "LocalSound",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "SoundscapeIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LocalBits",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "SoundscapeEntityListIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SoundEventHash",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

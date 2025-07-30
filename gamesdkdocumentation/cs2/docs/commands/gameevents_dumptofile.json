@@ -1,0 +1,1 @@
+{"kind":"command","name":"gameevents_dumptofile","description":"write gameevents keyvalues (sorted by name) to gameevents_<modname>.txt","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

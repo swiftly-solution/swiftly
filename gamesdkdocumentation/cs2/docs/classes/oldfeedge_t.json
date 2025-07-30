@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "OldFeEdge_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "OldFeEdge_t"
+    },
+    "properties": [
+        {
+            "name": "K",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "InvA",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "T",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ThetaRelaxed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ThetaFactor",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "C01",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "C02",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "C03",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "C04",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AxialModelDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AxialModelWeights",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "Node",
+            "type": "uint16[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

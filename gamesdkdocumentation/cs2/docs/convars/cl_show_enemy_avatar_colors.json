@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_show_enemy_avatar_colors","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

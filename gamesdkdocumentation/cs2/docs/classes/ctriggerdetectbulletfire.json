@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CTriggerDetectBulletFire",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerDetectBulletFire"
+    },
+    "properties": [
+        {
+            "name": "PlayerFireOnly",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnDetectedBulletFire",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

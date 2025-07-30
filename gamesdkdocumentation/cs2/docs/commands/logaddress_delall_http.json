@@ -1,0 +1,1 @@
+{"kind":"command","name":"logaddress_delall_http","description":"Remove all http listeners from the dispatch list.","args":"","flags":["gamedll","unlogged","release"],"games":["cs2"]}

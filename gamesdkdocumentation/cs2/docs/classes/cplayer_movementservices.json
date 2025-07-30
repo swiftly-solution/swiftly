@@ -1,0 +1,113 @@
+{
+    "kind": "class",
+    "name": "CPlayer_MovementServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPlayer_MovementServices"
+    },
+    "properties": [
+        {
+            "name": "Impulse",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Buttons",
+            "type": "CInButtonState",
+            "writable": false
+        },
+        {
+            "name": "QueuedButtonDownMask",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "QueuedButtonChangeMask",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "ButtonDoublePressed",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "ButtonPressedCmdNumber",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "LastCommandNumberProcessed",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ToggleButtonDownMask",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "Maxspeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ForceSubtickMoveWhen",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "ForwardMove",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LeftMove",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UpMove",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastMovementImpulses",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastFinishTickViewAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "OldViewAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayerPawnComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

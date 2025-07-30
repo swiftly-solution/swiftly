@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_pistols_only","description":"Restricts the bots to only using pistols","args":"","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"engine_frametime_print_report","description":"Print a performance report from the current data in the vprof 'lite' profiler","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,27 @@
+{
+    "kind": "class",
+    "name": "FakeEntityDerivedA_tAPI",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FakeEntityDerivedA_tAPI"
+    },
+    "properties": [],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

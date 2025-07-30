@@ -1,0 +1,1 @@
+{"kind":"command","name":"clearall","description":"Clear console output from all views.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

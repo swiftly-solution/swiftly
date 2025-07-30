@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_sim_grenade_trajectory","description":"Draw trajectory of the deployed grenade if thrown from this position. Takes an optional parameter for how long the drawn trajectory will last.","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

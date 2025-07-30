@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_deltacache","description":"Enable delta entity bit stream cache","args":"2","flags":["release"],"games":["cs2"]}

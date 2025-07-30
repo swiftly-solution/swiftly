@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "shard_model_desc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "shard_model_desc_t"
+    },
+    "properties": [
+        {
+            "name": "ModelID",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Solid",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "PanelSize",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "StressPositionA",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "StressPositionB",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "PanelVertices",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "InitialPanelVertices",
+            "type": "Vector2D[]",
+            "writable": true
+        },
+        {
+            "name": "GlassHalfThickness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HasParent",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ParentFrozen",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SurfacePropStringToken",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"english","description":"If set to 1, running the english language set of assets.","args":"true","flags":["clientdll","userinfo"],"games":["cs2"]}

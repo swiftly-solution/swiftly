@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_c4_upright_constraint_enabled","description":"Use a constraint to keep C4 pointed upright when thrown","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

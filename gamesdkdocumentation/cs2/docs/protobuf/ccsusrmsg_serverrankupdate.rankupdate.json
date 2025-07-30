@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"accountId","type":"int32"},{"name":"rankOld","type":"int32"},{"name":"rankNew","type":"int32"},{"name":"numWins","type":"int32"},{"name":"rankChange","type":"float"},{"name":"rankTypeId","type":"int32"}],"name":"CCSUsrMsg_ServerRankUpdate.RankUpdate","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_script_resurrect_unreachable","description":"Use the garbage collector to track down reference cycles","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

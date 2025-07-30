@@ -1,0 +1,1 @@
+{"kind":"command","name":"pulse_debug_entity","description":"Opens a graph referencing the selected entity. If it is referenced by more than 1 graph, list all the active pulse graph instances referring to that entity so you can pick which one you want.","args":"","flags":["gamedll","cheat","vconsole_fuzzy_matching"],"games":["cs2"]}

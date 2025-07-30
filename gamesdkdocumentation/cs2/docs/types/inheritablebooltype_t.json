@@ -1,0 +1,1 @@
+{"kind":"type","name":"InheritableBoolType_t","description":"Automatically generated game type from enum InheritableBoolType_t","values":{"INHERITABLE_BOOL_INHERIT":0,"INHERITABLE_BOOL_FALSE":1,"INHERITABLE_BOOL_TRUE":2},"games":["cs2"]}

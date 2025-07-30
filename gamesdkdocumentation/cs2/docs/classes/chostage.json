@@ -1,0 +1,228 @@
+{
+    "kind": "class",
+    "name": "CHostage",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CHostage"
+    },
+    "properties": [
+        {
+            "name": "OnHostageBeginGrab",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFirstPickedUp",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnDroppedNotRescued",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnRescued",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "EntitySpottedState",
+            "type": "EntitySpottedState_t",
+            "writable": false
+        },
+        {
+            "name": "SpotRules",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "UiHostageSpawnExclusionGroupMask",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HostageSpawnRandomFactor",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Remove",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Vel",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "IsRescued",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "JumpedThisFrame",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HostageState",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Leader",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "LastLeader",
+            "type": "CCSPlayerPawnBase",
+            "writable": false
+        },
+        {
+            "name": "ReuseTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "HasBeenUsed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Accel",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "IsRunning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsCrouching",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "JumpTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "IsWaitingForLeader",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RepathTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "InhibitDoorTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "InhibitObstacleAvoidanceTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "WiggleTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "IsAdjusted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HandsHaveBeenCut",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HostageGrabber",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "LastGrabTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PositionWhenStartedDroppingToGround",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "GrabbedPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RescueStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GrabSuccessTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DropStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ApproachRewardPayouts",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PickupEventCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpawnGroundPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "HostageResetPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CHostageExpresserShim",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

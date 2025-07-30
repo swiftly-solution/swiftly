@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_radial_radio_tap_to_ping","description":"When tapping the radial radio button, leave a ping if nothing is selected within the time in seconds set in cl_radial_menu_tap_duration","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

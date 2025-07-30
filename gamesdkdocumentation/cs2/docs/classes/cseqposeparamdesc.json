@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CSeqPoseParamDesc",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSeqPoseParamDesc"
+    },
+    "properties": [
+        {
+            "name": "Start",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "End",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Loop",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Looping",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

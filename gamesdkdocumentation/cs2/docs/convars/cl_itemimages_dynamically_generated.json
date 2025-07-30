@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_itemimages_dynamically_generated","description":"2: use render-targets, fallback to cache and disk; 1: no render targets, but use cache and fallback to disk; 0: disk assets only","args":"2","flags":["clientdll","archive","release"],"games":["cs2"]}

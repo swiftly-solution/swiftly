@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_force_team_intro_random","description":"<no description>","args":"0","flags":["developmentonly","gamedll"],"games":["cs2"]}

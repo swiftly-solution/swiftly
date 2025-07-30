@@ -1,0 +1,128 @@
+{
+    "kind": "class",
+    "name": "CEnvCombinedLightProbeVolume",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvCombinedLightProbeVolume"
+    },
+    "properties": [
+        {
+            "name": "Entity_Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Entity_flBrightness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Entity_bCustomCubemapTexture",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Entity_vBoxMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Entity_vBoxMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Entity_bMoveable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Entity_nHandshake",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Entity_nEnvCubeMapArrayIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Entity_nPriority",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Entity_bStartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Entity_flEdgeFadeDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Entity_vEdgeFadeDists",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Entity_nLightProbeSizeX",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Entity_nLightProbeSizeY",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Entity_nLightProbeSizeZ",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Entity_nLightProbeAtlasX",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Entity_nLightProbeAtlasY",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Entity_nLightProbeAtlasZ",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Entity_bEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

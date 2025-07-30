@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_explode_inferno_at_crosshair","description":"explodes molotov(0) or Incendiary (1) at crosshair location with single param","args":"","flags":["developmentonly","gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_annotation_remove_weapon","description":"Remove weapon given by annotation","args":"","flags":["gamedll","hidden","release"],"games":["cs2"]}

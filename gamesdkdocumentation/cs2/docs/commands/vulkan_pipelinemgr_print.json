@@ -1,0 +1,1 @@
+{"kind":"command","name":"vulkan_pipelinemgr_print","description":"Prints out stats for the Vulkan Pipeline manager","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"viewmodel_fov","description":"Viewmodel FOV","args":"60","flags":["min:","54,","max:","68,","clientdll","archive","userinfo","per_user"],"games":["cs2"]}

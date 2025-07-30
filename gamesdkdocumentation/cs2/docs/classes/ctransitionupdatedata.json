@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CTransitionUpdateData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTransitionUpdateData"
+    },
+    "properties": [
+        {
+            "name": "SrcStateIndex",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "DestStateIndex",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

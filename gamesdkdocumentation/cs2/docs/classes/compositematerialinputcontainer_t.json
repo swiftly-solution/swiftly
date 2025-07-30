@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CompositeMaterialInputContainer_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CompositeMaterialInputContainer_t"
+    },
+    "properties": [
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CompositeMaterialInputContainerSourceType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StrAttrName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrAlias",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrAttrNameForVar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ExposeExternally",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

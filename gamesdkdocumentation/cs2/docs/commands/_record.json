@@ -1,0 +1,1 @@
+{"kind":"command","name":"_record","description":"Record a demo incrementally.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CRagdollConstraint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRagdollConstraint"
+    },
+    "properties": [
+        {
+            "name": "Xmin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Xmax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Ymin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Ymax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Zmin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Zmax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Xfriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Yfriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Zfriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPhysConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

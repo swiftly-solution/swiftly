@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostServerSpawn","description":"This event is triggered after server_spawn is triggered.","arguments":{"hostname":"string","address":"string","port":"int32","game":"string","mapname":"string","addonname":"string","maxplayers":"int32","os":"string","dedicated":"bool","password":"bool"},"return":"void","games":["cs2"]}

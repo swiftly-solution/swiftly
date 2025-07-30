@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_guardian_refresh_ammo_for_items_on_waves","description":"List of additional weapons to refill ammo on waves.","args":"\"\"","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

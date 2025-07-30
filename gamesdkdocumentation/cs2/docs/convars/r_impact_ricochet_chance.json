@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_impact_ricochet_chance","description":"<no description>","args":"0.3","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

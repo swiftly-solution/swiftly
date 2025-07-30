@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CFuncTimescale",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncTimescale"
+    },
+    "properties": [
+        {
+            "name": "DesiredTimescale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Acceleration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinBlendRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BlendDeltaMultiplier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsStarted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

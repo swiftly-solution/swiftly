@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_backup_round_auto","description":"If enabled will keep in-memory backups to handle reconnecting players even if the backup files aren't written to disk","args":"true","flags":["gamedll","release"],"games":["cs2"]}

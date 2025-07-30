@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_hud_telemetry_frametime_poor","description":"Frame time greater than this is considered 'poor'.","args":"100","flags":["min:","1,","max:","100,","clientdll","archive","release"],"games":["cs2"]}

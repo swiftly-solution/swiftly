@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CFishPool",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFishPool"
+    },
+    "properties": [
+        {
+            "name": "FishCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxRange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SwimDepth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WaterLevel",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsDormant",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "VisTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

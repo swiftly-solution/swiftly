@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_csgo_shoot_lagcompensation_max_error","description":"Warn if lag compensated head hitbox position doesn't match that on client.","args":"1","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

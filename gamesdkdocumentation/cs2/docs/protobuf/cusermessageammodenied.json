@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"ammoId","type":"uint32"}],"name":"CUserMessageAmmoDenied","games":["cs2"]}

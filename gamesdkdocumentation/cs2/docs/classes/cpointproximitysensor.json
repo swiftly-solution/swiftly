@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CPointProximitySensor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointProximitySensor"
+    },
+    "properties": [
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TargetEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

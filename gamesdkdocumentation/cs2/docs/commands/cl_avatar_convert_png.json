@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_avatar_convert_png","description":"Converts all rgb avatars in the avatars directory to png","args":"","flags":["clientdll","cheat","release"],"games":["cs2"]}

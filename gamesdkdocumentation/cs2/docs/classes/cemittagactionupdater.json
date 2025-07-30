@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CEmitTagActionUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEmitTagActionUpdater"
+    },
+    "properties": [
+        {
+            "name": "TagIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsZeroDuration",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimActionUpdater",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

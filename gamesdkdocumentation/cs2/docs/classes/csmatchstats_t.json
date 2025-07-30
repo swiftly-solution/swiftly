@@ -1,0 +1,138 @@
+{
+    "kind": "class",
+    "name": "CSMatchStats_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSMatchStats_t"
+    },
+    "properties": [
+        {
+            "name": "Enemy5Ks",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Enemy4Ks",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Enemy3Ks",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EnemyKnifeKills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EnemyTaserKills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Enemy2Ks",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Utility_Count",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Utility_Successes",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Utility_Enemies",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Flash_Count",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Flash_Successes",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HealthPointsRemovedTotal",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HealthPointsDealtTotal",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShotsFiredTotal",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShotsOnTargetTotal",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "1v1Count",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "1v1Wins",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "1v2Count",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "1v2Wins",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EntryCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EntryWins",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSPerRoundStats_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

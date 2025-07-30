@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_shoot","description":"Shoots a phys object.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

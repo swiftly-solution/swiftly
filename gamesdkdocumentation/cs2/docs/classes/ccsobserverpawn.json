@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CCSObserverPawn",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSObserverPawn"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CCSPlayerPawnBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

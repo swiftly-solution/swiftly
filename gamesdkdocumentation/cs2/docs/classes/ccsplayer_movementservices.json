@@ -1,0 +1,238 @@
+{
+    "kind": "class",
+    "name": "CCSPlayer_MovementServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayer_MovementServices"
+    },
+    "properties": [
+        {
+            "name": "LadderNormal",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LadderSurfacePropIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DuckAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DuckSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DuckOverride",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DesiresDuck",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DuckOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DuckTimeMsecs",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DuckJumpTimeMsecs",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "JumpTimeMsecs",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LastDuckTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastPositionAtFullCrouchSpeed",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "DuckUntilOnGround",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasWalkMovedSinceLastJump",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InStuckTest",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TraceCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StuckLast",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpeedCropped",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GroundMoveEfficiency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OldWaterLevel",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "WaterEntryTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Forward",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Left",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Up",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "GameCodeHasMovedPlayerAfterCommand",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MadeFootstepNoise",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Footsteps",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OldJumpPressed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "JumpPressedTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StashGrenadeParameterWhen",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ButtonDownMaskPrev",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "OffsetTickCompleteTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OffsetTickStashedSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Stamina",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HeightAtJumpStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxJumpHeightThisJump",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxJumpHeightLastJump",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StaminaAtJumpStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AccumulatedJumpError",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TicksSinceLastSurfingDetected",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WasSurfing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayer_MovementServices_Humanoid",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

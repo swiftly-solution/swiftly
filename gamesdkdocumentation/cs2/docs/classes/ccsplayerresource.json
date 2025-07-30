@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CCSPlayerResource",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayerResource"
+    },
+    "properties": [
+        {
+            "name": "HostageAlive",
+            "type": "bool[]",
+            "writable": true
+        },
+        {
+            "name": "IsHostageFollowingSomeone",
+            "type": "bool[]",
+            "writable": true
+        },
+        {
+            "name": "HostageEntityIDs",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "BombsiteCenterA",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BombsiteCenterB",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "HostageRescueX",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "HostageRescueY",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "HostageRescueZ",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "EndMatchNextMapAllVoted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FoundGoalPositions",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

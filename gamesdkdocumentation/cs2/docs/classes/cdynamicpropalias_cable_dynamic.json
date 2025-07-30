@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CDynamicPropAlias_cable_dynamic",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDynamicPropAlias_cable_dynamic"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CDynamicProp",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

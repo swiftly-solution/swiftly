@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CTriggerImpact",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerImpact"
+    },
+    "properties": [
+        {
+            "name": "Magnitude",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Noise",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Viewkick",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CTriggerMultiple",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ent_find_index","description":"Display data for entity matching specified index.","args":" find_ent_index <index>","flags":["clientdll","cheat"],"games":["cs2"]}

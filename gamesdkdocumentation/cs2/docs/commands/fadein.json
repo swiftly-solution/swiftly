@@ -1,0 +1,1 @@
+{"kind":"command","name":"fadein","description":"fadein {time r g b}: Fades the screen in from black or from the specified color over the given number of seconds.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

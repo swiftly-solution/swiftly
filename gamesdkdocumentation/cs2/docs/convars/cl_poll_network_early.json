@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_poll_network_early","description":"Enable polling for network messages every frame, instead of every tick","args":"true","flags":["release"],"games":["cs2"]}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CMolotovProjectile",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMolotovProjectile"
+    },
+    "properties": [
+        {
+            "name": "IsIncGrenade",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Detonated",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StillTimer",
+            "type": "IntervalTimer",
+            "writable": false
+        },
+        {
+            "name": "HasBouncedOffPlayer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseCSGrenadeProjectile",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

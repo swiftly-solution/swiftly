@@ -1,0 +1,1 @@
+{"kind":"type","name":"PreviewCharacterMode","description":"Automatically generated game type from enum PreviewCharacterMode","values":{"DIORAMA":0,"MAIN_MENU":1,"BUY_MENU":2,"TEAM_SELECT":3,"END_OF_MATCH":4,"INVENTORY_INSPECT":5,"WALKING":6,"TEAM_INTRO":7,"WINGMAN_INTRO":8,"BANNER":9},"games":["cs2"]}

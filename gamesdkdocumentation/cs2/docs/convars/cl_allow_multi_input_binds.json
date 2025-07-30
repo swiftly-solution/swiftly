@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_allow_multi_input_binds","description":"<no description>","args":"false","flags":["clientdll","cheat","release"],"games":["cs2"]}

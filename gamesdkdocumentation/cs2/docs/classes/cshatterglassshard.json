@@ -1,0 +1,163 @@
+{
+    "kind": "class",
+    "name": "CShatterGlassShard",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CShatterGlassShard"
+    },
+    "properties": [
+        {
+            "name": "ShardHandle",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PanelVertices",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "LocalPanelSpaceOrigin",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "PhysicsEntity",
+            "type": "CShatterGlassShardPhysics",
+            "writable": false
+        },
+        {
+            "name": "ParentPanel",
+            "type": "CFuncShatterglass",
+            "writable": false
+        },
+        {
+            "name": "ParentShard",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ShatterStressType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "StressVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CreatedModel",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LongestEdge",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShortestEdge",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LongestAcross",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShortestAcross",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SumOfAllEdges",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Area",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnFrameEdge",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "SubShardGeneration",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AverageVertPosition",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "AverageVertPositionIsValid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PanelSpaceStressPositionA",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "PanelSpaceStressPositionB",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "StressPositionAIsValid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StressPositionBIsValid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FlaggedForRemoval",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PhysicsEntitySpawnedAtTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EntityHittingMe",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Neighbors",
+            "type": "uint32[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

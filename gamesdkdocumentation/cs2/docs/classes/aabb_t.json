@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "AABB_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "AABB_t"
+    },
+    "properties": [
+        {
+            "name": "MinBounds",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MaxBounds",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

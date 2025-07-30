@@ -1,0 +1,1 @@
+{"kind":"command","name":"lrucache_set_size","description":"Sets the specified cache to the specified size","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

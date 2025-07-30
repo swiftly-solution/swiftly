@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "ParticlePreviewBodyGroup_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ParticlePreviewBodyGroup_t"
+    },
+    "properties": [
+        {
+            "name": "BodyGroupName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Value",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

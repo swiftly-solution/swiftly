@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_logdetail_items","description":"Logs a line any time a player acquires or loses an item.","args":"false","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "SequenceWeightedList_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SequenceWeightedList_t"
+    },
+    "properties": [
+        {
+            "name": "Sequence",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RelativeWeight",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

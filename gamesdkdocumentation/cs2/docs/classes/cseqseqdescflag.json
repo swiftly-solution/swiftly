@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CSeqSeqDescFlag",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSeqSeqDescFlag"
+    },
+    "properties": [
+        {
+            "name": "Looping",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Snap",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Autoplay",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Post",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hidden",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Multi",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LegacyDelta",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LegacyWorldspace",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LegacyCyclepose",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LegacyRealtime",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ModelDoc",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

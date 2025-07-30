@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_axis","description":"Draw an axis","args":"  x y z pitch yaw roll <lifetime = 10.0> <r g b a>","flags":["clientdll","cheat"],"games":["cs2"]}

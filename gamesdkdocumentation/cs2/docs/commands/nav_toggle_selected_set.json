@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_toggle_selected_set","description":"Toggles all areas into/out of the selected set.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

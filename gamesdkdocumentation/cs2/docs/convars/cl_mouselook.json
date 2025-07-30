@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_mouselook","description":"Set to 1 to use mouse for look, 0 for keyboard look. Cannot be set while connected to a server.","args":"true","flags":["clientdll","archive","userinfo","per_user","notconnected"],"games":["cs2"]}

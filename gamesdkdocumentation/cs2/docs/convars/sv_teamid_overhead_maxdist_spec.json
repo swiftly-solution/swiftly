@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_teamid_overhead_maxdist_spec","description":"If >0, server will override cl_teamid_overhead_maxdist_spec","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

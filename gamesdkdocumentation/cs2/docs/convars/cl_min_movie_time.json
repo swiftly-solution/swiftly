@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_min_movie_time","description":"<no description>","args":"4","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

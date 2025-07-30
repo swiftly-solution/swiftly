@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostDoorClose","description":"This event is triggered after door_close is triggered.","arguments":{"userid":"int32","checkpoint":"bool"},"return":"void","games":["cs2"]}

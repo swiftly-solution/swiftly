@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "PointCameraSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PointCameraSettings_t"
+    },
+    "properties": [
+        {
+            "name": "NearBlurryDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NearCrispDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FarCrispDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FarBlurryDistance",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

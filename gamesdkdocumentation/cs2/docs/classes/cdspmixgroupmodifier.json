@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CDSPMixgroupModifier",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDSPMixgroupModifier"
+    },
+    "properties": [
+        {
+            "name": "Mixgroup",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Modifier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ModifierMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SourceModifier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SourceModifierMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ListenerReverbModifierWhenSourceReverbIsActive",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

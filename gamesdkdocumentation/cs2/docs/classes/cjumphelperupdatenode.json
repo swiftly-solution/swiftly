@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CJumpHelperUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CJumpHelperUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "TargetParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "OriginalJumpMovement",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OriginalJumpDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "JumpStartCycle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "JumpEndCycle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CorrectionMethod",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TranslationAxis",
+            "type": "bool[]",
+            "writable": true
+        },
+        {
+            "name": "ScaleSpeed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSequenceUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

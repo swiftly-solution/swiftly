@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CSkeletonInstance",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSkeletonInstance"
+    },
+    "properties": [
+        {
+            "name": "ModelState",
+            "type": "CModelState",
+            "writable": false
+        },
+        {
+            "name": "IsAnimationEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseParentRenderBounds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisableSolidCollisionsForHierarchy",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MaterialGroup",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HitboxSet",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CGameSceneNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

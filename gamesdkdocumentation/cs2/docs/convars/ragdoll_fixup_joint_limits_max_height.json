@@ -1,0 +1,1 @@
+{"kind":"command","name":"ragdoll_fixup_joint_limits_max_height","description":"Disable ragdoll_fixup_joint_limits on joints too high in the hierarchy because long chains tend to depend on violating limits","args":"1","flags":["developmentonly","gamedll","replicated"],"games":["cs2"]}

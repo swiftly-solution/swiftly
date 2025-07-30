@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CModelConfigElement_AttachedModel",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CModelConfigElement_AttachedModel"
+    },
+    "properties": [
+        {
+            "name": "InstanceName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "EntityClass",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Offset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AngOffset",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "AttachmentName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LocalAttachmentOffsetName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachmentType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BoneMergeFlex",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UserSpecifiedColor",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UserSpecifiedMaterialGroup",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AcceptParentMaterialDrivenDecals",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BodygroupOnOtherModels",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MaterialGroupOnOtherModels",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CModelConfigElement",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

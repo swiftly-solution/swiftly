@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_r11g11b10_dither_mode","description":"0 - disabled, 1 - regular dither noise, 2 - blue noise dither","args":"2","flags":["developmentonly","clientdll"],"games":["cs2"]}

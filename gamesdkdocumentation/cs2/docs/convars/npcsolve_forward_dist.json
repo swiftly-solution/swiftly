@@ -1,0 +1,1 @@
+{"kind":"command","name":"npcsolve_forward_dist","description":"<no description>","args":"200","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

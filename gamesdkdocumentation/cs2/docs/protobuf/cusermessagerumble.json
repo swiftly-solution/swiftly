@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"index","type":"int32"},{"name":"data","type":"int32"},{"name":"flags","type":"int32"}],"name":"CUserMessageRumble","games":["cs2"]}

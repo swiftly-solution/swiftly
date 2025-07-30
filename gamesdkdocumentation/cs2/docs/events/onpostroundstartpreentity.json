@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostRoundStartPreEntity","description":"This event is triggered after round_start_pre_entity is triggered.","arguments":{},"return":"void","games":["cs2"]}

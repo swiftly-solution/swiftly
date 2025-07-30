@@ -1,0 +1,1 @@
+{"kind":"command","name":"changelevel","description":"changelevel <mapname> :Multiplayer change level.","args":"","flags":["release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_networkvar_perfieldtracking","description":"Track individual field offset changes, rather than a single dirty flag for the whole entity.","args":"true","flags":["release"],"games":["cs2"]}

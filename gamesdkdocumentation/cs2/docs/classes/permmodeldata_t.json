@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "PermModelData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PermModelData_t"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ModelInfo",
+            "type": "PermModelInfo_t",
+            "writable": false
+        },
+        {
+            "name": "RefMeshGroupMasks",
+            "type": "uint64[]",
+            "writable": true
+        },
+        {
+            "name": "RefPhysGroupMasks",
+            "type": "uint64[]",
+            "writable": true
+        },
+        {
+            "name": "RefLODGroupMasks",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "LodGroupSwitchDistances",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "MeshGroups",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "DefaultMeshGroupMask",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "ModelSkeleton",
+            "type": "ModelSkeletonData_t",
+            "writable": false
+        },
+        {
+            "name": "RemappingTable",
+            "type": "int16[]",
+            "writable": true
+        },
+        {
+            "name": "RemappingTableStarts",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "ModelConfigList",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "BodyGroupsHiddenInTools",
+            "type": "string[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

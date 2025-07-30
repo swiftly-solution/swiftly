@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "FilterHealth",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FilterHealth"
+    },
+    "properties": [
+        {
+            "name": "AdrenalineActive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HealthMin",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HealthMax",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseFilter",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

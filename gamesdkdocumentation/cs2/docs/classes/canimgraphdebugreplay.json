@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CAnimGraphDebugReplay",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimGraphDebugReplay"
+    },
+    "properties": [
+        {
+            "name": "AnimGraphFileName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StartIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "WriteIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FrameCount",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

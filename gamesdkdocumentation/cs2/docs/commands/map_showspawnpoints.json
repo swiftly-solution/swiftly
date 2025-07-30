@@ -1,0 +1,1 @@
+{"kind":"command","name":"map_showspawnpoints","description":"Shows player spawn points (red=invalid). Optionally pass in the duration.","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

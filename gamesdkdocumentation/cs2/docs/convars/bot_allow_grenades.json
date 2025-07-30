@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_allow_grenades","description":"If nonzero, bots may use grenades.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

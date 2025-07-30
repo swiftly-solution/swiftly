@@ -1,0 +1,1 @@
+{"kind":"command","name":"launch_warmup_map","description":"Launches warmup map","args":"","flags":["clientdll","dontrecord","clientcmd_can_execute"],"games":["cs2"]}

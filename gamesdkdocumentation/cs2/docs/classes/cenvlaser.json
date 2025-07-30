@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CEnvLaser",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvLaser"
+    },
+    "properties": [
+        {
+            "name": "LaserTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Sprite",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "SpriteName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "FirePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StartFrame",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBeam",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

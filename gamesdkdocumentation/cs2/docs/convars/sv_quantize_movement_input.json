@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_quantize_movement_input","description":"Quantize movement input values. Enabling this restricts players from using analog input to move at fractional speeds normally impossible with digital button input.","args":"true","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

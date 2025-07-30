@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CTimerEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTimerEntity"
+    },
+    "properties": [
+        {
+            "name": "OnTimer",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnTimerHigh",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnTimerLow",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Disabled",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InitialDelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RefireTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UpDownState",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseRandomTime",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PauseAfterFiring",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LowerRandomBound",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UpperRandomBound",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RemainingTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Paused",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

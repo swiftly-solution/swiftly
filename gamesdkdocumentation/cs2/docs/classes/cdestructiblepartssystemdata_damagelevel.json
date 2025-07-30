@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CDestructiblePartsSystemData_DamageLevel",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDestructiblePartsSystemData_DamageLevel"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BodyGroupValue",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Health",
+            "type": "CSkillInt",
+            "writable": false
+        },
+        {
+            "name": "DamagePassthroughType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DestructionDeathBehavior",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ShouldDestroyOnDeath",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DeathDestroyTime",
+            "type": "CRangeFloat",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"instant_replay_live","description":"If in replay, jumps back to live","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"predictionsPct","type":"int32"},{"name":"draft","type":"CDataGCCStrike15_v2_TournamentMatchDraft"},{"name":"stats","type":"CPreMatchInfoData.TeamStats"},{"name":"wins","type":"int32"}],"name":"CPreMatchInfoData","games":["cs2"]}

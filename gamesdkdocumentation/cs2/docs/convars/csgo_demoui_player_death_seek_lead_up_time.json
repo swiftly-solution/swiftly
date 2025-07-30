@@ -1,0 +1,1 @@
+{"kind":"command","name":"csgo_demoui_player_death_seek_lead_up_time","description":"Seek to a moment this amount of seconds leading up to a player death instead of the exact time of the death.","args":"1","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

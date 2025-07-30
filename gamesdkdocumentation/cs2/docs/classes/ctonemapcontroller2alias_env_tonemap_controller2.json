@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CTonemapController2Alias_env_tonemap_controller2",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTonemapController2Alias_env_tonemap_controller2"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CTonemapController2",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

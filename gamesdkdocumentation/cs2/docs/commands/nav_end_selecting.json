@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_end_selecting","description":"Stop continuously adding to the selected set.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

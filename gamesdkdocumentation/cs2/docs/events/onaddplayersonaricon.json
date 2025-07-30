@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnAddPlayerSonarIcon","description":"This event is triggered when add_player_sonar_icon is triggered.","arguments":{"userid":"int32","pos_x":"float","pos_y":"float","pos_z":"float"},"return":"void","games":["cs2"]}

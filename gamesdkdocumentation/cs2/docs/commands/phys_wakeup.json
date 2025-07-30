@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_wakeup","description":"Wake all physics objects in the Main physics up","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

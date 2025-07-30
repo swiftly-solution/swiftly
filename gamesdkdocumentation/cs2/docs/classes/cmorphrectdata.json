@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CMorphRectData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMorphRectData"
+    },
+    "properties": [
+        {
+            "name": "XLeftDst",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "YTopDst",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "UWidthSrc",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VHeightSrc",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

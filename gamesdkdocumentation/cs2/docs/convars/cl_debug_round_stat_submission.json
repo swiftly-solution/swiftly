@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_debug_round_stat_submission","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

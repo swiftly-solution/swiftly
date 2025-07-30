@@ -1,0 +1,1 @@
+{"kind":"command","name":"ai_debug_los","description":"NPC Line-Of-Sight debug mode. If 1, solid entities that block NPC LOC will be highlighted with white bounding boxes. If 2, it'll show non-solid entities that would do it if they were solid.","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

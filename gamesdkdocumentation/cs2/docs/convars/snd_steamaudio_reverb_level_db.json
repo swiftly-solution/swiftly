@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_steamaudio_reverb_level_db","description":"Adjust overall volume (dB) of the output from Steam Audio Reverb processor.","args":"-3","flags":["release"],"games":["cs2"]}

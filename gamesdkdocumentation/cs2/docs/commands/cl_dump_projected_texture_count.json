@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_dump_projected_texture_count","description":"Print out number of active projected textures","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

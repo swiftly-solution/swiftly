@@ -1,0 +1,1 @@
+{"kind":"command","name":"nextdemo","description":"Play next demo in sequence.","args":"","flags":["release"],"games":["cs2"]}

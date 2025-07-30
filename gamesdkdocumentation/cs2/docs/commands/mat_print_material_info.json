@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_print_material_info","description":"Print info about a specific material","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CFootPinningUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFootPinningUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "PoseOpFixedData",
+            "type": "FootPinningPoseOpFixedData_t",
+            "writable": false
+        },
+        {
+            "name": "TimingSource",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ResetChild",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

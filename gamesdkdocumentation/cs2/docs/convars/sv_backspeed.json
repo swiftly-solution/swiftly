@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_backspeed","description":"How much to slow down backwards motion","args":"0.6","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

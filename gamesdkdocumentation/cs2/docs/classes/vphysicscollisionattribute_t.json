@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "VPhysicsCollisionAttribute_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VPhysicsCollisionAttribute_t"
+    },
+    "properties": [
+        {
+            "name": "InteractsAs",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "InteractsWith",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "InteractsExclude",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "EntityId",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OwnerId",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HierarchyId",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "CollisionGroup",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "CollisionFunctionMask",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"econ_build_pinboard_images_from_collection_name","description":"Renders and saves images for all models in a collection.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

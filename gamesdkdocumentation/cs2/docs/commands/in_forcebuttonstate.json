@@ -1,0 +1,1 @@
+{"kind":"command","name":"in_forcebuttonstate","description":"Forces a button to be a particular state - WHEN PROCESSING USERCOMMANDS","args":"","flags":["developmentonly","gamedll","vconsole_fuzzy_matching"],"games":["cs2"]}

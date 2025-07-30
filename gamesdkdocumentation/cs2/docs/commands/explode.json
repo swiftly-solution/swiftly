@@ -1,0 +1,1 @@
+{"kind":"command","name":"explode","description":"Kills the player with explosive damage","args":"","flags":["gamedll","cheat","client_can_execute"],"games":["cs2"]}

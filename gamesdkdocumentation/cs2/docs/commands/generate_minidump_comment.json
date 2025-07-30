@@ -1,0 +1,1 @@
+{"kind":"command","name":"generate_minidump_comment","description":"Generate a minidump comment and spew the results to the console","args":"","flags":["developmentonly"],"games":["cs2"]}

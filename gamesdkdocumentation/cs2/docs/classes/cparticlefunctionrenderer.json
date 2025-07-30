@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CParticleFunctionRenderer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleFunctionRenderer"
+    },
+    "properties": [
+        {
+            "name": "VisibilityInputs",
+            "type": "CParticleVisibilityInputs",
+            "writable": false
+        },
+        {
+            "name": "CannotBeRefracted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SkipRenderingOnMobile",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CParticleFunction",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

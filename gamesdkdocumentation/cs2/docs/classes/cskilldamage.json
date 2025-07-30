@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CSkillDamage",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSkillDamage"
+    },
+    "properties": [
+        {
+            "name": "Damage",
+            "type": "CSkillFloat",
+            "writable": false
+        },
+        {
+            "name": "NPCDamageScalarVsNPC",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PhysicsForceDamage",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

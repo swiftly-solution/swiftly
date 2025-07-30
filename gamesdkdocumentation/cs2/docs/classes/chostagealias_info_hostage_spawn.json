@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CHostageAlias_info_hostage_spawn",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CHostageAlias_info_hostage_spawn"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CHostage",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostShowDeathpanel","description":"This event is triggered after show_deathpanel is triggered.","arguments":{"victim":"int32","killer_controller":"int32","hits_taken":"int32","damage_taken":"int32","hits_given":"int32","damage_given":"int32"},"return":"void","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_compute_per_bot_difficulty","description":"0 = compute all bot difficulties equally, 1 = compute unique bot difficulty for each bot","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

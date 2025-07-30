@@ -1,0 +1,1 @@
+{"kind":"command","name":"dev_cs_frame_firing_enable","description":"Enable that firing will pretend like it's happening on frames.","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CFuncWallToggle",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncWallToggle"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CFuncWall",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

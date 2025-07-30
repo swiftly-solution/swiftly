@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_relay","description":"Connect to SourceTV server and relay broadcast.","args":"","flags":["release"],"games":["cs2"]}

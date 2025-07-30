@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CSelectorUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSelectorUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Tags",
+            "type": "int8[]",
+            "writable": true
+        },
+        {
+            "name": "BlendCurve",
+            "type": "CBlendCurve",
+            "writable": false
+        },
+        {
+            "name": "Parameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TagIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TagBehavior",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ResetOnChange",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LockWhenWaning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SyncCyclesOnChange",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimUpdateNodeBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

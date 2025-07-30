@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"type","type":"ESplitScreenMessageType","default":"MSG_SPLITSCREEN_ADDUSER"},{"name":"slot","type":"int32"},{"name":"playerIndex","type":"int32","default":-1}],"name":"CSVCMsg_SplitScreen","games":["cs2"]}

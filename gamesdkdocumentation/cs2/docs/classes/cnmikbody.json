@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CNmIKBody",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmIKBody"
+    },
+    "properties": [
+        {
+            "name": "Mass",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LocalMassCenter",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Resistance",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

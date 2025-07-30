@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ent_hierarchy","description":"Prints the entity hierarchy tree rooted at the specified ent(s)","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

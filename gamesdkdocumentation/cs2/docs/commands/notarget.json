@@ -1,0 +1,1 @@
+{"kind":"command","name":"notarget","description":"Toggle. Player becomes hidden to NPCs.","args":"","flags":["gamedll","cheat","client_can_execute"],"games":["cs2"]}

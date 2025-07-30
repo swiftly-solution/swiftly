@@ -1,0 +1,1 @@
+{"kind":"type","name":"LessonPanelLayoutFileTypes_t","description":"Automatically generated game type from enum LessonPanelLayoutFileTypes_t","values":{"LAYOUT_HAND_DEFAULT":0,"LAYOUT_WORLD_DEFAULT":1,"LAYOUT_CUSTOM":2},"games":["cs2"]}

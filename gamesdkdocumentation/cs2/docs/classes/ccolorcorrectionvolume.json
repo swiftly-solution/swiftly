@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CColorCorrectionVolume",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CColorCorrectionVolume"
+    },
+    "properties": [
+        {
+            "name": "MaxWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Weight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookupFilename",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LastEnterWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastEnterTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastExitWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastExitTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

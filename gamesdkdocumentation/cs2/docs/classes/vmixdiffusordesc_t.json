@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "VMixDiffusorDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixDiffusorDesc_t"
+    },
+    "properties": [
+        {
+            "name": "Size",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Complexity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Feedback",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OutputGain",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"csgo_watch_friend_session_exit_current","description":"<no description>","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CParticleRemapFloatInput",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleRemapFloatInput"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CParticleFloatInput",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"rcon_connected_clients_allow","description":"Allow clients to use rcon commands on server.","args":"true","flags":["replicated","release"],"games":["cs2"]}

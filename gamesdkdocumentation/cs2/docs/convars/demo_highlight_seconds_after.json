@@ -1,0 +1,1 @@
+{"kind":"command","name":"demo_highlight_seconds_after","description":"How many seconds after the actual highlight event to show when viewing highlights.","args":"2","flags":["clientdll","release"],"games":["cs2"]}

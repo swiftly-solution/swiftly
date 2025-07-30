@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CSosGroupActionTimeBlockLimitSchema",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSosGroupActionTimeBlockLimitSchema"
+    },
+    "properties": [
+        {
+            "name": "MaxCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSosGroupActionSchema",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

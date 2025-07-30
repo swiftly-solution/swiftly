@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ent_show_damage","description":"Sets damage display mode.  When on, you will see the amount of damage dealt over the target's head.","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

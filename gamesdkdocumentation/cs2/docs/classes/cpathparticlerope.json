@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "CPathParticleRope",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPathParticleRope"
+    },
+    "properties": [
+        {
+            "name": "StartActive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MaxSimulationTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EffectName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PathNodes_Name",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "ParticleSpacing",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Slack",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ColorTint",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "EffectState",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PathNodes_Position",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "PathNodes_TangentIn",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "PathNodes_TangentOut",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "PathNodes_Color",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "PathNodes_PinEnabled",
+            "type": "Vector4D[]",
+            "writable": true
+        },
+        {
+            "name": "PathNodes_RadiusScale",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "FeSoftParent_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeSoftParent_t"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Alpha",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

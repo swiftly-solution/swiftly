@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CSolveIKTargetHandle_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSolveIKTargetHandle_t"
+    },
+    "properties": [
+        {
+            "name": "PositionHandle",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "OrientationHandle",
+            "type": "CAnimParamHandle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

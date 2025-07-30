@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CDirectionalBlendUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDirectionalBlendUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Sequences",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "Damping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "BlendValueSource",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ParamIndex",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "PlaybackSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Loop",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LockBlendOnReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLeafUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

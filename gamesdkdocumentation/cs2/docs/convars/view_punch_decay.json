@@ -1,0 +1,1 @@
+{"kind":"command","name":"view_punch_decay","description":"Decay factor exponent for view punch","args":"18","flags":["gamedll","clientdll","replicated","cheat","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_respawnwavetime_ct","description":"Time between respawn waves for CTs.","args":"10","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

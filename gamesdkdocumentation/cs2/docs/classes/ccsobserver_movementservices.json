@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CCSObserver_MovementServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSObserver_MovementServices"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CPlayer_MovementServices",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

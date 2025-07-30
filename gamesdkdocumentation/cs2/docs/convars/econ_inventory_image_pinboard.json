@@ -1,0 +1,1 @@
+{"kind":"command","name":"econ_inventory_image_pinboard","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

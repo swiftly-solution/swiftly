@@ -1,0 +1,1 @@
+{"kind":"command","name":"sys_info","description":"Print system information to the console","args":"","flags":["release"],"games":["cs2"]}

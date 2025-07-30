@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_crosshair_dynamic_splitdist","description":"If using cl_crosshairstyle 2, this is the distance that the crosshair pips will split into 2. (default is 7)","args":"3","flags":["clientdll","archive","per_user"],"games":["cs2"]}

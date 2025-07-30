@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_debug_light_bounds","description":"SceneSystem/LightBinner/Debug Light Bounds","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

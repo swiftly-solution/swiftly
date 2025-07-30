@@ -1,0 +1,1 @@
+{"kind":"command","name":"custom_bot_difficulty","description":"Bot difficulty for offline play.","args":"2","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

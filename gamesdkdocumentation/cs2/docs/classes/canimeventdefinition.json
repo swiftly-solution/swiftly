@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CAnimEventDefinition",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimEventDefinition"
+    },
+    "properties": [
+        {
+            "name": "Frame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EndFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Cycle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

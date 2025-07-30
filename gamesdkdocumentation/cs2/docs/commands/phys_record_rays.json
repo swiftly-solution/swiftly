@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_record_rays","description":"Dump physics main world to file","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

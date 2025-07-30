@@ -1,0 +1,1 @@
+{"kind":"command","name":"echo","description":"Echo text to console.","args":"","flags":["server_can_execute"],"games":["cs2"]}

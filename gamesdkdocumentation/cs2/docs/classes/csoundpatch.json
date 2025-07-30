@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CSoundPatch",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundPatch"
+    },
+    "properties": [
+        {
+            "name": "Pitch",
+            "type": "CSoundEnvelope",
+            "writable": false
+        },
+        {
+            "name": "Volume",
+            "type": "CSoundEnvelope",
+            "writable": false
+        },
+        {
+            "name": "ShutdownTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoundScriptName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Ent",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "SoundEntityIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SoundOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "IsPlaying",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Filter",
+            "type": "CCopyRecipientFilter",
+            "writable": false
+        },
+        {
+            "name": "CloseCaptionDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UpdatedSoundOrigin",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ClassName",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cash_team_elimination_hostage_map_t","description":"<no description>","args":"1000","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

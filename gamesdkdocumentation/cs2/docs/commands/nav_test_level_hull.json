@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_test_level_hull","description":"Find entities that intrude into the nav mesh.  List those entities in console output, and display bounding boxes around them for a while.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CScriptItem",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CScriptItem"
+    },
+    "properties": [
+        {
+            "name": "MoveTypeOverride",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CItem",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

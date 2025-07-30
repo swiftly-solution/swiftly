@@ -1,0 +1,1 @@
+{"kind":"command","name":"convars_echo_toggle_changes","description":"Echo to the console changes caused by toggling.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

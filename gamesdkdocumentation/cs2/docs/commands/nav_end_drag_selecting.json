@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_end_drag_selecting","description":"Stop dragging a selection area.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,148 @@
+{
+    "kind": "class",
+    "name": "CFish",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFish"
+    },
+    "properties": [
+        {
+            "name": "Pool",
+            "type": "CFishPool",
+            "writable": false
+        },
+        {
+            "name": "Id",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "X",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Y",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Z",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Angle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngleChange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Forward",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Perp",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PoolOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "WaterLevel",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Speed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DesiredSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CalmSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PanicSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AvoidRange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TurnTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "TurnClockwise",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GoTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "MoveTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "PanicTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "DisperseTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "ProximityTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseAnimGraph",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

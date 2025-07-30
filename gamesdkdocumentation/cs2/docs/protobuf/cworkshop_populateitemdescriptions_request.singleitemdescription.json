@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"gameitemid","type":"uint32"},{"name":"itemDescription","type":"string"},{"name":"onePerAccount","type":"bool"}],"name":"CWorkshop_PopulateItemDescriptions_Request.SingleItemDescription","games":["cs2"]}

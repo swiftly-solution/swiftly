@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "WorldBuilderParams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "WorldBuilderParams_t"
+    },
+    "properties": [
+        {
+            "name": "MinDrawVolumeSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BuildBakedLighting",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AggregateInstanceStreams",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BakedLightingInfo",
+            "type": "BakedLightingInfo_t",
+            "writable": false
+        },
+        {
+            "name": "CompileTimestamp",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "CompileFingerprint",
+            "type": "uint64",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

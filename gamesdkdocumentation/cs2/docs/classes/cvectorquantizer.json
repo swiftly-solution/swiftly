@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CVectorQuantizer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVectorQuantizer"
+    },
+    "properties": [
+        {
+            "name": "CentroidVectors",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "Centroids",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Dimensions",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

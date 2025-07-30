@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vote_failure_timer","description":"A vote that fails cannot be re-submitted for this long","args":"300","flags":["gamedll","release"],"games":["cs2"]}

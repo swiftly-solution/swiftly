@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CSceneEventInfo",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSceneEventInfo"
+    },
+    "properties": [
+        {
+            "name": "Layer",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Priority",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Sequence",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Weight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HasArrived",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Type",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Next",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsGesture",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldRemove",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Target",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "SceneEventId",
+            "type": "SceneEventId_t",
+            "writable": false
+        },
+        {
+            "name": "ClientSide",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Started",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

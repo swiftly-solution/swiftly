@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_disable_descendant_filtering","description":"Disable descendant selector filtering","args":"false","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

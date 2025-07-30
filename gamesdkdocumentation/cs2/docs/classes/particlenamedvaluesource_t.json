@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "ParticleNamedValueSource_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ParticleNamedValueSource_t"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "IsPublic",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DefaultConfig",
+            "type": "ParticleNamedValueConfiguration_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

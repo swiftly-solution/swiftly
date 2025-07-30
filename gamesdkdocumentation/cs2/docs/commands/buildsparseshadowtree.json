@@ -1,0 +1,1 @@
+{"kind":"command","name":"buildsparseshadowtree","description":"Build Sparse Shadow Tree","args":"","flags":["developmentonly","clientdll","hidden"],"games":["cs2"]}

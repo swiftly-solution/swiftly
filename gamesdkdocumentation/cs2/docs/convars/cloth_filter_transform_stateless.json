@@ -1,0 +1,1 @@
+{"kind":"command","name":"cloth_filter_transform_stateless","description":"Enable the new, stateless version of FilterTransform","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

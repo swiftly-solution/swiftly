@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostEventTicketModified","description":"This event is triggered after event_ticket_modified is triggered.","arguments":{},"return":"void","games":["cs2"]}

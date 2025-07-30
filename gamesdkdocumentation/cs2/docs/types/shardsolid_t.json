@@ -1,0 +1,1 @@
+{"kind":"type","name":"ShardSolid_t","description":"Automatically generated game type from enum ShardSolid_t","values":{"SHARD_SOLID":0,"SHARD_DEBRIS":1},"games":["cs2"]}

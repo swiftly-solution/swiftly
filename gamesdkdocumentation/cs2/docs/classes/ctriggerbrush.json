@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CTriggerBrush",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerBrush"
+    },
+    "properties": [
+        {
+            "name": "OnStartTouch",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnEndTouch",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnUse",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "InputFilter",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DontMessageParent",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

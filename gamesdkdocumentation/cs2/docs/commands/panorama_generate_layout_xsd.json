@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_generate_layout_xsd","description":"Generate the Layout XML Schema Definition for the current run-time (types are dependent on which game DLL is running).","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

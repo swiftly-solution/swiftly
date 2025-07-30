@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostExitBombzone","description":"This event is triggered after exit_bombzone is triggered.","arguments":{"userid":"int32","hasbomb":"bool","isplanted":"bool"},"return":"void","games":["cs2"]}

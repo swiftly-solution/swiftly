@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CRenderComponent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRenderComponent"
+    },
+    "properties": [
+        {
+            "name": "__pChainEntity",
+            "type": "CNetworkVarChainer",
+            "writable": false
+        },
+        {
+            "name": "IsRenderingWithViewModels",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SplitscreenFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "EnableRendering",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InterpolationReadyToDraw",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CEntityComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

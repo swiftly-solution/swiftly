@@ -1,0 +1,1 @@
+{"kind":"command","name":"map_showbombradius","description":"Shows bomb radius from the center of each bomb site and planted bomb.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

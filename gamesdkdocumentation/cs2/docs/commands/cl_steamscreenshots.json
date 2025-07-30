@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_steamscreenshots","description":"Enable/disable saving screenshots to Steam","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

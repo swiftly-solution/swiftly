@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_script_reload_code","description":"Execute a vscript file, replacing existing functions with the functions in the run script","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

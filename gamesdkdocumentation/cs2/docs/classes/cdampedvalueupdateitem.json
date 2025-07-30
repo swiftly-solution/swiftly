@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CDampedValueUpdateItem",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDampedValueUpdateItem"
+    },
+    "properties": [
+        {
+            "name": "Damping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "ParamIn",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParamOut",
+            "type": "CAnimParamHandle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CLookComponentUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLookComponentUpdater"
+    },
+    "properties": [
+        {
+            "name": "LookHeading",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "LookHeadingNormalized",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "LookHeadingVelocity",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "LookPitch",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "LookDistance",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "LookDirection",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "LookTarget",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "LookTargetWorldSpace",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "NetworkLookTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimComponentUpdater",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

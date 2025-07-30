@@ -1,0 +1,633 @@
+{
+    "kind": "class",
+    "name": "CCSPlayerPawn",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayerPawn"
+    },
+    "properties": [
+        {
+            "name": "BulletServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "HostageServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "BuyServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "ActionTrackingServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "RadioServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "DamageReactServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "CharacterDefIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "HasFemaleVoice",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StrVOPrefix",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LastPlaceName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "InHostageResetZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InBuyZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WasInBuyZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InHostageRescueZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InBombZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WasInHostageRescueZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RetakesOffering",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RetakesOfferingCard",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RetakesHasDefuseKit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RetakesMVPLastRound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RetakesMVPBoostItem",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RetakesMVPBoostExtraUtility",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HealthShotBoostExpirationTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LandingTimeSeconds",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AimPunchAngle",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "AimPunchAngleVel",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "AimPunchTickBase",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AimPunchTickFraction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AimPunchCache",
+            "type": "Color[]",
+            "writable": true
+        },
+        {
+            "name": "IsBuyMenuOpen",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastHeadBoneTransformIsValid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastLandTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnGroundLastTick",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PlayerLocked",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TimeOfLastInjury",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextSprayDecalTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextSprayDecalTimeExpedited",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RagdollDamageBone",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RagdollDamageForce",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RagdollDamagePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RagdollDamageWeaponName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "RagdollDamageHeadshot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RagdollServerOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "EconGloves",
+            "type": "CEconItemView",
+            "writable": false
+        },
+        {
+            "name": "EconGlovesChanged",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "DeathEyeAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "SkipOneHeadConstraintUpdate",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LeftHanded",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SwitchedHandednessTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ViewmodelOffsetX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ViewmodelOffsetY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ViewmodelOffsetZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ViewmodelFOV",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsWalking",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastGivenDefuserTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastGivenBombTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DealtDamageToEnemyMostRecentTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DisplayHistoryBits",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LastAttackedTeammate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AllowAutoFollowTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ResetArmorNextSpawn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastKillerIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EntitySpottedState",
+            "type": "EntitySpottedState_t",
+            "writable": false
+        },
+        {
+            "name": "SpotRules",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsScoped",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ResumeZoom",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsDefusing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsGrabbingHostage",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BlockingUseActionInProgress",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "EmitSoundTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InNoDefuseArea",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BombSiteIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "WhichBombZone",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InBombZoneTrigger",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WasInBombZoneTrigger",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShotsFired",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FlinchStack",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VelocityModifier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HitHeading",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HitBodyPart",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalBulletForce",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "WaitForNoAttack",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IgnoreLadderJumpTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "KilledByHeadshot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastHitBox",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastHealth",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Bot",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "BotAllowActive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ThirdPersonHeading",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "SlopeDropOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SlopeDropHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HeadConstraintOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastPickupPriority",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastPickupPriorityTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ArmorValue",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CurrentEquipmentValue",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "RoundStartEquipmentValue",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "FreezetimeEndEquipmentValue",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "LastWeaponFireUsercmd",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsSpawning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DeathFlags",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HasDeathInfo",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DeathInfoTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DeathInfoOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PlayerPatchEconIndices",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "GunGameImmunityColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "GrenadeParameterStashTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GrenadeParametersStashed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StashedShootAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "StashedGrenadeThrowPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StashedVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ShootAngleHistory",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "ThrowPositionHistory",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "VelocityHistory",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "HighestAppliedDamageTagTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CommittingSuicideOnTeamChange",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WasNotKilledNaturally",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ImmuneToGunGameDamageTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GunGameImmunity",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MolotovDamageTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CCSPlayerPawnBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

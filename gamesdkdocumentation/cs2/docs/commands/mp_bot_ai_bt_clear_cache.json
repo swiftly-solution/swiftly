@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_bot_ai_bt_clear_cache","description":"Clears the cache for behavior tree files.","args":"","flags":["gamedll","release"],"games":["cs2"]}

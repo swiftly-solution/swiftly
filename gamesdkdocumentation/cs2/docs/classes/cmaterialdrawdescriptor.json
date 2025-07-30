@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "CMaterialDrawDescriptor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMaterialDrawDescriptor"
+    },
+    "properties": [
+        {
+            "name": "UvDensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TintColor",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Alpha",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NumMeshlets",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "FirstMeshlet",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AppliedIndexOffset",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DepthVertexBufferIndex",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "MeshletPackedIVBIndex",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "PrimitiveType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BaseVertex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "VertexCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StartIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IndexCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IndexBuffer",
+            "type": "CRenderBufferBinding",
+            "writable": false
+        },
+        {
+            "name": "MeshletPackedIVB",
+            "type": "CRenderBufferBinding",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

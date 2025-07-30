@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_auto_adjust_bot_difficulty","description":"Adjust the difficulty of bots each round based on contribution score.","args":"true","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

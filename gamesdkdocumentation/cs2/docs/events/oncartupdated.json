@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnCartUpdated","description":"This event is triggered when cart_updated is triggered.","arguments":{},"return":"void","games":["cs2"]}

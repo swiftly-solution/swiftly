@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_max_deathmatch_respawns_per_tick","description":"<no description>","args":"0","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

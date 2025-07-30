@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vac_webapi_auth_key","description":"Key for when posting to vac related webapis.","args":"\"\"","flags":["gamedll","release"],"games":["cs2"]}

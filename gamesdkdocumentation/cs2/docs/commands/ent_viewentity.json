@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_viewentity","description":"Selects the picked entity as the view entity","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

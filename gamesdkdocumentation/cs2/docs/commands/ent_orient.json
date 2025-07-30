@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_orient","description":"Orient the specified entity to match the player's angles. By default, only orients target entity's YAW. Use the 'allangles' option to orient on all axis.","args":" ent_orient <entity name> <optional","flags":["gamedll","cheat"],"games":["cs2"]}

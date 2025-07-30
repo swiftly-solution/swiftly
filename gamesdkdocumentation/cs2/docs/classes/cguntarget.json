@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CGunTarget",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGunTarget"
+    },
+    "properties": [
+        {
+            "name": "On",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TargetEnt",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "OnDeath",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseToggle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

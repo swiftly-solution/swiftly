@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"storeItemHash","type":"uint32"},{"name":"timeplayedconsecutively","type":"uint32"},{"name":"timeFirstPlayed","type":"uint32"},{"name":"lastTimePlayed","type":"uint32"},{"name":"lastIpAddress","type":"uint32"},{"name":"gscookieid","type":"uint64"},{"name":"uniqueid","type":"uint64"}],"name":"CMsgCStrike15Welcome","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"attributeName","type":"string"},{"name":"textureName","type":"string"}],"name":"CUserMsg_ParticleManager.SetTextureAttribute","games":["cs2"]}

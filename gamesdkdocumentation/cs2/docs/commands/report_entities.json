@@ -1,0 +1,1 @@
+{"kind":"command","name":"report_entities","description":"Lists all entities","args":"","flags":["developmentonly","gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vote_issue_scramble_teams_allowed","description":"Can people hold votes to scramble the teams?","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

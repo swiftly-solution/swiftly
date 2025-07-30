@@ -1,0 +1,1 @@
+{"kind":"command","name":"imgui_set_selection","description":"Sets ImGui selection","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

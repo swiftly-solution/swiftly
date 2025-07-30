@@ -1,0 +1,1 @@
+{"kind":"command","name":"inferno_dlight_spacing","description":"Inferno dlights are at least this far apart","args":"7200","flags":["clientdll","cheat"],"games":["cs2"]}

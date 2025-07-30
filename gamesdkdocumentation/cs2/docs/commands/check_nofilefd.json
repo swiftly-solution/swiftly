@@ -1,0 +1,1 @@
+{"kind":"command","name":"check_nofilefd","description":"Print the current number of FDs reported by getrlimit","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

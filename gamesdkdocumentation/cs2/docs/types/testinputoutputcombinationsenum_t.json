@@ -1,0 +1,1 @@
+{"kind":"type","name":"TestInputOutputCombinationsEnum_t","description":"Automatically generated game type from enum TestInputOutputCombinationsEnum_t","values":{"ZERO":0,"ONE":1,"TWO":2},"games":["cs2"]}

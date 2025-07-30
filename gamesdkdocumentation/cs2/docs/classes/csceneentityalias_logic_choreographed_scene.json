@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CSceneEntityAlias_logic_choreographed_scene",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSceneEntityAlias_logic_choreographed_scene"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CSceneEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"handId","type":"int32"},{"name":"effectNameHashCode","type":"uint32"},{"name":"effectScale","type":"float"}],"name":"CUserMessageHapticsManagerEffect","games":["cs2"]}

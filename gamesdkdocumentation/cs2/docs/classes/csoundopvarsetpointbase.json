@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CSoundOpvarSetPointBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundOpvarSetPointBase"
+    },
+    "properties": [
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Source",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "SourceEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LastPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StackName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OperatorName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OpvarName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OpvarIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "UseAutoCompare",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

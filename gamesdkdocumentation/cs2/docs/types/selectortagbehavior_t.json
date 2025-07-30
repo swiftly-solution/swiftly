@@ -1,0 +1,1 @@
+{"kind":"type","name":"SelectorTagBehavior_t","description":"Automatically generated game type from enum SelectorTagBehavior_t","values":{"SelectorTagBehavior_OnWhileCurrent":0,"SelectorTagBehavior_OffWhenFinished":1,"SelectorTagBehavior_OffBeforeFinished":2},"games":["cs2"]}

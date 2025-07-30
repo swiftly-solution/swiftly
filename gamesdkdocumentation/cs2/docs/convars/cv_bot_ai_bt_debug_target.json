@@ -1,0 +1,1 @@
+{"kind":"command","name":"cv_bot_ai_bt_debug_target","description":"Draw the behavior tree of the given bot.","args":"-1","flags":["gamedll","replicated","cheat"],"games":["cs2"]}

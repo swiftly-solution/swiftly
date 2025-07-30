@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_auto_cstrafe_upper_overlap_pct_threshold","description":"The percentage of overlapping attempts in the attempt window below which input automation detection is triggered when all counter-strafes in a sequence are successes.","args":"0","flags":["min:","0,","max:","100,","gamedll","release"],"games":["cs2"]}

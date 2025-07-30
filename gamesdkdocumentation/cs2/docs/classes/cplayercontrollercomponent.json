@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CPlayerControllerComponent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPlayerControllerComponent"
+    },
+    "properties": [
+        {
+            "name": "__pChainEntity",
+            "type": "CNetworkVarChainer",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

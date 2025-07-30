@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CFlashlightEffect",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFlashlightEffect"
+    },
+    "properties": [
+        {
+            "name": "IsOn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MuzzleFlashEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MuzzleFlashBrightness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MuzzleFlashOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Fov",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FarZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearAtten",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CastsShadows",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CurrentPullBackDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TextureName",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

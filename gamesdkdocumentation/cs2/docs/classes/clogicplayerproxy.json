@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CLogicPlayerProxy",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicPlayerProxy"
+    },
+    "properties": [
+        {
+            "name": "Player",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "PlayerHasAmmo",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "PlayerHasNoAmmo",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "PlayerDied",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

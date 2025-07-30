@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "CEnvExplosion",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvExplosion"
+    },
+    "properties": [
+        {
+            "name": "Magnitude",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PlayerDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RadiusOverride",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InnerRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DamageForce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Inflictor",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "CustomDamageType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CreateDebris",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CustomEffectName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CustomSoundName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SuppressParticleImpulse",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ClassIgnore",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ClassIgnore2",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "EntityIgnoreName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "EntityIgnore",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CModelPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

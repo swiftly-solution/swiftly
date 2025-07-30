@@ -1,0 +1,1 @@
+{"kind":"command","name":"bugvoice_clear","description":"Clear voice attachment data.","args":"","flags":["developmentonly","dontrecord","defensive"],"games":["cs2"]}

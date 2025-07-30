@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CNetworkVarChainer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNetworkVarChainer"
+    },
+    "properties": [
+        {
+            "name": "PathIndex",
+            "type": "ChangeAccessorFieldPathIndex_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

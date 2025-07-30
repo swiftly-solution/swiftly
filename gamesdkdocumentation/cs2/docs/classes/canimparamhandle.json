@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CAnimParamHandle",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimParamHandle"
+    },
+    "properties": [
+        {
+            "name": "Type",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Index",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

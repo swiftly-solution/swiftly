@@ -1,0 +1,1 @@
+{"kind":"command","name":"engine_platform_name_extended","description":"Platform the engine is running on.","args":"\"\"","flags":["developmentonly","defensive"],"games":["cs2"]}

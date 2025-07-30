@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "ModelBoneFlexDriver_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ModelBoneFlexDriver_t"
+    },
+    "properties": [
+        {
+            "name": "BoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BoneNameToken",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

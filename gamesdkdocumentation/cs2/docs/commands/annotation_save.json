@@ -1,0 +1,1 @@
+{"kind":"command","name":"annotation_save","description":"Save annotation to a file","args":"","flags":["clientdll","release"],"games":["cs2"]}

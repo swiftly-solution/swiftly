@@ -1,0 +1,1 @@
+{"kind":"command","name":"firstperson","description":"Switch to firstperson camera.","args":"","flags":["clientdll","release","execute_per_tick"],"games":["cs2"]}

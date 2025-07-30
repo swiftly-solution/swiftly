@@ -1,0 +1,218 @@
+{
+    "kind": "class",
+    "name": "CBasePropDoor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBasePropDoor"
+    },
+    "properties": [
+        {
+            "name": "AutoReturnDelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HardwareType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NeedsHardware",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DoorState",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Locked",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoNPCs",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ClosedPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ClosedAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Blocker",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "FirstBlocked",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Ls",
+            "type": "locksound_t",
+            "writable": false
+        },
+        {
+            "name": "ForceClosed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LatchWorldPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Activator",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "SoundMoving",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundOpen",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundClose",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundLock",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundUnlock",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundLatch",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundPound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundJiggle",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundLockedAnim",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NumCloseAttempts",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PhysicsMaterial",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SlaveName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Master",
+            "type": "CBasePropDoor",
+            "writable": false
+        },
+        {
+            "name": "OnBlockedClosing",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnBlockedOpening",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnUnblockedClosing",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnUnblockedOpening",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFullyClosed",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFullyOpen",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnClose",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnOpen",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnLockedUse",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnAjarOpen",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CDynamicProp",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"InputLayoutVariation_t","description":"Automatically generated game type from enum InputLayoutVariation_t","values":{"INPUT_LAYOUT_VARIATION_DEFAULT":0,"INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID":1,"INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID_MORPH_VERT_ID":2,"INPUT_LAYOUT_VARIATION_MAX":3},"games":["cs2"]}

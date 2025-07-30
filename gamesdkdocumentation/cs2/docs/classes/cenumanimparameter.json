@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CEnumAnimParameter",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnumAnimParameter"
+    },
+    "properties": [
+        {
+            "name": "DefaultValue",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "EnumOptions",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "EnumReferenced",
+            "type": "uint64[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CConcreteAnimParameter",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

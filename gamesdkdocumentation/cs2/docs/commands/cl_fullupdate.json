@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_fullupdate","description":"Force uncompressed update","args":"","flags":["cheat"],"games":["cs2"]}

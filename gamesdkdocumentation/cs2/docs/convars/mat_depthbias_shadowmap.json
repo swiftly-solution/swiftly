@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_depthbias_shadowmap","description":"<no description>","args":"0.0005","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

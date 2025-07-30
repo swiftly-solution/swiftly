@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_net_buffer_ticks_use_interp","description":"If false, we smooth over packet loss by adjusting the clock synchronization to buffer packets.  If true, we process packets immediately and use cl_interp to delay their effects","args":"false","flags":["clientdll","release"],"games":["cs2"]}

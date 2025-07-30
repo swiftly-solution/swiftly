@@ -1,0 +1,1 @@
+{"kind":"command","name":"error_message_explain_unsigned","description":"Take user to Steam support article","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

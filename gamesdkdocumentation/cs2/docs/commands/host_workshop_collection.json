@@ -1,0 +1,1 @@
+{"kind":"command","name":"host_workshop_collection","description":"Host a workshop map collection as a mapgroup","args":"","flags":["gamedll","release"],"games":["cs2"]}

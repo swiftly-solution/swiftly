@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_size_cull_threshold","description":"Threshold of screen size percentage below which objects get culled","args":"0.8","flags":["developmentonly"],"games":["cs2"]}

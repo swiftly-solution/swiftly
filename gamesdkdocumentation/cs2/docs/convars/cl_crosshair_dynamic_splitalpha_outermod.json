@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_crosshair_dynamic_splitalpha_outermod","description":"If using cl_crosshairstyle 2, this is the alpha modification that will be used for the OUTER crosshair pips once they've split. [0.3 - 1]","args":"1","flags":["min:","0.3,","max:","1,","clientdll","archive","per_user"],"games":["cs2"]}

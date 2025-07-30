@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vote_quorum_ratio","description":"The minimum ratio of players needed to vote on an issue to resolve it.","args":"0.501","flags":["min:","0.01,","max:","1,","gamedll","release"],"games":["cs2"]}

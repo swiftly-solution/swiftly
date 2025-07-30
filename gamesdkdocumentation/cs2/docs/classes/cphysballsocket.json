@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CPhysBallSocket",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysBallSocket"
+    },
+    "properties": [
+        {
+            "name": "JointFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableSwingLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SwingLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableTwistLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinTwistAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxTwistAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPhysConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

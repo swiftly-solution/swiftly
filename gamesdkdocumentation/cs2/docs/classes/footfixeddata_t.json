@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "FootFixedData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FootFixedData_t"
+    },
+    "properties": [
+        {
+            "name": "ToeOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "HeelOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TargetBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AnkleBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IKAnchorBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IkChainIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxIKLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FootIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TagIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxRotationLeft",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxRotationRight",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_clock_recvmargin_desired","description":"Clock sync will try to maintain N ms margin between tick arrival and polling network.  The effective value is the sum of this and the time implied by cl_clock_buffer_ticks","args":"5","flags":["developmentonly"],"games":["cs2"]}

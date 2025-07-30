@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_lagcomp_filterbyviewangle","description":"If true, player pawn will filter lag compensation targets by their view angle.","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

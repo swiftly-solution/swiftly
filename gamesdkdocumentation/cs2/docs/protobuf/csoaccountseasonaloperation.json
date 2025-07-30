@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"seasonValue","type":"uint32"},{"name":"tierUnlocked","type":"uint32"},{"name":"premiumTiers","type":"uint32"},{"name":"missionId","type":"uint32"},{"name":"missionsCompleted","type":"uint32"},{"name":"redeemableBalance","type":"uint32"},{"name":"seasonPassTime","type":"uint32"}],"name":"CSOAccountSeasonalOperation","games":["cs2"]}

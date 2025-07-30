@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "HullFlags_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "HullFlags_t"
+    },
+    "properties": [
+        {
+            "name": "Hull_Human",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hull_SmallCentered",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hull_WideHuman",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hull_Tiny",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hull_Medium",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hull_TinyCentered",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hull_Large",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hull_LargeCentered",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hull_MediumTall",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hull_Small",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

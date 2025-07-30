@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"xpPoints","type":"uint32"},{"name":"xpCategory","type":"int32"}],"name":"XpProgressData","games":["cs2"]}

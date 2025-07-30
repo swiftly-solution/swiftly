@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_plane_max_error","description":"max error (distance away in depth) candidate plane is allowed before rejecting.","args":"0.0004","flags":["developmentonly"],"games":["cs2"]}

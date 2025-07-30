@@ -1,0 +1,1 @@
+{"kind":"command","name":"maps","description":"Displays list of maps.","args":"","flags":["release"],"games":["cs2"]}

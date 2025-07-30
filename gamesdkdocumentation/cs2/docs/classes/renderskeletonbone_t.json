@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "RenderSkeletonBone_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "RenderSkeletonBone_t"
+    },
+    "properties": [
+        {
+            "name": "BoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ParentName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Bbox",
+            "type": "SkeletonBoneBounds_t",
+            "writable": false
+        },
+        {
+            "name": "SphereRadius",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

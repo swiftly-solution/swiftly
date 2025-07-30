@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_voicecodec","description":"Specifies which voice codec DLL to use in a game. Set to the name of the DLL without the extension.","args":"\"vaudio_speex\"","flags":["release"],"games":["cs2"]}

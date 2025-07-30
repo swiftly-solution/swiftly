@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CSmoothFunc",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSmoothFunc"
+    },
+    "properties": [
+        {
+            "name": "SmoothAmplitude",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SmoothBias",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SmoothDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SmoothRemainingTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SmoothDir",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

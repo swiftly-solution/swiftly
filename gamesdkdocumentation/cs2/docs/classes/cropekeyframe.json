@@ -1,0 +1,123 @@
+{
+    "kind": "class",
+    "name": "CRopeKeyframe",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRopeKeyframe"
+    },
+    "properties": [
+        {
+            "name": "RopeFlags",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "NextLinkName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Slack",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "Width",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TextureScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Segments",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ConstrainBetweenEndpoints",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StrRopeMaterialModel",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Subdiv",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ChangeCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "RopeLength",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "LockedPoints",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "CreatedFromMapFile",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ScrollSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartPointValid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EndPointValid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartPoint",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "EndPoint",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

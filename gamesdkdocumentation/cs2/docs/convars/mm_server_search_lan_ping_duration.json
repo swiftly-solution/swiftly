@@ -1,0 +1,1 @@
+{"kind":"command","name":"mm_server_search_lan_ping_duration","description":"Duration of LAN discovery ping phase.","args":"1","flags":["developmentonly"],"games":["cs2"]}

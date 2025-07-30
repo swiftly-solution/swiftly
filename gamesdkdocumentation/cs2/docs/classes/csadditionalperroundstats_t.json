@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CSAdditionalPerRoundStats_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSAdditionalPerRoundStats_t"
+    },
+    "properties": [
+        {
+            "name": "NumChickensKilled",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "KillsWhileBlind",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BombCarrierkills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BurnDamageInflicted",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BlastDamageInflicted",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Dinks",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

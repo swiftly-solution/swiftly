@@ -1,0 +1,368 @@
+{
+    "kind": "class",
+    "name": "CFuncMover",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncMover"
+    },
+    "properties": [
+        {
+            "name": "PathName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PathMover",
+            "type": "CPathMover",
+            "writable": false
+        },
+        {
+            "name": "PathNodeStart",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PathNodeEnd",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MoveType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "IsReversing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Target",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StartSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PathLocation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "T",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurrentNodeIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PreviousNodeIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SolidType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "IsMoving",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TimeToReachMaxSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceToReachMaxSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeToReachZeroSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceToReachZeroSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeMovementStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeMovementStop",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StopAtNode",
+            "type": "CMoverPathNode",
+            "writable": false
+        },
+        {
+            "name": "PathLocationToBeginStop",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartForwardSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LoopForwardSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StopForwardSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StartReverseSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LoopReverseSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StopReverseSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ArriveAtDestinationSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OnMovementEnd",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "StartAtClosestPoint",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartAtEnd",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OrientationUpdate",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TimeStartOrientationChange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeToBlendToNewOrientation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DurationBlendToNewOrientationRan",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OriginalOrientationIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CreateMovableNavMesh",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AllowMovableNavMeshDockingOnEntireEntity",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnNodePassed",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OrientationMatchEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OrientationMatchEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "TimeToTraverseToNextNode",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LerpToNewPosStartInPathEntitySpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LerpToNewPosEndInPathEntitySpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LerpToPositionT",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LerpToPositionDeltaT",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnLerpToPositionComplete",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "IsPaused",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TransitionedToPathNodeAction",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DelayedTeleportToNode",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsVerboseLogging",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FollowEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "FollowDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FollowMinimumSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurFollowEntityT",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurFollowSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StrOrientationFaceEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OrientationFaceEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "OnStart",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStartForward",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStartReverse",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStop",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStopped",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "NextNodeReturnsCurrent",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartedMoving",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FollowEntityDirection",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

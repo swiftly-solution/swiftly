@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CEnvGlobal",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvGlobal"
+    },
+    "properties": [
+        {
+            "name": "Globalstate",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Triggermode",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Initialstate",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Counter",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

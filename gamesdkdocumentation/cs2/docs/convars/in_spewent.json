@@ -1,0 +1,1 @@
+{"kind":"command","name":"in_spewent","description":"Which entity should we spew input for? (Useful for debugging bot input)","args":"-1","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

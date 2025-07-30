@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_create","description":"Creates an entity of the given designer or subclass name where the player is looking.","args":"","flags":["gamedll","cheat","vconsole_fuzzy_matching"],"games":["cs2"]}

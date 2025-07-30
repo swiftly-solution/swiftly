@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_csm_override_bulb_radius","description":"Override bulb radius for CSM","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

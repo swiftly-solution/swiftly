@@ -1,0 +1,1 @@
+{"kind":"command","name":"demo_step_tick","description":"Play for N ticks (default=1) and then pause.","args":"","flags":["release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"animgraph_debug_entindex","description":"The entity to specifically debug","args":"0","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

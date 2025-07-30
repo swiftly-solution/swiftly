@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "EntityIOConnectionData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EntityIOConnectionData_t"
+    },
+    "properties": [
+        {
+            "name": "OutputName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TargetType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TargetName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "InputName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OverrideParam",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Delay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimesToFire",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

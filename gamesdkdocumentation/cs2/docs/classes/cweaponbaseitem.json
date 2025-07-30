@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CWeaponBaseItem",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CWeaponBaseItem"
+    },
+    "properties": [
+        {
+            "name": "SequenceCompleteTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "Redraw",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CCSWeaponBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

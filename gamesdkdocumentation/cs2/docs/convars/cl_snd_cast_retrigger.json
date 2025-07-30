@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_snd_cast_retrigger","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

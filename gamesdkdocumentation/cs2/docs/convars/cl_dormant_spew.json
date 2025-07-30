@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_dormant_spew","description":"Spew state on when client entities become dormant or active.","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

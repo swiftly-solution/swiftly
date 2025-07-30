@@ -1,0 +1,1 @@
+{"kind":"command","name":"help","description":"Find help about a convar/concommand.","args":"","flags":["release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_all_weapons","description":"Allows the bots to use all weapons","args":"","flags":["gamedll","release"],"games":["cs2"]}

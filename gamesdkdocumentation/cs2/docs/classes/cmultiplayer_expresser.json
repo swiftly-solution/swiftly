@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CMultiplayer_Expresser",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMultiplayer_Expresser"
+    },
+    "properties": [
+        {
+            "name": "AllowMultipleScenes",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAI_ExpresserWithFollowup",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

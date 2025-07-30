@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CPathParameters",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPathParameters"
+    },
+    "properties": [
+        {
+            "name": "StartControlPointNumber",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EndControlPointNumber",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BulgeControl",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Bulge",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MidPoint",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartPointOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MidPointOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "EndOffset",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

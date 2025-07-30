@@ -1,0 +1,163 @@
+{
+    "kind": "class",
+    "name": "CPlantedC4",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPlantedC4"
+    },
+    "properties": [
+        {
+            "name": "BombTicking",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "C4Blow",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BombSite",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SourceSoundscapeHash",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AttributeManager",
+            "type": "CAttributeContainer",
+            "writable": false
+        },
+        {
+            "name": "OnBombDefused",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnBombBeginDefuse",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnBombDefuseAborted",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CannotBeDefused",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EntitySpottedState",
+            "type": "EntitySpottedState_t",
+            "writable": false
+        },
+        {
+            "name": "SpotRules",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TrainingPlacedByPlayer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasExploded",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TimerLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BeingDefused",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastDefuseTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefuseLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefuseCountDown",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BombDefused",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BombDefuser",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "ProgressBarTime",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "VoiceAlertFired",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "VoiceAlertPlayed",
+            "type": "bool[]",
+            "writable": true
+        },
+        {
+            "name": "NextBotBeepTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CatchUpToPlayerEye",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "LastSpinDetectionTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseAnimGraph",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

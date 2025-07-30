@@ -1,0 +1,1 @@
+{"kind":"type","name":"DoorState_t","description":"Automatically generated game type from enum DoorState_t","values":{"DOOR_STATE_CLOSED":0,"DOOR_STATE_OPENING":1,"DOOR_STATE_OPEN":2,"DOOR_STATE_CLOSING":3,"DOOR_STATE_AJAR":4},"games":["cs2"]}

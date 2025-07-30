@@ -1,0 +1,143 @@
+{
+    "kind": "class",
+    "name": "CGameSceneNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGameSceneNode"
+    },
+    "properties": [
+        {
+            "name": "Owner",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Child",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "NextSibling",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Origin",
+            "type": "CNetworkOriginCellCoordQuantizedVector",
+            "writable": false
+        },
+        {
+            "name": "Rotation",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Scale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AbsOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AbsRotation",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "AbsScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ParentAttachmentOrBone",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "DebugAbsOriginChanges",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Dormant",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForceParentToBeNetworked",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HierarchicalDepth",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "HierarchyType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "DoNotSetAnimTimeInInvalidatePhysicsCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Name",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HierarchyAttachName",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ZOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ClientLocalScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RenderOrigin",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "GetSkeletonInstance",
+            "arguments": {},
+            "return": "CSkeletonInstance"
+        },
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

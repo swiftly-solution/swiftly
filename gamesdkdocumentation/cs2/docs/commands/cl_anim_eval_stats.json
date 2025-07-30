@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_anim_eval_stats","description":"Displays stats about how many EvaluatePose calls are unused","args":"","flags":["developmentonly","clientdll"],"games":["cs2"]}

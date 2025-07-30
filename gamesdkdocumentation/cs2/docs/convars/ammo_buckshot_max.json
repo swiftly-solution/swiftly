@@ -1,0 +1,1 @@
+{"kind":"command","name":"ammo_buckshot_max","description":"<no description>","args":"32","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

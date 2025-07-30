@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "constraint_axislimit_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "constraint_axislimit_t"
+    },
+    "properties": [
+        {
+            "name": "MinRotation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxRotation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MotorTargetAngSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MotorMaxTorque",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

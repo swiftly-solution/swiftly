@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CAI_ExpresserWithFollowup",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAI_ExpresserWithFollowup"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CAI_Expresser",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

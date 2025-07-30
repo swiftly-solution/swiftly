@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_lower_drag_volume_min","description":"Lower the bottom of the drag select volume.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

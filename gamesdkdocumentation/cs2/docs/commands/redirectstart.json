@@ -1,0 +1,1 @@
+{"kind":"command","name":"redirectstart","description":"Redirect server console output","args":"","flags":["hidden","release"],"games":["cs2"]}

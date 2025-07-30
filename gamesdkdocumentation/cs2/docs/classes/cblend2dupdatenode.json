@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CBlend2DUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBlend2DUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "ParamSpans",
+            "type": "CParamSpanUpdater",
+            "writable": false
+        },
+        {
+            "name": "NodeItemIndices",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "Damping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "BlendSourceX",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ParamX",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "BlendSourceY",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ParamY",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "BlendMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PlaybackSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Loop",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LockBlendOnReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LockWhenWaning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AnimEventsAndTagsOnMostWeightedOnly",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimUpdateNodeBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

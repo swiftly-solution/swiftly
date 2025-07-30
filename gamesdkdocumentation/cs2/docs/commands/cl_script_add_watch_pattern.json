@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_script_add_watch_pattern","description":"Add a watch to the game debug overlay","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

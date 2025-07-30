@@ -1,0 +1,57 @@
+{
+    "kind": "class",
+    "name": "CMultiSource",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMultiSource"
+    },
+    "properties": [
+        {
+            "name": "RgEntities",
+            "writable": false
+        },
+        {
+            "name": "RgTriggered",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "OnTrigger",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Total",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Globalstate",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

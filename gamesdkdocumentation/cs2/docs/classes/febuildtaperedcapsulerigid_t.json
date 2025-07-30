@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "FeBuildTaperedCapsuleRigid_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeBuildTaperedCapsuleRigid_t"
+    },
+    "properties": [
+        {
+            "name": "Priority",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "VertexMapHash",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AntitunnelGroupBits",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "FeTaperedCapsuleRigid_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

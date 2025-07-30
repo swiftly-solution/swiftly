@@ -1,0 +1,1 @@
+{"kind":"command","name":"vprof_dump_counters","description":"Dump vprof counters to the console","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

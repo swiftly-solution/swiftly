@@ -1,0 +1,123 @@
+{
+    "kind": "class",
+    "name": "CPhysHinge",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysHinge"
+    },
+    "properties": [
+        {
+            "name": "SoundInfo",
+            "type": "ConstraintSoundInfo",
+            "writable": false
+        },
+        {
+            "name": "NotifyMinLimitReached",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "NotifyMaxLimitReached",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "AtMinLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AtMaxLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hinge",
+            "type": "constraint_hingeparams_t",
+            "writable": false
+        },
+        {
+            "name": "HingeFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SystemLoadScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsAxisLocal",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinRotation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxRotation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InitialRotation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MotorFrequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MotorDampingRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngleSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngleSpeedThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnStartMoving",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStopMoving",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPhysConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

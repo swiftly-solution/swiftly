@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CAimCameraUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAimCameraUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "ParameterPosition",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParameterOrientation",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParameterSpineRotationWeight",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParameterPelvisOffset",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParameterUseIK",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParameterCameraOnly",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParameterWeaponDepenetrationDistance",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParameterWeaponDepenetrationDelta",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParameterCameraClearanceDistance",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "OpFixedSettings",
+            "type": "AimCameraOpFixedSettings_t",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

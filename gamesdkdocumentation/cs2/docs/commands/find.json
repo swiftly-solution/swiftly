@@ -1,0 +1,1 @@
+{"kind":"command","name":"find","description":"Find concommands with the specified string in their name/help text.","args":"","flags":["release"],"games":["cs2"]}

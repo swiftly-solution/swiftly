@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_guardian_extra_equipment_ct","description":"Extra starting equipment for CT players in guardian modes","args":"\"\"","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

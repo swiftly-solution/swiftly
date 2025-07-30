@@ -1,0 +1,1 @@
+{"kind":"command","name":"fs_dump_open_duplicate_times","description":"Set fs_report_long_reads 1 before loading to use this. Prints a list of files that were opened more than once and ~how long was spent reading from them.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

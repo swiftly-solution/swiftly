@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_teammatchstat_txt","description":"A non-empty string sets the match stat description, e.g. 'Match 2 of 3'.","args":"\"\"","flags":["gamedll","release"],"games":["cs2"]}

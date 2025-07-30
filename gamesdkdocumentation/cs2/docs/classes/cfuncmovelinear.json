@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CFuncMoveLinear",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncMoveLinear"
+    },
+    "properties": [
+        {
+            "name": "AuthoredPosition",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MoveEntitySpace",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "MoveDirParentSpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SoundStart",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundStop",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CurrentSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BlockDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartPosition",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnFullyOpen",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFullyClosed",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CreateMovableNavMesh",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AllowMovableNavMeshDockingOnEntireEntity",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CreateNavObstacle",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseToggle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

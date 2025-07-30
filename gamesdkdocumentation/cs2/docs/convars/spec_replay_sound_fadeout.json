@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_replay_sound_fadeout","description":"Amount of time in seconds it takes to fade out the audio before or after replay","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

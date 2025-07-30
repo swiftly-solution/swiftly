@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_broadcast_origin_delay","description":"Injection delay request for CDN rebroadcast frameworks, seconds","args":"0","flags":["hidden","release"],"games":["cs2"]}

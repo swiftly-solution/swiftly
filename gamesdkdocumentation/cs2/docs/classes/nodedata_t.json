@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "NodeData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "NodeData_t"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Origin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MinBounds",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MaxBounds",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MinimumDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ChildNodeIndices",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "WorldNodePrefix",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

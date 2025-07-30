@@ -1,0 +1,1 @@
+{"kind":"command","name":"script_reload_entity_code","description":"Execute all of this entity's VScripts, replacing existing functions with the functions in the run scripts","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

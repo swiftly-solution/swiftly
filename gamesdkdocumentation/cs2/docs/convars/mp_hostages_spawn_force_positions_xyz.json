@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_hostages_spawn_force_positions_xyz","description":"Comma separated list of xyz locations to force spawn positions, e.g. 'x1 y1 z1,x2 y2 z2'","args":"\"\"","flags":["gamedll","replicated","release"],"games":["cs2"]}

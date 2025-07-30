@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"controlPoint","type":"int32"},{"name":"position","type":"CMsgVector"},{"name":"orientation","type":"CMsgQuaternion"},{"name":"interpolationInterval","type":"float"}],"name":"CUserMsg_ParticleManager.UpdateParticleTransform","games":["cs2"]}

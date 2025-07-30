@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CMathCounter",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMathCounter"
+    },
+    "properties": [
+        {
+            "name": "Min",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Max",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HitMin",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HitMax",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnHitMin",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnHitMax",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnChangedFromMin",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnChangedFromMax",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

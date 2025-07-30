@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_check_connectivity","description":"Checks to be sure every (or just the marked) nav area can get to every goal area for the map (hostages or bomb site).","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

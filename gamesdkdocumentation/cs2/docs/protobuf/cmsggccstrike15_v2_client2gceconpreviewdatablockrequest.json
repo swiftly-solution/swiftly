@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"paramS","type":"uint64"},{"name":"paramA","type":"uint64"},{"name":"paramD","type":"uint64"},{"name":"paramM","type":"uint64"}],"name":"CMsgGCCStrike15_v2_Client2GCEconPreviewDataBlockRequest","games":["cs2"]}

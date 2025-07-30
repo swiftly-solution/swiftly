@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_daisy_wheel","description":"Daisy wheel input mode: RS | ABXY","args":"\"ABXY\"","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

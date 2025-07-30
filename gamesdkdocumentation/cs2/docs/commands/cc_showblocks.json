@@ -1,0 +1,1 @@
+{"kind":"command","name":"cc_showblocks","description":"Toggles showing which blocks are pending/loaded async.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

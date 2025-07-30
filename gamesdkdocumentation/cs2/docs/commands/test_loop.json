@@ -1,0 +1,1 @@
+{"kind":"command","name":"Test_Loop","description":"Test_Loop <loop name> - loop back to the specified loop start point unconditionally.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

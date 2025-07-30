@@ -1,0 +1,1 @@
+{"kind":"command","name":"game_mode","description":"The current game mode (based on game type). See GameModes.txt.","args":"1","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

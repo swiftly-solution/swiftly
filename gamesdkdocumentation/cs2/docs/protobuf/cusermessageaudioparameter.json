@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"parameterType","type":"uint32"},{"name":"nameHashCode","type":"uint32"},{"name":"value","type":"float"},{"name":"intValue","type":"uint32"}],"name":"CUserMessageAudioParameter","games":["cs2"]}

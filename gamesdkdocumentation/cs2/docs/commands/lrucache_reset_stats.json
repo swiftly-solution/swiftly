@@ -1,0 +1,1 @@
+{"kind":"command","name":"lrucache_reset_stats","description":"Resets stats for the specified CUtlLRUCaches (or all if none specified)","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"groupValues","type":"string"},{"name":"serversEmpty","type":"uint32"},{"name":"serversFull","type":"uint32"},{"name":"serversTotal","type":"uint32"},{"name":"playersHumans","type":"uint32"},{"name":"playersBots","type":"uint32"},{"name":"playerCapacity","type":"uint32"}],"name":"CGameServers_AggregationQuery_Response.Group","games":["cs2"]}

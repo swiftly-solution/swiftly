@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CVoiceContainerBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVoiceContainerBase"
+    },
+    "properties": [
+        {
+            "name": "EnvelopeAnalyzer",
+            "type": "int32[]",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

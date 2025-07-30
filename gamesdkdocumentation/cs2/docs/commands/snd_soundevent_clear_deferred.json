@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_soundevent_clear_deferred","description":"Clear the list of deferred soundevents for loading.","args":"","flags":["developmentonly","cheat"],"games":["cs2"]}

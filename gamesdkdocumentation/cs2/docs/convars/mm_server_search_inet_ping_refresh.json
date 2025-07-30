@@ -1,0 +1,1 @@
+{"kind":"command","name":"mm_server_search_inet_ping_refresh","description":"How often to refresh a listed server.","args":"15","flags":["developmentonly"],"games":["cs2"]}

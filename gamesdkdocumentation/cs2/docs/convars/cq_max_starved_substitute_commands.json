@@ -1,0 +1,1 @@
+{"kind":"command","name":"cq_max_starved_substitute_commands","description":"Server will stop generating substitute commands if client hasn't sent one, after N in a row","args":"4","flags":["gamedll","release"],"games":["cs2"]}

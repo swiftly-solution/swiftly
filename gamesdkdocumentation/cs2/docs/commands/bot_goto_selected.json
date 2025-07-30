@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_goto_selected","description":"Sends a bot to the selected nav area (useful for testing navigation meshes)","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

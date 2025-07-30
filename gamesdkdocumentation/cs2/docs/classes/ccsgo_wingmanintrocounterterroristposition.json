@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CCSGO_WingmanIntroCounterTerroristPosition",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSGO_WingmanIntroCounterTerroristPosition"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CCSGO_WingmanIntroCharacterPosition",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"Test_RandomChance","description":"Test_RandomChance <percent chance, 0-100> <token1> <token2...> - Roll the dice and maybe run the command following the percentage chance.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

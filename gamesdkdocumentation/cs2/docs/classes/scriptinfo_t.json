@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "ScriptInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ScriptInfo_t"
+    },
+    "properties": [
+        {
+            "name": "Code",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ProxyReadParams",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "ProxyWriteParams",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "ScriptType",
+            "type": "uint16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

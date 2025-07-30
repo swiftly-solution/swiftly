@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CTriggerSoundscape",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerSoundscape"
+    },
+    "properties": [
+        {
+            "name": "Soundscape",
+            "type": "CEnvSoundscapeTriggerable",
+            "writable": false
+        },
+        {
+            "name": "SoundscapeName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

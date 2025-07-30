@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_broadcast_url1","description":"URL of the broadcast relay1","args":"\"http://localhost:8080\"","flags":["release"],"games":["cs2"]}

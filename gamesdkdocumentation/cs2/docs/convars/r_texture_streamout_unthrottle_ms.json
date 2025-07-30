@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_texture_streamout_unthrottle_ms","description":"After hitting throttling limits for streamout, allow it to continue up to this number of milliseconds.","args":"0.2","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"SosActionSortType_t","description":"Automatically generated game type from enum SosActionSortType_t","values":{"SOS_SORTTYPE_HIGHEST":0,"SOS_SORTTYPE_LOWEST":1},"games":["cs2"]}

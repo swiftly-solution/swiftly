@@ -1,0 +1,113 @@
+{
+    "kind": "class",
+    "name": "HitReactFixedSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "HitReactFixedSettings_t"
+    },
+    "properties": [
+        {
+            "name": "WeightListIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EffectedBoneCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxImpactForce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinImpactForce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WhipImpactScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CounterRotationScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceFadeScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PropagationScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WhipDelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpringStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WhipSpringStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxAngleRadians",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HipBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HipBoneTranslationScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HipDipSpringStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HipDipImpactScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HipDipDelay",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

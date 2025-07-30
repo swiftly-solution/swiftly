@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CCommentarySystem",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCommentarySystem"
+    },
+    "properties": [
+        {
+            "name": "CommentaryConvarsChanging",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CommentaryEnabledMidGame",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NextTeleportTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TeleportStage",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CheatState",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsFirstSpawnGroupToLoad",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

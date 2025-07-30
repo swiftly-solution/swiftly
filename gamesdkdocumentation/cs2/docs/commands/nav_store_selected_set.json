@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_store_selected_set","description":"Stores the current selected set for later retrieval.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

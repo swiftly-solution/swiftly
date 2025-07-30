@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_invites_only_friends","description":"If turned on, will ignore in-game invites from recent teammates or other non-friends","args":"false","flags":["clientdll","archive","release"],"games":["cs2"]}

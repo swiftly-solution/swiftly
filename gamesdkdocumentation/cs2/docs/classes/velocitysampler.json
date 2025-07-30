@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "VelocitySampler",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VelocitySampler"
+    },
+    "properties": [
+        {
+            "name": "PrevSample",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrevSampleTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IdealSampleRate",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

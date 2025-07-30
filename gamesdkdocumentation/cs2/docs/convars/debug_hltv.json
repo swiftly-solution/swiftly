@@ -1,0 +1,1 @@
+{"kind":"command","name":"debug_hltv","description":"Print out hltv events","args":"0","flags":["developmentonly","clientdll","replicated","clientcmd_can_execute"],"games":["cs2"]}

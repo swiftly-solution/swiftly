@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_set_shader_quality","description":"Force shader quality setting (valid values are 0 or 1)","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

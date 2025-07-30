@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_defer_to_human_goals","description":"If nonzero and there is a human on the team, the bots will not do the scenario tasks.","args":"false","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

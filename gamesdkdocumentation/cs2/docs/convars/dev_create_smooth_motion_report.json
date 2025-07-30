@@ -1,0 +1,1 @@
+{"kind":"command","name":"dev_create_smooth_motion_report","description":"<no description>","args":"false","flags":["developmentonly","clientdll","replicated","cheat"],"games":["cs2"]}

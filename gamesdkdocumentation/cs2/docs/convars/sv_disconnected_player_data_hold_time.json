@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_disconnected_player_data_hold_time","description":"Duration, in seconds, to hold onto the data of disconnected players, for scoreboard display.","args":"60","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

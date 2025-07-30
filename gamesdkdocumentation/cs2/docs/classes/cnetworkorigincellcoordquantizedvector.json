@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CNetworkOriginCellCoordQuantizedVector",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNetworkOriginCellCoordQuantizedVector"
+    },
+    "properties": [
+        {
+            "name": "CellX",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "CellY",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "CellZ",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "OutsideWorld",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "X",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Y",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Z",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

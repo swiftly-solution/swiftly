@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "ParticlePreviewState_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ParticlePreviewState_t"
+    },
+    "properties": [
+        {
+            "name": "PreviewModel",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ModSpecificData",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "GroundType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SequenceName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "FireParticleOnSequenceFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HitboxSetName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MaterialGroupName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PlaybackSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ParticleSimulationRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShouldDrawHitboxes",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldDrawAttachments",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldDrawAttachmentNames",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldDrawControlPointAxes",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AnimationNonLooping",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PreviewGravity",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_use_block_solver","description":"Use block solving for constraint entities","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

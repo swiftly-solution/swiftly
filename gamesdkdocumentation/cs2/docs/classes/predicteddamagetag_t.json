@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "PredictedDamageTag_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PredictedDamageTag_t"
+    },
+    "properties": [
+        {
+            "name": "TagTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FlinchModSmall",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FlinchModLarge",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FriendlyFireDamageReductionRatio",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

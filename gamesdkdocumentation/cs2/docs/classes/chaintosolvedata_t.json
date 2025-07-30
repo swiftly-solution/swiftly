@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "ChainToSolveData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ChainToSolveData_t"
+    },
+    "properties": [
+        {
+            "name": "ChainIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SolverSettings",
+            "type": "IKSolverSettings_t",
+            "writable": false
+        },
+        {
+            "name": "TargetSettings",
+            "type": "IKTargetSettings_t",
+            "writable": false
+        },
+        {
+            "name": "DebugSetting",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DebugNormalizedValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DebugOffset",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

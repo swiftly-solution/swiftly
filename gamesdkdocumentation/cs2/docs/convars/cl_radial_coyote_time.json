@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_radial_coyote_time","description":"Selection lenience: How long in seconds the last selected radial segment is used if no segment is selected.","args":"0.15","flags":["developmentonly","clientdll"],"games":["cs2"]}

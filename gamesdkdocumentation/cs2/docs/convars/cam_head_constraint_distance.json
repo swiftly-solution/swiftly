@@ -1,0 +1,1 @@
+{"kind":"command","name":"cam_head_constraint_distance","description":"Distance to constrain first/thirdperson camera and head","args":"12","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

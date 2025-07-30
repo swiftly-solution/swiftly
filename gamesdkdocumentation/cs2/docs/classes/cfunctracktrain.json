@@ -1,0 +1,218 @@
+{
+    "kind": "class",
+    "name": "CFuncTrackTrain",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncTrackTrain"
+    },
+    "properties": [
+        {
+            "name": "Ppath",
+            "type": "CPathTrack",
+            "writable": false
+        },
+        {
+            "name": "Length",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PosPrev",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Prev",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "ControlMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ControlMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastBlockPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastBlockTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Volume",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Bank",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OldSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BlockDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Height",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Dir",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoundMove",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundMovePing",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundStart",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundStop",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrPathTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MoveSoundMinDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MoveSoundMaxDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextMoveSoundTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MoveSoundMinPitch",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MoveSoundMaxPitch",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OrientationType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "VelocityType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OnStart",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnNext",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnArrivedAtDestinationNode",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "ManualSpeedChanges",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DesiredSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpeedChangeTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AccelSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DecelSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AccelToSpeed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NextMPSoundTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

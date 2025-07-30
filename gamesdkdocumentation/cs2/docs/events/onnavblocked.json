@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnNavBlocked","description":"This event is triggered when nav_blocked is triggered.","arguments":{"area":"int32","blocked":"bool"},"return":"void","games":["cs2"]}

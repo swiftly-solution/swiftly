@@ -1,0 +1,1 @@
+{"kind":"command","name":"debug_purchase_defidx","description":"Purchase an item by defindex","args":"","flags":["clientdll","release","clientcmd_can_execute"],"games":["cs2"]}

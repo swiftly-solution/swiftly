@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_barnlight_shadowmap_scale","description":"Scale for computed barnlight shadowmap size","args":"1","flags":["release"],"games":["cs2"]}

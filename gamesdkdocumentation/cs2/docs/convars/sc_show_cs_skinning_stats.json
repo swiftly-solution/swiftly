@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_show_cs_skinning_stats","description":"SceneSystem/Compute Skinning Stats","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

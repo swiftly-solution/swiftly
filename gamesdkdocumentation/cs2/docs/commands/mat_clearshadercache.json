@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_clearshadercache","description":"Clears the shader cache used for dynamic shader compile.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

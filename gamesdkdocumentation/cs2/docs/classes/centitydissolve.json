@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CEntityDissolve",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEntityDissolve"
+    },
+    "properties": [
+        {
+            "name": "FadeInStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeInLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeOutModelStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeOutModelLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeOutStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeOutLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DissolveType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DissolverOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Magnitude",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

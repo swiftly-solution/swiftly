@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_picker","description":"Toggles 'picker' mode.  When picker is on, the bounding box, pivot and debugging text is displayed for whatever entity the player is looking at.","args":"\tfull - enables all debug information","flags":["gamedll","cheat"],"games":["cs2"]}

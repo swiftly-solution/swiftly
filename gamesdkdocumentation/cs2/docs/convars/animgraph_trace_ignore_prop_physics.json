@@ -1,0 +1,1 @@
+{"kind":"command","name":"animgraph_trace_ignore_prop_physics","description":"<no description>","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

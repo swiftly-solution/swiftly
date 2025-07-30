@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_impacts_decal_grazing_incidence_cutoff","description":"<no description>","args":"0.55","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

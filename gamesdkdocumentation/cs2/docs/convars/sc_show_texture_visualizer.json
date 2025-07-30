@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_show_texture_visualizer","description":"SceneSystem/Texture Visualizer","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

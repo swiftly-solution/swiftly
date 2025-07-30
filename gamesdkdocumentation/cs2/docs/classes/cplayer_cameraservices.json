@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CPlayer_CameraServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPlayer_CameraServices"
+    },
+    "properties": [
+        {
+            "name": "CsViewPunchAngle",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "CsViewPunchAngleTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CsViewPunchAngleTickRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PlayerFog",
+            "type": "fogplayerparams_t",
+            "writable": false
+        },
+        {
+            "name": "ColorCorrectionCtrl",
+            "type": "CColorCorrection",
+            "writable": false
+        },
+        {
+            "name": "ViewEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "TonemapController",
+            "type": "CTonemapController2",
+            "writable": false
+        },
+        {
+            "name": "Audio",
+            "type": "audioparams_t",
+            "writable": false
+        },
+        {
+            "name": "OldPlayerZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OldPlayerViewOffsetZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayerPawnComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

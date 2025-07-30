@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CCSPlayer_RadioServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayer_RadioServices"
+    },
+    "properties": [
+        {
+            "name": "GotHostageTalkTimer",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefusingTalkTimer",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "C4PlantTalkTimer",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RadioTokenSlots",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "IgnoreRadio",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayerPawnComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

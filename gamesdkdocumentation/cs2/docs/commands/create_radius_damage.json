@@ -1,0 +1,1 @@
+{"kind":"command","name":"create_radius_damage","description":"Causes radius damage where you're looking, at the passed in radius.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

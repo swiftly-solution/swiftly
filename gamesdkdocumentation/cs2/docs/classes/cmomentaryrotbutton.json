@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CMomentaryRotButton",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMomentaryRotButton"
+    },
+    "properties": [
+        {
+            "name": "OnUnpressed",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFullyOpen",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFullyClosed",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnReachedPosition",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "LastUsed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Start",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "End",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "IdealYaw",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Noise",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "UpdateTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Direction",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ReturnSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartPosition",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CRotButton",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

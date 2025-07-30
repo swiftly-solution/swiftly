@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CInfoSpawnGroupLoadUnload",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CInfoSpawnGroupLoadUnload"
+    },
+    "properties": [
+        {
+            "name": "OnSpawnGroupLoadStarted",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnSpawnGroupLoadFinished",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnSpawnGroupUnloadStarted",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnSpawnGroupUnloadFinished",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "SpawnGroupName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SpawnGroupFilterName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LandmarkName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "FixedSpawnGroupName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TimeoutInterval",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AutoActivate",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UnloadingStarted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "QueueActiveSpawnGroupChange",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "QueueFinishLoading",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

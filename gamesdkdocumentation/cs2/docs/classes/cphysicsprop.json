@@ -1,0 +1,218 @@
+{
+    "kind": "class",
+    "name": "CPhysicsProp",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysicsProp"
+    },
+    "properties": [
+        {
+            "name": "MotionEnabled",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnAwakened",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnAwake",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnAsleep",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPlayerUse",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnOutOfWorld",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPlayerPickup",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "ForceNavIgnore",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoNavmeshBlocker",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForceNpcExclude",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MassScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BuoyancyScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DamageType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DamageToEnableMotion",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ForceToEnableMotion",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ThrownByPlayer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DroppedByPlayer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TouchedByPlayer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FirstCollisionAfterLaunch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasBeenAwakened",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsOverrideProp",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DynamicContinuousContactBehavior",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "NextCheckDisableMotionContactsTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InitialGlowState",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowRange",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowRangeMin",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "ShouldAutoConvertBackFromDebris",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MuteImpactEffects",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AcceptDamageFromHeldObjects",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableUseOutput",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CrateType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StrItemClass",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "ItemCount",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "RemovableForAmmoBalancing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Awake",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AttachedToReferenceFrame",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBreakableProp",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CSeqIKLock",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSeqIKLock"
+    },
+    "properties": [
+        {
+            "name": "PosWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngleWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LocalBone",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "BonesOrientedAlongPositiveX",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

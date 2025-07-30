@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_steamauth_enforce","description":"By default, player must maintain a reliable connection to Steam servers. When player Steam session drops, enforce it: 2 = instantly kick, 1 = kick at next spawn, 0 = do not kick.","args":"2","flags":["release"],"games":["cs2"]}

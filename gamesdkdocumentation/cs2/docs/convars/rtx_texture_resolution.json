@@ -1,0 +1,1 @@
+{"kind":"command","name":"rtx_texture_resolution","description":"Sets the texture resolution the raytracer will mark to stream in","args":"512","flags":["min:","64,","max:","2048,","developmentonly","defensive"],"games":["cs2"]}

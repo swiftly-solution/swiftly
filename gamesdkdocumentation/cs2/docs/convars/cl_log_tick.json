@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_log_tick","description":"Log when a tick is received","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

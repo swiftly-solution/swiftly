@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_slopescaledepthbias_shadowmap","description":"<no description>","args":"4","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

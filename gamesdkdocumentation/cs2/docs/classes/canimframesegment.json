@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CAnimFrameSegment",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimFrameSegment"
+    },
+    "properties": [
+        {
+            "name": "UniqueFrameIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LocalElementMasks",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LocalChannel",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

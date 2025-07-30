@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CCS_PortraitWorldCallbackHandler",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCS_PortraitWorldCallbackHandler"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "C_BaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

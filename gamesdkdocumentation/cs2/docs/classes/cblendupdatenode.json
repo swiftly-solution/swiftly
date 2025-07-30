@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CBlendUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBlendUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "SortedOrder",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "TargetValues",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "BlendValueSource",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LinearRootMotionBlendMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ParamIndex",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "Damping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "BlendKeyType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LockBlendOnReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SyncCycles",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Loop",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LockWhenWaning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsAngle",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimUpdateNodeBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

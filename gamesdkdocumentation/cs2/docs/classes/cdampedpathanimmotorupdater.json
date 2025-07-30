@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CDampedPathAnimMotorUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDampedPathAnimMotorUpdater"
+    },
+    "properties": [
+        {
+            "name": "AnticipationTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinSpeedScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnticipationPosParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "AnticipationHeadingParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "SpringConstant",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinSpringTension",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxSpringTension",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPathAnimMotorUpdaterBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

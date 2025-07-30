@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"contributors","type":"fixed64"}],"name":"CWorkshop_GetContributors_Response","games":["cs2"]}

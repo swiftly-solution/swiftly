@@ -1,0 +1,1 @@
+{"kind":"command","name":"skeleton_instance_scaleset_enable","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

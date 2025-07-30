@@ -1,0 +1,1 @@
+{"kind":"type","name":"ChoreoLookAtSpeed_t","description":"Automatically generated game type from enum ChoreoLookAtSpeed_t","values":{"eInvalid":-1,"eSlow":0,"eMedium":1,"eFast":2},"games":["cs2"]}

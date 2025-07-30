@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CNmRootMotionData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmRootMotionData"
+    },
+    "properties": [
+        {
+            "name": "NumFrames",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AverageLinearVelocity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AverageAngularVelocityRadians",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

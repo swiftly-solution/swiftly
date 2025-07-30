@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CTimeline",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTimeline"
+    },
+    "properties": [
+        {
+            "name": "Values",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "ValueCounts",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "BucketCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Interval",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FinalValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CompressionType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Stopped",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "IntervalTimer",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

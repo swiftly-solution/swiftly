@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CBaseIssue",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseIssue"
+    },
+    "properties": [
+        {
+            "name": "TypeString",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DetailsString",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NumYesVotes",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumNoVotes",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumPotentialVotes",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

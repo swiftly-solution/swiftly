@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CEnvWindVolume",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvWindVolume"
+    },
+    "properties": [
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BoxMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BoxMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Shape",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "WindSpeedMultiplier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WindTurbulenceMultiplier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WindSpeedVariationMultiplier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WindDirectionVariationMultiplier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

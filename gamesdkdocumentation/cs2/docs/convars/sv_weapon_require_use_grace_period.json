@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_weapon_require_use_grace_period","description":"<no description>","args":"1","flags":["gamedll","release"],"games":["cs2"]}

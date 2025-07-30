@@ -1,0 +1,1 @@
+{"kind":"command","name":"kickid_hltv","description":"Kick a player by userid or uniqueid, with a message.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

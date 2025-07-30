@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_cmaa_quality","description":"0=low, 1=medium, 2=high, 3=ultra","args":"3","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"videocfg_shadow_quality","description":"<no description>","args":"1","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_plant_c4_anywhere","description":"<no description>","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

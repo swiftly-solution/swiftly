@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "TagSpan_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "TagSpan_t"
+    },
+    "properties": [
+        {
+            "name": "TagIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StartCycle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EndCycle",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "ParticleChildrenInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ParticleChildrenInfo_t"
+    },
+    "properties": [
+        {
+            "name": "Delay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EndCap",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisableChild",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DetailLevel",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

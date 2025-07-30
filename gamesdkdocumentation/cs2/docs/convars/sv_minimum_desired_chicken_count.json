@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_minimum_desired_chicken_count","description":"Minimum number of chickens to attempt to spawn in the map","args":"0","flags":["gamedll","replicated","release"],"games":["cs2"]}

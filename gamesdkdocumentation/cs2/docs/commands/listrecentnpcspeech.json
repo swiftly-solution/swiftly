@@ -1,0 +1,1 @@
+{"kind":"command","name":"listRecentNPCSpeech","description":"Displays a list of the last 5 lines of speech from NPCs.","args":"","flags":["developmentonly","gamedll","dontrecord","defensive"],"games":["cs2"]}

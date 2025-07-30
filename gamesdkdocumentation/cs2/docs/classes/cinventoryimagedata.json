@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CInventoryImageData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CInventoryImageData"
+    },
+    "properties": [
+        {
+            "name": "NodeType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Inventory_image_data",
+            "type": "inv_image_data_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

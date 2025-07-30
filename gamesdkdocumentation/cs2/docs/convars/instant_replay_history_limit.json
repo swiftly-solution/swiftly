@@ -1,0 +1,1 @@
+{"kind":"command","name":"instant_replay_history_limit","description":"Maximum amount of minutes to save history (0 is unlimited).","args":"120","flags":["developmentonly","defensive"],"games":["cs2"]}

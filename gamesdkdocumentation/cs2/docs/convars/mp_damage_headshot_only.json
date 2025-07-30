@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_damage_headshot_only","description":"Determines whether non-headshot hits do any damage.","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

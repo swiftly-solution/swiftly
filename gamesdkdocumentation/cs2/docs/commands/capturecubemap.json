@@ -1,0 +1,1 @@
+{"kind":"command","name":"capturecubemap","description":"Capture Cubemap","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

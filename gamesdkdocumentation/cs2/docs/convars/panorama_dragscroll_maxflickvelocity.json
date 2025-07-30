@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_dragscroll_maxflickvelocity","description":"Maximum velocity for a drag scroll flick","args":"8000","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

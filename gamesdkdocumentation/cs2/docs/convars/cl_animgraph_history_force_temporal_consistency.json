@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_animgraph_history_force_temporal_consistency","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

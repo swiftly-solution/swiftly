@@ -1,0 +1,1 @@
+{"kind":"command","name":"animgraph_set_parameter_string","description":"Specified entities will have the specified bool parameter set to the value specified.  Useful for animators to test.","args":" <entity> <parameter name> <value you want to send to animgraph for the entity>","flags":["gamedll","cheat"],"games":["cs2"]}

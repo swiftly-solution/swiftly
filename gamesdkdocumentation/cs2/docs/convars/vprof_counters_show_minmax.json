@@ -1,0 +1,1 @@
+{"kind":"command","name":"vprof_counters_show_minmax","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

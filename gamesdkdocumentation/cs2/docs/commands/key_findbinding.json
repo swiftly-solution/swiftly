@@ -1,0 +1,1 @@
+{"kind":"command","name":"key_findbinding","description":"Find key bound to specified command string.","args":"","flags":["release"],"games":["cs2"]}

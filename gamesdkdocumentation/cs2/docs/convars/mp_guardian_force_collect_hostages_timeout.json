@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_guardian_force_collect_hostages_timeout","description":"Force bots to collect hostages after this amount of time if no enemy has been seen.","args":"50","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

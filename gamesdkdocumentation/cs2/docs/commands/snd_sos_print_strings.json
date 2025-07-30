@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_print_strings","description":"Prints a list of currently cached strings","args":"","flags":["cheat"],"games":["cs2"]}

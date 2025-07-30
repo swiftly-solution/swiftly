@@ -1,0 +1,148 @@
+{
+    "kind": "class",
+    "name": "CBasePlayerPawn",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBasePlayerPawn"
+    },
+    "properties": [
+        {
+            "name": "WeaponServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "ItemServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "AutoaimServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "ObserverServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "WaterServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "UseServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "FlashlightServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "CameraServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "MovementServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "_angle",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "_anglePrevious",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "HideHUD",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Skybox3d",
+            "type": "sky3dparams_t",
+            "writable": false
+        },
+        {
+            "name": "TimeLastHurt",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DeathTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextSuicideTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InitHUD",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Expresser",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Controller",
+            "type": "CBasePlayerController",
+            "writable": false
+        },
+        {
+            "name": "DefaultController",
+            "type": "CBasePlayerController",
+            "writable": false
+        },
+        {
+            "name": "HltvReplayDelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HltvReplayEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HltvReplayEntity",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseCombatCharacter",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

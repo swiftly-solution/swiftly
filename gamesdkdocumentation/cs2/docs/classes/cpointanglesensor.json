@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CPointAngleSensor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointAngleSensor"
+    },
+    "properties": [
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LookAtName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TargetEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "LookAtEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DotTolerance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FacingTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Fired",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnFacingLookat",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnNotFacingLookat",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

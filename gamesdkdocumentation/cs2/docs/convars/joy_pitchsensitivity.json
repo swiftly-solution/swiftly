@@ -1,0 +1,1 @@
+{"kind":"command","name":"joy_pitchsensitivity","description":"<no description>","args":"1","flags":["clientdll","archive","per_user"],"games":["cs2"]}

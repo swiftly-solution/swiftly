@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CEnvParticleGlow",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvParticleGlow"
+    },
+    "properties": [
+        {
+            "name": "AlphaScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RadiusScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SelfIllumScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ColorTint",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CParticleSystem",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

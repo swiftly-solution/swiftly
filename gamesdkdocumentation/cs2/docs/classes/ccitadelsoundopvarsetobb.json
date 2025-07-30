@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CCitadelSoundOpvarSetOBB",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCitadelSoundOpvarSetOBB"
+    },
+    "properties": [
+        {
+            "name": "StackName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OperatorName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OpvarName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DistanceInnerMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DistanceInnerMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DistanceOuterMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DistanceOuterMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AABBDirection",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

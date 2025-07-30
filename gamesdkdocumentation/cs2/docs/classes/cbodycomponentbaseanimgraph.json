@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CBodyComponentBaseAnimGraph",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBodyComponentBaseAnimGraph"
+    },
+    "properties": [
+        {
+            "name": "AnimationController",
+            "type": "CBaseAnimGraphController",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBodyComponentSkeletonInstance",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

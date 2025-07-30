@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_gravity","description":"World gravity.","args":"800","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

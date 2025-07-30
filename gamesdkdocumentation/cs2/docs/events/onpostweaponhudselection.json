@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostWeaponhudSelection","description":"This event is triggered after weaponhud_selection is triggered.","arguments":{"userid":"int32","mode":"int32","entindex":"int32"},"return":"void","games":["cs2"]}

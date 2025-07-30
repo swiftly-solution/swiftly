@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_visualize_traces","description":"<no description>","args":"false","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

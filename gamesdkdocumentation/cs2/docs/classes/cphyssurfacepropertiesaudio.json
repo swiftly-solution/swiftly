@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CPhysSurfacePropertiesAudio",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysSurfacePropertiesAudio"
+    },
+    "properties": [
+        {
+            "name": "Reflectivity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HardnessFactor",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RoughnessFactor",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RoughThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HardThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HardVelocityThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StaticImpactVolume",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OcclusionFactor",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_dispatch_event","description":"Dispatch the event defined by the argument string. No creating panel is specified.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostWriteGameTitledata","description":"This event is triggered after write_game_titledata is triggered.","arguments":{"controllerId":"int32"},"return":"void","games":["cs2"]}

@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CNmTargetWarpEvent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmTargetWarpEvent"
+    },
+    "properties": [
+        {
+            "name": "Rule",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Algorithm",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CNmEvent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

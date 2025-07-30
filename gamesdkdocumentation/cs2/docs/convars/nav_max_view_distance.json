@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_max_view_distance","description":"Maximum range for precomputed nav mesh visibility (0 = default 1500 units)","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CTextureBasedAnimatable",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTextureBasedAnimatable"
+    },
+    "properties": [
+        {
+            "name": "Loop",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FPS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnimationBoundsMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AnimationBoundsMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartFrame",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CPhysHingeAlias_phys_hinge_local",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysHingeAlias_phys_hinge_local"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CPhysHinge",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "ConstraintSoundInfo",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ConstraintSoundInfo"
+    },
+    "properties": [
+        {
+            "name": "Sampler",
+            "type": "VelocitySampler",
+            "writable": false
+        },
+        {
+            "name": "SoundProfile",
+            "type": "SimpleConstraintSoundProfile",
+            "writable": false
+        },
+        {
+            "name": "ForwardAxis",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TravelSoundFwd",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TravelSoundBack",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ReversalSounds",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "PlayTravelSound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PlayReversalSound",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"confirm_join_party_session_exit_current","description":"Confirm that we wish to join a party session, destroying a previous session","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

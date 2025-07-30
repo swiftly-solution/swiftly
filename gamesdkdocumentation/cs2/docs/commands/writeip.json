@@ -1,0 +1,1 @@
+{"kind":"command","name":"writeip","description":"Save the ban list to file.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

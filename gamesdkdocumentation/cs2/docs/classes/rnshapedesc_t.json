@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "RnShapeDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "RnShapeDesc_t"
+    },
+    "properties": [
+        {
+            "name": "CollisionAttributeIndex",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SurfacePropertyIndex",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "UserFriendlyName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "UserFriendlyNameSealed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UserFriendlyNameLong",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ToolMaterialHash",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

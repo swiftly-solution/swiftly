@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_pushaway_max_hostage_force","description":"Maximum of how hard the hostage is pushed away from physics objects.","args":"1000","flags":["gamedll","replicated","cheat"],"games":["cs2"]}

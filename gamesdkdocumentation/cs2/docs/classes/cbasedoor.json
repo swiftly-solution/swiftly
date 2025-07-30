@@ -1,0 +1,173 @@
+{
+    "kind": "class",
+    "name": "CBaseDoor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseDoor"
+    },
+    "properties": [
+        {
+            "name": "MoveEntitySpace",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "MoveDirParentSpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Ls",
+            "type": "locksound_t",
+            "writable": false
+        },
+        {
+            "name": "ForceClosed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DoorGroup",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Locked",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IgnoreDebris",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoNPCs",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SpawnPosition",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BlockDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseMoving",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NoiseArrived",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NoiseMovingClosed",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NoiseArrivedClosed",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ChainTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OnBlockedClosing",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnBlockedOpening",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnUnblockedClosing",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnUnblockedOpening",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFullyClosed",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFullyOpen",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnClose",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnOpen",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnLockedUse",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "LoopMoveSound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CreateNavObstacle",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsChaining",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsUsable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseToggle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

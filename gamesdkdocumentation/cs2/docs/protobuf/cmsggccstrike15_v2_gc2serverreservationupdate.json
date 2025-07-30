@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"viewersExternalTotal","type":"uint32"},{"name":"viewersExternalSteam","type":"uint32"}],"name":"CMsgGCCStrike15_v2_GC2ServerReservationUpdate","games":["cs2"]}

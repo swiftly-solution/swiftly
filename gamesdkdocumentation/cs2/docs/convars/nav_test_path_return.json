@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_test_path_return","description":"Calculate a return path from cursor position to the path calculated by nav_test_path.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

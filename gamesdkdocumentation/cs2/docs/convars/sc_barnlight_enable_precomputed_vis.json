@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_barnlight_enable_precomputed_vis","description":"Enable use of precomputed vis membership for lights (requires map restart)","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

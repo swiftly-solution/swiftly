@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_drawhud_specvote","description":"1: default; 0: disables vote UI for spectators","args":"true","flags":["clientdll","release"],"games":["cs2"]}

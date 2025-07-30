@@ -1,0 +1,1 @@
+{"kind":"command","name":"animgraph_footlock_auto_stair_detection","description":"Attempt to detect when the foot is on a stair and will stop it from tilting to reach the next step","args":"true","flags":["developmentonly","replicated","defensive"],"games":["cs2"]}

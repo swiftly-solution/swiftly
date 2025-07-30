@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_cache_renderablepasses","description":"<no description>","args":"true","flags":["developmentonly"],"games":["cs2"]}

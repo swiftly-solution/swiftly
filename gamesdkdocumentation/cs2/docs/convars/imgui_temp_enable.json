@@ -1,0 +1,1 @@
+{"kind":"command","name":"imgui_temp_enable","description":"if imgui should display temporarily","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

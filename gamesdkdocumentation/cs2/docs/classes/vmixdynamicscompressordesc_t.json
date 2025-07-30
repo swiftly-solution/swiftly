@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "VMixDynamicsCompressorDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixDynamicsCompressorDesc_t"
+    },
+    "properties": [
+        {
+            "name": "FldbOutputGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbCompressionThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbKneeWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CompressionRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AttackTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ReleaseTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RMSTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WetMix",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PeakMode",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

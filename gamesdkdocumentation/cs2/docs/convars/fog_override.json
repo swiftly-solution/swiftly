@@ -1,0 +1,1 @@
+{"kind":"command","name":"fog_override","description":"Overrides the map's fog settings (-1 populates fog_ vars with map's values)","args":"0","flags":["clientdll","cheat"],"games":["cs2"]}

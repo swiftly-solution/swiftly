@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_td_dmgtokick","description":"The damage threshhold players have to exceed in a match to get kicked.","args":"300","flags":["gamedll","replicated","release"],"games":["cs2"]}

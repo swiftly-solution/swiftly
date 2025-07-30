@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_length_frequency","description":"Spring stiffness for length constraint","args":"5","flags":["gamedll","cheat"],"games":["cs2"]}

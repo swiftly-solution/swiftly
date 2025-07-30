@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_disable_add_layers","description":"Disable SST runtime layers, for debugging (will exclude geo that CAN render into SST if SST otherwise enabled)","args":"false","flags":["developmentonly"],"games":["cs2"]}

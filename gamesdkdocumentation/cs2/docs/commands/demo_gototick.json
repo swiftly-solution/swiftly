@@ -1,0 +1,1 @@
+{"kind":"command","name":"demo_gototick","description":"Skips to a tick in demo.","args":"","flags":["release"],"games":["cs2"]}

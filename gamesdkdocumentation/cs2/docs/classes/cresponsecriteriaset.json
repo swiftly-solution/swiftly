@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CResponseCriteriaSet",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CResponseCriteriaSet"
+    },
+    "properties": [
+        {
+            "name": "NumPrefixedContexts",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OverrideOnAppend",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

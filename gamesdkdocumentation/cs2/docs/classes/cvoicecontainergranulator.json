@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CVoiceContainerGranulator",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVoiceContainerGranulator"
+    },
+    "properties": [
+        {
+            "name": "GrainLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GrainCrossfadeAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartJitter",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PlaybackJitter",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShouldWraparound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CVoiceContainerBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

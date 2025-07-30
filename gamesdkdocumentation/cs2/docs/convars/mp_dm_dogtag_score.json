@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_dm_dogtag_score","description":"Points to award for picking up a dogtag in deathmatch.","args":"0","flags":["min:","0,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

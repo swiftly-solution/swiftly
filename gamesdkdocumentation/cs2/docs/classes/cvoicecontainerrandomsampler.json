@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CVoiceContainerRandomSampler",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVoiceContainerRandomSampler"
+    },
+    "properties": [
+        {
+            "name": "Amplitude",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AmplitudeJitter",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeJitter",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NumDelayVariations",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CVoiceContainerBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

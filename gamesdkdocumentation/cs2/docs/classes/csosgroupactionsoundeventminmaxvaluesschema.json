@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CSosGroupActionSoundeventMinMaxValuesSchema",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSosGroupActionSoundeventMinMaxValuesSchema"
+    },
+    "properties": [
+        {
+            "name": "StrQueryPublicFieldName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrDelayPublicFieldName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ExcludeStoppedSounds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ExcludeDelayedSounds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ExcludeSoundsBelowThreshold",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ExcludeSoundsMinThresholdValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExcludSoundsAboveThreshold",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ExcludeSoundsMaxThresholdValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StrMinValueName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrMaxValueName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSosGroupActionSchema",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

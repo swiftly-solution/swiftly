@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "RenderHairStrandInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "RenderHairStrandInfo_t"
+    },
+    "properties": [
+        {
+            "name": "GuideHairIndices_nSurfaceTriIndex",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "GuideBary_vBaseBary",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "RootOffset_flLengthScale",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "PackedBaseUv",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "PackedSurfaceNormalOs",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PackedSurfaceTangentOs",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DataOffset_Segments",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

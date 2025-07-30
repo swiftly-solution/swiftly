@@ -1,0 +1,148 @@
+{
+    "kind": "class",
+    "name": "CFuncShatterglass",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncShatterglass"
+    },
+    "properties": [
+        {
+            "name": "ShatterGlassShards",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "PanelSize",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "LastShatterSoundEmitTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastCleanupTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InitAtTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GlassThickness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpawnInvulnerability",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakSilent",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BreakShardless",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Broken",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GlassNavIgnore",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GlassInFrame",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartBroken",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InitialDamageType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "DamagePositioningEntityName01",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DamagePositioningEntityName02",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DamagePositioningEntityName03",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DamagePositioningEntityName04",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "InitialDamagePositions",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "ExtraDamagePositions",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "InitialPanelVertices",
+            "type": "Vector2D[]",
+            "writable": true
+        },
+        {
+            "name": "OnBroken",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "SurfaceType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

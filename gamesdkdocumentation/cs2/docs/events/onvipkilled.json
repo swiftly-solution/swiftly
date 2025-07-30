@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnVipKilled","description":"This event is triggered when vip_killed is triggered.","arguments":{"userid":"int32","attacker":"int32"},"return":"void","games":["cs2"]}

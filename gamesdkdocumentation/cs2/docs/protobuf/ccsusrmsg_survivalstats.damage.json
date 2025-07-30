@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"xuid","type":"uint64"},{"name":"to","type":"int32"},{"name":"toHits","type":"int32"},{"name":"from","type":"int32"},{"name":"fromHits","type":"int32"}],"name":"CCSUsrMsg_SurvivalStats.Damage","games":["cs2"]}

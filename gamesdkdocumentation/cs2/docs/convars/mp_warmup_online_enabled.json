@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_warmup_online_enabled","description":"Whether or not to do a warmup period at the start of an online match.","args":"true","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

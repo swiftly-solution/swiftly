@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_animgraph_setvar","description":"Sets a variable on the animgraph of the given entity(s)","args":"   <varname>=<value>\t<{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}>","flags":["gamedll","cheat"],"games":["cs2"]}

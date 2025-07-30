@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CPropDataComponent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPropDataComponent"
+    },
+    "properties": [
+        {
+            "name": "DmgModBullet",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DmgModClub",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DmgModExplosive",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DmgModFire",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PhysicsDamageTableName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BasePropData",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Interactions",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpawnMotionDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisableTakePhysicsDamageSpawnFlag",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MotionDisabledSpawnFlag",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CEntityComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

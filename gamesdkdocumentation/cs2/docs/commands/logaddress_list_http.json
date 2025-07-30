@@ -1,0 +1,1 @@
+{"kind":"command","name":"logaddress_list_http","description":"List all URIs currently receiving server logs","args":"","flags":["gamedll","unlogged","release"],"games":["cs2"]}

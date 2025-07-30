@@ -1,0 +1,1 @@
+{"kind":"command","name":"hud_scaling","description":"Scales hud elements","args":"1","flags":["min:","0.9,","max:","1.1,","clientdll","archive"],"games":["cs2"]}

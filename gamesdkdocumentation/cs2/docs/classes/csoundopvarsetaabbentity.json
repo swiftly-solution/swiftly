@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CSoundOpvarSetAABBEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundOpvarSetAABBEntity"
+    },
+    "properties": [
+        {
+            "name": "DistanceInnerMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DistanceInnerMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DistanceOuterMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DistanceOuterMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AABBDirection",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InnerMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "InnerMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OuterMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OuterMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSoundOpvarSetPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

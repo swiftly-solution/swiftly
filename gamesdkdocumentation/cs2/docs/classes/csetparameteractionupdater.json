@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CSetParameterActionUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSetParameterActionUpdater"
+    },
+    "properties": [
+        {
+            "name": "Param",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimActionUpdater",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

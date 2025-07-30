@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_actornames","description":"Displays the entity name for all entities that have ShouldDisplayInActorNames true in code","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

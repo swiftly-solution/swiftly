@@ -1,0 +1,128 @@
+{
+    "kind": "class",
+    "name": "CFootLockUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFootLockUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "OpFixedSettings",
+            "type": "FootLockPoseOpFixedSettings",
+            "writable": false
+        },
+        {
+            "name": "HipShiftDamping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "RootHeightDamping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "StrideCurveScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StrideCurveLimitScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StepHeightIncreaseScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StepHeightDecreaseScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HipShiftScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BlendTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxRootHeightOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinRootHeightOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TiltPlanePitchSpringStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TiltPlaneRollSpringStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ApplyFootRotationLimits",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ApplyHipShift",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ModulateStepHeight",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ResetChild",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableVerticalCurvedPaths",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableRootHeightDamping",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

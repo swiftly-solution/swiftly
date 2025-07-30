@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CShatterGlassShardPhysics",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CShatterGlassShardPhysics"
+    },
+    "properties": [
+        {
+            "name": "Debris",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ParentShard",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ShardDesc",
+            "type": "shard_model_desc_t",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPhysicsProp",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

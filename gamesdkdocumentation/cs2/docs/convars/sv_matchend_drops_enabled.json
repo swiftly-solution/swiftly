@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_matchend_drops_enabled","description":"Rewards gameplay time is always accumulated for players, but drops at the end of the match can be prevented","args":"true","flags":["gamedll","release"],"games":["cs2"]}

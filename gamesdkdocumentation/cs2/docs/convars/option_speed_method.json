@@ -1,0 +1,1 @@
+{"kind":"command","name":"option_speed_method","description":"Input toggle control","args":"false","flags":["clientdll","archive","userinfo","per_user"],"games":["cs2"]}

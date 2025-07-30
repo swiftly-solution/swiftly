@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CBaseFilter",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseFilter"
+    },
+    "properties": [
+        {
+            "name": "Negated",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnPass",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnFail",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

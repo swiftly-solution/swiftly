@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_enable_gradient_fog","description":"<no description>","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

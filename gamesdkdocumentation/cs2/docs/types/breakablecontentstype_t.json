@@ -1,0 +1,1 @@
+{"kind":"type","name":"BreakableContentsType_t","description":"Automatically generated game type from enum BreakableContentsType_t","values":{"BC_DEFAULT":0,"BC_EMPTY":1,"BC_PROP_GROUP_OVERRIDE":2,"BC_PARTICLE_SYSTEM_OVERRIDE":3},"games":["cs2"]}

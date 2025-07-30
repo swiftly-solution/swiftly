@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CRagdollManager",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRagdollManager"
+    },
+    "properties": [
+        {
+            "name": "CurrentMaxRagdollCount",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "MaxRagdollCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SaveImportant",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CanTakeDamage",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

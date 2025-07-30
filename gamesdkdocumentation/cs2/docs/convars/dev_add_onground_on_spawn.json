@@ -1,0 +1,1 @@
+{"kind":"command","name":"dev_add_onground_on_spawn","description":"Should we mess with the ground flag when we spawn? (I don't think we should). If we don't hit the assert in CCSPlayer_MovementServices::ProcessMovement, we should remove this by Dec 2022.","args":"false","flags":["gamedll","release"],"games":["cs2"]}

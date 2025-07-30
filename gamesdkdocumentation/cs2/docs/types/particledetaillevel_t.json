@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleDetailLevel_t","description":"Automatically generated game type from enum ParticleDetailLevel_t","values":{"PARTICLEDETAIL_LOW":0,"PARTICLEDETAIL_MEDIUM":1,"PARTICLEDETAIL_HIGH":2,"PARTICLEDETAIL_ULTRA":3},"games":["cs2"]}

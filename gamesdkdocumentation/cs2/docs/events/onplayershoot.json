@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPlayerShoot","description":"This event is triggered when player_shoot is triggered.","arguments":{"userid":"int32","weapon":"int32","mode":"int32"},"return":"void","games":["cs2"]}

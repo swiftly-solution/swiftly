@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CTriggerLerpObject",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerLerpObject"
+    },
+    "properties": [
+        {
+            "name": "LerpTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LerpTarget1",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "LerpTargetAttachment",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LerpDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LerpRestoreMoveType",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SingleLerpObject",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LerpEffect",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LerpSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachTouchingObject",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EntityToWaitForDisconnect",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "OnLerpStarted",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnLerpFinished",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

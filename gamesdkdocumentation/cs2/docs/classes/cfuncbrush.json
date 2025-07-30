@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CFuncBrush",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncBrush"
+    },
+    "properties": [
+        {
+            "name": "Solidity",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Disabled",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SolidBsp",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ExcludedClass",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "InvertExclusion",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ScriptedMovement",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

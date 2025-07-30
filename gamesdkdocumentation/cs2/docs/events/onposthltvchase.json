@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostHltvChase","description":"This event is triggered after hltv_chase is triggered.","arguments":{"target1":"int32","target2":"int32","distance":"int32","theta":"int32","phi":"int32","inertia":"int32","ineye":"int32"},"return":"void","games":["cs2"]}

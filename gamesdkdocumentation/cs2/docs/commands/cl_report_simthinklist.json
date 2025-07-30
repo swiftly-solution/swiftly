@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_report_simthinklist","description":"Lists all simulating/thinking entities","args":"","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"entity","type":"int32","default":-1},{"name":"density","type":"uint32"},{"name":"current","type":"int32"}],"name":"CMsgTEFizz","games":["cs2"]}

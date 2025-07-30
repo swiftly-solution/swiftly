@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_broadcast_resend","description":"resend broadcast data to broadcast relay","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

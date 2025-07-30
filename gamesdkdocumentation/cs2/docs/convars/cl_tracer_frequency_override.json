@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_tracer_frequency_override","description":"Override tracer frequency (-1 to disable)","args":"1","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,0 +1,258 @@
+{
+    "kind": "class",
+    "name": "CParticleFloatInput",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleFloatInput"
+    },
+    "properties": [
+        {
+            "name": "Type",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MapType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LiteralValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ScalarAttribute",
+            "type": "ParticleAttributeIndex_t",
+            "writable": false
+        },
+        {
+            "name": "VectorAttribute",
+            "type": "ParticleAttributeIndex_t",
+            "writable": false
+        },
+        {
+            "name": "VectorComponent",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RandomMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RandomMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HasRandomSignFlip",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RandomSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RandomMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LOD0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LOD1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LOD2",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LOD3",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseInputVectorAttribute",
+            "type": "ParticleAttributeIndex_t",
+            "writable": false
+        },
+        {
+            "name": "NoiseOutputMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseOutputMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseOffsetRate",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "NoiseOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseOctaves",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NoiseTurbulence",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NoiseType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NoiseModifier",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NoiseTurbulenceScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseTurbulenceMix",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseImgPreviewScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseImgPreviewLive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoCameraFallback",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UseBoundsCenter",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InputMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MultFactor",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Input0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Input1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Output0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Output1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotchedRangeMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotchedRangeMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotchedOutputOutside",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotchedOutputInside",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RoundType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BiasType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BiasParameter",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CParticleInput",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CMarkupVolumeTagged",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMarkupVolumeTagged"
+    },
+    "properties": [
+        {
+            "name": "IsGroup",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GroupByPrefab",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GroupByVolume",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GroupOtherGroups",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsInGroup",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CMarkupVolume",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

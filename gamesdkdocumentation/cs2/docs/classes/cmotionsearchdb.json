@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CMotionSearchDB",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMotionSearchDB"
+    },
+    "properties": [
+        {
+            "name": "RootNode",
+            "type": "CMotionSearchNode",
+            "writable": false
+        },
+        {
+            "name": "ResidualQuantizer",
+            "type": "CProductQuantizer",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

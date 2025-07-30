@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostItemPickup","description":"This event is triggered after item_pickup is triggered.","arguments":{"userid":"int32","item":"string","silent":"bool","defindex":"int32"},"return":"void","games":["cs2"]}

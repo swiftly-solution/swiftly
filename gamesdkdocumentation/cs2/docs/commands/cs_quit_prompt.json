@@ -1,0 +1,1 @@
+{"kind":"command","name":"cs_quit_prompt","description":"Quit the game","args":"","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_select_radius","description":"Adds all areas in a radius to the selection set","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

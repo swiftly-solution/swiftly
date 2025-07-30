@@ -1,0 +1,1 @@
+{"kind":"command","name":"listdemo","description":"List demo file contents.","args":"","flags":["release"],"games":["cs2"]}

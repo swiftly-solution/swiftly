@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "ParticleNode_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ParticleNode_t"
+    },
+    "properties": [
+        {
+            "name": "Entity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Index",
+            "type": "ParticleIndex_t",
+            "writable": false
+        },
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GrowthDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GrowthOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "EndcapTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MarkedForDelete",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

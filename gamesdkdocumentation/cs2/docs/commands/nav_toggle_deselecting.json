@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_toggle_deselecting","description":"Start or stop continuously removing from the selected set.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

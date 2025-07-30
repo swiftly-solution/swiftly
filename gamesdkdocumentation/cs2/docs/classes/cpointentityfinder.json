@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CPointEntityFinder",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointEntityFinder"
+    },
+    "properties": [
+        {
+            "name": "Entity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "FilterName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Filter",
+            "type": "CBaseFilter",
+            "writable": false
+        },
+        {
+            "name": "RefName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Reference",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "FindMethod",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OnFoundEntity",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

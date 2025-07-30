@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_crosshair_sniper_width","description":"If >1 sniper scope cross lines gain extra width (1 for single-pixel hairline)","args":"1","flags":["clientdll","archive","per_user"],"games":["cs2"]}

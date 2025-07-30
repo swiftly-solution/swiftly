@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CPhysSlideConstraint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysSlideConstraint"
+    },
+    "properties": [
+        {
+            "name": "AxisEnd",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SlideFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SystemLoadScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InitialOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableLinearConstraint",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableAngularConstraint",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MotorFrequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MotorDampingRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UseEntityPivot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SoundInfo",
+            "type": "ConstraintSoundInfo",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPhysConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

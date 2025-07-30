@@ -1,0 +1,153 @@
+{
+    "kind": "class",
+    "name": "dynpitchvol_base_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "dynpitchvol_base_t"
+    },
+    "properties": [
+        {
+            "name": "Preset",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Pitchrun",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Pitchstart",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Spinup",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Spindown",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Volrun",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Volstart",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Fadein",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Fadeout",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Lfotype",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Lforate",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Lfomodpitch",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Lfomodvol",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Cspinup",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Cspincount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Pitch",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Spinupsav",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Spindownsav",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Pitchfrac",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Vol",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Fadeinsav",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Fadeoutsav",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Volfrac",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Lfofrac",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Lfomult",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

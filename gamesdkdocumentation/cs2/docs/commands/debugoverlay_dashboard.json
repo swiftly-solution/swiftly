@@ -1,0 +1,1 @@
+{"kind":"command","name":"debugoverlay_dashboard","description":"Makes the debug overlay dashboard visible.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

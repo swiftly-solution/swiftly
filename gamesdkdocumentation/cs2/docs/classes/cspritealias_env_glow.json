@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CSpriteAlias_env_glow",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSpriteAlias_env_glow"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CSprite",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

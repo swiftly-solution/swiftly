@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CCSPlayer_ActionTrackingServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayer_ActionTrackingServices"
+    },
+    "properties": [
+        {
+            "name": "LastWeaponBeforeC4AutoSwitch",
+            "type": "CBasePlayerWeapon",
+            "writable": false
+        },
+        {
+            "name": "IsRescuing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WeaponPurchasesThisMatch",
+            "type": "WeaponPurchaseTracker_t",
+            "writable": false
+        },
+        {
+            "name": "WeaponPurchasesThisRound",
+            "type": "WeaponPurchaseTracker_t",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayerPawnComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

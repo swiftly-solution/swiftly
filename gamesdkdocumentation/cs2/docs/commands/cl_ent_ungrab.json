@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ent_ungrab","description":"un-grabs all objects","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

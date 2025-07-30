@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_maxmoney","description":"maximum amount of money allowed in a player's account","args":"16000","flags":["min:","0,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

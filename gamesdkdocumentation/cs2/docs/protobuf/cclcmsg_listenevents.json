@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"eventMask","type":"fixed32"}],"name":"CCLCMsg_ListenEvents","games":["cs2"]}

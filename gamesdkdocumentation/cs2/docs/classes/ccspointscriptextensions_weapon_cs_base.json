@@ -1,0 +1,27 @@
+{
+    "kind": "class",
+    "name": "CCSPointScriptExtensions_weapon_cs_base",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPointScriptExtensions_weapon_cs_base"
+    },
+    "properties": [],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

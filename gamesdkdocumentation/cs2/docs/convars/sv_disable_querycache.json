@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_disable_querycache","description":"debug - disable trace query cache","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

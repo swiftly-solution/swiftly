@@ -1,0 +1,1 @@
+{"kind":"command","name":"gameevents_analyze","description":"compare game events across all mods","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

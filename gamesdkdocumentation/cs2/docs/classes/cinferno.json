@@ -1,0 +1,158 @@
+{
+    "kind": "class",
+    "name": "CInferno",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CInferno"
+    },
+    "properties": [
+        {
+            "name": "FirePositions",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "FireParentPositions",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "FireIsBurning",
+            "type": "bool[]",
+            "writable": true
+        },
+        {
+            "name": "BurnNormal",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "FireCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InfernoType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FireEffectTickBegin",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FireLifetime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InPostEffectTime",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FiresExtinguishCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "WasCreatedInSmoke",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Extent",
+            "type": "Extent",
+            "writable": false
+        },
+        {
+            "name": "DamageTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "DamageRampTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "SplashVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "InitialSplashVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StartPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OriginalSpawnLocation",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ActiveTimer",
+            "type": "IntervalTimer",
+            "writable": false
+        },
+        {
+            "name": "FireSpawnOffset",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxFlames",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpreadCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BookkeepingTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "NextSpreadTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "SourceItemDefIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

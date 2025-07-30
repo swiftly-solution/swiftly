@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ent_clear_debug_overlays","description":"Clears all debug overlays","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

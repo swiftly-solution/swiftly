@@ -1,0 +1,1 @@
+{"kind":"type","name":"SceneOnPlayerDeath_t","description":"Automatically generated game type from enum SceneOnPlayerDeath_t","values":{"SCENE_ONPLAYERDEATH_DO_NOTHING":0,"SCENE_ONPLAYERDEATH_CANCEL":1},"games":["cs2"]}

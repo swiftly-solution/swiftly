@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "VMixPlateverbDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixPlateverbDesc_t"
+    },
+    "properties": [
+        {
+            "name": "Prefilter",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InputDiffusion1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InputDiffusion2",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Decay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Damp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FeedbackDiffusion1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FeedbackDiffusion2",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

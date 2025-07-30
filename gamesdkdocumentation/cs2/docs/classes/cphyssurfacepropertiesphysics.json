@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CPhysSurfacePropertiesPhysics",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysSurfacePropertiesPhysics"
+    },
+    "properties": [
+        {
+            "name": "Friction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Elasticity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Density",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Thickness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoftContactFrequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoftContactDampingRatio",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

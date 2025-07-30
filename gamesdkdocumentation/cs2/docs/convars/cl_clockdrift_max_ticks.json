@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_clockdrift_max_ticks","description":"Maximum number of ticks the clock is allowed to drift before the client snaps its clock to the server's.","args":"3","flags":["min:","0,","hidden","release"],"games":["cs2"]}

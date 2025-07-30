@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CSosGroupActionSoundeventClusterSchema",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSosGroupActionSoundeventClusterSchema"
+    },
+    "properties": [
+        {
+            "name": "MinNearby",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ClusterEpsilon",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShouldPlayOpvar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ShouldPlayClusterChild",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ClusterSizeOpvar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "GroupBoundingBoxMinsOpvar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "GroupBoundingBoxMaxsOpvar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSosGroupActionSchema",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

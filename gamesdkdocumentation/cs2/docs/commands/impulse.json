@@ -1,0 +1,1 @@
+{"kind":"command","name":"impulse","description":"Triggers impulse command","args":"","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CTurnHelperUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTurnHelperUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "FacingTarget",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TurnStartTimeOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TurnDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MatchChildDuration",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ManualTurnOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UseManualTurnOffset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

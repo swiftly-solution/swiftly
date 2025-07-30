@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CFootMotion",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFootMotion"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Additive",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

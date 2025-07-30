@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CPhysSurfaceProperties",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysSurfaceProperties"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NameHash",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BaseNameHash",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Hidden",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Description",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Physics",
+            "type": "CPhysSurfacePropertiesPhysics",
+            "writable": false
+        },
+        {
+            "name": "VehicleParams",
+            "type": "CPhysSurfacePropertiesVehicle",
+            "writable": false
+        },
+        {
+            "name": "AudioSounds",
+            "type": "CPhysSurfacePropertiesSoundNames",
+            "writable": false
+        },
+        {
+            "name": "AudioParams",
+            "type": "CPhysSurfacePropertiesAudio",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

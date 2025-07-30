@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_debug_tile_range_xmin","description":"SST Tile range for renderdoc/debug capturing.","args":"0","flags":["developmentonly"],"games":["cs2"]}

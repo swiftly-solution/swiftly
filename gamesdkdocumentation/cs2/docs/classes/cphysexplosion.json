@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CPhysExplosion",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysExplosion"
+    },
+    "properties": [
+        {
+            "name": "ExplodeOnSpawn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Magnitude",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Damage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TargetEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "InnerRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PushScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ConvertToDebrisWhenPossible",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AffectInvulnerableEnts",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnPushedPlayer",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

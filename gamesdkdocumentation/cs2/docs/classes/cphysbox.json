@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "CPhysBox",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysBox"
+    },
+    "properties": [
+        {
+            "name": "DamageType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DamageToEnableMotion",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ForceToEnableMotion",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HoverPosePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "HoverPoseAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "NotSolidToWorld",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableUseOutput",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HoverPoseFlags",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "TouchOutputPerEntityDelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnDamaged",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnAwakened",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMotionEnabled",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPlayerUse",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStartTouch",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CarryingPlayer",
+            "type": "CBasePlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBreakable",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CPostProcessingVolume",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPostProcessingVolume"
+    },
+    "properties": [
+        {
+            "name": "FadeDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinLogExposure",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxLogExposure",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinExposure",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxExposure",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExposureCompensation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExposureFadeSpeedUp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExposureFadeSpeedDown",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TonemapEVSmoothingRange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Master",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ExposureControl",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

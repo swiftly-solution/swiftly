@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CSkyboxReference",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSkyboxReference"
+    },
+    "properties": [
+        {
+            "name": "WorldGroupId",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SkyCamera",
+            "type": "CSkyCamera",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

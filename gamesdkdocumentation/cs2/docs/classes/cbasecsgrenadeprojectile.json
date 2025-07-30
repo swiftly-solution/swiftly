@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "CBaseCSGrenadeProjectile",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseCSGrenadeProjectile"
+    },
+    "properties": [
+        {
+            "name": "InitialPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "InitialVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Bounces",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ExplodeEffectTickBegin",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ExplodeEffectOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SpawnTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OGSExtraFlags",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "DetonationRecorded",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ItemIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "OriginalSpawnLocation",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastBounceSoundTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GrenadeSpin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastHitSurfaceNormal",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TicksAtZeroVelocity",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HasEverHitEnemy",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseGrenade",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

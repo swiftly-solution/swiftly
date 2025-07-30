@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CItem_Healthshot",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CItem_Healthshot"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CWeaponBaseItem",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CDynamicNavConnectionsVolume",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDynamicNavConnectionsVolume"
+    },
+    "properties": [
+        {
+            "name": "ConnectionTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ConnectionsEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TargetAreaSearchRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UpdateDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxConnectionDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CTriggerMultiple",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"diagnostics","type":"CUserMessage_Diagnostic_Response.Diagnostic"},{"name":"buildVersion","type":"int32"},{"name":"instance","type":"int32"},{"name":"startTime","type":"int64"},{"name":"osversion","type":"int32"},{"name":"platform","type":"int32"}],"name":"CUserMessage_Diagnostic_Response","games":["cs2"]}

@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "CDamageRecord",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDamageRecord"
+    },
+    "properties": [
+        {
+            "name": "PlayerDamager",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "PlayerRecipient",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "PlayerControllerDamager",
+            "type": "CCSPlayerController",
+            "writable": false
+        },
+        {
+            "name": "PlayerControllerRecipient",
+            "type": "CCSPlayerController",
+            "writable": false
+        },
+        {
+            "name": "PlayerDamagerName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PlayerRecipientName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DamagerXuid",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "RecipientXuid",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "BulletsDamage",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Damage",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ActualHealthRemoved",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumHits",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastBulletUpdate",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsOtherEnemy",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "KillType",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

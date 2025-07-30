@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_select_with_attribute","description":"Selects areas with the given attribute.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

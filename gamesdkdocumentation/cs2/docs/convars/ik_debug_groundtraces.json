@@ -1,0 +1,1 @@
+{"kind":"command","name":"ik_debug_groundtraces","description":"Show IK trace related details","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

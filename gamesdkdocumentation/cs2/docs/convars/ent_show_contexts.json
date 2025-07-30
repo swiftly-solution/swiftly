@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_show_contexts","description":"Show entity contexts in ent_text display","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

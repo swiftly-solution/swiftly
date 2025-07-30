@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CEntityFlame",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEntityFlame"
+    },
+    "properties": [
+        {
+            "name": "EntAttached",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "CheapEffect",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Size",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UseHitboxes",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NumHitboxFires",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HitboxFireScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Lifetime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Attacker",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "DirectDamagePerSecond",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CustomDamageType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

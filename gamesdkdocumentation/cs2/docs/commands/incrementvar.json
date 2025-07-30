@@ -1,0 +1,1 @@
+{"kind":"command","name":"incrementvar","description":"Increment specified convar value.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

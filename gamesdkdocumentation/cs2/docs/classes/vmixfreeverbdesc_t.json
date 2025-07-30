@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "VMixFreeverbDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixFreeverbDesc_t"
+    },
+    "properties": [
+        {
+            "name": "RoomSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Damp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Width",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LateReflections",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

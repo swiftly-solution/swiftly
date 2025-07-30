@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_disconnected_players_cleanup_delay","description":"Delay between player disconnecting and their corpse getting cleaned up.","args":"0","flags":["min:","0,","max:","300,","gamedll","release","commandline_enforced"],"games":["cs2"]}

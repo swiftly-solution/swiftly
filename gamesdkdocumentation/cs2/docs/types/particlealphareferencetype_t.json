@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleAlphaReferenceType_t","description":"Automatically generated game type from enum ParticleAlphaReferenceType_t","values":{"PARTICLE_ALPHA_REFERENCE_ALPHA_ALPHA":0,"PARTICLE_ALPHA_REFERENCE_OPAQUE_ALPHA":1,"PARTICLE_ALPHA_REFERENCE_ALPHA_OPAQUE":2,"PARTICLE_ALPHA_REFERENCE_OPAQUE_OPAQUE":3},"games":["cs2"]}

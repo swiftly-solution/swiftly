@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CSosGroupActionSoundeventPrioritySchema",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSosGroupActionSoundeventPrioritySchema"
+    },
+    "properties": [
+        {
+            "name": "PriorityValue",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PriorityVolumeScalar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PriorityContributeButDontRead",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PriorityReadButDontContribute",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSosGroupActionSchema",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

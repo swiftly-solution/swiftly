@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "VPhysXRange_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VPhysXRange_t"
+    },
+    "properties": [
+        {
+            "name": "Min",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Max",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

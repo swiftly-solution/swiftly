@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CPointPush",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointPush"
+    },
+    "properties": [
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Magnitude",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InnerRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ConeOfInfluence",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FilterName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Filter",
+            "type": "CBaseFilter",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_querycache_stats","description":"Display status of the query cache (client only)","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_randomspawn","description":"Determines whether players are to spawn. 0 = default; 1 = both teams; 2 = Terrorists; 3 = CTs.","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

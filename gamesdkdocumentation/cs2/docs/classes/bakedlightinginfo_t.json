@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "BakedLightingInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "BakedLightingInfo_t"
+    },
+    "properties": [
+        {
+            "name": "LightmapVersionNumber",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LightmapGameVersionNumber",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LightmapUvScale",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "HasLightmaps",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BakedShadowsGamma20",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CompressionEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SHLightmaps",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ChartPackIterations",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "VradQuality",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_teamscore_2","description":"A non-empty string for best-of-N maps won by the second team.","args":"0","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"weapon_molotov_maxdetonateslope","description":"Maximum angle of slope on which the molotov will detonate","args":"30","flags":["min:","0,","max:","90,","developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

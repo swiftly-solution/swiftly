@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_replay_rate_slowdown_length","description":"The part of Killer Replay right before death is played at this rate","args":"0.5","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

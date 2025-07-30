@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "ResponseFollowup",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ResponseFollowup"
+    },
+    "properties": [
+        {
+            "name": "Followup_concept",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "Followup_contexts",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "Followup_delay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Followup_target",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "Followup_entityiotarget",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "Followup_entityioinput",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "Followup_entityiodelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Fired",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

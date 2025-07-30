@@ -1,0 +1,1 @@
+{"kind":"command","name":"iv_on","description":"Spew both interpolated var debug info and history for entity.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

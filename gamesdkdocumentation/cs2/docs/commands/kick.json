@@ -1,0 +1,1 @@
+{"kind":"command","name":"kick","description":"Kick a player by name.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

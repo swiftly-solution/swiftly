@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_clanid","description":"Current clan ID for name decoration","args":"\"0\"","flags":["clientdll","hidden","archive","userinfo"],"games":["cs2"]}

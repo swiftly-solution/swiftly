@@ -1,0 +1,378 @@
+{
+    "kind": "class",
+    "name": "CLightComponent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLightComponent"
+    },
+    "properties": [
+        {
+            "name": "__pChainEntity",
+            "type": "CNetworkVarChainer",
+            "writable": false
+        },
+        {
+            "name": "Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "SecondaryColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Brightness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BrightnessScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BrightnessMult",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Range",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Falloff",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Attenuation0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Attenuation1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Attenuation2",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Theta",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Phi",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Cascades",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CastShadows",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShadowWidth",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShadowHeight",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RenderDiffuse",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RenderSpecular",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RenderTransmissive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OrthoLightWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OrthoLightHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Style",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Pattern",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CascadeRenderStaticObjects",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeCrossFade",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeDistanceFade",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeDistance0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeDistance1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeDistance2",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeDistance3",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeResolution0",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeResolution1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeResolution2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShadowCascadeResolution3",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "UsesBakedShadowing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShadowPriority",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BakedShadowIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LightPathUniqueId",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LightMapUniqueId",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RenderToCubemaps",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AllowSSTGeneration",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DirectLight",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IndirectLight",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FadeMinDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeMaxDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowFadeMinDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowFadeMaxDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Flicker",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedFieldsValid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedBoundsMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedBoundsMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBExtent",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedMaxRange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogLightingMode",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FogContributionStength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NearClipPlane",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SkyColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "SkyIntensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SkyAmbientBounce",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "UseSecondaryColor",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MixedShadows",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LightStyleStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CapsuleLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinRoughness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PvsModifyEntity",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CEntityComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

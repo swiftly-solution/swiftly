@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_voip_lobby_audio_volume","description":"Lobby voip stream audio volume","args":"0","flags":["min:","0,","max:","100,","developmentonly","clientdll","hidden"],"games":["cs2"]}

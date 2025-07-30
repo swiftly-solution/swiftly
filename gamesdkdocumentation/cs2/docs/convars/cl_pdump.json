@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_pdump","description":"Dump info about this entity to screen.","args":"-1","flags":["clientdll","cheat"],"games":["cs2"]}

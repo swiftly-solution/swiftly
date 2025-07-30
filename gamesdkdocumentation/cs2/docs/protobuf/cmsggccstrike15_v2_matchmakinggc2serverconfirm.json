@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"token","type":"uint32"},{"name":"stamp","type":"uint32"},{"name":"exchange","type":"uint64"},{"name":"retry","type":"uint32"}],"name":"CMsgGCCStrike15_v2_MatchmakingGC2ServerConfirm","games":["cs2"]}

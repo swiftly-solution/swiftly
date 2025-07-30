@@ -1,0 +1,493 @@
+{
+    "kind": "class",
+    "name": "CCSPlayerController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayerController"
+    },
+    "properties": [
+        {
+            "name": "InGameMoneyServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "InventoryServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "ActionTrackingServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "DamageServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Ping",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HasCommunicationAbuseMute",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UiCommunicationMuteFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CrosshairCodes",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PendingTeamNum",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ForceTeamTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CompTeammateColor",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EverPlayedOnTeam",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AttemptedToGetColor",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TeammatePreferredColor",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TeamChanged",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InSwitchTeam",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasSeenJoinGame",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "JustBecameSpectator",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SwitchTeamsOnNextRoundReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RemoveAllItemsOnNextRoundReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastJoinTeamTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Clan",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ClanName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CoachingTeam",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PlayerDominated",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "PlayerDominatingMe",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "CompetitiveRanking",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CompetitiveWins",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CompetitiveRankType",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "CompetitiveRankingPredicted_Win",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CompetitiveRankingPredicted_Loss",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CompetitiveRankingPredicted_Tie",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EndMatchNextMapVote",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ActiveQuestId",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "RtActiveMissionPeriod",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PlayerTvControlFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DraftIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MsQueuedModeDisconnectionTimestamp",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "UiAbandonRecordedReason",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NetworkDisconnectionReason",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CannotBeKicked",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EverFullyConnected",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AbandonAllowsSurrender",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AbandonOffersInstantSurrender",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Disconnection1MinWarningPrinted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ScoreReported",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisconnectionTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ControllingBot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasControlledBotThisRound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasBeenControlledByPlayerThisRound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BotsControlledThisRound",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CanControlObservedBot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PlayerPawn",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "ObserverPawn",
+            "type": "CCSObserverPawn",
+            "writable": false
+        },
+        {
+            "name": "DesiredObserverMode",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DesiredObserverTarget",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "PawnIsAlive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PawnHealth",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PawnArmor",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PawnHasDefuser",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PawnHasHelmet",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PawnCharacterDefIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "PawnLifetimeStart",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PawnLifetimeEnd",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PawnBotDifficulty",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OriginalControllerOfCurrentPawn",
+            "type": "CCSPlayerController",
+            "writable": false
+        },
+        {
+            "name": "Score",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundScore",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundsWon",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RecentKillQueue",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "FirstKill",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "KillCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "MvpNoMusic",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MvpReason",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MusicKitID",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MusicKitMVPs",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MVPs",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "UpdateCounter",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SmoothedPing",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastHeldVoteTimer",
+            "type": "IntervalTimer",
+            "writable": false
+        },
+        {
+            "name": "ShowHints",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NextTimeCheck",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "JustDidTeamKill",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PunishForTeamKill",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GaveTeamDamageWarning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GaveTeamDamageWarningThisRound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DblLastReceivedPacketPlatFloatTime",
+            "type": "double",
+            "writable": true
+        },
+        {
+            "name": "LastTeamDamageWarningTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastTimePlayerWasDisconnectedForPawnsRemove",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SuspiciousHitCount",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NonSuspiciousHitStreak",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FireBulletsSeedSynchronized",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBasePlayerController",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"vulkan_framebuffermgr_print","description":"Prints out stats for the Vulkan Framebuffer manager","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

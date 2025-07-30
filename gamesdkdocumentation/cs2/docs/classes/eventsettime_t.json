@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "EventSetTime_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EventSetTime_t"
+    },
+    "properties": [
+        {
+            "name": "LoopState",
+            "type": "EngineLoopState_t",
+            "writable": false
+        },
+        {
+            "name": "ClientOutputFrames",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RealTime",
+            "type": "double",
+            "writable": true
+        },
+        {
+            "name": "RenderTime",
+            "type": "double",
+            "writable": true
+        },
+        {
+            "name": "RenderFrameTime",
+            "type": "double",
+            "writable": true
+        },
+        {
+            "name": "RenderFrameTimeUnbounded",
+            "type": "double",
+            "writable": true
+        },
+        {
+            "name": "RenderFrameTimeUnscaled",
+            "type": "double",
+            "writable": true
+        },
+        {
+            "name": "TickRemainder",
+            "type": "double",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

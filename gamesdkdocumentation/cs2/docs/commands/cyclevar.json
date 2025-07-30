@@ -1,0 +1,1 @@
+{"kind":"command","name":"cyclevar","description":"Cycle through specified convar values.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

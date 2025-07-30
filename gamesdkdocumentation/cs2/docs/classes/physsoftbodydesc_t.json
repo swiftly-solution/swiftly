@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "PhysSoftbodyDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PhysSoftbodyDesc_t"
+    },
+    "properties": [
+        {
+            "name": "ParticleBoneHash",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "ParticleBoneName",
+            "type": "string[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

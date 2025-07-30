@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_showtick","description":"Show current tick/time values.  Bitmask:  1='render time'  2='GameTime'   4=time of predicted entities  8=offset of predicted entities    (-1 means 'everything')","args":"0","flags":["clientdll","release"],"games":["cs2"]}

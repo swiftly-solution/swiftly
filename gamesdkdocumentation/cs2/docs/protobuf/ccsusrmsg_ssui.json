@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"show","type":"bool"},{"name":"startTime","type":"float"},{"name":"endTime","type":"float"}],"name":"CCSUsrMsg_SSUI","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"csgo_econ_action_preview","description":"Preview an economy item","args":"","flags":["clientdll","hidden","dontrecord","clientcmd_can_execute"],"games":["cs2"]}

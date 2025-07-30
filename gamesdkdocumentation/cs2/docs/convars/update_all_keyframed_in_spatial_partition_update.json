@@ -1,0 +1,1 @@
+{"kind":"command","name":"update_all_keyframed_in_spatial_partition_update","description":"<no description>","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

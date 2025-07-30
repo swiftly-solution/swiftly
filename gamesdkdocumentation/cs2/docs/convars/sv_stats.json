@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_stats","description":"Collect CPU usage stats","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

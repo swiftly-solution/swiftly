@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "VPhysXBodyPart_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VPhysXBodyPart_t"
+    },
+    "properties": [
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Mass",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RnShape",
+            "type": "VPhysics2ShapeDef_t",
+            "writable": false
+        },
+        {
+            "name": "CollisionAttributeIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Reserved",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "InertiaScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OverrideMassCenter",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MassCenterOverride",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

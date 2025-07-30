@@ -1,0 +1,278 @@
+{
+    "kind": "class",
+    "name": "CParticleSystemDefinition",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleSystemDefinition"
+    },
+    "properties": [
+        {
+            "name": "BehaviorVersion",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FirstMultipleOverride_BackwardCompat",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InitialParticles",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxParticles",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GroupID",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BoundingBoxMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BoundingBoxMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DepthSortBias",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SortOverridePositionCP",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InfiniteBounds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableNamedValues",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NamedValueDomain",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ConstantColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "ConstantNormal",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ConstantRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ConstantRotation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ConstantRotationSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ConstantLifespan",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ConstantSequenceNumber",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ConstantSequenceNumber1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SnapshotControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CullRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CullFillCost",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CullControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FallbackMaxCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PreSimulationTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StopSimulationAfterTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaximumTimeStep",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaximumSimTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinimumSimTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinimumTimeStep",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinimumFrames",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MinCPULevel",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MinGPULevel",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NoDrawTimeToGoToSleep",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxDrawDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartFadeDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxCreationDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AggregationMinAvailableParticles",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AggregateRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShouldBatch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldHitboxesFallbackToRenderBounds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldHitboxesFallbackToSnapshot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldHitboxesFallbackToCollisionHulls",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ViewModelEffect",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ScreenSpaceEffect",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TargetLayerID",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SkipRenderControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AllowRenderControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShouldSort",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

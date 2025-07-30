@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_show_response_criteria","description":"Print, to the console, an entity's current criteria set used to select responses.","args":"   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}","flags":["gamedll","cheat"],"games":["cs2"]}

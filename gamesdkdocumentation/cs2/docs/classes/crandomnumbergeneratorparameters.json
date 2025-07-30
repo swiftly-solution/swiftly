@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CRandomNumberGeneratorParameters",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRandomNumberGeneratorParameters"
+    },
+    "properties": [
+        {
+            "name": "DistributeEvenly",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Seed",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

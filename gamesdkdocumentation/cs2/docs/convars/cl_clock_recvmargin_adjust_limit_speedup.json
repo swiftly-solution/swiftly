@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_clock_recvmargin_adjust_limit_speedup","description":"Clock sync will not speed up time faster than N%","args":"106","flags":["min:","100,","max:","150,","developmentonly"],"games":["cs2"]}

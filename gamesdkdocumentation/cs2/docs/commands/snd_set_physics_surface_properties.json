@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_set_physics_surface_properties","description":"Set physics surface properties for materials. Usage: <heuristic #> <commit>","args":"","flags":["cheat"],"games":["cs2"]}

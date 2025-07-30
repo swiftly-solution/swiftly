@@ -1,0 +1,1 @@
+{"kind":"command","name":"cvarlist","description":"Show the list of convars/concommands.","args":"","flags":["release"],"games":["cs2"]}

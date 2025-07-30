@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "inv_image_light_sun_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "inv_image_light_sun_t"
+    },
+    "properties": [
+        {
+            "name": "Color",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Angle",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Brightness",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

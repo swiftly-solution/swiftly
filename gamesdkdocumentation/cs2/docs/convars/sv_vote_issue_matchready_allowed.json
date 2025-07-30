@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vote_issue_matchready_allowed","description":"Can people hold votes to ready/unready the match?","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

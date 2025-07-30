@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CStanceScaleUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CStanceScaleUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Param",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

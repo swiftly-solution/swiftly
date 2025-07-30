@@ -1,0 +1,1 @@
+{"kind":"command","name":"mm_dedicated_fake","description":"1 = pretend like search is going, but abort after some time","args":"false","flags":["developmentonly"],"games":["cs2"]}

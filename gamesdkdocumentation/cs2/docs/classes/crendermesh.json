@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CRenderMesh",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRenderMesh"
+    },
+    "properties": [
+        {
+            "name": "Skeleton",
+            "type": "CRenderSkeleton",
+            "writable": false
+        },
+        {
+            "name": "UseUV2ForCharting",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EmbeddedMapMesh",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MeshDeformParams",
+            "type": "DynamicMeshDeformParams_t",
+            "writable": false
+        },
+        {
+            "name": "GroomData",
+            "type": "int32[]",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

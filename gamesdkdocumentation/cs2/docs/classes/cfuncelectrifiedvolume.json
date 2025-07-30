@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CFuncElectrifiedVolume",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncElectrifiedVolume"
+    },
+    "properties": [
+        {
+            "name": "EffectName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "EffectInterpenetrateName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "EffectZapName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "EffectSource",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CFuncBrush",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

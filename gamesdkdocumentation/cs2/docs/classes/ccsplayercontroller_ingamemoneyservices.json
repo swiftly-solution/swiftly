@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CCSPlayerController_InGameMoneyServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayerController_InGameMoneyServices"
+    },
+    "properties": [
+        {
+            "name": "ReceivesMoneyNextRound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MoneyEarnedForNextRound",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Account",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StartAccount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalCashSpent",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CashSpentThisRound",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayerControllerComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

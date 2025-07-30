@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "VsInputSignatureElement_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VsInputSignatureElement_t"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Semantic",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "D3DSemanticName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "D3DSemanticIndex",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

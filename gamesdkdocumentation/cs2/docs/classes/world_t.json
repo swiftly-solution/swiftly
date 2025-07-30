@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "World_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "World_t"
+    },
+    "properties": [
+        {
+            "name": "BuilderParams",
+            "type": "WorldBuilderParams_t",
+            "writable": false
+        },
+        {
+            "name": "WorldLightingInfo",
+            "type": "BakedLightingInfo_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

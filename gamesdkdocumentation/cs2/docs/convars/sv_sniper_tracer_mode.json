@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_sniper_tracer_mode","description":"Mode for sniper tracers. 0: legacy, 1: hide when more than sv_sniper_tracer_innacuracy inaccurate.","args":"1","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

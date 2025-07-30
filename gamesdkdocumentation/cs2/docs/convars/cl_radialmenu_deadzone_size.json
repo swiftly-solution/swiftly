@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_radialmenu_deadzone_size","description":"<no description>","args":"0.4","flags":["min:","0,","max:","1,","clientdll","release"],"games":["cs2"]}

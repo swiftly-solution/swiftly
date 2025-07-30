@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"rptPoorperf","type":"uint32"},{"name":"rptAbusivemodels","type":"uint32"},{"name":"rptBadmotd","type":"uint32"},{"name":"rptListingabuse","type":"uint32"},{"name":"rptInventoryabuse","type":"uint32"},{"name":"matchId","type":"uint64"}],"name":"CMsgGCCStrike15_v2_ClientReportServer","games":["cs2"]}

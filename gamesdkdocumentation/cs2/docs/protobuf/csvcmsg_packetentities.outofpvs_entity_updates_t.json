@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"count","type":"int32"},{"name":"data","type":"bytes"}],"name":"CSVCMsg_PacketEntities.outofpvs_entity_updates_t","games":["cs2"]}

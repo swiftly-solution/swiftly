@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"playerMasks","type":"CCSUsrMsg_VoiceMask.PlayerMask"},{"name":"playerModEnable","type":"bool"}],"name":"CCSUsrMsg_VoiceMask","games":["cs2"]}

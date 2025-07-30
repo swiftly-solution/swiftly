@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"guid","type":"fixed32"}],"name":"CSVCMsg_StopSound","games":["cs2"]}

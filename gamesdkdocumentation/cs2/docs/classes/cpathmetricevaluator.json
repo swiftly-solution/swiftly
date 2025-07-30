@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CPathMetricEvaluator",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPathMetricEvaluator"
+    },
+    "properties": [
+        {
+            "name": "PathTimeSamples",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "Distance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExtrapolateMovement",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinExtrapolationSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CMotionMetricEvaluator",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

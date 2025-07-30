@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CSeqAutoLayer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSeqAutoLayer"
+    },
+    "properties": [
+        {
+            "name": "LocalReference",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "LocalPose",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "CSeqAutoLayerFlag",
+            "writable": false
+        },
+        {
+            "name": "Start",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Peak",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Tail",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "End",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

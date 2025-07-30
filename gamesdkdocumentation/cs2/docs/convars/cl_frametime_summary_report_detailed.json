@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_frametime_summary_report_detailed","description":"When a perf report is dumped at the end of the session, should it be detailed?","args":"true","flags":["clientdll","release"],"games":["cs2"]}

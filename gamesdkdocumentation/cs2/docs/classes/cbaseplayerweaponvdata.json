@@ -1,0 +1,143 @@
+{
+    "kind": "class",
+    "name": "CBasePlayerWeaponVData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBasePlayerWeaponVData"
+    },
+    "properties": [
+        {
+            "name": "BuiltRightHanded",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AllowFlipping",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MuzzleSmokeShotThreshold",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "MuzzleSmokeTimeout",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MuzzleSmokeDecrementRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinkedCooldowns",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "PrimaryAmmoType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SecondaryAmmoType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MaxClip1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxClip2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DefaultClip1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DefaultClip2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ReserveAmmoAsClips",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TreatAsSingleClip",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Weight",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AutoSwitchTo",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AutoSwitchFrom",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RumbleEffect",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DropSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Slot",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Position",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CEntitySubclassVDataBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

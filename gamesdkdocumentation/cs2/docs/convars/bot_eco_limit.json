@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_eco_limit","description":"If nonzero, bots will not buy if their money falls below this amount.","args":"2000","flags":["gamedll","release"],"games":["cs2"]}

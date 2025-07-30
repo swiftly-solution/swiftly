@@ -1,0 +1,1 @@
+{"kind":"command","name":"cc_findsound","description":"Searches for soundname which emits specified text.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

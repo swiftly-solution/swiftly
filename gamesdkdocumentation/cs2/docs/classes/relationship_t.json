@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "Relationship_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "Relationship_t"
+    },
+    "properties": [
+        {
+            "name": "Disposition",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Priority",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

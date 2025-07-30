@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_long_frame_ms","description":"If a server frame takes longer than N ms, complain about it.  (Dedicated server only.)  See also engine_frametime_warnings_enable.","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_draw_limit","description":"The maximum number of areas to draw in edit mode","args":"300","flags":["gamedll","cheat"],"games":["cs2"]}

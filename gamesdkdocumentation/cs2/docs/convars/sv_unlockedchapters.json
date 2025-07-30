@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_unlockedchapters","description":"Highest unlocked game chapter.","args":"1","flags":["archive"],"games":["cs2"]}

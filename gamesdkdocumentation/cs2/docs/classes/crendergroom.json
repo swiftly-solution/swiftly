@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CRenderGroom",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRenderGroom"
+    },
+    "properties": [
+        {
+            "name": "HairPositionOffsets",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "StrandSegmentCountHist",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MaxSegmentsPerHairStrand",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GuideHairCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HairCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalVertexCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalSegmentCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GroomGroupID",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AttachBoneIdx",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AttachMeshIdx",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AttachMeshDrawCallIdx",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EnableSimulation",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

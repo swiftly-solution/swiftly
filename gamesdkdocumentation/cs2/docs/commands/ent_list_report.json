@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_list_report","description":"Reports all list of all entities in a map, one by one","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

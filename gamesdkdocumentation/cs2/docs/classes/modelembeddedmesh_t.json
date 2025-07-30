@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "ModelEmbeddedMesh_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ModelEmbeddedMesh_t"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MeshIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DataBlock",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MorphBlock",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "VBIBBlock",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ToolsVBBlock",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

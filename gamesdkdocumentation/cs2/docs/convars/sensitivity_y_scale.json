@@ -1,0 +1,1 @@
+{"kind":"command","name":"sensitivity_y_scale","description":"Multiplies the mouse Y axis for finer pitch vs yaw aim","args":"1","flags":["min:","0,","max:","2,","clientdll","archive","userinfo","per_user"],"games":["cs2"]}

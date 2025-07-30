@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "SoundOpvarTraceResult_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SoundOpvarTraceResult_t"
+    },
+    "properties": [
+        {
+            "name": "Pos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DidHit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DistSqrToCenter",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"posX","type":"float"},{"name":"posY","type":"float"},{"name":"timestamp","type":"float"},{"name":"posZ","type":"float"}],"name":"CCSUsrMsg_ReportHit","games":["cs2"]}

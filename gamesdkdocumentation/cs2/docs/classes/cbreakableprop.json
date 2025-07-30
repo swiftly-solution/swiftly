@@ -1,0 +1,188 @@
+{
+    "kind": "class",
+    "name": "CBreakableProp",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBreakableProp"
+    },
+    "properties": [
+        {
+            "name": "CPropDataComponent",
+            "type": "CPropDataComponent",
+            "writable": false
+        },
+        {
+            "name": "OnStartDeath",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnBreak",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnTakeDamage",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "ImpactEnergyScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinHealthDmg",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PreferredCarryAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PressureDelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefBurstScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefBurstOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Breaker",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "PerformanceMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PreventDamageBeforeTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BreakableContentsType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StrBreakableContentsPropGroupOverride",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrBreakableContentsParticleOverride",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "HasBreakPiecesOrCommands",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ExplodeDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExplodeRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExplosionDelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExplosionBuildupSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ExplosionCustomEffect",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ExplosionCustomSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ExplosionModifier",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PhysicsAttacker",
+            "type": "CBasePlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "LastPhysicsInfluenceTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultFadeScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastAttacker",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "PuntSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "UsePuntSound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OriginalBlockLOS",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseProp",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

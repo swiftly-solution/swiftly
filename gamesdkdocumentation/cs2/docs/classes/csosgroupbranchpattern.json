@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CSosGroupBranchPattern",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSosGroupBranchPattern"
+    },
+    "properties": [
+        {
+            "name": "MatchEventName",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MatchEventSubString",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MatchEntIndex",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MatchOpvar",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MatchString",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnRepostXboxAchievements","description":"This event is triggered when repost_xbox_achievements is triggered.","arguments":{"splitscreenplayer":"int32"},"return":"void","games":["cs2"]}

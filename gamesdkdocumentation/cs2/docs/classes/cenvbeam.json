@@ -1,0 +1,123 @@
+{
+    "kind": "class",
+    "name": "CEnvBeam",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvBeam"
+    },
+    "properties": [
+        {
+            "name": "Active",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StartEntity",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "EndEntity",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Life",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BoltWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseAmplitude",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Speed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Restrike",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpriteName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "FrameStart",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EndPointWorld",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "EndPointRelative",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TouchType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FilterName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Filter",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Decal",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OnTouchedByEntity",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBeam",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

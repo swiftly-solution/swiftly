@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "ControlPointReference_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ControlPointReference_t"
+    },
+    "properties": [
+        {
+            "name": "ControlPointNameString",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OffsetFromControlPoint",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OffsetInLocalSpace",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_drawhud","description":"Enable the rendering of the hud","args":"true","flags":["clientdll","cheat"],"games":["cs2"]}

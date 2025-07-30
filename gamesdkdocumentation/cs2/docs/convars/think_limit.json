@@ -1,0 +1,1 @@
+{"kind":"command","name":"think_limit","description":"Maximum think time in milliseconds, warning is printed if this is exceeded.","args":"10","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "FeRigidColliderIndices_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeRigidColliderIndices_t"
+    },
+    "properties": [
+        {
+            "name": "TaperedCapsuleRigidIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "SphereRigidIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "BoxRigidIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "SDFRigidIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "CollisionPlaneIndex",
+            "type": "uint16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

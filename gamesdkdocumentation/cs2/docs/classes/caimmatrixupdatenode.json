@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CAimMatrixUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAimMatrixUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "OpFixedSettings",
+            "type": "AimMatrixOpFixedSettings_t",
+            "writable": false
+        },
+        {
+            "name": "Target",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ParamIndex",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "Sequence",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ResetChild",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LockWhenWaning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_showimpacts_time","description":"Duration bullet impact indicators remain before disappearing","args":"4","flags":["min:","0,","max:","10,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

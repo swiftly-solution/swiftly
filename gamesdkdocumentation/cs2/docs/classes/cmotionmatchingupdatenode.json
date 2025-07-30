@@ -1,0 +1,143 @@
+{
+    "kind": "class",
+    "name": "CMotionMatchingUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMotionMatchingUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "DataSet",
+            "type": "CMotionDataSet",
+            "writable": false
+        },
+        {
+            "name": "Weights",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "SearchEveryTick",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SearchInterval",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SearchWhenClipEnds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SearchWhenGoalChanges",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BlendCurve",
+            "type": "CBlendCurve",
+            "writable": false
+        },
+        {
+            "name": "SampleRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BlendTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LockClipWhenWaning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SelectionThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ReselectionTimeWindow",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableRotationCorrection",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GoalAssist",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GoalAssistDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GoalAssistTolerance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceScale_Damping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "DistanceScale_OuterRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceScale_InnerRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceScale_MaxScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceScale_MinScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableDistanceScaling",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLeafUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CSoundEventPathCornerEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundEventPathCornerEntity"
+    },
+    "properties": [
+        {
+            "name": "PathCorner",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CountMax",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DistanceMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistMaxSqr",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DotProductMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Playing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSoundEventEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

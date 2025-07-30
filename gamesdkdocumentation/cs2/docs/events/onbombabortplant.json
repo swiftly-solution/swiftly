@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnBombAbortplant","description":"This event is triggered when bomb_abortplant is triggered.","arguments":{"userid":"int32","site":"int32"},"return":"void","games":["cs2"]}

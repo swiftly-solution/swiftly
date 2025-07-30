@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CSmokeGrenadeProjectile",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSmokeGrenadeProjectile"
+    },
+    "properties": [
+        {
+            "name": "SmokeEffectTickBegin",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DidSmokeEffect",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RandomSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SmokeColor",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SmokeDetonationPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "VoxelFrameData",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "VoxelFrameDataSize",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "VoxelUpdate",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastBounce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FllastSimulationTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExplodeFromInferno",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DidGroundScorch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseCSGrenadeProjectile",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

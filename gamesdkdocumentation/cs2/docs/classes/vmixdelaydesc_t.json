@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "VMixDelayDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixDelayDesc_t"
+    },
+    "properties": [
+        {
+            "name": "FeedbackFilter",
+            "type": "VMixFilterDesc_t",
+            "writable": false
+        },
+        {
+            "name": "EnableFilter",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Delay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DirectGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DelayGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FeedbackGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Width",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}
