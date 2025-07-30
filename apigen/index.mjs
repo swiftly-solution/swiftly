@@ -8,9 +8,9 @@ let cats = [
         writePath: "build/cs/Scripting"
     },
     {
-        key: "sdk/cs2",
+        key: "sdk",
         value: "../sdkdocumentation/docs",
-        writePath: "build/cs/SDK/CS2"
+        writePath: "build/cs/SDK"
     }
 ]
 export let currentPath = ""

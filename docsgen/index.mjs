@@ -11,8 +11,12 @@ let cats = [
         value: "../documentation/docs"
     },
     {
-        key: "sdk/cs2",
+        key: "sdk",
         value: "../sdkdocumentation/docs"
+    },
+    {
+        key: "sdk.cs2",
+        value: "../gamesdkdocumentation/cs2/docs"
     }
 ]
 
