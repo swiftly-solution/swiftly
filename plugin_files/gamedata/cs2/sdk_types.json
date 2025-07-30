@@ -1,40 +1,4 @@
 {
-    "AnimParamButton_t": {
-        "ANIMPARAM_BUTTON_NONE": 0,
-        "ANIMPARAM_BUTTON_DPAD_UP": 1,
-        "ANIMPARAM_BUTTON_DPAD_RIGHT": 2,
-        "ANIMPARAM_BUTTON_DPAD_DOWN": 3,
-        "ANIMPARAM_BUTTON_DPAD_LEFT": 4,
-        "ANIMPARAM_BUTTON_A": 5,
-        "ANIMPARAM_BUTTON_B": 6,
-        "ANIMPARAM_BUTTON_X": 7,
-        "ANIMPARAM_BUTTON_Y": 8,
-        "ANIMPARAM_BUTTON_LEFT_SHOULDER": 9,
-        "ANIMPARAM_BUTTON_RIGHT_SHOULDER": 10,
-        "ANIMPARAM_BUTTON_LTRIGGER": 11,
-        "ANIMPARAM_BUTTON_RTRIGGER": 12
-    },
-    "AnimParamNetworkSetting": {
-        "Auto": 0,
-        "AlwaysNetwork": 1,
-        "NeverNetwork": 2
-    },
-    "AnimParamType_t": {
-        "ANIMPARAM_UNKNOWN": 0,
-        "ANIMPARAM_BOOL": 1,
-        "ANIMPARAM_ENUM": 2,
-        "ANIMPARAM_INT": 3,
-        "ANIMPARAM_FLOAT": 4,
-        "ANIMPARAM_VECTOR": 5,
-        "ANIMPARAM_QUATERNION": 6,
-        "ANIMPARAM_GLOBALSYMBOL": 7,
-        "ANIMPARAM_COUNT": 8
-    },
-    "AnimPoseControl": {
-        "NoPoseControl": 0,
-        "AbsolutePoseControl": 1,
-        "RelativePoseControl": 2
-    },
     "AnimationProcessingType_t": {
         "ANIMATION_PROCESSING_SERVER_SIMULATION": 0,
         "ANIMATION_PROCESSING_CLIENT_SIMULATION": 1,
@@ -57,11 +21,6 @@
         "BoneTransformSpace_Parent": 0,
         "BoneTransformSpace_Model": 1,
         "BoneTransformSpace_World": 2
-    },
-    "FootstepLandedFootSoundType_t": {
-        "FOOTSOUND_Left": 0,
-        "FOOTSOUND_Right": 1,
-        "FOOTSOUND_UseOverrideSound": 2
     },
     "MoodType_t": {
         "eMoodType_Head": 0,
@@ -86,10 +45,6 @@
         "PATTACH_CUSTOM_GAME_STATE_1": 14,
         "PATTACH_HEALTHBAR": 15,
         "MAX_PATTACH_TYPES": 16
-    },
-    "RagdollPoseControl": {
-        "Absolute": 0,
-        "Relative": 1
     },
     "SeqCmd_t": {
         "SeqCmd_Nop": 0,
@@ -126,6 +81,37 @@
         "ServerAuthoritative": 0,
         "ClientSimulate": 1
     },
+    "AnimParamButton_t": {
+        "ANIMPARAM_BUTTON_NONE": 0,
+        "ANIMPARAM_BUTTON_DPAD_UP": 1,
+        "ANIMPARAM_BUTTON_DPAD_RIGHT": 2,
+        "ANIMPARAM_BUTTON_DPAD_DOWN": 3,
+        "ANIMPARAM_BUTTON_DPAD_LEFT": 4,
+        "ANIMPARAM_BUTTON_A": 5,
+        "ANIMPARAM_BUTTON_B": 6,
+        "ANIMPARAM_BUTTON_X": 7,
+        "ANIMPARAM_BUTTON_Y": 8,
+        "ANIMPARAM_BUTTON_LEFT_SHOULDER": 9,
+        "ANIMPARAM_BUTTON_RIGHT_SHOULDER": 10,
+        "ANIMPARAM_BUTTON_LTRIGGER": 11,
+        "ANIMPARAM_BUTTON_RTRIGGER": 12
+    },
+    "AnimParamNetworkSetting": {
+        "Auto": 0,
+        "AlwaysNetwork": 1,
+        "NeverNetwork": 2
+    },
+    "AnimParamType_t": {
+        "ANIMPARAM_UNKNOWN": 0,
+        "ANIMPARAM_BOOL": 1,
+        "ANIMPARAM_ENUM": 2,
+        "ANIMPARAM_INT": 3,
+        "ANIMPARAM_FLOAT": 4,
+        "ANIMPARAM_VECTOR": 5,
+        "ANIMPARAM_QUATERNION": 6,
+        "ANIMPARAM_GLOBALSYMBOL": 7,
+        "ANIMPARAM_COUNT": 8
+    },
     "AnimScriptType": {
         "ANIMSCRIPT_TYPE_INVALID": -1,
         "ANIMSCRIPT_FUSE_GENERAL": 0,
@@ -138,36 +124,37 @@
         "StrafeSpeed": 3,
         "FacingHeading": 4,
         "LookHeading": 5,
-        "LookPitch": 6,
-        "LookDistance": 7,
-        "Parameter": 8,
-        "WayPointHeading": 9,
-        "WayPointDistance": 10,
-        "BoundaryRadius": 11,
-        "TargetMoveHeading": 12,
-        "TargetMoveSpeed": 13,
-        "AccelerationHeading": 14,
-        "AccelerationSpeed": 15,
-        "SlopeHeading": 16,
-        "SlopeAngle": 17,
-        "SlopePitch": 18,
-        "SlopeYaw": 19,
-        "GoalDistance": 20,
-        "AccelerationLeftRight": 21,
-        "AccelerationFrontBack": 22,
-        "RootMotionSpeed": 23,
-        "RootMotionTurnSpeed": 24,
-        "MoveHeadingRelativeToLookHeading": 25,
-        "MaxMoveSpeed": 26,
-        "FingerCurl_Thumb": 27,
-        "FingerCurl_Index": 28,
-        "FingerCurl_Middle": 29,
-        "FingerCurl_Ring": 30,
-        "FingerCurl_Pinky": 31,
-        "FingerSplay_Thumb_Index": 32,
-        "FingerSplay_Index_Middle": 33,
-        "FingerSplay_Middle_Ring": 34,
-        "FingerSplay_Ring_Pinky": 35
+        "LookHeadingNormalized": 6,
+        "LookPitch": 7,
+        "LookDistance": 8,
+        "Parameter": 9,
+        "WayPointHeading": 10,
+        "WayPointDistance": 11,
+        "BoundaryRadius": 12,
+        "TargetMoveHeading": 13,
+        "TargetMoveSpeed": 14,
+        "AccelerationHeading": 15,
+        "AccelerationSpeed": 16,
+        "SlopeHeading": 17,
+        "SlopeAngle": 18,
+        "SlopePitch": 19,
+        "SlopeYaw": 20,
+        "GoalDistance": 21,
+        "AccelerationLeftRight": 22,
+        "AccelerationFrontBack": 23,
+        "RootMotionSpeed": 24,
+        "RootMotionTurnSpeed": 25,
+        "MoveHeadingRelativeToLookHeading": 26,
+        "MaxMoveSpeed": 27,
+        "FingerCurl_Thumb": 28,
+        "FingerCurl_Index": 29,
+        "FingerCurl_Middle": 30,
+        "FingerCurl_Ring": 31,
+        "FingerCurl_Pinky": 32,
+        "FingerSplay_Thumb_Index": 33,
+        "FingerSplay_Index_Middle": 34,
+        "FingerSplay_Middle_Ring": 35,
+        "FingerSplay_Ring_Pinky": 36
     },
     "AnimVectorSource": {
         "MoveDirection": 0,
@@ -235,7 +222,8 @@
     "DampingSpeedFunction": {
         "NoDamping": 0,
         "Constant": 1,
-        "Spring": 2
+        "Spring": 2,
+        "AsymmetricSpring": 3
     },
     "EDemoBoneSelectionMode": {
         "CaptureAllBones": 0,
@@ -278,6 +266,11 @@
         "FootMotion": 0,
         "Tag": 1,
         "Parameter": 2
+    },
+    "FootstepLandedFootSoundType_t": {
+        "FOOTSOUND_Left": 0,
+        "FOOTSOUND_Right": 1,
+        "FOOTSOUND_UseOverrideSound": 2
     },
     "HandshakeTagType_t": {
         "eInvalid": -1,
@@ -328,14 +321,38 @@
         "ScaleMotion": 0,
         "AddCorrectionDelta": 1
     },
+    "LinearRootMotionBlendMode_t": {
+        "LERP": 0,
+        "NLERP": 1,
+        "SLERP": 2
+    },
     "MatterialAttributeTagType_t": {
         "MATERIAL_ATTRIBUTE_TAG_VALUE": 0,
         "MATERIAL_ATTRIBUTE_TAG_COLOR": 1
+    },
+    "OrientationWarpMode_t": {
+        "eInvalid": 0,
+        "eAngle": 1,
+        "eWorldPosition": 2
+    },
+    "OrientationWarpRootMotionSource_t": {
+        "eAnimationOrProcedural": 0,
+        "eAnimationOnly": 1,
+        "eProceduralOnly": 2
+    },
+    "OrientationWarpTargetOffsetMode_t": {
+        "eLiteralValue": 0,
+        "eParameter": 1,
+        "eAnimationMovementHeading": 2,
+        "eAnimationMovementHeadingAtEnd": 3
     },
     "PoseType_t": {
         "POSETYPE_STATIC": 0,
         "POSETYPE_DYNAMIC": 1,
         "POSETYPE_INVALID": 255
+    },
+    "RagdollPoseControl": {
+        "Absolute": 0
     },
     "ResetCycleOption": {
         "Beginning": 0,
@@ -366,16 +383,38 @@
         "STATETAGBEHAVIOR_ACTIVE_WHILE_CURRENT": 0,
         "STATETAGBEHAVIOR_FIRE_ON_ENTER": 1,
         "STATETAGBEHAVIOR_FIRE_ON_EXIT": 2,
-        "STATETAGBEHAVIOR_FIRE_ON_ENTER_AND_EXIT": 3
+        "STATETAGBEHAVIOR_FIRE_ON_ENTER_AND_EXIT": 3,
+        "STATETAGBEHAVIOR_ACTIVE_WHILE_FULLY_BLENDED": 4
     },
     "StepPhase": {
         "StepPhase_OnGround": 0,
         "StepPhase_InAir": 1
     },
+    "TargetSelectorAngleMode_t": {
+        "eFacingHeading": 0,
+        "eMoveHeading": 1
+    },
+    "TargetWarpAngleMode_t": {
+        "eFacingHeading": 0,
+        "eMoveHeading": 1
+    },
+    "TargetWarpCorrectionMethod": {
+        "ScaleMotion": 0,
+        "AddCorrectionDelta": 1
+    },
+    "TargetWarpTimingMethod": {
+        "ReachDestinationOnRootMotionEnd": 0,
+        "ReachDestinationOnWarpTagEnd": 1
+    },
     "VelocityMetricMode": {
         "DirectionOnly": 0,
         "MagnitudeOnly": 1,
         "DirectionAndMagnitude": 2
+    },
+    "CNmEventRelevance_t": {
+        "ClientOnly": 0,
+        "ServerOnly": 1,
+        "ClientAndServer": 2
     },
     "NmCachedValueMode_t": {
         "OnEntry": 0,
@@ -424,9 +463,14 @@
         "PreferHighestProgress": 3,
         "OperatorOr": 4,
         "OperatorAnd": 5,
-        "SearchOnlyStateEvents": 6,
+        "SearchOnlyGraphEvents": 6,
         "SearchOnlyAnimEvents": 7,
-        "SearchBothStateAndAnimEvents": 8
+        "SearchBothGraphAndAnimEvents": 8
+    },
+    "NmFollowBoneMode_t": {
+        "RotationAndTranslation": 0,
+        "RotationOnly": 1,
+        "TranslationOnly": 2
     },
     "NmFootPhaseCondition_t": {
         "LeftFootDown": 0,
@@ -446,6 +490,14 @@
         "Floor": 0,
         "Round": 1
     },
+    "NmGraphEventTypeCondition_t": {
+        "Entry": 0,
+        "FullyInState": 1,
+        "Exit": 2,
+        "Timed": 3,
+        "Generic": 4,
+        "Any": 5
+    },
     "NmGraphValueType_t": {
         "Unknown": 0,
         "Bool": 1,
@@ -457,6 +509,10 @@
         "Pose": 7,
         "Special": 8
     },
+    "NmIKBlendMode_t": {
+        "Effector": 0,
+        "Pose": 1
+    },
     "NmPoseBlendMode_t": {
         "Overlay": 0,
         "Additive": 1,
@@ -467,13 +523,6 @@
         "Additive": 1,
         "IgnoreSource": 2,
         "IgnoreTarget": 3
-    },
-    "NmStateEventTypeCondition_t": {
-        "Entry": 0,
-        "FullyInState": 1,
-        "Exit": 2,
-        "Timed": 3,
-        "Any": 4
     },
     "NmTargetWarpAlgorithm_t": {
         "Lerp": 0,
@@ -551,9 +600,8 @@
         "BEAM_LASER": 6
     },
     "BeginDeathLifeStateTransition_t": {
-        "NO_CHANGE_IN_LIFESTATE": 0,
-        "TRANSITION_TO_LIFESTATE_DYING": 1,
-        "TRANSITION_TO_LIFESTATE_DEAD": 2
+        "TRANSITION_TO_LIFESTATE_DYING": 0,
+        "TRANSITION_TO_LIFESTATE_DEAD": 1
     },
     "BloodType": {
         "None": -1,
@@ -587,6 +635,12 @@
         "ANY": 1,
         "COUNT": 2
     },
+    "CDebugOverlayFilterTextType_t": {
+        "FILTER_TEXT_NONE": 0,
+        "MATCH": 1,
+        "HIERARCHY": 2,
+        "COUNT": 3
+    },
     "CDebugOverlayFilterType_t": {
         "NONE": 0,
         "TEXT": 1,
@@ -596,7 +650,8 @@
         "AI_SCHEDULE": 5,
         "AI_TASK": 6,
         "AI_EVENT": 7,
-        "END_SIM_HISTORY_TYPES": 8,
+        "AI_PATHFINDING": 8,
+        "END_SIM_HISTORY_TYPES": 9,
         "COMBINED": -1
     },
     "CSPlayerBlockingUseAction_t": {
@@ -605,11 +660,9 @@
         "k_CSPlayerBlockingUseAction_DefusingWithKit": 2,
         "k_CSPlayerBlockingUseAction_HostageGrabbing": 3,
         "k_CSPlayerBlockingUseAction_HostageDropping": 4,
-        "k_CSPlayerBlockingUseAction_EquippingHeavyArmor": 5,
-        "k_CSPlayerBlockingUseAction_TakingOffHeavyArmor": 6,
-        "k_CSPlayerBlockingUseAction_MapLongUseEntity_Pickup": 7,
-        "k_CSPlayerBlockingUseAction_MapLongUseEntity_Place": 8,
-        "k_CSPlayerBlockingUseAction_MaxCount": 9
+        "k_CSPlayerBlockingUseAction_MapLongUseEntity_Pickup": 5,
+        "k_CSPlayerBlockingUseAction_MapLongUseEntity_Place": 6,
+        "k_CSPlayerBlockingUseAction_MaxCount": 7
     },
     "CSPlayerState": {
         "STATE_ACTIVE": 0,
@@ -641,11 +694,6 @@
         "WEAPONSILENCER_NONE": 0,
         "WEAPONSILENCER_DETACHABLE": 1,
         "WEAPONSILENCER_INTEGRATED": 2
-    },
-    "CSWeaponState_t": {
-        "WEAPON_NOT_CARRIED": 0,
-        "WEAPON_IS_CARRIED_BY_PLAYER": 1,
-        "WEAPON_IS_ACTIVE": 2
     },
     "CSWeaponType": {
         "WEAPONTYPE_KNIFE": 0,
@@ -688,86 +736,15 @@
         "CLASS_NONE": 0,
         "CLASS_PLAYER": 1,
         "CLASS_PLAYER_ALLY": 2,
-        "CLASS_BOMB": 3,
+        "CLASS_C4_FOR_RADAR": 3,
         "CLASS_FOOT_CONTACT_SHADOW": 4,
         "CLASS_WEAPON": 5,
         "CLASS_WATER_SPLASHER": 6,
-        "CLASS_WEAPON_VIEWMODEL": 7,
-        "CLASS_DOOR": 8,
-        "NUM_CLASSIFY_CLASSES": 9
-    },
-    "CommandEntitySpecType_t": {
-        "SPEC_SEARCH": 0,
-        "SPEC_TYPES_COUNT": 1
-    },
-    "CommandExecMode_t": {
-        "EXEC_MANUAL": 0,
-        "EXEC_LEVELSTART": 1,
-        "EXEC_PERIODIC": 2,
-        "EXEC_MODES_COUNT": 3
-    },
-    "CompMatPropertyMutatorConditionType_t": {
-        "COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_EXISTS": 0,
-        "COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EXISTS": 1,
-        "COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EQUALS": 2
-    },
-    "CompMatPropertyMutatorType_t": {
-        "COMP_MAT_PROPERTY_MUTATOR_INIT": 0,
-        "COMP_MAT_PROPERTY_MUTATOR_COPY_MATCHING_KEYS": 1,
-        "COMP_MAT_PROPERTY_MUTATOR_COPY_KEYS_WITH_SUFFIX": 2,
-        "COMP_MAT_PROPERTY_MUTATOR_COPY_PROPERTY": 3,
-        "COMP_MAT_PROPERTY_MUTATOR_SET_VALUE": 4,
-        "COMP_MAT_PROPERTY_MUTATOR_GENERATE_TEXTURE": 5,
-        "COMP_MAT_PROPERTY_MUTATOR_CONDITIONAL_MUTATORS": 6,
-        "COMP_MAT_PROPERTY_MUTATOR_POP_INPUT_QUEUE": 7,
-        "COMP_MAT_PROPERTY_MUTATOR_DRAW_TEXT": 8,
-        "COMP_MAT_PROPERTY_MUTATOR_RANDOM_ROLL_INPUT_VARIABLES": 9
-    },
-    "CompositeMaterialInputContainerSourceType_t": {
-        "CONTAINER_SOURCE_TYPE_TARGET_MATERIAL": 0,
-        "CONTAINER_SOURCE_TYPE_MATERIAL_FROM_TARGET_ATTR": 1,
-        "CONTAINER_SOURCE_TYPE_SPECIFIC_MATERIAL": 2,
-        "CONTAINER_SOURCE_TYPE_LOOSE_VARIABLES": 3,
-        "CONTAINER_SOURCE_TYPE_VARIABLE_FROM_TARGET_ATTR": 4,
-        "CONTAINER_SOURCE_TYPE_TARGET_INSTANCE_MATERIAL": 5
-    },
-    "CompositeMaterialInputLooseVariableType_t": {
-        "LOOSE_VARIABLE_TYPE_BOOLEAN": 0,
-        "LOOSE_VARIABLE_TYPE_INTEGER1": 1,
-        "LOOSE_VARIABLE_TYPE_INTEGER2": 2,
-        "LOOSE_VARIABLE_TYPE_INTEGER3": 3,
-        "LOOSE_VARIABLE_TYPE_INTEGER4": 4,
-        "LOOSE_VARIABLE_TYPE_FLOAT1": 5,
-        "LOOSE_VARIABLE_TYPE_FLOAT2": 6,
-        "LOOSE_VARIABLE_TYPE_FLOAT3": 7,
-        "LOOSE_VARIABLE_TYPE_FLOAT4": 8,
-        "LOOSE_VARIABLE_TYPE_COLOR4": 9,
-        "LOOSE_VARIABLE_TYPE_STRING": 10,
-        "LOOSE_VARIABLE_TYPE_SYSTEMVAR": 11,
-        "LOOSE_VARIABLE_TYPE_RESOURCE_MATERIAL": 12,
-        "LOOSE_VARIABLE_TYPE_RESOURCE_TEXTURE": 13,
-        "LOOSE_VARIABLE_TYPE_PANORAMA_RENDER": 14
-    },
-    "CompositeMaterialInputTextureType_t": {
-        "INPUT_TEXTURE_TYPE_DEFAULT": 0,
-        "INPUT_TEXTURE_TYPE_NORMALMAP": 1,
-        "INPUT_TEXTURE_TYPE_COLOR": 2,
-        "INPUT_TEXTURE_TYPE_MASKS": 3,
-        "INPUT_TEXTURE_TYPE_ROUGHNESS": 4,
-        "INPUT_TEXTURE_TYPE_PEARLESCENCE_MASK": 5,
-        "INPUT_TEXTURE_TYPE_AO": 6
-    },
-    "CompositeMaterialMatchFilterType_t": {
-        "MATCH_FILTER_MATERIAL_ATTRIBUTE_EXISTS": 0,
-        "MATCH_FILTER_MATERIAL_SHADER": 1,
-        "MATCH_FILTER_MATERIAL_NAME_SUBSTR": 2,
-        "MATCH_FILTER_MATERIAL_ATTRIBUTE_EQUALS": 3,
-        "MATCH_FILTER_MATERIAL_PROPERTY_EXISTS": 4,
-        "MATCH_FILTER_MATERIAL_PROPERTY_EQUALS": 5
-    },
-    "CompositeMaterialVarSystemVar_t": {
-        "COMPMATSYSVAR_COMPOSITETIME": 0,
-        "COMPMATSYSVAR_EMPTY_RESOURCE_SPACER": 1
+        "CLASS_HUDMODEL_WEAPON": 7,
+        "CLASS_HUDMODEL_ARMS": 8,
+        "CLASS_WORLDMODEL_GLOVES": 9,
+        "CLASS_DOOR": 10,
+        "NUM_CLASSIFY_CLASSES": 11
     },
     "DamageTypes_t": {
         "DMG_GENERIC": 0,
@@ -782,6 +759,7 @@
         "DMG_SHOCK": 256,
         "DMG_SONIC": 512,
         "DMG_ENERGYBEAM": 1024,
+        "DMG_BUCKSHOT": 2048,
         "DMG_DROWN": 16384,
         "DMG_POISON": 32768,
         "DMG_RADIATION": 65536,
@@ -790,10 +768,9 @@
         "DMG_PHYSGUN": 1048576,
         "DMG_DISSOLVE": 2097152,
         "DMG_BLAST_SURFACE": 4194304,
-        "DMG_BUCKSHOT": 16777216,
-        "DMG_LASTGENERICFLAG": 16777216,
-        "DMG_HEADSHOT": 33554432,
-        "DMG_DANGERZONE": 67108864
+        "DMG_LASTGENERICFLAG": 4194304,
+        "DMG_HEADSHOT": 8388608,
+        "DMG_DANGERZONE": 16777216
     },
     "DebugOverlayBits_t": {
         "OVERLAY_TEXT_BIT": 1,
@@ -835,7 +812,14 @@
         "OVERLAY_NPC_SCRIPTED_COMMANDS_BIT": 137438953472,
         "OVERLAY_ACTORNAME_BIT": 274877906944,
         "OVERLAY_NPC_CONDITIONS_TEXT_BIT": 549755813888,
-        "OVERLAY_NPC_ABILITY_RANGE_DEBUG_BIT": 1099511627776
+        "OVERLAY_NPC_ABILITY_RANGE_DEBUG_BIT": 1099511627776,
+        "OVERLAY_MINIMAL_TEXT": 2199023255552
+    },
+    "DestructiblePartDestructionDeathBehavior_t": {
+        "eDoNotKill": 0,
+        "eKill": 1,
+        "eGib": 2,
+        "eRemove": 3
     },
     "Disposition_t": {
         "D_ER": 0,
@@ -863,7 +847,20 @@
     },
     "EDestructiblePartDamagePassThroughType": {
         "Normal": 0,
-        "Absorb": 1
+        "Absorb": 1,
+        "InvinciblePassthrough": 2
+    },
+    "EDestructiblePartRadiusDamageApplyType": {
+        "ScaleByExplosionRadius": 0,
+        "PrioritizeClosestPart": 1
+    },
+    "EDestructibleParts_DestroyParameterFlags": {
+        "GenerateBreakpieces": 1,
+        "EnableFlinches": 2,
+        "ForceDamageApply": 4,
+        "IgnoreKillEntityFlag": 8,
+        "IgnoreHealthCheck": 16,
+        "Default": 3
     },
     "EInButtonState": {
         "IN_BUTTON_UP": 0,
@@ -890,6 +887,12 @@
         "Bone": 0,
         "BoneAndChildren": 1
     },
+    "EntityAttachmentType_t": {
+        "eAbsOrigin": 0,
+        "eCenter": 1,
+        "eEyes": 2,
+        "eAttachment": 3
+    },
     "EntityDisolveType_t": {
         "ENTITY_DISSOLVE_INVALID": -1,
         "ENTITY_DISSOLVE_NORMAL": 0,
@@ -901,6 +904,15 @@
         "eOriginToOrigin": 0,
         "eCenterToCenter": 1,
         "eAxisToAxis": 2
+    },
+    "EntityEffects_t": {
+        "DEPRICATED_EF_NOINTERP": 8,
+        "EF_NOSHADOW": 16,
+        "EF_NODRAW": 32,
+        "EF_NORECEIVESHADOW": 64,
+        "EF_PARENT_ANIMATES": 512,
+        "EF_NODRAW_BUT_TRANSMIT": 1024,
+        "EF_MAX_BITS": 10
     },
     "EntityPlatformTypes_t": {
         "ENTITY_NOT_PLATFORM": 0,
@@ -918,6 +930,38 @@
         "Absolute": 1,
         "Relative": 2
     },
+    "Flags_t": {
+        "FL_ONGROUND": 1,
+        "FL_DUCKING": 2,
+        "FL_WATERJUMP": 4,
+        "FL_BOT": 16,
+        "FL_FROZEN": 32,
+        "FL_ATCONTROLS": 64,
+        "FL_CLIENT": 128,
+        "FL_FAKECLIENT": 256,
+        "FL_FLY": 1024,
+        "FL_SUPPRESS_SAVE": 2048,
+        "FL_IN_VEHICLE": 4096,
+        "FL_IN_VEHICLE_TRANSPORT": 8192,
+        "FL_GODMODE": 16384,
+        "FL_NOTARGET": 32768,
+        "FL_AIMTARGET": 65536,
+        "FL_STATICPROP": 262144,
+        "FL_GRENADE": 1048576,
+        "FL_DONTTOUCH": 4194304,
+        "FL_BASEVELOCITY": 8388608,
+        "FL_CONVEYOR": 16777216,
+        "FL_OBJECT": 33554432,
+        "FL_ONFIRE": 134217728,
+        "FL_DISSOLVING": 268435456,
+        "FL_TRANSRAGDOLL": 536870912,
+        "FL_UNBLOCKABLE_BY_PLAYER": 1073741824
+    },
+    "ForcedCrouchState_t": {
+        "FORCEDCROUCH_NONE": 0,
+        "FORCEDCROUCH_CROUCHED": 1,
+        "FORCEDCROUCH_UNCROUCHED": 2
+    },
     "GameAnimEventIndex_t": {
         "AE_EMPTY": 0,
         "AE_CL_PLAYSOUND": 1,
@@ -932,40 +976,34 @@
         "AE_SV_CREATE_PARTICLE_EFFECT_CFG": 10,
         "AE_SV_STOP_PARTICLE_EFFECT": 11,
         "AE_FOOTSTEP": 12,
-        "AE_RAGDOLL": 13,
-        "AE_CL_STOP_RAGDOLL_CONTROL": 14,
-        "AE_CL_ENABLE_BODYGROUP": 15,
-        "AE_CL_DISABLE_BODYGROUP": 16,
-        "AE_BODYGROUP_SET_VALUE": 17,
-        "AE_CL_BODYGROUP_SET_VALUE_CMODEL_WPN": 18,
-        "AE_WEAPON_PERFORM_ATTACK": 19,
-        "AE_FIRE_INPUT": 20,
-        "AE_CL_CLOTH_ATTR": 21,
-        "AE_CL_CLOTH_GROUND_OFFSET": 22,
-        "AE_CL_CLOTH_STIFFEN": 23,
-        "AE_CL_CLOTH_EFFECT": 24,
-        "AE_CL_CREATE_ANIM_SCOPE_PROP": 25,
-        "AE_SV_IKLOCK": 26,
-        "AE_PULSE_GRAPH": 27,
-        "AE_PULSE_GRAPH_LOOKAT": 28,
-        "AE_PULSE_GRAPH_AIMAT": 29,
-        "AE_PULSE_GRAPH_IKLOCKLEFTARM": 30,
-        "AE_PULSE_GRAPH_IKLOCKRIGHTARM": 31,
-        "AE_DISABLE_PLATFORM": 32,
-        "AE_ENABLE_PLATFORM": 33,
-        "AE_ANIMGRAPH_SET_PARAM": 34,
-        "AE_CL_WEAPON_TRANSITION_INTO_HAND": 35,
-        "AE_CL_BODYGROUP_SET_TO_CLIP": 36,
-        "AE_CL_BODYGROUP_SET_TO_NEXTCLIP": 37,
-        "AE_SV_SHOW_SILENCER": 38,
-        "AE_SV_ATTACH_SILENCER_COMPLETE": 39,
-        "AE_SV_HIDE_SILENCER": 40,
-        "AE_SV_DETACH_SILENCER_COMPLETE": 41,
-        "AE_CL_EJECT_MAG": 42,
-        "AE_WPN_COMPLETE_RELOAD": 43,
-        "AE_WPN_HEALTHSHOT_INJECT": 44,
-        "AE_CL_C4_SCREEN_TEXT": 45,
-        "AE_GRENADE_THROW_COMPLETE": 46
+        "AE_CL_STOP_RAGDOLL_CONTROL": 13,
+        "AE_CL_ENABLE_BODYGROUP": 14,
+        "AE_CL_DISABLE_BODYGROUP": 15,
+        "AE_BODYGROUP_SET_VALUE": 16,
+        "AE_WEAPON_PERFORM_ATTACK": 17,
+        "AE_FIRE_INPUT": 18,
+        "AE_CL_CLOTH_ATTR": 19,
+        "AE_CL_CLOTH_GROUND_OFFSET": 20,
+        "AE_CL_CLOTH_STIFFEN": 21,
+        "AE_CL_CLOTH_EFFECT": 22,
+        "AE_CL_CREATE_ANIM_SCOPE_PROP": 23,
+        "AE_SV_IKLOCK": 24,
+        "AE_PULSE_GRAPH": 25,
+        "AE_PULSE_GRAPH_LOOKAT": 26,
+        "AE_PULSE_GRAPH_AIMAT": 27,
+        "AE_PULSE_GRAPH_IKLOCKLEFTARM": 28,
+        "AE_PULSE_GRAPH_IKLOCKRIGHTARM": 29,
+        "AE_DISABLE_PLATFORM": 30,
+        "AE_ENABLE_PLATFORM_PLAYER_FOLLOWS_YAW": 31,
+        "AE_ENABLE_PLATFORM_PLAYER_IGNORES_YAW": 32,
+        "AE_DESTRUCTIBLE_PART_DESTROY": 33,
+        "AE_CL_WEAPON_TRANSITION_INTO_HAND": 34,
+        "AE_SV_ATTACH_SILENCER_COMPLETE": 35,
+        "AE_SV_DETACH_SILENCER_COMPLETE": 36,
+        "AE_CL_EJECT_MAG": 37,
+        "AE_WPN_COMPLETE_RELOAD": 38,
+        "AE_WPN_HEALTHSHOT_INJECT": 39,
+        "AE_GRENADE_THROW_COMPLETE": 40
     },
     "GrenadeType_t": {
         "GRENADE_TYPE_EXPLOSIVE": 0,
@@ -1035,6 +1073,17 @@
         "IN_SCORE": 8589934592,
         "IN_ZOOM": 17179869184,
         "IN_LOOK_AT_WEAPON": 34359738368
+    },
+    "InventoryNodeType_t": {
+        "NODE_TYPE_INVALID": 0,
+        "VIRTUAL_NODE_SCHEMA_PREFAB": 1,
+        "VIRTUAL_NODE_SCHEMA_ITEMDEF": 2,
+        "VIRTUAL_NODE_SCHEMA_STICKER": 3,
+        "VIRTUAL_NODE_SCHEMA_KEYCHAIN": 4,
+        "CONCRETE_NODE_SCHEMA_PREFAB": 5,
+        "CONCRETE_NODE_SCHEMA_ITEMDEF": 6,
+        "CONCRETE_NODE_SCHEMA_STICKER": 7,
+        "CONCRETE_NODE_SCHEMA_KEYCHAIN": 8
     },
     "ItemFlagTypes_t": {
         "ITEM_FLAG_NONE": 0,
@@ -1124,35 +1173,7 @@
     },
     "PerformanceMode_t": {
         "PM_NORMAL": 0,
-        "PM_NO_GIBS": 1,
-        "PM_FULL_GIBS": 2,
-        "PM_REDUCED_GIBS": 3
-    },
-    "PlayerAnimEvent_t": {
-        "PLAYERANIMEVENT_FIRE_GUN_PRIMARY": 0,
-        "PLAYERANIMEVENT_FIRE_GUN_SECONDARY": 1,
-        "PLAYERANIMEVENT_GRENADE_PULL_PIN": 2,
-        "PLAYERANIMEVENT_THROW_GRENADE": 3,
-        "PLAYERANIMEVENT_JUMP": 4,
-        "PLAYERANIMEVENT_RELOAD": 5,
-        "PLAYERANIMEVENT_CLEAR_FIRING": 6,
-        "PLAYERANIMEVENT_DEPLOY": 7,
-        "PLAYERANIMEVENT_SILENCER_STATE": 8,
-        "PLAYERANIMEVENT_SILENCER_TOGGLE": 9,
-        "PLAYERANIMEVENT_THROW_GRENADE_UNDERHAND": 10,
-        "PLAYERANIMEVENT_CATCH_WEAPON": 11,
-        "PLAYERANIMEVENT_LOOKATWEAPON_REQUEST": 12,
-        "PLAYERANIMEVENT_RELOAD_CANCEL_LOOKATWEAPON": 13,
-        "PLAYERANIMEVENT_HAULBACK": 14,
-        "PLAYERANIMEVENT_IDLE": 15,
-        "PLAYERANIMEVENT_STRIKE_HIT": 16,
-        "PLAYERANIMEVENT_STRIKE_MISS": 17,
-        "PLAYERANIMEVENT_BACKSTAB": 18,
-        "PLAYERANIMEVENT_DRYFIRE": 19,
-        "PLAYERANIMEVENT_FIDGET": 20,
-        "PLAYERANIMEVENT_RELEASE": 21,
-        "PLAYERANIMEVENT_TAUNT": 22,
-        "PLAYERANIMEVENT_COUNT": 23
+        "PM_NO_GIBS": 1
     },
     "PlayerConnectedState": {
         "PlayerNeverConnected": -1,
@@ -1162,6 +1183,17 @@
         "PlayerDisconnecting": 3,
         "PlayerDisconnected": 4,
         "PlayerReserved": 5
+    },
+    "PointOrientConstraint_t": {
+        "eNone": 0,
+        "ePreserveUpAxis": 1
+    },
+    "PointOrientGoalDirectionType_t": {
+        "eAbsOrigin": 0,
+        "eCenter": 1,
+        "eHead": 2,
+        "eForward": 3,
+        "eEyesForward": 4
     },
     "PointTemplateClientOnlyEntityBehavior_t": {
         "CREATE_FOR_CURRENTLY_CONNECTED_CLIENTS_ONLY": 0,
@@ -1297,20 +1329,6 @@
         "RUMBLE_PHYSCANNON_HIGH": 24,
         "NUM_RUMBLE_EFFECTS": 25
     },
-    "ScriptedHeldWeaponBehavior_t": {
-        "eInvalid": -1,
-        "eHolster": 0,
-        "eDeploy": 1,
-        "eDrop": 2
-    },
-    "ScriptedMoveTo_t": {
-        "eWait": 0,
-        "eMoveWithGait": 3,
-        "eTeleport": 4,
-        "eWaitFacing": 5,
-        "eObsoleteBackCompat1": 1,
-        "eObsoleteBackCompat2": 2
-    },
     "ScriptedOnDeath_t": {
         "SS_ONDEATH_NOT_APPLICABLE": -1,
         "SS_ONDEATH_UNDEFINED": 0,
@@ -1401,9 +1419,11 @@
         "DFLAG_RADIUS_DMG": 1024,
         "DFLAG_FORCEREDUCEARMOR_DMG": 2048,
         "DFLAG_SUPPRESS_INTERRUPT_FLINCH": 4096,
-        "DMG_LASTDFLAG": 4096,
-        "DFLAG_IGNORE_ARMOR": 8192,
-        "DFLAG_SUPPRESS_UTILREMOVE": 16384
+        "DFLAG_IGNORE_DESTRUCTIBLE_PARTS": 8192,
+        "DFLAGS_ONLY_DAMAGE_DESTRUCTIBLE_PARTS": 16384,
+        "DMG_LASTDFLAG": 16384,
+        "DFLAG_IGNORE_ARMOR": 32768,
+        "DFLAG_SUPPRESS_UTILREMOVE": 65536
     },
     "TimelineCompression_t": {
         "TIMELINE_COMPRESSION_SUM": 0,
@@ -1451,6 +1471,36 @@
         "eSecondary": 1,
         "eCount": 2
     },
+    "WeaponGameplayAnimState": {
+        "WPN_ANIMSTATE_UNINITIALIZED": 0,
+        "WPN_ANIMSTATE_DROPPED": 1,
+        "WPN_ANIMSTATE_HOLSTERED": 10,
+        "WPN_ANIMSTATE_DEPLOY": 11,
+        "WPN_ANIMSTATE_IDLE": 50,
+        "WPN_ANIMSTATE_SHOOT_PRIMARY": 100,
+        "WPN_ANIMSTATE_SHOOT_SECONDARY": 101,
+        "WPN_ANIMSTATE_SHOOT_DRYFIRE": 102,
+        "WPN_ANIMSTATE_CHARGE": 103,
+        "WPN_ANIMSTATE_GRENADE_PULL_PIN": 200,
+        "WPN_ANIMSTATE_GRENADE_READY": 201,
+        "WPN_ANIMSTATE_GRENADE_THROW": 202,
+        "WPN_ANIMSTATE_C4_PLANT": 300,
+        "WPN_ANIMSTATE_HEALTHSHOT_INJECT": 400,
+        "WPN_ANIMSTATE_KNIFE_PRIMARY_HIT": 500,
+        "WPN_ANIMSTATE_KNIFE_PRIMARY_MISS": 501,
+        "WPN_ANIMSTATE_KNIFE_SECONDARY_HIT": 502,
+        "WPN_ANIMSTATE_KNIFE_SECONDARY_MISS": 503,
+        "WPN_ANIMSTATE_KNIFE_PRIMARY_STAB": 504,
+        "WPN_ANIMSTATE_KNIFE_SECONDARY_STAB": 505,
+        "WPN_ANIMSTATE_SILENCER_APPLY": 600,
+        "WPN_ANIMSTATE_SILENCER_REMOVE": 601,
+        "WPN_ANIMSTATE_RELOAD": 800,
+        "WPN_ANIMSTATE_RELOAD_OUTRO": 801,
+        "WPN_ANIMSTATE_INSPECT": 1000,
+        "WPN_ANIMSTATE_INSPECT_OUTRO": 1001,
+        "WPN_ANIMSTATE_END_VALID": 1100,
+        "WEAPON_LEGACY_STATE_CLEAR_FIRING": 1101
+    },
     "WeaponSound_t": {
         "WEAPON_SOUND_EMPTY": 0,
         "WEAPON_SOUND_SECONDARY_EMPTY": 1,
@@ -1482,7 +1532,8 @@
         "eDrawn": 0,
         "eEquipped": 1,
         "eUserInitiatedSwitchToLast": 2,
-        "eUserInitiatedSwitchHands": 3
+        "eUserInitiatedUIKeyPress": 3,
+        "eUserInitiatedSwitchHands": 4
     },
     "WorldTextPanelHorizontalAlign_t": {
         "WORLDTEXT_HORIZONTAL_ALIGN_LEFT": 0,
@@ -1502,6 +1553,10 @@
     "attributeprovidertypes_t": {
         "PROVIDER_GENERIC": 0,
         "PROVIDER_WEAPON": 1
+    },
+    "filter_t": {
+        "FILTER_AND": 0,
+        "FILTER_OR": 1
     },
     "gear_slot_t": {
         "GEAR_SLOT_INVALID": -1,
@@ -1635,6 +1690,69 @@
         "VOTE_FAILED_CONTINUE": 33,
         "VOTE_FAILED_MAX": 34
     },
+    "CompMatPropertyMutatorConditionType_t": {
+        "COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_EXISTS": 0,
+        "COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EXISTS": 1,
+        "COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EQUALS": 2
+    },
+    "CompMatPropertyMutatorType_t": {
+        "COMP_MAT_PROPERTY_MUTATOR_INIT": 0,
+        "COMP_MAT_PROPERTY_MUTATOR_COPY_MATCHING_KEYS": 1,
+        "COMP_MAT_PROPERTY_MUTATOR_COPY_KEYS_WITH_SUFFIX": 2,
+        "COMP_MAT_PROPERTY_MUTATOR_COPY_PROPERTY": 3,
+        "COMP_MAT_PROPERTY_MUTATOR_SET_VALUE": 4,
+        "COMP_MAT_PROPERTY_MUTATOR_GENERATE_TEXTURE": 5,
+        "COMP_MAT_PROPERTY_MUTATOR_CONDITIONAL_MUTATORS": 6,
+        "COMP_MAT_PROPERTY_MUTATOR_POP_INPUT_QUEUE": 7,
+        "COMP_MAT_PROPERTY_MUTATOR_DRAW_TEXT": 8,
+        "COMP_MAT_PROPERTY_MUTATOR_RANDOM_ROLL_INPUT_VARIABLES": 9
+    },
+    "CompositeMaterialInputContainerSourceType_t": {
+        "CONTAINER_SOURCE_TYPE_TARGET_MATERIAL": 0,
+        "CONTAINER_SOURCE_TYPE_MATERIAL_FROM_TARGET_ATTR": 1,
+        "CONTAINER_SOURCE_TYPE_SPECIFIC_MATERIAL": 2,
+        "CONTAINER_SOURCE_TYPE_LOOSE_VARIABLES": 3,
+        "CONTAINER_SOURCE_TYPE_VARIABLE_FROM_TARGET_ATTR": 4,
+        "CONTAINER_SOURCE_TYPE_TARGET_INSTANCE_MATERIAL": 5
+    },
+    "CompositeMaterialInputLooseVariableType_t": {
+        "LOOSE_VARIABLE_TYPE_BOOLEAN": 0,
+        "LOOSE_VARIABLE_TYPE_INTEGER1": 1,
+        "LOOSE_VARIABLE_TYPE_INTEGER2": 2,
+        "LOOSE_VARIABLE_TYPE_INTEGER3": 3,
+        "LOOSE_VARIABLE_TYPE_INTEGER4": 4,
+        "LOOSE_VARIABLE_TYPE_FLOAT1": 5,
+        "LOOSE_VARIABLE_TYPE_FLOAT2": 6,
+        "LOOSE_VARIABLE_TYPE_FLOAT3": 7,
+        "LOOSE_VARIABLE_TYPE_FLOAT4": 8,
+        "LOOSE_VARIABLE_TYPE_COLOR4": 9,
+        "LOOSE_VARIABLE_TYPE_STRING": 10,
+        "LOOSE_VARIABLE_TYPE_SYSTEMVAR": 11,
+        "LOOSE_VARIABLE_TYPE_RESOURCE_MATERIAL": 12,
+        "LOOSE_VARIABLE_TYPE_RESOURCE_TEXTURE": 13,
+        "LOOSE_VARIABLE_TYPE_PANORAMA_RENDER": 14
+    },
+    "CompositeMaterialInputTextureType_t": {
+        "INPUT_TEXTURE_TYPE_DEFAULT": 0,
+        "INPUT_TEXTURE_TYPE_NORMALMAP": 1,
+        "INPUT_TEXTURE_TYPE_COLOR": 2,
+        "INPUT_TEXTURE_TYPE_MASKS": 3,
+        "INPUT_TEXTURE_TYPE_ROUGHNESS": 4,
+        "INPUT_TEXTURE_TYPE_PEARLESCENCE_MASK": 5,
+        "INPUT_TEXTURE_TYPE_AO": 6
+    },
+    "CompositeMaterialMatchFilterType_t": {
+        "MATCH_FILTER_MATERIAL_ATTRIBUTE_EXISTS": 0,
+        "MATCH_FILTER_MATERIAL_SHADER": 1,
+        "MATCH_FILTER_MATERIAL_NAME_SUBSTR": 2,
+        "MATCH_FILTER_MATERIAL_ATTRIBUTE_EQUALS": 3,
+        "MATCH_FILTER_MATERIAL_PROPERTY_EXISTS": 4,
+        "MATCH_FILTER_MATERIAL_PROPERTY_EQUALS": 5
+    },
+    "CompositeMaterialVarSystemVar_t": {
+        "COMPMATSYSVAR_COMPOSITETIME": 0,
+        "COMPMATSYSVAR_EMPTY_RESOURCE_SPACER": 1
+    },
     "SpawnDebugOverrideState_t": {
         "SPAWN_DEBUG_OVERRIDE_NONE": 0,
         "SPAWN_DEBUG_OVERRIDE_FORCE_ENABLED": 1,
@@ -1728,6 +1846,12 @@
         "FLEX_OP_COS": 25,
         "FLEX_OP_ABS": 26
     },
+    "InputLayoutVariation_t": {
+        "INPUT_LAYOUT_VARIATION_DEFAULT": 0,
+        "INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID": 1,
+        "INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID_MORPH_VERT_ID": 2,
+        "INPUT_LAYOUT_VARIATION_MAX": 3
+    },
     "MeshDrawPrimitiveFlags_t": {
         "MESH_DRAW_FLAGS_NONE": 0,
         "MESH_DRAW_FLAGS_USE_SHADOW_FAST_PATH": 1,
@@ -1763,7 +1887,78 @@
         "MORPH_FLEXCONTROLLER_REMAP_NWAY": 2,
         "MORPH_FLEXCONTROLLER_REMAP_EYELID": 3
     },
-    "MovementGait_t": {
+    "NPCPhysicsHullType_t": {
+        "eInvalid": 0,
+        "eGroundCapsule": 1,
+        "eCenteredCapsule": 2,
+        "eGenericCapsule": 3,
+        "eGroundBox": 4
+    },
+    "RenderBufferFlags_t": {
+        "RENDER_BUFFER_USAGE_VERTEX_BUFFER": 1,
+        "RENDER_BUFFER_USAGE_INDEX_BUFFER": 2,
+        "RENDER_BUFFER_USAGE_SHADER_RESOURCE": 4,
+        "RENDER_BUFFER_USAGE_UNORDERED_ACCESS": 8,
+        "RENDER_BUFFER_BYTEADDRESS_BUFFER": 16,
+        "RENDER_BUFFER_STRUCTURED_BUFFER": 32,
+        "RENDER_BUFFER_UAV_DRAW_INDIRECT_ARGS": 256,
+        "RENDER_BUFFER_ACCELERATION_STRUCTURE": 512,
+        "RENDER_BUFFER_SHADER_BINDING_TABLE": 1024,
+        "RENDER_BUFFER_PER_FRAME_WRITE_ONCE": 2048,
+        "RENDER_BUFFER_POOL_ALLOCATED": 4096,
+        "RENDER_BUFFER_USAGE_CONDITIONAL_RENDERING": 8192
+    },
+    "RenderMeshSlotType_t": {
+        "RENDERMESH_SLOT_INVALID": -1,
+        "RENDERMESH_SLOT_PER_VERTEX": 0,
+        "RENDERMESH_SLOT_PER_INSTANCE": 1
+    },
+    "RenderMultisampleType_t": {
+        "RENDER_MULTISAMPLE_INVALID": -1,
+        "RENDER_MULTISAMPLE_NONE": 0,
+        "RENDER_MULTISAMPLE_2X": 1,
+        "RENDER_MULTISAMPLE_4X": 2,
+        "RENDER_MULTISAMPLE_6X": 3,
+        "RENDER_MULTISAMPLE_8X": 4,
+        "RENDER_MULTISAMPLE_16X": 5,
+        "RENDER_MULTISAMPLE_TYPE_COUNT": 6
+    },
+    "RenderPrimitiveType_t": {
+        "RENDER_PRIM_POINTS": 0,
+        "RENDER_PRIM_LINES": 1,
+        "RENDER_PRIM_LINES_WITH_ADJACENCY": 2,
+        "RENDER_PRIM_LINE_STRIP": 3,
+        "RENDER_PRIM_LINE_STRIP_WITH_ADJACENCY": 4,
+        "RENDER_PRIM_TRIANGLES": 5,
+        "RENDER_PRIM_TRIANGLES_WITH_ADJACENCY": 6,
+        "RENDER_PRIM_TRIANGLE_STRIP": 7,
+        "RENDER_PRIM_TRIANGLE_STRIP_WITH_ADJACENCY": 8,
+        "RENDER_PRIM_INSTANCED_QUADS": 9,
+        "RENDER_PRIM_HETEROGENOUS": 10,
+        "RENDER_PRIM_COMPUTE_SHADER": 11,
+        "RENDER_PRIM_MESH_SHADER": 12,
+        "RENDER_PRIM_TYPE_COUNT": 13
+    },
+    "RenderSlotType_t": {
+        "RENDER_SLOT_INVALID": -1,
+        "RENDER_SLOT_PER_VERTEX": 0,
+        "RENDER_SLOT_PER_INSTANCE": 1
+    },
+    "ScriptedHeldWeaponBehavior_t": {
+        "eInvalid": -1,
+        "eHolster": 0,
+        "eDeploy": 1,
+        "eDrop": 2
+    },
+    "ScriptedMoveTo_t": {
+        "eWait": 0,
+        "eMoveWithGait": 3,
+        "eTeleport": 4,
+        "eWaitFacing": 5,
+        "eObsoleteBackCompat1": 1,
+        "eObsoleteBackCompat2": 2
+    },
+    "SharedMovementGait_t": {
         "eInvalid": -1,
         "eSlow": 0,
         "eMedium": 1,
@@ -1775,8 +1970,9 @@
         "NAV_MESH_AVOID": 128,
         "NAV_MESH_STAIRS": 4096,
         "NAV_MESH_NON_ZUP": 32768,
-        "NAV_MESH_SHORT_HEIGHT": 65536,
+        "NAV_MESH_CROUCH_HEIGHT": 65536,
         "NAV_MESH_NON_ZUP_TRANSITION": 131072,
+        "NAV_MESH_CRAWL_HEIGHT": 262144,
         "NAV_MESH_CROUCH": 65536,
         "NAV_MESH_JUMP": 2,
         "NAV_MESH_PRECISE": 4,
@@ -1799,6 +1995,12 @@
         "SOUTH": 2,
         "WEST": 3,
         "NUM_NAV_DIR_TYPE_DIRECTIONS": 4
+    },
+    "OutOfPVSUpdates_t": {
+        "OOPVSUpdates_OptOut": 0,
+        "OOPVSUpdates_OptIn": 1,
+        "OOPVSUpdates_Default": 2,
+        "OOPVSUpdates_Count": 3
     },
     "ELayoutNodeType": {
         "ROOT": 0,
@@ -1922,7 +2124,12 @@
     },
     "ParticleAttrBoxFlags_t": {
         "PARTICLE_ATTR_BOX_FLAGS_NONE": 0,
-        "PARTICLE_ATTR_BOX_FLAGS_WATER": 1
+        "PARTICLE_ATTR_BOX_FLAGS_WATER": 1,
+        "PARTICLE_ATTR_BOX_FLAGS_ON_FIRE": 2,
+        "PARTICLE_ATTR_BOX_FLAGS_ELECTRIFIED": 4,
+        "PARTICLE_ATTR_BOX_FLAGS_ASLEEP": 8,
+        "PARTICLE_ATTR_BOX_FLAGS_FROZEN": 16,
+        "PARTICLE_ATTR_BOX_FLAGS_TIMED_DECAY": 32
     },
     "ParticleCollisionMode_t": {
         "COLLISION_MODE_PER_PARTICLE_TRACE": 3,
@@ -2057,6 +2264,12 @@
         "PARTICLE_ORIENTATION_SET_FROM_VELOCITY": 0,
         "PARTICLE_ORIENTATION_SET_FROM_ROTATIONS": 1
     },
+    "ParticleOrientationType_t": {
+        "PARTICLE_ORIENTATION_NONE": 0,
+        "PARTICLE_ORIENTATION_VELOCITY": 1,
+        "PARTICLE_ORIENTATION_NORMAL": 2,
+        "PARTICLE_ORIENTATION_ROTATION": 4
+    },
     "ParticleOutputBlendMode_t": {
         "PARTICLE_OUTPUT_BLEND_MODE_ALPHA": 0,
         "PARTICLE_OUTPUT_BLEND_MODE_ADD": 1,
@@ -2177,7 +2390,10 @@
         "SCALAR_EXPRESSION_INPUT_1": 4,
         "SCALAR_EXPRESSION_MIN": 5,
         "SCALAR_EXPRESSION_MAX": 6,
-        "SCALAR_EXPRESSION_MOD": 7
+        "SCALAR_EXPRESSION_MOD": 7,
+        "SCALAR_EXPRESSION_EQUAL": 8,
+        "SCALAR_EXPRESSION_GT": 9,
+        "SCALAR_EXPRESSION_LT": 10
     },
     "SnapshotIndexType_t": {
         "SNAPSHOT_INDEX_INCREMENT": 0,
@@ -2230,7 +2446,9 @@
         "SPRITECARD_TEXTURE_ANIMMOTIONVEC": 6,
         "SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_A": 7,
         "SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_B": 8,
-        "SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_C": 9
+        "SPRITECARD_TEXTURE_SPHERICAL_HARMONICS_C": 9,
+        "SPRITECARD_TEXTURE_DEPTH": 10,
+        "SPRITECARD_TEXTURE_ILLUMINATION_GRADIENT": 11
     },
     "StandardLightingAttenuationStyle_t": {
         "LIGHT_STYLE_OLD": 0,
@@ -2249,7 +2467,8 @@
         "VECTOR_EXPRESSION_INPUT_1": 4,
         "VECTOR_EXPRESSION_MIN": 5,
         "VECTOR_EXPRESSION_MAX": 6,
-        "VECTOR_EXPRESSION_CROSSPRODUCT": 7
+        "VECTOR_EXPRESSION_CROSSPRODUCT": 7,
+        "VECTOR_EXPRESSION_LERP": 8
     },
     "VectorFloatExpressionType_t": {
         "VECTOR_FLOAT_EXPRESSION_UNINITIALIZED": -1,
@@ -2337,11 +2556,15 @@
         "PF_TYPE_PARTICLE_AGE": 15,
         "PF_TYPE_PARTICLE_AGE_NORMALIZED": 16,
         "PF_TYPE_PARTICLE_FLOAT": 17,
-        "PF_TYPE_PARTICLE_VECTOR_COMPONENT": 18,
-        "PF_TYPE_PARTICLE_SPEED": 19,
-        "PF_TYPE_PARTICLE_NUMBER": 20,
-        "PF_TYPE_PARTICLE_NUMBER_NORMALIZED": 21,
-        "PF_TYPE_COUNT": 22
+        "PF_TYPE_PARTICLE_INITIAL_FLOAT": 18,
+        "PF_TYPE_PARTICLE_VECTOR_COMPONENT": 19,
+        "PF_TYPE_PARTICLE_INITIAL_VECTOR_COMPONENT": 20,
+        "PF_TYPE_PARTICLE_SPEED": 21,
+        "PF_TYPE_PARTICLE_NUMBER": 22,
+        "PF_TYPE_PARTICLE_NUMBER_NORMALIZED": 23,
+        "PF_TYPE_PARTICLE_SCREENSPACE_CAMERA_DISTANCE": 24,
+        "PF_TYPE_PARTICLE_SCREENSPACE_CAMERA_DOT_PRODUCT": 25,
+        "PF_TYPE_COUNT": 26
     },
     "ParticleModelType_t": {
         "PM_TYPE_INVALID": 0,
@@ -2363,20 +2586,26 @@
         "PVEC_TYPE_LITERAL_COLOR": 1,
         "PVEC_TYPE_NAMED_VALUE": 2,
         "PVEC_TYPE_PARTICLE_VECTOR": 3,
-        "PVEC_TYPE_PARTICLE_VELOCITY": 4,
-        "PVEC_TYPE_CP_VALUE": 5,
-        "PVEC_TYPE_CP_RELATIVE_POSITION": 6,
-        "PVEC_TYPE_CP_RELATIVE_DIR": 7,
-        "PVEC_TYPE_CP_RELATIVE_RANDOM_DIR": 8,
-        "PVEC_TYPE_FLOAT_COMPONENTS": 9,
-        "PVEC_TYPE_FLOAT_INTERP_CLAMPED": 10,
-        "PVEC_TYPE_FLOAT_INTERP_OPEN": 11,
-        "PVEC_TYPE_FLOAT_INTERP_GRADIENT": 12,
-        "PVEC_TYPE_RANDOM_UNIFORM": 13,
-        "PVEC_TYPE_RANDOM_UNIFORM_OFFSET": 14,
-        "PVEC_TYPE_CP_DELTA": 15,
-        "PVEC_TYPE_CLOSEST_CAMERA_POSITION": 16,
-        "PVEC_TYPE_COUNT": 17
+        "PVEC_TYPE_PARTICLE_INITIAL_VECTOR": 4,
+        "PVEC_TYPE_PARTICLE_VELOCITY": 5,
+        "PVEC_TYPE_CP_VALUE": 6,
+        "PVEC_TYPE_CP_RELATIVE_POSITION": 7,
+        "PVEC_TYPE_CP_RELATIVE_DIR": 8,
+        "PVEC_TYPE_CP_RELATIVE_RANDOM_DIR": 9,
+        "PVEC_TYPE_FLOAT_COMPONENTS": 10,
+        "PVEC_TYPE_FLOAT_INTERP_CLAMPED": 11,
+        "PVEC_TYPE_FLOAT_INTERP_OPEN": 12,
+        "PVEC_TYPE_FLOAT_INTERP_GRADIENT": 13,
+        "PVEC_TYPE_RANDOM_UNIFORM": 14,
+        "PVEC_TYPE_RANDOM_UNIFORM_OFFSET": 15,
+        "PVEC_TYPE_CP_DELTA": 16,
+        "PVEC_TYPE_CLOSEST_CAMERA_POSITION": 17,
+        "PVEC_TYPE_COUNT": 18
+    },
+    "DynamicContinuousContactBehavior_t": {
+        "DYNAMIC_CONTINUOUS_ALLOW_IF_REQUESTED_BY_OTHER_BODY": 0,
+        "DYNAMIC_CONTINUOUS_ALWAYS": 1,
+        "DYNAMIC_CONTINUOUS_NEVER": 2
     },
     "JointAxis_t": {
         "JOINT_AXIS_X": 0,
@@ -2388,57 +2617,6 @@
         "JOINT_MOTION_FREE": 0,
         "JOINT_MOTION_LOCKED": 1,
         "JOINT_MOTION_COUNT": 2
-    },
-    "InputLayoutVariation_t": {
-        "INPUT_LAYOUT_VARIATION_DEFAULT": 0,
-        "INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID": 1,
-        "INPUT_LAYOUT_VARIATION_STREAM1_INSTANCEID_MORPH_VERT_ID": 2,
-        "INPUT_LAYOUT_VARIATION_MAX": 3
-    },
-    "RenderBufferFlags_t": {
-        "RENDER_BUFFER_USAGE_VERTEX_BUFFER": 1,
-        "RENDER_BUFFER_USAGE_INDEX_BUFFER": 2,
-        "RENDER_BUFFER_USAGE_SHADER_RESOURCE": 4,
-        "RENDER_BUFFER_USAGE_UNORDERED_ACCESS": 8,
-        "RENDER_BUFFER_BYTEADDRESS_BUFFER": 16,
-        "RENDER_BUFFER_STRUCTURED_BUFFER": 32,
-        "RENDER_BUFFER_APPEND_CONSUME_BUFFER": 64,
-        "RENDER_BUFFER_UAV_COUNTER": 128,
-        "RENDER_BUFFER_UAV_DRAW_INDIRECT_ARGS": 256,
-        "RENDER_BUFFER_ACCELERATION_STRUCTURE": 512,
-        "RENDER_BUFFER_SHADER_BINDING_TABLE": 1024,
-        "RENDER_BUFFER_PER_FRAME_WRITE_ONCE": 2048,
-        "RENDER_BUFFER_POOL_ALLOCATED": 4096
-    },
-    "RenderMultisampleType_t": {
-        "RENDER_MULTISAMPLE_INVALID": -1,
-        "RENDER_MULTISAMPLE_NONE": 0,
-        "RENDER_MULTISAMPLE_2X": 1,
-        "RENDER_MULTISAMPLE_4X": 2,
-        "RENDER_MULTISAMPLE_6X": 3,
-        "RENDER_MULTISAMPLE_8X": 4,
-        "RENDER_MULTISAMPLE_16X": 5,
-        "RENDER_MULTISAMPLE_TYPE_COUNT": 6
-    },
-    "RenderPrimitiveType_t": {
-        "RENDER_PRIM_POINTS": 0,
-        "RENDER_PRIM_LINES": 1,
-        "RENDER_PRIM_LINES_WITH_ADJACENCY": 2,
-        "RENDER_PRIM_LINE_STRIP": 3,
-        "RENDER_PRIM_LINE_STRIP_WITH_ADJACENCY": 4,
-        "RENDER_PRIM_TRIANGLES": 5,
-        "RENDER_PRIM_TRIANGLES_WITH_ADJACENCY": 6,
-        "RENDER_PRIM_TRIANGLE_STRIP": 7,
-        "RENDER_PRIM_TRIANGLE_STRIP_WITH_ADJACENCY": 8,
-        "RENDER_PRIM_INSTANCED_QUADS": 9,
-        "RENDER_PRIM_HETEROGENOUS": 10,
-        "RENDER_PRIM_COMPUTE_SHADER": 11,
-        "RENDER_PRIM_TYPE_COUNT": 12
-    },
-    "RenderSlotType_t": {
-        "RENDER_SLOT_INVALID": -1,
-        "RENDER_SLOT_PER_VERTEX": 0,
-        "RENDER_SLOT_PER_INSTANCE": 1
     },
     "DisableShadows_t": {
         "kDisableShadows_None": 0,
@@ -2532,7 +2710,8 @@
         "FIELD_ENGINE_TICK": 77,
         "FIELD_WORLD_GROUP_ID": 78,
         "FIELD_GLOBALSYMBOL": 79,
-        "FIELD_TYPECOUNT": 80
+        "FIELD_HNMGRAPHDEFINITION": 80,
+        "FIELD_TYPECOUNT": 81
     },
     "ChickenActivity": {
         "IDLE": 0,
@@ -2543,7 +2722,9 @@
         "LAND": 5,
         "PANIC": 6,
         "TRICK": 7,
-        "TURN_IN_PLACE": 8
+        "TURN_IN_PLACE": 8,
+        "FEED": 9,
+        "SLEEP": 10
     },
     "EOverrideBlockLOS_t": {
         "BLOCK_LOS_DEFAULT": 0,
@@ -2560,14 +2741,14 @@
         "expDirected": 1,
         "expUsePrecise": 2
     },
-    "ForcedCrouchState_t": {
-        "FORCEDCROUCH_NONE": 0,
-        "FORCEDCROUCH_CROUCHED": 1,
-        "FORCEDCROUCH_UNCROUCHED": 2
-    },
     "FuncDoorSpawnPos_t": {
         "FUNC_DOOR_SPAWN_CLOSED": 0,
         "FUNC_DOOR_SPAWN_OPEN": 1
+    },
+    "HoverPoseFlags_t": {
+        "eNone": 0,
+        "ePosition": 1,
+        "eAngles": 2
     },
     "LessonPanelLayoutFileTypes_t": {
         "LAYOUT_HAND_DEFAULT": 0,
@@ -2600,6 +2781,19 @@
         "MediumCircle": 5,
         "Sidekick": 6
     },
+    "NavScopeFlags_t": {
+        "eGround": 1,
+        "eAir": 2,
+        "eAll": 3,
+        "eNone": 0
+    },
+    "NavScope_t": {
+        "eGround": 0,
+        "eAir": 1,
+        "eCount": 2,
+        "eFirst": 0,
+        "eInvalid": 255
+    },
     "PropDoorRotatingOpenDirection_e": {
         "DOOR_ROTATING_OPEN_BOTH_WAYS": 0,
         "DOOR_ROTATING_OPEN_FORWARD": 1,
@@ -2611,6 +2805,12 @@
         "DOOR_SPAWN_OPEN_BACK": 2,
         "DOOR_SPAWN_AJAR": 3
     },
+    "RelativeLocationType_t": {
+        "WORLD_SPACE_POSITION": 0,
+        "RELATIVE_TO_ENTITY_IN_LOCAL_SPACE": 1,
+        "RELATIVE_TO_ENTITY_YAW_ONLY": 2,
+        "RELATIVE_TO_ENTITY_IN_WORLD_SPACE": 3
+    },
     "SceneOnPlayerDeath_t": {
         "SCENE_ONPLAYERDEATH_DO_NOTHING": 0,
         "SCENE_ONPLAYERDEATH_CANCEL": 1
@@ -2619,44 +2819,10 @@
         "SS_CONFLICT_ENQUEUE": 0,
         "SS_CONFLICT_INTERRUPT": 1
     },
-    "ScriptedMoveType_t": {
-        "SCRIPTED_MOVETYPE_NONE": 0,
-        "SCRIPTED_MOVETYPE_TO_WITH_DURATION": 1,
-        "SCRIPTED_MOVETYPE_TO_WITH_MOVESPEED": 2,
-        "SCRIPTED_MOVETYPE_SWEEP_TO_AT_MOVEMENT_SPEED": 3
-    },
     "SoundEventStartType_t": {
         "SOUNDEVENT_START_PLAYER": 0,
         "SOUNDEVENT_START_WORLD": 1,
         "SOUNDEVENT_START_ENTITY": 2
-    },
-    "SoundFlags_t": {
-        "SOUND_FLAGS_NONE": 0,
-        "SOUND_FLAG_GUNFIRE": 1,
-        "SOUND_FLAG_COMBINE_ONLY": 2,
-        "SOUND_FLAG_REACT_TO_SOURCE": 4,
-        "SOUND_FLAG_EXPLOSION": 8,
-        "SOUND_FLAG_EXCLUDE_COMBINE": 16,
-        "SOUND_FLAG_DANGER_APPROACH": 32,
-        "SOUND_FLAG_ALLIES_ONLY": 64,
-        "SOUND_FLAG_PANIC_NPCS": 128,
-        "SOUND_FLAG_SQUAD_ONLY": 256
-    },
-    "SoundTypes_t": {
-        "SOUND_NONE": 0,
-        "SOUND_COMBAT": 1,
-        "SOUND_PLAYER": 2,
-        "SOUND_DANGER": 3,
-        "SOUND_BULLET_IMPACT": 4,
-        "SOUND_THUMPER": 5,
-        "SOUND_PHYSICS_DANGER": 6,
-        "SOUND_MOVE_AWAY": 7,
-        "SOUND_PLAYER_VEHICLE": 8,
-        "SOUND_GLASS_BREAK": 9,
-        "SOUND_PHYSICS_OBJECT": 10,
-        "SOUND_WARN_FRIENDS": 11,
-        "SOUND_FOOD": 12,
-        "NUM_AI_SOUND_TYPES": 13
     },
     "TOGGLE_STATE": {
         "TS_AT_TOP": 0,
@@ -2672,6 +2838,11 @@
         "TRAIN_SAFE": 0,
         "TRAIN_BLOCKING": 1,
         "TRAIN_FOLLOWING": 2
+    },
+    "TestInputOutputCombinationsEnum_t": {
+        "ZERO": 0,
+        "ONE": 1,
+        "TWO": 2
     },
     "Touch_t": {
         "touch_none": 0,
@@ -2705,10 +2876,6 @@
         "k_eSplinePushAlong": 0,
         "k_eSplinePushAway": 1,
         "k_eSplinePushTowards": 2
-    },
-    "filter_t": {
-        "FILTER_AND": 0,
-        "FILTER_OR": 1
     },
     "navproperties_t": {
         "NAV_IGNORE": 1
@@ -2745,6 +2912,46 @@
     "SosGroupType_t": {
         "SOS_GROUPTYPE_DYNAMIC": 0,
         "SOS_GROUPTYPE_STATIC": 1
+    },
+    "VMixGraphCommandID_t": {
+        "CMD_INVALID": -1,
+        "CMD_CONTROL_INPUT_STORE": 1,
+        "CMD_CONTROL_INPUT_STORE_DB": 2,
+        "CMD_CONTROL_TRANSIENT_INPUT_STORE": 3,
+        "CMD_CONTROL_TRANSIENT_INPUT_RESET": 4,
+        "CMD_CONTROL_OUTPUT_STORE": 5,
+        "CMD_CONTROL_EVALUATE_CURVE": 6,
+        "CMD_CONTROL_COPY": 7,
+        "CMD_CONTROL_REMAP_LINEAR": 8,
+        "CMD_CONTROL_REMAP_SINE": 9,
+        "CMD_CONTROL_REMAP_LOGLINEAR": 10,
+        "CMD_CONTROL_MAX": 11,
+        "CMD_CONTROL_RESET_TIMER": 12,
+        "CMD_CONTROL_INCREMENT_TIMER": 13,
+        "CMD_CONTROL_EVAL_ENVELOPE": 14,
+        "CMD_CONTROL_SINE_BLEND": 15,
+        "CMD_PROCESSOR_SET_CONTROL_VALUE": 16,
+        "CMD_PROCESSOR_SET_NAME_INPUT": 17,
+        "CMD_PROCESSOR_SET_CONTROL_ARRAYVALUE": 18,
+        "CMD_PROCESSOR_STORE_CONTROL_VALUE": 19,
+        "CMD_PROCESSOR_SET_VSND_VALUE": 20,
+        "CMD_SUBMIX_PROCESS": 21,
+        "CMD_SUBMIX_GENERATE": 22,
+        "CMD_SUBMIX_GENERATE_SIDECHAIN": 23,
+        "CMD_SUBMIX_DEBUG": 24,
+        "CMD_SUBMIX_MIX2x1": 25,
+        "CMD_SUBMIX_OUTPUT": 26,
+        "CMD_SUBMIX_OUTPUTx2": 27,
+        "CMD_SUBMIX_COPY": 28,
+        "CMD_SUBMIX_ACCUMULATE": 29,
+        "CMD_SUBMIX_METER": 30,
+        "CMD_SUBMIX_METER_SPECTRUM": 31,
+        "CMD_IMPULSERESPONSE_INPUT_STORE": 32,
+        "CMD_PROCESSOR_SET_IMPULSERESPONSE_VALUE": 33,
+        "CMD_REMAP_VSND_TO_IMPULSERESPONSE": 34,
+        "CMD_IMPULSERESPONSE_RESET": 35,
+        "CMD_BLEND_VSNDS_TO_IMPULSERESPONSE": 36,
+        "CMD_IMPULSERESPONSE_DELAY": 37
     },
     "soundlevel_t": {
         "SNDLVL_NONE": 0,
@@ -2830,27 +3037,29 @@
         "VPROCESSOR_MOD_DELAY": 6,
         "VPROCESSOR_DIFFUSOR": 7,
         "VPROCESSOR_BOXVERB": 8,
-        "VPROCESSOR_FREEVERB": 9,
-        "VPROCESSOR_PLATEVERB": 10,
-        "VPROCESSOR_FULLWAVE_INTEGRATOR": 11,
-        "VPROCESSOR_FILTER": 12,
-        "VPROCESSOR_STEAMAUDIO_PATHING": 13,
-        "VPROCESSOR_EQ8": 14,
-        "VPROCESSOR_ENVELOPE": 15,
-        "VPROCESSOR_VOCODER": 16,
-        "VPROCESSOR_CONVOLUTION": 17,
-        "VPROCESSOR_DYNAMICS_3BAND": 18,
-        "VPROCESSOR_DYNAMICS_COMPRESSOR": 19,
-        "VPROCESSOR_SHAPER": 20,
-        "VPROCESSOR_PANNER": 21,
-        "VPROCESSOR_UTILITY": 22,
-        "VPROCESSOR_AUTOFILTER": 23,
-        "VPROCESSOR_OSC": 24,
-        "VPROCESSOR_STEREODELAY": 25,
-        "VPROCESSOR_EFFECT_CHAIN": 26,
-        "VPROCESSOR_SUBGRAPH_SWITCH": 27,
-        "VPROCESSOR_STEAMAUDIO_DIRECT": 28,
-        "VPROCESSOR_STEAMAUDIO_HYBRIDREVERB": 29
+        "VPROCESSOR_BOXVERB2": 9,
+        "VPROCESSOR_FREEVERB": 10,
+        "VPROCESSOR_PLATEVERB": 11,
+        "VPROCESSOR_FULLWAVE_INTEGRATOR": 12,
+        "VPROCESSOR_FILTER": 13,
+        "VPROCESSOR_STEAMAUDIO_PATHING": 14,
+        "VPROCESSOR_EQ8": 15,
+        "VPROCESSOR_ENVELOPE": 16,
+        "VPROCESSOR_VOCODER": 17,
+        "VPROCESSOR_CONVOLUTION": 18,
+        "VPROCESSOR_DUAL_COMPRESSOR": 19,
+        "VPROCESSOR_DYNAMICS_3BAND": 20,
+        "VPROCESSOR_DYNAMICS_COMPRESSOR": 21,
+        "VPROCESSOR_SHAPER": 22,
+        "VPROCESSOR_PANNER": 23,
+        "VPROCESSOR_UTILITY": 24,
+        "VPROCESSOR_AUTOFILTER": 25,
+        "VPROCESSOR_OSC": 26,
+        "VPROCESSOR_STEREODELAY": 27,
+        "VPROCESSOR_EFFECT_CHAIN": 28,
+        "VPROCESSOR_SUBGRAPH_SWITCH": 29,
+        "VPROCESSOR_STEAMAUDIO_DIRECT": 30,
+        "VPROCESSOR_STEAMAUDIO_HYBRIDREVERB": 31
     },
     "VMixSubgraphSwitchInterpolationType_t": {
         "SUBGRAPH_INTERPOLATION_TEMPORAL_CROSSFADE": 0,
@@ -2895,6 +3104,12 @@
         "RandomAvoidLast": 2,
         "Sequential": 3,
         "RandomWeights": 4
+    },
+    "AggregateInstanceStream_t": {
+        "AGGREGATE_INSTANCE_STREAM_NONE": 0,
+        "AGGREGATE_INSTANCE_STREAM_LIGHTMAPUV_UNORM16": 1,
+        "AGGREGATE_INSTANCE_STREAM_VERTEXTINT_UNORM8": 2,
+        "AGGREGATE_INSTANCE_STREAM_VERTEXBLEND_UNORM8": 4
     },
     "ObjectTypeFlags_t": {
         "OBJECT_TYPE_NONE": 0,
