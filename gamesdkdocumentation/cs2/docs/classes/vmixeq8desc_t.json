@@ -8,12 +8,7 @@
         },
         "return": "VMixEQ8Desc_t"
     },
-    "properties": [
-        {
-            "name": "Stages",
-            "writable": false
-        }
-    ],
+    "properties": [],
     "functions": [
         {
             "name": "ToPtr",

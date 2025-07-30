@@ -45,10 +45,6 @@
             "writable": true
         },
         {
-            "name": "AttachEntity",
-            "writable": false
-        },
-        {
             "name": "Width",
             "type": "float",
             "writable": true

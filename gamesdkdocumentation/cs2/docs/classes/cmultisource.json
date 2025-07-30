@@ -10,10 +10,6 @@
     },
     "properties": [
         {
-            "name": "RgEntities",
-            "writable": false
-        },
-        {
             "name": "RgTriggered",
             "type": "int32[]",
             "writable": true

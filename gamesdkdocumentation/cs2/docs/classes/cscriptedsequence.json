@@ -370,10 +370,6 @@
             "writable": false
         },
         {
-            "name": "OnScriptEvent",
-            "writable": false
-        },
-        {
             "name": "InteractionMainEntity",
             "type": "CBaseEntity",
             "writable": false

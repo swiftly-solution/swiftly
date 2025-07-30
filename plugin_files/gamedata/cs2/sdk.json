@@ -863,11 +863,6 @@
             "classname": "CAnimInputDamping",
             "type": 16
         },
-        "PoseCacheHandles": {
-            "field": "m_poseCacheHandles",
-            "type": 45,
-            "size": 10
-        },
         "BlendMode": {
             "field": "m_eBlendMode",
             "type": 6
@@ -1218,11 +1213,6 @@
         }
     },
     "CAnimNodePath": {
-        "Path": {
-            "field": "m_path",
-            "type": 45,
-            "size": 11
-        },
         "Count": {
             "field": "m_nCount",
             "type": 2
@@ -1394,11 +1384,6 @@
         "Type": {
             "field": "m_Type",
             "type": 6
-        },
-        "OwningAnimNodePaths": {
-            "field": "m_OwningAnimNodePaths",
-            "type": 45,
-            "size": 11
         },
         "OwningAnimNodePathCount": {
             "field": "m_nOwningAnimNodePathCount",
@@ -2640,11 +2625,6 @@
             "type": 31,
             "size": 3
         },
-        "Poses": {
-            "field": "m_poses",
-            "type": 45,
-            "size": 9
-        },
         "Damping": {
             "field": "m_damping",
             "classname": "CAnimInputDamping",
@@ -3062,11 +3042,6 @@
         "NetworkFacing": {
             "field": "m_bNetworkFacing",
             "type": 10
-        },
-        "ParamHandles": {
-            "field": "m_paramHandles",
-            "type": 45,
-            "size": 34
         },
         "Parent": {
             "field": "CAnimComponentUpdater",
@@ -8171,11 +8146,6 @@
             "type": 26,
             "size": 10
         },
-        "Filter": {
-            "field": "m_hFilter",
-            "type": 46,
-            "size": 10
-        },
         "Parent": {
             "field": "CBaseFilter",
             "type": 11
@@ -10862,10 +10832,6 @@
         "ID": {
             "field": "m_ID",
             "type": 12
-        },
-        "Values": {
-            "field": "m_Values",
-            "type": 23
         }
     },
     "EntitySpottedState_t": {
@@ -12672,10 +12638,6 @@
         }
     },
     "MaterialParamVector_t": {
-        "Value": {
-            "field": "m_value",
-            "type": 23
-        },
         "Parent": {
             "field": "MaterialParam_t",
             "type": 11
@@ -14228,10 +14190,6 @@
         "MaxBounds": {
             "field": "m_vMaxBounds",
             "type": 21
-        },
-        "TintColor": {
-            "field": "m_vTintColor",
-            "type": 23
         }
     },
     "CTiltTwistConstraint": {
@@ -19566,11 +19524,6 @@
             "field": "m_LightStyleEvents",
             "type": 50
         },
-        "StyleEvent": {
-            "field": "m_StyleEvent",
-            "type": 45,
-            "size": 4
-        },
         "Shape": {
             "field": "m_flShape",
             "type": 8
@@ -21471,11 +21424,6 @@
         "BeamFlags": {
             "field": "m_nBeamFlags",
             "type": 6
-        },
-        "AttachEntity": {
-            "field": "m_hAttachEntity",
-            "type": 46,
-            "size": 10
         },
         "Width": {
             "field": "m_fWidth",
@@ -29842,11 +29790,6 @@
             "type": 33,
             "size": 32
         },
-        "OnCase": {
-            "field": "m_OnCase",
-            "type": 45,
-            "size": 32
-        },
         "Parent": {
             "field": "CLogicalEntity",
             "type": 11
@@ -30916,11 +30859,6 @@
         }
     },
     "CMultiSource": {
-        "RgEntities": {
-            "field": "m_rgEntities",
-            "type": 46,
-            "size": 32
-        },
         "RgTriggered": {
             "field": "m_rgTriggered",
             "type": 31,
@@ -31136,11 +31074,6 @@
             "field": "m_iServerControlPointAssignments",
             "type": 33,
             "size": 4
-        },
-        "ControlPointEnts": {
-            "field": "m_hControlPointEnts",
-            "type": 46,
-            "size": 64
         },
         "NoSave": {
             "field": "m_bNoSave",
@@ -34348,11 +34281,6 @@
             "classname": "CEntityIOOutput",
             "type": 16
         },
-        "OnTrigger": {
-            "field": "m_OnTrigger",
-            "type": 45,
-            "size": 16
-        },
         "InterruptScene": {
             "field": "m_hInterruptScene",
             "type": 17,
@@ -34423,11 +34351,6 @@
         "Scenes": {
             "field": "m_iszScenes",
             "type": 26,
-            "size": 16
-        },
-        "Scenes1": {
-            "field": "m_hScenes",
-            "type": 46,
             "size": 16
         },
         "Parent": {
@@ -34792,11 +34715,6 @@
             "field": "m_OnCancelFailedSequence",
             "classname": "CEntityIOOutput",
             "type": 16
-        },
-        "OnScriptEvent": {
-            "field": "m_OnScriptEvent",
-            "type": 45,
-            "size": 8
         },
         "InteractionMainEntity": {
             "field": "m_hInteractionMainEntity",
@@ -37948,11 +37866,6 @@
         "PeakMode": {
             "field": "m_bPeakMode",
             "type": 10
-        },
-        "BandDesc": {
-            "field": "m_bandDesc",
-            "type": 45,
-            "size": 3
         }
     },
     "VMixDynamicsBand_t": {
@@ -38085,13 +37998,7 @@
             "type": 10
         }
     },
-    "VMixEQ8Desc_t": {
-        "Stages": {
-            "field": "m_stages",
-            "type": 45,
-            "size": 8
-        }
-    },
+    "VMixEQ8Desc_t": {},
     "VMixEffectChainDesc_t": {
         "CrossfadeTime": {
             "field": "m_flCrossfadeTime",
@@ -39163,10 +39070,6 @@
             "field": "m_nRenderOrder",
             "type": 2
         },
-        "TintColor": {
-            "field": "m_vTintColor",
-            "type": 23
-        },
         "SequenceOverride": {
             "field": "m_nSequenceOverride",
             "type": 2
@@ -39243,10 +39146,6 @@
         "FadeEndDistance": {
             "field": "m_flFadeEndDistance",
             "type": 8
-        },
-        "TintColor": {
-            "field": "m_vTintColor",
-            "type": 23
         },
         "Skin": {
             "field": "m_skin",

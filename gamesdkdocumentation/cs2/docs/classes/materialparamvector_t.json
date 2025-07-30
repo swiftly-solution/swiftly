@@ -10,10 +10,6 @@
     },
     "properties": [
         {
-            "name": "Value",
-            "writable": false
-        },
-        {
             "name": "Parent",
             "type": "MaterialParam_t",
             "writable": false

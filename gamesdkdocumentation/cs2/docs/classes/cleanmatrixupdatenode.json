@@ -15,10 +15,6 @@
             "writable": true
         },
         {
-            "name": "Poses",
-            "writable": false
-        },
-        {
             "name": "Damping",
             "type": "CAnimInputDamping",
             "writable": false

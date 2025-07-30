@@ -255,10 +255,6 @@
             "writable": false
         },
         {
-            "name": "OnTrigger",
-            "writable": false
-        },
-        {
             "name": "InterruptScene",
             "type": "CSceneEntity",
             "writable": false

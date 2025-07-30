@@ -40,10 +40,6 @@
             "writable": true
         },
         {
-            "name": "ParamHandles",
-            "writable": false
-        },
-        {
             "name": "Parent",
             "type": "CAnimComponentUpdater",
             "writable": false

@@ -20,10 +20,6 @@
             "writable": true
         },
         {
-            "name": "Filter",
-            "writable": false
-        },
-        {
             "name": "Parent",
             "type": "CBaseFilter",
             "writable": false

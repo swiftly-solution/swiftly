@@ -20,10 +20,6 @@
             "writable": false
         },
         {
-            "name": "PoseCacheHandles",
-            "writable": false
-        },
-        {
             "name": "BlendMode",
             "type": "uint32",
             "writable": true

@@ -53,10 +53,6 @@
             "name": "PeakMode",
             "type": "bool",
             "writable": true
-        },
-        {
-            "name": "BandDesc",
-            "writable": false
         }
     ],
     "functions": [

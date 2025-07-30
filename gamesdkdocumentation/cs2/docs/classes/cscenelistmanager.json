@@ -15,10 +15,6 @@
             "writable": true
         },
         {
-            "name": "Scenes1",
-            "writable": false
-        },
-        {
             "name": "Parent",
             "type": "CLogicalEntity",
             "writable": false

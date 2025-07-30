@@ -30,10 +30,6 @@
             "writable": true
         },
         {
-            "name": "OnCase",
-            "writable": false
-        },
-        {
             "name": "Parent",
             "type": "CLogicalEntity",
             "writable": false

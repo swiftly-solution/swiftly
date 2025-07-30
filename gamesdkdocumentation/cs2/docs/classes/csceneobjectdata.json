@@ -18,10 +18,6 @@
             "name": "MaxBounds",
             "type": "Vector2D",
             "writable": true
-        },
-        {
-            "name": "TintColor",
-            "writable": false
         }
     ],
     "functions": [

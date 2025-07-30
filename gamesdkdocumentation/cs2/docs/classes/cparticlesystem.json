@@ -60,10 +60,6 @@
             "writable": true
         },
         {
-            "name": "ControlPointEnts",
-            "writable": false
-        },
-        {
             "name": "NoSave",
             "type": "bool",
             "writable": true

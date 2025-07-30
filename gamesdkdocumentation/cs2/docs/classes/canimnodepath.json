@@ -10,10 +10,6 @@
     },
     "properties": [
         {
-            "name": "Path",
-            "writable": false
-        },
-        {
             "name": "Count",
             "type": "int32",
             "writable": true

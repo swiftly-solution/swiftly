@@ -43,9 +43,9 @@ for (const ent of cats) {
 
         for (const page of pages) {
             let pageKey = page.replace(ent.value + "/", "")
-            let isCategory = pageKey.endsWith("_index.json")
+            let isCategory = pageKey.endsWith("/_index.json")
 
-            if (pageKey.endsWith("_index.json")) {
+            if (pageKey.endsWith("/_index.json")) {
                 pageKey = pageKey.replace("/_index.json", "").replace(new RegExp("\/", "g"), ".")
             } else {
                 pageKey = pageKey.replace(".json", "").replace(new RegExp("\/", "g"), ".")
@@ -59,7 +59,7 @@ for (const ent of cats) {
                 }
                 links[JSON.parse(readFileSync(page)).title.split(" ").join("")] = pageKey
             } else {
-                metadata[pageKey.split(".").slice(0, -1).join(".")].pages.push({ filePath: page, key: pageKey })
+                metadata[pageKey.split(".").shift()].pages.push({ filePath: page, key: pageKey })
 
                 const pageData = JSON.parse(readFileSync(page))
                 if (pageData.kind == 'function') links[pageData.function] = pageKey

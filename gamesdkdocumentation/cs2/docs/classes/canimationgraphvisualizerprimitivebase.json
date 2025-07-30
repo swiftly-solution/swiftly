@@ -15,10 +15,6 @@
             "writable": true
         },
         {
-            "name": "OwningAnimNodePaths",
-            "writable": false
-        },
-        {
             "name": "OwningAnimNodePathCount",
             "type": "int32",
             "writable": true

@@ -40,10 +40,6 @@
             "writable": true
         },
         {
-            "name": "TintColor",
-            "writable": false
-        },
-        {
             "name": "SequenceOverride",
             "type": "int32",
             "writable": true

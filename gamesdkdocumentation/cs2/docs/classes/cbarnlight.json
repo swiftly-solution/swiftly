@@ -95,10 +95,6 @@
             "writable": true
         },
         {
-            "name": "StyleEvent",
-            "writable": false
-        },
-        {
             "name": "Shape",
             "type": "float",
             "writable": true

@@ -30,10 +30,6 @@
             "writable": true
         },
         {
-            "name": "TintColor",
-            "writable": false
-        },
-        {
             "name": "Skin",
             "type": "string",
             "writable": true

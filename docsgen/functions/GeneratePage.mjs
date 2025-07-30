@@ -1,3 +1,4 @@
+import CreateCommandPage from "./CreateCommandPage.mjs"
 import GenerateClassPage from "./GenerateClassPage.mjs"
 import GenerateEventPage from "./GenerateEventPage.mjs"
 import GenerateFunctionPage from "./GenerateFunctionPage.mjs"
@@ -10,6 +11,7 @@ export default function GeneratePage(pageKey, pageContent, category) {
     else if (pageContent.kind == "event") return { page: GenerateEventPage(pageKey, pageContent, category), title: pageContent.event_name }
     else if (pageContent.kind == "type") return { page: GenerateTypePage(pageKey, pageContent, category), title: pageContent.name }
     else if (pageContent.kind == "static") return { page: GenerateStaticPage(pageKey, pageContent, category), title: pageContent.title }
-    else throw Error(`${pageContent.kind} not implemented`)
-    // else return { page: "", title: "" }
+    else if (pageContent.kind == "command") return { page: CreateCommandPage(pageKey, pageContent, category), title: pageContent.name }
+    // else throw Error(`${pageContent.kind} not implemented`)
+    else return { page: "", title: "" }
 }

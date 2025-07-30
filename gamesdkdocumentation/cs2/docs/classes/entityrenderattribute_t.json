@@ -13,10 +13,6 @@
             "name": "ID",
             "type": "uint32",
             "writable": true
-        },
-        {
-            "name": "Values",
-            "writable": false
         }
     ],
     "functions": [
