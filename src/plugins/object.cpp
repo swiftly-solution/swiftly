@@ -9,6 +9,7 @@
 #include <server/commands/manager.h>
 #include <tools/crashreporter/callstack.h>
 #include <tools/resourcemonitor/monitor.h>
+#include <engine/gameevents/gameevents.h>
 
 #include <extensions/manager.h>
 #include <glob/glob.hpp>
@@ -48,6 +49,7 @@ void PluginObject::RegisterEventHandling(std::string eventName)
 {
     if (eventHandlers.find(eventName) == eventHandlers.end()) {
         eventHandlers.insert(eventName);
+        g_eventManager.RegisterGameEventListen(eventName);
     }
 }
 
