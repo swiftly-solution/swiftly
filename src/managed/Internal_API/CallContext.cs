@@ -222,6 +222,10 @@ namespace SwiftlyS2.Internal_API
             {
                 return (IntPtr)Convert.ChangeType(value, typeof(IntPtr));
             }
+            else if (value is ClassData v)
+            {
+                return v.GetClassDataPtr();
+            }
 
             return value;
         }
@@ -294,8 +298,21 @@ namespace SwiftlyS2.Internal_API
                 PushObject(ea.Value, data);
                 return;
             }
+            else if(value is ClassData)
+            {
+                var ptr = (IntPtr)PushInternal(value);
 
-            typesMap.TryGetValue(value.GetType(), out data->args_type[data->args_count]);
+                unsafe
+                {
+                    *(IntPtr*)(&data->args_data[8 * data->args_count]) = ptr;
+                }
+
+                typesMap.TryGetValue(typeof(ClassData), out data->args_type[data->args_count]);
+                data->args_count++;
+                return;
+            }
+
+                typesMap.TryGetValue(value.GetType(), out data->args_type[data->args_count]);
             if (data->args_type[data->args_count] == 0)
             {
                 throw new Exception($"Invalid data type tried to be pushed: {value.GetType().FullName}");
@@ -324,8 +341,8 @@ namespace SwiftlyS2.Internal_API
                 }
             }
 
-            bool isKeyPointer = (dictTypes[0] == typeof(IntPtr) || dictTypes[0] == typeof(string) || dictTypes[0].IsArray || typeof(IDictionary).IsAssignableFrom(dictTypes[0]));
-            bool isValuePointer = (dictTypes[1] == typeof(IntPtr) || dictTypes[1] == typeof(string) || dictTypes[1].IsArray || typeof(IDictionary).IsAssignableFrom(dictTypes[1]));
+            bool isKeyPointer = (dictTypes[0] == typeof(ClassData) || dictTypes[0].IsSubclassOf(typeof(ClassData)) || dictTypes[0] == typeof(IntPtr) || dictTypes[0] == typeof(string) || dictTypes[0].IsArray || typeof(IDictionary).IsAssignableFrom(dictTypes[0]));
+            bool isValuePointer = (dictTypes[1] == typeof(ClassData) || dictTypes[1].IsSubclassOf(typeof(ClassData)) || dictTypes[1] == typeof(IntPtr) || dictTypes[1] == typeof(string) || dictTypes[1].IsArray || typeof(IDictionary).IsAssignableFrom(dictTypes[1]));
 
             int keySize = Marshal.SizeOf(isKeyPointer ? sizeof(IntPtr) : dictTypes[0]);
             int valueSize = Marshal.SizeOf(isValuePointer ? sizeof(IntPtr) : dictTypes[1]);
@@ -346,10 +363,12 @@ namespace SwiftlyS2.Internal_API
 
             if(dictTypes[0].IsArray) typesMap.TryGetValue(typeof(Array), out p->keyType);
             else if(typeof(IDictionary).IsAssignableFrom(dictTypes[0])) typesMap.TryGetValue(typeof(IDictionary), out p->keyType);
+            else if (dictTypes[0] == typeof(ClassData) || dictTypes[0].IsSubclassOf(typeof(ClassData))) typesMap.TryGetValue(typeof(ClassData), out p->keyType);
             else typesMap.TryGetValue(dictTypes[0], out p->keyType);
 
             if (dictTypes[1].IsArray) typesMap.TryGetValue(typeof(Array), out p->valueType);
             else if (typeof(IDictionary).IsAssignableFrom(dictTypes[1])) typesMap.TryGetValue(typeof(IDictionary), out p->valueType);
+            else if(dictTypes[1] == typeof(ClassData) || dictTypes[1].IsSubclassOf(typeof(ClassData))) typesMap.TryGetValue(typeof(ClassData), out p->valueType);
             else typesMap.TryGetValue(dictTypes[1], out p->valueType);
 
             if(p->keyType == 0 || p->valueType == 0)
@@ -404,7 +423,7 @@ namespace SwiftlyS2.Internal_API
 
             ArrayData* p = (ArrayData*)structPtr.ToPointer();
 
-            bool isPointer = (t == typeof(IntPtr) || t == typeof(string) || t.IsArray || typeof(IDictionary).IsAssignableFrom(t));
+            bool isPointer = (t == typeof(ClassData) || t.IsSubclassOf(typeof(ClassData)) || t == typeof(IntPtr) || t == typeof(string) || t.IsArray || typeof(IDictionary).IsAssignableFrom(t));
             int elementSize = Marshal.SizeOf(isPointer ? typeof(IntPtr) : t);
             IntPtr arrayPtr = Marshal.AllocHGlobal(elementSize * array.Length);
 
@@ -413,6 +432,7 @@ namespace SwiftlyS2.Internal_API
 
             if (t.IsArray) p->type = typesMap.GetValueOrDefault(typeof(Array));
             else if(typeof(IDictionary).IsAssignableFrom(t)) p->type = typesMap.GetValueOrDefault(typeof(IDictionary));
+            else if(t == typeof(ClassData) || t.IsSubclassOf(typeof(ClassData))) p->type = typesMap.GetValueOrDefault(typeof(ClassData));
             else typesMap.TryGetValue(t, out p->type);
 
             var i = 0;
@@ -521,6 +541,16 @@ namespace SwiftlyS2.Internal_API
                 SetReturnObject(ea.Value, data);
                 return;
             }
+            else if(value is ClassData)
+            {
+                unsafe
+                {
+                    *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
+                }
+
+                typesMap.TryGetValue(typeof(IntPtr), out data->return_type);
+                return;
+            }
 
             typesMap.TryGetValue(value.GetType(), out data->return_type);
             if (data->return_type == 0)
@@ -585,8 +615,13 @@ namespace SwiftlyS2.Internal_API
                 Marshal.Copy(natUTF8, buf, 0, buf.Length);
                 return Encoding.UTF8.GetString(buf);
             }
+            else if(type == typeof(ClassData) || type.IsInstanceOfType(typeof(ClassData)))
+            {
+                IntPtr p = *(IntPtr*)ptr;
+                return Activator.CreateInstance(type, p)!;
+            }
 
-            if(type.IsEnum)
+            if (type.IsEnum)
             {
                 return Enum.ToObject(type, (int)ReadValue(typeof(int), ptr));
             }

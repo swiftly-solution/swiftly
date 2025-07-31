@@ -16,5 +16,9 @@ namespace SwiftlyS2.API
         {
             Invoker.FinalizeClassdata(m_classData);
         }
+        public IntPtr GetClassDataPtr()
+        {
+            return m_classData;
+        }
     }
 }
