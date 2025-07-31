@@ -8,15 +8,16 @@ const luaReplacer = {
     float: "number",
     uint32: "number",
     uint8: "number",
-    SDKClass: "SDKClass",
+    int8: "number",
+    int16: "number",
+    uint16: "number",
     Color: "Color",
     Vector: "Vector",
     Vector2D: "Vector2D",
     Vector4D: "Vector4D",
     void: "nil",
     any: "any",
-
-    gear_slot_t: "gear_slot_t"
+    SDKClass: "ClassData"
 }
 
 const jsReplacer = {
@@ -29,13 +30,16 @@ const jsReplacer = {
     float: "number",
     uint32: "number",
     uint8: "number",
-    SDKClass: "SDKClass",
+    int8: "number",
+    int16: "number",
+    uint16: "number",
     Color: "Color",
     Vector: "Vector",
     Vector2D: "Vector2D",
     Vector4D: "Vector4D",
     void: "void",
     any: "any",
+    SDKClass: "ClassData"
 }
 
 const csReplacer = {
@@ -48,13 +52,16 @@ const csReplacer = {
     float: "float",
     uint32: "uint",
     uint8: "byte",
-    SDKClass: "SDKClass",
+    int8: "char",
+    int16: "short",
+    uint16: "ushort",
     Color: "Color",
     Vector: "Vector",
     Vector2D: "Vector2D",
     Vector4D: "Vector4D",
     void: "void",
     any: "object",
+    SDKClass: "ClassData"
 }
 
 export default function GenerateType(data, language) {
@@ -88,7 +95,7 @@ export default function GenerateType(data, language) {
 
             return `(${totalArgs.join(", ")}) => ${GenerateType(data.return, language)}`
         } else {
-            if (data.includes("[]")) return `${GenerateType(data.split("[")[0], language)}[]`;
+            if (data.includes("[]")) return `${GenerateType(data.split("[")[data.split("[").length - 1], language)}[]`;
             else if (data.includes(")")) return GenerateType(data.split(")")[0].split("(")[1], language) + data.split(")")[1]
             else if (data.includes(":")) return `Object.<${GenerateType(data.split(":")[0], language)}, ${GenerateType(data.split(":")[1], language)}>`
             else if (data.endsWith("?")) return `${GenerateType(data.split("?")[0], language)}?`
@@ -112,6 +119,7 @@ export default function GenerateType(data, language) {
             else if (data.includes("[]")) return `${GenerateType(data.split("[")[0], language)}[]`;
             else if (data.includes(")")) return GenerateType(data.split(")")[0].split("(")[1], language) + data.split(")")[1]
             else if (data.includes(":")) return `Dictionary<${data.split(":").map((v) => GenerateType(v, language)).join(", ")}>`
+            else if (data.includes("?")) return `${GenerateType(data.split("?")[0], language)}?`
             else if (csReplacer.hasOwnProperty(data)) return csReplacer[data]
             else return data;
         }

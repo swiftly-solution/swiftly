@@ -1,5 +1,6 @@
 using SwiftlyS2.Internal_API;
 using static SwiftlyS2.API.Scripting.UserMessages;
+using static SwiftlyS2.API.SDK.CS2.Classes;
 
 namespace SwiftlyS2.API.Scripting
 {
@@ -16,10 +17,6 @@ namespace SwiftlyS2.API.Scripting
         {
             Internal_API.Invoker.CallNative("_G", "ReplyToCommand", Internal_API.CallKind.Function, playerid, prefix, text);
         }
-        public static HookHandle AddHookEntityOutput(string class_name, string output)
-        {
-            return Internal_API.Invoker.CallNative<HookHandle>("_G", "AddHookEntityOutput", Internal_API.CallKind.Function, class_name, output);
-        }
         public static CEntityInstance CreateEntityByName(string class_name)
         {
             return Internal_API.Invoker.CallNative<CEntityInstance>("_G", "CreateEntityByName", Internal_API.CallKind.Function, class_name);
@@ -28,7 +25,7 @@ namespace SwiftlyS2.API.Scripting
         {
             return Internal_API.Invoker.CallNative<CEntityInstance[]>("_G", "FindEntitiesByClassname", Internal_API.CallKind.Function, class_name);
         }
-        public static EventHandler AddEventHandler(string event_name, Func<Event,object, EventResult?> callback)
+        public static EventHandler AddEventHandler(string event_name, Func<Events.Event,object, EventResult?> callback)
         {
             return Internal_API.Invoker.CallNative<EventHandler>("_G", "AddEventHandler", Internal_API.CallKind.Function, event_name, callback);
         }
@@ -36,11 +33,11 @@ namespace SwiftlyS2.API.Scripting
         {
             Internal_API.Invoker.CallNative("_G", "RemoveEventHandler", Internal_API.CallKind.Function, handler);
         }
-        public static (EventResult, Event) TriggerEvent(string event_name, params object[] args)
+        public static (EventResult, Events.Event) TriggerEvent(string event_name, params object[] args)
         {
-            return Internal_API.Invoker.CallNative<(EventResult, Event)>("_G", "TriggerEvent", Internal_API.CallKind.Function, event_name, (object)args);
+            return Internal_API.Invoker.CallNative<(EventResult, Events.Event)>("_G", "TriggerEvent", Internal_API.CallKind.Function, event_name, (object)args);
         }
-        public static string CreateTextTable(string[] data)
+        public static string CreateTextTable(string[][] data)
         {
             return Internal_API.Invoker.CallNative<string>("_G", "CreateTextTable", Internal_API.CallKind.Function, (object)data);
         }
@@ -59,26 +56,6 @@ namespace SwiftlyS2.API.Scripting
         public static PluginState_t GetPluginState(string plugin_name)
         {
             return Internal_API.Invoker.CallNative<PluginState_t>("_G", "GetPluginState", Internal_API.CallKind.Function, plugin_name);
-        }
-        public static HookHandle AddHook(Memory memory, string args_list, string return_type)
-        {
-            return Internal_API.Invoker.CallNative<HookHandle>("_G", "AddHook", Internal_API.CallKind.Function, memory, args_list, return_type);
-        }
-        public static EventHandler AddPostHookListener(HookHandle hook_handle, Func<Event, EventResult?> callback)
-        {
-            return Internal_API.Invoker.CallNative<EventHandler>("_G", "AddPostHookListener", Internal_API.CallKind.Function, hook_handle, callback);
-        }
-        public static EventHandler AddPreHookListener(HookHandle hook_handle, Func<Event, EventResult?> callback)
-        {
-            return Internal_API.Invoker.CallNative<EventHandler>("_G", "AddPreHookListener", Internal_API.CallKind.Function, hook_handle, callback);
-        }
-        public static HookHandle AddHook(string library, string vtable_name, string offset, string args_list, string return_type)
-        {
-            return Internal_API.Invoker.CallNative<HookHandle>("_G", "AddHook", Internal_API.CallKind.Function, library, vtable_name, offset, args_list, return_type);
-        }
-        public static object CallHook(HookHandle hook_handle, params object[] args)
-        {
-            return Internal_API.Invoker.CallNative<object>("_G", "CallHook", Internal_API.CallKind.Function, hook_handle, (object)args);
         }
         public static void NextTick(Action callback)
         {
@@ -124,7 +101,7 @@ namespace SwiftlyS2.API.Scripting
         {
             return Internal_API.Invoker.CallNative<bool>("_G", "IsValidWeapon", Internal_API.CallKind.Function, name);
         }
-        public static void StateUpdate(SDKClass entity, string classname, string field)
+        public static void StateUpdate(ClassData entity, string classname, string field)
         {
             Internal_API.Invoker.CallNative("_G", "StateUpdate", Internal_API.CallKind.Function, entity, classname, field);
         }

@@ -7,6 +7,7 @@ export default function GenerateClassProperties(pageContent, lang) {
     const outprops = []
 
     for (const prop of properties) {
+        if (/\d/g.test(prop.name)) continue;
         outprops.push(`## ${prop.name} ${prop.writable ? "" : "(Read-Only)"}\n\`\`\`${lang}\n${GenerateClassPropertyType(prop.type, lang)}\n${pageContent.name.toLowerCase()}.${prop.name}\n\`\`\``)
     }
 

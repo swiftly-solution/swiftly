@@ -1,4 +1,5 @@
 using SwiftlyS2.Internal_API;
+using static SwiftlyS2.API.SDK.CS2.Classes;
 
 namespace SwiftlyS2.API.Scripting
 {
@@ -104,10 +105,9 @@ namespace SwiftlyS2.API.Scripting
             
             return Internal_API.Invoker.CallNative<string>("Player", "GetSteamID2", Internal_API.CallKind.ClassFunction, m_classData) ?? "";
         }
-        public object GetVar(string key)
+        public T? GetVar<T>(string key)
         {
-            
-            return Internal_API.Invoker.CallNative<object>("Player", "GetVar", Internal_API.CallKind.ClassFunction, m_classData, key);
+            return Internal_API.Invoker.CallNative<T>("Player", "GetVar", Internal_API.CallKind.ClassFunction, m_classData, key);
         }
         public ulong GetVoiceFlags()
         {

@@ -226,10 +226,6 @@ namespace SwiftlyS2.API.Scripting
         GAMEPHASE_MATCH_ENDED = 5,
         GAMEPHASE_MAX = 6    
     }
-    public class HookHandle : ClassData
-    {
-    
-    }
     public enum ListenOverride
     {
         Listen_Default = 0,

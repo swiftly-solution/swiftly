@@ -1,4 +1,5 @@
 using SwiftlyS2.Internal_API;
+using static SwiftlyS2.API.SDK.CS2.Classes;
 
 namespace SwiftlyS2.API.Scripting
 {
@@ -13,7 +14,7 @@ namespace SwiftlyS2.API.Scripting
         }
         public class Weapon : ClassData
         {
-            public Weapon(int playerid, SDKClass ptr): base(Internal_API.Invoker.CallNative<IntPtr>("Weapon", "Weapon", CallKind.ClassFunction, playerid, ptr))
+            public Weapon(int playerid, ClassData ptr): base(Internal_API.Invoker.CallNative<IntPtr>("Weapon", "Weapon", CallKind.ClassFunction, playerid, ptr))
             {
             }
             public CBasePlayerWeapon CBasePlayerWeapon()

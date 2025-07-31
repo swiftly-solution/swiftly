@@ -1,3 +1,4 @@
+using SwiftlyS2.API.SDK.CS2;
 using SwiftlyS2.Internal_API;
 
 namespace SwiftlyS2.API.Scripting
@@ -16,20 +17,20 @@ namespace SwiftlyS2.API.Scripting
             InitializeContext();
             Internal_API.Invoker.CallNative("WeaponManager", "DropWeapons", Internal_API.CallKind.ClassFunction, _ctx);
         }
-        public static Weapon GetFIrstInSlot(gear_slot_t slot)
+        public static Weapons.Weapon GetFIrstInSlot(gear_slot_t slot)
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<Weapon>("WeaponManager", "GetFIrstInSlot", Internal_API.CallKind.ClassFunction, _ctx, slot) ?? [];
+            return Internal_API.Invoker.CallNative<Weapons.Weapon>("WeaponManager", "GetFIrstInSlot", Internal_API.CallKind.ClassFunction, _ctx, slot);
         }
-        public static Weapon[] GetInSlot(gear_slot_t slot)
+        public static Weapons.Weapon[] GetInSlot(gear_slot_t slot)
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<Weapon[]>("WeaponManager", "GetInSlot", Internal_API.CallKind.ClassFunction, _ctx, slot) ?? [];
+            return Internal_API.Invoker.CallNative<Weapons.Weapon[]>("WeaponManager", "GetInSlot", Internal_API.CallKind.ClassFunction, _ctx, slot) ?? [];
         }
-        public static Weapon[] GetWeapons()
+        public static Weapons.Weapon[] GetWeapons()
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<Weapon[]>("WeaponManager", "GetWeapons", Internal_API.CallKind.ClassFunction, _ctx) ?? [];
+            return Internal_API.Invoker.CallNative<Weapons.Weapon[]>("WeaponManager", "GetWeapons", Internal_API.CallKind.ClassFunction, _ctx) ?? [];
         }
         public static void GiveWeapon(string weapon_name)
         {

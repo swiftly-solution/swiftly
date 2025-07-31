@@ -18,9 +18,7 @@ const luaReplacer = {
     Vector2D: "Vector2D",
     Vector4D: "Vector4D",
     void: "nil",
-    any: "any",
-
-    gear_slot_t: "gear_slot_t"
+    any: "any"
 }
 
 const jsReplacer = {
@@ -41,9 +39,7 @@ const jsReplacer = {
     Vector2D: "Vector2D",
     Vector4D: "Vector4D",
     void: "void",
-    any: "any",
-
-    gear_slot_t: "gear_slot_t"
+    any: "any"
 }
 
 const csReplacer = {
@@ -64,9 +60,7 @@ const csReplacer = {
     Vector2D: "Vector2D",
     Vector4D: "Vector4D",
     void: "void",
-    any: "object",
-
-    gear_slot_t: "gear_slot_t"
+    any: "object"
 }
 
 export default function GenerateType(data, language) {
@@ -102,7 +96,7 @@ export default function GenerateType(data, language) {
 
             return `(${totalArgs.join(", ")}) => ${GenerateType(data.return, language)}`
         } else {
-            if (data.includes("[]")) return `${GenerateType(data.split("[")[0], language)}[]`;
+            if (data.includes("[]")) return `${GenerateType(data.split("[")[data.split("[").length - 1], language)}[]`;
             else if (data.includes(")")) return GenerateType(data.split(")")[0].split("(")[1], language) + data.split(")")[1]
             else if (data.includes(":")) return `Object.<${GenerateType(data.split(":")[0], language)}, ${GenerateType(data.split(":")[1], language)}>`
             else if (data.endsWith("?")) return `${GenerateType(data.split("?")[0], language)}?`

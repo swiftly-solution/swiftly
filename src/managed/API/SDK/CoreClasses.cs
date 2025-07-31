@@ -1,12 +1,16 @@
+using SwiftlyS2.API.Scripting;
 using SwiftlyS2.Internal_API;
 
-namespace SwiftlyS2.API.SDK.CS2
+namespace SwiftlyS2.API.SDK
 {
-    public class CoreClasses
+    public static class CoreClasses
     {
         public class CCheckTransmitInfo : ClassData
         {
-            public CCheckTransmitInfo(CCheckTransmitInfo ptr_or_cchectransmitinfo): base(Internal_API.Invoker.CallNative<IntPtr>("CCheckTransmitInfo", "CCheckTransmitInfo", CallKind.ClassFunction, ptr_or_cchectransmitinfo))
+            public CCheckTransmitInfo(CCheckTransmitInfo ptr_or_cchectransmitinfo) : base(Internal_API.Invoker.CallNative<IntPtr>("CCheckTransmitInfo", "CCheckTransmitInfo", CallKind.ClassFunction, ptr_or_cchectransmitinfo))
+            {
+            }
+            public CCheckTransmitInfo(Memory ptr_or_cchectransmitinfo) : base(Internal_API.Invoker.CallNative<IntPtr>("CCheckTransmitInfo", "CCheckTransmitInfo", CallKind.ClassFunction, ptr_or_cchectransmitinfo))
             {
             }
             public Dictionary<int, int> GetPlayers()
@@ -36,7 +40,7 @@ namespace SwiftlyS2.API.SDK.CS2
         }
         public class CHandle : ClassData
         {
-            public CHandle(string ptr): base(Internal_API.Invoker.CallNative<IntPtr>("CHandle", "CHandle", CallKind.ClassFunction, ptr))
+            public CHandle(string ptr) : base(Internal_API.Invoker.CallNative<IntPtr>("CHandle", "CHandle", Internal_API.CallKind.ClassFunction, ptr))
             {
             }
             public string GetPtr()
@@ -66,7 +70,7 @@ namespace SwiftlyS2.API.SDK.CS2
         }
         public class Color : ClassData
         {
-            public Color(byte r, byte g, byte b, byte a): base(Internal_API.Invoker.CallNative<IntPtr>("Color", "Color", CallKind.ClassFunction, r, g, b, a))
+            public Color(byte r, byte g, byte b, byte a) : base(Internal_API.Invoker.CallNative<IntPtr>("Color", "Color", CallKind.ClassFunction, r, g, b, a))
             {
             }
             public string GetPtr()
@@ -96,7 +100,7 @@ namespace SwiftlyS2.API.SDK.CS2
         }
         public class QAngle : ClassData
         {
-            public QAngle(float x, float y, float z): base(Internal_API.Invoker.CallNative<IntPtr>("QAngle", "QAngle", CallKind.ClassFunction, x, y, z))
+            public QAngle(float x, float y, float z) : base(Internal_API.Invoker.CallNative<IntPtr>("QAngle", "QAngle", CallKind.ClassFunction, x, y, z))
             {
             }
             public string GetPtr()
@@ -121,7 +125,7 @@ namespace SwiftlyS2.API.SDK.CS2
         }
         public class Vector : ClassData
         {
-            public Vector(float x, float y, float z): base(Internal_API.Invoker.CallNative<IntPtr>("Vector", "Vector", CallKind.ClassFunction, x, y, z))
+            public Vector(float x, float y, float z) : base(Internal_API.Invoker.CallNative<IntPtr>("Vector", "Vector", CallKind.ClassFunction, x, y, z))
             {
             }
             public string GetPtr()
@@ -146,7 +150,7 @@ namespace SwiftlyS2.API.SDK.CS2
         }
         public class Vector2D : ClassData
         {
-            public Vector2D(float x, float y): base(Internal_API.Invoker.CallNative<IntPtr>("Vector2D", "Vector2D", CallKind.ClassFunction, x, y))
+            public Vector2D(float x, float y) : base(Internal_API.Invoker.CallNative<IntPtr>("Vector2D", "Vector2D", CallKind.ClassFunction, x, y))
             {
             }
             public string GetPtr()
@@ -166,7 +170,7 @@ namespace SwiftlyS2.API.SDK.CS2
         }
         public class Vector4D : ClassData
         {
-            public Vector4D(float x, float y, float z, float w): base(Internal_API.Invoker.CallNative<IntPtr>("Vector4D", "Vector4D", CallKind.ClassFunction, x, y, z, w))
+            public Vector4D(float x, float y, float z, float w) : base(Internal_API.Invoker.CallNative<IntPtr>("Vector4D", "Vector4D", CallKind.ClassFunction, x, y, z, w))
             {
             }
             public string GetPtr()

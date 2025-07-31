@@ -9,7 +9,7 @@ namespace SwiftlyS2.API.Scripting
         public Delegate Callback;
     }
 
-    public class Events
+    public static class Events
     {
         private static int eventRegistryIndex = 50;
         private static Dictionary<string, List<EventHandler>> eventCallbacks = [];
@@ -66,6 +66,12 @@ namespace SwiftlyS2.API.Scripting
             public Event(string event_name) : base(Internal_API.Invoker.CallNative<IntPtr>("Event", "Event", CallKind.ClassFunction, event_name))
             {
             }
+
+            public Event(IntPtr data): base(data)
+            {
+
+            }
+
             public string GetInvokingPlugin()
             {
                 return Internal_API.Invoker.CallNative<string>("Event", "GetInvokingPlugin", Internal_API.CallKind.ClassFunction, m_classData) ?? "";
@@ -118,9 +124,9 @@ namespace SwiftlyS2.API.Scripting
             {
                 return Internal_API.Invoker.CallNative<string>("Event", "GetString", Internal_API.CallKind.ClassFunction, m_classData, key) ?? "";
             }
-            public object GetReturn()
+            public T? GetReturn<T>()
             {
-                return Internal_API.Invoker.CallNative<object>("Event", "GetReturn", Internal_API.CallKind.ClassFunction, m_classData);
+                return Internal_API.Invoker.CallNative<T>("Event", "GetReturn", Internal_API.CallKind.ClassFunction, m_classData);
             }
             public void SetReturn(object value)
             {
@@ -206,9 +212,9 @@ namespace SwiftlyS2.API.Scripting
             {
                 return Internal_API.Invoker.CallNative<Memory>("Event", "GetHookPointer", Internal_API.CallKind.ClassFunction, m_classData, index) ?? new();
             }
-            public object GetHookReturn()
+            public T? GetHookReturn<T>()
             {
-                return Internal_API.Invoker.CallNative<object>("Event", "GetHookReturn", Internal_API.CallKind.ClassFunction, m_classData);
+                return Internal_API.Invoker.CallNative<T>("Event", "GetHookReturn", Internal_API.CallKind.ClassFunction, m_classData);
             }
             public void SetHookReturn(object value)
             {

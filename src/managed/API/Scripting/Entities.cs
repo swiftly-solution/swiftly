@@ -1,5 +1,5 @@
 using SwiftlyS2.Internal_API;
-using static SwiftlyS2.API.SDK.CS2.CoreClasses;
+using static SwiftlyS2.API.SDK.CoreClasses;
 
 namespace SwiftlyS2.API.Scripting
 {

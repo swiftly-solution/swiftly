@@ -11,6 +11,11 @@ let cats = [
         key: "sdk",
         value: "../sdkdocumentation/docs",
         writePath: "build/cs/SDK"
+    },
+    {
+        key: "sdk.cs2",
+        value: "../gamesdkdocumentation/cs2/docs",
+        writePath: "build/cs/SDK/CS2"
     }
 ]
 export let currentPath = ""
@@ -71,7 +76,12 @@ for (const ent of cats) {
 
         writeFileSync(
             ent.writePath + "/" + path + ".cs",
-            `namespace SwiftlyS2.API.${skipFirstTwo}
+            `using SwiftlyS2.Internal_API;
+using static SwiftlyS2.API.SDK.CS2.Classes;
+using static SwiftlyS2.API.SDK.CoreClasses;
+using static SwiftlyS2.API.Scripting.Entities;
+
+namespace SwiftlyS2.API.${skipFirstTwo}
 {
 ${content.map(v => v.split("\n").map((x) => `    ${x}`).join("\n")).join("\n")}
 }`
