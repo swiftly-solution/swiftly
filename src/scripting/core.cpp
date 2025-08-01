@@ -93,6 +93,10 @@ void SetupScriptingEnvironment(PluginObject plugin, EContext* ctx)
                 }
             }
         }
+        else if (context->GetPluginContext()->GetKind() == ContextKinds::Dotnet)
+        {
+            function_call += " -> " + context->GetDebugInfo();
+        }
 
         context->temporaryData.push_back(g_callStack.RegisterPluginCallstack(FetchPluginName(context->GetPluginContext()), function_call));
         g_ResourceMonitor.StartTime("core", replace(context->GetFunctionKey(), " ", "::"));
