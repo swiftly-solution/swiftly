@@ -9,13 +9,20 @@ LoadScriptingComponent(commands, [](PluginObject plugin, EContext* ctx) -> void 
 
     ADD_CLASS_FUNCTION("Commands", "Register", [](FunctionContext* context, ClassData* data) -> void {
         std::string commandName = context->GetArgumentOr<std::string>(0, "");
-        if(commandName == "") return;
+        if (commandName == "") return;
 
-        EValue func = context->GetArgument<EValue>(1);
-        if(!func.isFunction()) return;
+        EValue* funcPtr = nullptr;
 
-        EValue* funcPtr = new EValue(func);
-        if (funcPtr->m_ref == func.m_ref && func.getContext()->GetKind() == ContextKinds::Lua) func.MarkNoFree();
+        if (context->GetPluginContext()->GetKind() == ContextKinds::Dotnet) {
+            std::string function_id = context->GetArgument<std::string>(1);
+            funcPtr = new EValue(context->GetPluginContext(), (void*)strdup(function_id.c_str()), 17);
+        }
+        else {
+            EValue func = context->GetArgument<EValue>(1);
+            if (!func.isFunction()) return;
+            funcPtr = new EValue(func);
+            if (funcPtr->m_ref == func.m_ref && func.getContext()->GetKind() == ContextKinds::Lua) func.MarkNoFree();
+        }
 
         Command* command = new Command(FetchPluginName(context->GetPluginContext()), funcPtr, commandName);
         g_commandsManager.RegisterCommand(command->GetPluginName(), commandName, command);
@@ -23,18 +30,18 @@ LoadScriptingComponent(commands, [](PluginObject plugin, EContext* ctx) -> void 
 
     ADD_CLASS_FUNCTION("Commands", "Unregister", [](FunctionContext* context, ClassData* data) -> void {
         std::string commandName = context->GetArgumentOr<std::string>(0, "");
-        if(commandName == "") return;
-        
+        if (commandName == "") return;
+
         g_commandsManager.UnregisterCommand(commandName);
     });
 
     ADD_CLASS_FUNCTION("Commands", "RegisterRawAlias", [](FunctionContext* context, ClassData* data) -> void {
         std::string commandName = context->GetArgumentOr<std::string>(0, "");
-        if(commandName == "") return;
+        if (commandName == "") return;
 
         std::string aliasName = context->GetArgumentOr<std::string>(1, "");
-        if(aliasName == "") return;
-        
+        if (aliasName == "") return;
+
         Command* command = g_commandsManager.FetchCommand(commandName);
         if (!command) return;
 
@@ -43,11 +50,11 @@ LoadScriptingComponent(commands, [](PluginObject plugin, EContext* ctx) -> void 
 
     ADD_CLASS_FUNCTION("Commands", "RegisterAlias", [](FunctionContext* context, ClassData* data) -> void {
         std::string commandName = context->GetArgumentOr<std::string>(0, "");
-        if(commandName == "") return;
+        if (commandName == "") return;
 
         std::string aliasName = context->GetArgumentOr<std::string>(1, "");
-        if(aliasName == "") return;
-        
+        if (aliasName == "") return;
+
         Command* command = g_commandsManager.FetchCommand(commandName);
         if (!command) return;
 
@@ -56,7 +63,7 @@ LoadScriptingComponent(commands, [](PluginObject plugin, EContext* ctx) -> void 
 
     ADD_CLASS_FUNCTION("Commands", "UnregisterAlias", [](FunctionContext* context, ClassData* data) -> void {
         std::string commandName = context->GetArgumentOr<std::string>(0, "");
-        if(commandName == "") return;
+        if (commandName == "") return;
 
         g_commandsManager.UnregisterCommand(commandName);
     });
