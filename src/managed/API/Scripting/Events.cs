@@ -1,4 +1,5 @@
-﻿using SwiftlyS2.Internal_API;
+﻿using System.Text.Json;
+using SwiftlyS2.Internal_API;
 
 namespace SwiftlyS2.API.Scripting
 {
@@ -13,7 +14,18 @@ namespace SwiftlyS2.API.Scripting
     {
         private static int eventRegistryIndex = 50;
         private static Dictionary<string, List<EventHandler>> eventCallbacks = [];
-        
+
+        [AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = true)]
+        public sealed class AddEventHandlerAttribute: Attribute
+        {
+            public string EventName { get; }
+
+            public AddEventHandlerAttribute(string EventName)
+            {
+                this.EventName = EventName;
+            }
+        }
+
         public static EventHandler AddEventHandler(string event_name, Delegate callback)
         {
             EventHandler info = new()
@@ -59,6 +71,16 @@ namespace SwiftlyS2.API.Scripting
         {
             if (!eventCallbacks.TryGetValue(event_name, out List<EventHandler>? value)) return [];
             else return value!;
+        }
+
+        public static unsafe (EventResult, Event) TriggerEvent(string event_name, params object[] args)
+        {
+            IntPtr[] a = Invoker.CallNative<IntPtr[]>("_G", "TriggerEventInternal", CallKind.Function, event_name, JsonSerializer.Serialize(args));
+            
+            EventResult res = (EventResult)CallContext.ReadValue(typeof(EventResult), (byte*)a[0]);
+            Event ev = new(a[1]);
+
+            return (res, ev);
         }
 
         public class Event : ClassData

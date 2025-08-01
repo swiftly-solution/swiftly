@@ -14,27 +14,27 @@ namespace SwiftlyS2.API.Scripting
         public static void Create(string configuration_key, Dictionary<string, object> value)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("Configuration", "Create", Internal_API.CallKind.ClassFunction, _ctx, configuration_key, value);
+            Internal_API.Invoker.CallNative("Configuration", "Create", Internal_API.CallKind.CoreClassFunction, _ctx, configuration_key, value);
         }
         public static bool Exists(string key)
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<bool>("Configuration", "Exists", Internal_API.CallKind.ClassFunction, _ctx, key);
+            return Internal_API.Invoker.CallNative<bool>("Configuration", "Exists", Internal_API.CallKind.CoreClassFunction, _ctx, key);
         }
         public static object Fetch(string key)
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<object>("Configuration", "Fetch", Internal_API.CallKind.ClassFunction, _ctx, key);
+            return Internal_API.Invoker.CallNative<object>("Configuration", "Fetch", Internal_API.CallKind.CoreClassFunction, _ctx, key);
         }
         public static int FetchArraySize(string key)
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<int>("Configuration", "FetchArraySize", Internal_API.CallKind.ClassFunction, _ctx, key);
+            return Internal_API.Invoker.CallNative<int>("Configuration", "FetchArraySize", Internal_API.CallKind.CoreClassFunction, _ctx, key);
         }
         public static void Reload(string key)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("Configuration", "Reload", Internal_API.CallKind.ClassFunction, _ctx, key);
+            Internal_API.Invoker.CallNative("Configuration", "Reload", Internal_API.CallKind.CoreClassFunction, _ctx, key);
         }
     }
 }

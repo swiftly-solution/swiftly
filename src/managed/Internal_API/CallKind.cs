@@ -5,6 +5,7 @@
         None,
         Function,
         ClassMember,
-        ClassFunction
+        ClassFunction,
+        CoreClassFunction
     }
 }

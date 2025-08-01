@@ -14,17 +14,17 @@ namespace SwiftlyS2.API.Scripting
         public static void PrecacheItem(string path)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("Precacher", "PrecacheItem", Internal_API.CallKind.ClassFunction, _ctx, path);
+            Internal_API.Invoker.CallNative("Precacher", "PrecacheItem", Internal_API.CallKind.CoreClassFunction, _ctx, path);
         }
         public static void PrecacheModel(string path)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("Precacher", "PrecacheModel", Internal_API.CallKind.ClassFunction, _ctx, path);
+            Internal_API.Invoker.CallNative("Precacher", "PrecacheModel", Internal_API.CallKind.CoreClassFunction, _ctx, path);
         }
         public static void PrecacheSound(string path)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("Precacher", "PrecacheSound", Internal_API.CallKind.ClassFunction, _ctx, path);
+            Internal_API.Invoker.CallNative("Precacher", "PrecacheSound", Internal_API.CallKind.CoreClassFunction, _ctx, path);
         }
     }
 }

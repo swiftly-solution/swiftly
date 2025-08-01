@@ -1,6 +1,7 @@
 ﻿using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
+using SwiftlyS2.API;
 using SwiftlyS2.Internal_API;
 using SwiftlyS2.Plugins;
 
@@ -102,8 +103,13 @@ namespace SwiftlyS2
             CallData* ct = (CallData*)context;
             CallContext ctx = new(ct);
 
+            IntPtr old_ctx = Plugin.PluginContext;
+            Plugin.PluginContext = plugin_ctx;
+
             string functionName = Marshal.PtrToStringUTF8(ct->func_ptr, ct->func_length);
             FunctionCallers.GetActionCaller(plugin_ctx, functionName).Invoke(ctx);
+
+            Plugin.PluginContext = old_ctx;
         }
     }
 }

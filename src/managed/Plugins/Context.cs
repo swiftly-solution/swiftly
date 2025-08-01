@@ -1,6 +1,9 @@
-﻿using McMaster.NETCore.Plugins;
+﻿using System.Reflection;
+using McMaster.NETCore.Plugins;
 using Microsoft.Extensions.DependencyInjection;
 using SwiftlyS2.API;
+using SwiftlyS2.API.Scripting;
+using static SwiftlyS2.API.Scripting.Events;
 
 namespace SwiftlyS2.Plugins
 {
@@ -22,11 +25,10 @@ namespace SwiftlyS2.Plugins
             m_path = path;
             m_ctx = ctx;
 
-            Loader = PluginLoader.CreateFromAssemblyFile(m_path, new[] { typeof(API.Plugin) }, (config) =>
+            Loader = PluginLoader.CreateFromAssemblyFile(m_path, [typeof(API.Plugin)], (config) =>
             {
                 config.IsUnloadable = true;
                 config.PreferSharedTypes = true;
-                config.EnableHotReload = true;
             });
         }
 
@@ -51,12 +53,13 @@ namespace SwiftlyS2.Plugins
 
                 ServScope = m_serviceProvider.CreateScope();
 
-                if (ServScope.ServiceProvider.GetRequiredService(type) is not API.Plugin plugin)
+                if (ServScope.ServiceProvider.GetRequiredService(type) is not API.Plugin)
                 {
                     throw new Exception("Couldn't initialize plugin instance.");
                 }
 
-                Plugin ??= plugin;
+                Plugin ??= Activator.CreateInstance(type) as Plugin;
+
                 Plugin.Initialize(m_ctx);
             }
         }

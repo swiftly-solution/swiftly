@@ -13,6 +13,7 @@ namespace SwiftlyS2.API.SDK
             public CCheckTransmitInfo(Memory ptr_or_cchectransmitinfo) : base(Internal_API.Invoker.CallNative<IntPtr>("CCheckTransmitInfo", "CCheckTransmitInfo", CallKind.ClassFunction, ptr_or_cchectransmitinfo))
             {
             }
+            public CCheckTransmitInfo() { }
             public Dictionary<int, int> GetPlayers()
             {
                 return Internal_API.Invoker.CallNative<Dictionary<int, int>>("CCheckTransmitInfo", "GetPlayers", Internal_API.CallKind.ClassFunction, m_classData) ?? [];

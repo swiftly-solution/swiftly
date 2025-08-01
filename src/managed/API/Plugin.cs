@@ -1,6 +1,10 @@
-﻿namespace SwiftlyS2.API
+﻿using static SwiftlyS2.API.Scripting.Events;
+using System.Reflection;
+using System.Linq.Expressions;
+
+namespace SwiftlyS2.API
 {
-    public abstract class Plugin : IPlugin
+    public class Plugin : IPlugin
     {
         public static IntPtr PluginContext { get; set; }
 
@@ -21,6 +25,33 @@
             PluginContext = ctx;
             Console.SetOut(new Scripting.ConsoleWriter(Console.Out));
             Events.Listener.StartListening();
+            RegisterEventAttribute();
+        }
+
+        private void RegisterEventAttribute()
+        {
+            var methods = this.GetType().GetMethods(BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public);
+            foreach (var method in methods)
+            {
+                var attr = method.GetCustomAttribute<AddEventHandlerAttribute>();
+                if (attr != null)
+                {
+                    AddEventHandler(attr.EventName, Delegate.CreateDelegate(GetMethodType(method), this, method));
+                }
+            }
+        }
+
+        private static Type GetMethodType(MethodInfo info)
+        {
+            var args = info.GetParameters();
+            Type[] types = new Type[args.Length+1];
+            for(int i = 0; i < args.Length; i++)
+            {
+                types[i] = args[i].ParameterType;
+            }
+            types[args.Length] = info.ReturnType;
+
+            return Expression.GetDelegateType(types);
         }
 
         public long GetMemoryUsage()

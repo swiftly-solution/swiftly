@@ -22,7 +22,7 @@ namespace SwiftlyS2.API.Scripting
         {
             InitializeContext();
             HookHandler hookHandler = new();
-            hookHandler.HookId = Invoker.CallNative<string>("Hooks", "AddEntityOutputHook", Internal_API.CallKind.ClassFunction, _ctx, class_name, output) ?? "";
+            hookHandler.HookId = Invoker.CallNative<string>("Hooks", "AddEntityOutputHook", Internal_API.CallKind.CoreClassFunction, _ctx, class_name, output) ?? "";
             return hookHandler;
         }
 
@@ -30,7 +30,7 @@ namespace SwiftlyS2.API.Scripting
         {
             InitializeContext();
             HookHandler hookHandler = new();
-            hookHandler.HookId = Invoker.CallNative<string>("Hooks", "Add", Internal_API.CallKind.ClassFunction, _ctx, mem, args_list, return_type) ?? "";
+            hookHandler.HookId = Invoker.CallNative<string>("Hooks", "Add", Internal_API.CallKind.CoreClassFunction, _ctx, mem, args_list, return_type) ?? "";
             return hookHandler;
         }
 
@@ -38,7 +38,7 @@ namespace SwiftlyS2.API.Scripting
         {
             InitializeContext();
             HookHandler hookHandler = new();
-            hookHandler.HookId = Invoker.CallNative<string>("Hooks", "AddVirtual", Internal_API.CallKind.ClassFunction, _ctx, library, vtable_name, offset, args_list, return_type) ?? "";
+            hookHandler.HookId = Invoker.CallNative<string>("Hooks", "AddVirtual", Internal_API.CallKind.CoreClassFunction, _ctx, library, vtable_name, offset, args_list, return_type) ?? "";
             return hookHandler;
         }
 
@@ -60,13 +60,13 @@ namespace SwiftlyS2.API.Scripting
         public static void CallHook(HookHandler hookHandler, params object[] args)
         {
             InitializeContext();
-            Invoker.CallNative("Hooks", "Call", Internal_API.CallKind.ClassFunction, _ctx, hookHandler.HookId, (object)args);
+            Invoker.CallNative("Hooks", "Call", Internal_API.CallKind.CoreClassFunction, _ctx, hookHandler.HookId, (object)args);
         }
 
         public static T? CallHook<T>(HookHandler hookHandler, params object[] args)
         {
             InitializeContext();
-            return Invoker.CallNative<T>("Hooks", "Call", Internal_API.CallKind.ClassFunction, _ctx, hookHandler.HookId, (object)args);
+            return Invoker.CallNative<T>("Hooks", "Call", Internal_API.CallKind.CoreClassFunction, _ctx, hookHandler.HookId, (object)args);
         }
     }
 }

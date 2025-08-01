@@ -20,5 +20,10 @@ namespace SwiftlyS2.API
         {
             return m_classData;
         }
+
+        public void SetClassDataPtr(IntPtr val)
+        {
+            m_classData = val;
+        }
     }
 }

@@ -282,9 +282,9 @@ namespace SwiftlyS2.API.Scripting
         T = 2,
         CT = 3    
     }
-    public class TimerHandle : ClassData
+    public struct TimerHandle
     {
-    
+        public int TimerID;
     }
     public enum VoiceFlagValue
     {

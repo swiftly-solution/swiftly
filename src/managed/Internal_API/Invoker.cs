@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Security;
 using SwiftlyS2.API;
 
@@ -21,6 +22,9 @@ namespace SwiftlyS2.Internal_API
         {
             T? returnVal;
 
+            StackTrace trace = new(true);
+            StackFrame? callTrace = trace.GetFrame(2);
+
             lock (CallContext.GlobalScriptContext.Lock)
             {
                 CallContext.GlobalScriptContext.Reset();
@@ -31,6 +35,14 @@ namespace SwiftlyS2.Internal_API
                 }
                 CallContext.GlobalScriptContext.SetCallKind(call);
                 CallContext.GlobalScriptContext.SetFunction(ns, func);
+                if(callTrace != null)
+                {
+                    CallContext.GlobalScriptContext.SetDebugInfo($"{callTrace.GetFileName()}:{callTrace.GetFileLineNumber()}:{callTrace.GetFileColumnNumber()}");
+                }
+                else
+                {
+                    CallContext.GlobalScriptContext.SetDebugInfo($"No debug symbols available. (PDB file with DLL)");
+                }
                 CallContext.GlobalScriptContext.InvokeFunction();
                 returnVal = CallContext.GlobalScriptContext.GetReturn<T>();
             }
@@ -41,6 +53,9 @@ namespace SwiftlyS2.Internal_API
         [SecurityCritical]
         public static void CallNative(string ns, string func, CallKind call, params object[] args)
         {
+            StackTrace trace = new(true);
+            StackFrame? callTrace = trace.GetFrame(2);
+
             lock (CallContext.GlobalScriptContext.Lock)
             {
                 CallContext.GlobalScriptContext.Reset();
@@ -51,6 +66,14 @@ namespace SwiftlyS2.Internal_API
                 }
                 CallContext.GlobalScriptContext.SetCallKind(call);
                 CallContext.GlobalScriptContext.SetFunction(ns, func);
+                if (callTrace != null)
+                {
+                    CallContext.GlobalScriptContext.SetDebugInfo($"{callTrace.GetFileName()}:{callTrace.GetFileLineNumber()}:{callTrace.GetFileColumnNumber()}");
+                }
+                else
+                {
+                    CallContext.GlobalScriptContext.SetDebugInfo($"No debug symbols available. (PDB file with DLL)");
+                }
                 CallContext.GlobalScriptContext.InvokeFunction();
             }
         }

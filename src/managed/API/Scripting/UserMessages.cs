@@ -10,6 +10,7 @@ namespace SwiftlyS2.API.Scripting
             public UserMessage(string partial_message_name): base(Internal_API.Invoker.CallNative<IntPtr>("UserMessage", "UserMessage", CallKind.ClassFunction, partial_message_name))
             {
             }
+            public UserMessage() {}
             public bool IsValidMessage()
             {
                 return Internal_API.Invoker.CallNative<bool>("UserMessage", "IsValidMessage", Internal_API.CallKind.ClassFunction, m_classData);

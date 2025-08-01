@@ -14,7 +14,7 @@ namespace SwiftlyS2.API.Scripting
         public static void Write(LogType_t log_type, string text)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("Logs", "Write", Internal_API.CallKind.ClassFunction, _ctx, log_type, text);
+            Internal_API.Invoker.CallNative("Logs", "Write", Internal_API.CallKind.CoreClassFunction, _ctx, log_type, text);
         }
     }
 }

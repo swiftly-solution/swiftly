@@ -7,7 +7,9 @@ namespace SwiftlyS2.API.Scripting
     public class Generic
     {
         private static IntPtr _ctx = IntPtr.Zero;
-    
+        private static int _timerID = 50;
+        private static List<int> _validTimerIds = [];
+
         private static void InitializeContext()
         {
             if (_ctx != IntPtr.Zero) return;
@@ -24,18 +26,6 @@ namespace SwiftlyS2.API.Scripting
         public static CEntityInstance[] FindEntitiesByClassname(string class_name)
         {
             return Internal_API.Invoker.CallNative<CEntityInstance[]>("_G", "FindEntitiesByClassname", Internal_API.CallKind.Function, class_name);
-        }
-        public static EventHandler AddEventHandler(string event_name, Func<Events.Event,object, EventResult?> callback)
-        {
-            return Internal_API.Invoker.CallNative<EventHandler>("_G", "AddEventHandler", Internal_API.CallKind.Function, event_name, callback);
-        }
-        public static void RemoveEventHandler(EventHandler handler)
-        {
-            Internal_API.Invoker.CallNative("_G", "RemoveEventHandler", Internal_API.CallKind.Function, handler);
-        }
-        public static (EventResult, Events.Event) TriggerEvent(string event_name, params object[] args)
-        {
-            return Internal_API.Invoker.CallNative<(EventResult, Events.Event)>("_G", "TriggerEvent", Internal_API.CallKind.Function, event_name, (object)args);
         }
         public static string CreateTextTable(string[][] data)
         {
@@ -59,20 +49,55 @@ namespace SwiftlyS2.API.Scripting
         }
         public static void NextTick(Action callback)
         {
-            Internal_API.Invoker.CallNative("_G", "NextTick", Internal_API.CallKind.Function, callback);
+            SetTimeout(1, callback);
         }
-        public static void SetTimeout(long delay, Action callback)
+        public static void SetTimeout(uint delay, Action callback)
         {
-            Internal_API.Invoker.CallNative("_G", "SetTimeout", Internal_API.CallKind.Function, delay, callback);
+            var callbackUUID = Guid.NewGuid().ToString();
+
+            FunctionCallers.AddFunctionCaller(Plugin.PluginContext, callbackUUID, (CallContext ctx) =>
+            {
+                callback();
+                FunctionCallers.RemoveFunctionCaller(Plugin.PluginContext, callbackUUID);
+            });
+
+            Invoker.CallNative("_G", "AddTimeout", CallKind.Function, delay, callbackUUID);
         }
-        public static TimerHandle SetTimer(long delay, Action callback)
+        public static TimerHandle SetTimer(uint delay, Action callback)
         {
-            return Internal_API.Invoker.CallNative<TimerHandle>("_G", "SetTimer", Internal_API.CallKind.Function, delay, callback) ?? new();
+            var currentTimerID = _timerID++;
+
+            TimerHandle handle = new()
+            {
+                TimerID = currentTimerID
+            };
+
+            _validTimerIds.Add(currentTimerID);
+
+            Action timeoutFunction = () => { };
+
+            timeoutFunction = () =>
+            {
+                if (_validTimerIds.Contains(currentTimerID))
+                {
+                    callback();
+
+                    if (_validTimerIds.Contains(currentTimerID))
+                    {
+                        SetTimeout(delay, timeoutFunction);
+                    }
+                }
+            };
+
+            SetTimeout(delay, timeoutFunction);
+
+            return handle;
         }
         public static void StopTimer(TimerHandle timerid)
         {
-            Internal_API.Invoker.CallNative("_G", "StopTimer", Internal_API.CallKind.Function, timerid);
+            _validTimerIds.Remove(timerid.TimerID);
         }
+
         public static string FetchTranslation(string key, int? playerid)
         {
             return Internal_API.Invoker.CallNative<string>("_G", "FetchTranslation", Internal_API.CallKind.Function, key, playerid) ?? "";

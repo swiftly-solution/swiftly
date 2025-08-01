@@ -14,17 +14,17 @@ namespace SwiftlyS2.API.Scripting
         public static int GetPlayerCap()
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<int>("PlayerManager", "GetPlayerCap", Internal_API.CallKind.ClassFunction, _ctx);
+            return Internal_API.Invoker.CallNative<int>("PlayerManager", "GetPlayerCap", Internal_API.CallKind.CoreClassFunction, _ctx);
         }
         public static int GetPlayerCount()
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<int>("PlayerManager", "GetPlayerCount", Internal_API.CallKind.ClassFunction, _ctx);
+            return Internal_API.Invoker.CallNative<int>("PlayerManager", "GetPlayerCount", Internal_API.CallKind.CoreClassFunction, _ctx);
         }
         public static void SendMsg(MessageType msgType, string text)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("PlayerManager", "SendMsg", Internal_API.CallKind.ClassFunction, _ctx, msgType, text);
+            Internal_API.Invoker.CallNative("PlayerManager", "SendMsg", Internal_API.CallKind.CoreClassFunction, _ctx, msgType, text);
         }
     }
 }

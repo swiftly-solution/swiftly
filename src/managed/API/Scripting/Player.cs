@@ -5,6 +5,8 @@ namespace SwiftlyS2.API.Scripting
 {
     public class Player: ClassData
     {
+        public Player() { }
+
         public CBaseEntity CBaseEntity()
         {
             
@@ -114,10 +116,10 @@ namespace SwiftlyS2.API.Scripting
             
             return Internal_API.Invoker.CallNative<ulong>("Player", "GetVoiceFlags", Internal_API.CallKind.ClassFunction, m_classData);
         }
-        public WeaponManager GetWeaponManager()
+        public Weapons.WeaponManager GetWeaponManager()
         {
             
-            return Internal_API.Invoker.CallNative<WeaponManager>("Player", "GetWeaponManager", Internal_API.CallKind.ClassFunction, m_classData) ?? new();
+            return Internal_API.Invoker.CallNative<Weapons.WeaponManager>("Player", "GetWeaponManager", Internal_API.CallKind.ClassFunction, m_classData) ?? new();
         }
         public void HideMenu()
         {

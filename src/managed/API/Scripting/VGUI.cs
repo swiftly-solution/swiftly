@@ -15,27 +15,27 @@ namespace SwiftlyS2.API.Scripting
         public static void RemoveText(long textID)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("VGUI", "RemoveText", Internal_API.CallKind.ClassFunction, _ctx, textID);
+            Internal_API.Invoker.CallNative("VGUI", "RemoveText", Internal_API.CallKind.CoreClassFunction, _ctx, textID);
         }
         public static void SetColor(long textID, Color color)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("VGUI", "SetColor", Internal_API.CallKind.ClassFunction, _ctx, textID, color);
+            Internal_API.Invoker.CallNative("VGUI", "SetColor", Internal_API.CallKind.CoreClassFunction, _ctx, textID, color);
         }
         public static void SetTextMessage(long textID, string message)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("VGUI", "SetTextMessage", Internal_API.CallKind.ClassFunction, _ctx, textID, message);
+            Internal_API.Invoker.CallNative("VGUI", "SetTextMessage", Internal_API.CallKind.CoreClassFunction, _ctx, textID, message);
         }
         public static void SetTextPosition(long textID, float posX, float posY)
         {
             InitializeContext();
-            Internal_API.Invoker.CallNative("VGUI", "SetTextPosition", Internal_API.CallKind.ClassFunction, _ctx, textID, posX, posY);
+            Internal_API.Invoker.CallNative("VGUI", "SetTextPosition", Internal_API.CallKind.CoreClassFunction, _ctx, textID, posX, posY);
         }
         public static long ShowText(int playerid, Color color, string text, float posX, float posY, string font_name, bool? background)
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<long>("VGUI", "ShowText", Internal_API.CallKind.ClassFunction, _ctx, playerid, color, text, posX, posY, font_name, background);
+            return Internal_API.Invoker.CallNative<long>("VGUI", "ShowText", Internal_API.CallKind.CoreClassFunction, _ctx, playerid, color, text, posX, posY, font_name, background);
         }
     }
 }

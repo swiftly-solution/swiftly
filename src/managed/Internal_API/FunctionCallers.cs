@@ -6,17 +6,23 @@ namespace SwiftlyS2.Internal_API
     {
         private static Dictionary<IntPtr, Dictionary<string, Action<CallContext>>> functionCallers = [];
 
-        public static void AddFunctionCaller(string function, Action<CallContext> caller)
+        public static void AddFunctionCaller(IntPtr ctx, string function, Action<CallContext> caller)
         {
-            if (!functionCallers.ContainsKey(Plugin.PluginContext)) functionCallers.Add(Plugin.PluginContext, []);
-            functionCallers[Plugin.PluginContext].Add(function, caller);
-
-            Invoker.CallNative("_G", function, CallKind.Function, function);
+            if (!functionCallers.ContainsKey(ctx)) functionCallers.Add(ctx, []);
+            functionCallers[ctx].Add(function, caller);
         }
 
         public static Action<CallContext> GetActionCaller(IntPtr ctx, string function)
         {
             return functionCallers[ctx][function];
+        }
+
+        public static void RemoveFunctionCaller(IntPtr ctx, string function)
+        {
+            if (!functionCallers.ContainsKey(ctx)) return;
+            if (!functionCallers[ctx].ContainsKey(function)) return;
+
+            functionCallers[ctx].Remove(function);
         }
     }
 }
