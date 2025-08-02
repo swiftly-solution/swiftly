@@ -1,0 +1,1 @@
+{"kind":"command","name":"ragdoll_fixup_joint_orientation_max_height","description":"Disable ragdoll_fixup_joint_orientation on joints too high in the hierarchy because small differences can massively accumulate (e.g. long chains)","args":"10","flags":["developmentonly","gamedll","replicated"],"games":["cs2"]}

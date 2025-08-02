@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostVoteOptions","description":"This event is triggered after vote_options is triggered.","arguments":{"count":"int32","option1":"string","option2":"string","option3":"string","option4":"string","option5":"string"},"return":"void","games":["cs2"]}

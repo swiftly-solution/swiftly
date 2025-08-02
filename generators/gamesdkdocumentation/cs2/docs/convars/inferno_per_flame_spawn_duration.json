@@ -1,0 +1,1 @@
+{"kind":"command","name":"inferno_per_flame_spawn_duration","description":"Duration each new flame will attempt to spawn new flames","args":"3","flags":["gamedll","cheat"],"games":["cs2"]}

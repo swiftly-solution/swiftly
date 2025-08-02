@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_obs_interp_enable","description":"Enables interpolation between observer targets","args":"true","flags":["clientdll","archive"],"games":["cs2"]}

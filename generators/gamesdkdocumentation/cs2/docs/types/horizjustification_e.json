@@ -1,0 +1,1 @@
+{"kind":"type","name":"HorizJustification_e","description":"Automatically generated game type from enum HorizJustification_e","values":{"HORIZ_JUSTIFICATION_LEFT":0,"HORIZ_JUSTIFICATION_CENTER":1,"HORIZ_JUSTIFICATION_RIGHT":2,"HORIZ_JUSTIFICATION_NONE":3},"games":["cs2"]}

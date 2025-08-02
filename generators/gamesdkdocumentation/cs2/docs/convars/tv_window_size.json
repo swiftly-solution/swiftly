@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_window_size","description":"Specifies the number of seconds worth of frames that the tv replay system should keep in memory. Increasing this greatly increases the amount of memory consumed by the TV system","args":"16","flags":["release"],"games":["cs2"]}

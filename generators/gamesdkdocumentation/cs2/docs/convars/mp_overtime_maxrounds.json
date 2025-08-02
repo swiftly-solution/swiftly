@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_overtime_maxrounds","description":"When overtime is enabled play additional rounds to determine winner","args":"6","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

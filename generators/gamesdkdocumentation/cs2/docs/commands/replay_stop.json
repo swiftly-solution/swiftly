@@ -1,0 +1,1 @@
+{"kind":"command","name":"replay_stop","description":"stop hltv replay","args":"","flags":["gamedll","client_can_execute"],"games":["cs2"]}

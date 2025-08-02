@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_buy_allow_guns","description":"Whether players can purchase guns: pistols (1), SMGs (2), rifles (4), shotguns (8), sniper rifles (16), heavy MGs (32).","args":"255","flags":["min:","0,","max:","255,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

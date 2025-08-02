@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"command","type":"uint32"},{"name":"amplitude","type":"float"},{"name":"frequency","type":"float"},{"name":"duration","type":"float"}],"name":"CUserMessageWaterShake","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostCsIntermission","description":"This event is triggered after cs_intermission is triggered.","arguments":{},"return":"void","games":["cs2"]}

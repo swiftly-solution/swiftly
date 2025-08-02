@@ -1,0 +1,85 @@
+{
+    "kind": "class",
+    "name": "QAngle",
+    "description": "A QAngle is an object which stores coordinates regarding the angle.",
+    "constructor": {
+        "arguments": {
+            "x": "float",
+            "y": "float",
+            "z": "float"
+        },
+        "return": "QAngle"
+    },
+    "properties": [
+        {
+            "name": "x",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "y",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "z",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "GetPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "js/add",
+            "arguments": {
+                "value": "QAngle"
+            },
+            "return": "QAngle"
+        },
+        {
+            "name": "js/equal",
+            "arguments": {
+                "value": "QAngle"
+            },
+            "return": "bool"
+        },
+        {
+            "name": "js/length",
+            "arguments": {},
+            "return": "float"
+        },
+        {
+            "name": "js/unm",
+            "arguments": {
+                "value": "QAngle"
+            },
+            "return": "QAngle"
+        },
+        {
+            "name": "js/sub",
+            "arguments": {
+                "value": "QAngle"
+            },
+            "return": "QAngle"
+        },
+        {
+            "name": "js/mul",
+            "arguments": {
+                "value": "QAngle"
+            },
+            "return": "QAngle"
+        },
+        {
+            "name": "js/div",
+            "arguments": {
+                "value": "QAngle"
+            },
+            "return": "QAngle"
+        }
+    ],
+    "games": "all"
+}

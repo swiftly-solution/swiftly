@@ -1,0 +1,1 @@
+{"kind":"command","name":"mm_csgo_community_search_players_min","description":"When performing CSGO community matchmaking look for servers with at least so many human players","args":"3","flags":["archive","release"],"games":["cs2"]}

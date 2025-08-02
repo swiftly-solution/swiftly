@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostStartVote","description":"This event is triggered after start_vote is triggered.","arguments":{"userid":"int32","type":"int32","vote_parameter":"int32"},"return":"void","games":["cs2"]}

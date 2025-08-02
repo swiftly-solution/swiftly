@@ -1,0 +1,1 @@
+{"kind":"command","name":"subclass_change","description":"Changes the subclass of the given entity.","args":"   \t<new_subclass> {entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}","flags":["gamedll","cheat","vconsole_fuzzy_matching"],"games":["cs2"]}

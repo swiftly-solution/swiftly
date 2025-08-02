@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostBombBegindefuse","description":"This event is triggered after bomb_begindefuse is triggered.","arguments":{"userid":"int32","haskit":"bool"},"return":"void","games":["cs2"]}

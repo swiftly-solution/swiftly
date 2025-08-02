@@ -1,0 +1,1 @@
+{"kind":"command","name":"cam_showangles","description":"When in thirdperson, print viewangles/idealangles/cameraoffsets to the console.","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

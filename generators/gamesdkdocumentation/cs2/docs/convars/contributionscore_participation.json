@@ -1,0 +1,1 @@
+{"kind":"command","name":"contributionscore_participation","description":"amount of contribution score awarded to players for active participation in the round","args":"0","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

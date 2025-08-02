@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_no_navmesh","description":"Block loading of the navmesh. Unplayable, only used for memory sampling.","args":"false","flags":["developmentonly","gamedll","cheat"],"games":["cs2"]}

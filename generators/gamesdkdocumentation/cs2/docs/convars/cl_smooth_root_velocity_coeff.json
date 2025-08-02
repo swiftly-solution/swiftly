@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_smooth_root_velocity_coeff","description":"<no description>","args":"20","flags":["clientdll","cheat"],"games":["cs2"]}

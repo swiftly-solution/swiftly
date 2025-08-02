@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_texture_budget_dynamic","description":"Dynamically adjust texture streaming budget based on GPU memory usage.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

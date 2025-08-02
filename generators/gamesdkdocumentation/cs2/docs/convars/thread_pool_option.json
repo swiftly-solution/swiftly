@@ -1,0 +1,1 @@
+{"kind":"command","name":"thread_pool_option","description":"Thread pool option","args":"-1","flags":["hidden","release"],"games":["cs2"]}

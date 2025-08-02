@@ -1,0 +1,1 @@
+{"kind":"command","name":"mem_test_every_n_seconds","description":"Run heap check at a specified interval","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

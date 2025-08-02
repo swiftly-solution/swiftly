@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_predict_head_shot_fx","description":"<no description>","args":"false","flags":["clientdll","archive","release"],"games":["cs2"]}

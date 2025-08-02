@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_test_path_lock_goal","description":"Lock the pathfinding goal to the current intersection point.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

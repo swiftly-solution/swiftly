@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"curTimescale","type":"float"}],"name":"CCSUsrMsg_CurrentTimescale","games":["cs2"]}

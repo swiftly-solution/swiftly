@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_clutter_density_none_size","description":"Screen-size where clutter will be gone","args":"0.0035","flags":["developmentonly","defensive"],"games":["cs2"]}

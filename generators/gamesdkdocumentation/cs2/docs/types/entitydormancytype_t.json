@@ -1,0 +1,1 @@
+{"kind":"type","name":"EntityDormancyType_t","description":"Automatically generated game type from enum EntityDormancyType_t","values":{"ENTITY_NOT_DORMANT":0,"ENTITY_DORMANT":1,"ENTITY_SUSPENDED":2},"games":["cs2"]}

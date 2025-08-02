@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostHideDeathpanel","description":"This event is triggered after hide_deathpanel is triggered.","arguments":{},"return":"void","games":["cs2"]}

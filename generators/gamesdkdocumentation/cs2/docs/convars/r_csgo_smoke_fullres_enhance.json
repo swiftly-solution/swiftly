@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_smoke_fullres_enhance","description":"Enhance edges of smokes to eliminate bad pixels","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

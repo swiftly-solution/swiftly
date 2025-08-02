@@ -1,0 +1,1 @@
+{"kind":"command","name":"engine_rendersystem_used","description":"Rendersystem option in use (changing this does not change the rendersystem).","args":"\"\"","flags":["developmentonly","defensive"],"games":["cs2"]}

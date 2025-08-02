@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"groups","type":"CGameServers_AggregationQuery_Response.Group"}],"name":"CGameServers_AggregationQuery_Response","games":["cs2"]}

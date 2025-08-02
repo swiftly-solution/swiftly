@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_phys_stop_at_collision","description":"<no description>","args":"\"\"","flags":["gamedll","cheat"],"games":["cs2"]}

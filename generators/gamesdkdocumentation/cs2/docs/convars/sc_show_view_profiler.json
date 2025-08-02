@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_show_view_profiler","description":"SceneSystem/View Profiler","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

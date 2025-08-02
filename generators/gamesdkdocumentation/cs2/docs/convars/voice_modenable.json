@@ -1,0 +1,1 @@
+{"kind":"command","name":"voice_modenable","description":"Enable/disable voice in this mod.","args":"true","flags":["clientdll","archive","release","clientcmd_can_execute"],"games":["cs2"]}

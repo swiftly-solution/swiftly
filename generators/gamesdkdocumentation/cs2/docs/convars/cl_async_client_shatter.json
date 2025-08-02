@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_async_client_shatter","description":"spawn client glass shards asynchronously during demos or when remotely connected.","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

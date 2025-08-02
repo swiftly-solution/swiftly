@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_autobunnyhopping","description":"Players automatically re-jump while holding jump button","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_overtime_limit","description":"When overtime is enabled, only so many overtimes can be played","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

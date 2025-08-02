@@ -1,0 +1,1 @@
+{"kind":"command","name":"ai_expression_frametime","description":"Maximum frametime to still play background expressions.","args":"0.05","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

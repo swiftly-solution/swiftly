@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_csm_override_staticgeo_cascades_alphatest","description":"If lb_csm_override_staticgeo_cascades true, ensure objects with SCENEOBJECTFLAG_ALPHA_TESTED flag will be rendered into cascade.","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

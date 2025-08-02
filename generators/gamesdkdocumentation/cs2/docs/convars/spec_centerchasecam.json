@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_centerchasecam","description":"Looks at the target player's center, instead of his eye position, in chase came mode","args":"false","flags":["clientdll","archive"],"games":["cs2"]}

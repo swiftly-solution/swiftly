@@ -1,0 +1,1 @@
+{"kind":"command","name":"engine_sleep_busy_waits","description":"<no description>","args":"false","flags":["developmentonly"],"games":["cs2"]}

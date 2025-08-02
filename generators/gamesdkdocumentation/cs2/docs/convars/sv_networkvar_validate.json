@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_networkvar_validate","description":"Validate each StateChanged against known offsets.","args":"false","flags":["release"],"games":["cs2"]}

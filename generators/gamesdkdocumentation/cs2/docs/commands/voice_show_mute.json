@@ -1,0 +1,1 @@
+{"kind":"command","name":"voice_show_mute","description":"Show whether current players are muted.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_disconnect_voice_fade","description":"This is a fade of current voices that is called when the game is disconnected. -1.f for no fade on disconnect","args":"2","flags":["developmentonly","defensive"],"games":["cs2"]}

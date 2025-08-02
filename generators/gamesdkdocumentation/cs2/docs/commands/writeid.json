@@ -1,0 +1,1 @@
+{"kind":"command","name":"writeid","description":"Writes a list of permanently-banned user IDs to file.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

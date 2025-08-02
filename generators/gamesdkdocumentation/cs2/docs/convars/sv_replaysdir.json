@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_replaysdir","description":"Directory to store replays in","args":"\"replays\"","flags":["developmentonly","defensive"],"games":["cs2"]}

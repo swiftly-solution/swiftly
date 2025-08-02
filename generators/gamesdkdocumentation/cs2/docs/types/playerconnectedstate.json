@@ -1,0 +1,1 @@
+{"kind":"type","name":"PlayerConnectedState","description":"Automatically generated game type from enum PlayerConnectedState","values":{"PlayerNeverConnected":-1,"PlayerConnected":0,"PlayerConnecting":1,"PlayerReconnecting":2,"PlayerDisconnecting":3,"PlayerDisconnected":4,"PlayerReserved":5},"games":["cs2"]}

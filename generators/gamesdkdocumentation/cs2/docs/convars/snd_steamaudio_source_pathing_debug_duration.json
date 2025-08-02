@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_steamaudio_source_pathing_debug_duration","description":"Duration for which path remains visible. Should be close to update rate of the sound operator stack.","args":"0.01","flags":["developmentonly","defensive"],"games":["cs2"]}

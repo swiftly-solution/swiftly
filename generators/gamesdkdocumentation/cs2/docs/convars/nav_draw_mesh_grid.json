@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_draw_mesh_grid","description":"Draw the mesh's spatial grid structure around the edit cursor position.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mobile_fps_limit","description":"MOBILE_FPS_CONTROL: Mobile FPS limit - 15, 30, 60","args":"30","flags":["archive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"entries","type":"CMsgGCCStrike15_v2_ClientPartyWarning.Entry"}],"name":"CMsgGCCStrike15_v2_ClientPartyWarning","games":["cs2"]}

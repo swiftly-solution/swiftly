@@ -1,0 +1,1 @@
+{"kind":"command","name":"safezoney","description":"The percentage of the screen height that is considered safe from overscan","args":"1","flags":["min:","0.8,","max:","1,","clientdll","archive"],"games":["cs2"]}

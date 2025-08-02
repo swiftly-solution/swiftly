@@ -1,0 +1,1 @@
+{"kind":"command","name":"cs_steamvideo_multikill_padding_time","description":"Time in seconds to add before the first kill and after the last kill for multikill events","args":"2","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"fov_desired","description":"Sets the base field-of-view.","args":"75","flags":["min:","1,","max:","135,","clientdll","archive","userinfo"],"games":["cs2"]}

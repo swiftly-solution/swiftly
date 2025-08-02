@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_autobuy","description":"The order in which autobuy will attempt to purchase items","args":"\"\"","flags":["clientdll","release"],"games":["cs2"]}

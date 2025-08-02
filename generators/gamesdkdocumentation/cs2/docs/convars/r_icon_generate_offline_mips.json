@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_icon_generate_offline_mips","description":"generate mips via sidecar file for offline","args":"false","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

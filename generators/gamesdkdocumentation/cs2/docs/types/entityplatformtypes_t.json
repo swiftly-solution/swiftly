@@ -1,0 +1,1 @@
+{"kind":"type","name":"EntityPlatformTypes_t","description":"Automatically generated game type from enum EntityPlatformTypes_t","values":{"ENTITY_NOT_PLATFORM":0,"ENTITY_PLATFORM_PLAYER_FOLLOWS_YAW":1,"ENTITY_PLATFORM_PLAYER_IGNORES_YAW":2},"games":["cs2"]}

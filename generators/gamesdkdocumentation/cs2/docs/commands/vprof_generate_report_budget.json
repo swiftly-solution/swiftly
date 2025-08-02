@@ -1,0 +1,1 @@
+{"kind":"command","name":"vprof_generate_report_budget","description":"Generate a report to the console based on budget group.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

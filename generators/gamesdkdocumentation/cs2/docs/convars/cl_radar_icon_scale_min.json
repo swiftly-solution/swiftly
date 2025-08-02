@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_radar_icon_scale_min","description":"Sets the minimum icon scale. Valid values are 0.4 to 1.25.","args":"0.6","flags":["min:","0.4,","max:","1.25,","clientdll","archive","release"],"games":["cs2"]}

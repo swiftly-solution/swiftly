@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"flagValue","type":"bool"}],"name":"CUserMsg_ParticleManager.SetSceneObjectGenericFlag","games":["cs2"]}

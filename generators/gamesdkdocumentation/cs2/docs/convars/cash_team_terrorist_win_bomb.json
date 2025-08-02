@@ -1,0 +1,1 @@
+{"kind":"command","name":"cash_team_terrorist_win_bomb","description":"<no description>","args":"3500","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

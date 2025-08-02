@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_soundmixer_list_mix_groups","description":"List all mix groups to dev console.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

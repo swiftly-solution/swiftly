@@ -1,0 +1,1 @@
+{"kind":"command","name":"weapon_switch","description":"Use a particular weapon","args":" <weapon_name>","flags":["developmentonly","gamedll"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"entidx","type":"int32","default":-1}],"name":"CCSUsrMsg_GlowPropTurnOff","games":["cs2"]}

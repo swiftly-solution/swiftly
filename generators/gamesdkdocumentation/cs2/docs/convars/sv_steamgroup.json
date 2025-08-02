@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_steamgroup","description":"The ID of the steam group that this server belongs to. You can find your group's ID on the admin profile page in the steam community.","args":"\"\"","flags":["notify","release"],"games":["cs2"]}

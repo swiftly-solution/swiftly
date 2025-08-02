@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"checkFow","type":"bool"}],"name":"CUserMsg_ParticleManager.SetParticleShouldCheckFoW","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_icon_use_kv3_camera","description":"use test kv3 data for camera","args":"false","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

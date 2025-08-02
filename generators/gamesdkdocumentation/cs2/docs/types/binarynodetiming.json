@@ -1,0 +1,1 @@
+{"kind":"type","name":"BinaryNodeTiming","description":"Automatically generated game type from enum BinaryNodeTiming","values":{"UseChild1":0,"UseChild2":1,"SyncChildren":2},"games":["cs2"]}

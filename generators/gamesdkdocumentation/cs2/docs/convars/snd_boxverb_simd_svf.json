@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_boxverb_simd_svf","description":"0 = use biquad instead of svf, 1 = use vectorized svf, 2 = use scalar svf","args":"1","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"voice_sequence_maximum_wait_time","description":"When receiving packets out of sequence, wait this many seconds for missing sequences to arrive","args":"0.5","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_strip_invisible_during_sceneobject_update","description":"<no description>","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

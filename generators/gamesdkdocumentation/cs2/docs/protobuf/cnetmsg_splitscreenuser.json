@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"slot","type":"int32"}],"name":"CNETMsg_SplitScreenUser","games":["cs2"]}

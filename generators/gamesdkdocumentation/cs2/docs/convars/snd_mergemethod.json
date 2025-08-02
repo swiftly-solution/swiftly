@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_mergemethod","description":"Sound merge method (0 == sum and clip, 1 == max, 2 == avg).","args":"1","flags":["developmentonly","defensive"],"games":["cs2"]}

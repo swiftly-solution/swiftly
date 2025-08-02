@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_hud_radar_blur_background","description":"Blurs the radar background.","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

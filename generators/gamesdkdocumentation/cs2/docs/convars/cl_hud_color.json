@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_hud_color","description":"0 = team color, 1 =  white, 2 = bright white, 3 = light blue, 4 = blue, 5 = purple, 6 = red, 7 = orange, 8 = yellow, 9 = green, 10 = aqua, 11 = pink, 12 = teammate color.","args":"0","flags":["clientdll","archive","release"],"games":["cs2"]}

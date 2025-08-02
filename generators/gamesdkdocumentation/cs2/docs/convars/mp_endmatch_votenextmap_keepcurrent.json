@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_endmatch_votenextmap_keepcurrent","description":"If set, keeps the current map in the list of voting options.  If not set, the current map will not appear in the list of voting options.","args":"true","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

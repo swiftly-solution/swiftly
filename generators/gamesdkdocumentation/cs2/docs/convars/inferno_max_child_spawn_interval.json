@@ -1,0 +1,1 @@
+{"kind":"command","name":"inferno_max_child_spawn_interval","description":"Largest time interval for child flame spawning","args":"0.5","flags":["gamedll","cheat"],"games":["cs2"]}

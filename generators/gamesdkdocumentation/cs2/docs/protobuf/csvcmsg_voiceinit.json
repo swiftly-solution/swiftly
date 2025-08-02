@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"quality","type":"int32"},{"name":"codec","type":"string"},{"name":"version","type":"int32"}],"name":"CSVCMsg_VoiceInit","games":["cs2"]}

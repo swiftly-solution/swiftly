@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_maxclients","description":"Maximum client number on SourceTV server.","args":"128","flags":["min:","0,","max:","255,","release"],"games":["cs2"]}

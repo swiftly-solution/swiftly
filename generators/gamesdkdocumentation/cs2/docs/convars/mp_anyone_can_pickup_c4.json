@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_anyone_can_pickup_c4","description":"If set, everyone can pick up the c4, not just Ts.","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mouse_disableinput","description":"Set to disable mouse input","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

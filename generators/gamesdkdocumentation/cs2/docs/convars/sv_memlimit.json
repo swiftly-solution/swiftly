@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_memlimit","description":"If set, whenever a game ends, if the total memory used by the server is greater than this # of megabytes, the server will exit.","args":"0","flags":["cheat","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"EDemoBoneSelectionMode","description":"Automatically generated game type from enum EDemoBoneSelectionMode","values":{"CaptureAllBones":0,"CaptureSelectedBones":1},"games":["cs2"]}

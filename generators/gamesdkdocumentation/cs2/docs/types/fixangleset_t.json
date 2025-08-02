@@ -1,0 +1,1 @@
+{"kind":"type","name":"FixAngleSet_t","description":"Automatically generated game type from enum FixAngleSet_t","values":{"None":0,"Absolute":1,"Relative":2},"games":["cs2"]}

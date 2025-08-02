@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"team","type":"int32"},{"name":"voteType","type":"int32"},{"name":"dispStr","type":"string"},{"name":"detailsStr","type":"string"}],"name":"CCSUsrMsg_VotePass","games":["cs2"]}

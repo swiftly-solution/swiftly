@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_unpack_direct_to_shadow_atlas","description":"unpack SST directly into shadow atlas cascade vs via staging texture PS copy (NOTE - rendersystem fix reqd for AMD + driver fix required for NV + VK only.","args":"false","flags":["developmentonly"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"VMixPannerType_t","description":"Automatically generated game type from enum VMixPannerType_t","values":{"PANNER_TYPE_LINEAR":0,"PANNER_TYPE_EQUAL_POWER":1},"games":["cs2"]}

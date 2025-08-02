@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_cs_exclude_next_cascade_region","description":"Exclude the inner region of a cascade during CS unpack if there is a higher resolution cascade that will cover that area.","args":"true","flags":["developmentonly"],"games":["cs2"]}

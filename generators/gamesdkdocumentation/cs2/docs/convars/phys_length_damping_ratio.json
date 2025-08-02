@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_length_damping_ratio","description":"Spring damping ratio for length constraint","args":"2","flags":["gamedll","cheat"],"games":["cs2"]}

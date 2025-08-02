@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"itemid","type":"int64"},{"name":"death","type":"bool"}],"name":"CCSUsrMsg_ItemDrop","games":["cs2"]}

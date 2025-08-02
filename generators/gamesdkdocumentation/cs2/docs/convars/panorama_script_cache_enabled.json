@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_script_cache_enabled","description":"Enable script caching to speed up recompiling scripts multiple times.","args":"true","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

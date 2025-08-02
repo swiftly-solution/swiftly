@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_ropetranslucent","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

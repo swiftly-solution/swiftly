@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_test1_maximum_wait_ms","description":"<no description>","args":"10","flags":["clientdll","release"],"games":["cs2"]}

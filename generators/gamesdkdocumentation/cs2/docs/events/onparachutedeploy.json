@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnParachuteDeploy","description":"This event is triggered when parachute_deploy is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

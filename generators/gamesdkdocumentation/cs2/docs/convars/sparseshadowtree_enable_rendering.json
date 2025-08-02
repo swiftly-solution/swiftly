@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_enable_rendering","description":"Enable use of SST at runtime (static geo rendered into cascades via SST).","args":"false","flags":["developmentonly"],"games":["cs2"]}

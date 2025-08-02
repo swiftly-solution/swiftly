@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_enable_baked_shadows","description":"SceneSystem/LightBinner/Enable Baked Shadows","args":"true","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnFlareIgniteNpc","description":"This event is triggered when flare_ignite_npc is triggered.","arguments":{"entindex":"int32"},"return":"void","games":["cs2"]}

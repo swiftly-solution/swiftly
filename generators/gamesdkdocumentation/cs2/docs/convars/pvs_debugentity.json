@@ -1,0 +1,1 @@
+{"kind":"command","name":"pvs_debugentity","description":"Verbose spew for this entity when doing IsInPVS computation.","args":"-1","flags":["gamedll","release"],"games":["cs2"]}

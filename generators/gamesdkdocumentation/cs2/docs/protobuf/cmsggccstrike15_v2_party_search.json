@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"ver","type":"uint32"},{"name":"apr","type":"uint32"},{"name":"ark","type":"uint32"},{"name":"grps","type":"uint32"},{"name":"launcher","type":"uint32"},{"name":"gameType","type":"uint32"}],"name":"CMsgGCCStrike15_v2_Party_Search","games":["cs2"]}

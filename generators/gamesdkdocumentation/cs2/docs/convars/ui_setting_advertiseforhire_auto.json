@@ -1,0 +1,1 @@
+{"kind":"command","name":"ui_setting_advertiseforhire_auto","description":"Whether users will automatically advertise for invites (0: off; 1: last; 2: auto)","args":"1","flags":["clientdll","archive","release"],"games":["cs2"]}

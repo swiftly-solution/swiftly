@@ -1,0 +1,1 @@
+{"kind":"command","name":"schema_list_bindings","description":"schema_list_bindings <substring> - List registered global-scope schema bindings (classes & enums). If no substring, list them all.","args":"","flags":["developmentonly"],"games":["cs2"]}

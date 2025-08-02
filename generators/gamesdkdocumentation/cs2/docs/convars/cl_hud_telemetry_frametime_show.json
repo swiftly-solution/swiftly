@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_hud_telemetry_frametime_show","description":"Show frame time (FPS) in the HUD.  0=never, 1=only if poor, 2=always","args":"1","flags":["clientdll","archive","release"],"games":["cs2"]}

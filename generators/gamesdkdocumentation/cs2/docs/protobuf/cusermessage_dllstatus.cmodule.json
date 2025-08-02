@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"baseAddr","type":"uint64"},{"name":"name","type":"string"},{"name":"size","type":"uint32"},{"name":"timestamp","type":"uint32"}],"name":"CUserMessage_DllStatus.CModule","games":["cs2"]}

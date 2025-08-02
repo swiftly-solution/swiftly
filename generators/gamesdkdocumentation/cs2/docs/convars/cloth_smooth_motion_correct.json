@@ -1,0 +1,1 @@
+{"kind":"command","name":"cloth_smooth_motion_correct","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

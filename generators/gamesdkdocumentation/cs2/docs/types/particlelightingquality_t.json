@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleLightingQuality_t","description":"Automatically generated game type from enum ParticleLightingQuality_t","values":{"PARTICLE_LIGHTING_PER_PARTICLE":0,"PARTICLE_LIGHTING_PER_VERTEX":1,"PARTICLE_LIGHTING_PER_PIXEL":-1},"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_scoreboard_survivors_always_on","description":"<no description>","args":"false","flags":["clientdll","archive","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"play","description":"Play a sound.","args":"","flags":["server_can_execute"],"games":["cs2"]}

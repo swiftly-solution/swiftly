@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_menumap_volume","description":"Volume of background sounds for maps","args":"1","flags":["min:","0,","max:","1,","clientdll","archive","release"],"games":["cs2"]}

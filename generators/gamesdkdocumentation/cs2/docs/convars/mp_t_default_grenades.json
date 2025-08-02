@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_t_default_grenades","description":"The default grenades that the Ts will spawn with.\tTo give multiple grenades, separate each weapon class with a space like this: 'weapon_molotov weapon_hegrenade'","args":"\"\"","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_dm_bonus_length_max","description":"Maximum time the bonus time will last (in seconds)","args":"30","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

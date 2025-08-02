@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostSurvivalParadropSpawn","description":"This event is triggered after survival_paradrop_spawn is triggered.","arguments":{"entityid":"int32"},"return":"void","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_streams_request_accept","description":"Header for api request","args":"\"application/vnd.twitchtv.v5+json\"","flags":["developmentonly","clientdll"],"games":["cs2"]}

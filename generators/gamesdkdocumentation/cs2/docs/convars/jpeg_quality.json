@@ -1,0 +1,1 @@
+{"kind":"command","name":"jpeg_quality","description":"Set jpeg screenshot quality. [1..100]","args":"90","flags":["min:","1,","max:","100,","developmentonly","defensive"],"games":["cs2"]}

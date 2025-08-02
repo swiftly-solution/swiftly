@@ -1,0 +1,1 @@
+{"kind":"command","name":"contributionscore_bomb_exploded","description":"amount of contribution score awarded to bomb planter and terrorists remaining alive if bomb explosion wins the round","args":"1","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

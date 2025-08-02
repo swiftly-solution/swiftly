@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_steamaudio_source_pathing_enable_validation","description":"Enable real-time pathing validation against dynamic geometry.","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

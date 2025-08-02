@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnVoteChanged","description":"This event is triggered when vote_changed is triggered.","arguments":{"vote_option1":"int32","vote_option2":"int32","vote_option3":"int32","vote_option4":"int32","vote_option5":"int32","potentialVotes":"int32","yesVotes":"int32","noVotes":"int32"},"return":"void","games":["cs2"]}

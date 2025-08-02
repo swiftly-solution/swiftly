@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_autohelp","description":"Auto-help","args":"true","flags":["clientdll","archive","userinfo"],"games":["cs2"]}

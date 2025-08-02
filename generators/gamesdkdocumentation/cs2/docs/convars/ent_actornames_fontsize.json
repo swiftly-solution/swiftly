@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_actornames_fontsize","description":"ent_actornames font size","args":"24","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

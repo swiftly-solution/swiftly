@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_warmuptime_all_players_connected","description":"Warmup time to use when all players have connected. 0 to disable.","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

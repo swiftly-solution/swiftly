@@ -1,0 +1,1 @@
+{"kind":"command","name":"lobby_stats_fake","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"authorizedSteamId","type":"fixed64"},{"name":"authorizedPublicIp","type":"fixed32"},{"name":"gameserverSteamId","type":"fixed64"},{"name":"gameserverSdrRouting","type":"string"}],"name":"CMsgGCCStrike15_v2_ClientToGCRequestTicket","games":["cs2"]}

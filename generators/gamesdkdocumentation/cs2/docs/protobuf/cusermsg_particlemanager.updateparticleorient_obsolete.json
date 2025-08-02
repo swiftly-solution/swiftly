@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"controlPoint","type":"int32"},{"name":"forward","type":"CMsgVector"},{"name":"deprecatedRight","type":"CMsgVector"},{"name":"up","type":"CMsgVector"},{"name":"left","type":"CMsgVector"}],"name":"CUserMsg_ParticleManager.UpdateParticleOrient_OBSOLETE","games":["cs2"]}

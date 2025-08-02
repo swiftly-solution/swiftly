@@ -1,0 +1,1 @@
+{"kind":"command","name":"rr_thenany_score_slop","description":"When computing respondents for a 'THEN ANY' rule, all rule-matching scores within this much of the best score will be considered.","args":"0","flags":["gamedll","archive","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_use_old_wearable_shoulddraw","description":"<no description>","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"report_soundpatch","description":"reports sound patch count","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

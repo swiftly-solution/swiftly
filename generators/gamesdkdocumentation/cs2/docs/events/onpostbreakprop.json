@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostBreakProp","description":"This event is triggered after break_prop is triggered.","arguments":{"entindex":"int32","userid":"int32","player_held":"bool","player_thrown":"bool","player_dropped":"bool"},"return":"void","games":["cs2"]}

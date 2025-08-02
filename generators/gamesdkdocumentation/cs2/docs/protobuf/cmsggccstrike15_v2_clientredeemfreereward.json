@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"generationTime","type":"uint32"},{"name":"redeemableBalance","type":"uint32"},{"name":"items","type":"uint64"}],"name":"CMsgGCCstrike15_v2_ClientRedeemFreeReward","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"amount","type":"int32"}],"name":"CCSUsrMsg_AdjustMoney","games":["cs2"]}

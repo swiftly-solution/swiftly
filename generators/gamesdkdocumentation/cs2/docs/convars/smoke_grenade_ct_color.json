@@ -1,0 +1,1 @@
+{"kind":"command","name":"smoke_grenade_ct_color","description":"<no description>","args":"[75, 127, 75]","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

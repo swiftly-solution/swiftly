@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_crosshair_t","description":"T style crosshair","args":"false","flags":["clientdll","archive","per_user"],"games":["cs2"]}

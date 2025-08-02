@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"range","type":"int32"}],"name":"CCSUsrMsg_Geiger","games":["cs2"]}

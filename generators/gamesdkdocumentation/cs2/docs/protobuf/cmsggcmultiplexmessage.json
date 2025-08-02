@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"msgtype","type":"uint32"},{"name":"payload","type":"bytes"},{"name":"steamids","type":"fixed64"},{"name":"replytogc","type":"bool"}],"name":"CMsgGCMultiplexMessage","games":["cs2"]}

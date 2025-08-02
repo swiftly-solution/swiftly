@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_deathcampanel_position_dynamic","description":"Turn on/off deathcam's kill panel dynamic Y movement","args":"1","flags":["clientdll","archive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_lagcompensation_test_auto_target","description":"Auto-pick value of cl_lagcompensation_test_target.","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

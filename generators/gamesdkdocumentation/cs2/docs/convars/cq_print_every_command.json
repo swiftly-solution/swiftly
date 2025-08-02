@@ -1,0 +1,1 @@
+{"kind":"command","name":"cq_print_every_command","description":"print every command as we execute it","args":"false","flags":["gamedll","release"],"games":["cs2"]}

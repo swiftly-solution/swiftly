@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_ignore_players","description":"Bots will not see non-bot players.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

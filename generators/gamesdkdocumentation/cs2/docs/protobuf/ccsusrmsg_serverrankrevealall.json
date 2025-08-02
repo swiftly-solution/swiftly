@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"secondsTillShutdown","type":"int32"},{"name":"reservation","type":"CMsgGCCStrike15_v2_MatchmakingGC2ServerReserve"}],"name":"CCSUsrMsg_ServerRankRevealAll","games":["cs2"]}

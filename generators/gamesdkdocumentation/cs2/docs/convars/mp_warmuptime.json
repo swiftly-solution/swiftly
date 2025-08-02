@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_warmuptime","description":"How long the warmup period lasts. Changing this value resets warmup.","args":"30","flags":["min:","5,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_glow_full_time","description":"Noisy players stay at full brightness for this long.","args":"1","flags":["min:","0,","clientdll","release"],"games":["cs2"]}

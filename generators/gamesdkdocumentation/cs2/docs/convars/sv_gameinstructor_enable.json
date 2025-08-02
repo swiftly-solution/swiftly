@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_gameinstructor_enable","description":"Force all clients to enable their game instructors.","args":"false","flags":["clientdll","replicated","release"],"games":["cs2"]}

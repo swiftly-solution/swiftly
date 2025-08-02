@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_sniper_tracer_innacuracy_length","description":"How far should the tracer draw if we trip sv_sniper_tracer_mode behavior.","args":"200","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

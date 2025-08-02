@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_td_spawndmgthreshold","description":"The damage threshold players have to exceed at the start of the round to be warned/kick.","args":"50","flags":["gamedll","replicated","release"],"games":["cs2"]}

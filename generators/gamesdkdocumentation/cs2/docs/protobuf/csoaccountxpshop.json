@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"generationTime","type":"uint32"},{"name":"redeemableBalance","type":"uint32"},{"name":"xpTracks","type":"uint32"}],"name":"CSOAccountXpShop","games":["cs2"]}

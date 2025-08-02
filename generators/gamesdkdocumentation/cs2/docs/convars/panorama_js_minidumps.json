@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_js_minidumps","description":"Enable sending minidumps on JS Exceptions.","args":"false","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

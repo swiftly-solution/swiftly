@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_print_operator_stack_operator","description":"Prints an operator from a stack","args":"","flags":["cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_radar_square_always","description":"If set, the radar will always be square.","args":"false","flags":["clientdll","archive","release"],"games":["cs2"]}

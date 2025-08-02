@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"master","type":"string"},{"name":"clients","type":"int32"},{"name":"slots","type":"int32"},{"name":"proxies","type":"int32"}],"name":"CSVCMsg_HLTVStatus","games":["cs2"]}

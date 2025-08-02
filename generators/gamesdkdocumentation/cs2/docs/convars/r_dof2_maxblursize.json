@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_dof2_maxblursize","description":"<no description>","args":"5","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"pwatchvar","description":"Entity variable to watch in prediction system for changes.","args":"\"\"","flags":["clientdll","cheat"],"games":["cs2"]}

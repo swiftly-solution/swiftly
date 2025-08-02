@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_join_after_player","description":"If nonzero, bots wait until a player joins before entering the game.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

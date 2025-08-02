@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ignorepackets","description":"Force client to ignore packets (for debugging).","args":"false","flags":["cheat"],"games":["cs2"]}

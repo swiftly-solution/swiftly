@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_test_find_random_connected","description":"Demonstrates finding random points that are connected in the nav mesh to the start point.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

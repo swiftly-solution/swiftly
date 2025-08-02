@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_tracer_whiz_distance","description":"<no description>","args":"72","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

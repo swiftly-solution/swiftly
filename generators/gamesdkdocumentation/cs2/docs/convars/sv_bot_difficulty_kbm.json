@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_bot_difficulty_kbm","description":"Bot difficulty while playing with Keyboard/Mouse device","args":"0","flags":["developmentonly","gamedll","clientdll","hidden","replicated","defensive"],"games":["cs2"]}

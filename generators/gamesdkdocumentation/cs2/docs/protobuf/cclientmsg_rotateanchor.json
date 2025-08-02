@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"angle","type":"float"}],"name":"CClientMsg_RotateAnchor","games":["cs2"]}

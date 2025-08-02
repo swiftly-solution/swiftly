@@ -1,0 +1,1 @@
+{"kind":"command","name":"ss_teleport","description":"Teleport other splitscreen player to my location.","args":"","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

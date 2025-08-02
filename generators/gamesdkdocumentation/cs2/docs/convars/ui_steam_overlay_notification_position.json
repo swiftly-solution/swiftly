@@ -1,0 +1,1 @@
+{"kind":"command","name":"ui_steam_overlay_notification_position","description":"Steam overlay notification position","args":"\"bottomleft\"","flags":["clientdll","archive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"eom_local_player_defeat_anim_enabled","description":"<no description>","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

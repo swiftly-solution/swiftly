@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_demo_steadycam_enable","description":"Stabilize camera orientation/position during demo playback.  1 == remove roll, 2 == steadycam","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

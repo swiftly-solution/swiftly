@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"update","type":"string"}],"name":"CCSUsrMsg_MatchStatsUpdate","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"silence_dsp","description":"When on, silences all DSP mixes.","args":"false","flags":["cheat"],"games":["cs2"]}

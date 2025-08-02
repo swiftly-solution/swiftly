@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_infinite_ammo","description":"Player's active weapon will never run out of ammo","args":"0","flags":["gamedll","clientdll","replicated","cheat","release","commandline_enforced"],"games":["cs2"]}

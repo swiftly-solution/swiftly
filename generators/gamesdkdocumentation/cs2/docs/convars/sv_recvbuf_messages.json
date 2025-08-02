@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_recvbuf_messages","description":"Max number of messages that can be queued in a netchan receive buffer for an ordinary connection from a client.","args":"1024","flags":["developmentonly","defensive"],"games":["cs2"]}

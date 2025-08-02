@@ -1,0 +1,1 @@
+{"kind":"command","name":"say_team","description":"Display player message to team","args":"","flags":["gamedll","client_can_execute"],"games":["cs2"]}

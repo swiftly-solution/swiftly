@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_weapon_debug_show_accuracy","description":"Draws a circle representing the effective range with every shot.","args":"0","flags":["clientdll","cheat","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"rope_smooth_minalpha","description":"Alpha for rope antialiasing effect","args":"0.2","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

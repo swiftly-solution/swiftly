@@ -1,0 +1,1 @@
+{"kind":"command","name":"smoke_grenade_custom_color","description":"0 = Gray (classic), 1 = Red, 2 = Orange, 3 = Skyblue, 4 = Yellow, 5 = Green, , 6 = Blue, 7 = Purple, 8 = pink","args":"-1","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

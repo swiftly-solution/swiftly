@@ -1,0 +1,1 @@
+{"kind":"command","name":"csgo_use_fullsort_for_opaque","description":"fullsort the opaque pass when there wasn't a depth prepass","args":"true","flags":["clientdll","cheat"],"games":["cs2"]}

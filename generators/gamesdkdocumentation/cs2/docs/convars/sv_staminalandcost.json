@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_staminalandcost","description":"Stamina penalty for landing","args":"0.05","flags":["min:","0,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"NPCPhysicsHullType_t","description":"Automatically generated game type from enum NPCPhysicsHullType_t","values":{"eInvalid":0,"eGroundCapsule":1,"eCenteredCapsule":2,"eGenericCapsule":3,"eGroundBox":4},"games":["cs2"]}

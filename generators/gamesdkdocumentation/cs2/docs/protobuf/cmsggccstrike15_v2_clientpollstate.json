@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"pollid","type":"uint32"},{"name":"names","type":"string"},{"name":"values","type":"int32"}],"name":"CMsgGCCStrike15_v2_ClientPollState","games":["cs2"]}

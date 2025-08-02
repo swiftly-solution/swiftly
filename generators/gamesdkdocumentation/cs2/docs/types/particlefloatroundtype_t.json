@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleFloatRoundType_t","description":"Automatically generated game type from enum ParticleFloatRoundType_t","values":{"PF_ROUND_TYPE_INVALID":-1,"PF_ROUND_TYPE_NEAREST":0,"PF_ROUND_TYPE_FLOOR":1,"PF_ROUND_TYPE_CEIL":2,"PF_ROUND_TYPE_COUNT":3},"games":["cs2"]}

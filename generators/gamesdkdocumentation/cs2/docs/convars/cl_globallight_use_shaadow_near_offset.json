@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_globallight_use_shaadow_near_offset","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleLightFogLightingMode_t","description":"Automatically generated game type from enum ParticleLightFogLightingMode_t","values":{"PARTICLE_LIGHT_FOG_LIGHTING_MODE_NONE":0,"PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC":2,"PARTICLE_LIGHT_FOG_LIGHTING_MODE_DYNAMIC_NOSHADOWS":4},"games":["cs2"]}

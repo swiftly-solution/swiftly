@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_max_armor","description":"Determines the highest level of armor allowed to be purchased. (0) None, (1) Kevlar, (2) Helmet","args":"2","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

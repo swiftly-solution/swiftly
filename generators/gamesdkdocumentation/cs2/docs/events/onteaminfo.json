@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnTeamInfo","description":"This event is triggered when team_info is triggered.","arguments":{"teamid":"int32","teamname":"string"},"return":"void","games":["cs2"]}

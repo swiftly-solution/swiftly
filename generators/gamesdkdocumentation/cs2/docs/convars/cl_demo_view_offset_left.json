@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_demo_view_offset_left","description":"View offset during demo playback (+/- 1.25 is a good default for human average left/right eye offset)","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_vulkan_force_sync1","description":"<no description>","args":"false","flags":["developmentonly"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"save_clear_subdirectory","description":"<no description>","args":"","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

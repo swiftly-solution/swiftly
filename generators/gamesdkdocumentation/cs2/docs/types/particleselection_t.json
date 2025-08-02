@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleSelection_t","description":"Automatically generated game type from enum ParticleSelection_t","values":{"PARTICLE_SELECTION_FIRST":0,"PARTICLE_SELECTION_LAST":1,"PARTICLE_SELECTION_NUMBER":2},"games":["cs2"]}

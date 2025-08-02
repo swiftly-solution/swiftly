@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"eventId","type":"int32"},{"name":"teamIdCt","type":"int32"},{"name":"teamIdT","type":"int32"},{"name":"eventStageId","type":"int32"}],"name":"TournamentMatchSetup","games":["cs2"]}

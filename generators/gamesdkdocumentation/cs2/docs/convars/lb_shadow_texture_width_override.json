@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_shadow_texture_width_override","description":"Override width of shadow atlas texture","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

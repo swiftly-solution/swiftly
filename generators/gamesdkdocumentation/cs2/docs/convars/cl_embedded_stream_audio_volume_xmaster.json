@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_embedded_stream_audio_volume_xmaster","description":"Whether embedded stream audio volume gets multiplied by master volume","args":"true","flags":["clientdll","hidden","archive"],"games":["cs2"]}

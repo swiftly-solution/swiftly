@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_dz_cash_bundle_size","description":"Size of a cash bundle","args":"50","flags":["gamedll","replicated","release"],"games":["cs2"]}

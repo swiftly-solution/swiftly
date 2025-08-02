@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"duration","type":"int32"},{"name":"holdTime","type":"int32"},{"name":"flags","type":"int32"},{"name":"clr","type":"CMsgRGBA"}],"name":"CCSUsrMsg_Fade","games":["cs2"]}

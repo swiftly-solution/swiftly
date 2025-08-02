@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_bot_parallel_threat_detection","description":"Perform bot threat detection in parallel","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

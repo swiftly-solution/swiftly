@@ -1,0 +1,1 @@
+{"kind":"type","name":"FuseVariableAccess_t","description":"Automatically generated game type from enum FuseVariableAccess_t","values":{"WRITABLE":0,"READ_ONLY":1},"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"entityIndex","type":"int32","default":-1},{"name":"slot","type":"int32","default":-1}],"name":"CSVCMsg_SetView","games":["cs2"]}

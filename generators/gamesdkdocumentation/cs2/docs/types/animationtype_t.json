@@ -1,0 +1,1 @@
+{"kind":"type","name":"AnimationType_t","description":"Automatically generated game type from enum AnimationType_t","values":{"ANIMATION_TYPE_FIXED_RATE":0,"ANIMATION_TYPE_FIT_LIFETIME":1,"ANIMATION_TYPE_MANUAL_FRAMES":2},"games":["cs2"]}

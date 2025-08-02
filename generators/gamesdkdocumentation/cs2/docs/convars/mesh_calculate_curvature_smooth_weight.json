@@ -1,0 +1,1 @@
+{"kind":"command","name":"mesh_calculate_curvature_smooth_weight","description":"<no description>","args":"1","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

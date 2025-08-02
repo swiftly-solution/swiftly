@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnItemPickupFailed","description":"This event is triggered when item_pickup_failed is triggered.","arguments":{"userid":"int32","item":"string","reason":"int32","limit":"int32"},"return":"void","games":["cs2"]}

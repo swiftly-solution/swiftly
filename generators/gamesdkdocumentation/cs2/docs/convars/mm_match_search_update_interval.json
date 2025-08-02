@@ -1,0 +1,1 @@
+{"kind":"command","name":"mm_match_search_update_interval","description":"Interval between matchsearcher updates.","args":"10","flags":["developmentonly"],"games":["cs2"]}

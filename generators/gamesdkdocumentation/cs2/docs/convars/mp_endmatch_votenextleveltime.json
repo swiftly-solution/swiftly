@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_endmatch_votenextleveltime","description":"If mp_endmatch_votenextmap is set, players have this much time to vote on the next map at match end.","args":"20","flags":["gamedll","release"],"games":["cs2"]}

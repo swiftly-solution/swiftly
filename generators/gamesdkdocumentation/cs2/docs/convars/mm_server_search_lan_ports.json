@@ -1,0 +1,1 @@
+{"kind":"command","name":"mm_server_search_lan_ports","description":"Ports to scan during LAN games discovery. Also used to discover and correctly connect to dedicated LAN servers behind NATs.","args":"\"27015,27016,27017,27018,27019,27020\"","flags":["archive","release"],"games":["cs2"]}

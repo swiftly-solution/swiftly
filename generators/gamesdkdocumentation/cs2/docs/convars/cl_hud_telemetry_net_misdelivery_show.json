@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_hud_telemetry_net_misdelivery_show","description":"Show percentage of user commands & server snapshots that are missed due to network conditions.  0=never, 1=only in poor conditions, 2=always","args":"1","flags":["clientdll","archive","release"],"games":["cs2"]}

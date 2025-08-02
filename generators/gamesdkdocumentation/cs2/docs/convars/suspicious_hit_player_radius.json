@@ -1,0 +1,1 @@
+{"kind":"command","name":"suspicious_hit_player_radius","description":"<no description>","args":"8","flags":["gamedll","release"],"games":["cs2"]}

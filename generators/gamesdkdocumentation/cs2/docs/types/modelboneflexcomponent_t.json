@@ -1,0 +1,1 @@
+{"kind":"type","name":"ModelBoneFlexComponent_t","description":"Automatically generated game type from enum ModelBoneFlexComponent_t","values":{"MODEL_BONE_FLEX_INVALID":-1,"MODEL_BONE_FLEX_TX":0,"MODEL_BONE_FLEX_TY":1,"MODEL_BONE_FLEX_TZ":2},"games":["cs2"]}

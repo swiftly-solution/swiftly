@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"relative","type":"bool"},{"name":"angle","type":"CMsgQAngle"},{"name":"entityMsg","type":"CEntityMsg"}],"name":"CEntityMessageFixAngle","games":["cs2"]}

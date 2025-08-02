@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_grenadecrosshairdelay_decoy","description":"How long should the pin be pulled for before showing the grenade crosshair","args":"2","flags":["clientdll","archive","per_user"],"games":["cs2"]}

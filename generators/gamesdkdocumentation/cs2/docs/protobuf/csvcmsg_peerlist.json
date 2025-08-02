@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"peer","type":"CMsgServerPeer"}],"name":"CSVCMsg_PeerList","games":["cs2"]}

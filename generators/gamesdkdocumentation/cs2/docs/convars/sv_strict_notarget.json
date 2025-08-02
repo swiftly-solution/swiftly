@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_strict_notarget","description":"If set, notarget will cause entities to never think they are in the pvs","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

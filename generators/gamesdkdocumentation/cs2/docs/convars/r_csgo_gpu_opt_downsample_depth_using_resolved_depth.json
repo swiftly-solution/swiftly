@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_gpu_opt_downsample_depth_using_resolved_depth","description":"use already resolved depth as input to downsample depth layer","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

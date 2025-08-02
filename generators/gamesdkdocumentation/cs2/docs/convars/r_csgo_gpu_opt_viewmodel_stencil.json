@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_gpu_opt_viewmodel_stencil","description":"<no description>","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

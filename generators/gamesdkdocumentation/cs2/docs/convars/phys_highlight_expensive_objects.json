@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_highlight_expensive_objects","description":"Highlight expensive physics objects","args":"false","flags":["cheat"],"games":["cs2"]}

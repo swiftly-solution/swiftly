@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_pausable_dev_ds","description":"Whether dedicated server is pausable when running -dev and playing solo against bots","args":"false","flags":["developmentonly"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_allow_snipers","description":"If nonzero, bots may use sniper rifles.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

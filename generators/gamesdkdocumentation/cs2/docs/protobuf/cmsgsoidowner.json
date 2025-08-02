@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"type","type":"uint32"},{"name":"id","type":"uint64"}],"name":"CMsgSOIDOwner","games":["cs2"]}

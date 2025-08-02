@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_enable_delta_frames","description":"Indicates whether or not the tv should use delta frames for storage of intermediate frames. This takes more CPU but significantly less memory.","args":"true","flags":["release"],"games":["cs2"]}

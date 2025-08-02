@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_warmup_items_drop_policy","description":"Which items can drop during warmup (bitfield, 1=gun, 2=c4, 4=nade, 8=defuser, 16=taser, 32=healthshot)","args":"247","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

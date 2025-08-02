@@ -1,0 +1,1 @@
+{"kind":"command","name":"voice_containers_get_instance_params","description":"Args: [Voice Container Path]","args":"","flags":["linked_concommand","developmentonly","defensive"],"games":["cs2"]}

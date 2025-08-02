@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnHltvMessage","description":"This event is triggered when hltv_message is triggered.","arguments":{"text":"string"},"return":"void","games":["cs2"]}

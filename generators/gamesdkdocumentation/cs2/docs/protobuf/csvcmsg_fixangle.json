@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"relative","type":"bool"},{"name":"angle","type":"CMsgQAngle"}],"name":"CSVCMsg_FixAngle","games":["cs2"]}

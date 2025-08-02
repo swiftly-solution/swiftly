@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_headphone_pan_exponent","description":"Specifies the exponent for the pan xfade from phone to phone if the \"exp\" pan law is being used.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_flush_operators","description":"Flush and re-parse the sound operator system","args":"","flags":["cheat"],"games":["cs2"]}

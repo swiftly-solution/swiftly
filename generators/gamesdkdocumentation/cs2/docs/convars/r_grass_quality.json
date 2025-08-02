@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_grass_quality","description":"0 = Off, 1 = Low, 2 = Med, 3 = high, 4 = ultra","args":"2","flags":["developmentonly","defensive"],"games":["cs2"]}

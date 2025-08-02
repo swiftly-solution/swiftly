@@ -1,0 +1,1 @@
+{"kind":"command","name":"startdemos","description":"Play demos in demo sequence.","args":"","flags":["release"],"games":["cs2"]}

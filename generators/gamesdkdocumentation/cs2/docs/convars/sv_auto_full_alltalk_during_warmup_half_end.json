@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_auto_full_alltalk_during_warmup_half_end","description":"When enabled will automatically turn on full all talk mode in warmup, at halftime and at the end of the match","args":"true","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

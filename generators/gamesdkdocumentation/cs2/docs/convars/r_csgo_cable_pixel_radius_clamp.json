@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_cable_pixel_radius_clamp","description":"Minimum clamped size in pixels of a cable (if using F_CLAMP_MIN_RADIUS 1 in cable material)","args":"1.2","flags":["developmentonly","clientdll"],"games":["cs2"]}

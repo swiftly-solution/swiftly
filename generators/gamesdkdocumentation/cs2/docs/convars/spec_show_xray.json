@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_show_xray","description":"If set to 1, you can see player outlines and name IDs through walls - who you can see depends on your team and mode","args":"1","flags":["clientdll","archive","release"],"games":["cs2"]}

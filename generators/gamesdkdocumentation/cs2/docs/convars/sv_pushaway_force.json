@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_pushaway_force","description":"How hard physics objects are pushed away from the players on the server.","args":"300000","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

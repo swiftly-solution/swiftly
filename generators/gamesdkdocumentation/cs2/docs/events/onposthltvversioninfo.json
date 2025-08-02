@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostHltvVersioninfo","description":"This event is triggered after hltv_versioninfo is triggered.","arguments":{"version":"int32"},"return":"void","games":["cs2"]}

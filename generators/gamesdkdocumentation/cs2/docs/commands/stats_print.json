@@ -1,0 +1,1 @@
+{"kind":"command","name":"stats_print","description":"Prints out perf statistics to the console, clears perf history","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_enable_shadow_casting","description":"Allow stationary/dynamic lights to cast shadows.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

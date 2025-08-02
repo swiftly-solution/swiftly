@@ -1,0 +1,1 @@
+{"kind":"command","name":"npcsolve_attract_draw","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

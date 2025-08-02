@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_actornames_font","description":"ent_actornames font name","args":"\"Consolas\"","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

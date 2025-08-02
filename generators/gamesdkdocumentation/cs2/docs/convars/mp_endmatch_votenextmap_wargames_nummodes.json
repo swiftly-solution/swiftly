@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_endmatch_votenextmap_wargames_nummodes","description":"Maximum number of other War Games to include in endmatch voting during War Games","args":"1","flags":["gamedll","release"],"games":["cs2"]}

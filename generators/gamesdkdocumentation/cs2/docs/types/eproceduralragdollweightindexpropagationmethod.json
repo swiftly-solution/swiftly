@@ -1,0 +1,1 @@
+{"kind":"type","name":"EProceduralRagdollWeightIndexPropagationMethod","description":"Automatically generated game type from enum EProceduralRagdollWeightIndexPropagationMethod","values":{"Bone":0,"BoneAndChildren":1},"games":["cs2"]}

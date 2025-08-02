@@ -1,0 +1,1 @@
+{"kind":"command","name":"radarvismethod","description":"0 for traditional method, 1 for more realistic method","args":"1","flags":["min:","0,","max:","1,","gamedll","cheat"],"games":["cs2"]}

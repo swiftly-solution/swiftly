@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_use_respawn_waves","description":"When set to 1, and that player's team is set to respawn, they will respawn in waves. If set to 2, teams will respawn when the whole team is dead.","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

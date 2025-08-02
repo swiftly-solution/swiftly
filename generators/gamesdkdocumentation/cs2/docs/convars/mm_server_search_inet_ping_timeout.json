@@ -1,0 +1,1 @@
+{"kind":"command","name":"mm_server_search_inet_ping_timeout","description":"How long to wait for internet server details.","args":"3","flags":["developmentonly"],"games":["cs2"]}

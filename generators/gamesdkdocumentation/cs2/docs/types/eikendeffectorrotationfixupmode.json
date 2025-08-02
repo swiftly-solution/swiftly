@@ -1,0 +1,1 @@
+{"kind":"type","name":"EIKEndEffectorRotationFixUpMode","description":"Automatically generated game type from enum EIKEndEffectorRotationFixUpMode","values":{"None":0,"MatchTargetOrientation":1,"LookAtTargetForward":2,"MaintainParentOrientation":3,"Count":4},"games":["cs2"]}

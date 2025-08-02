@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"playerSlot","type":"int32","default":-1},{"name":"steamid","type":"fixed64"},{"name":"ipc","type":"CMsgIPCAddress"},{"name":"theyHearYou","type":"bool"},{"name":"youHearThem","type":"bool"},{"name":"isListenserverHost","type":"bool"}],"name":"CMsgServerPeer","games":["cs2"]}

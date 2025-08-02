@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_maxuptimelimit","description":"Number of hours to operate before trying sv_shutdown.","args":"0","flags":["gamedll","release"],"games":["cs2"]}

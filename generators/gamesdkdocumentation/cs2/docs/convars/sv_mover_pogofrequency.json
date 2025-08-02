@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_mover_pogofrequency","description":"The capsule pogo stick frequency [hz].","args":"10","flags":["developmentonly","gamedll","clientdll","notify","replicated","defensive"],"games":["cs2"]}

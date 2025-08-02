@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_focus_world_panels","description":"when set request key focus when a world panel is enabled","args":"false","flags":["clientdll","archive"],"games":["cs2"]}

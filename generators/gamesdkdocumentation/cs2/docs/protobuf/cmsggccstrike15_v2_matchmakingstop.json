@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"abandon","type":"int32"}],"name":"CMsgGCCStrike15_v2_MatchmakingStop","games":["cs2"]}

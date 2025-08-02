@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_deathnotices_show_numbers","description":"0: default; 1: draw names as just numbers; 2: append number on killer and victim to the name","args":"0","flags":["clientdll","release"],"games":["cs2"]}

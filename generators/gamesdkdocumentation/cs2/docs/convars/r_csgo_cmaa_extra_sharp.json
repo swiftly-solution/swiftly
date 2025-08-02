@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_cmaa_extra_sharp","description":"trade more sharpness for reduced antialiasing","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

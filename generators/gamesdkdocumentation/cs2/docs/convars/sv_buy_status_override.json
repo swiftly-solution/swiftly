@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_buy_status_override","description":"Override for buy status map info. 0 = everyone can buy, 1 = ct only, 2 = t only 3 = nobody","args":"-1","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

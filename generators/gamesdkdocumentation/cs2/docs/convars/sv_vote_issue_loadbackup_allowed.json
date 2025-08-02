@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vote_issue_loadbackup_allowed","description":"Can people hold votes to load match from backup?","args":"true","flags":["gamedll","notify","replicated","release"],"games":["cs2"]}

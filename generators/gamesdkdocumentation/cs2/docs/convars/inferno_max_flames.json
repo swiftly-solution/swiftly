@@ -1,0 +1,1 @@
+{"kind":"command","name":"inferno_max_flames","description":"Maximum number of flames that can be created","args":"16","flags":["gamedll","replicated","release"],"games":["cs2"]}

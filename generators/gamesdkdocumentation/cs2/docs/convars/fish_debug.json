@@ -1,0 +1,1 @@
+{"kind":"command","name":"fish_debug","description":"Show debug info for fish","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

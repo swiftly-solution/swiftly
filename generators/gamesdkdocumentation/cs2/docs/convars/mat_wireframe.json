@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_wireframe","description":"0=Off, 1=Surface Wireframe, 2=Transparent Wireframe","args":"0","flags":["cheat"],"games":["cs2"]}

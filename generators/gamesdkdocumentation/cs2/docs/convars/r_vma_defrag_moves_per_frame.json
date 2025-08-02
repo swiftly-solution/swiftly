@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_vma_defrag_moves_per_frame","description":"During a VMA defrag, number of moves to process for a pass in a single frame update.","args":"20","flags":["developmentonly"],"games":["cs2"]}

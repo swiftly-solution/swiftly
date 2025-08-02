@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"inventory","type":"int32"},{"name":"offset","type":"int32"},{"name":"options","type":"int32"}],"name":"CUserMessageRequestInventory","games":["cs2"]}

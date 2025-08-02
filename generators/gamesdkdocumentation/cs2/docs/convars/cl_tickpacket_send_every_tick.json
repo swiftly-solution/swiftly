@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_tickpacket_send_every_tick","description":"Send a network packet each time we generate a new usercommand, even if our frame rate is slow and we generate multiple commands in one frame","args":"true","flags":["developmentonly"],"games":["cs2"]}

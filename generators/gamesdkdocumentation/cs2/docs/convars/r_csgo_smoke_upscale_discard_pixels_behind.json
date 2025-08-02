@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_smoke_upscale_discard_pixels_behind","description":"When upsampling smoke discard pixels behind solid depth to avoid pixelated artifacts","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

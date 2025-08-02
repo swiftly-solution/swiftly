@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_endmatch_votenextmap_wargames_nummaps","description":"Maximum number of maps to include in endmatch voting during War Games","args":"3","flags":["gamedll","release"],"games":["cs2"]}

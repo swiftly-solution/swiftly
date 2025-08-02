@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_override_barn_light_fade_sizes","description":"<no description>","args":"[0.05, 0.025]","flags":["developmentonly","cheat"],"games":["cs2"]}

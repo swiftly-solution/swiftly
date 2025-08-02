@@ -1,0 +1,1 @@
+{"kind":"command","name":"csm_max_dist_between_caster_and_receiver","description":"default pushback","args":"15000","flags":["cheat"],"games":["cs2"]}

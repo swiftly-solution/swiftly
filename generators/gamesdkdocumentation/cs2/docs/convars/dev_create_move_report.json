@@ -1,0 +1,1 @@
+{"kind":"command","name":"dev_create_move_report","description":"Whether we should create move reports when you push movement keys. Reports are created for the server and are numbered monotonically","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

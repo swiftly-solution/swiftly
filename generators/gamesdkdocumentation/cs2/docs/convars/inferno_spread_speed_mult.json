@@ -1,0 +1,1 @@
+{"kind":"command","name":"inferno_spread_speed_mult","description":"Speed up the spreadrate of the Molotov until max number of nodes are created.  slowdown < 1 > Speedup","args":"1","flags":["gamedll","replicated","release"],"games":["cs2"]}

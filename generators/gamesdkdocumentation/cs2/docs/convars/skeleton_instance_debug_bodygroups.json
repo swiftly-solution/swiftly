@@ -1,0 +1,1 @@
+{"kind":"command","name":"skeleton_instance_debug_bodygroups","description":"Debug bodygroups","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

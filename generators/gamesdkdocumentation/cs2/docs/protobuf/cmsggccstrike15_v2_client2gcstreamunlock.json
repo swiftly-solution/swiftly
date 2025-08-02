@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"ticket","type":"uint64"},{"name":"os","type":"int32"}],"name":"CMsgGCCStrike15_v2_Client2GCStreamUnlock","games":["cs2"]}

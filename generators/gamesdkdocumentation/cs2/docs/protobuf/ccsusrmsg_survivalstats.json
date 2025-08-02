@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"xuid","type":"uint64"},{"name":"facts","type":"CCSUsrMsg_SurvivalStats.Fact"},{"name":"users","type":"CCSUsrMsg_SurvivalStats.Placement"},{"name":"damages","type":"CCSUsrMsg_SurvivalStats.Damage"},{"name":"ticknumber","type":"int32"}],"name":"CCSUsrMsg_SurvivalStats","games":["cs2"]}

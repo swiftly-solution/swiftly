@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_allchat","description":"Players can receive all other players' text chat, no death restrictions","args":"true","flags":["gamedll","notify","release"],"games":["cs2"]}

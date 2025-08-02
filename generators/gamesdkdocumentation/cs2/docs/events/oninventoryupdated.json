@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnInventoryUpdated","description":"This event is triggered when inventory_updated is triggered.","arguments":{"itemdef":"int32","itemid":"int32"},"return":"void","games":["cs2"]}

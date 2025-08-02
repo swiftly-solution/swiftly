@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_prefer_loop_unrolling","description":"Prefer shader loop unrolling.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

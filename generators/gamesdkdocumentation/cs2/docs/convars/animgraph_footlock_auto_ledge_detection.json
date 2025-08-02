@@ -1,0 +1,1 @@
+{"kind":"command","name":"animgraph_footlock_auto_ledge_detection","description":"Attempt to detect when the foot is partially hanging off a ledge and stop it tilting to reach the bottom","args":"true","flags":["developmentonly","replicated","defensive"],"games":["cs2"]}

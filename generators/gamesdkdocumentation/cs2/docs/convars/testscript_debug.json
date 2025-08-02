@@ -1,0 +1,1 @@
+{"kind":"command","name":"testscript_debug","description":"Debug test scripts.","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

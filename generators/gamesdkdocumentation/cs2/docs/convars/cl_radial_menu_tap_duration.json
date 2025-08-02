@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_radial_menu_tap_duration","description":"If nothing in a radial menu is selected, and the button engaging the radial menu is released within this duration, fallback on the radial's tap functionality","args":"0.2","flags":["developmentonly","clientdll"],"games":["cs2"]}

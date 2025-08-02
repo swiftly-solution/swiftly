@@ -1,0 +1,1 @@
+{"kind":"type","name":"ValueRemapperOutputType_t","description":"Automatically generated game type from enum ValueRemapperOutputType_t","values":{"OutputType_AnimationCycle":0,"OutputType_RotationX":1,"OutputType_RotationY":2,"OutputType_RotationZ":3},"games":["cs2"]}

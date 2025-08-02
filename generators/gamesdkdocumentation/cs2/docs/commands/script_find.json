@@ -1,0 +1,1 @@
+{"kind":"command","name":"script_find","description":"Find a key in the VM","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

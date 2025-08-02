@@ -1,0 +1,1 @@
+{"kind":"command","name":"engine_no_focus_sleep_vconsole_suppress","description":"When VConsole is in the foreground, don't trigger engine_no_focus_sleep behavior","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

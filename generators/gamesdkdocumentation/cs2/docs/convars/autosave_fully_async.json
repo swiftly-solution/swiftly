@@ -1,0 +1,1 @@
+{"kind":"command","name":"autosave_fully_async","description":"Set to 1 to have autosaves execute completely on the save thread, forces 'render only' mode while the save completes","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

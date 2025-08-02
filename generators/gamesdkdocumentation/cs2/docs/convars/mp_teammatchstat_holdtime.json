@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_teammatchstat_holdtime","description":"Decide on a match stat and hold it additionally for at least so many seconds","args":"5","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_max_unreliable_delta_size","description":"Maximum allowable entity delta size over unreliable delivery.","args":"4096","flags":["developmentonly","defensive"],"games":["cs2"]}

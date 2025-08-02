@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_stereo_multiview_instancing","description":"Use multiview instancing for stereo rendering.","args":"false","flags":["cheat"],"games":["cs2"]}

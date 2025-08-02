@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_texture_pool_reduce_rate","description":"Reduce texture memory pool size by this many MB / s when over budget.","args":"256","flags":["developmentonly","defensive"],"games":["cs2"]}

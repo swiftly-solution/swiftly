@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_backup_restore_load_autopause","description":"Whether to automatically pause the match after restoring round data from backup","args":"true","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_workshop_map_download_timeout","description":"<no description>","args":"120","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnRoundStartPostNav","description":"This event is triggered when round_start_post_nav is triggered.","arguments":{},"return":"void","games":["cs2"]}

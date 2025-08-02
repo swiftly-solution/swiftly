@@ -1,0 +1,1 @@
+{"kind":"command","name":"smoothstairs","description":"Smooth player eye z coordinate when traversing stairs.","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

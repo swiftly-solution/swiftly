@@ -1,0 +1,1 @@
+{"kind":"command","name":"ui_playsettings_flags_official_deathmatch","description":"<no description>","args":"\"32\"","flags":["clientdll","archive","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_chatgroupsize","description":"Set the default chat group size","args":"0","flags":["release"],"games":["cs2"]}

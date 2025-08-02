@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_autoretry","description":"Relay proxies retry connection after network timeout","args":"true","flags":["release"],"games":["cs2"]}

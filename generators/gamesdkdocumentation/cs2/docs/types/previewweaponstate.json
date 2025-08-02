@@ -1,0 +1,1 @@
+{"kind":"type","name":"PreviewWeaponState","description":"Automatically generated game type from enum PreviewWeaponState","values":{"DROPPED":0,"HOLSTERED":1,"DEPLOYED":2,"PLANTED":3,"INSPECT":4,"ICON":5},"games":["cs2"]}

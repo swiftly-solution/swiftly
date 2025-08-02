@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"stage","type":"uint32"}],"name":"CMsgGCCStrike15_v2_ClientToGCRequestElevate","games":["cs2"]}

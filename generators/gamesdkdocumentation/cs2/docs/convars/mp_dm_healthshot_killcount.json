@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_dm_healthshot_killcount","description":"Grant healthshots in deathmatch after n kills","args":"3","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_specaccelerate","description":"<no description>","args":"5","flags":["gamedll","clientdll","archive","notify","replicated"],"games":["cs2"]}

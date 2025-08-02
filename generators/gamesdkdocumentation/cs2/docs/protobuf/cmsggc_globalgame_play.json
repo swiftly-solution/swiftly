@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"ticket","type":"uint64"},{"name":"gametimems","type":"uint32"},{"name":"msperpoint","type":"uint32"}],"name":"CMsgGC_GlobalGame_Play","games":["cs2"]}

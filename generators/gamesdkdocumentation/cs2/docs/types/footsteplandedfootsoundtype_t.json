@@ -1,0 +1,1 @@
+{"kind":"type","name":"FootstepLandedFootSoundType_t","description":"Automatically generated game type from enum FootstepLandedFootSoundType_t","values":{"FOOTSOUND_Left":0,"FOOTSOUND_Right":1,"FOOTSOUND_UseOverrideSound":2},"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"VertJustification_e","description":"Automatically generated game type from enum VertJustification_e","values":{"VERT_JUSTIFICATION_TOP":0,"VERT_JUSTIFICATION_CENTER":1,"VERT_JUSTIFICATION_BOTTOM":2,"VERT_JUSTIFICATION_NONE":3},"games":["cs2"]}

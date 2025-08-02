@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_show_teammate_death_notification","description":"Show chat notification upon teammate death","args":"false","flags":["gamedll","release"],"games":["cs2"]}

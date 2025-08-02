@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnRoundAnnounceFinal","description":"This event is triggered when round_announce_final is triggered.","arguments":{},"return":"void","games":["cs2"]}

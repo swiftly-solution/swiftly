@@ -1,0 +1,1 @@
+{"kind":"type","name":"MorphBundleType_t","description":"Automatically generated game type from enum MorphBundleType_t","values":{"MORPH_BUNDLE_TYPE_NONE":0,"MORPH_BUNDLE_TYPE_POSITION_SPEED":1,"MORPH_BUNDLE_TYPE_NORMAL_WRINKLE":2,"MORPH_BUNDLE_TYPE_COUNT":3},"games":["cs2"]}

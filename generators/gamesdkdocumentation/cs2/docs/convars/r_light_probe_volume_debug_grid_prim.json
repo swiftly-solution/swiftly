@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_light_probe_volume_debug_grid_prim","description":"0: spheres, 1: cubes","args":"0","flags":["cheat"],"games":["cs2"]}

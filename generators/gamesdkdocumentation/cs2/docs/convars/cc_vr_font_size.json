@@ -1,0 +1,1 @@
+{"kind":"command","name":"cc_vr_font_size","description":"0 = small, 1 = med (default), 2 = large","args":"1","flags":["min:","0,","max:","2,","clientdll","archive"],"games":["cs2"]}

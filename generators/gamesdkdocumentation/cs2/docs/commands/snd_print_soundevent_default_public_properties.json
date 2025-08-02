@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_print_soundevent_default_public_properties","description":"Print the default public properties of a specified soundevent. Values do not reflect values set on the soundevent. For that see \"snd_print_soundevent\"","args":"","flags":["developmentonly","vconsole_fuzzy_matching","vconsole_set_focus"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_enable_donttransmit","description":"When encoding entity deltas, instead of unreliably deducing explicit deletions, actually send list of existing but not networked entities (dont_transmit list) to each client.","args":"true","flags":["developmentonly"],"games":["cs2"]}

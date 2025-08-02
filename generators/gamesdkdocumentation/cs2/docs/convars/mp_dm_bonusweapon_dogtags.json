@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_dm_bonusweapon_dogtags","description":"Additional dogtags to drop when making a kill with the bonus weapon","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

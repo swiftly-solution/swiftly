@@ -1,0 +1,1 @@
+{"kind":"command","name":"gameinstructor_enable","description":"Display in game lessons that teach new players.","args":"false","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"diffcheck_spew_diff_only","description":"Show diff only.","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

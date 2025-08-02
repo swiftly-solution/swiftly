@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_select_hull","description":"Restrict area selection to areas that can support a hull of the given category","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

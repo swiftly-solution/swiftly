@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_turning_inaccuracy_enabled","description":"<no description>","args":"false","flags":["gamedll","clientdll","replicated","cheat","release"],"games":["cs2"]}

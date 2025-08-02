@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_globallight_orig_calc_frustum","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

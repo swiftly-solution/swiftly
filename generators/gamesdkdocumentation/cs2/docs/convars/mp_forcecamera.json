@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_forcecamera","description":"Restricts spectator modes for dead players","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

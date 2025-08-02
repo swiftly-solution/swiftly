@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnWeaponFire","description":"This event is triggered when weapon_fire is triggered.","arguments":{"userid":"int32","weapon":"string","silenced":"bool"},"return":"void","games":["cs2"]}

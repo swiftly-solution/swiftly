@@ -1,0 +1,1 @@
+{"kind":"command","name":"resourcesystem_multiframe_finalize_time_msec","description":"Max time to spend finalizing resources per frame in miliseconds.","args":"10","flags":["developmentonly"],"games":["cs2"]}

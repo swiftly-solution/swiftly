@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_quickinventory_filename","description":"<no description>","args":"\"radial_quickinventory.txt\"","flags":["clientdll","archive","release"],"games":["cs2"]}

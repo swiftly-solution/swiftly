@@ -1,0 +1,1 @@
+{"kind":"command","name":"vprof_remote_start","description":"Request a VProf data stream from the remote server (requires authentication)","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

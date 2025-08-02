@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_print_operators","description":"Prints a list of currently available operators","args":"","flags":["cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_wateraccelerate","description":"<no description>","args":"10","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

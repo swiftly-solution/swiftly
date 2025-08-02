@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_use_opens_buy_menu","description":"Pressing the +use key will open the buy menu if in a buy zone (just as if you pressed the 'buy' key).","args":"false","flags":["clientdll","archive","userinfo","per_user"],"games":["cs2"]}

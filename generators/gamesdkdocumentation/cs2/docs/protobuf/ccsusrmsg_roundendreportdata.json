@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"initConditions","type":"CCSUsrMsg_RoundEndReportData.InitialConditions"},{"name":"allRerEventData","type":"CCSUsrMsg_RoundEndReportData.RerEvent"}],"name":"CCSUsrMsg_RoundEndReportData","games":["cs2"]}

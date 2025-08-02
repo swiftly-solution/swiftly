@@ -1,0 +1,1 @@
+{"kind":"command","name":"hostage_is_silent","description":"When set, the hostage won't play any code driven response rules lines","args":"false","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

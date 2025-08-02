@@ -1,0 +1,1 @@
+{"kind":"command","name":"screenmessage_show","description":"Enable display of console messages on screen. 1 = Enabled, 0 = Disabled, -1 = Enabled if vgui is not present","args":"-1","flags":["cheat"],"games":["cs2"]}

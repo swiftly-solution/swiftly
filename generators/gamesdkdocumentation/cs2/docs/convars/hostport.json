@@ -1,0 +1,1 @@
+{"kind":"command","name":"hostport","description":"Host game server port","args":"27015","flags":["release"],"games":["cs2"]}

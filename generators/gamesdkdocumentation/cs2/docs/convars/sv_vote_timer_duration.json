@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vote_timer_duration","description":"How long to allow voting on an issue","args":"15","flags":["gamedll","release"],"games":["cs2"]}

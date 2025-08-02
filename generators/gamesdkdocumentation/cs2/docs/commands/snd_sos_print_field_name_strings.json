@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_print_field_name_strings","description":"Prints a list of currently cached field name strings","args":"","flags":["cheat"],"games":["cs2"]}

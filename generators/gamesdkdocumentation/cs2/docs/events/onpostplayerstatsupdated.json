@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostPlayerStatsUpdated","description":"This event is triggered after player_stats_updated is triggered.","arguments":{"forceupload":"bool"},"return":"void","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cc_log","description":"Log caption names and contents (0 = off, 1 = found captions, 2 = unfound captions, 3 = all captions)","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

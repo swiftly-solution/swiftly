@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_debug_target","description":"For internal testing purposes.","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

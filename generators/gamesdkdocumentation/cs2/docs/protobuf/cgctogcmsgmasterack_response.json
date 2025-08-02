@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"eresult","type":"int32","default":2}],"name":"CGCToGCMsgMasterAck_Response","games":["cs2"]}

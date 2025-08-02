@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_showerror","description":"Show prediction errors, 2 for above plus detailed field deltas, 3 to filter out serverside known prediction errors, -entindex for specific entity.","args":"0","flags":["clientdll","release"],"games":["cs2"]}

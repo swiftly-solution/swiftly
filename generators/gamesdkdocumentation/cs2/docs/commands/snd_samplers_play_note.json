@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_samplers_play_note","description":"Play a note from a specified sampler","args":"","flags":["cheat"],"games":["cs2"]}

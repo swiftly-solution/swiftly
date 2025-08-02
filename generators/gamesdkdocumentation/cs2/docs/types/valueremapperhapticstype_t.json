@@ -1,0 +1,1 @@
+{"kind":"type","name":"ValueRemapperHapticsType_t","description":"Automatically generated game type from enum ValueRemapperHapticsType_t","values":{"HaticsType_Default":0,"HaticsType_None":1},"games":["cs2"]}

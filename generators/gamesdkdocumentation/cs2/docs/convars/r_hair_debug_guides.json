@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_hair_debug_guides","description":"1: Highlight guide hairs, 2: draw only guide hairs","args":"0","flags":["developmentonly","cheat"],"games":["cs2"]}

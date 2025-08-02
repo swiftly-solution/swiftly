@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_shutdown_immediately_on_request","description":"The server will always shutdown on receiving the shutdown request, even if not hibernating","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

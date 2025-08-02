@@ -1,0 +1,1 @@
+{"kind":"command","name":"world_dump_loaded_worlds","description":"Dump all of the worlds that we know about","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

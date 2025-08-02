@@ -1,0 +1,1 @@
+{"kind":"type","name":"ScriptedOnDeath_t","description":"Automatically generated game type from enum ScriptedOnDeath_t","values":{"SS_ONDEATH_NOT_APPLICABLE":-1,"SS_ONDEATH_UNDEFINED":0,"SS_ONDEATH_RAGDOLL":1,"SS_ONDEATH_ANIMATED_DEATH":2},"games":["cs2"]}

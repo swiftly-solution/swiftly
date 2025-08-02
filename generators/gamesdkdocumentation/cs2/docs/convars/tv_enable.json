@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_enable","description":"Activates SourceTV on server.","args":"false","flags":["notify","release"],"games":["cs2"]}

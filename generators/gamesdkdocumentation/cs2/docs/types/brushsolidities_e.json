@@ -1,0 +1,1 @@
+{"kind":"type","name":"BrushSolidities_e","description":"Automatically generated game type from enum BrushSolidities_e","values":{"BRUSHSOLID_TOGGLE":0,"BRUSHSOLID_NEVER":1,"BRUSHSOLID_ALWAYS":2},"games":["cs2"]}

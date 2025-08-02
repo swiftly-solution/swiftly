@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnRoundStart","description":"This event is triggered when round_start is triggered.","arguments":{"timelimit":"int32","fraglimit":"int32","objective":"string"},"return":"void","games":["cs2"]}

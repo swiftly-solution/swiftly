@@ -1,0 +1,1 @@
+{"kind":"command","name":"vis_sunlight_enable","description":"Toggle whether to use sunlight PVS for sunlight views (0 = sky PVS, 1 = sunlight PVS)","args":"true","flags":["developmentonly","cheat"],"games":["cs2"]}

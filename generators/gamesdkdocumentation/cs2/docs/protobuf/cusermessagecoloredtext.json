@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"color","type":"uint32"},{"name":"text","type":"string"},{"name":"reset","type":"bool"},{"name":"contextPlayerSlot","type":"int32","default":-1},{"name":"contextValue","type":"int32"},{"name":"contextTeamId","type":"int32"}],"name":"CUserMessageColoredText","games":["cs2"]}

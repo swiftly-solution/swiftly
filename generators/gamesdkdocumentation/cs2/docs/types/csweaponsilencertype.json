@@ -1,0 +1,1 @@
+{"kind":"type","name":"CSWeaponSilencerType","description":"Automatically generated game type from enum CSWeaponSilencerType","values":{"WEAPONSILENCER_NONE":0,"WEAPONSILENCER_DETACHABLE":1,"WEAPONSILENCER_INTEGRATED":2},"games":["cs2"]}

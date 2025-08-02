@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostMaterialDefaultComplete","description":"This event is triggered after material_default_complete is triggered.","arguments":{},"return":"void","games":["cs2"]}

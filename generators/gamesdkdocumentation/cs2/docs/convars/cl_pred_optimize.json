@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_pred_optimize","description":"Optimize for not repredicting if there were no errors","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

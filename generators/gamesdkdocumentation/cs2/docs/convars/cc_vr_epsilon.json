@@ -1,0 +1,1 @@
+{"kind":"command","name":"cc_vr_epsilon","description":"Epsilon to trigger movement of VR subtitle panel in world space","args":"2.5","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

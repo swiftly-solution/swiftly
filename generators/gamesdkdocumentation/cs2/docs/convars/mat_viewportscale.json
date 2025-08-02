@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_viewportscale","description":"Scale down the main viewport (to reduce GPU impact on CPU profiling)","args":"1","flags":["min:","0.0015625,","max:","1,","developmentonly","clientdll","defensive"],"games":["cs2"]}

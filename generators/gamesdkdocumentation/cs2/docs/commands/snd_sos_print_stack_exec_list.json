@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_print_stack_exec_list","description":"Prints the current stack execution list","args":"","flags":["cheat"],"games":["cs2"]}

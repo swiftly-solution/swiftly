@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_match_end_restart","description":"At the end of the match, perform a restart instead of loading a new map","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

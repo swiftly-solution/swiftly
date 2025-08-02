@@ -1,0 +1,1 @@
+{"kind":"command","name":"weapon_debug_inaccuracy_only_up","description":"Force weapon inaccuracy to be in exactly the up direction","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

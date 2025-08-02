@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_glow_brightness","description":"Brightness of player halos","args":"1","flags":["clientdll","cheat"],"games":["cs2"]}

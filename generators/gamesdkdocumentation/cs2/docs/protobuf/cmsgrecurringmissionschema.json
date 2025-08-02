@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"missions","type":"CMsgRecurringMissionSchema.MissionTemplateList"}],"name":"CMsgRecurringMissionSchema","games":["cs2"]}

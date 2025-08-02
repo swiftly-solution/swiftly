@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_overridemaster","description":"Overrides the SourceTV master root address.","args":"false","flags":["release"],"games":["cs2"]}

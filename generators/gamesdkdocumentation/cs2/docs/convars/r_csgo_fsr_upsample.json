@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_fsr_upsample","description":"0 == bilinear upsampe, 1 == FSR upsample, 2 == FSR + RCAS upsample","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

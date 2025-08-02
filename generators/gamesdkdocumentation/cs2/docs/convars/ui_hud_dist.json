@@ -1,0 +1,1 @@
+{"kind":"command","name":"ui_hud_dist","description":"distance from the player to the hud","args":"24","flags":["developmentonly","clientdll","replicated","defensive"],"games":["cs2"]}

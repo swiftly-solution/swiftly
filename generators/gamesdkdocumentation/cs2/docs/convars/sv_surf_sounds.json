@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_surf_sounds","description":"Should we try to play sounds for surf?","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

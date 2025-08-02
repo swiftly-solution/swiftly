@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_debug_trigger_opvar","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

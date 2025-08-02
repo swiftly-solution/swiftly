@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"data","type":"CEngineGotvSyncPacket"}],"name":"CMsgGCCStrike15_GotvSyncPacket","games":["cs2"]}

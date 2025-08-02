@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_chattimelimit","description":"Limits spectators to chat only every n seconds","args":"0.2","flags":["release"],"games":["cs2"]}

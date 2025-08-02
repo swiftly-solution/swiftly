@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_glow_decay_time","description":"Time to decay glow from 1.0 to spec_glow_silent_factor after spec_glow_full_time.","args":"2","flags":["min:","0,","clientdll","release"],"games":["cs2"]}

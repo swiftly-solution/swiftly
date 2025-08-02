@@ -1,0 +1,1 @@
+{"kind":"command","name":"_fov","description":"Automates fov command to server.","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

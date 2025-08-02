@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_pred_print_every_cmd","description":"Print something every time we predict a command","args":"false","flags":["clientdll","release"],"games":["cs2"]}

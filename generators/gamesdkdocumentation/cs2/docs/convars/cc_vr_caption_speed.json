@@ -1,0 +1,1 @@
+{"kind":"command","name":"cc_vr_caption_speed","description":"0 = slow, 1 = medium (default), 2 = fast","args":"1","flags":["min:","0,","max:","2,","clientdll","archive"],"games":["cs2"]}

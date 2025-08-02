@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostShowSurvivalRespawnStatus","description":"This event is triggered after show_survival_respawn_status is triggered.","arguments":{"loc_token":"string","duration":"int32","userid":"int32"},"return":"void","games":["cs2"]}

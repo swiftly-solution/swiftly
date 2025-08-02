@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_tagging_scale","description":"Scalar for player tagging modifier when hit. Lower values for greater tagging.","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"TrainOrientationType_t","description":"Automatically generated game type from enum TrainOrientationType_t","values":{"TrainOrientation_Fixed":0,"TrainOrientation_AtPathTracks":1,"TrainOrientation_LinearBlend":2,"TrainOrientation_EaseInEaseOut":3},"games":["cs2"]}

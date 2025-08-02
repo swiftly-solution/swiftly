@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleVRHandChoiceList_t","description":"Automatically generated game type from enum ParticleVRHandChoiceList_t","values":{"PARTICLE_VRHAND_LEFT":0,"PARTICLE_VRHAND_RIGHT":1,"PARTICLE_VRHAND_CP":2,"PARTICLE_VRHAND_CP_OBJECT":3},"games":["cs2"]}

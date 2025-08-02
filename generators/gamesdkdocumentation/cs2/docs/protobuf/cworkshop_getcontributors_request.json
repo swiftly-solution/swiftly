@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"appid","type":"uint32"},{"name":"gameitemid","type":"uint32"}],"name":"CWorkshop_GetContributors_Request","games":["cs2"]}

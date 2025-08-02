@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"srcTick","type":"int32","default":-1},{"name":"dstTick","type":"int32","default":-1},{"name":"frac","type":"float"}],"name":"CSGOInterpolationInfoPB","games":["cs2"]}

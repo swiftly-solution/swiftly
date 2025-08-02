@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_afterroundmoney","description":"amount of money awared to every player after each round","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

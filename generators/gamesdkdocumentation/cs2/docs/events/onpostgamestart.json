@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostGameStart","description":"This event is triggered after game_start is triggered.","arguments":{"roundslimit":"int32","timelimit":"int32","fraglimit":"int32","objective":"string"},"return":"void","games":["cs2"]}

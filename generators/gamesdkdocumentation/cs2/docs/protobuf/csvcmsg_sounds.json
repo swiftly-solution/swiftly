@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"reliableSound","type":"bool"},{"name":"sounds","type":"CSVCMsg_Sounds.sounddata_t"}],"name":"CSVCMsg_Sounds","games":["cs2"]}

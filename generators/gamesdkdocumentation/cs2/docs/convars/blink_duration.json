@@ -1,0 +1,1 @@
+{"kind":"command","name":"blink_duration","description":"How many seconds an eye blink will last.","args":"0.5","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"period","type":"uint32"},{"name":"missionSchema","type":"bytes"}],"name":"CCSUsrMsg_RecurringMissionSchema","games":["cs2"]}

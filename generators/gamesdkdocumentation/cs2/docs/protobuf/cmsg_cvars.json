@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"cvars","type":"CMsg_CVars.CVar"}],"name":"CMsg_CVars","games":["cs2"]}

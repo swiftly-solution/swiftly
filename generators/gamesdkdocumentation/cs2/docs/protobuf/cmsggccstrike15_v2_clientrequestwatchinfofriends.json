@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"requestId","type":"uint32"},{"name":"accountIds","type":"uint32"},{"name":"serverid","type":"uint64"},{"name":"matchid","type":"uint64"},{"name":"clientLauncher","type":"uint32"},{"name":"dataCenterPings","type":"DataCenterPing"}],"name":"CMsgGCCStrike15_v2_ClientRequestWatchInfoFriends","games":["cs2"]}

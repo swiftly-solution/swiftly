@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_teammate_colors_show","description":"In competitive, 1 = show teammates as separate colors in the radar, scoreboard, etc., 2 = show colors and letters","args":"1","flags":["clientdll","archive","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_tournament_whitelist","description":"Specifies the item whitelist file to use.","args":"\"item_whitelist.txt\"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

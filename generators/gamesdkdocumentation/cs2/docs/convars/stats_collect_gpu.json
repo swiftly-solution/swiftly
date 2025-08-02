@@ -1,0 +1,1 @@
+{"kind":"command","name":"stats_collect_gpu","description":"While doing stats_display, collect GPU perf counters. Used for stats_print_gpu.","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

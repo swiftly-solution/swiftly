@@ -1,0 +1,1 @@
+{"kind":"command","name":"sos_use_guid_filter","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

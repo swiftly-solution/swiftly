@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_extrapolate_amount","description":"Set how many seconds the client will extrapolate entities for.","args":"0.25","flags":["clientdll","cheat"],"games":["cs2"]}

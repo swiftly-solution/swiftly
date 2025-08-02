@@ -1,0 +1,1 @@
+{"kind":"command","name":"devonly_chicken_feeler_pitch","description":"Chicken feeler pitch","args":"45","flags":["developmentonly","gamedll"],"games":["cs2"]}

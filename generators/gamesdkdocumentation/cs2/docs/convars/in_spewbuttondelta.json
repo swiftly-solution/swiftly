@@ -1,0 +1,1 @@
+{"kind":"command","name":"in_spewbuttondelta","description":"Spew button deltas, 0 = off, 1 = server, 2 = client, 3 = both","args":"0","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

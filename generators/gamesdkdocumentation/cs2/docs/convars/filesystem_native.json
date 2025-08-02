@@ -1,0 +1,1 @@
+{"kind":"command","name":"filesystem_native","description":"Use native FS or STDIO","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

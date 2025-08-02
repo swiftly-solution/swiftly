@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_freeze_deathanim_time","description":"The time that the death cam will spend watching the player's ragdoll before going into the freeze death cam.","args":"0.8","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

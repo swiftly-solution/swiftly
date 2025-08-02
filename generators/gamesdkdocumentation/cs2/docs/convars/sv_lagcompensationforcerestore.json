@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_lagcompensationforcerestore","description":"Don't test validity of a lag comp restore, just do it.","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

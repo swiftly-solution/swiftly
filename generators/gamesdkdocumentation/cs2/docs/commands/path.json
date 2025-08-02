@@ -1,0 +1,1 @@
+{"kind":"command","name":"path","description":"Show the filesystem path.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

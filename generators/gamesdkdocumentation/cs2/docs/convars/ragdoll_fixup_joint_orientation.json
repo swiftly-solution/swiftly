@@ -1,0 +1,1 @@
+{"kind":"command","name":"ragdoll_fixup_joint_orientation","description":"Adjusts bone transforms so that physics joints don't appear violated (orientation)","args":"true","flags":["developmentonly","gamedll","replicated"],"games":["cs2"]}

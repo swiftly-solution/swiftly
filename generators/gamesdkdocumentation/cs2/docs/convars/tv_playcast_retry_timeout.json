@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_playcast_retry_timeout","description":"In case of intermittent network problems, how long should playcast retry fragment retrieval before resorting to resync","args":"25","flags":["release"],"games":["cs2"]}

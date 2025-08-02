@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_soundmixer_list_mix_layers","description":"List all mix layers to dev console.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

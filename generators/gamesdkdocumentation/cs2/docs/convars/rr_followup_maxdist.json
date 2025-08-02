@@ -1,0 +1,1 @@
+{"kind":"command","name":"rr_followup_maxdist","description":"'then ANY' or 'then ALL' response followups will be dispatched only to characters within this distance.","args":"1800","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_rethrow_last_grenade","description":"Emit the last grenade thrown on the server.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

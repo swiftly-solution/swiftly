@@ -1,0 +1,1 @@
+{"kind":"command","name":"inferno_spawn_angle","description":"Angular change from parent","args":"45","flags":["gamedll","cheat"],"games":["cs2"]}

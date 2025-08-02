@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"tint","type":"fixed32"},{"name":"desat","type":"float"}],"name":"CUserMsg_ParticleManager.SetSceneObjectTintAndDesat","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_usercmd_custom_random_seed","description":"When enabled server will populate an additional random seed independent of the client","args":"false","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_disable_for_viewmodel","description":"Disable SST generation and runtime for viewmodel (use original CSM rendering).","args":"true","flags":["developmentonly"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"setpause","description":"Set the pause state of the server.","args":"","flags":["release"],"games":["cs2"]}

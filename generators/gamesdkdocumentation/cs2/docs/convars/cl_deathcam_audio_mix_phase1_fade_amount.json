@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_deathcam_audio_mix_phase1_fade_amount","description":"Sets the amount of ducking to do on death cam fade out. When set to 1, full DeathFadeLayer is applied.","args":"0.15","flags":["clientdll","release"],"games":["cs2"]}

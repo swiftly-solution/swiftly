@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_server_graphic1","description":"A 360x60 (<16kb) image file in /csgo/ that will be displayed to spectators.","args":"\"\"","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

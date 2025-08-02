@@ -1,0 +1,1 @@
+{"kind":"type","name":"ScriptedMoveTo_t","description":"Automatically generated game type from enum ScriptedMoveTo_t","values":{"eWait":0,"eMoveWithGait":3,"eTeleport":4,"eWaitFacing":5,"eObsoleteBackCompat1":1,"eObsoleteBackCompat2":2},"games":["cs2"]}

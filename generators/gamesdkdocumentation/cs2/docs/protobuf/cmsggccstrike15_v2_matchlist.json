@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"msgrequestid","type":"uint32"},{"name":"accountid","type":"uint32"},{"name":"servertime","type":"uint32"},{"name":"matches","type":"CDataGCCStrike15_v2_MatchInfo"},{"name":"streams","type":"TournamentTeam"},{"name":"tournamentinfo","type":"CDataGCCStrike15_v2_TournamentInfo"}],"name":"CMsgGCCStrike15_v2_MatchList","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_bloom_threshold_all_samples","description":"Execute bloom threshold once per sample during downsample (default enabled, higher quality, less bloom aliasing)","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

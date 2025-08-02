@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_cache_envmap_lpv_lookup","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

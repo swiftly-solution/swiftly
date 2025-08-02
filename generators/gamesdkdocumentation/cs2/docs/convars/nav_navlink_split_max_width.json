@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_navlink_split_max_width","description":"The maximum desired width of a nav link split.","args":"144","flags":["gamedll","cheat"],"games":["cs2"]}

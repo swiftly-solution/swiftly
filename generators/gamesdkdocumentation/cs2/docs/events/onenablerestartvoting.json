@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnEnableRestartVoting","description":"This event is triggered when enable_restart_voting is triggered.","arguments":{"enable":"bool"},"return":"void","games":["cs2"]}

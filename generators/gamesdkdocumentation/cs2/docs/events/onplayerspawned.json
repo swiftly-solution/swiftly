@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPlayerSpawned","description":"This event is triggered when player_spawned is triggered.","arguments":{"userid":"int32","inrestart":"bool"},"return":"void","games":["cs2"]}

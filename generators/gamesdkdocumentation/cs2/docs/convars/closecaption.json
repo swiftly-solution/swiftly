@@ -1,0 +1,1 @@
+{"kind":"command","name":"closecaption","description":"Enable close captioning.","args":"false","flags":["clientdll","archive","userinfo"],"games":["cs2"]}

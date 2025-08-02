@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vote_issue_nextlevel_choicesmode","description":"Present players with a list of lowest playtime maps to choose from?","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

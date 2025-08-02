@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_grass_density_mode","description":"0 = Density corresponds to blade existance, 1 = Density corresponds to blade height, 2 = Both 0 and 1","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"test_dispatcheffect","description":"Test a clientside dispatch effect.","args":" test_dispatcheffect <effect name> <distance away> <flags> <magnitude> <scale>","flags":["gamedll","cheat"],"games":["cs2"]}

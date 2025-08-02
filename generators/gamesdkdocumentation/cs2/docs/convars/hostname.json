@@ -1,0 +1,1 @@
+{"kind":"command","name":"hostname","description":"Hostname for server.","args":"\"\"","flags":["release"],"games":["cs2"]}

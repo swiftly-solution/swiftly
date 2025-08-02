@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"canFreeze","type":"bool"}],"name":"CUserMsg_ParticleManager.ParticleCanFreeze","games":["cs2"]}

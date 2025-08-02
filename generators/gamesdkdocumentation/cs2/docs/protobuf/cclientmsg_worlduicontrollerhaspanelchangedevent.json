@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"hasPanel","type":"bool"},{"name":"clientEhandle","type":"uint32"},{"name":"literalHandType","type":"uint32"}],"name":"CClientMsg_WorldUIControllerHasPanelChangedEvent","games":["cs2"]}

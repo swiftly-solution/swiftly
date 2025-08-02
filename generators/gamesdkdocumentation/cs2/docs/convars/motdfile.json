@@ -1,0 +1,1 @@
+{"kind":"command","name":"motdfile","description":"The MOTD file to load.","args":"\"motd.txt\"","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_smoke_fullres_pass","description":"Does a full res pass to cover holes and artifacts in smoke low res","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}
