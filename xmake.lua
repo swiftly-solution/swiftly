@@ -458,6 +458,8 @@ target(PROJECT_NAME.."-CS2")
     set_languages("cxx17")
 
     after_build(function(target)
+        import("core.base.json")
+        
         function GetDistDirName()
             if is_plat("windows") then
                 return "win64"
@@ -466,18 +468,26 @@ target(PROJECT_NAME.."-CS2")
             end
         end
 
+        local config_path = path.join(os.scriptdir(), "vendor/embedder/libs/links.json")
+        local config_data = json.loadfile(config_path)
+        
         if os.exists("build/package") then
             os.rmdir("build/package")
         end
-
+        
         os.mkdir('build/package/addons/metamod')
         os.cp("plugin_files/", 'build/package/addons/'..PROJECT_NAME)
         os.mkdir('build/package/addons/'..PROJECT_NAME.."/bin/"..GetDistDirName())
         os.cp(target:targetfile(), 'build/package/addons/'..PROJECT_NAME.."/bin/"..GetDistDirName().."/"..PROJECT_NAME.."."..(is_plat("windows") and "dll" or "so"))
         io.writefile("build/package/addons/metamod/"..PROJECT_NAME..".vdf", [["Metamod Plugin"
-{
-    "alias"	"]]..PORJECT_NAME_ALIAS..[["
-    "file"	"addons/]]..PROJECT_NAME..[[/bin/]]..GetDistDirName()..[[/]]..PROJECT_NAME..[["
-}
+        {
+            "alias"	"]]..PORJECT_NAME_ALIAS..[["
+            "file"	"addons/]]..PROJECT_NAME..[[/bin/]]..GetDistDirName()..[[/]]..PROJECT_NAME..[["
+            }
 ]])
+
+        local shared = config_data.shared[GetDistDirName() == "win64" and "windows" or "linux"]
+        for i=1,#shared do
+            os.cp("vendor/embedder/libs/"..shared[i], 'build/package/addons/'..PROJECT_NAME..'/bin/'..GetDistDirName())
+        end
     end)
