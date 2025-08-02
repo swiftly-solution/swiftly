@@ -88,9 +88,8 @@ jobs:
         shell: bash
         run: |
           sudo apt update
-          sudo apt install -y libreadline-dev libboost-all-dev patchelf
+          sudo apt install -y libreadline-dev libboost-all-dev
           bash ./setup.sh
-          patchelf --set-rpath '$ORIGIN' build/package/addons/swiftly/bin/linuxsteamrt64/swiftly.so
 
       - name: Build - Windows
         if: matrix.os == 'windows-latest'
@@ -186,15 +185,10 @@ jobs:
           path: swiftly
           submodules: recursive
 
-      - name: Checkout AMBuild
-        uses: actions/checkout@v4
+      - name: Setup XMake
+        uses: xmake-io/github-action-setup-xmake@v1
         with:
-          repository: alliedmodders/ambuild
-          path: ambuild
-
-      - name: Install AMBuild
-        run: |
-          cd ambuild; python setup.py install; cd ..
+          xmake-version: latest
 
       - name: Setup Version
         shell: bash
@@ -206,8 +200,9 @@ jobs:
         shell: bash
         run: |
           sudo apt update
-          sudo apt install -y libreadline-dev libboost-all-dev unzip
+          sudo apt install -y libreadline-dev libboost-all-dev unzip patchelf
           bash ./setup.sh
+          patchelf --set-rpath '$ORIGIN' build/package/addons/swiftly/bin/linuxsteamrt64/swiftly.so
 
           echo "[Builder] Setting up default plugins"
           cp -r build/package build/package2
