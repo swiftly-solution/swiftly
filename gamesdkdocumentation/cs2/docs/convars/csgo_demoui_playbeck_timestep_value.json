@@ -1,1 +1,0 @@
-{"kind":"command","name":"csgo_demoui_playbeck_timestep_value","description":"Number of seconds to seek when using TimeStep buttons on demo playback controller.","args":"15","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

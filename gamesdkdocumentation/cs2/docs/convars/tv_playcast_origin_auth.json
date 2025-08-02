@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_playcast_origin_auth","description":"Get request X-Origin-Auth string","args":"\"\"","flags":["hidden","release"],"games":["cs2"]}

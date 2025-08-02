@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_quickinventory_lastinv","description":"<no description>","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

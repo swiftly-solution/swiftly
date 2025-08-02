@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_log_onefile","description":"Log server information to only one file.","args":"false","flags":["archive","release"],"games":["cs2"]}

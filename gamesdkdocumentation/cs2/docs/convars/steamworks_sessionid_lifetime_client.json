@@ -1,1 +1,0 @@
-{"kind":"command","name":"steamworks_sessionid_lifetime_client","description":"The full client session ID for the new steamworks gamestats.","args":"\"0\"","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

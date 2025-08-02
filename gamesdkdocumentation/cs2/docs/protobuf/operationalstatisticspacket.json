@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"packetid","type":"int32"},{"name":"mstimestamp","type":"int32"},{"name":"values","type":"OperationalStatisticElement"}],"name":"OperationalStatisticsPacket","games":["cs2"]}

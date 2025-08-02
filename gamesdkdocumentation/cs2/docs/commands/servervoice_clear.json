@@ -1,1 +1,0 @@
-{"kind":"command","name":"servervoice_clear","description":"servervoice_clear","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

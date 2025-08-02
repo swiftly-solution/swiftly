@@ -1,1 +1,0 @@
-{"kind":"command","name":"diffcheck","description":"Activate diffcheck system.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

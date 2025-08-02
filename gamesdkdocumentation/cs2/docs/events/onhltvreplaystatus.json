@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnHltvReplayStatus","description":"This event is triggered when hltv_replay_status is triggered.","arguments":{"reason":"int32"},"return":"void","games":["cs2"]}

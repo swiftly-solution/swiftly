@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_showimpacts","description":"Shows client (red) and server (blue) bullet impact point (1=both, 2=client-only, 3=server-only)","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

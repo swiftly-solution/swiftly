@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_texture_hookup_uses_threadpool","description":"Async Texture hookup uses its own threadpool instead of the global pool.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

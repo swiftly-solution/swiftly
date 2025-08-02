@@ -1,1 +1,0 @@
-{"kind":"command","name":"soundscape_flush","description":"Flushes the server & client side soundscapes","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

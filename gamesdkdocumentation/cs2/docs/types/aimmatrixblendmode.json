@@ -1,1 +1,0 @@
-{"kind":"type","name":"AimMatrixBlendMode","description":"Automatically generated game type from enum AimMatrixBlendMode","values":{"AimMatrixBlendMode_None":0,"AimMatrixBlendMode_Additive":1,"AimMatrixBlendMode_ModelSpaceAdditive":2,"AimMatrixBlendMode_BoneMask":3},"games":["cs2"]}

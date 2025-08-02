@@ -1,1 +1,0 @@
-{"kind":"command","name":"inferno_flame_spacing","description":"Minimum distance between separate flame spawns","args":"42","flags":["gamedll","cheat"],"games":["cs2"]}

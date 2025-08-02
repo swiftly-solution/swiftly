@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_join_grace_time","description":"Number of seconds after round start to allow a player to join a game","args":"0","flags":["min:","0,","max:","30,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"contributionscore_objective_kill","description":"amount of contribution score added for an objective related kill","args":"3","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

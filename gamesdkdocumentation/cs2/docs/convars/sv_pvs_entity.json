@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pvs_entity","description":"If set, only allows this ent index to network (other than players and things that force sending).","args":"-1","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"dev_cs_frame_firing_play_animevents","description":"Should we play the animevents that animgraph will skip over?","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

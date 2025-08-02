@@ -1,1 +1,0 @@
-{"kind":"command","name":"connect_lobby","description":"Sets the lobby ID to connect to on start.","args":"0","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

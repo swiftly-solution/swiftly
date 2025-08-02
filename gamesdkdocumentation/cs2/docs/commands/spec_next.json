@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_next","description":"Spectate next player","args":"","flags":["clientdll","clientcmd_can_execute"],"games":["cs2"]}

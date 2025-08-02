@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnServerShutdown","description":"This event is triggered when server_shutdown is triggered.","arguments":{"reason":"string"},"return":"void","games":["cs2"]}

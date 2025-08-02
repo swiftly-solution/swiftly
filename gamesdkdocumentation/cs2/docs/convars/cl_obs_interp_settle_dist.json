@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_obs_interp_settle_dist","description":"<no description>","args":"16","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

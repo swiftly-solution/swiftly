@@ -1,1 +1,0 @@
-{"kind":"command","name":"scene_print","description":"When playing back a scene, print timing and event info to console.","args":"0","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"token","type":"string"},{"name":"value","type":"string"}],"name":"CProductInfo_SetRichPresenceLocalization_Request.Token","games":["cs2"]}

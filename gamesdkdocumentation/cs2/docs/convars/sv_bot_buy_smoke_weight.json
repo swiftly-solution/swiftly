@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_bot_buy_smoke_weight","description":"Given a bot will buy a grenade, controls the odds of the grenade type. Proportional to all other sv_bot_buy_*_weight convars.","args":"1","flags":["min:","0,","gamedll","release"],"games":["cs2"]}

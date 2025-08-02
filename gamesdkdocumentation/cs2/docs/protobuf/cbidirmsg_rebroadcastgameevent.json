@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"posttoserver","type":"bool"},{"name":"buftype","type":"int32"},{"name":"clientbitcount","type":"uint32"},{"name":"receivingclients","type":"uint64"}],"name":"CBidirMsg_RebroadcastGameEvent","games":["cs2"]}

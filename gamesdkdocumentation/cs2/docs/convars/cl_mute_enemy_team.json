@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_mute_enemy_team","description":"Block all communication from players on the enemy team.","args":"false","flags":["clientdll","archive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_show_quest_info","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

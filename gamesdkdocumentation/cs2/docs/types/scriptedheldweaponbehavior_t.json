@@ -1,1 +1,0 @@
-{"kind":"type","name":"ScriptedHeldWeaponBehavior_t","description":"Automatically generated game type from enum ScriptedHeldWeaponBehavior_t","values":{"eInvalid":-1,"eHolster":0,"eDeploy":1,"eDrop":2},"games":["cs2"]}

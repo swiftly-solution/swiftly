@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"steamid","type":"uint64"},{"name":"remoteAddr","type":"string"},{"name":"pingAvgMs","type":"int32"},{"name":"packetLossPct","type":"float"},{"name":"isBot","type":"bool"},{"name":"lossIn","type":"float"},{"name":"lossOut","type":"float"},{"name":"engineLatencyMs","type":"int32"}],"name":"CMsgServerNetworkStats.Player","games":["cs2"]}

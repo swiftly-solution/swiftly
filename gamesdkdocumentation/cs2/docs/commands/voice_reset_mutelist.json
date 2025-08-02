@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_reset_mutelist","description":"Reset all mute information for all players who were ever muted.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

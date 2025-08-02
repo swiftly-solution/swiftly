@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_player_visibility_show_stencil_proxy","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

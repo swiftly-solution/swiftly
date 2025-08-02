@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_replay_fullframe","description":"Send full frame on every hltv replay transition","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

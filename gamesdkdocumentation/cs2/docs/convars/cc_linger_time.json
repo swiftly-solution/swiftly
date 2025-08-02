@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_linger_time","description":"Close caption linger time.","args":"1","flags":["clientdll","archive"],"games":["cs2"]}

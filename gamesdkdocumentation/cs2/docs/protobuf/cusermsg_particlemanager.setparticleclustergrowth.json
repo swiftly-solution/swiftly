@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"duration","type":"float"},{"name":"origin","type":"CMsgVector"}],"name":"CUserMsg_ParticleManager.SetParticleClusterGrowth","games":["cs2"]}

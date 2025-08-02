@@ -1,1 +1,0 @@
-{"kind":"command","name":"volume_fog_depth","description":"Depth of volume fog texture","args":"128","flags":["min:","48,","max:","1024,","developmentonly","defensive"],"games":["cs2"]}

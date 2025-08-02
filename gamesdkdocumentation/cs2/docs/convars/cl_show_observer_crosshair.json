@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_show_observer_crosshair","description":"Show the crosshair of the player being observed. 0: off 1: friends and party 2: everyone","args":"2","flags":["clientdll","archive","release"],"games":["cs2"]}

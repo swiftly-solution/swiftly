@@ -1,1 +1,0 @@
-{"kind":"command","name":"econ_enable_inventory_images","description":"allow inventory image rendering for use by scaleform","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

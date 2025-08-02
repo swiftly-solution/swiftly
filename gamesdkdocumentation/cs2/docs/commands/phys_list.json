@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_list","description":"List all physics component contents of every entity in the game;","args":" initiate|terminate streaming to physics debugger","flags":["developmentonly","gamedll"],"games":["cs2"]}

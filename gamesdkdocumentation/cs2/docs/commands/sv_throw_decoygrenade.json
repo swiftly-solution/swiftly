@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_throw_decoygrenade","description":"throw decoy grenade with parmas.","args":"","flags":["developmentonly","gamedll","cheat"],"games":["cs2"]}

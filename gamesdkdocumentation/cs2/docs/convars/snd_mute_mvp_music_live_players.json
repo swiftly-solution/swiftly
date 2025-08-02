@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_mute_mvp_music_live_players","description":"If set, MVP music is muted if players from both teams are still alive.","args":"false","flags":["clientdll","archive","release"],"games":["cs2"]}

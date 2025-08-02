@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_fasttempentcollision","description":"<no description>","args":"5","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

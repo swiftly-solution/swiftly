@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_nearz","description":"Override the near clipping plane. -1 means use the default.","args":"-1","flags":["clientdll","cheat"],"games":["cs2"]}

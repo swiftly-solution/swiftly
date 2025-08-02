@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_cs_unpack_mode","description":"Unpack mode in cs, 0 - one leaf per thread (16 output pixels), 1 (default) - one leaf row per thread (4 output pixels), 2 - one pixel out per thread.","args":"1","flags":["min:","0,","max:","2,","developmentonly"],"games":["cs2"]}

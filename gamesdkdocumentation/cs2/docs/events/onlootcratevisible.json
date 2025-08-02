@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnLootCrateVisible","description":"This event is triggered when loot_crate_visible is triggered.","arguments":{"userid":"int32","subject":"int32","type":"string"},"return":"void","games":["cs2"]}

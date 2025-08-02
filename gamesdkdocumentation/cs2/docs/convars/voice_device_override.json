@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_device_override","description":"Default device used for voice capture.","args":"\"\"","flags":["archive","release"],"games":["cs2"]}

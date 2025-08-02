@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"computerGuid","type":"fixed64"},{"name":"processId","type":"uint32"}],"name":"CMsgIPCAddress","games":["cs2"]}

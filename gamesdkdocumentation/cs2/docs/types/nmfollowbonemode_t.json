@@ -1,1 +1,0 @@
-{"kind":"type","name":"NmFollowBoneMode_t","description":"Automatically generated game type from enum NmFollowBoneMode_t","values":{"RotationAndTranslation":0,"RotationOnly":1,"TranslationOnly":2},"games":["cs2"]}

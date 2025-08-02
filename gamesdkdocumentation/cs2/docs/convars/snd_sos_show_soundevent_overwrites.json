@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_show_soundevent_overwrites","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

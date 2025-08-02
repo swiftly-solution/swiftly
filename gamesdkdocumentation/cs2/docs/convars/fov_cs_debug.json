@@ -1,1 +1,0 @@
-{"kind":"command","name":"fov_cs_debug","description":"Sets the view fov if cheats are on.","args":"0","flags":["clientdll","cheat"],"games":["cs2"]}

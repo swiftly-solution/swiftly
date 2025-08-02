@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"teamId","type":"int32"},{"name":"teamTag","type":"string"},{"name":"teamFlag","type":"string"},{"name":"teamName","type":"string"},{"name":"players","type":"TournamentPlayer"}],"name":"TournamentTeam","games":["cs2"]}

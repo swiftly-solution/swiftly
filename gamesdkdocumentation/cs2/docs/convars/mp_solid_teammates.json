@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_solid_teammates","description":"How solid are teammates: 0 = transparent; 1 = fully solid; 2 = can stand on top of heads","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

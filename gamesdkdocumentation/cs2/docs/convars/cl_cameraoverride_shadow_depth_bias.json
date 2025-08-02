@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_cameraoverride_shadow_depth_bias","description":"<no description>","args":"0.006","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

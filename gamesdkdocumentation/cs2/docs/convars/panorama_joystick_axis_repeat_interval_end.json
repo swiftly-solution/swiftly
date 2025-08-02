@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_joystick_axis_repeat_interval_end","description":"<no description>","args":"0.05","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

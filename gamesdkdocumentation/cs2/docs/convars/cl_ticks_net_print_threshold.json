@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_ticks_net_print_threshold","description":"Print a message if network issues cause problems with server snapshots of user commands not being available when needed, if the percentage (0...100) exceeds this value.  A value of 0 will cause the message to always print each time it is calculated","args":"2","flags":["release"],"games":["cs2"]}

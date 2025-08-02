@@ -1,1 +1,0 @@
-{"kind":"command","name":"debug_destructible_parts_ttl","description":"How long the debug draws stick around for, unless they're per-tick.","args":"1","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_random_taser_bone_y","description":"The Y position used for the random taser force.","args":"-1","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

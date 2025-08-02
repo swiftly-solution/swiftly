@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostPlayerInfo","description":"This event is triggered after player_info is triggered.","arguments":{"name":"string","userid":"int32","steamid":"uint64","bot":"bool"},"return":"void","games":["cs2"]}

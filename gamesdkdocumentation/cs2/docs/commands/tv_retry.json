@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_retry","description":"Reconnects the SourceTV relay proxy.","args":"","flags":["release"],"games":["cs2"]}

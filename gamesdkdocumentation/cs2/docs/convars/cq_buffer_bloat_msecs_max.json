@@ -1,1 +1,0 @@
-{"kind":"command","name":"cq_buffer_bloat_msecs_max","description":"Server will not allow the client to buffer up more than N ms of commands.","args":"150","flags":["replicated","release"],"games":["cs2"]}

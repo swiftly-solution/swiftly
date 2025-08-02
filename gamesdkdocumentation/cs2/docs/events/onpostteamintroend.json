@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostTeamIntroEnd","description":"This event is triggered after team_intro_end is triggered.","arguments":{},"return":"void","games":["cs2"]}

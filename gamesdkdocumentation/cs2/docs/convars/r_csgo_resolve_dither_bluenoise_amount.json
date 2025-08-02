@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_resolve_dither_bluenoise_amount","description":"Equivalent to r_csgo_render_dither_scale, but purely to control bluenoise for R11G11B10 downsample dither (if r_csgo_r11g11b10_dither_mode = 2)","args":"4","flags":["developmentonly","clientdll"],"games":["cs2"]}

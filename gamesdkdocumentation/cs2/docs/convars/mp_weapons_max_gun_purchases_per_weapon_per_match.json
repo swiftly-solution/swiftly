@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_weapons_max_gun_purchases_per_weapon_per_match","description":"Max number of times a player may purchase any weapon per match","args":"-1","flags":["min:","-1,","max:","1,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

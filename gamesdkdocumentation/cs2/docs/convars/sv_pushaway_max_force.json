@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pushaway_max_force","description":"Maximum amount of force applied to physics objects by players.","args":"2000","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

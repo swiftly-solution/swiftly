@@ -1,1 +1,0 @@
-{"kind":"type","name":"JumpCorrectionMethod","description":"Automatically generated game type from enum JumpCorrectionMethod","values":{"ScaleMotion":0,"AddCorrectionDelta":1},"games":["cs2"]}

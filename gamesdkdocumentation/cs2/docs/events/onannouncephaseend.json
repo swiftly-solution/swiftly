@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnAnnouncePhaseEnd","description":"This event is triggered when announce_phase_end is triggered.","arguments":{},"return":"void","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_disconnect_kills_bots","description":"When a bot disconnects, kill them first.  Requires mp_disconnect_kills_players.","args":"false","flags":["gamedll","release"],"games":["cs2"]}

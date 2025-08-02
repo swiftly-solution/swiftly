@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountId","type":"uint32"},{"name":"text","type":"string"},{"name":"allChat","type":"bool"}],"name":"CCSUsrMsgPreMatchSayText","games":["cs2"]}

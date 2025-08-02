@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_crosshaircolor_r","description":"<no description>","args":"0","flags":["min:","0,","max:","255,","clientdll","archive","per_user"],"games":["cs2"]}

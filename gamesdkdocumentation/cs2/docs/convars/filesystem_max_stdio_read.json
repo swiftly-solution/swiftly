@@ -1,1 +1,0 @@
-{"kind":"command","name":"filesystem_max_stdio_read","description":"<no description>","args":"16","flags":["developmentonly","defensive"],"games":["cs2"]}

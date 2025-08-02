@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnSmokegrenadeDetonate","description":"This event is triggered when smokegrenade_detonate is triggered.","arguments":{"userid":"int32","entityid":"int32","x":"float","y":"float","z":"float"},"return":"void","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pushaway_min_player_speed","description":"If a player is moving slower than this, don't push away physics objects (enables ducking behind things).","args":"75","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

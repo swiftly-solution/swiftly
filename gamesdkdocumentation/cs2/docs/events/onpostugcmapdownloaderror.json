@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostUgcMapDownloadError","description":"This event is triggered after ugc_map_download_error is triggered.","arguments":{"published_file_id":"uint64","error_code":"int32"},"return":"void","games":["cs2"]}

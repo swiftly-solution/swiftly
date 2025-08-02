@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"ip","type":"fixed32"}],"name":"CMsgGCRequestSessionIPResponse","games":["cs2"]}

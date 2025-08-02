@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_print_arrangements","description":"List all available sequence arrangments","args":"","flags":["cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"confirmationId","type":"uint64"},{"name":"accountId","type":"uint32"},{"name":"serverIp","type":"uint32"},{"name":"responseType","type":"uint32"},{"name":"responseResult","type":"uint32"},{"name":"tokens","type":"uint32"}],"name":"CMsgGCCStrike15_v2_ClientReportResponse","games":["cs2"]}

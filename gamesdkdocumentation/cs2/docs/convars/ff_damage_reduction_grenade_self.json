@@ -1,1 +1,0 @@
-{"kind":"command","name":"ff_damage_reduction_grenade_self","description":"How much to damage a player does to himself with his own grenade.  Range is from 0 - 1 (with 1 being damage equal to what is done to an enemy)","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

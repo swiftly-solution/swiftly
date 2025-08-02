@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_flipout","description":"If nonzero, bots use no CPU for AI. Instead, they run around randomly.","args":"false","flags":["gamedll","release"],"games":["cs2"]}

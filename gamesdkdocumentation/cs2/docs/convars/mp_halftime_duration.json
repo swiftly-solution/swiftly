@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_halftime_duration","description":"Target number of seconds that halftime lasts; shortened if team intros are active","args":"15","flags":["min:","0,","max:","300,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

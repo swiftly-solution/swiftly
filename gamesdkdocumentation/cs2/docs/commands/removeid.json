@@ -1,1 +1,0 @@
-{"kind":"command","name":"removeid","description":"Remove a user ID from the ban list.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

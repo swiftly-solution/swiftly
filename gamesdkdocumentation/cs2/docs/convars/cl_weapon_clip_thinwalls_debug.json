@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_weapon_clip_thinwalls_debug","description":"<no description>","args":"false","flags":["clientdll","replicated","cheat"],"games":["cs2"]}

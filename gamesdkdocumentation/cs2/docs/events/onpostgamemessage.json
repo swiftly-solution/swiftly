@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostGameMessage","description":"This event is triggered after game_message is triggered.","arguments":{"target":"int32","text":"string"},"return":"void","games":["cs2"]}

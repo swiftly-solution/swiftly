@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountId","type":"uint32"},{"name":"abandonedMatch","type":"CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve"},{"name":"penaltySeconds","type":"uint32"},{"name":"penaltyReason","type":"uint32"}],"name":"CMsgGCCStrike15_v2_MatchmakingGC2ClientAbandon","games":["cs2"]}

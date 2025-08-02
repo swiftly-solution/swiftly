@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_gen_oriented_max_region_range","description":"Max orientation range allowed within a region before it gets further split.","args":"15","flags":["gamedll","cheat"],"games":["cs2"]}

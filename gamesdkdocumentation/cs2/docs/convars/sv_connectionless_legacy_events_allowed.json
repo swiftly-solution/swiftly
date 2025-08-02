@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_connectionless_legacy_events_allowed","description":"<no description>","args":"false","flags":["developmentonly"],"games":["cs2"]}

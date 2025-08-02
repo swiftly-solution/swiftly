@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_csm_override_staticgeo_cascades_value","description":"If lb_csm_override_staticgeo_cascades, override value used to determine which cascades render static objects","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

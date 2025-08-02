@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_teammate_color_4","description":"<no description>","args":"[230, 128, 42, 255]","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

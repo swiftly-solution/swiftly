@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostHltvStatus","description":"This event is triggered after hltv_status is triggered.","arguments":{"clients":"int32","slots":"int32","proxies":"int32","master":"string"},"return":"void","games":["cs2"]}

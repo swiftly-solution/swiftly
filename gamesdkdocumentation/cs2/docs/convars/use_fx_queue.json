@@ -1,1 +1,0 @@
-{"kind":"command","name":"use_fx_queue","description":"use_fx_queue","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

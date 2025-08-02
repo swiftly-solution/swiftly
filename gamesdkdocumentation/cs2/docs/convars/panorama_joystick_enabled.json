@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_joystick_enabled","description":"Enable panorama joystick input","args":"true","flags":["archive"],"games":["cs2"]}

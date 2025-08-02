@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_vr_debug","description":"Debug visualization of VR closed caption placement","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

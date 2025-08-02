@@ -1,1 +1,0 @@
-{"kind":"command","name":"props_break_max_pieces_perframe","description":"Maximum prop breakable piece count per frame (-1 = model default)","args":"16","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

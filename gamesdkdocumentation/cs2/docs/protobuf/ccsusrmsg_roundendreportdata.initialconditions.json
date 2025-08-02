@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"ctEquipValue","type":"int32"},{"name":"tEquipValue","type":"int32"},{"name":"terroristOdds","type":"int32"}],"name":"CCSUsrMsg_RoundEndReportData.InitialConditions","games":["cs2"]}

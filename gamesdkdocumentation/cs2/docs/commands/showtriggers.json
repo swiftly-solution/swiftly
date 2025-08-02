@@ -1,1 +1,0 @@
-{"kind":"command","name":"showtriggers","description":"Enable or Disable showing trigger entities","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

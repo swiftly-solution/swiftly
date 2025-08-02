@@ -1,1 +1,0 @@
-{"kind":"command","name":"parallel_spatial_partition_update","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"rcon","description":"Issue an rcon command.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

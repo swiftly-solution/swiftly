@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_texture_pool_increase_rate","description":"Increase texture memory pool size by this many MB / s when under budget.","args":"64","flags":["developmentonly","defensive"],"games":["cs2"]}

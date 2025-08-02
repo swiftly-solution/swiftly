@@ -1,1 +1,0 @@
-{"kind":"type","name":"LifeState_t","description":"Automatically generated game type from enum LifeState_t","values":{"LIFE_ALIVE":0,"LIFE_DYING":1,"LIFE_DEAD":2,"LIFE_RESPAWNABLE":3,"LIFE_RESPAWNING":4},"games":["cs2"]}

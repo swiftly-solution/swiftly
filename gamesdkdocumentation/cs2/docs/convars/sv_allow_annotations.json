@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_allow_annotations","description":"Allow clients to use the annotation system on the server.","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

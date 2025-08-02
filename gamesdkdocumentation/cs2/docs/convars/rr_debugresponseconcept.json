@@ -1,1 +1,0 @@
-{"kind":"command","name":"rr_debugresponseconcept","description":"If set, rr_debugresponseconcept will print only responses testing for the specified concept","args":"\"\"","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

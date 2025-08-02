@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_usesocketsforloopback","description":"When connecting to local listen server (for example, using the 'map' command), default to loopback=false, which connects to '127.0.0.1' instead of 'loopback'.  This uses the network stack so that fake lag/loss can be simulated.","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

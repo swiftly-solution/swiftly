@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_texture_nonstreaming_load","description":"Allow immediately loading mips of textures (when possible) when their headers are loaded, saving IO & reducing latency.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"ai_use_visibility_cache","description":"Sets whether or not NPCs can cache their Visibility checks against other entities. If set to 2, also tests to make sure that NPC->Target results match that of Target->NPC.","args":"1","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

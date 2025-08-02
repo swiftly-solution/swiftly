@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_net_buffer_ticks","description":"Number of ticks of delay for server snapshots and user commands.  This value controls the value of cl_interp_ratio, which you should not modify directly.","args":"0","flags":["min:","0,","max:","2,","clientdll","archive","release"],"games":["cs2"]}

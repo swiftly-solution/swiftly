@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_mimic","description":"Bot uses usercmd of player by index.","args":"0","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

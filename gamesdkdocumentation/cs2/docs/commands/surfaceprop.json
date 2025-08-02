@@ -1,1 +1,0 @@
-{"kind":"command","name":"surfaceprop","description":"Reports the surface properties at the cursor","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

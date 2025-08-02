@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_leaf_precision_viewmodel","description":"(viewmodel) precision for depth compression at SST leaf nodes.","args":"0.0005","flags":["developmentonly"],"games":["cs2"]}

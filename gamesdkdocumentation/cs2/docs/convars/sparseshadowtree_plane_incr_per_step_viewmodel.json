@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_plane_incr_per_step_viewmodel","description":"(viewmodel) depth to increment candidate plane values per iteration to satisfy selection.","args":"0.0025","flags":["developmentonly"],"games":["cs2"]}

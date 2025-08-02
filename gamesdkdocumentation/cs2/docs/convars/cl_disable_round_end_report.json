@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_disable_round_end_report","description":"<no description>","args":"false","flags":["clientdll","archive","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mm_server_search_update_interval","description":"Interval between servers updates.","args":"60","flags":["developmentonly"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cam_ideallag","description":"Amount of lag used when matching offset to ideal angles in thirdperson view","args":"4","flags":["clientdll","archive"],"games":["cs2"]}

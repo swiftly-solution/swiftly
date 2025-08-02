@@ -1,1 +1,0 @@
-{"kind":"command","name":"script_trace_enable","description":"Turn on a particular trace output by file or function name","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

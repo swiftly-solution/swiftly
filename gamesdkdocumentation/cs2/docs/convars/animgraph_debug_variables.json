@@ -1,1 +1,0 @@
-{"kind":"command","name":"animgraph_debug_variables","description":"Turn on to see animgraph variable changes for entities passing animgraph_debug_filterent.","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

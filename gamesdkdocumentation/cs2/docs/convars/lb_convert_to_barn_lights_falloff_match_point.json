@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_convert_to_barn_lights_falloff_match_point","description":"<no description>","args":"0.15","flags":["developmentonly","defensive"],"games":["cs2"]}

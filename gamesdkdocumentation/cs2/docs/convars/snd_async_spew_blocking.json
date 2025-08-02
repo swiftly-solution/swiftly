@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_async_spew_blocking","description":"Spew message to console any time async sound loading blocks on file i/o.","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

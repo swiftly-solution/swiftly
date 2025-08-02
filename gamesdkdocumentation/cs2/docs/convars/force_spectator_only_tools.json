@@ -1,1 +1,0 @@
-{"kind":"command","name":"force_spectator_only_tools","description":"<no description>","args":"false","flags":["developmentonly","clientdll","hidden","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"ragdoll_lru_min_age","description":"<no description>","args":"10","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

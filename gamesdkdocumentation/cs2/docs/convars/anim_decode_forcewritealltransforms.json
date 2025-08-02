@@ -1,1 +1,0 @@
-{"kind":"command","name":"anim_decode_forcewritealltransforms","description":"Force BatchAnimationDecode to write transformations for all bones","args":"false","flags":["developmentonly"],"games":["cs2"]}

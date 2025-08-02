@@ -1,1 +1,0 @@
-{"kind":"command","name":"animgraph_record_all","description":"Automatically start recording AnimGraphs when they get created, and save them to disk when they are destroyed","args":"false","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

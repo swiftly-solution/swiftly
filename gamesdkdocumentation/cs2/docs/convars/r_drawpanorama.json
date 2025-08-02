@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_drawpanorama","description":"Enable the rendering of panorama UI","args":"true","flags":["cheat"],"games":["cs2"]}

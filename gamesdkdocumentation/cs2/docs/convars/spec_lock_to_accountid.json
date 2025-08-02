@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_lock_to_accountid","description":"As an observer, lock the spectator target to the given accountid.","args":"0","flags":["developmentonly","clientdll"],"games":["cs2"]}

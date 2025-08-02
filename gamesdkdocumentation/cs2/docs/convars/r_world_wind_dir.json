@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_world_wind_dir","description":"<no description>","args":"[0.707, 0.707, 0.707]","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_display_kill_assists","description":"Whether to display and score player assists","args":"true","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

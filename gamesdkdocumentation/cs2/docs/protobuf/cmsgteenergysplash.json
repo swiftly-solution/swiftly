@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"pos","type":"CMsgVector"},{"name":"dir","type":"CMsgVector"},{"name":"explosive","type":"bool"}],"name":"CMsgTEEnergySplash","games":["cs2"]}

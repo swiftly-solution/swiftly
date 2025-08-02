@@ -1,1 +1,0 @@
-{"kind":"command","name":"replay_start","description":"Start Source2 TV replay: replay_start <delay> [<player name or index>]","args":"","flags":["gamedll","cheat","client_can_execute"],"games":["cs2"]}

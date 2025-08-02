@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnHltvCameraman","description":"This event is triggered when hltv_cameraman is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

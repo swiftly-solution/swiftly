@@ -1,1 +1,0 @@
-{"kind":"command","name":"thirdperson","description":"Switch to thirdperson camera.","args":"","flags":["clientdll","cheat","execute_per_tick"],"games":["cs2"]}

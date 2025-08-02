@@ -1,1 +1,0 @@
-{"kind":"command","name":"rr_dump_rules","description":"Print all response rules","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

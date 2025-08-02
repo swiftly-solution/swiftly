@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_bot_ai_bt","description":"Use the specified behavior tree file to drive the bot behavior.","args":"\"\"","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

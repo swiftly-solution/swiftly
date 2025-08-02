@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"soid","type":"CMsgSOIDOwner"},{"name":"version","type":"fixed64"}],"name":"CMsgSOCacheHaveVersion","games":["cs2"]}

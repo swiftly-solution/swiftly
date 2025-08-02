@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_snapshot_unlimited","description":"For debugging, don't throw away old snapshots so that if you break in debugger (on remote client or server) it won't require an uncompressed update to resume.  You may run out of memory of course...","args":"false","flags":["replicated","release"],"games":["cs2"]}

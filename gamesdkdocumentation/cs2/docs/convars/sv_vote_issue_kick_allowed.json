@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_issue_kick_allowed","description":"Can people hold votes to kick players from the server?","args":"true","flags":["gamedll","notify","replicated","release"],"games":["cs2"]}

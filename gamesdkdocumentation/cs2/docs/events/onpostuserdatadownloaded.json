@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostUserDataDownloaded","description":"This event is triggered after user_data_downloaded is triggered.","arguments":{},"return":"void","games":["cs2"]}

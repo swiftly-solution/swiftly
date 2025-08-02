@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"msgDst","type":"int32"},{"name":"client","type":"int32","default":-1},{"name":"msgName","type":"string"},{"name":"params","type":"string"}],"name":"CCSUsrMsg_RadioText","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"csm_max_shadow_dist_override","description":"<no description>","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

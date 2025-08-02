@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_enable_binning","description":"SceneSystem/LightBinner/Enable Binning","args":"true","flags":["developmentonly","menubar_item","defensive"],"games":["cs2"]}

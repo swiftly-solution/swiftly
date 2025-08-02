@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_replay_fadeout","description":"Amount of time in seconds it takes to visually fade out of replay, or out of real-time before replay","args":"0.75","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

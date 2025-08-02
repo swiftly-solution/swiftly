@@ -1,1 +1,0 @@
-{"kind":"command","name":"fx_drawmetalspark","description":"Draw metal spark effects.","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

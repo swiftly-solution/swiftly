@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"allEvents","type":"bool"}],"name":"CMsgGCCStrike15_v2_GetEventFavorites_Request","games":["cs2"]}

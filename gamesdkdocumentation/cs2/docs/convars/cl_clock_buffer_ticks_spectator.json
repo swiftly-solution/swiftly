@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_clock_buffer_ticks_spectator","description":"Additional margin (in ticks) to apply when spectating.","args":"2","flags":["developmentonly"],"games":["cs2"]}

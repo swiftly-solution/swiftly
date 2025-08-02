@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_dm_buyrandomweapons","description":"Player will automatically receive a random weapon on spawn in deathmatch if this is set to 1 (otherwise, they will receive the last weapon)","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

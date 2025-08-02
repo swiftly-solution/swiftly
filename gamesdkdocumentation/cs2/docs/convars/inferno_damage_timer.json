@@ -1,1 +1,0 @@
-{"kind":"command","name":"inferno_damage_timer","description":"How long between times for the inferno to deal damage.","args":"0.2","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

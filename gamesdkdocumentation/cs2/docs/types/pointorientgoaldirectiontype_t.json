@@ -1,1 +1,0 @@
-{"kind":"type","name":"PointOrientGoalDirectionType_t","description":"Automatically generated game type from enum PointOrientGoalDirectionType_t","values":{"eAbsOrigin":0,"eCenter":1,"eHead":2,"eForward":3,"eEyesForward":4},"games":["cs2"]}

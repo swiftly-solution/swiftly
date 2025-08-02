@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_stepsize","description":"<no description>","args":"18","flags":["developmentonly","gamedll","clientdll","notify","replicated"],"games":["cs2"]}

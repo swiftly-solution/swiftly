@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_update_hibernation_enabled","description":"Allow SourceTV to control server hibernation state.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

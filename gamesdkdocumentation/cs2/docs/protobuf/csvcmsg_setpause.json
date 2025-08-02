@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"paused","type":"bool"}],"name":"CSVCMsg_SetPause","games":["cs2"]}

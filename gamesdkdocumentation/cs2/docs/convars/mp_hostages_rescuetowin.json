@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_hostages_rescuetowin","description":"0 == all alive, any other number is the number the CT's need to rescue to win the round.","args":"1","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

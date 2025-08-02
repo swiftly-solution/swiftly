@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_print_current_mixer_mixgroup","description":"Get data related to mix group matching string","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

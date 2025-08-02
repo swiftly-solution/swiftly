@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_retake_t_loadout_bonus_card","description":"T bonus card for full buy round when playing bomb site retake.","args":"\"#GameUI_Retake_Card_TheAWPortunity,1,1,rifle4\"","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"modelName","type":"string"},{"name":"spawnProbability","type":"float"},{"name":"groupid","type":"uint32"}],"name":"CUserMsg_ParticleManager.AddModellistOverrideElement","games":["cs2"]}

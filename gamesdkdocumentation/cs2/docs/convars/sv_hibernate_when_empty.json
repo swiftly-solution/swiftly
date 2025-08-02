@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_hibernate_when_empty","description":"Puts the server into extremely low CPU usage mode when no clients connected","args":"true","flags":["release"],"games":["cs2"]}

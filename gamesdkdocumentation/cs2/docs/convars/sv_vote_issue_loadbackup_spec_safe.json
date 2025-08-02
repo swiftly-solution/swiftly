@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_issue_loadbackup_spec_safe","description":"When enabled, admins load match from backup in safe time of the round only","args":"true","flags":["gamedll","release"],"games":["cs2"]}

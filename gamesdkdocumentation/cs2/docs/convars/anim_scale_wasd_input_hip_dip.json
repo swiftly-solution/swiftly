@@ -1,1 +1,0 @@
-{"kind":"command","name":"anim_scale_wasd_input_hip_dip","description":"<no description>","args":"0.8","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

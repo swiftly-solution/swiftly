@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_menumusic_volume","description":"Volume of Menu / Non-gameplay music","args":"0.04","flags":["min:","0,","max:","1,","clientdll","archive","release"],"games":["cs2"]}

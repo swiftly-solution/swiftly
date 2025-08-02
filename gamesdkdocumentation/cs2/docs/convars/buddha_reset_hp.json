@@ -1,1 +1,0 @@
-{"kind":"command","name":"buddha_reset_hp","description":"HP to set when damaged below zero in Buddha Mode","args":"1","flags":["gamedll","notify","cheat"],"games":["cs2"]}

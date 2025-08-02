@@ -1,1 +1,0 @@
-{"kind":"command","name":"traceattack","description":"traceattack damage hitgroup","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

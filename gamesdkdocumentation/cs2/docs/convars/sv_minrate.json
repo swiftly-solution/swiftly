@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_minrate","description":"Min bandwidth rate allowed on server, 0 == unlimited","args":"5000","flags":["min:","0,","max:","1000000,","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_buy_anywhere","description":"When set, players can buy anywhere, not only in buyzones. 0 = default. 1 = both teams. 2 = Terrorists. 3 = Counter-Terrorists.","args":"0","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

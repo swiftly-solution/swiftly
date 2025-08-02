@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_timebetweenducks","description":"Minimum time before recognizing consecutive duck key","args":"0.4","flags":["min:","0,","max:","2,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

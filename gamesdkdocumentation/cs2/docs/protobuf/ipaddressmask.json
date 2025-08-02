@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"a","type":"uint32"},{"name":"b","type":"uint32"},{"name":"c","type":"uint32"},{"name":"d","type":"uint32"},{"name":"bits","type":"uint32"},{"name":"token","type":"uint32"}],"name":"IpAddressMask","games":["cs2"]}

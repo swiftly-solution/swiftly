@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"hash","type":"fixed32"},{"name":"duration","type":"float"},{"name":"fromPlayer","type":"bool"},{"name":"entIndex","type":"int32","default":-1}],"name":"CUserMessageCloseCaption","games":["cs2"]}

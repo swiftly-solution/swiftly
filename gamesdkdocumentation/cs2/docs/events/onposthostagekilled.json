@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostHostageKilled","description":"This event is triggered after hostage_killed is triggered.","arguments":{"userid":"int32","hostage":"int32"},"return":"void","games":["cs2"]}

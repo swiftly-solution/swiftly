@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_unlag_fixstuck","description":"Disallow backtracking a player for lag compensation if it will cause them to become stuck","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

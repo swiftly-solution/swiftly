@@ -1,1 +1,0 @@
-{"kind":"command","name":"schema_meta_stats","description":"schema_meta_stats [<options>]- Print a summary of schemasystem metadata statistics.","args":"","flags":["developmentonly"],"games":["cs2"]}

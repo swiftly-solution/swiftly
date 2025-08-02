@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_retake_ct_count","description":"Number of CT's when playing retakes.","args":"4","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"setFrozen","type":"bool"},{"name":"transitionDuration","type":"float"},{"name":"entityHandle","type":"uint32","default":16777215}],"name":"CUserMsg_ParticleManager.FreezeParticleInvolving","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_threshold","description":"decibel threshold for how loud the talker's input signal is before we think they are talking.","args":"-120","flags":["clientdll","archive"],"games":["cs2"]}

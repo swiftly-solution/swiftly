@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_vox_current_peak","description":"Current peak value (out of 64k) of the incoming voice stream","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

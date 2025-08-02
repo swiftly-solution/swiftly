@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_backup_round_file_last","description":"Every time a backup file is written the value of this convar gets updated to hold the name of the backup file.","args":"\"\"","flags":["gamedll","release"],"games":["cs2"]}

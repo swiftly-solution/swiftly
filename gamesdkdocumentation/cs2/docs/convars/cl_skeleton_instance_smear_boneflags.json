@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_skeleton_instance_smear_boneflags","description":"Smear boneflags across the model.  Costs computation, but tests to make sure your bone flags are consistent.","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

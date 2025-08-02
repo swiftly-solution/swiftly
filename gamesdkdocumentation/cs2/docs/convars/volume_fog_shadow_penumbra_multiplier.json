@@ -1,1 +1,0 @@
-{"kind":"command","name":"volume_fog_shadow_penumbra_multiplier","description":"Penumbra size multiplier for shadow sampling, reduces fog shadow aliasing","args":"3","flags":["developmentonly","defensive"],"games":["cs2"]}

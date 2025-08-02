@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"service","type":"uint32"},{"name":"version","type":"uint64"}],"name":"CMsgSerializedSOCache.Cache.Version","games":["cs2"]}

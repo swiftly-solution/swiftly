@@ -1,1 +1,0 @@
-{"kind":"command","name":"m_pitch","description":"Mouse pitch factor.","args":"0.022","flags":["clientdll","archive","userinfo","per_user"],"games":["cs2"]}

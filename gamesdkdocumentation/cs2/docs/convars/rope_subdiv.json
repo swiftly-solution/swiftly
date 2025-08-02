@@ -1,1 +1,0 @@
-{"kind":"command","name":"rope_subdiv","description":"Rope subdivision amount","args":"2","flags":["min:","0,","max:","8,","developmentonly","clientdll","defensive"],"games":["cs2"]}

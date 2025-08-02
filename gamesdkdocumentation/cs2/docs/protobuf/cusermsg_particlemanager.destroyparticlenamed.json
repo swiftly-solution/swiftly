@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"particleNameIndex","type":"fixed64"},{"name":"entityHandle","type":"uint32","default":16777215},{"name":"destroyImmediately","type":"bool"},{"name":"playEndcap","type":"bool"}],"name":"CUserMsg_ParticleManager.DestroyParticleNamed","games":["cs2"]}

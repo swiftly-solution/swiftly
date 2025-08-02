@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"shouldDraw","type":"bool"}],"name":"CUserMsg_ParticleManager.UpdateParticleShouldDraw","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"TargetSelectorAngleMode_t","description":"Automatically generated game type from enum TargetSelectorAngleMode_t","values":{"eFacingHeading":0,"eMoveHeading":1},"games":["cs2"]}

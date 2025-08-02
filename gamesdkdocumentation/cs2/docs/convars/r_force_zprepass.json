@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_force_zprepass","description":"0: Force z prepass off. 1: Force on. -1: Don't force","args":"-1","flags":["cheat"],"games":["cs2"]}

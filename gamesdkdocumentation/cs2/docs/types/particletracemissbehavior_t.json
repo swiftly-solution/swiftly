@@ -1,1 +1,0 @@
-{"kind":"type","name":"ParticleTraceMissBehavior_t","description":"Automatically generated game type from enum ParticleTraceMissBehavior_t","values":{"PARTICLE_TRACE_MISS_BEHAVIOR_NONE":0,"PARTICLE_TRACE_MISS_BEHAVIOR_KILL":1,"PARTICLE_TRACE_MISS_BEHAVIOR_TRACE_END":2},"games":["cs2"]}

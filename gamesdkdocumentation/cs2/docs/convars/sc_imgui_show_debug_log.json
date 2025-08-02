@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_imgui_show_debug_log","description":"SceneSystem/Imgui/Show Debug Log","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

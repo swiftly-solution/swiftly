@@ -1,1 +1,0 @@
-{"kind":"type","name":"BeginDeathLifeStateTransition_t","description":"Automatically generated game type from enum BeginDeathLifeStateTransition_t","values":{"TRANSITION_TO_LIFESTATE_DYING":0,"TRANSITION_TO_LIFESTATE_DEAD":1},"games":["cs2"]}

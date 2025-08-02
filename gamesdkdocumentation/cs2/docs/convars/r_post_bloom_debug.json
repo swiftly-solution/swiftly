@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_post_bloom_debug","description":"1 = bloom output (before thresholding), 2 = quarter res downsample, 3 = quarter res effects bloom 4 = quarter res effects raw","args":"0","flags":["developmentonly","clientdll"],"games":["cs2"]}

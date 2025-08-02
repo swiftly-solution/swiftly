@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_timeout","description":"SourceTV connection timeout in seconds.","args":"20","flags":["release"],"games":["cs2"]}

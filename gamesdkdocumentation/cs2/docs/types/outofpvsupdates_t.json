@@ -1,1 +1,0 @@
-{"kind":"type","name":"OutOfPVSUpdates_t","description":"Automatically generated game type from enum OutOfPVSUpdates_t","values":{"OOPVSUpdates_OptOut":0,"OOPVSUpdates_OptIn":1,"OOPVSUpdates_Default":2,"OOPVSUpdates_Count":3},"games":["cs2"]}

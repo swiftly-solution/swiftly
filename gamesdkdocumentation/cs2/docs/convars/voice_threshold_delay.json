@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_threshold_delay","description":"Amount of time the talker is silent before we infer that they are no longer talking.","args":"0.7","flags":["developmentonly"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"CDebugOverlayCombinedTypes_t","description":"Automatically generated game type from enum CDebugOverlayCombinedTypes_t","values":{"ALL":0,"ANY":1,"COUNT":2},"games":["cs2"]}

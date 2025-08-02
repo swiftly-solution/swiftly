@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_randombuy","description":"should bots ignore their prefered weapons and just buy weapons at random?","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_extract_ammo_from_dropped_weapons","description":"<no description>","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mm_server_search_server_lifetime","description":"How long until a server is no longer returned by the master till we remove it.","args":"180","flags":["developmentonly"],"games":["cs2"]}

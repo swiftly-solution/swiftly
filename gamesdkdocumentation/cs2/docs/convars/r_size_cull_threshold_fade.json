@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_size_cull_threshold_fade","description":"% above the screen size percentage where we will start fading out (==0 will disable fading).","args":"0","flags":["developmentonly"],"games":["cs2"]}

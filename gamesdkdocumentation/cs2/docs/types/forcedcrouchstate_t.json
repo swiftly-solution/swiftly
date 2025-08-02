@@ -1,1 +1,0 @@
-{"kind":"type","name":"ForcedCrouchState_t","description":"Automatically generated game type from enum ForcedCrouchState_t","values":{"FORCEDCROUCH_NONE":0,"FORCEDCROUCH_CROUCHED":1,"FORCEDCROUCH_UNCROUCHED":2},"games":["cs2"]}

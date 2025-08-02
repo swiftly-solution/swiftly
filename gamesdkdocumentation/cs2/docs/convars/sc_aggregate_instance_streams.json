@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_aggregate_instance_streams","description":"Enable instance streams","args":"true","flags":["developmentonly"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_boxverb_simd","description":"Enable SIMD code path for shoebox reverb processor.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

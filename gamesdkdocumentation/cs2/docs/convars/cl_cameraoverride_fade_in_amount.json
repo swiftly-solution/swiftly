@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_cameraoverride_fade_in_amount","description":"<no description>","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

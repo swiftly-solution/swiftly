@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"requestId","type":"uint32"},{"name":"accountProfiles","type":"CMsgGCCStrike15_v2_MatchmakingGC2ClientHello"}],"name":"CMsgGCCStrike15_v2_PlayersProfile","games":["cs2"]}

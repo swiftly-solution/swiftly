@@ -1,1 +1,0 @@
-{"kind":"command","name":"spew_fonts","description":"Spew information about font manager fonts","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

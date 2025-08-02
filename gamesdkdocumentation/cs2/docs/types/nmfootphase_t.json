@@ -1,1 +1,0 @@
-{"kind":"type","name":"NmFootPhase_t","description":"Automatically generated game type from enum NmFootPhase_t","values":{"LeftFootDown":0,"RightFootPassing":1,"RightFootDown":2,"LeftFootPassing":3},"games":["cs2"]}

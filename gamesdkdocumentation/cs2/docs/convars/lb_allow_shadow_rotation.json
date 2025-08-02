@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_allow_shadow_rotation","description":"SceneSystem/LightBinner/Shadow Rotation","args":"true","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

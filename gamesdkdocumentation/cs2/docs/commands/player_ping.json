@@ -1,1 +1,0 @@
-{"kind":"command","name":"player_ping","description":"Creates a ping notification where the player is looking.","args":"","flags":["gamedll","client_can_execute"],"games":["cs2"]}

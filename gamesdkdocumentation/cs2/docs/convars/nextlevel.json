@@ -1,1 +1,0 @@
-{"kind":"command","name":"nextlevel","description":"If set to a valid map name, will trigger a changelevel to the specified map at the end of the round","args":"\"\"","flags":["gamedll","notify","release"],"games":["cs2"]}

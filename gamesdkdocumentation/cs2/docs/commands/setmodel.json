@@ -1,1 +1,0 @@
-{"kind":"command","name":"setmodel","description":"Changes's player's model","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

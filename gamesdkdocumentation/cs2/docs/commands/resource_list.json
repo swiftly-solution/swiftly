@@ -1,1 +1,0 @@
-{"kind":"command","name":"resource_list","description":"List loaded resources matching a substring","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

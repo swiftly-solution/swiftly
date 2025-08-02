@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_dz_cash_mega_bundle_size","description":"Size of a mega cash bundle","args":"13","flags":["gamedll","replicated","release"],"games":["cs2"]}

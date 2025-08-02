@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_free_armor","description":"Determines whether kevlar (1+) and/or helmet (2+) are given automatically.","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

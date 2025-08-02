@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_resolve_execute_operator","description":"Resolve the inputs and execute one specified operator from a specified stack","args":"","flags":["cheat"],"games":["cs2"]}

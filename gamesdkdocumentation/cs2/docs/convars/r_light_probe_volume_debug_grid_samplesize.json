@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_light_probe_volume_debug_grid_samplesize","description":"sphere radius (world) for LPV debug grid","args":"4","flags":["cheat"],"games":["cs2"]}

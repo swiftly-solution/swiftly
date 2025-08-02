@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_issue_loadbackup_spec_only","description":"When enabled, only admins load match from backup","args":"false","flags":["gamedll","notify","replicated","release"],"games":["cs2"]}

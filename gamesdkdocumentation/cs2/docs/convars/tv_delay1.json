@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_delay1","description":"SourceTV[instance 1] broadcast delay in seconds","args":"15","flags":["min:","0,","max:","960,","gamedll","release","commandline_enforced"],"games":["cs2"]}

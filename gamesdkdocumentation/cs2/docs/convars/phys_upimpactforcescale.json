@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_upimpactforcescale","description":"<no description>","args":"0.375","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_client_min_interp_ratio","description":"This can be used to limit the value of cl_interp_ratio for connected clients (only while they are connected).","args":"0","flags":["min:","0,","max:","19,","developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

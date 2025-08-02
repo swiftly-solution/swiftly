@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"baselineTick","type":"int32"},{"name":"baselineNr","type":"int32"}],"name":"CCLCMsg_BaselineAck","games":["cs2"]}

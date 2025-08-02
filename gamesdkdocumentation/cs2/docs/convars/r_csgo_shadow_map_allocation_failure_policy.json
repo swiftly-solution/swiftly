@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_shadow_map_allocation_failure_policy","description":"What happens when a shadow map fails allocation? 0 = don't render, 1 = render unshadowed","args":"1","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

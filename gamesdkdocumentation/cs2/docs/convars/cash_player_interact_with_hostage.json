@@ -1,1 +1,0 @@
-{"kind":"command","name":"cash_player_interact_with_hostage","description":"<no description>","args":"150","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

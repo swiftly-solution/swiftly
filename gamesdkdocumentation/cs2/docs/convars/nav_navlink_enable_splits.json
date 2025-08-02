@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_navlink_enable_splits","description":"Split wide nav links into narrower ones to increase lanes and alleviate 'crossing' effect.","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_allow_dithered_lod","description":"Allow use of dithered lod transitions","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

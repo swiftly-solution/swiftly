@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_stoprecord","description":"Stops SourceTV demo recording.","args":"","flags":["release"],"games":["cs2"]}

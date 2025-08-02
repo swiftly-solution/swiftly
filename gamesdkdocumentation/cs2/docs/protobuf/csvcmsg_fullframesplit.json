@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"tick","type":"int32"},{"name":"section","type":"int32"},{"name":"total","type":"int32"},{"name":"data","type":"bytes"}],"name":"CSVCMsg_FullFrameSplit","games":["cs2"]}

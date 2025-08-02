@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_suspend_paint","description":"<no description>","args":"false","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

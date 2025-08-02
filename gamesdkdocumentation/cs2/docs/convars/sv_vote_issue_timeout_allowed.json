@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_issue_timeout_allowed","description":"Can people hold votes to time out?","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

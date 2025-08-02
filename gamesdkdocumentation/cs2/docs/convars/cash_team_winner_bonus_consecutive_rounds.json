@@ -1,1 +1,0 @@
-{"kind":"command","name":"cash_team_winner_bonus_consecutive_rounds","description":"<no description>","args":"0","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

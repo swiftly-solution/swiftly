@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_game_mode_flags","description":"Dedicated server game mode flags to run","args":"0","flags":["gamedll","release"],"games":["cs2"]}

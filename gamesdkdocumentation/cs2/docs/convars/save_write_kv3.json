@@ -1,1 +1,0 @@
-{"kind":"command","name":"save_write_kv3","description":"Write the KV3 entity data as a text file in the save directory","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

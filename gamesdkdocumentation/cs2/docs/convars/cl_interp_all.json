@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_interp_all","description":"Disable interpolation list optimizations.","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

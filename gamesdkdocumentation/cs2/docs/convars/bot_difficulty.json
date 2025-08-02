@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_difficulty","description":"Defines the skill of bots joining the game.  Values are: 0=easy, 1=normal, 2=hard, 3=expert.","args":"1","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_dumpworld3d","description":"Dump the objects in a sceneworld into a 3d geoview buffer (Usage: sc_dumpworld3d <world_index>)","args":"","flags":["cheat"],"games":["cs2"]}

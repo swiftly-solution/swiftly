@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"teamNumber","type":"int32"},{"name":"playerslot","type":"int32","default":-1},{"name":"xuid","type":"uint64"},{"name":"color","type":"int32"},{"name":"isBot","type":"bool"},{"name":"isDead","type":"bool"}],"name":"CCSUsrMsg_RoundEndReportData.RerEvent.Victim","games":["cs2"]}

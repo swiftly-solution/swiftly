@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_max_visible_barn_lights_override","description":"Override maximum visible barn lights","args":"-1","flags":["developmentonly","cheat"],"games":["cs2"]}

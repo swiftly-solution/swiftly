@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_drag_selection_volume_zmax_offset","description":"The offset of the nav drag volume top from center","args":"32","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

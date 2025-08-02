@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_randomspawn_dist","description":"If using mp_randomspawn, determines whether to test distance when selecting this spot.","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

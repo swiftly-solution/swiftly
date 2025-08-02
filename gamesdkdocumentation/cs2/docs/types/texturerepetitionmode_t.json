@@ -1,1 +1,0 @@
-{"kind":"type","name":"TextureRepetitionMode_t","description":"Automatically generated game type from enum TextureRepetitionMode_t","values":{"TEXTURE_REPETITION_PARTICLE":0,"TEXTURE_REPETITION_PATH":1},"games":["cs2"]}

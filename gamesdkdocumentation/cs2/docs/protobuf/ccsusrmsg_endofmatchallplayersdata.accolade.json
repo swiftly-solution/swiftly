@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"eaccolade","type":"int32"},{"name":"value","type":"float"},{"name":"position","type":"int32"}],"name":"CCSUsrMsg_EndOfMatchAllPlayersData.Accolade","games":["cs2"]}

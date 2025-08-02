@@ -1,1 +1,0 @@
-{"kind":"command","name":"ai_expression_optimization","description":"Disable npc background expressions when you can't see them.","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

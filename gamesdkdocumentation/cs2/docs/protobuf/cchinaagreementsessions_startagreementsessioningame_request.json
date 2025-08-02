@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"appid","type":"uint32"},{"name":"steamid","type":"fixed64"},{"name":"clientIpaddress","type":"string"}],"name":"CChinaAgreementSessions_StartAgreementSessionInGame_Request","games":["cs2"]}

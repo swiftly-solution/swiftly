@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_player_visibility_far","description":"distance at which proxy scale is maximized","args":"700","flags":["developmentonly","clientdll"],"games":["cs2"]}

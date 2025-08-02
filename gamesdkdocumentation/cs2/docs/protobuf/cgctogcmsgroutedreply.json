@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"msgType","type":"uint32"},{"name":"netMessage","type":"bytes"}],"name":"CGCToGCMsgRoutedReply","games":["cs2"]}

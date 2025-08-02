@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"data","type":"ScoreLeaderboardData"}],"name":"CCSUsrMsg_ScoreLeaderboardData","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_temp_baseline_string_table_buffer_size","description":"Buffer size for writing string table baselines","args":"524288","flags":["developmentonly","defensive"],"games":["cs2"]}

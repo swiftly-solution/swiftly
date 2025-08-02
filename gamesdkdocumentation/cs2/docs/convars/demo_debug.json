@@ -1,1 +1,0 @@
-{"kind":"command","name":"demo_debug","description":"Turn on demo debug spew.","args":"0","flags":["developmentonly"],"games":["cs2"]}

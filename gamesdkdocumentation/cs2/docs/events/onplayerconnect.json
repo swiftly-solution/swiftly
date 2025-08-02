@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPlayerConnect","description":"This event is triggered when player_connect is triggered.","arguments":{"name":"string","userid":"int32","networkid":"string","xuid":"uint64","bot":"bool"},"return":"void","games":["cs2"]}

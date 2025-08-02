@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_teammates_are_enemies","description":"When set, your teammates act as enemies and all players are valid targets.","args":"false","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

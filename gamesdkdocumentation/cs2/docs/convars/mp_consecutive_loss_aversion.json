@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_consecutive_loss_aversion","description":"How loss streak is affected with round win: 0 = win fully resets loss bonus, 1 = first win steps down loss bonus, 2 = first win holds loss bonus and step down starting with second win","args":"1","flags":["min:","0,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

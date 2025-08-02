@@ -1,1 +1,0 @@
-{"kind":"command","name":"vconsole_rcon_server_details","description":"when non-empty allows for easy vconsole connection to the dedicated server.","args":"\"\"","flags":["dontrecord","release","server_cannot_query"],"games":["cs2"]}

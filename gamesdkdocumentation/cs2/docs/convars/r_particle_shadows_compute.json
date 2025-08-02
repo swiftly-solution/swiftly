@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_particle_shadows_compute","description":"<no description>","args":"true","flags":["clientdll","release"],"games":["cs2"]}

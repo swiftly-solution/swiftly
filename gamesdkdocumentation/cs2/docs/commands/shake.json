@@ -1,1 +1,0 @@
-{"kind":"command","name":"shake","description":"Shake the screen.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

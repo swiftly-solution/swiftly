@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_kick_players_with_cooldown","description":"(0: do not kick on insecure servers; 1: kick players with Untrusted status or convicted by Overwatch; 2: kick players with any cooldown)","args":"1","flags":["gamedll","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"contributionscore_assist","description":"amount of contribution score added for an assist","args":"1","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

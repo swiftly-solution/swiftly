@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"idx","type":"int32"},{"name":"delta","type":"int32"}],"name":"CCSUsrMsg_PlayerStatsUpdate.Stat","games":["cs2"]}

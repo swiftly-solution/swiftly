@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_health_approach_speed","description":"<no description>","args":"10","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

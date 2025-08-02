@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_showusercmd","description":"Show user command encoding","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

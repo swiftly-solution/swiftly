@@ -1,1 +1,0 @@
-{"kind":"command","name":"input_button_code_is_scan_code_scd","description":"Bind keys based on keyboard position instead of key name","args":"true","flags":["archive","per_user"],"games":["cs2"]}

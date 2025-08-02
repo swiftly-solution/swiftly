@@ -1,1 +1,0 @@
-{"kind":"command","name":"Test_LoopCount","description":"Test_LoopCount <loop name> <count> - loop back to the specified loop start point the specified # of times.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

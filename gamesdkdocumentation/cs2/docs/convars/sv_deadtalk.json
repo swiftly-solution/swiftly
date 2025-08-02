@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_deadtalk","description":"Dead players can speak (voice, text) to the living","args":"false","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

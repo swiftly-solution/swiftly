@@ -1,1 +1,0 @@
-{"kind":"command","name":"replay_death","description":"start hltv replay of last death","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

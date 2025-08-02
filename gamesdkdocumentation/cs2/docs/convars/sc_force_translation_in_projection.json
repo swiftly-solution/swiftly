@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_force_translation_in_projection","description":"If enabled, the camera's translation will be included in the projection matrix.","args":"false","flags":["cheat"],"games":["cs2"]}

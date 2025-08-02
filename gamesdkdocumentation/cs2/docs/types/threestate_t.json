@@ -1,1 +1,0 @@
-{"kind":"type","name":"ThreeState_t","description":"Automatically generated game type from enum ThreeState_t","values":{"TRS_FALSE":0,"TRS_TRUE":1,"TRS_NONE":2},"games":["cs2"]}

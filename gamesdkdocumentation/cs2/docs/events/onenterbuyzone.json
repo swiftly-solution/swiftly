@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnEnterBuyzone","description":"This event is triggered when enter_buyzone is triggered.","arguments":{"userid":"int32","canbuy":"bool"},"return":"void","games":["cs2"]}

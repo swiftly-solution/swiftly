@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_load_forced_client_names_file","description":"Loads a file containing SteamID64 names for clients","args":"","flags":["gamedll","release"],"games":["cs2"]}

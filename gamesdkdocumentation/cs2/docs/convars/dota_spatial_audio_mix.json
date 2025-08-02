@@ -1,1 +1,0 @@
-{"kind":"command","name":"dota_spatial_audio_mix","description":"Mix value to blend spatial and non-spatial audio in Dota 2.","args":"1","flags":["release"],"games":["cs2"]}

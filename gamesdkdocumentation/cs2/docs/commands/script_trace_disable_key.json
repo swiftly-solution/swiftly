@@ -1,1 +1,0 @@
-{"kind":"command","name":"script_trace_disable_key","description":"Turn off a particular trace output by table/instance","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

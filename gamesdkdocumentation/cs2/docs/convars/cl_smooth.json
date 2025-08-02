@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_smooth","description":"Smooth view/eye origin after prediction errors","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

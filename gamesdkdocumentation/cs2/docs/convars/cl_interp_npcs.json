@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_interp_npcs","description":"Interpolate NPC positions starting this many seconds in past (or the value as per cl_interp_ratio, if greater)","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

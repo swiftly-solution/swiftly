@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_set_operator_field","description":"Currently sets a single float operator field","args":"","flags":["cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"ecsgosteamuserstat","type":"int32"},{"name":"delta","type":"int32"},{"name":"absolute","type":"bool"}],"name":"CMsgCsgoSteamUserStatChange","games":["cs2"]}

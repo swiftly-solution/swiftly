@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_deltaticks_log","description":"Whether diagnostic logging is enabled when clients ack delta ticks out of order. Policy: 2 = log all out of order acks, 1 = log only when disconnect is triggered, 0 = do not log.","args":"2","flags":["release"],"games":["cs2"]}

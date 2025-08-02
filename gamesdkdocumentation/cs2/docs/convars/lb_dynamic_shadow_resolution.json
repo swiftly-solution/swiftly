@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_dynamic_shadow_resolution","description":"Dynamically adjust shadow resolution","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

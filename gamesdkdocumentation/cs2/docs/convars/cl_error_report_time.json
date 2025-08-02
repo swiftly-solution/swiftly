@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_error_report_time","description":"Minimum time in seconds that must elapse before printing prediction error summary. 0 to disable.","args":"0","flags":["clientdll","release"],"games":["cs2"]}

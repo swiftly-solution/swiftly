@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnGameEnd","description":"This event is triggered when game_end is triggered.","arguments":{"winner":"int32"},"return":"void","games":["cs2"]}

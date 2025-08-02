@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_print_buffers","description":"Print Vertex/Index/GPU buffers.","args":"","flags":["linked_concommand","developmentonly","defensive"],"games":["cs2"]}

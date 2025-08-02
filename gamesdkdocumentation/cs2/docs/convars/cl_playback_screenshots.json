@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_playback_screenshots","description":"Allows the client to playback screenshot and jpeg commands in demos.","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

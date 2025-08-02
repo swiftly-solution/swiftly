@@ -1,1 +1,0 @@
-{"kind":"command","name":"gotv_theater_container","description":"Enables GOTV theater mode for the specified container, setting it to 'live' will play top live matches","args":"\"\"","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_nowinpanel","description":"Turn on/off win panel on server","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

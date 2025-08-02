@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_crosshairsize","description":"<no description>","args":"3.9","flags":["clientdll","archive","per_user"],"games":["cs2"]}

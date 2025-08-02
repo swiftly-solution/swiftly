@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_force_pick_time","description":"The amount of time a player has on the team screen to make a selection before being auto-teamed","args":"15","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

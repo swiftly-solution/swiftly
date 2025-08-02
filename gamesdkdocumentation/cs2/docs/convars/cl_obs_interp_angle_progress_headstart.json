@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_obs_interp_angle_progress_headstart","description":"<no description>","args":"0.025","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

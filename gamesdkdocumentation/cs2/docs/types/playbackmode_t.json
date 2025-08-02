@@ -1,1 +1,0 @@
-{"kind":"type","name":"PlayBackMode_t","description":"Automatically generated game type from enum PlayBackMode_t","values":{"Random":0,"RandomNoRepeats":1,"RandomAvoidLast":2,"Sequential":3,"RandomWeights":4},"games":["cs2"]}

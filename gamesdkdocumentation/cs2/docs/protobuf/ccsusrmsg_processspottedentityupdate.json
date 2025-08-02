@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"newUpdate","type":"bool"},{"name":"entityUpdates","type":"CCSUsrMsg_ProcessSpottedEntityUpdate.SpottedEntityUpdate"}],"name":"CCSUsrMsg_ProcessSpottedEntityUpdate","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"gamerulesMasks","type":"uint32"},{"name":"banMasks","type":"uint32"},{"name":"modEnable","type":"bool"}],"name":"CUserMessageVoiceMask","games":["cs2"]}

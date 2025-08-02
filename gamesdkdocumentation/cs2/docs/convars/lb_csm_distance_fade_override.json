@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_csm_distance_fade_override","description":"Override CSM distance fade","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

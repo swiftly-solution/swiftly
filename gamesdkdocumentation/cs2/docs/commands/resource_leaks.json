@@ -1,1 +1,0 @@
-{"kind":"command","name":"resource_leaks","description":"resource_leaks <resource_name>: Show resource leaks for the named resource","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

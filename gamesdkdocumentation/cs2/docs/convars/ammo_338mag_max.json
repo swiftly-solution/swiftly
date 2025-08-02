@@ -1,1 +1,0 @@
-{"kind":"command","name":"ammo_338mag_max","description":"<no description>","args":"30","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

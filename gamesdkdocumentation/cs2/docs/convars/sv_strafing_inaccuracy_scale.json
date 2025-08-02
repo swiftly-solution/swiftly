@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_strafing_inaccuracy_scale","description":"<no description>","args":"0.1","flags":["gamedll","clientdll","replicated","cheat","release"],"games":["cs2"]}

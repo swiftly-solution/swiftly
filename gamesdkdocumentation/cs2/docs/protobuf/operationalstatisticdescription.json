@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"name","type":"string"},{"name":"idkey","type":"uint32"}],"name":"OperationalStatisticDescription","games":["cs2"]}

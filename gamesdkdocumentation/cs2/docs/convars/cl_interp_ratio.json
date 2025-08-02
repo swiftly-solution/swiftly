@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_interp_ratio","description":"Set number of client simulation interpolation ticks.","args":"2","flags":["min:","0,","max:","19,","clientdll","userinfo"],"games":["cs2"]}

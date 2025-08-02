@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_dashboard_render_quality","description":"<no description>","args":"true","flags":["developmentonly","clientdll","missing1","defensive"],"games":["cs2"]}

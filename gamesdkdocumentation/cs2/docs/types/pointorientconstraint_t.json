@@ -1,1 +1,0 @@
-{"kind":"type","name":"PointOrientConstraint_t","description":"Automatically generated game type from enum PointOrientConstraint_t","values":{"eNone":0,"ePreserveUpAxis":1},"games":["cs2"]}

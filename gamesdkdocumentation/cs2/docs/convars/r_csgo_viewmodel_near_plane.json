@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_viewmodel_near_plane","description":"<no description>","args":"1","flags":["developmentonly","clientdll"],"games":["cs2"]}

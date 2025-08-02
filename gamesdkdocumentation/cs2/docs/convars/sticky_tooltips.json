@@ -1,1 +1,0 @@
-{"kind":"command","name":"sticky_tooltips","description":"Don't ever hide tooltips. Helpful when debugging complicated tooltip layouts.","args":"false","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

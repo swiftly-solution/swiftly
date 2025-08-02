@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_cs2_show_icon_editor","description":"CSGO/Icon Editor","args":"false","flags":["developmentonly","clientdll","replicated","cheat","menubar_item"],"games":["cs2"]}

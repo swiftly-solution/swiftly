@@ -1,1 +1,0 @@
-{"kind":"command","name":"m_yaw","description":"Mouse yaw factor.","args":"0.022","flags":["clientdll","archive","userinfo","per_user"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"glow_outline_width","description":"Width of glow outline effect in screen space.","args":"6","flags":["clientdll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_enable_sunlight_check","description":"Enable vis tests for sunlight.","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

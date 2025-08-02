@@ -1,1 +1,0 @@
-{"kind":"type","name":"TimelineCompression_t","description":"Automatically generated game type from enum TimelineCompression_t","values":{"TIMELINE_COMPRESSION_SUM":0,"TIMELINE_COMPRESSION_COUNT_PER_INTERVAL":1,"TIMELINE_COMPRESSION_AVERAGE":2,"TIMELINE_COMPRESSION_AVERAGE_BLEND":3,"TIMELINE_COMPRESSION_TOTAL":4},"games":["cs2"]}

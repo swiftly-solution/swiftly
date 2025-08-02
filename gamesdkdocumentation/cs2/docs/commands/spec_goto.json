@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_goto","description":"Move the spectator camera to a specific location. `spec_goto x y z pitch yaw`","args":"","flags":["clientdll","clientcmd_can_execute"],"games":["cs2"]}

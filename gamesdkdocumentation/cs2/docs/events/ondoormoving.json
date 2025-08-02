@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnDoorMoving","description":"This event is triggered when door_moving is triggered.","arguments":{"userid":"int32","entindex":"int32"},"return":"void","games":["cs2"]}

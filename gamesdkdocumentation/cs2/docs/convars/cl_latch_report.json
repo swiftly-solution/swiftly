@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_latch_report","description":"Enable to output stats about latching","args":"false","flags":["clientdll","archive"],"games":["cs2"]}

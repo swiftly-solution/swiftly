@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_status","description":"Show SourceTV server status.","args":"","flags":["release"],"games":["cs2"]}

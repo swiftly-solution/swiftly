@@ -1,1 +1,0 @@
-{"kind":"command","name":"weapon_accuracy_forcespread","description":"Force spread to the specified value.","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

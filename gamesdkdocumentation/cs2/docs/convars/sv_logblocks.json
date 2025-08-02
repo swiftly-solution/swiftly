@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_logblocks","description":"If true when log when a query is blocked (can cause very large log files)","args":"false","flags":["release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"spawngrouphandle","type":"uint32"},{"name":"spawngroupmanifest","type":"bytes"},{"name":"manifestincomplete","type":"bool"}],"name":"CNETMsg_SpawnGroup_ManifestUpdate","games":["cs2"]}

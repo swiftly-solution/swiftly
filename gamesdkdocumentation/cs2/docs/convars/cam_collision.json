@@ -1,1 +1,0 @@
-{"kind":"command","name":"cam_collision","description":"When in thirdperson and cam_collision is set to 1, an attempt is made to keep the camera from passing though walls.","args":"1","flags":["clientdll","archive"],"games":["cs2"]}

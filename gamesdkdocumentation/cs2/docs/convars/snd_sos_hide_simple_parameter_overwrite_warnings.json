@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_hide_simple_parameter_overwrite_warnings","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

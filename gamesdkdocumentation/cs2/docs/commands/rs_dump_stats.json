@@ -1,1 +1,0 @@
-{"kind":"command","name":"rs_dump_stats","description":"rs_dump_stats - Dump resourcesystem stats.","args":"","flags":["developmentonly"],"games":["cs2"]}

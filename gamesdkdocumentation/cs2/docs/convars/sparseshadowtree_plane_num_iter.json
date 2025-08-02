@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_plane_num_iter","description":"number of steps to push candidate plane behind depths.","args":"5","flags":["developmentonly"],"games":["cs2"]}

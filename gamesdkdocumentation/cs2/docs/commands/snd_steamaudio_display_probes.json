@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_steamaudio_display_probes","description":"Load all the probes from a file and display probes based on the passed on arguments.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

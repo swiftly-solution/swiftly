@@ -1,1 +1,0 @@
-{"kind":"command","name":"cq_runtests_interval","description":"<no description>","args":"30","flags":["developmentonly","gamedll"],"games":["cs2"]}

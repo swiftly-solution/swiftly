@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_title","description":"Set title for SourceTV spectator UI","args":"\"SourceTV\"","flags":["release"],"games":["cs2"]}

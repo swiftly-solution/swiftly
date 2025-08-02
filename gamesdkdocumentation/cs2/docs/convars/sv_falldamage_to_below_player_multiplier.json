@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_falldamage_to_below_player_multiplier","description":"Scale damage when distributed across two players","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

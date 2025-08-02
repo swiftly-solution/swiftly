@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_instanced_mesh_lod_bias","description":"Bias for LOD selection of instanced meshes","args":"1.25","flags":["developmentonly","defensive"],"games":["cs2"]}

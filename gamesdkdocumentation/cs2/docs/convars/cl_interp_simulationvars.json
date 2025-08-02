@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_interp_simulationvars","description":"Interpolate LATCH_SIMULATION_BIT vars if interpolation interval is greater than animation interval","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_pos","description":"dump position and angles to the console","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

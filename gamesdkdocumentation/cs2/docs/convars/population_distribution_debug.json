@@ -1,1 +1,0 @@
-{"kind":"command","name":"population_distribution_debug","description":"<no description>","args":"0","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

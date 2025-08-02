@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_showsunshadowdebugrendertargets","description":"Set to render sun shadow render targets","args":"false","flags":["cheat"],"games":["cs2"]}

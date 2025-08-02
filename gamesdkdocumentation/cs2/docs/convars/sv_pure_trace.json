@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pure_trace","description":"If set to 1, the server will print a message whenever a client is verifying a CRC for a file.","args":"0","flags":["release"],"games":["cs2"]}

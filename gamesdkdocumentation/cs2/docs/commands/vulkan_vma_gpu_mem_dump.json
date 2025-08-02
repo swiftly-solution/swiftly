@@ -1,1 +1,0 @@
-{"kind":"command","name":"vulkan_vma_gpu_mem_dump","description":"Dump .json file for use by GpuMemDumpVis.py","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

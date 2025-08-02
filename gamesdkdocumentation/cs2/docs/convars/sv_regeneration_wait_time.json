@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_regeneration_wait_time","description":"<no description>","args":"1","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

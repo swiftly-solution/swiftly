@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"name","type":"string"},{"name":"value","type":"string"}],"name":"CCSUsrMsg_VGUIMenu.Keys","games":["cs2"]}

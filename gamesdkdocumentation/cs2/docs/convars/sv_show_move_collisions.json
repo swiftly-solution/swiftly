@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_show_move_collisions","description":"Enable this to visualize collisions between player and geometry.","args":"false","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

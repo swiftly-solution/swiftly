@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_texture_stream_mip_bias","description":"Biases the mip level the texture streaming system choses to stream for each texture.","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_hostages_spawn_farthest","description":"When enabled will consistently force the farthest hostages to spawn.","args":"false","flags":["gamedll","replicated","release"],"games":["cs2"]}

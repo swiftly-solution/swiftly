@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"targetEntity","type":"uint32","default":16777215}],"name":"CEntityMsg","games":["cs2"]}

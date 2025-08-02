@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_cq_trim_catchup_remainder","description":"When trimming an overful CQ due to app 'catchup' request, leave at least N more commands than the minimum","args":"1","flags":["gamedll","release"],"games":["cs2"]}

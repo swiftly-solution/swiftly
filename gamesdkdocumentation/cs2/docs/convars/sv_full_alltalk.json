@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_full_alltalk","description":"Any player (including Spectator team) can speak to any other player","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

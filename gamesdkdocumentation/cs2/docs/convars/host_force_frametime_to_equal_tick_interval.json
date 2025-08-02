@@ -1,1 +1,0 @@
-{"kind":"command","name":"host_force_frametime_to_equal_tick_interval","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

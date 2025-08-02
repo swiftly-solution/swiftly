@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_dev_entitydeltapadding_extra_max","description":"When encoding entity deltas, append on a random number of extra bytes.  This happens after sv_dev_entitydeltapadding_min_size.","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_extra_client_connect_time","description":"Seconds after client connect during which extra frames are buffered to prevent non-delta'd update","args":"15","flags":["developmentonly","defensive"],"games":["cs2"]}

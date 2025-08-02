@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountid","type":"uint32"},{"name":"viewangles","type":"uint32"},{"name":"type","type":"uint32"},{"name":"userdata","type":"uint32"}],"name":"CMsgGCCStrike15_v2_ServerVarValueNotificationInfo","games":["cs2"]}

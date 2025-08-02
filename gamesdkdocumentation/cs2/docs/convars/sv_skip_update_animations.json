@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_skip_update_animations","description":"Enable to skip game animations","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

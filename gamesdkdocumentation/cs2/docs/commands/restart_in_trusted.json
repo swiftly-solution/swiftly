@@ -1,1 +1,0 @@
-{"kind":"command","name":"restart_in_trusted","description":"Restart in trusted mode","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_mute","description":"Mute a specific Steam user","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

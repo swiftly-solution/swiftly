@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_clock_correction","description":"Enable/disable clock correction on the client.","args":"true","flags":["cheat"],"games":["cs2"]}

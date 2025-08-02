@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_hoststate_quit_syscall","description":"When enabled, game server will quit immediately via syscall instead of running host states shutdown sequence","args":"false","flags":["release"],"games":["cs2"]}

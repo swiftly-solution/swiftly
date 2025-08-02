@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_player","description":"Spectate a player by name or slot","args":"","flags":["clientdll","clientcmd_can_execute"],"games":["cs2"]}

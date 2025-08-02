@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_rollangle","description":"Max view roll angle","args":"0","flags":["developmentonly","gamedll","clientdll","notify","replicated"],"games":["cs2"]}

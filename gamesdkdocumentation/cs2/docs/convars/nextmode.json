@@ -1,1 +1,0 @@
-{"kind":"command","name":"nextmode","description":"Sets the game mode to be played when the next level loads","args":"\"\"","flags":["gamedll","notify","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_timeout","description":"After this many seconds without a message from fully connected client, the client is dropped","args":"20","flags":["developmentonly","defensive"],"games":["cs2"]}

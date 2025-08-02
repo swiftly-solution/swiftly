@@ -1,1 +1,0 @@
-{"kind":"command","name":"mat_tonemap_force_percent_bright_pixels","description":"Override. Old value was 1.0","args":"-1","flags":["cheat"],"games":["cs2"]}

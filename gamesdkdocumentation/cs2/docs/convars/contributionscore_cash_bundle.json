@@ -1,1 +1,0 @@
-{"kind":"command","name":"contributionscore_cash_bundle","description":"amount of contribution score for picking up a cash bundle","args":"0","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

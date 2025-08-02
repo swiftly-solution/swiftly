@@ -1,1 +1,0 @@
-{"kind":"command","name":"Test_StartLoop","description":"Test_StartLoop <loop name> - Denote the start of a loop. Really just defines a named point you can jump to.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

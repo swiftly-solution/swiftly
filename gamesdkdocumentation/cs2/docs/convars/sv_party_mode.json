@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_party_mode","description":"Party!!","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

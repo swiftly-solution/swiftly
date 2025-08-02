@@ -1,1 +1,0 @@
-{"kind":"command","name":"vis_debug_show","description":"Show/hide the vis debug visualization","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

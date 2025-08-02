@@ -1,1 +1,0 @@
-{"kind":"command","name":"vulkan_shader_table_print","description":"Prints out stats for the Vulkan shader table","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

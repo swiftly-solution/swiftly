@@ -1,1 +1,0 @@
-{"kind":"command","name":"mm_dedicated_force_servers","description":"Comma delimited list of ip:port of servers used to search for dedicated servers instead of searching for public servers.","args":"\"\"","flags":["release"],"games":["cs2"]}

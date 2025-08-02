@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_showmem","description":"Draw approximate memory use at top of screen","args":"0","flags":["clientdll","release"],"games":["cs2"]}

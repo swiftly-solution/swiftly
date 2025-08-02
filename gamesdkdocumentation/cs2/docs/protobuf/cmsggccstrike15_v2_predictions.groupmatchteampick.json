@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"sectionid","type":"int32"},{"name":"groupid","type":"int32"},{"name":"index","type":"int32"},{"name":"teamid","type":"int32"},{"name":"itemid","type":"uint64"}],"name":"CMsgGCCStrike15_v2_Predictions.GroupMatchTeamPick","games":["cs2"]}

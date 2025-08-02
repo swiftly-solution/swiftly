@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_broadcast","description":"Automatically broadcasts all games as GOTV demos through Steam.","args":"false","flags":["release"],"games":["cs2"]}

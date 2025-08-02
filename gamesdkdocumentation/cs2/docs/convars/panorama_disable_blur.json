@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_disable_blur","description":"<no description>","args":"false","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

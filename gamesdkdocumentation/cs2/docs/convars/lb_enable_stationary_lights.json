@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_enable_stationary_lights","description":"Allows rendering stationary/mixed lights","args":"true","flags":["developmentonly","cheat"],"games":["cs2"]}

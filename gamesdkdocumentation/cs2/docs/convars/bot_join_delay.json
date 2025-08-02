@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_join_delay","description":"Prevents bots from joining the server for this many seconds after a map change.","args":"0","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

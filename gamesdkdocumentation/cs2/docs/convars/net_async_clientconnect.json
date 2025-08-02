@@ -1,1 +1,0 @@
-{"kind":"command","name":"net_async_clientconnect","description":"Enable async client connect optimization","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

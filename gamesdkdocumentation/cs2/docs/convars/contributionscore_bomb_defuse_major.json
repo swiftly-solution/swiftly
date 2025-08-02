@@ -1,1 +1,0 @@
-{"kind":"command","name":"contributionscore_bomb_defuse_major","description":"amount of contribution score for defusing a bomb while at least one enemy remains alive","args":"3","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

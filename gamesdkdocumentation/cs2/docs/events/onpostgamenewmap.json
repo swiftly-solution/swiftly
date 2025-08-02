@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostGameNewmap","description":"This event is triggered after game_newmap is triggered.","arguments":{"mapname":"string","transition":"bool"},"return":"void","games":["cs2"]}

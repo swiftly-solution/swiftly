@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_c4_cannot_be_defused","description":"If set, the planted c4 cannot be defused.","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

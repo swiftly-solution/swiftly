@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_occlusion_debug","description":"<no description>","args":"false","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

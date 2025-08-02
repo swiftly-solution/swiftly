@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"rolltype","type":"eRollType","default":"ROLL_NONE"},{"name":"logoLength","type":"float"}],"name":"CUserMessageCreditsMsg","games":["cs2"]}

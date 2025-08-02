@@ -1,1 +1,0 @@
-{"kind":"command","name":"contributionscore_hostage_kill","description":"amount of contribution score for killing a hostage, normally negative","args":"-2","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"filter_t","description":"Automatically generated game type from enum filter_t","values":{"FILTER_AND":0,"FILTER_OR":1},"games":["cs2"]}

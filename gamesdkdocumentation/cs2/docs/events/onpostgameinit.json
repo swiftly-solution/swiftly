@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostGameInit","description":"This event is triggered after game_init is triggered.","arguments":{},"return":"void","games":["cs2"]}

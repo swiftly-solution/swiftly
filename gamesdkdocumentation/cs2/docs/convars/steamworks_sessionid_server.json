@@ -1,1 +1,0 @@
-{"kind":"command","name":"steamworks_sessionid_server","description":"The server session ID for the new steamworks gamestats.","args":"\"0\"","flags":["developmentonly","gamedll","clientdll","hidden","replicated","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_warmup_pausetimer","description":"Set to 1 to stay in warmup indefinitely. Set to 0 to resume the timer.","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

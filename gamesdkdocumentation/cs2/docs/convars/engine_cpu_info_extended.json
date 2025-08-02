@@ -1,1 +1,0 @@
-{"kind":"command","name":"engine_cpu_info_extended","description":"CPU the engine is running on.","args":"\"\"","flags":["developmentonly","defensive"],"games":["cs2"]}

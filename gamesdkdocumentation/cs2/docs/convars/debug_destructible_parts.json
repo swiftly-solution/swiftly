@@ -1,1 +1,0 @@
-{"kind":"command","name":"debug_destructible_parts","description":"Draw debug information for destructible parts.","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

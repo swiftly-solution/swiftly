@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_buytime","description":"How many seconds after round start players can buy items for.","args":"90","flags":["min:","0,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

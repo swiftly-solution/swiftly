@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_texture_stream_resolution_bias_update_period","description":"<no description>","args":"0.5","flags":["developmentonly","defensive"],"games":["cs2"]}

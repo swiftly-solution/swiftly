@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_freeze_time","description":"Time spend frozen in observer freeze cam.","args":"3","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

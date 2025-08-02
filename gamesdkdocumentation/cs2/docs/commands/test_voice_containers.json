@@ -1,1 +1,0 @@
-{"kind":"command","name":"test_voice_containers","description":"Quick example for how we'd derive traits from voice containers.","args":"","flags":["linked_concommand","developmentonly","defensive"],"games":["cs2"]}

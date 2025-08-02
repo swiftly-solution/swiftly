@@ -1,1 +1,0 @@
-{"kind":"command","name":"world_layer_set_visible","description":"Show or hide the specified world layer","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_querycache_stats","description":"Display status of the query cache (client only)","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

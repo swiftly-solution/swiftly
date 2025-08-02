@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_histogram","description":"var change info histogram","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

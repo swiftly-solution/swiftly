@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_controllable","description":"Determines whether bots can be controlled by players","args":"true","flags":["gamedll","release"],"games":["cs2"]}

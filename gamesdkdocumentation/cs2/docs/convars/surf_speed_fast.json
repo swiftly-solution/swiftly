@@ -1,1 +1,0 @@
-{"kind":"command","name":"surf_speed_fast","description":"Speed above which a player is considered to be going fast.","args":"3000","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

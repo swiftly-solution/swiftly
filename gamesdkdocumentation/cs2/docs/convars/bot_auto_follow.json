@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_auto_follow","description":"If nonzero, bots with high co-op may automatically follow a nearby human player.","args":"false","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"setang","description":"Snap player eyes to specified pitch yaw <roll:optional> (must have sv_cheats).","args":"","flags":["gamedll","cheat","client_can_execute"],"games":["cs2"]}

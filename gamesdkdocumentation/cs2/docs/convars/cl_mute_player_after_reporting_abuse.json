@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_mute_player_after_reporting_abuse","description":"Mute players reported for abuse automatically.","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

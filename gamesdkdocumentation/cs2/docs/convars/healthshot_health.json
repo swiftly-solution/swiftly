@@ -1,1 +1,0 @@
-{"kind":"command","name":"healthshot_health","description":"<no description>","args":"50","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

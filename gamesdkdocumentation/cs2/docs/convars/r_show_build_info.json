@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_show_build_info","description":"Build information. Leave this enabled when submitting bug screenshots and videos, please!","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

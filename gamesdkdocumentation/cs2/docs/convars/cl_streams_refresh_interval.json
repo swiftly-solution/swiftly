@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_streams_refresh_interval","description":"How often to refresh streams list","args":"300","flags":["developmentonly","clientdll"],"games":["cs2"]}

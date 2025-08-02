@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"buttonstate1","type":"uint64"},{"name":"buttonstate2","type":"uint64"},{"name":"buttonstate3","type":"uint64"}],"name":"CInButtonStatePB","games":["cs2"]}

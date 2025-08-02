@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"cmd","type":"string"}],"name":"CSVCMsg_Broadcast_Command","games":["cs2"]}

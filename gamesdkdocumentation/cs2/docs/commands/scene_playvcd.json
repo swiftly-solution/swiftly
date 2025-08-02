@@ -1,1 +1,0 @@
-{"kind":"command","name":"scene_playvcd","description":"Play the given VCD as an instanced scripted scene.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

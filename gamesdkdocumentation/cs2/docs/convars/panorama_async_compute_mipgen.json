@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_async_compute_mipgen","description":"use asynchronous compute for mipmap generation.","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

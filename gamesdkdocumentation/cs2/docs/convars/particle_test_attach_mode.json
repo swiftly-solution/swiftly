@@ -1,1 +1,0 @@
-{"kind":"command","name":"particle_test_attach_mode","description":"Possible Values: 'start_at_attachment', 'follow_attachment', 'start_at_origin', 'follow_origin'","args":"\"follow_attachment\"","flags":["gamedll","cheat"],"games":["cs2"]}

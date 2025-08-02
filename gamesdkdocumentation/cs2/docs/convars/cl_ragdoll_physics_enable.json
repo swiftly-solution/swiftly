@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_ragdoll_physics_enable","description":"Enable/disable ragdoll physics.","args":"1","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

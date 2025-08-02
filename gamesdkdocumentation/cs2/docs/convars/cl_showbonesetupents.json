@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_ShowBoneSetupEnts","description":"Show which entities are having their bones setup each frame.","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

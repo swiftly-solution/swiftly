@@ -1,1 +1,0 @@
-{"kind":"command","name":"showents","description":"Dump entity list to console.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

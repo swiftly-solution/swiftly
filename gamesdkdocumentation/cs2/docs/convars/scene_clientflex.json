@@ -1,1 +1,0 @@
-{"kind":"command","name":"scene_clientflex","description":"Do client side flex animation.","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_replay_bot","description":"Enable Spectator Hltv Replay when killed by bot","args":"false","flags":["gamedll","release"],"games":["cs2"]}

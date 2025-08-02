@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"eventName","type":"string"},{"name":"data","type":"bytes"}],"name":"CClientMsg_CustomGameEvent","games":["cs2"]}

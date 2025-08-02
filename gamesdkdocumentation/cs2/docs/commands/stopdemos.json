@@ -1,1 +1,0 @@
-{"kind":"command","name":"stopdemos","description":"Stop looping demos (current demo will complete).","args":"","flags":["release"],"games":["cs2"]}

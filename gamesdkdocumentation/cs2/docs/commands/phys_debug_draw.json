@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_debug_draw","description":"Set up debug-draw of physics internal state","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

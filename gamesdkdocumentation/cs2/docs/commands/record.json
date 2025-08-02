@@ -1,1 +1,0 @@
-{"kind":"command","name":"record","description":"Record a demo.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

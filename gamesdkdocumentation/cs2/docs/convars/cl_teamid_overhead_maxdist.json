@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_teamid_overhead_maxdist","description":"max distance at which the overhead team id icons will show","args":"6000","flags":["clientdll","cheat","per_user"],"games":["cs2"]}

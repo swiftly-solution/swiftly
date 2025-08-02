@@ -1,1 +1,0 @@
-{"kind":"command","name":"pred_cloth_rot_multiplier","description":"<no description>","args":"0.3","flags":["developmentonly","clientdll"],"games":["cs2"]}

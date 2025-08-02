@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_new_user_phase","description":"0: Not Started, 1: Needs Training, 2: Training Complete, -1: Disabled","args":"0","flags":["clientdll","archive","release"],"games":["cs2"]}

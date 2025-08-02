@@ -1,1 +1,0 @@
-{"kind":"command","name":"demo_mouse_enable_binding","description":"Name of the binding to enable mouse on demo playback UI","args":"\"drop\"","flags":["clientdll","archive"],"games":["cs2"]}

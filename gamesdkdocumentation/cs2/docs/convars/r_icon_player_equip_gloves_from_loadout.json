@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_icon_player_equip_gloves_from_loadout","description":"equip gloves on player for icon rendering from loadout, or use default gloves","args":"false","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

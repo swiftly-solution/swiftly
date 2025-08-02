@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"soundname","type":"string"},{"name":"stop","type":"bool"}],"name":"CUserMessageSendAudio","games":["cs2"]}

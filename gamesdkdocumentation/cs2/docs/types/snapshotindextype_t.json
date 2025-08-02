@@ -1,1 +1,0 @@
-{"kind":"type","name":"SnapshotIndexType_t","description":"Automatically generated game type from enum SnapshotIndexType_t","values":{"SNAPSHOT_INDEX_INCREMENT":0,"SNAPSHOT_INDEX_DIRECT":1},"games":["cs2"]}

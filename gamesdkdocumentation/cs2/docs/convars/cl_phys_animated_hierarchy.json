@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_phys_animated_hierarchy","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

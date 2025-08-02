@@ -1,1 +1,0 @@
-{"kind":"type","name":"AnimScriptType","description":"Automatically generated game type from enum AnimScriptType","values":{"ANIMSCRIPT_TYPE_INVALID":-1,"ANIMSCRIPT_FUSE_GENERAL":0,"ANIMSCRIPT_FUSE_STATEMACHINE":1},"games":["cs2"]}

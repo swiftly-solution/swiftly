@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"base","type":"CMsgTEBaseBeam"},{"name":"start","type":"CMsgVector"},{"name":"end","type":"CMsgVector"}],"name":"CMsgTEBeamPoints","games":["cs2"]}

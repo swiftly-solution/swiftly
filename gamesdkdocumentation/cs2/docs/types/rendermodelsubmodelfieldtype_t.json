@@ -1,1 +1,0 @@
-{"kind":"type","name":"RenderModelSubModelFieldType_t","description":"Automatically generated game type from enum RenderModelSubModelFieldType_t","values":{"SUBMODEL_AS_BODYGROUP_SUBMODEL":0,"SUBMODEL_AS_MESHGROUP_INDEX":1,"SUBMODEL_AS_MESHGROUP_MASK":2,"SUBMODEL_IGNORED_USE_MODEL_DEFAULT_MESHGROUP_MASK":3},"games":["cs2"]}

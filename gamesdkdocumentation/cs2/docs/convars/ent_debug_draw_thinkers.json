@@ -1,1 +1,0 @@
-{"kind":"command","name":"ent_debug_draw_thinkers","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

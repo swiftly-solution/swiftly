@@ -1,1 +1,0 @@
-{"kind":"type","name":"FieldNetworkOption","description":"Automatically generated game type from enum FieldNetworkOption","values":{"Auto":0,"ForceEnable":1,"ForceDisable":2},"games":["cs2"]}

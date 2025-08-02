@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_disconnect_kills_players","description":"When a player disconnects, kill them first (triggering item drops, stats, etc.)","args":"true","flags":["gamedll","release"],"games":["cs2"]}

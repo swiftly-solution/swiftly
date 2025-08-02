@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_show_time_info","description":"Show real time, large.","args":"false","flags":["clientdll","release"],"games":["cs2"]}

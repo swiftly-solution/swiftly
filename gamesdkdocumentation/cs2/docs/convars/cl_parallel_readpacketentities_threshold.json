@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_parallel_readpacketentities_threshold","description":"Use parallel processing of snapshot reading if above this many entries.","args":"2","flags":["developmentonly","defensive"],"games":["cs2"]}

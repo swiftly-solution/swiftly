@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_skip_hierarchy_update_for_unchanged_entities","description":"Skip updating hierarchy information in PostDataUpdate for entities that have not changed","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

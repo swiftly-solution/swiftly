@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_vr_width","description":"0 = narrow, 1 = med (default), 2 = wide","args":"1","flags":["min:","0,","max:","2,","clientdll","archive"],"games":["cs2"]}

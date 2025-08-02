@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_logmoney","description":"Enables money logging.  Values are: 0=off, 1=on","args":"false","flags":["gamedll","release"],"games":["cs2"]}

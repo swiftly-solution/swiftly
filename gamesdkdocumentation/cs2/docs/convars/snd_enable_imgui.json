@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_enable_imgui","description":"Game/Sound System Debugger","args":"false","flags":["developmentonly","archive","cheat","menubar_item"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_teamflag_2","description":"Enter a country's alpha 2 code to show that flag next to team 2's name in the spectator scoreboard.","args":"\"\"","flags":["gamedll","release"],"games":["cs2"]}

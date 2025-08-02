@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"orderId","type":"int32"}],"name":"CUserMsg_HudError","games":["cs2"]}

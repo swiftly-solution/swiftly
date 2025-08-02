@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"entidx","type":"int32","default":-1},{"name":"healthratioOld","type":"float"},{"name":"healthratioNew","type":"float"},{"name":"style","type":"int32"}],"name":"CCSUsrMsg_UpdateScreenHealthBar","games":["cs2"]}

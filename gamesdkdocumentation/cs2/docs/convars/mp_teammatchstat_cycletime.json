@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_teammatchstat_cycletime","description":"Cycle match stats after so many seconds","args":"45","flags":["gamedll","release"],"games":["cs2"]}

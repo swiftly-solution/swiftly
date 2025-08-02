@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnRoundAnnounceMatchPoint","description":"This event is triggered when round_announce_match_point is triggered.","arguments":{},"return":"void","games":["cs2"]}

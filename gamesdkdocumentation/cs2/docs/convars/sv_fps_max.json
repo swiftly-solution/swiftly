@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_fps_max","description":"Dedicated server frame rate limiter. 0=tick rate. Only applies to the dedicated server.","args":"0","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

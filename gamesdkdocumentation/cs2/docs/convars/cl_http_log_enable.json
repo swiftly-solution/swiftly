@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_http_log_enable","description":"Allows sending HTTP log from client main menu.","args":"false","flags":["clientdll","dontrecord","release","clientcmd_can_execute"],"games":["cs2"]}

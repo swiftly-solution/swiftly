@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnGameuiHidden","description":"This event is triggered when gameui_hidden is triggered.","arguments":{},"return":"void","games":["cs2"]}

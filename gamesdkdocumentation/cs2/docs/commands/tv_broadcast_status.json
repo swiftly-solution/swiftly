@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_broadcast_status","description":"Print out broadcast status","args":"","flags":["release"],"games":["cs2"]}

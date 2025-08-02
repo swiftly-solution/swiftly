@@ -1,1 +1,0 @@
-{"kind":"command","name":"perfectworld_replenish_funds","description":"Opens Perfect World funds replenishment page for account.","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"status","type":"GCConnectionStatus","default":"GCConnectionStatus_HAVE_SESSION"},{"name":"clientSessionNeed","type":"uint32"},{"name":"queuePosition","type":"int32"},{"name":"queueSize","type":"int32"},{"name":"waitSeconds","type":"int32"},{"name":"estimatedWaitSecondsRemaining","type":"int32"}],"name":"CMsgConnectionStatus","games":["cs2"]}

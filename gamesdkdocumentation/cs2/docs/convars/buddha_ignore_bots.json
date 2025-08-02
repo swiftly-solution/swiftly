@@ -1,1 +1,0 @@
-{"kind":"command","name":"buddha_ignore_bots","description":"Bots always buddha 0","args":"false","flags":["gamedll","notify","cheat"],"games":["cs2"]}

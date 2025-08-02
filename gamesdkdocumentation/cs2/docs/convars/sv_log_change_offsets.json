@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_log_change_offsets","description":"Log change offsets to game/varchangeinfoN.log files.","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_track_aim_head_threshold","description":"Notify render device when rendering a frame with enemy head within threshold distance","args":"0","flags":["developmentonly","clientdll"],"games":["cs2"]}

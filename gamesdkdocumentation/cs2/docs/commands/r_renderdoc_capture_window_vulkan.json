@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_renderdoc_capture_window_vulkan","description":"Triggers a RenderDoc capture of a specific Window","args":"","flags":["developmentonly"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_dynamic_shadow_resolution_quantization","description":"Quantization of dynamically computed shadow size","args":"64","flags":["min:","8,","max:","128,","developmentonly","defensive"],"games":["cs2"]}

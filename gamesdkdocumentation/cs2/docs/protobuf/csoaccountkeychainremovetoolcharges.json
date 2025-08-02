@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"charges","type":"uint32"}],"name":"CSOAccountKeychainRemoveToolCharges","games":["cs2"]}

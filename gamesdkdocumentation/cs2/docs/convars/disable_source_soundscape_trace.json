@@ -1,1 +1,0 @@
-{"kind":"command","name":"disable_source_soundscape_trace","description":"Bypasses lookup of soundscapes for indvidual audio sources when enabled.","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

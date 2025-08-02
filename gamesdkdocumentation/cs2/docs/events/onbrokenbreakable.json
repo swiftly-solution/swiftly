@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnBrokenBreakable","description":"This event is triggered when broken_breakable is triggered.","arguments":{"entindex":"int32","userid":"int32","material":"int32"},"return":"void","games":["cs2"]}

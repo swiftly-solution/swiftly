@@ -1,1 +1,0 @@
-{"kind":"command","name":"engine_show_frame_dispatch","description":"show frame dispatch names.","args":"false","flags":["developmentonly"],"games":["cs2"]}

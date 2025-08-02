@@ -1,1 +1,0 @@
-{"kind":"command","name":"gameinstructor_verbose","description":"Set to 1 for standard debugging or 2 (in combo with gameinstructor_verbose_lesson) to show update actions.","args":"0","flags":["clientdll","cheat"],"games":["cs2"]}

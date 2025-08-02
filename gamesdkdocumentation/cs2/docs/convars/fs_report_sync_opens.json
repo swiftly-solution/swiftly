@@ -1,1 +1,0 @@
-{"kind":"command","name":"fs_report_sync_opens","description":"0:Off, 1:Always, 2:Not during load","args":"0","flags":["release"],"games":["cs2"]}

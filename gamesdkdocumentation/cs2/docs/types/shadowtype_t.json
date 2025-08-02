@@ -1,1 +1,0 @@
-{"kind":"type","name":"ShadowType_t","description":"Automatically generated game type from enum ShadowType_t","values":{"SHADOWS_NONE":0,"SHADOWS_SIMPLE":1},"games":["cs2"]}

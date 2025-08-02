@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnUgcFileDownloadFinished","description":"This event is triggered when ugc_file_download_finished is triggered.","arguments":{"hcontent":"uint64"},"return":"void","games":["cs2"]}

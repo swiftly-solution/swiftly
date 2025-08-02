@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"channel","type":"uint32"},{"name":"x","type":"float"},{"name":"y","type":"float"},{"name":"color1","type":"fixed32"},{"name":"color2","type":"fixed32"},{"name":"effect","type":"uint32"},{"name":"message","type":"string"}],"name":"CUserMessageHudMsg","games":["cs2"]}

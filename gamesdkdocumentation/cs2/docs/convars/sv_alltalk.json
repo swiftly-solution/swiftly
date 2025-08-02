@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_alltalk","description":"Players can hear all other players' voice communication, no team restrictions","args":"false","flags":["gamedll","notify","release","commandline_enforced"],"games":["cs2"]}

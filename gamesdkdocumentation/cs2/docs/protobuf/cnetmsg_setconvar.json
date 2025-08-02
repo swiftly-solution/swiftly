@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"convars","type":"CMsg_CVars"}],"name":"CNETMsg_SetConVar","games":["cs2"]}

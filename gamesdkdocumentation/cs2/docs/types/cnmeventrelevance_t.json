@@ -1,1 +1,0 @@
-{"kind":"type","name":"CNmEventRelevance_t","description":"Automatically generated game type from enum CNmEventRelevance_t","values":{"ClientOnly":0,"ServerOnly":1,"ClientAndServer":2},"games":["cs2"]}

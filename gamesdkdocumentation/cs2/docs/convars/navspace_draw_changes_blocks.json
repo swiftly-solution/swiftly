@@ -1,1 +1,0 @@
-{"kind":"command","name":"navspace_draw_changes_blocks","description":"Draw blocks when they change","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

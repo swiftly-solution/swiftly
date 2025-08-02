@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_view_near_hud_player_eye_dist","description":"<no description>","args":"20","flags":["developmentonly","clientdll"],"games":["cs2"]}

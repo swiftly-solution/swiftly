@@ -1,1 +1,0 @@
-{"kind":"command","name":"demo_flush","description":"Flush writing the demo file every network update","args":"false","flags":["archive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_taser_recharge_time","description":"Determines recharge time for taser. -1 = disabled.","args":"30","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

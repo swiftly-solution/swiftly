@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_load_random_client_names_file","description":"Loads a file containing random name words for clients","args":"","flags":["gamedll","release"],"games":["cs2"]}

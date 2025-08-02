@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostMbInputLockSuccess","description":"This event is triggered after mb_input_lock_success is triggered.","arguments":{},"return":"void","games":["cs2"]}

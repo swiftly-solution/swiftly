@@ -1,1 +1,0 @@
-{"kind":"command","name":"commentary","description":"Desired commentary mode state.","args":"false","flags":["gamedll","archive"],"games":["cs2"]}

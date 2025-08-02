@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_sniper_tracer_innacuracy","description":"How inaccurate a sniper shot can be before we trip sv_sniper_tracer_mode behavior.","args":"0.085","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

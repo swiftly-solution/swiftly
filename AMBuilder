@@ -334,6 +334,8 @@ for sdk_target in MMSPlugin.sdk_targets:
     os.path.join(sdk['path']),
   ]
 
+  print(binary.compiler.defines)
+
   protobufSources = []
   for root, dirs, files in os.walk(os.path.join(builder.sourcePath, "protobufs", sdk['name'])):
     for _file in files:

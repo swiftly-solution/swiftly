@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"xuid","type":"uint64"},{"name":"teamnumber","type":"int32"},{"name":"placement","type":"int32"}],"name":"CCSUsrMsg_SurvivalStats.Placement","games":["cs2"]}

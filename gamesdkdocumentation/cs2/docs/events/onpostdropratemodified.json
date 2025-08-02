@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostDropRateModified","description":"This event is triggered after drop_rate_modified is triggered.","arguments":{},"return":"void","games":["cs2"]}

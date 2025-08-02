@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_streams_image_sfurl","description":"Format of Scaleform image representing the stream","args":"\"img://loadjpeg:","flags":["640x360"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_fullupdate","description":"Force a full update for all clients.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

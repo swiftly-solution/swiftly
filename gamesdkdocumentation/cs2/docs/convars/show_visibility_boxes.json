@@ -1,1 +1,0 @@
-{"kind":"command","name":"show_visibility_boxes","description":"Enable or Disable debug display of visibility boxes","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

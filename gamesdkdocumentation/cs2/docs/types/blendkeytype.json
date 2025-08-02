@@ -1,1 +1,0 @@
-{"kind":"type","name":"BlendKeyType","description":"Automatically generated game type from enum BlendKeyType","values":{"BlendKey_UserValue":0,"BlendKey_Velocity":1,"BlendKey_Distance":2,"BlendKey_RemainingDistance":3},"games":["cs2"]}

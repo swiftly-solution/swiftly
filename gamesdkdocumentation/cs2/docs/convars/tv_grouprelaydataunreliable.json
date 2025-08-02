@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_grouprelaydataunreliable","description":"When enabled, this will collect all information for relay sending into a single datagram to ensure that the data stays together through a potentially large number of relays","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

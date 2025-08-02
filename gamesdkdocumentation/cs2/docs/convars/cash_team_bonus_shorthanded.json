@@ -1,1 +1,0 @@
-{"kind":"command","name":"cash_team_bonus_shorthanded","description":"<no description>","args":"0","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

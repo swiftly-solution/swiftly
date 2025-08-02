@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_vr_forward_offset","description":"Subtitle offset distance (forward, in front of player)","args":"30","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_show_voip_indicator_for_enemies","description":"Makes it so the voip icon is shown over enemies as well as allies when they are talking","args":"false","flags":["gamedll","replicated","release"],"games":["cs2"]}

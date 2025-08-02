@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_show_playernames_max_chars_console","description":"Shows all player names (including bots) as 16 W's.","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

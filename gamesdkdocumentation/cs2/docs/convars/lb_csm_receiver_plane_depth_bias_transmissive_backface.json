@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_csm_receiver_plane_depth_bias_transmissive_backface","description":"Depth bias applied to shadow receiver for transmissive backface geo (based on renderstate depthbias being 0)","args":"0.00015","flags":["developmentonly","defensive"],"games":["cs2"]}

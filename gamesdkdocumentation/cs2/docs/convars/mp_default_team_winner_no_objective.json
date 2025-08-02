@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_default_team_winner_no_objective","description":"If the map doesn't define an objective (bomb, hostage, etc), the value of this convar will declare the winner when the time runs out in the round.","args":"-1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

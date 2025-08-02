@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_dragscroll_minflickvelocity","description":"Minimum velocity that the mouse must be moving as mouse up time to qualify as a drag scroll flick","args":"60","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

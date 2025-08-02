@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_instant_replay_full_frame_build_threaded","description":"Build the full frames on a seperate job thread","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

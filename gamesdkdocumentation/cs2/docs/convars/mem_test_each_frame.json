@@ -1,1 +1,0 @@
-{"kind":"command","name":"mem_test_each_frame","description":"Run heap check at end of every frame","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

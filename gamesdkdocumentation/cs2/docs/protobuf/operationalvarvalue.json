@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"name","type":"string"},{"name":"ivalue","type":"int32"},{"name":"fvalue","type":"float"},{"name":"svalue","type":"bytes"}],"name":"OperationalVarValue","games":["cs2"]}

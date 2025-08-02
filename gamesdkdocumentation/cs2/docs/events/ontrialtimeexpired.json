@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnTrialTimeExpired","description":"This event is triggered when trial_time_expired is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

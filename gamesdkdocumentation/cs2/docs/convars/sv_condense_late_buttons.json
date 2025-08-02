@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_condense_late_buttons","description":"When condensing late commands. Should we compress multiple moves of button presses into the target move?","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

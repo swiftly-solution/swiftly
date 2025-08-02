@@ -1,1 +1,0 @@
-{"kind":"command","name":"save_animgraph_recording","description":"Saves all active animgraph recordings to disk","args":" automaticallyOpenInAnimgraphEditor","flags":["gamedll","cheat"],"games":["cs2"]}

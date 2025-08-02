@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"appid","type":"uint32"},{"name":"gameitemid","type":"uint32"},{"name":"date","type":"string"},{"name":"paymentUsUsd","type":"uint64"},{"name":"paymentRowUsd","type":"uint64"}],"name":"CWorkshop_AddSpecialPayment_Request","games":["cs2"]}

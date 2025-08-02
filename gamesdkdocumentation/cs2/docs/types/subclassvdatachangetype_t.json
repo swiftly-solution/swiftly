@@ -1,1 +1,0 @@
-{"kind":"type","name":"SubclassVDataChangeType_t","description":"Automatically generated game type from enum SubclassVDataChangeType_t","values":{"SUBCLASS_VDATA_CREATED":0,"SUBCLASS_VDATA_SUBCLASS_CHANGED":1,"SUBCLASS_VDATA_RELOADED":2},"games":["cs2"]}

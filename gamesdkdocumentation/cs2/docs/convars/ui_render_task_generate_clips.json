@@ -1,1 +1,0 @@
-{"kind":"command","name":"ui_render_task_generate_clips","description":"<no description>","args":"false","flags":["clientdll","release"],"games":["cs2"]}

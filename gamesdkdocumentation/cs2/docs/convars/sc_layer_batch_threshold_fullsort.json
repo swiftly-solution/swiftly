@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_layer_batch_threshold_fullsort","description":"<no description>","args":"80","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"reason","type":"uint32"},{"name":"message","type":"string"}],"name":"NetMessageConnectionCrashed","games":["cs2"]}

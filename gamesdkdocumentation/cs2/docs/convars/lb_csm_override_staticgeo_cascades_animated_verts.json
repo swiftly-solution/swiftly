@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_csm_override_staticgeo_cascades_animated_verts","description":"If lb_csm_override_staticgeo_cascades, ensure only objects without animated verts, i.e. SCENEOBJECTFLAG_CAN_RENDER_INTO_SST flag will be excluded (as opposed to all static objects).","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

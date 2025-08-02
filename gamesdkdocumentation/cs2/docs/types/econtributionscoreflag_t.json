@@ -1,1 +1,0 @@
-{"kind":"type","name":"EContributionScoreFlag_t","description":"Automatically generated game type from enum EContributionScoreFlag_t","values":{"k_EContributionScoreFlag_Default":0,"k_EContributionScoreFlag_Objective":1,"k_EContributionScoreFlag_Bullets":2},"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"webapi_values_init_buffer_size","description":"Initial buffer size for buffers in the WebAPIValues buffer pool","args":"65536","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

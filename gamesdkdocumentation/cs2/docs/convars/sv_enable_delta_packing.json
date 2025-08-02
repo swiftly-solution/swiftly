@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_enable_delta_packing","description":"When enabled, this allows for entity packing to use the property changes for building up the data. This is many times faster, but can be disabled for error checking.","args":"true","flags":["release"],"games":["cs2"]}

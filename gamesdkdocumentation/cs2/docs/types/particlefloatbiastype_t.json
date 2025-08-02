@@ -1,1 +1,0 @@
-{"kind":"type","name":"ParticleFloatBiasType_t","description":"Automatically generated game type from enum ParticleFloatBiasType_t","values":{"PF_BIAS_TYPE_INVALID":-1,"PF_BIAS_TYPE_STANDARD":0,"PF_BIAS_TYPE_GAIN":1,"PF_BIAS_TYPE_EXPONENTIAL":2,"PF_BIAS_TYPE_COUNT":3},"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_autokick","description":"Kick idle/team-killing/team-damaging players","args":"true","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

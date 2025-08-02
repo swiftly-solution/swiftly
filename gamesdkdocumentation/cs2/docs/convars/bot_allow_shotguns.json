@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_allow_shotguns","description":"If nonzero, bots may use shotguns.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

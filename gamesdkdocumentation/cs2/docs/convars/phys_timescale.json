@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_timescale","description":"Scale time for physics","args":"1","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

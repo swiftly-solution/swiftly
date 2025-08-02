@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_debugviewangle","description":"Plots view angles yaw at various stages of the frame/tick in Tracy.","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

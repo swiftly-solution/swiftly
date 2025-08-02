@@ -1,1 +1,0 @@
-{"kind":"command","name":"demo_pause_at_end","description":"Pause demo playback when the end of the file is reached, otherwise quit to main menu.","args":"true","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_buywheel_donate_key","description":"Set the key to use for donation in the buy menu. 0: Left Control; 1: Left Alt; 2: Left Shift.","args":"0","flags":["clientdll","archive","per_user","release"],"games":["cs2"]}

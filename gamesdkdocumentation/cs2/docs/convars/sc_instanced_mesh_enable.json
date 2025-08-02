@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_instanced_mesh_enable","description":"Toggles rendering instanced meshes","args":"true","flags":["developmentonly","cheat"],"games":["cs2"]}

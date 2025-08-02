@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_pred_always_latch","description":"<no description>","args":"false","flags":["clientdll","release"],"games":["cs2"]}

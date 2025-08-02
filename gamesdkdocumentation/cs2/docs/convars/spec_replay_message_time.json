@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_replay_message_time","description":"How long to show the message about Killer Replay after death. The best setting is a bit shorter than spec_replay_autostart_delay + spec_replay_leadup_time + spec_replay_winddown_time","args":"9.5","flags":["replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"gsLocationId","type":"uint32"},{"name":"dataCenterId","type":"uint32"},{"name":"numLockedIn","type":"uint32"},{"name":"numFoundNearby","type":"uint32"},{"name":"noteLevel","type":"uint32"}],"name":"CMsgGCCStrike15_v2_MatchmakingGC2ClientSearchStats","games":["cs2"]}

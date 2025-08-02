@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_sendtables","description":"Force full sendtable sending path.","args":"1","flags":["developmentonly"],"games":["cs2"]}

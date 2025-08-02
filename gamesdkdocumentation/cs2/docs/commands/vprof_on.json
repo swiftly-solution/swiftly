@@ -1,1 +1,0 @@
-{"kind":"command","name":"vprof_on","description":"Enable vprof","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

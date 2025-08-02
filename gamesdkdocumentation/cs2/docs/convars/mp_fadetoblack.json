@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_fadetoblack","description":"fade a player's screen to black when he dies","args":"false","flags":["developmentonly","gamedll","clientdll","notify","replicated","defensive"],"games":["cs2"]}

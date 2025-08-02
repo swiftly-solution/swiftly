@@ -1,1 +1,0 @@
-{"kind":"command","name":"screenshot_prefix","description":"Set the screenshot auto naming prefix.","args":"\"shot\"","flags":["developmentonly","defensive"],"games":["cs2"]}

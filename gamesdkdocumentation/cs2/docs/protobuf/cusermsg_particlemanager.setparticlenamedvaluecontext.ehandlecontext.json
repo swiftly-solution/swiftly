@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"valueNameHash","type":"uint32"},{"name":"entIndex","type":"uint32","default":16777215}],"name":"CUserMsg_ParticleManager.SetParticleNamedValueContext.EHandleContext","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"eventsource","type":"int32"}],"name":"CBidirMsg_RebroadcastSource","games":["cs2"]}

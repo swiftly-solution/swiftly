@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_winlimit","description":"Max score one team can reach before server changes maps","args":"0","flags":["min:","0,","developmentonly","gamedll","clientdll","notify","replicated","defensive"],"games":["cs2"]}

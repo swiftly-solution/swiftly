@@ -1,1 +1,0 @@
-{"kind":"command","name":"world_layer_list","description":"List all world layers","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

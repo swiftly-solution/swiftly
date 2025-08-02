@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPlayerFullUpdate","description":"This event is triggered when player_full_update is triggered.","arguments":{"userid":"int32","count":"int32"},"return":"void","games":["cs2"]}

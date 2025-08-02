@@ -1,1 +1,0 @@
-{"kind":"command","name":"phonemedelay","description":"Phoneme delay to account for sound system latency.","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

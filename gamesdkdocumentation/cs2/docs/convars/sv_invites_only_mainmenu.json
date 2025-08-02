@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_invites_only_mainmenu","description":"If turned on, will ignore all invites when user is playing a match","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

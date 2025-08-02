@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_draw_aggregate_meshes","description":"SceneSystem/Aggregates/Draw Aggregates","args":"true","flags":["developmentonly","menubar_item"],"games":["cs2"]}

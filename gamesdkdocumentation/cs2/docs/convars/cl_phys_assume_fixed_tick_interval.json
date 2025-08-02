@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_phys_assume_fixed_tick_interval","description":"If true, we assume the client uses a fixed tickrate like the server (which may not always be true). If false, we recalculate the number of physics substeps in each client tick based on the actual elapsed time in the tick.","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

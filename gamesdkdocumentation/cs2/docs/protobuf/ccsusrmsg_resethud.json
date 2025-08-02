@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"reset","type":"bool"}],"name":"CCSUsrMsg_ResetHud","games":["cs2"]}

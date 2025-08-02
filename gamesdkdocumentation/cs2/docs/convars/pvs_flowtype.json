@@ -1,1 +1,0 @@
-{"kind":"command","name":"pvs_flowtype","description":"Flow through spawn groups for vis (0 == default, 1 == always visible, 2 == never visible.","args":"0","flags":["gamedll","release"],"games":["cs2"]}

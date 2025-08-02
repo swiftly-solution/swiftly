@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_broadcast_origin_auth","description":"X-Origin-Auth header of the broadcast POSTs","args":"\"gocastauth\"","flags":["hidden","release"],"games":["cs2"]}

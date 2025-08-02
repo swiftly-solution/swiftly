@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_glow_spike_time","description":"Time for noisy player glow 'spike' to show that they made noise very recently.","args":"0","flags":["min:","0,","clientdll","release"],"games":["cs2"]}

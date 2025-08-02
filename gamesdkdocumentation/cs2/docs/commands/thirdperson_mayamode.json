@@ -1,1 +1,0 @@
-{"kind":"command","name":"thirdperson_mayamode","description":"Switch to thirdperson Maya-like camera controls.","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

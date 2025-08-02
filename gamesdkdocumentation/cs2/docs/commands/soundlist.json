@@ -1,1 +1,0 @@
-{"kind":"command","name":"soundlist","description":"List all known sounds.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

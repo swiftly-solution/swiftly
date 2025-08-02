@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_allow_low_gpu_memory_mode","description":"Allow Low GPU Memory mode (i.e. when building maps).","args":"true","flags":["release"],"games":["cs2"]}

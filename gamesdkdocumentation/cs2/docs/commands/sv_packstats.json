@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_packstats","description":"Show entity packing stats, pass 'clear' as argument to reset counts.","args":"","flags":["release"],"games":["cs2"]}

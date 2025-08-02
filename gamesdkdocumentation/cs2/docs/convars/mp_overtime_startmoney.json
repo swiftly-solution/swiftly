@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_overtime_startmoney","description":"Money assigned to all players at start of every overtime half","args":"10000","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

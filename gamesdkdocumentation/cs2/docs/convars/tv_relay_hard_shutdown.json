@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_relay_hard_shutdown","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

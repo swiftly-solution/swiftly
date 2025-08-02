@@ -1,1 +1,0 @@
-{"kind":"type","name":"StateActionBehavior","description":"Automatically generated game type from enum StateActionBehavior","values":{"STATETAGBEHAVIOR_ACTIVE_WHILE_CURRENT":0,"STATETAGBEHAVIOR_FIRE_ON_ENTER":1,"STATETAGBEHAVIOR_FIRE_ON_EXIT":2,"STATETAGBEHAVIOR_FIRE_ON_ENTER_AND_EXIT":3,"STATETAGBEHAVIOR_ACTIVE_WHILE_FULLY_BLENDED":4},"games":["cs2"]}

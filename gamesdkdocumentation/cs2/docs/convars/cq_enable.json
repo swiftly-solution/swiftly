@@ -1,1 +1,0 @@
-{"kind":"command","name":"cq_enable","description":"Run one usercmd per server tick and maintain a buffer.  Client speeds up/slows down it's usercmd tick rate to maintain server command queue buffering.","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

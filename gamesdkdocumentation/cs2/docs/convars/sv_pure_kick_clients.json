@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pure_kick_clients","description":"If set to 1, the server will kick clients with mismatching files. Otherwise, it will issue a warning to the client.","args":"true","flags":["release"],"games":["cs2"]}

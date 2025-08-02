@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"begin","type":"uint32"},{"name":"end","type":"uint32"},{"name":"frozen","type":"bool"}],"name":"CMsgGCCStrike15_ClientDeepStats.DeepStatsRange","games":["cs2"]}

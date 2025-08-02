@@ -1,1 +1,0 @@
-{"kind":"command","name":"animgraph_trace_static_only","description":"<no description>","args":"false","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

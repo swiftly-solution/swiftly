@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_retake_max_consecutive_rounds_same_target_site","description":"Limit the number of consecutive rounds targeting the same site.","args":"2","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

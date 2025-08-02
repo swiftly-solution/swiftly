@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_use_hi_pri_context_switch_time","description":"+use search behaves as though high priority items are usable for this long after they become unusable to avoid players accidentally performing a different action.","args":"1","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_drop_grenade_enable","description":"Allows players to drop grenades.","args":"true","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

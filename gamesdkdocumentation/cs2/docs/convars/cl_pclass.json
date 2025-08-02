@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_pclass","description":"Dump entity by prediction classname.","args":"\"\"","flags":["clientdll","cheat"],"games":["cs2"]}

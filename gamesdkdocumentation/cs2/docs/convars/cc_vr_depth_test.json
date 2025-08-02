@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_vr_depth_test","description":"Have closed caption Panorama panel perform depth testing against the scene","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

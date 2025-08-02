@@ -1,1 +1,0 @@
-{"kind":"command","name":"ai_debug_dyninteractions","description":"Debug the NPC dynamic interaction system.","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

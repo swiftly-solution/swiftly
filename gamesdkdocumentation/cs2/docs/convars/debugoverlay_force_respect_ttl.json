@@ -1,1 +1,0 @@
-{"kind":"command","name":"debugoverlay_force_respect_ttl","description":"Force respect TTL even when clearing scopes","args":"false","flags":["cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostDroneDispatched","description":"This event is triggered after drone_dispatched is triggered.","arguments":{"userid":"int32","priority":"int32","drone_dispatched":"int32"},"return":"void","games":["cs2"]}

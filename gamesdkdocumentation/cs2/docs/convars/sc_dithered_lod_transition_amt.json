@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_dithered_lod_transition_amt","description":"Percentage of the transition between two lods we will apply a dither","args":"0.075","flags":["min:","0,","max:","0.2,","developmentonly","defensive"],"games":["cs2"]}

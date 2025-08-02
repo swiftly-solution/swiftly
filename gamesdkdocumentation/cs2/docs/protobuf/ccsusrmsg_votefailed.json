@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"team","type":"int32"},{"name":"reason","type":"int32"}],"name":"CCSUsrMsg_VoteFailed","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostDemoStop","description":"This event is triggered after demo_stop is triggered.","arguments":{},"return":"void","games":["cs2"]}

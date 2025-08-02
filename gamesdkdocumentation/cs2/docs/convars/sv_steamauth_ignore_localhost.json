@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_steamauth_ignore_localhost","description":"Ignore VAC and auth errors for client connected via localhost address or in-engine loopback","args":"true","flags":["release"],"games":["cs2"]}

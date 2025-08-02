@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_show_battlefront","description":"Show areas where rushing players will initially meet.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

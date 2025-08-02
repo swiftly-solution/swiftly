@@ -1,1 +1,0 @@
-{"kind":"type","name":"NmFrameSnapEventMode_t","description":"Automatically generated game type from enum NmFrameSnapEventMode_t","values":{"Floor":0,"Round":1},"games":["cs2"]}

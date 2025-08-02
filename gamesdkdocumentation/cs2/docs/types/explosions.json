@@ -1,1 +1,0 @@
-{"kind":"type","name":"Explosions","description":"Automatically generated game type from enum Explosions","values":{"expRandom":0,"expDirected":1,"expUsePrecise":2},"games":["cs2"]}

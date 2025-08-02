@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_team_timeout_ot_max","description":"Max number of timeouts each team can have per OT after all OT timeouts got added.","args":"1","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

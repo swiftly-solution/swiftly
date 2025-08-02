@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnClientsideLessonClosed","description":"This event is triggered when clientside_lesson_closed is triggered.","arguments":{"lesson_name":"string"},"return":"void","games":["cs2"]}

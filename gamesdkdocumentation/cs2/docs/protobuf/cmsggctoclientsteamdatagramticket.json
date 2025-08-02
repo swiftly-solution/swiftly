@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"serializedTicket","type":"bytes"}],"name":"CMsgGCToClientSteamDatagramTicket","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_print_class_sizes","description":"Prints the sizes of relevant sos classes.","args":"","flags":["cheat"],"games":["cs2"]}

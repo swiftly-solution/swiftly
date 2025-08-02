@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_directional_lightmaps","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

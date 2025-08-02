@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"id","type":"uint32"},{"name":"grp","type":"uint32"},{"name":"gameType","type":"uint32"},{"name":"apr","type":"uint32"},{"name":"ark","type":"uint32"},{"name":"loc","type":"uint32"},{"name":"accountid","type":"uint32"}],"name":"CMsgGCCStrike15_v2_Party_SearchResults.Entry","games":["cs2"]}

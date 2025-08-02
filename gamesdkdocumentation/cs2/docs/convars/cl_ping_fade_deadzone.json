@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_ping_fade_deadzone","description":"Distance from the crosshair over which the ping is completely invisible","args":"60","flags":["clientdll","archive","release"],"games":["cs2"]}

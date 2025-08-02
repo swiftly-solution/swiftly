@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_sun_csm_size_cull_threshold_texels","description":"Size, in texels, where we will cull an object in the shadowmap","args":"10","flags":["developmentonly","defensive"],"games":["cs2"]}

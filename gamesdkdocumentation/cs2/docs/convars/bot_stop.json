@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_stop","description":"bot_stop <1|all> | <not_bomber> | <t> | <ct>","args":"\"0\"","flags":["gamedll","cheat"],"games":["cs2"]}

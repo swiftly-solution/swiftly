@@ -1,1 +1,0 @@
-{"kind":"command","name":"status_json","description":"Print status in JSON format","args":"","flags":["release"],"games":["cs2"]}

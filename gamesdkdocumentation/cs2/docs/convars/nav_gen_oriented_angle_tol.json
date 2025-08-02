@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_gen_oriented_angle_tol","description":"Max abrupt orientation difference an NPC can tolerate when moving through the mesh (degrees).","args":"15","flags":["gamedll","cheat"],"games":["cs2"]}

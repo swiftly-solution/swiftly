@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"item","type":"string"}],"name":"CCSUsrMsg_ItemPickup","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"EntityDistanceMode_t","description":"Automatically generated game type from enum EntityDistanceMode_t","values":{"eOriginToOrigin":0,"eCenterToCenter":1,"eAxisToAxis":2},"games":["cs2"]}

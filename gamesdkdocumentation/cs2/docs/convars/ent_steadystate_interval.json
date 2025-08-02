@@ -1,1 +1,0 @@
-{"kind":"command","name":"ent_steadystate_interval","description":"Rate at which entities can be trickled to players","args":"0.1","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

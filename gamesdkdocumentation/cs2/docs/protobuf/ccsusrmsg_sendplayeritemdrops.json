@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"entityUpdates","type":"CEconItemPreviewDataBlock"}],"name":"CCSUsrMsg_SendPlayerItemDrops","games":["cs2"]}

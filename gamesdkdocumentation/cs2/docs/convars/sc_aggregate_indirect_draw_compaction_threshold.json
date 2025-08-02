@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_aggregate_indirect_draw_compaction_threshold","description":"Threshold of indirect draws when we will do compaction","args":"8","flags":["min:","1,","release"],"games":["cs2"]}

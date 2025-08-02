@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_max_change_offsets","description":"How many network changes to track before requiring full diff check.","args":"48","flags":["developmentonly","gamedll"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"animgraph_slope_enable","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostSetInstructorGroupEnabled","description":"This event is triggered after set_instructor_group_enabled is triggered.","arguments":{"group":"string","enabled":"int32"},"return":"void","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"leaderboards_cache_duration","description":"<no description>","args":"600","flags":["developmentonly","clientdll"],"games":["cs2"]}

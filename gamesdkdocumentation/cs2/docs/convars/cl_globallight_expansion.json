@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_globallight_expansion","description":"<no description>","args":"200","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

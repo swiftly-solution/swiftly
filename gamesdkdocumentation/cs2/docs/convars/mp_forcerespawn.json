@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_forcerespawn","description":"<no description>","args":"true","flags":["developmentonly","gamedll","notify","defensive"],"games":["cs2"]}

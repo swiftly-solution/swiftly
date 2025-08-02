@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"handId","type":"int32"},{"name":"effectAmplitude","type":"float"},{"name":"effectFrequency","type":"float"},{"name":"effectDuration","type":"float"}],"name":"CUserMessageHapticsManagerPulse","games":["cs2"]}

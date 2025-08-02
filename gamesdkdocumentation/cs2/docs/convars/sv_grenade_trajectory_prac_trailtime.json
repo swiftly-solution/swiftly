@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_grenade_trajectory_prac_trailtime","description":"Shows grenade trajectory practice visualization for this number of seconds.","args":"0","flags":["min:","0,","max:","8,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

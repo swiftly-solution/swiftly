@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_sequence_debug","description":"<no description>","args":"-1","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

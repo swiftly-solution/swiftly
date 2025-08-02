@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_playerspraydisable","description":"Disable player sprays.","args":"false","flags":["clientdll","archive"],"games":["cs2"]}

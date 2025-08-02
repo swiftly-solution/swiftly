@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_disconnect_soundevent","description":"This soundevent is called to stop the desired soundevents when the game is disconnected.","args":"\"core.stop_all_soundevents\"","flags":["developmentonly","defensive"],"games":["cs2"]}

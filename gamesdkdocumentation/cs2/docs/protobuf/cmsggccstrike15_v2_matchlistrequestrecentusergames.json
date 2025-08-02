@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountid","type":"uint32"}],"name":"CMsgGCCStrike15_v2_MatchListRequestRecentUserGames","games":["cs2"]}

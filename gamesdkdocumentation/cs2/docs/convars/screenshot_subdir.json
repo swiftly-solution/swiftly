@@ -1,1 +1,0 @@
-{"kind":"command","name":"screenshot_subdir","description":"Set the screenshot directory.","args":"\"screenshots\"","flags":["developmentonly","defensive"],"games":["cs2"]}

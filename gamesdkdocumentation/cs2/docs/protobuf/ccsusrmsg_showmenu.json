@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"bitsValidSlots","type":"int32"},{"name":"displayTime","type":"int32"},{"name":"menuString","type":"string"}],"name":"CCSUsrMsg_ShowMenu","games":["cs2"]}

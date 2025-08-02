@@ -1,1 +1,0 @@
-{"kind":"command","name":"cash_team_elimination_bomb_map","description":"<no description>","args":"3250","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"g_debug_doors","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

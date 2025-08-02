@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_playcast_delay_resync","description":"To alleviate intermittent network connectivity problems, this is the number of seconds to wait before actually re-syncing the stream after failure","args":"0","flags":["release"],"games":["cs2"]}

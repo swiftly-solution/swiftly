@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_cmaa_debug_edges","description":"debug visualize edges","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

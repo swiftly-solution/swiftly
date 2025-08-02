@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_continuous_kinematic_update","description":"<no description>","args":"1","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

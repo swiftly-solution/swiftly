@@ -1,1 +1,0 @@
-{"kind":"type","name":"BeamClipStyle_t","description":"Automatically generated game type from enum BeamClipStyle_t","values":{"kNOCLIP":0,"kGEOCLIP":1,"kMODELCLIP":2,"kBEAMCLIPSTYLE_NUMBITS":2},"games":["cs2"]}

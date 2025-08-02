@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"dllAction","type":"string"},{"name":"fullReport","type":"bool"}],"name":"CUserMessageRequestDllStatus","games":["cs2"]}

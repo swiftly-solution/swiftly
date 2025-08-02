@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_weapons_allow_typecount","description":"Determines how many purchases of each weapon type allowed per player per round (0 to disallow purchasing, -1 to have no limit).","args":"5","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

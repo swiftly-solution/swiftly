@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_event_oriented_lerp_min_distance","description":"<no description>","args":"24","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

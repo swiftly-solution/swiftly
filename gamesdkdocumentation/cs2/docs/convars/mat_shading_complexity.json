@@ -1,1 +1,0 @@
-{"kind":"command","name":"mat_shading_complexity","description":"Visualize shading complexity","args":"false","flags":["cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnAchievementEvent","description":"This event is triggered when achievement_event is triggered.","arguments":{"achievement_name":"string","cur_val":"int32","max_val":"int32"},"return":"void","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"IKChannelMode","description":"Automatically generated game type from enum IKChannelMode","values":{"TwoBone":0,"TwoBone_Translate":1,"OneBone":2,"OneBone_Translate":3},"games":["cs2"]}

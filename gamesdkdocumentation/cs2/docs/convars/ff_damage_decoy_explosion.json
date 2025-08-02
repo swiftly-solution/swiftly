@@ -1,1 +1,0 @@
-{"kind":"command","name":"ff_damage_decoy_explosion","description":"Enables or disables team damage from decoy detonation","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

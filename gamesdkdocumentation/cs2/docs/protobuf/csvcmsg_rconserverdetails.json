@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"token","type":"bytes"},{"name":"details","type":"string"}],"name":"CSVCMsg_RconServerDetails","games":["cs2"]}

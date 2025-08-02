@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_dm_teammode_dogtag_score","description":"Team deathmatch victory points to award for collecting enemy dogtags","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

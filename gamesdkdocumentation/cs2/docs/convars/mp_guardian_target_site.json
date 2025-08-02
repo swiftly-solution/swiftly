@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_guardian_target_site","description":"If set to the index of a bombsite, will cause random spawns to be only created near that site.","args":"-1","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

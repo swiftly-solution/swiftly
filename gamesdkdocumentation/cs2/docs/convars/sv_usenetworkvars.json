@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_usenetworkvars","description":"Use networkvar system.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

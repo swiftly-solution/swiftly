@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_obs_interp_dist_to_turn_to_face","description":"Changing to a target further than this will cause the camera to face the direction of travel","args":"500","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

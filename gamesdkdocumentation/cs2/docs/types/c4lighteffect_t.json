@@ -1,1 +1,0 @@
-{"kind":"type","name":"C4LightEffect_t","description":"Automatically generated game type from enum C4LightEffect_t","values":{"eLightEffectNone":0,"eLightEffectDropped":1,"eLightEffectThirdPersonHeld":2},"games":["cs2"]}

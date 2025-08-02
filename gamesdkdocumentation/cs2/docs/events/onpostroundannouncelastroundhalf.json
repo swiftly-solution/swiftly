@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostRoundAnnounceLastRoundHalf","description":"This event is triggered after round_announce_last_round_half is triggered.","arguments":{},"return":"void","games":["cs2"]}

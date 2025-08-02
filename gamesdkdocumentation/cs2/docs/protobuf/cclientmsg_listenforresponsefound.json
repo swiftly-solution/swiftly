@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"playerSlot","type":"int32","default":-1}],"name":"CClientMsg_ListenForResponseFound","games":["cs2"]}

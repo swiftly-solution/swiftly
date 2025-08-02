@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"fullReport","type":"bool"},{"name":"module","type":"string"}],"name":"CMsgGCCStrike15_v2_GC2ClientRequestValidation","games":["cs2"]}

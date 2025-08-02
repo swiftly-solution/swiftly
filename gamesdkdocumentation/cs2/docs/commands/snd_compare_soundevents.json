@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_compare_soundevents","description":"Compare the compiled and loaded contents of 2 soundevents.","args":"","flags":["developmentonly","cheat"],"games":["cs2"]}

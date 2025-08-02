@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"entityHandle","type":"uint32","default":16777215},{"name":"position","type":"CMsgVector"}],"name":"CUserMsg_ParticleManager.UpdateEntityPosition","games":["cs2"]}

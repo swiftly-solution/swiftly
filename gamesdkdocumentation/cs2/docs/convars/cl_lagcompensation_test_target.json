@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_lagcompensation_test_target","description":"Player whose head is tracked to test lag compensation.","args":"-1","flags":["developmentonly","clientdll"],"games":["cs2"]}

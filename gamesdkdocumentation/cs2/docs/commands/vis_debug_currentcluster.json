@@ -1,1 +1,0 @@
-{"kind":"command","name":"vis_debug_currentcluster","description":"Show the current cluster number","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"shake_show","description":"Displays a list of the active screen shakes.","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

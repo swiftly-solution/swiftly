@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_allow_rogues","description":"If nonzero, bots may occasionally go 'rogue'. Rogue bots do not obey radio commands, nor pursue scenario goals.","args":"true","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

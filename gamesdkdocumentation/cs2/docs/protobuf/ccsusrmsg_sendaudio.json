@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"radioSound","type":"string"}],"name":"CCSUsrMsg_SendAudio","games":["cs2"]}

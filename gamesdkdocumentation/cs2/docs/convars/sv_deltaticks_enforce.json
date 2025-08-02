@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_deltaticks_enforce","description":"By default, player must ack delta ticks in order. How to enforce it: 2 = kick all clients, 1 = kick only TV clients, 0 = do not kick.","args":"2","flags":["release"],"games":["cs2"]}

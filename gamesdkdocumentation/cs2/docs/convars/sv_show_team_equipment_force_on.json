@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_show_team_equipment_force_on","description":"Force on if not prohibited","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

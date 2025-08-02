@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_transition_time_factor","description":"A float representing a scale factor for transitions. 1.0 is normal, 2.0 would be twice as fast as normal, 0.5 half as fast","args":"1","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

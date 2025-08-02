@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_bin_slices","description":"<no description>","args":"8192","flags":["developmentonly","defensive"],"games":["cs2"]}

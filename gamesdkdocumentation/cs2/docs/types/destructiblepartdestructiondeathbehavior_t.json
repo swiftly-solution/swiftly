@@ -1,1 +1,0 @@
-{"kind":"type","name":"DestructiblePartDestructionDeathBehavior_t","description":"Automatically generated game type from enum DestructiblePartDestructionDeathBehavior_t","values":{"eDoNotKill":0,"eKill":1,"eGib":2,"eRemove":3},"games":["cs2"]}

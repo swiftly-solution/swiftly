@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_server_graphic2_enable","description":"When enabled, 220x45 (<16kb) image file will be displayed to on-server spectators.","args":"true","flags":["clientdll","release"],"games":["cs2"]}

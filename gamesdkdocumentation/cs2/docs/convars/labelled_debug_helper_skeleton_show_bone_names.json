@@ -1,1 +1,0 @@
-{"kind":"command","name":"labelled_debug_helper_skeleton_show_bone_names","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

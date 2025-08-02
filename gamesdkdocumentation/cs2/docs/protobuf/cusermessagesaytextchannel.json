@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"player","type":"int32"},{"name":"channel","type":"int32"},{"name":"text","type":"string"}],"name":"CUserMessageSayTextChannel","games":["cs2"]}

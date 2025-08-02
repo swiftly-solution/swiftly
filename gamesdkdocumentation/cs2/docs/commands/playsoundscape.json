@@ -1,1 +1,0 @@
-{"kind":"command","name":"playsoundscape","description":"Forces a soundscape to play","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

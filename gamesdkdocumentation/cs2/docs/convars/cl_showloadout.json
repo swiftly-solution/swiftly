@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_showloadout","description":"Toggles display of current loadout.","args":"true","flags":["clientdll","archive","per_user"],"games":["cs2"]}

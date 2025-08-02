@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_roundtime","description":"How many minutes each round takes.","args":"5","flags":["min:","0.1,","max:","60,","gamedll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

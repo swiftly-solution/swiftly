@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"msgType","type":"uint32"},{"name":"senderId","type":"fixed64"},{"name":"netMessage","type":"bytes"},{"name":"ip","type":"uint32"}],"name":"CGCToGCMsgRouted","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_stats_log_time","description":"<no description>","args":"0","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

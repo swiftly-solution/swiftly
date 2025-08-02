@@ -1,1 +1,0 @@
-{"kind":"type","name":"ParticleTopology_t","description":"Automatically generated game type from enum ParticleTopology_t","values":{"PARTICLE_TOPOLOGY_POINTS":0,"PARTICLE_TOPOLOGY_LINES":1,"PARTICLE_TOPOLOGY_TRIS":2,"PARTICLE_TOPOLOGY_QUADS":3,"PARTICLE_TOPOLOGY_CUBES":4},"games":["cs2"]}

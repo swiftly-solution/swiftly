@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_parallel_readpacketentities","description":"Set to 1 to use threading snapshot reading (if game supports and server is sending bitcounts).","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_ladder_slack_z_mult","description":"Difference in Z increases toward the middle of the slack ladder.","args":"0.026","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

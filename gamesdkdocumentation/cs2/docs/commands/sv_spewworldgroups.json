@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_spewworldgroups","description":"Spew world groups (server)","args":"","flags":["developmentonly"],"games":["cs2"]}

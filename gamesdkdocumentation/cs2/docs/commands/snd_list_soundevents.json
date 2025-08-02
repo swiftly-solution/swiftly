@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_list_soundevents","description":"List all available soundevents","args":"","flags":["developmentonly","cheat"],"games":["cs2"]}

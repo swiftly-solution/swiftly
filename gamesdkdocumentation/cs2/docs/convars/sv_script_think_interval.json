@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_script_think_interval","description":"<no description>","args":"0.1","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

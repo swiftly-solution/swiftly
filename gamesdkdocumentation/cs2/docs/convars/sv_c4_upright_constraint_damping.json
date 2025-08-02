@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_c4_upright_constraint_damping","description":"Controls how much velocity is damped on the constraint. 0 = undamped wobbly spring, 1 = critically damped no wobble fast converge, >1 = over damped","args":"0.5","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"CDebugOverlayFilterTextType_t","description":"Automatically generated game type from enum CDebugOverlayFilterTextType_t","values":{"FILTER_TEXT_NONE":0,"MATCH":1,"HIERARCHY":2,"COUNT":3},"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"showtriggers_toggle","description":"Displays the movement bounding box for the triggers in orange.  Some entites will also display entity specific overlays.","args":"   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}","flags":["gamedll","cheat"],"games":["cs2"]}

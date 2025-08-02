@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostInstructorStartLesson","description":"This event is triggered after instructor_start_lesson is triggered.","arguments":{"userid":"int32","hint_name":"string","hint_target":"int32","vr_movement_type":"int32","vr_single_controller":"bool","vr_controller_type":"int32"},"return":"void","games":["cs2"]}

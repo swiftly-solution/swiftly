@@ -1,1 +1,0 @@
-{"kind":"type","name":"SosGroupType_t","description":"Automatically generated game type from enum SosGroupType_t","values":{"SOS_GROUPTYPE_DYNAMIC":0,"SOS_GROUPTYPE_STATIC":1},"games":["cs2"]}

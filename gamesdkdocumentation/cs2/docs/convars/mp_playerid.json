@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_playerid","description":"Controls what information player see in the status bar: 0 all names; 1 team names; 2 no names","args":"0","flags":["min:","0,","max:","2,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

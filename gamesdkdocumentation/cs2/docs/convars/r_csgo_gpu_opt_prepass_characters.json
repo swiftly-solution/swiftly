@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_gpu_opt_prepass_characters","description":"only depth prepass nearby characters (see r_csgo_gpu_opt_prepass_characters_cull_threshold to control threshold)","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

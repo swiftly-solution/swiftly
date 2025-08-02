@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_enable_sunlight","description":"SceneSystem/LightBinner/Enable Sunlight","args":"true","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

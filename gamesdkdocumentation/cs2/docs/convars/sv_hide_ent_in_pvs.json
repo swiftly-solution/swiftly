@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_hide_ent_in_pvs","description":"<no description>","args":"-1","flags":["developmentonly","gamedll"],"games":["cs2"]}

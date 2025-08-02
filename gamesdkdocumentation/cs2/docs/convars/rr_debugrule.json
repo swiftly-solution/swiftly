@@ -1,1 +1,0 @@
-{"kind":"command","name":"rr_debugrule","description":"If set to the name of the rule, that rule's score will be shown whenever a concept is passed into the response rules system.","args":"\"\"","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

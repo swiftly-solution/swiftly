@@ -1,1 +1,0 @@
-{"kind":"command","name":"hostage_drop_time","description":"Time for the hostage before it fully drops to ground","args":"1","flags":["developmentonly","gamedll"],"games":["cs2"]}

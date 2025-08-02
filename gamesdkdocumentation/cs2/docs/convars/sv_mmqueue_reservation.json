@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_mmqueue_reservation","description":"Server queue reservation","args":"\"\"","flags":["developmentonly","dontrecord"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_startmoney","description":"amount of money each player gets when they reset","args":"800","flags":["min:","0,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"PFNoiseTurbulence_t","description":"Automatically generated game type from enum PFNoiseTurbulence_t","values":{"PF_NOISE_TURB_NONE":0,"PF_NOISE_TURB_HIGHLIGHT":1,"PF_NOISE_TURB_FEEDBACK":2,"PF_NOISE_TURB_LOOPY":3,"PF_NOISE_TURB_CONTRAST":4,"PF_NOISE_TURB_ALTERNATE":5},"games":["cs2"]}

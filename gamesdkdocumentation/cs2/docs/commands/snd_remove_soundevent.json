@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_remove_soundevent","description":"Remove the specified soundevent","args":"","flags":["developmentonly","cheat"],"games":["cs2"]}

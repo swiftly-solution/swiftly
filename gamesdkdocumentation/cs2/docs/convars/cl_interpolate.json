@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_interpolate","description":"Interpolate entities on the client.","args":"true","flags":["developmentonly","clientdll","userinfo"],"games":["cs2"]}

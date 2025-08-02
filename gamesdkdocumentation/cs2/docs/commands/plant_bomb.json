@@ -1,1 +1,0 @@
-{"kind":"command","name":"plant_bomb","description":"Plant a bomb where the player is looking.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"WeaponSwitchReason_t","description":"Automatically generated game type from enum WeaponSwitchReason_t","values":{"eDrawn":0,"eEquipped":1,"eUserInitiatedSwitchToLast":2,"eUserInitiatedUIKeyPress":3,"eUserInitiatedSwitchHands":4},"games":["cs2"]}

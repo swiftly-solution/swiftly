@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_dz_hostage_rescue_reward","description":"Number of cash bundles to award for rescuing a hostage","args":"18","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

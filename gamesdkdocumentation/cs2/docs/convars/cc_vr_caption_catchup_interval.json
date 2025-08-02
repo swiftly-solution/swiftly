@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_vr_caption_catchup_interval","description":"Duration it takes for attached caption to ideal point","args":"0.3","flags":["min:","0.01,","developmentonly","clientdll","defensive"],"games":["cs2"]}

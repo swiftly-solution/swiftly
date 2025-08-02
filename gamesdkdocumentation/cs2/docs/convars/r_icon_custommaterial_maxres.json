@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_icon_custommaterial_maxres","description":"maxres for custommaterials when rendering icons","args":"512","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

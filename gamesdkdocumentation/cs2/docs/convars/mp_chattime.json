@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_chattime","description":"amount of time players can chat after the game is over","args":"10","flags":["min:","1,","max:","120,","developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

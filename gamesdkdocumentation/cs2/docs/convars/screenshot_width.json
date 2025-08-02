@@ -1,1 +1,0 @@
-{"kind":"command","name":"screenshot_width","description":"Screenshot width. -1 for screen width.","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

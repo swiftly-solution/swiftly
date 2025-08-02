@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_spewmeta","description":"Spew serializer meta","args":"","flags":["cheat"],"games":["cs2"]}

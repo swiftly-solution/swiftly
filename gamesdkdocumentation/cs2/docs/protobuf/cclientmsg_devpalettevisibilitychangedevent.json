@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"visible","type":"bool"}],"name":"CClientMsg_DevPaletteVisibilityChangedEvent","games":["cs2"]}

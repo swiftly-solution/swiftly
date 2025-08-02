@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_particle_shadow_map_texture_size","description":"<no description>","args":"1536","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

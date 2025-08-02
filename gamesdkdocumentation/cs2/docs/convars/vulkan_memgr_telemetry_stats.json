@@ -1,1 +1,0 @@
-{"kind":"command","name":"vulkan_memgr_telemetry_stats","description":"Track detailed stats for telemetry","args":"false","flags":["developmentonly"],"games":["cs2"]}

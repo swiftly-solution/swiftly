@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_steamaudio_perspective_correction_front_only","description":"Use perspective correction for 3D audio only in the frontal directions.","args":"true","flags":["developmentonly"],"games":["cs2"]}

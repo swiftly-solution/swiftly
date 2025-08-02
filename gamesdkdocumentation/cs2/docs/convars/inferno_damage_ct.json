@@ -1,1 +1,0 @@
-{"kind":"command","name":"inferno_damage_ct","description":"Damage per second from CT inferno","args":"40","flags":["gamedll","cheat"],"games":["cs2"]}

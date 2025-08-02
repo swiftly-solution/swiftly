@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnWriteProfileData","description":"This event is triggered when write_profile_data is triggered.","arguments":{},"return":"void","games":["cs2"]}

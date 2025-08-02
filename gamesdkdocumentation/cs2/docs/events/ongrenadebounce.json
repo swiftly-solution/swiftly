@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnGrenadeBounce","description":"This event is triggered when grenade_bounce is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

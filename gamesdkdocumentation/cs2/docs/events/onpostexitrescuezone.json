@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostExitRescueZone","description":"This event is triggered after exit_rescue_zone is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

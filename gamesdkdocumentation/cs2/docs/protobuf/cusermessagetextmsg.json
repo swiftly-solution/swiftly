@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"dest","type":"uint32"},{"name":"param","type":"string"}],"name":"CUserMessageTextMsg","games":["cs2"]}

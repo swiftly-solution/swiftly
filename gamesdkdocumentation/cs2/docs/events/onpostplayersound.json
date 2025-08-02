@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostPlayerSound","description":"This event is triggered after player_sound is triggered.","arguments":{"userid":"int32","radius":"int32","duration":"float","step":"bool"},"return":"void","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"demo_allow_game_mismatch","description":"Allow playback of demo even if game directories are not matched [may crash or fail to load].","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

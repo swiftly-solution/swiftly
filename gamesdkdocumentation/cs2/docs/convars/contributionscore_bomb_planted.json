@@ -1,1 +1,0 @@
-{"kind":"command","name":"contributionscore_bomb_planted","description":"amount of contribution score for planting a bomb","args":"2","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

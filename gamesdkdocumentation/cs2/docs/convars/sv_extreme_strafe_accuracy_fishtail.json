@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_extreme_strafe_accuracy_fishtail","description":"Number of degrees of aim 'fishtail' when making an extreme strafe direction change","args":"0","flags":["min:","-5,","max:","5,","developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

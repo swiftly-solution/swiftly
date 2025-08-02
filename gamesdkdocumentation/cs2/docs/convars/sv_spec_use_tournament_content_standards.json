@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_spec_use_tournament_content_standards","description":"<no description>","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

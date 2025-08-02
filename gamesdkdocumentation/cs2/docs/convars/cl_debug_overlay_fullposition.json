@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_debug_overlay_fullposition","description":"<no description>","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

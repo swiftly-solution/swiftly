@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_phys_debug_callback_entities","description":"Print all entities that get touch callbacks. Each entity is printed only once.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

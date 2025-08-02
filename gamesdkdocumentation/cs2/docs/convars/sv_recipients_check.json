@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_recipients_check","description":"When packing entities, check that recipient bits match for fast path packing.","args":"true","flags":["release"],"games":["cs2"]}

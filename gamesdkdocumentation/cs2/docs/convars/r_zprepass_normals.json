@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_zprepass_normals","description":"0: Use normals reconstructed from depth. 1: Output correct normals in z prepass.","args":"false","flags":["cheat"],"games":["cs2"]}

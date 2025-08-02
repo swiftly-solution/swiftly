@@ -1,1 +1,0 @@
-{"kind":"command","name":"ss_voice_hearpartner","description":"Route voice between splitscreen players on same system.","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_content_size_fixes","description":"Fix content size issues","args":"true","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

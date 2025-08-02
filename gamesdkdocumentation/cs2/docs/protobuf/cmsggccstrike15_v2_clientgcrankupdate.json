@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"rankings","type":"PlayerRankingInfo"}],"name":"CMsgGCCStrike15_v2_ClientGCRankUpdate","games":["cs2"]}

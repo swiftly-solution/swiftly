@@ -1,1 +1,0 @@
-{"kind":"command","name":"trigger_fan_debug","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

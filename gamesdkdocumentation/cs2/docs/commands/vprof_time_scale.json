@@ -1,1 +1,0 @@
-{"kind":"command","name":"vprof_time_scale","description":"Scale used when displaying time (0 = use default)","args":"","flags":["developmentonly","hidden"],"games":["cs2"]}

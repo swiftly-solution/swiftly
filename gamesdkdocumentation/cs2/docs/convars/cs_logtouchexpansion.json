@@ -1,1 +1,0 @@
-{"kind":"command","name":"cs_logtouchexpansion","description":"cs_logtouchexpansion <ent index or -1 for all>. Log player touch expansion component.","args":"-2","flags":["gamedll","cheat"],"games":["cs2"]}

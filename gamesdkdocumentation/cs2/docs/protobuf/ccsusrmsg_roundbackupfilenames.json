@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"count","type":"int32"},{"name":"index","type":"int32"},{"name":"filename","type":"string"},{"name":"nicename","type":"string"}],"name":"CCSUsrMsg_RoundBackupFilenames","games":["cs2"]}

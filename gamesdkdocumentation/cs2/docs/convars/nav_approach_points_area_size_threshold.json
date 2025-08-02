@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_approach_points_area_size_threshold","description":"Ignore nav areas with at least one side smaller than this amount during approach point calculation.","args":"200","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

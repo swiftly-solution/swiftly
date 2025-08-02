@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_mmqueue_reservation_timeout","description":"Time in seconds before mmqueue reservation expires.","args":"21","flags":["min:","5,","max:","180,","developmentonly"],"games":["cs2"]}

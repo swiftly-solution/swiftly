@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_friendlyfire","description":"Allows team members to injure other members of their team","args":"false","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"LayoutPositionType_e","description":"Automatically generated game type from enum LayoutPositionType_e","values":{"LAYOUTPOSITIONTYPE_VIEWPORT_RELATIVE":0,"LAYOUTPOSITIONTYPE_FRACTIONAL":1,"LAYOUTPOSITIONTYPE_NONE":2},"games":["cs2"]}

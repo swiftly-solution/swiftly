@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"entIndex","type":"int32","default":-1},{"name":"playerSlots","type":"int32"},{"name":"response","type":"string"},{"name":"entOrigin","type":"CMsgVector"},{"name":"preDelay","type":"float"},{"name":"mixPriority","type":"int32"}],"name":"CUserMessage_PlayResponseConditional","games":["cs2"]}

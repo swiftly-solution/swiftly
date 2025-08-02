@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_showclasses","description":"List the object class names known by scenesystem","args":"","flags":["cheat"],"games":["cs2"]}

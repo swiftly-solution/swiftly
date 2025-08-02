@@ -1,1 +1,0 @@
-{"kind":"command","name":"host_force_max_frametime_to_tick_interval","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

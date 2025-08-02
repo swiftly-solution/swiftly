@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_shorthanded_cash_bonus_round_delay","description":"number of previous rounds that a team needs to have been shorthanded before they are eligible for the short-handed bonus","args":"2","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

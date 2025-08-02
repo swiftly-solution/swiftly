@@ -1,1 +1,0 @@
-{"kind":"command","name":"save","description":"Save Game","args":"","flags":["developmentonly","gamedll","dontrecord","defensive"],"games":["cs2"]}

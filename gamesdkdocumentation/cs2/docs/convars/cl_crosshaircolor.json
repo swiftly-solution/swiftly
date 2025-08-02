@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_crosshaircolor","description":"Set crosshair color as defined in game_options.consoles.txt","args":"5","flags":["clientdll","archive","per_user"],"games":["cs2"]}

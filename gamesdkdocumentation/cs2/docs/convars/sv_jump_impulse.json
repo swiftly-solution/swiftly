@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_jump_impulse","description":"Initial upward velocity for player jumps; sqrt(2*gravity*height).","args":"301.993","flags":["min:","0,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"vis_debug_drawcluster","description":"Add cluster # to visualization, (-1) to clear","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

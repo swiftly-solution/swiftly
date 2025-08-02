@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_use_compute_bloom","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

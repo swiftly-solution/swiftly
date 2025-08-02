@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_freeze_traveltime","description":"Time taken to zoom in to frame a target in observer freeze cam.","args":"0.3","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

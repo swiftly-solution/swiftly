@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_visualize_batches","description":"color per batch","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

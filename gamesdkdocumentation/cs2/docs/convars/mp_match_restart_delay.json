@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_match_restart_delay","description":"Time (in seconds) until a match restarts.","args":"25","flags":["min:","1,","max:","9999,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

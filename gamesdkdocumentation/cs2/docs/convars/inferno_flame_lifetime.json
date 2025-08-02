@@ -1,1 +1,0 @@
-{"kind":"command","name":"inferno_flame_lifetime","description":"Average lifetime of each flame in seconds","args":"7","flags":["gamedll","replicated","release"],"games":["cs2"]}

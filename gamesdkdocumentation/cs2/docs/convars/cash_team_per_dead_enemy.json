@@ -1,1 +1,0 @@
-{"kind":"command","name":"cash_team_per_dead_enemy","description":"<no description>","args":"50","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

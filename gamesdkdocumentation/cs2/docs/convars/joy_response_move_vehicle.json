@@ -1,1 +1,0 @@
-{"kind":"command","name":"joy_response_move_vehicle","description":"<no description>","args":"6","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

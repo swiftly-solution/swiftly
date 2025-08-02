@@ -1,1 +1,0 @@
-{"kind":"command","name":"player_debug_print_damage","description":"When true, print amount and type of all damage received by player to console.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_rcon_minfailuretime","description":"Number of seconds to track failed rcon authentications","args":"30","flags":["min:","1,","developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_csgo_shoot_trim_input_frames","description":"<no description>","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

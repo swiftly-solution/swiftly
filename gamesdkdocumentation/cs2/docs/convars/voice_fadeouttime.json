@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_fadeouttime","description":"<no description>","args":"0.005","flags":["developmentonly","defensive"],"games":["cs2"]}

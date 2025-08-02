@@ -1,1 +1,0 @@
-{"kind":"command","name":"decalfrequency","description":"<no description>","args":"10","flags":["developmentonly","gamedll","notify","defensive"],"games":["cs2"]}

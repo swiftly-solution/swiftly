@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_solid_enemies","description":"How solid are enemies: 0 = transparent; 1 = fully solid","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"status","description":"Print connection status","args":"","flags":["release"],"games":["cs2"]}

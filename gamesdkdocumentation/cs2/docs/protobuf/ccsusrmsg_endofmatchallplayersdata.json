@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"allplayerdata","type":"CCSUsrMsg_EndOfMatchAllPlayersData.PlayerData"},{"name":"scene","type":"int32"}],"name":"CCSUsrMsg_EndOfMatchAllPlayersData","games":["cs2"]}

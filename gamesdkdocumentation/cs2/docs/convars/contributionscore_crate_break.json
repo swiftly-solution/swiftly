@@ -1,1 +1,0 @@
-{"kind":"command","name":"contributionscore_crate_break","description":"amount of contribution score for breaking an item crate","args":"0","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

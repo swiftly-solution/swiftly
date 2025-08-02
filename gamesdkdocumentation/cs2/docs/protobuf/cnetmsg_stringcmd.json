@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"command","type":"string"},{"name":"predictionSync","type":"uint32"}],"name":"CNETMsg_StringCmd","games":["cs2"]}

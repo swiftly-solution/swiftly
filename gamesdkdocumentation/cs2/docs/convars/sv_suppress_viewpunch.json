@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_suppress_viewpunch","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

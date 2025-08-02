@@ -1,1 +1,0 @@
-{"kind":"command","name":"dev_create_bhop_reports","description":"Whether we should create bhop reports when you jump. Reports are created for the client and server and are numbered monotonically","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

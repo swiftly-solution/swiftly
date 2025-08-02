@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"data","type":"bytes"},{"name":"lastCommandNumber","type":"uint32"}],"name":"CCLCMsg_Move","games":["cs2"]}

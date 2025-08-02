@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_select_allow_blocked","description":"When selecting an area under nav_edit, allow area marked as blocked.","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

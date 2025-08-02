@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_ct_default_secondary","description":"The default secondary (pistol) weapon that the CTs will spawn with","args":"\"weapon_hkp2000\"","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

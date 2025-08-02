@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_ticks_warning_level","description":"Print a message about problems with ticks and interpolation.  0=never, 1=warnings, 2=all, even if hidden by interpolation","args":"0","flags":["release"],"games":["cs2"]}

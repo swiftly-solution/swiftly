@@ -1,1 +1,0 @@
-{"kind":"type","name":"IKTargetCoordinateSystem","description":"Automatically generated game type from enum IKTargetCoordinateSystem","values":{"IKTARGETCOORDINATESYSTEM_WorldSpace":0,"IKTARGETCOORDINATESYSTEM_ModelSpace":1,"IKTARGETCOORDINATESYSTEM_COUNT":2},"games":["cs2"]}

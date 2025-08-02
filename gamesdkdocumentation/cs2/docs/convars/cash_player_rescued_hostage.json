@@ -1,1 +1,0 @@
-{"kind":"command","name":"cash_player_rescued_hostage","description":"<no description>","args":"1000","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

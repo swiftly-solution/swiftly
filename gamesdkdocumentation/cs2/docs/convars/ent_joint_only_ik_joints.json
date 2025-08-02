@@ -1,1 +1,0 @@
-{"kind":"command","name":"ent_joint_only_ik_joints","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

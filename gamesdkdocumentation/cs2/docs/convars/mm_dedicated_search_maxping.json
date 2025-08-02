@@ -1,1 +1,0 @@
-{"kind":"command","name":"mm_dedicated_search_maxping","description":"Longest preferred ping to dedicated servers for games","args":"150","flags":["min:","25,","max:","350,","archive"],"games":["cs2"]}

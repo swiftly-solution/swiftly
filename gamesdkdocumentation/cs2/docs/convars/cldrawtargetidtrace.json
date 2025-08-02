@@ -1,1 +1,0 @@
-{"kind":"command","name":"clDrawTargetIDTrace","description":"visualizing line trace for target ID","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

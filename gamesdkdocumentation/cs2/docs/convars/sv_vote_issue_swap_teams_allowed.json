@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_issue_swap_teams_allowed","description":"Can people hold votes to swap the teams?","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

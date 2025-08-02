@@ -1,1 +1,0 @@
-{"kind":"command","name":"surf_speed_slow","description":"Speed above which a player is considered to be going slow.","args":"50","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

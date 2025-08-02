@@ -1,1 +1,0 @@
-{"kind":"type","name":"FootPinningTimingSource","description":"Automatically generated game type from enum FootPinningTimingSource","values":{"FootMotion":0,"Tag":1,"Parameter":2},"games":["cs2"]}

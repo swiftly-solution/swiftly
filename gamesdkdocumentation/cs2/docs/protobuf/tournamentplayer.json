@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountId","type":"uint32"},{"name":"playerNick","type":"string"},{"name":"playerName","type":"string"},{"name":"playerDob","type":"uint32"},{"name":"playerFlag","type":"string"},{"name":"playerLocation","type":"string"},{"name":"playerDesc","type":"string"}],"name":"TournamentPlayer","games":["cs2"]}

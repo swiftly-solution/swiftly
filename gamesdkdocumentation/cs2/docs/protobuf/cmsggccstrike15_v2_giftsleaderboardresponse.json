@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"servertime","type":"uint32"},{"name":"timePeriodSeconds","type":"uint32"},{"name":"totalGiftsGiven","type":"uint32"},{"name":"totalGivers","type":"uint32"},{"name":"entries","type":"CMsgGCCStrike15_v2_GiftsLeaderboardResponse.GiftLeaderboardEntry"}],"name":"CMsgGCCStrike15_v2_GiftsLeaderboardResponse","games":["cs2"]}

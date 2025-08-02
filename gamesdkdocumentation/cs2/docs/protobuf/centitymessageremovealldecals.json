@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"removeDecals","type":"bool"},{"name":"entityMsg","type":"CEntityMsg"}],"name":"CEntityMessageRemoveAllDecals","games":["cs2"]}

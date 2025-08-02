@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_drawhud_force_deathnotices","description":"0: default; 1: draw deathnotices even if hud disabled; -1: force no deathnotices","args":"0","flags":["clientdll","release"],"games":["cs2"]}

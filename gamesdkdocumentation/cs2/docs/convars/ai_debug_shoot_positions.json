@@ -1,1 +1,0 @@
-{"kind":"command","name":"ai_debug_shoot_positions","description":"<no description>","args":"0","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_spectators_max","description":"How many spectators are allowed in a match.","args":"2","flags":["min:","0,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

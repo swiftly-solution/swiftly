@@ -1,1 +1,0 @@
-{"kind":"command","name":"fs_fake_read_delay_ms","description":"Add N ms of delay to every low-level read operation, to simulate a slow disk","args":"0","flags":["release"],"games":["cs2"]}

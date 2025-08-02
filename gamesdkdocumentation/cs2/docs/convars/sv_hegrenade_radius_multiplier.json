@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_hegrenade_radius_multiplier","description":"<no description>","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_smoke_clip_sniper","description":"<no description>","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"net_async_job_random_sleep","description":"Sleep randomly 0..net_async_job_random_sleep ms in the parallel server jobs; sleep is per job","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

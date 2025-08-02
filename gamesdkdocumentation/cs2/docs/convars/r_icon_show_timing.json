@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_icon_show_timing","description":"show timing in output","args":"false","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

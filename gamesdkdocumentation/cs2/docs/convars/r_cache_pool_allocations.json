@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_cache_pool_allocations","description":"<no description>","args":"true","flags":["developmentonly"],"games":["cs2"]}

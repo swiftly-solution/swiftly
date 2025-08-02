@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_command_reordering","description":"<no description>","args":"true","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnDifficultyChanged","description":"This event is triggered when difficulty_changed is triggered.","arguments":{"newDifficulty":"int32","oldDifficulty":"int32","strDifficulty":"string"},"return":"void","games":["cs2"]}

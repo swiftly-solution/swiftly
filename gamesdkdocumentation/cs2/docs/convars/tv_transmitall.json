@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_transmitall","description":"Transmit all entities (not only director view)","args":"false","flags":["replicated","release"],"games":["cs2"]}

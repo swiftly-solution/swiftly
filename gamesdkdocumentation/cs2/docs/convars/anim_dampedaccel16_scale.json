@@ -1,1 +1,0 @@
-{"kind":"command","name":"anim_dampedaccel16_scale","description":"<no description>","args":"0.85","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

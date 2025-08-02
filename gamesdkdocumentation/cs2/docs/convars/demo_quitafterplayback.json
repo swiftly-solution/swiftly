@@ -1,1 +1,0 @@
-{"kind":"command","name":"demo_quitafterplayback","description":"Quits game after demo playback.","args":"false","flags":["release"],"games":["cs2"]}

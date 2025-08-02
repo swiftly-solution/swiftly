@@ -1,1 +1,0 @@
-{"kind":"command","name":"schema_dump_binding","description":"schema_dump_binding <class_or_enum_name> - Print information about the named class or enum.","args":"","flags":["developmentonly"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnBuytimeEnded","description":"This event is triggered when buytime_ended is triggered.","arguments":{},"return":"void","games":["cs2"]}

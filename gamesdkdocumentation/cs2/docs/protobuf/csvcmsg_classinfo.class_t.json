@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"classId","type":"int32"},{"name":"className","type":"string"}],"name":"CSVCMsg_ClassInfo.class_t","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pvs_max_distance","description":"if set, adds a maximum range to PVS/PAS checks","args":"0","flags":["replicated","release"],"games":["cs2"]}

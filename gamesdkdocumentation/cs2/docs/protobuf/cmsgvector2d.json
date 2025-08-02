@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"x","type":"float"},{"name":"y","type":"float"}],"name":"CMsgVector2D","games":["cs2"]}

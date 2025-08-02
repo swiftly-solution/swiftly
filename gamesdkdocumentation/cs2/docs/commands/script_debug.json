@@ -1,1 +1,0 @@
-{"kind":"command","name":"script_debug","description":"Toggle the in-game script debug features","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

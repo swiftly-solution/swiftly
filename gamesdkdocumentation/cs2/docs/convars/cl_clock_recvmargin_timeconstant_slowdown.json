@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_clock_recvmargin_timeconstant_slowdown","description":"Clock sync will remove 63.2% of the error in N seconds","args":"0.3","flags":["developmentonly"],"games":["cs2"]}

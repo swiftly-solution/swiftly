@@ -1,1 +1,0 @@
-{"kind":"command","name":"breakable_multiplayer","description":"<no description>","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

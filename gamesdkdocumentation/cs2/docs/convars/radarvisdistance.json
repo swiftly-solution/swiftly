@@ -1,1 +1,0 @@
-{"kind":"command","name":"radarvisdistance","description":"at this distance and beyond you need to be point right at someone to see them","args":"1000","flags":["min:","10,","gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mm_datacenter_retry_interval","description":"Interval between datacenter stats retries.","args":"75","flags":["developmentonly"],"games":["cs2"]}

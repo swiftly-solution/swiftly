@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"filename","type":"string"},{"name":"attachEntIndex","type":"int32","default":-1},{"name":"duration","type":"float"}],"name":"CUserMessageCameraTransition.Transition_DataDriven","games":["cs2"]}

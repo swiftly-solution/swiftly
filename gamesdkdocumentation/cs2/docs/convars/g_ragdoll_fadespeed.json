@@ -1,1 +1,0 @@
-{"kind":"command","name":"g_ragdoll_fadespeed","description":"<no description>","args":"600","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

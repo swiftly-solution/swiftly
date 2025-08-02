@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_max_fps","description":"<no description>","args":"120","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

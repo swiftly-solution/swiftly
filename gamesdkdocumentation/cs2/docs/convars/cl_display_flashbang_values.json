@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_display_flashbang_values","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

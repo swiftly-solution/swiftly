@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_gpu_opt_use_aoproxy_depth_for_depth_pyramid","description":"if ao proxies enabled, use ao proxy downsampled depth as input to generate the depth pyramid for gpu culling","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

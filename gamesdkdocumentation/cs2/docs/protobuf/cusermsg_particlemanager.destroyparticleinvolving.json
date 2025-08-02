@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"destroyImmediately","type":"bool"},{"name":"entityHandle","type":"uint32","default":16777215}],"name":"CUserMsg_ParticleManager.DestroyParticleInvolving","games":["cs2"]}

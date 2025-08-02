@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountId","type":"uint32"},{"name":"missionId","type":"uint32"},{"name":"period","type":"uint32"},{"name":"progress","type":"uint32"}],"name":"CSOAccountRecurringMission","games":["cs2"]}

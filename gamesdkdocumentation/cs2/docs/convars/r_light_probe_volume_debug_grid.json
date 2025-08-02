@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_light_probe_volume_debug_grid","description":"Show LPV debug grid, 0: off, 1: closest only 2: closest and keep 3: all","args":"0","flags":["cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnRagdollDissolved","description":"This event is triggered when ragdoll_dissolved is triggered.","arguments":{"entindex":"int32"},"return":"void","games":["cs2"]}

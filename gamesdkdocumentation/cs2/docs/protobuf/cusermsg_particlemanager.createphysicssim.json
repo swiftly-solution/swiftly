@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"propGroupName","type":"string"},{"name":"useHighQualitySimulation","type":"bool"},{"name":"maxParticleCount","type":"uint32"}],"name":"CUserMsg_ParticleManager.CreatePhysicsSim","games":["cs2"]}

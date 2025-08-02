@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"mapname","type":"string"},{"name":"createTablesSkipped","type":"bool"}],"name":"CSVCMsg_ClearAllStringTables","games":["cs2"]}

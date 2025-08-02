@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_teamid_overhead_mode","description":"Always show team id over teammates. 0 = off, 1 = pips; 2 = +name, 3 = +equipment","args":"3","flags":["clientdll","archive","release"],"games":["cs2"]}

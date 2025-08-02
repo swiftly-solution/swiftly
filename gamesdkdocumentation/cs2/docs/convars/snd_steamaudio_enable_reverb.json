@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_steamaudio_enable_reverb","description":"Enable Steam Audio Reverb processor.","args":"0","flags":["release"],"games":["cs2"]}

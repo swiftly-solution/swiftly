@@ -1,1 +1,0 @@
-{"kind":"command","name":"surf_speed_med","description":"Speed above which a player is considered to be going medium.","args":"2000","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

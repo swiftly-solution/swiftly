@@ -1,1 +1,0 @@
-{"kind":"command","name":"script_trace_disable_all","description":"Turn off all trace output","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

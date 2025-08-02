@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_instanced_mesh_gpu_density_culling","description":"Toggles density culling (if enabled)","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

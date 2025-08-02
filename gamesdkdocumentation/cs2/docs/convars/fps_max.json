@@ -1,1 +1,0 @@
-{"kind":"command","name":"fps_max","description":"Frame rate limiter.  0=no limit.  Does not apply to dedicated server.","args":"120","flags":["archive","release"],"games":["cs2"]}

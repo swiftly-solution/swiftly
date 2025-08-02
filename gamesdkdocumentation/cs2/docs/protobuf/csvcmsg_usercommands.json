@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"commands","type":"CMsgServerUserCmd"}],"name":"CSVCMsg_UserCommands","games":["cs2"]}

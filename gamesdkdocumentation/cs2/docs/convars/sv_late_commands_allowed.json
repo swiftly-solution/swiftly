@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_late_commands_allowed","description":"Allow N late commands to run at 0 timescale prior to running an on-time command. Negative values for network round trip based calculation with a hard cap of the of absolute value","args":"5","flags":["gamedll","release"],"games":["cs2"]}

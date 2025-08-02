@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_maxclients_relayreserved","description":"This number of relay client connections are reserved for SourceTV relays.","args":"0","flags":["min:","0,","max:","255,","release"],"games":["cs2"]}

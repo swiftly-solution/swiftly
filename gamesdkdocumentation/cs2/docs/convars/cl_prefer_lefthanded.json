@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_prefer_lefthanded","description":"Left handed preference","args":"false","flags":["clientdll","archive","userinfo","per_user"],"games":["cs2"]}

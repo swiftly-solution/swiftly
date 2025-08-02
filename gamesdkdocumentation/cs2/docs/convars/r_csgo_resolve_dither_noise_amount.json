@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_resolve_dither_noise_amount","description":"Amount of screen space dither noise to apply during resolve (used/essential with R11G11B10_FLOAT RT)","args":"0.2","flags":["developmentonly","clientdll"],"games":["cs2"]}

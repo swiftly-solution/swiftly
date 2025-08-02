@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_disable_teamselect_menu","description":"Disable teamselect menu on clients","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

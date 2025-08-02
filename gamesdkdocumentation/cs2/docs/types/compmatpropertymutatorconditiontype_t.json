@@ -1,1 +1,0 @@
-{"kind":"type","name":"CompMatPropertyMutatorConditionType_t","description":"Automatically generated game type from enum CompMatPropertyMutatorConditionType_t","values":{"COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_EXISTS":0,"COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EXISTS":1,"COMP_MAT_MUTATOR_CONDITION_INPUT_CONTAINER_VALUE_EQUALS":2},"games":["cs2"]}

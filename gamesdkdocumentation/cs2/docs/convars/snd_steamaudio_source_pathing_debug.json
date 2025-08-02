@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_steamaudio_source_pathing_debug","description":"Enable path visualization for steam_audio_source operator.","args":"false","flags":["archive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"script_help","description":"Output help for script functions","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

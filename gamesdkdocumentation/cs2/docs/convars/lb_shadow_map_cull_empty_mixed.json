@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_shadow_map_cull_empty_mixed","description":"Don't render shadows for mixed shadowmaps with no dynamics objects in view","args":"false","flags":["cheat"],"games":["cs2"]}

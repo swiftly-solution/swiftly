@@ -1,1 +1,0 @@
-{"kind":"command","name":"animgraph_footlock_enabled","description":"A master convar that effectively disables the entire footlock node.","args":"true","flags":["developmentonly","replicated","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"matchid","type":"uint64"},{"name":"matchtime","type":"uint32"},{"name":"watchablematchinfo","type":"WatchableMatchInfo"},{"name":"roundstatsLegacy","type":"CMsgGCCStrike15_v2_MatchmakingServerRoundStats"},{"name":"roundstatsall","type":"CMsgGCCStrike15_v2_MatchmakingServerRoundStats"}],"name":"CDataGCCStrike15_v2_MatchInfo","games":["cs2"]}

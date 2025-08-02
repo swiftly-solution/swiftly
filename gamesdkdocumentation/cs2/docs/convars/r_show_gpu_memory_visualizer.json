@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_show_gpu_memory_visualizer","description":"SceneSystem/Vulkan GPU Memory Visualizer","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_drawviewmodel","description":"Render view model","args":"true","flags":["clientdll","cheat"],"games":["cs2"]}

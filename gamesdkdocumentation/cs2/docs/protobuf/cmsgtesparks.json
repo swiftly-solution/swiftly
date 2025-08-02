@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"origin","type":"CMsgVector"},{"name":"magnitude","type":"uint32"},{"name":"length","type":"uint32"},{"name":"direction","type":"CMsgVector"}],"name":"CMsgTESparks","games":["cs2"]}

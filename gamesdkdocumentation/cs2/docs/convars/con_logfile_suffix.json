@@ -1,1 +1,0 @@
-{"kind":"command","name":"con_logfile_suffix","description":"Suffix to append to the console log, may be changed to reopen the log","args":"\"\"","flags":["developmentonly","defensive"],"games":["cs2"]}

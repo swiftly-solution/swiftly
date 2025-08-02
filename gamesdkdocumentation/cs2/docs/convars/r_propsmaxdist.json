@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_propsmaxdist","description":"Maximum visible distance","args":"1200","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

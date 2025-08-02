@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_disable_reliable_delta_retransmit","description":"Assume that a reliable entity delta will be ack'ed and send future deltas relative to the last reliable delta.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

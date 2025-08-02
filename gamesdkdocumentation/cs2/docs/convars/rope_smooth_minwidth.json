@@ -1,1 +1,0 @@
-{"kind":"command","name":"rope_smooth_minwidth","description":"When using smoothing, this is the min screenspace width it lets a rope shrink to","args":"0.3","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"eventid","type":"int32"},{"name":"name","type":"string"},{"name":"keys","type":"CSVCMsg_GameEventList.key_t"}],"name":"CSVCMsg_GameEventList.descriptor_t","games":["cs2"]}

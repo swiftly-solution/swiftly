@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"tag","type":"uint32"},{"name":"val","type":"uint32"}],"name":"ScoreLeaderboardData.Entry","games":["cs2"]}

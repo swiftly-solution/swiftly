@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_cs_player_speed_has_hostage","description":"<no description>","args":"200","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

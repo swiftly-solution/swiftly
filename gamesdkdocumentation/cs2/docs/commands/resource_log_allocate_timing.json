@@ -1,1 +1,0 @@
-{"kind":"command","name":"resource_log_allocate_timing","description":"Log time spent in Allocate for all resource types","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

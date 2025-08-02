@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_fraglimit","description":"<no description>","args":"0","flags":["gamedll","notify","release"],"games":["cs2"]}

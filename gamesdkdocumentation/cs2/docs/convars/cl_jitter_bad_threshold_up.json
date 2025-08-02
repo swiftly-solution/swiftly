@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_jitter_bad_threshold_up","description":"When upstream packet jitter in a frame exceeds this threshold (ms), the frame is considered to have 'irregular delivery'.  This is a derived value and should not be modified manually","args":"20","flags":["min:","1,","max:","100,","userinfo"],"games":["cs2"]}

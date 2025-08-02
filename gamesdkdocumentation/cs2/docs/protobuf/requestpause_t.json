@@ -1,1 +1,0 @@
-{"kind":"protobuf","values":{"RP_PAUSE":0,"RP_UNPAUSE":1,"RP_TOGGLEPAUSE":2},"name":"RequestPause_t","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_instanced_mesh_size_cull_bias_shadow","description":"Bias for size culling instanced meshes in shadowmaps","args":"2","flags":["developmentonly","defensive"],"games":["cs2"]}

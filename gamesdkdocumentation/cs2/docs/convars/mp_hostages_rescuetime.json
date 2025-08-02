@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_hostages_rescuetime","description":"Additional time added to round time if a hostage is reached by a CT.","args":"1","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

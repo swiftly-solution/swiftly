@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"vdataName","type":"string"}],"name":"CUserMsg_ParticleManager.SetVData","games":["cs2"]}

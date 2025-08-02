@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"sectionid","type":"uint32"},{"name":"name","type":"string"},{"name":"desc","type":"string"},{"name":"groups","type":"CDataGCCStrike15_v2_TournamentGroup"}],"name":"CDataGCCStrike15_v2_TournamentSection","games":["cs2"]}

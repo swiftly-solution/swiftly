@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_test_find_nearest_clear","description":"Calculate the nearest point on the navmesh to the trace point.  Uses selection from nav_select_hull.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

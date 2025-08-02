@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_teammatchstat_1","description":"A non-empty string sets first team's match stat.","args":"\"\"","flags":["gamedll","release"],"games":["cs2"]}

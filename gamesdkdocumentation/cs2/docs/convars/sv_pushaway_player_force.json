@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pushaway_player_force","description":"How hard the player is pushed away from physics objects (falls off with inverse square of distance).","args":"450","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

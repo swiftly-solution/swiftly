@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pause_on_tick","description":"Tick count to pause on","args":"0","flags":["developmentonly","gamedll","replicated","cheat"],"games":["cs2"]}

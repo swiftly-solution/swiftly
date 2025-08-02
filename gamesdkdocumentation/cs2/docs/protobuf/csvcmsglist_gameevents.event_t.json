@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"tick","type":"int32"},{"name":"event","type":"CSVCMsg_GameEvent"}],"name":"CSVCMsgList_GameEvents.event_t","games":["cs2"]}

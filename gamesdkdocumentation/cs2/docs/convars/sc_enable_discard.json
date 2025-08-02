@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_enable_discard","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

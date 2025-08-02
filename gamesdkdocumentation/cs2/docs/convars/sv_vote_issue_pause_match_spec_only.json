@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_issue_pause_match_spec_only","description":"When enabled, only admins start technical pause","args":"false","flags":["gamedll","notify","replicated","release"],"games":["cs2"]}

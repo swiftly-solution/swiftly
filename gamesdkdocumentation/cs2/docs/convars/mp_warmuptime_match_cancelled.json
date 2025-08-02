@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_warmuptime_match_cancelled","description":"Warmup time to use when the match will be cancelled (eg. due to a live VAC ban).","args":"5","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

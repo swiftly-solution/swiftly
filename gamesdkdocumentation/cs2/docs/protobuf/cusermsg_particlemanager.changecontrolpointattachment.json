@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"attachmentOld","type":"int32"},{"name":"attachmentNew","type":"int32"},{"name":"entityHandle","type":"uint32","default":16777215}],"name":"CUserMsg_ParticleManager.ChangeControlPointAttachment","games":["cs2"]}

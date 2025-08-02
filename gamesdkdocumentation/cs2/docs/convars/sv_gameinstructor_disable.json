@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_gameinstructor_disable","description":"Force all clients to disable their game instructors.","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

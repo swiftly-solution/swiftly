@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_player_visibility_far_scale","description":"proxy scale multiplier at max dist (is 1.0 at mindist)","args":"1.3","flags":["developmentonly","clientdll"],"games":["cs2"]}

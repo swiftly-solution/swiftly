@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_teamcounter_playercount_instead_of_avatars","description":"<no description>","args":"false","flags":["clientdll","archive","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_respawn_on_death_ct","description":"When set to 1, counter-terrorists will respawn after dying.","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

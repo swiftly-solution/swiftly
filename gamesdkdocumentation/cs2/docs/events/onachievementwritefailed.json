@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnAchievementWriteFailed","description":"This event is triggered when achievement_write_failed is triggered.","arguments":{},"return":"void","games":["cs2"]}

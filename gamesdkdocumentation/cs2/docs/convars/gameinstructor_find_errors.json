@@ -1,1 +1,0 @@
-{"kind":"command","name":"gameinstructor_find_errors","description":"Set to 1 and the game instructor will run EVERY scripted command to uncover errors.","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

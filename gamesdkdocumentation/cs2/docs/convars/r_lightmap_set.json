@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_lightmap_set","description":"Lightmap set to use, only works on map load","args":"\"lightmaps\"","flags":["cheat"],"games":["cs2"]}

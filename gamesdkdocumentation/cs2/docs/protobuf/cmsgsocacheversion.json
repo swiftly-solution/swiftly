@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"version","type":"fixed64"}],"name":"CMsgSOCacheVersion","games":["cs2"]}

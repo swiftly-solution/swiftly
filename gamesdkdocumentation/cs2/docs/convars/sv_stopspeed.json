@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_stopspeed","description":"Minimum stopping speed when on ground.","args":"80","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

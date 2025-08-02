@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_aggregate_debug_draw_meshlets","description":"SceneSystem/Aggregates/Visualize Meshlets","args":"0","flags":["developmentonly","menubar_item"],"games":["cs2"]}

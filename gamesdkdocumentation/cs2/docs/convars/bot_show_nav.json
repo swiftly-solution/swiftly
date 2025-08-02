@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_show_nav","description":"For internal testing purposes.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

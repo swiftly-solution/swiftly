@@ -1,1 +1,0 @@
-{"kind":"command","name":"soundsysteminfo","description":"Describe the current sound device without an active voice list.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_limit_buyrandom_per_life","description":"Enable to limit buyrandom command to only run once per player life","args":"true","flags":["gamedll","release"],"games":["cs2"]}

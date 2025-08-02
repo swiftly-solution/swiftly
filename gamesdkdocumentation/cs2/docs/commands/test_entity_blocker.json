@@ -1,1 +1,0 @@
-{"kind":"command","name":"test_entity_blocker","description":"Test command that drops an entity blocker out in front of the player.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

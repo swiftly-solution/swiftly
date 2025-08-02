@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_drawhud_force_radar","description":"0: default; 1: draw radar even if hud disabled; -1: force no radar","args":"0","flags":["clientdll","release"],"games":["cs2"]}

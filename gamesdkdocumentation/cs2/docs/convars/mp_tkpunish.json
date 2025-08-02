@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_tkpunish","description":"Will TK'ers and team damagers be punished in the next round?  {0=no,  1=yes}","args":"0","flags":["gamedll","replicated","release"],"games":["cs2"]}

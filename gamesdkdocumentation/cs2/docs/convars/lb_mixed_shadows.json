@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_mixed_shadows","description":"SceneSystem/LightBinner/Enable Mixed Shadows","args":"true","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

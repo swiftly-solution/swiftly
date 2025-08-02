@@ -1,1 +1,0 @@
-{"kind":"command","name":"developer","description":"Set developer message level.","args":"0","flags":["release"],"games":["cs2"]}

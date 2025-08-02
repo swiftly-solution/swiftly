@@ -1,1 +1,0 @@
-{"kind":"command","name":"joystick","description":"True if the joystick is enabled, false otherwise.","args":"false","flags":["clientdll","archive"],"games":["cs2"]}

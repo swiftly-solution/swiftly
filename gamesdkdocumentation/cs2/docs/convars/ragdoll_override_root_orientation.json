@@ -1,1 +1,0 @@
-{"kind":"command","name":"ragdoll_override_root_orientation","description":"<no description>","args":"true","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"repeat_last_console_command","description":"Repeat last console command.","args":"","flags":["release"],"games":["cs2"]}

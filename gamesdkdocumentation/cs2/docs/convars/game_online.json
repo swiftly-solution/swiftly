@@ -1,1 +1,0 @@
-{"kind":"command","name":"game_online","description":"The current game is online.","args":"true","flags":["developmentonly","gamedll","clientdll","hidden","replicated","defensive"],"games":["cs2"]}

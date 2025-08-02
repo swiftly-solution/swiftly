@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_listworlds","description":"List all the active sceneworlds","args":"","flags":["cheat"],"games":["cs2"]}

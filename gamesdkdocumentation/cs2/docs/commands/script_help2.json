@@ -1,1 +1,0 @@
-{"kind":"command","name":"script_help2","description":"Output help for script functions suitable for auto-completion","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

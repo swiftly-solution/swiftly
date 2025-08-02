@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"sendTableCrc","type":"fixed32"},{"name":"serverCount","type":"uint32"},{"name":"isHltv","type":"bool"},{"name":"friendsId","type":"uint32"},{"name":"friendsName","type":"string"}],"name":"CCLCMsg_ClientInfo","games":["cs2"]}

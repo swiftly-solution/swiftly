@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"ping","type":"int32"},{"name":"ip","type":"uint32"},{"name":"instances","type":"uint32"}],"name":"GameServerPing","games":["cs2"]}

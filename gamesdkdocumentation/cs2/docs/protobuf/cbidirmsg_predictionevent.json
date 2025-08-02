@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"eventId","type":"uint32"},{"name":"eventData","type":"bytes"},{"name":"syncType","type":"uint32"},{"name":"syncValUint32","type":"uint32"}],"name":"CBidirMsg_PredictionEvent","games":["cs2"]}

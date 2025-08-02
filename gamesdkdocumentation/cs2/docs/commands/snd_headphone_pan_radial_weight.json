@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_headphone_pan_radial_weight","description":"Apply cos(angle) * weight before pan law","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

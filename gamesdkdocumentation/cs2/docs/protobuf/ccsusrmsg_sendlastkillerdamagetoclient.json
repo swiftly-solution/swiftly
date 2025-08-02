@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"numHitsGiven","type":"int32"},{"name":"damageGiven","type":"int32"},{"name":"numHitsTaken","type":"int32"},{"name":"damageTaken","type":"int32"},{"name":"actualDamageGiven","type":"int32"},{"name":"actualDamageTaken","type":"int32"}],"name":"CCSUsrMsg_SendLastKillerDamageToClient","games":["cs2"]}

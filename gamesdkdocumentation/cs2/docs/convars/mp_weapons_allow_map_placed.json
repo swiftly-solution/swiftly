@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_weapons_allow_map_placed","description":"If this convar is set, when a match starts, the game will not delete weapons placed in the map.","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

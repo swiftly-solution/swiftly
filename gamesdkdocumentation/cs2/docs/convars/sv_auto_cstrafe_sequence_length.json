@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_auto_cstrafe_sequence_length","description":"The length of sequential counter-strafe attempts evaluated relative to the success threshold. Input automation detection considers the best sequence within the larger attempt window.","args":"1","flags":["min:","1,","max:","1000,","gamedll","release"],"games":["cs2"]}

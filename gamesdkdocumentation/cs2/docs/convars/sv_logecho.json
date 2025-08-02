@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_logecho","description":"Echo log information to the console.","args":"true","flags":["archive","release"],"games":["cs2"]}

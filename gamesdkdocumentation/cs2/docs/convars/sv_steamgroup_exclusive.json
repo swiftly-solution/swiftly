@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_steamgroup_exclusive","description":"If set, only members of Steam group will be able to join the server when it's empty, public people will be able to join the server only if it has players.","args":"false","flags":["release"],"games":["cs2"]}

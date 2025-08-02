@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_max_vision_distance_override","description":"Max distance bots can see targets.","args":"-1","flags":["min:","-1,","gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

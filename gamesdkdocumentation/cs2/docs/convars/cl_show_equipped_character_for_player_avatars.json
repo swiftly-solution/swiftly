@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_show_equipped_character_for_player_avatars","description":"<no description>","args":"false","flags":["clientdll","archive"],"games":["cs2"]}

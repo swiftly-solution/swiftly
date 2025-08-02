@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_ragdoll_limit","description":"Maximum number of ragdolls to show (-1 disables limit)","args":"20","flags":["clientdll","archive"],"games":["cs2"]}

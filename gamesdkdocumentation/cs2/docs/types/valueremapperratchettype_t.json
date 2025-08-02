@@ -1,1 +1,0 @@
-{"kind":"type","name":"ValueRemapperRatchetType_t","description":"Automatically generated game type from enum ValueRemapperRatchetType_t","values":{"RatchetType_Absolute":0,"RatchetType_EachEngage":1},"games":["cs2"]}

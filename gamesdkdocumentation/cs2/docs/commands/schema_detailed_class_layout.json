@@ -1,1 +1,0 @@
-{"kind":"command","name":"schema_detailed_class_layout","description":"schema_detailed_class_layout <class_name> - Print a detailed memory layout of the class (including inline structs).","args":"","flags":["developmentonly"],"games":["cs2"]}

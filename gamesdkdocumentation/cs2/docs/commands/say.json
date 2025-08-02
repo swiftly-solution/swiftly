@@ -1,1 +1,0 @@
-{"kind":"command","name":"say","description":"Display player message","args":"","flags":["gamedll","client_can_execute"],"games":["cs2"]}

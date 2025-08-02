@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_zombie","description":"If nonzero, bots will stay in idle mode and not attack.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

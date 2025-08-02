@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_flushentitypacket","description":"For debugging. Force the engine to flush an entity packet.","args":"0","flags":["cheat"],"games":["cs2"]}

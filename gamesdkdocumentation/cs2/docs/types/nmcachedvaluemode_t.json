@@ -1,1 +1,0 @@
-{"kind":"type","name":"NmCachedValueMode_t","description":"Automatically generated game type from enum NmCachedValueMode_t","values":{"OnEntry":0,"OnExit":1},"games":["cs2"]}

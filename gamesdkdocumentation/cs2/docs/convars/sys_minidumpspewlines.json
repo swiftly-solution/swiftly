@@ -1,1 +1,0 @@
-{"kind":"command","name":"sys_minidumpspewlines","description":"Lines of crash dump console spew to keep.","args":"2000","flags":["release"],"games":["cs2"]}

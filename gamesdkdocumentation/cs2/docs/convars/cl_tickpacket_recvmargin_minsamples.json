@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_tickpacket_recvmargin_minsamples","description":"Recvmargin-based usercommand pacing will not take action unless we have N samples","args":"10","flags":["developmentonly"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_test_path_space_fly","description":"Test flight paths","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

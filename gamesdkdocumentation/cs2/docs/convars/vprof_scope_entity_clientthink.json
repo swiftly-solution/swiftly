@@ -1,1 +1,0 @@
-{"kind":"command","name":"vprof_scope_entity_clientthink","description":"Does nothing whatsoever.","args":"false","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

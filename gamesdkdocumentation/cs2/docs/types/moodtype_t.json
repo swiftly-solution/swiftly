@@ -1,1 +1,0 @@
-{"kind":"type","name":"MoodType_t","description":"Automatically generated game type from enum MoodType_t","values":{"eMoodType_Head":0,"eMoodType_Body":1},"games":["cs2"]}

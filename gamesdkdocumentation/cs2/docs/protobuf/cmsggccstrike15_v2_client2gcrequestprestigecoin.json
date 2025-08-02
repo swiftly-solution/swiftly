@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"defindex","type":"uint32"},{"name":"upgradeid","type":"uint64"},{"name":"hours","type":"uint32"},{"name":"prestigetime","type":"uint32"}],"name":"CMsgGCCStrike15_v2_Client2GCRequestPrestigeCoin","games":["cs2"]}

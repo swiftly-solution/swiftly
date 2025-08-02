@@ -1,1 +1,0 @@
-{"kind":"command","name":"vulkan_batch_size","description":"<no description>","args":"500","flags":["developmentonly","defensive"],"games":["cs2"]}

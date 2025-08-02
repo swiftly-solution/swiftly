@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_tickpacket_recvmargin_window","description":"Recvmargin-based usercommand pacing will use past N seconds","args":"4","flags":["developmentonly"],"games":["cs2"]}

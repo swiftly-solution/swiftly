@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_grenadecrosshair_ticklabels","description":"<no description>","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

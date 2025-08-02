@@ -1,1 +1,0 @@
-{"kind":"command","name":"resource_repeated_reload","description":"resource_repeated_reload <count> <resource_name> (<resource name> ...): Load and unload the specified resource(s)","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

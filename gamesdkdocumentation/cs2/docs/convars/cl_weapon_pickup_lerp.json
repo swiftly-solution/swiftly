@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_weapon_pickup_lerp","description":"<no description>","args":"2","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_overtime_halftime_pausetimer","description":"If set to 1 will set mp_halftime_pausetimer to 1 before every half of overtime. Set mp_halftime_pausetimer to 0 to resume the timer.","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

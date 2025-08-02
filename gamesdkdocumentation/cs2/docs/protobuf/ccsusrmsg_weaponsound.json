@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"entidx","type":"int32","default":-1},{"name":"originX","type":"float"},{"name":"originY","type":"float"},{"name":"originZ","type":"float"},{"name":"sound","type":"string"},{"name":"gameTimestamp","type":"float"},{"name":"sourceSoundscapeid","type":"fixed32"}],"name":"CCSUsrMsg_WeaponSound","games":["cs2"]}

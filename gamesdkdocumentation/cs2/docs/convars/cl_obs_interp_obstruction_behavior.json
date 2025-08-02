@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_obs_interp_obstruction_behavior","description":"<no description>","args":"2","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

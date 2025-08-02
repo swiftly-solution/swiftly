@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_obs_interp_pos_halflife","description":"<no description>","args":"0.26","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

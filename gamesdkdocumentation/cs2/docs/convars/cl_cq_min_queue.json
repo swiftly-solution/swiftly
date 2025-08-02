@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_cq_min_queue","description":"Used by the client to inform the server of their desired queue length.  Derived from cl_tickpacket_recvmargin_desired and cl_tickpacket_desired_queuelength","args":"0","flags":["userinfo"],"games":["cs2"]}

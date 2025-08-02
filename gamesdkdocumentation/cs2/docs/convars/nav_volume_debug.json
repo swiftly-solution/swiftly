@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_volume_debug","description":"Draw or print debug information about nav volume queries.","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

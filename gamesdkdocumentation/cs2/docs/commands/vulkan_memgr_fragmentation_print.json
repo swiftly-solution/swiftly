@@ -1,1 +1,0 @@
-{"kind":"command","name":"vulkan_memgr_fragmentation_print","description":"Prints out detailed memory fragmentation stats for the Vulkan memory manager","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

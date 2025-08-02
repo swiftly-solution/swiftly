@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostDynamicShadowLightChanged","description":"This event is triggered after dynamic_shadow_light_changed is triggered.","arguments":{},"return":"void","games":["cs2"]}

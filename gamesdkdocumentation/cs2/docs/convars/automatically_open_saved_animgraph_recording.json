@@ -1,1 +1,0 @@
-{"kind":"command","name":"automatically_open_saved_animgraph_recording","description":"<no description>","args":"false","flags":["gamedll","clientdll","archive","replicated"],"games":["cs2"]}

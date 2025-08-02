@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_get_operator_field_info","description":"Currently gets info for a single operator field","args":"","flags":["cheat"],"games":["cs2"]}

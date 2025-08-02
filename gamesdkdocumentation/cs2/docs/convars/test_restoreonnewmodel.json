@@ -1,1 +1,0 @@
-{"kind":"command","name":"test_restoreonnewmodel","description":"<no description>","args":"0","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

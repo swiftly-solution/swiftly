@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_smoothtime","description":"Smooth client's view after prediction error over this many seconds","args":"0.2","flags":["min:","0.01,","max:","2,","developmentonly","clientdll","defensive"],"games":["cs2"]}

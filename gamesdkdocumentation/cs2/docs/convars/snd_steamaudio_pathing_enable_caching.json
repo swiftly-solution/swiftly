@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_steamaudio_pathing_enable_caching","description":"<no description>","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

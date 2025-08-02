@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_parallel_packentities","description":"Set to 1 to use threaded snapshot sending on listen servers, 2 for dedicated servers.","args":"2","flags":["release"],"games":["cs2"]}

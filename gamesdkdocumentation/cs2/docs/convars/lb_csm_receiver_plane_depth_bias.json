@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_csm_receiver_plane_depth_bias","description":"Shader depth bias applied to shadow receiver (Note this conflicts with renderstate depth bias, both now default to 0)","args":"1.526e-05","flags":["developmentonly","defensive"],"games":["cs2"]}

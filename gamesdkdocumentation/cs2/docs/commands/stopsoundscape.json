@@ -1,1 +1,0 @@
-{"kind":"command","name":"stopsoundscape","description":"Stops all soundscape processing and fades current looping sounds","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

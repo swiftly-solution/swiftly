@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"pos","type":"CMsgVector"},{"name":"decalTextureIndex","type":"int32"},{"name":"entityIndex","type":"int32","default":-1},{"name":"modelIndex","type":"int32"},{"name":"lowPriority","type":"bool"}],"name":"CSVCMsg_BSPDecal","games":["cs2"]}

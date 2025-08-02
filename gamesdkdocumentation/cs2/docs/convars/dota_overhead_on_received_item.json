@@ -1,1 +1,0 @@
-{"kind":"command","name":"dota_overhead_on_received_item","description":"Emit an overhead particle effect on receiving an item from an ally.","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

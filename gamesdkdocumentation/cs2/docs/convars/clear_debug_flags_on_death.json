@@ -1,1 +1,0 @@
-{"kind":"command","name":"clear_debug_flags_on_death","description":"<no description>","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

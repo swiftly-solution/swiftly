@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_modenable_toggle","description":"Toggle the voice_modenable convar.","args":"","flags":["clientdll","release"],"games":["cs2"]}

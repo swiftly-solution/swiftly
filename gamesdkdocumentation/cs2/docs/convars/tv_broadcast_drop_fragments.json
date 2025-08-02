@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_broadcast_drop_fragments","description":"Drop every Nth fragment","args":"0","flags":["hidden","release"],"games":["cs2"]}

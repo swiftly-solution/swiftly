@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_competitive_minspec","description":"Enable to force certain client convars to minimum/maximum values to help prevent competitive advantages.","args":"true","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

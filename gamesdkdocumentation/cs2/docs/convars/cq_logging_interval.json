@@ -1,1 +1,0 @@
-{"kind":"command","name":"cq_logging_interval","description":"command queue logging per player stats every N seconds, 0 to disable.","args":"0","flags":["gamedll","release"],"games":["cs2"]}

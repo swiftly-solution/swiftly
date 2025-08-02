@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_max_distance_transmit_footsteps","description":"Maximum distance to transmit footstep sound effects.","args":"1250","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

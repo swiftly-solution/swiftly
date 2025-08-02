@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pushaway_clientside_size","description":"Minimum size of pushback objects","args":"15","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

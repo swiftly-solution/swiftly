@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_teamprediction_txt","description":"A value between 1 and 99 will set predictions in favor of first team.","args":"\"#SFUIHUD_Spectate_Predictions\"","flags":["gamedll","release"],"games":["cs2"]}

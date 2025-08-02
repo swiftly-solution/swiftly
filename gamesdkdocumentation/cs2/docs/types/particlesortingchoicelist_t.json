@@ -1,1 +1,0 @@
-{"kind":"type","name":"ParticleSortingChoiceList_t","description":"Automatically generated game type from enum ParticleSortingChoiceList_t","values":{"PARTICLE_SORTING_NEAREST":0,"PARTICLE_SORTING_CREATION_TIME":1},"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_surf_volume_map","description":"The volume of ambient sounds when surfing is enabled.","args":"0.3","flags":["clientdll","archive","release"],"games":["cs2"]}

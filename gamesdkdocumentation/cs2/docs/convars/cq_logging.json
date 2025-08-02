@@ -1,1 +1,0 @@
-{"kind":"command","name":"cq_logging","description":"command queue logging of events.","args":"false","flags":["gamedll","release"],"games":["cs2"]}

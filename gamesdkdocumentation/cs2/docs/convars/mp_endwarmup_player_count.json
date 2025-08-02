@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_endwarmup_player_count","description":"Number of players required to be connected to end warmup early. 0 to require maximum players for mode.","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

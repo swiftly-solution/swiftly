@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_boxmove","description":"run in a square, # represents how many usercommands to run before turning.","args":"0","flags":["developmentonly","clientdll"],"games":["cs2"]}

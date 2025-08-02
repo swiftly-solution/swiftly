@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_list_extradata_allocations","description":"Prints out the overall extra data allocation counts","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

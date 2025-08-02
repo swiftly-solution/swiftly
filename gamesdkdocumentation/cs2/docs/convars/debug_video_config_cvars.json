@@ -1,1 +1,0 @@
-{"kind":"command","name":"debug_video_config_cvars","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

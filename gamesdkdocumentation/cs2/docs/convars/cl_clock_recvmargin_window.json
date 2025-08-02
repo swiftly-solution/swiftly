@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_clock_recvmargin_window","description":"Clock sync will use past N seconds","args":"4","flags":["developmentonly"],"games":["cs2"]}

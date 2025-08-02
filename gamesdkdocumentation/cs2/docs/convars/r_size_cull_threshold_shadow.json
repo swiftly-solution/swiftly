@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_size_cull_threshold_shadow","description":"Threshold of shadow map size percentage below which objects get culled","args":"0.2","flags":["cheat"],"games":["cs2"]}

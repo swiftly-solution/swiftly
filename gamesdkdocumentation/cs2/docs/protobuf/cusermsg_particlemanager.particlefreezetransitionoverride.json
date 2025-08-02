@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"freezeTransitionOverride","type":"float"}],"name":"CUserMsg_ParticleManager.ParticleFreezeTransitionOverride","games":["cs2"]}

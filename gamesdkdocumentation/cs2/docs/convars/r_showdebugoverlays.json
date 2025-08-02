@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_showdebugoverlays","description":"Set to render debug overlays","args":"false","flags":["cheat"],"games":["cs2"]}

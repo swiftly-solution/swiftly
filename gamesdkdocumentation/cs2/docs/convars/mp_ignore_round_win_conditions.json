@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_ignore_round_win_conditions","description":"Ignore conditions which would end the current round","args":"false","flags":["gamedll","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sensitivity","description":"Mouse sensitivity.","args":"1.25","flags":["min:","0.0001,","max:","8,","clientdll","archive","userinfo","per_user"],"games":["cs2"]}

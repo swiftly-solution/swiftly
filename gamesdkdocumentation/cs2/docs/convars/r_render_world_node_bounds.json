@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_render_world_node_bounds","description":"Render world node bounds","args":"false","flags":["cheat"],"games":["cs2"]}

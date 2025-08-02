@@ -1,1 +1,0 @@
-{"kind":"command","name":"unpause","description":"Clear the pause state of the server.","args":"","flags":["release"],"games":["cs2"]}

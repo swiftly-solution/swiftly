@@ -1,1 +1,0 @@
-{"kind":"command","name":"toggleradarscale","description":"Toggles the radar scale","args":"","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"id","type":"uint32"},{"name":"args","type":"bytes"}],"name":"CMsgGCCStrike15_v2_Client2GCTextMsg","games":["cs2"]}

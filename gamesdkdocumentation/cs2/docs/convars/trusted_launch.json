@@ -1,1 +1,0 @@
-{"kind":"command","name":"trusted_launch","description":"Trusted launch status","args":"0","flags":["clientdll","archive"],"games":["cs2"]}

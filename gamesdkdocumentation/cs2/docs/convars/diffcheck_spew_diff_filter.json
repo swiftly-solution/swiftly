@@ -1,1 +1,0 @@
-{"kind":"command","name":"diffcheck_spew_diff_filter","description":"Show diff with matching filter substring only.","args":"\"\"","flags":["developmentonly","defensive"],"games":["cs2"]}

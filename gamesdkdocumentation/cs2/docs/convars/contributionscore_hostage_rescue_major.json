@@ -1,1 +1,0 @@
-{"kind":"command","name":"contributionscore_hostage_rescue_major","description":"amount of contribution score added to rescuer per hostage rescued","args":"3","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

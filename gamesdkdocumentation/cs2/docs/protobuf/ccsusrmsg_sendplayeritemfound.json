@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"iteminfo","type":"CEconItemPreviewDataBlock"},{"name":"playerslot","type":"int32","default":-1}],"name":"CCSUsrMsg_SendPlayerItemFound","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"test_shipping_assert","description":"Generate an assert to test shipping assertion code","args":"","flags":["release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"ragdoll_debug_item_detachment","description":"<no description>","args":"false","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

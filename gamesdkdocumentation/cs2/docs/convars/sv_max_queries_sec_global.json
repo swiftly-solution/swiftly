@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_max_queries_sec_global","description":"Maximum queries per second to respond to from anywhere.","args":"60","flags":["release"],"games":["cs2"]}

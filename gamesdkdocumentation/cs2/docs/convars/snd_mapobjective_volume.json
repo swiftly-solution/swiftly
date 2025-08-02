@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_mapobjective_volume","description":"Volume of Map Objective Music","args":"0.04","flags":["min:","0,","max:","1,","clientdll","archive","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnVoteCastYes","description":"This event is triggered when vote_cast_yes is triggered.","arguments":{"team":"int32","entityid":"int32"},"return":"void","games":["cs2"]}

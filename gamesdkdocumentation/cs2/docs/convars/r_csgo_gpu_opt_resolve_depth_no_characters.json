@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_gpu_opt_resolve_depth_no_characters","description":"remove unused resolve","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_crosshair_outlinethickness","description":"Set how thick you want your crosshair outline to draw (0-3)","args":"1","flags":["min:","0,","max:","3,","clientdll","archive","per_user"],"games":["cs2"]}

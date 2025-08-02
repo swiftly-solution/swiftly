@@ -1,1 +1,0 @@
-{"kind":"command","name":"weapon_air_spread_scale","description":"Scale factor for jumping inaccuracy, set to 0 to make jumping accuracy equal to standing","args":"1","flags":["min:","0,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

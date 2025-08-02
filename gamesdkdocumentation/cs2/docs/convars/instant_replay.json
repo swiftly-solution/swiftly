@@ -1,1 +1,0 @@
-{"kind":"command","name":"instant_replay","description":"Enable instant replay recording.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

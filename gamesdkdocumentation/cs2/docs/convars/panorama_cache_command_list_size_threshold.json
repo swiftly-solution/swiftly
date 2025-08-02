@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_cache_command_list_size_threshold","description":"<no description>","args":"384","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

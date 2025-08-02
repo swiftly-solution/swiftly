@@ -1,1 +1,0 @@
-{"kind":"command","name":"weapon_accuracy_reset_on_deploy","description":"On deploy, forcibly reset weapon accuracy to zero.","args":"false","flags":["gamedll","clientdll","replicated","cheat","release"],"games":["cs2"]}

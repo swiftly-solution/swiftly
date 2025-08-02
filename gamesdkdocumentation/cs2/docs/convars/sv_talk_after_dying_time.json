@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_talk_after_dying_time","description":"The number of seconds a player can continue talking after dying as if they were still alive","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

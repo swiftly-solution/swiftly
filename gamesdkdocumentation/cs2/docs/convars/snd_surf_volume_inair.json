@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_surf_volume_inair","description":"The volume of the wind when surfing.","args":"0.5","flags":["clientdll","archive","release"],"games":["cs2"]}

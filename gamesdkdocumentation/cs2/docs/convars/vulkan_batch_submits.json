@@ -1,1 +1,0 @@
-{"kind":"command","name":"vulkan_batch_submits","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"ParticleLightTypeChoiceList_t","description":"Automatically generated game type from enum ParticleLightTypeChoiceList_t","values":{"PARTICLE_LIGHT_TYPE_POINT":0,"PARTICLE_LIGHT_TYPE_SPOT":1,"PARTICLE_LIGHT_TYPE_FX":2,"PARTICLE_LIGHT_TYPE_CAPSULE":3},"games":["cs2"]}

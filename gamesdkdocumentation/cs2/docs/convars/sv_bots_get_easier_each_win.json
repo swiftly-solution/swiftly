@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_bots_get_easier_each_win","description":"If > 0, some # of bots will lower thier difficulty each time they win. The argument defines how many will lower their difficulty each time.","args":"0","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

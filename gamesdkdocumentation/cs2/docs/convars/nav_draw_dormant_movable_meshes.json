@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_draw_dormant_movable_meshes","description":"Draw dormant movable meshes.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

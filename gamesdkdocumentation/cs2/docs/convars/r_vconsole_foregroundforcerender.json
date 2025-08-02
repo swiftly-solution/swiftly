@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_vconsole_foregroundforcerender","description":"When VConsole is in the foreground, force all engine & tools to render","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

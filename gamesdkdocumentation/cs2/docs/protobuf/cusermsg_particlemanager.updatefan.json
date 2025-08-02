@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"active","type":"bool"},{"name":"fanOrigin","type":"CMsgVector"},{"name":"fanOriginOffset","type":"CMsgVector"},{"name":"fanDirection","type":"CMsgVector"},{"name":"fanRampRatio","type":"float"},{"name":"boundsMins","type":"CMsgVector"},{"name":"boundsMaxs","type":"CMsgVector"}],"name":"CUserMsg_ParticleManager.UpdateFan","games":["cs2"]}

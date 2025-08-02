@@ -1,1 +1,0 @@
-{"kind":"type","name":"SoundEventStartType_t","description":"Automatically generated game type from enum SoundEventStartType_t","values":{"SOUNDEVENT_START_PLAYER":0,"SOUNDEVENT_START_WORLD":1,"SOUNDEVENT_START_ENTITY":2},"games":["cs2"]}

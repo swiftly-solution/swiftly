@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_mixed_resolution_particles","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

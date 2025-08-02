@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_ssao","description":"Set to use screen-space ambient occlusion","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

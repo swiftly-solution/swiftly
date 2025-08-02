@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_retake_ct_loadout_enemy_card","description":"CT enemy card for full buy round when playing bomb site retake.","args":"\"#GameUI_Retake_Card_BehindEnemyLines,1,1,rifle1,grenade2\"","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

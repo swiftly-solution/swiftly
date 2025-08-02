@@ -1,1 +1,0 @@
-{"kind":"command","name":"screenshot","description":"Take a screenshot: screenshot [filename]","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

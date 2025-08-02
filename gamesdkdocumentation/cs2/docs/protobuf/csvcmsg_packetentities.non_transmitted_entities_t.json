@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"headerCount","type":"int32"},{"name":"data","type":"bytes"}],"name":"CSVCMsg_PacketEntities.non_transmitted_entities_t","games":["cs2"]}

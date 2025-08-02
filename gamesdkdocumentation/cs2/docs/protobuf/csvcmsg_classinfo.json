@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"createOnClient","type":"bool"},{"name":"classes","type":"CSVCMsg_ClassInfo.class_t"}],"name":"CSVCMsg_ClassInfo","games":["cs2"]}

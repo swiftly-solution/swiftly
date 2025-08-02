@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostCsPreRestart","description":"This event is triggered after cs_pre_restart is triggered.","arguments":{},"return":"void","games":["cs2"]}

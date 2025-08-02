@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_plane_incr_per_step","description":"depth to increment candidate plane values per iteration to satisfy selection.","args":"0.0001","flags":["developmentonly"],"games":["cs2"]}

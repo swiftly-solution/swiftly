@@ -1,1 +1,0 @@
-{"kind":"command","name":"toggle","description":"Toggles specified convar value on and off.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

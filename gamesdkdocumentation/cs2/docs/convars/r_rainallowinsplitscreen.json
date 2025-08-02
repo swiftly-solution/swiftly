@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_RainAllowInSplitScreen","description":"Allows rain in splitscreen","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

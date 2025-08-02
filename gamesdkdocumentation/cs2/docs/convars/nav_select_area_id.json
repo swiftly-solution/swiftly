@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_select_area_id","description":"Select nav area with matching ID.","args":"-1","flags":["gamedll","cheat"],"games":["cs2"]}

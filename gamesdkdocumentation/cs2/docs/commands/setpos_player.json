@@ -1,1 +1,0 @@
-{"kind":"command","name":"setpos_player","description":"Move specified player to specified origin (must have sv_cheats).","args":"","flags":["gamedll","cheat","client_can_execute"],"games":["cs2"]}

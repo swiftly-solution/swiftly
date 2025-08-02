@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_refresh_ui_audio_state","description":"Restores audio DSP state for the UI.","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

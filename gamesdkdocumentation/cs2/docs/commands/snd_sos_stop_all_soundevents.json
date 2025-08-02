@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_stop_all_soundevents","description":"Stops all soundevents currently on the execution list","args":"","flags":["cheat"],"games":["cs2"]}

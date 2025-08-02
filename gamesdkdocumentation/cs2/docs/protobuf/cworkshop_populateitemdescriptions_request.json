@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"appid","type":"uint32"},{"name":"languages","type":"CWorkshop_PopulateItemDescriptions_Request.ItemDescriptionsLanguageBlock"}],"name":"CWorkshop_PopulateItemDescriptions_Request","games":["cs2"]}

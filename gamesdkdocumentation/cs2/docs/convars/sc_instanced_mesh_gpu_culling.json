@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_instanced_mesh_gpu_culling","description":"Toggles GPU culling of instanced meshes","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

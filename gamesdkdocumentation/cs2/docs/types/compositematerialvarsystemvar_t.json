@@ -1,1 +1,0 @@
-{"kind":"type","name":"CompositeMaterialVarSystemVar_t","description":"Automatically generated game type from enum CompositeMaterialVarSystemVar_t","values":{"COMPMATSYSVAR_COMPOSITETIME":0,"COMPMATSYSVAR_EMPTY_RESOURCE_SPACER":1},"games":["cs2"]}

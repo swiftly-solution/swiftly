@@ -1,1 +1,0 @@
-{"kind":"command","name":"startmovie","description":"Start recording movie frames.","args":"","flags":["developmentonly","dontrecord","defensive"],"games":["cs2"]}

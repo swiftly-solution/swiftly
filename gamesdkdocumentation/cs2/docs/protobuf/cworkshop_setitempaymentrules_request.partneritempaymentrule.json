@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountId","type":"uint32"},{"name":"revenuePercentage","type":"float"},{"name":"ruleDescription","type":"string"}],"name":"CWorkshop_SetItemPaymentRules_Request.PartnerItemPaymentRule","games":["cs2"]}

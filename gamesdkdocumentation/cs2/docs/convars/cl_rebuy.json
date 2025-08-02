@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_rebuy","description":"The order in which rebuy will attempt to repurchase items","args":"\"\"","flags":["clientdll","release"],"games":["cs2"]}

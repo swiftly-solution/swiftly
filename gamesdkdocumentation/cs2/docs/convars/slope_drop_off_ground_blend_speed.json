@@ -1,1 +1,0 @@
-{"kind":"command","name":"slope_drop_off_ground_blend_speed","description":"The speed with which the slope drop is blended out when the entity leaves the ground","args":"160","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

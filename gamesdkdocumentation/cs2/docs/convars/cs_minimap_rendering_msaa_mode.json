@@ -1,1 +1,0 @@
-{"kind":"command","name":"cs_minimap_rendering_msaa_mode","description":"MSAA mode used for minimap rendering 0-none, 1-2xMSAA, 2-4xMSAA, 3-6X, 4-8X, etc","args":"2","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

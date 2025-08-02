@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_turning_inaccuracy_decay","description":"<no description>","args":"0.8","flags":["gamedll","clientdll","replicated","cheat","release"],"games":["cs2"]}

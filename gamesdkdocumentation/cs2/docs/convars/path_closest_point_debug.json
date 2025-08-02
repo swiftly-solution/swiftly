@@ -1,1 +1,0 @@
-{"kind":"command","name":"path_closest_point_debug","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

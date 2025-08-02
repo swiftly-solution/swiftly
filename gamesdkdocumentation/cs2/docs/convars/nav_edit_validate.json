@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_edit_validate","description":"Validate navmesh structures.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

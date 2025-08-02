@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostClientLoadoutChanged","description":"This event is triggered after client_loadout_changed is triggered.","arguments":{},"return":"void","games":["cs2"]}

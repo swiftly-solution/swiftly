@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_step_move_vel_min","description":"Min velocity for step move.","args":"64","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

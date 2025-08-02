@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"otherXuid","type":"uint64"},{"name":"givenKillType","type":"int32"},{"name":"givenHealthRemoved","type":"int32"},{"name":"givenNumHits","type":"int32"},{"name":"takenKillType","type":"int32"},{"name":"takenHealthRemoved","type":"int32"},{"name":"takenNumHits","type":"int32"}],"name":"CCSUsrMsg_PostRoundDamageReport","games":["cs2"]}

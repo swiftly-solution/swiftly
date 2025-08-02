@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_tickpacket_recvmargin_timeconstant","description":"Recvmargin-based usercommand pacing will remove 63.2% of the error in N seconds","args":"0.4","flags":["developmentonly"],"games":["cs2"]}

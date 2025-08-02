@@ -1,1 +1,0 @@
-{"kind":"command","name":"mm_server_search_inet_ping_interval","description":"How long to wait between pinging internet server details.","args":"1","flags":["developmentonly"],"games":["cs2"]}

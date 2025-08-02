@@ -1,1 +1,0 @@
-{"kind":"command","name":"engine_low_latency_sleep_after_client_tick","description":"When r_low_latency is enabled, this moves the low latency sleep on tick frames to happen after client simulation.","args":"false","flags":["release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"button","type":"uint64"},{"name":"pressed","type":"bool"},{"name":"when","type":"float"},{"name":"analogForwardDelta","type":"float"},{"name":"analogLeftDelta","type":"float"},{"name":"analogPitchDelta","type":"float"},{"name":"analogYawDelta","type":"float"}],"name":"CSubtickMoveStep","games":["cs2"]}

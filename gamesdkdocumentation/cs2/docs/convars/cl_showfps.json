@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_showfps","description":"Draw fps meter at top of screen (1 = fps, 2 = smooth fps, 3 = server MS, 4 = Show FPS and Log to file )","args":"0","flags":["clientdll","release"],"games":["cs2"]}

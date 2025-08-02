@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_shadow_texture_height_override","description":"Override height of shadow atlas texture","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_instant_replay_full_frame_time","description":"Seconds between full frame embeddeds","args":"30","flags":["developmentonly","defensive"],"games":["cs2"]}

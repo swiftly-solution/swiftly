@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_technical_timeout_per_team","description":"How many technical timeouts are there per team?","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

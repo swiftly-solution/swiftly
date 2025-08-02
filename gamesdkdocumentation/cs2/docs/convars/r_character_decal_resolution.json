@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_character_decal_resolution","description":"Resolution of character decal texture.","args":"1024","flags":["min:","256,","developmentonly","defensive"],"games":["cs2"]}

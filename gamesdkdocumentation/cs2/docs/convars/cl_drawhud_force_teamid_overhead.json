@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_drawhud_force_teamid_overhead","description":"0: default; 1: draw teamid even if hud disabled; -1: force no teamid","args":"0","flags":["clientdll","release"],"games":["cs2"]}

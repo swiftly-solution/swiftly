@@ -1,1 +1,0 @@
-{"kind":"command","name":"stopwatch","description":"General purpose timer. use 'stopwatch' to toggle or explicitly call 'stopwatch start' and/or 'stopwatch stop'.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

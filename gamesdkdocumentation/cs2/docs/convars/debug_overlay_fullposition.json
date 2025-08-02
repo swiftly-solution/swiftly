@@ -1,1 +1,0 @@
-{"kind":"command","name":"debug_overlay_fullposition","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

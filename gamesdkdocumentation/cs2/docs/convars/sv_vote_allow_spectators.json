@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_allow_spectators","description":"Allow spectators to initiate votes?","args":"false","flags":["gamedll","release"],"games":["cs2"]}

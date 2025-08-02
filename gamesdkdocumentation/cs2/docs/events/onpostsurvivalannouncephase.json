@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostSurvivalAnnouncePhase","description":"This event is triggered after survival_announce_phase is triggered.","arguments":{"phase":"int32"},"return":"void","games":["cs2"]}

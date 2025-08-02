@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_guardian_spawn_health_ct","description":"Starting health in guardian modes.","args":"100","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

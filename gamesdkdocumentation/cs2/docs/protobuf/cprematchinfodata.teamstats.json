@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"matchInfoIdxtxt","type":"int32"},{"name":"matchInfoTxt","type":"string"},{"name":"matchInfoTeams","type":"string"}],"name":"CPreMatchInfoData.TeamStats","games":["cs2"]}

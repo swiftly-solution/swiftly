@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"audio","type":"CMsgVoiceAudio"},{"name":"xuid","type":"fixed64"},{"name":"tick","type":"uint32"}],"name":"CCLCMsg_VoiceData","games":["cs2"]}

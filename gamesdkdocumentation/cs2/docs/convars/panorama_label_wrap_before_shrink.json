@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_label_wrap_before_shrink","description":"Should labels try to wrap text before using text-overflow: shrink","args":"true","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

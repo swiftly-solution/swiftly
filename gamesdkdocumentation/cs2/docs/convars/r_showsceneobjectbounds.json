@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_showsceneobjectbounds","description":"Show scenesystem object bounding boxes","args":"false","flags":["cheat"],"games":["cs2"]}

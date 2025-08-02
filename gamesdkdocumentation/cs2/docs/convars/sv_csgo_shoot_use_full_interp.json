@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_csgo_shoot_use_full_interp","description":"<no description>","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

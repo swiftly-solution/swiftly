@@ -1,1 +1,0 @@
-{"kind":"command","name":"mm_server_search_inet_ping_window","description":"How many servers can be pinged for server details in a batch.","args":"10","flags":["developmentonly"],"games":["cs2"]}

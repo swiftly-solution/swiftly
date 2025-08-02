@@ -1,1 +1,0 @@
-{"kind":"command","name":"func_mover_debug","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

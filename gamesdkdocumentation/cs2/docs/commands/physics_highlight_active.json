@@ -1,1 +1,0 @@
-{"kind":"command","name":"physics_highlight_active","description":"Turns on the absbox for all active physics objects.","args":" un-highlight.","flags":["developmentonly","gamedll"],"games":["cs2"]}

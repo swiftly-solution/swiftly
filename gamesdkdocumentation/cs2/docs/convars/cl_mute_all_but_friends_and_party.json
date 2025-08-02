@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_mute_all_but_friends_and_party","description":"Only allow communication from friends and matchmaking party members. Set to 1 to apply the in non-competitive game modes. Set to 2 will apply the setting in all modes.","args":"0","flags":["clientdll","archive"],"games":["cs2"]}

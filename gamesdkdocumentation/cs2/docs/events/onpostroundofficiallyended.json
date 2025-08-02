@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostRoundOfficiallyEnded","description":"This event is triggered after round_officially_ended is triggered.","arguments":{},"return":"void","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_warmup_offline_enabled","description":"Whether or not to do a warmup period at the start of a match in an offline (bot) match.","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

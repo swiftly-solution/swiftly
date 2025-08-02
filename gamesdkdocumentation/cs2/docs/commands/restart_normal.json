@@ -1,1 +1,0 @@
-{"kind":"command","name":"restart_normal","description":"Restart","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

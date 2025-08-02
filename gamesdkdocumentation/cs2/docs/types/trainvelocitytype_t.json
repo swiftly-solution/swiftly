@@ -1,1 +1,0 @@
-{"kind":"type","name":"TrainVelocityType_t","description":"Automatically generated game type from enum TrainVelocityType_t","values":{"TrainVelocity_Instantaneous":0,"TrainVelocity_LinearBlend":1,"TrainVelocity_EaseInEaseOut":2},"games":["cs2"]}

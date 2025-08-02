@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"players","type":"CMsgGCCStrike15_v2_Account_RequestCoPlays.Player"},{"name":"servertime","type":"uint32"}],"name":"CMsgGCCStrike15_v2_Account_RequestCoPlays","games":["cs2"]}

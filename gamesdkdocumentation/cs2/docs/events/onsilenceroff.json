@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnSilencerOff","description":"This event is triggered when silencer_off is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_headshotscale","description":"Modifier for the headshot impulse hits on players","args":"1.3","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

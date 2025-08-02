@@ -1,1 +1,0 @@
-{"kind":"command","name":"diffcheck_spew","description":"Actually show diffcheck results.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

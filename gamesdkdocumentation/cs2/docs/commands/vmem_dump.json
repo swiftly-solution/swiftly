@@ -1,1 +1,0 @@
-{"kind":"command","name":"vmem_dump","description":"Dump memory stats to log.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

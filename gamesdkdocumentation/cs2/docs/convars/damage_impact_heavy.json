@@ -1,1 +1,0 @@
-{"kind":"command","name":"damage_impact_heavy","description":"Damage ABOVE this value is considered heavy damage","args":"40","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

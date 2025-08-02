@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"steamid","type":"fixed64"}],"name":"CMsgGCRequestSessionIP","games":["cs2"]}

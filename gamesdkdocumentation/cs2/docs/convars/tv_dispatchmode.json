@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_dispatchmode","description":"Dispatch clients to relay proxies: 0=never, 1=if appropriate, 2=always","args":"1","flags":["release"],"games":["cs2"]}

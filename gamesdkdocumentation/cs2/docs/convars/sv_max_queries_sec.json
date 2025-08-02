@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_max_queries_sec","description":"Maximum queries per second to respond to from a single IP address.","args":"3","flags":["release"],"games":["cs2"]}

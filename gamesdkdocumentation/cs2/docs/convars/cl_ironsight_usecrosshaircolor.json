@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_ironsight_usecrosshaircolor","description":"Should the scope dot match the user's crosshair color","args":"false","flags":["clientdll","archive","per_user"],"games":["cs2"]}

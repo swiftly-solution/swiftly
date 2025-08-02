@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_render_coordination_state","description":"Prints out the current render coordination state.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

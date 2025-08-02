@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_promoted_item_enabled","description":"Allow the purchasing of the promoted item.","args":"false","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

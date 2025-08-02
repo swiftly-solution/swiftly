@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_edit","description":"Set to one to interactively edit the Navigation Mesh. Set to zero to leave edit mode.","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

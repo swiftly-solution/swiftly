@@ -1,1 +1,0 @@
-{"kind":"command","name":"animgraph_debug","description":"Debug animation graph","args":"false","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

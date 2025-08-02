@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_loadout","description":"bots are given these items at round start","args":"\"\"","flags":["gamedll","cheat"],"games":["cs2"]}

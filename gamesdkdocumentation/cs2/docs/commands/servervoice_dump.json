@@ -1,1 +1,0 @@
-{"kind":"command","name":"servervoice_dump","description":"servervoice_dump","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

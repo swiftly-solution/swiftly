@@ -1,1 +1,0 @@
-{"kind":"type","name":"JointAxis_t","description":"Automatically generated game type from enum JointAxis_t","values":{"JOINT_AXIS_X":0,"JOINT_AXIS_Y":1,"JOINT_AXIS_Z":2,"JOINT_AXIS_COUNT":3},"games":["cs2"]}

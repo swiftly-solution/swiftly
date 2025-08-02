@@ -1,1 +1,0 @@
-{"kind":"command","name":"pulse_save_execution_history","description":"Keep a history of all instructions run on a per graph basis.","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

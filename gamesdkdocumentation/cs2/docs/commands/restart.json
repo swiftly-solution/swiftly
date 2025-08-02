@@ -1,1 +1,0 @@
-{"kind":"command","name":"restart","description":"Poor man's restart: reload the current map from disk.","args":"","flags":["cheat","vconsole_set_focus"],"games":["cs2"]}

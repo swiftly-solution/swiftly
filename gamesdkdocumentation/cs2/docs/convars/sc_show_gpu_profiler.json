@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_show_gpu_profiler","description":"SceneSystem/GPU Profiler","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

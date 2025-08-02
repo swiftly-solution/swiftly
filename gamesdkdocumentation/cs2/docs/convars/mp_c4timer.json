@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_c4timer","description":"how long from when the C4 is armed until it blows","args":"40","flags":["min:","10,","gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

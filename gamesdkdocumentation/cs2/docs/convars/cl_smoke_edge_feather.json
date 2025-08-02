@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_smoke_edge_feather","description":"<no description>","args":"21","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_weapon_self_inflict_amount","description":"If Set to non-0, will hurt the attacker by the specified fraction of max damage if they miss.","args":"0","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

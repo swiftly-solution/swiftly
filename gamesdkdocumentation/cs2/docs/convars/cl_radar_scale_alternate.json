@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_radar_scale_alternate","description":"Sets the alternate radar scale. Valid values are 0.25 to 1.0.","args":"1","flags":["min:","0.25,","max:","1,","clientdll","archive","release"],"games":["cs2"]}

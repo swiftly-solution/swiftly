@@ -1,1 +1,0 @@
-{"kind":"type","name":"MedalRank_t","description":"Automatically generated game type from enum MedalRank_t","values":{"MEDAL_RANK_NONE":0,"MEDAL_RANK_BRONZE":1,"MEDAL_RANK_SILVER":2,"MEDAL_RANK_GOLD":3,"MEDAL_RANK_COUNT":4},"games":["cs2"]}

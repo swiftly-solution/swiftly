@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_prefix","description":"This string is prefixed to the name of all bots that join the game.","args":"\"\"","flags":["gamedll","release"],"games":["cs2"]}

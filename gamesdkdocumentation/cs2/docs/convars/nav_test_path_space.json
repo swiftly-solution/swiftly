@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_test_path_space","description":"Should nav_test_path test 3d navigation?  1 = space to space, 2 = multi-modal space/ground","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

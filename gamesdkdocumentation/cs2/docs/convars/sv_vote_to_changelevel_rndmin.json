@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_to_changelevel_rndmin","description":"When non-zero, restricts vote to change level to this many first rounds or minutes of the match (default 0, vote is not disallowed)","args":"0","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

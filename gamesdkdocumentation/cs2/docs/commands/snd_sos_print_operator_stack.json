@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_print_operator_stack","description":"Prints a master list of currently exposed variables","args":"","flags":["cheat"],"games":["cs2"]}

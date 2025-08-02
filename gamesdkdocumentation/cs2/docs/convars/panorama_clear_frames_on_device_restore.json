@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_clear_frames_on_device_restore","description":"<no description>","args":"2","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

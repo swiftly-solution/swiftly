@@ -1,1 +1,0 @@
-{"kind":"type","name":"EDestructibleParts_DestroyParameterFlags","description":"Automatically generated game type from enum EDestructibleParts_DestroyParameterFlags","values":{"GenerateBreakpieces":1,"EnableFlinches":2,"ForceDamageApply":4,"IgnoreKillEntityFlag":8,"IgnoreHealthCheck":16,"Default":3},"games":["cs2"]}

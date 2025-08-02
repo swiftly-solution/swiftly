@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_ent_attachment_filter_substrings","description":"If an attachment's name has any of the given substrings in it, it will be displayed. Substrings can be delimited by the ',' or '|' character.","args":"\"\"","flags":["clientdll","cheat"],"games":["cs2"]}

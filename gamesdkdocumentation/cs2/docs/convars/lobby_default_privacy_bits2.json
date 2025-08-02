@@ -1,1 +1,0 @@
-{"kind":"command","name":"lobby_default_privacy_bits2","description":"Lobby default permissions (0: private, 1: public)","args":"\"1\"","flags":["clientdll","archive","release"],"games":["cs2"]}

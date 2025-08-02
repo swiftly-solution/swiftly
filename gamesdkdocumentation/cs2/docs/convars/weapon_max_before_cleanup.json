@@ -1,1 +1,0 @@
-{"kind":"command","name":"weapon_max_before_cleanup","description":"If set to non-zero, will remove the oldest dropped weapon to maintain the specified number of dropped weapons in the world.","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

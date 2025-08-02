@@ -1,1 +1,0 @@
-{"kind":"command","name":"mapoverview_allow_client_draw","description":"Allow a client to draw on the map overview","args":"false","flags":["clientdll","release"],"games":["cs2"]}

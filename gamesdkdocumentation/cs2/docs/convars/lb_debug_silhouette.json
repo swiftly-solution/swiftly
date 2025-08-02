@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_debug_silhouette","description":"SceneSystem/LightBinner/Debug Silhouettes","args":"0","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

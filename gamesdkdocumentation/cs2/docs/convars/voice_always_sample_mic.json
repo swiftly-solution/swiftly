@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_always_sample_mic","description":"When enabled, open the voip audio input stream when the application launches.","args":"false","flags":["archive"],"games":["cs2"]}

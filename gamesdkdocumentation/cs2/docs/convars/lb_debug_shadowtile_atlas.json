@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_debug_shadowtile_atlas","description":"SceneSystem/LightBinner/Debug ShadowTile Atlas","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

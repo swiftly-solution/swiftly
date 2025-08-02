@@ -1,1 +1,0 @@
-{"kind":"type","name":"HandshakeTagType_t","description":"Automatically generated game type from enum HandshakeTagType_t","values":{"eInvalid":-1,"eTask":0,"eMovement":1,"eCount":2},"games":["cs2"]}

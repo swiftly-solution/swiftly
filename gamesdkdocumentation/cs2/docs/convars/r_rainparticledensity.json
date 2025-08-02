@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_RainParticleDensity","description":"Density of Particle Rain 0-1","args":"1","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

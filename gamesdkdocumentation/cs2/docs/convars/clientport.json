@@ -1,1 +1,0 @@
-{"kind":"command","name":"clientport","description":"If non-zero, client binds port to specific address.  Usually you should leave this blank to use a different random system-assigned port for each connection.","args":"0","flags":["release"],"games":["cs2"]}

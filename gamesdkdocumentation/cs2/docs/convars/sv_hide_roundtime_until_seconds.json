@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_hide_roundtime_until_seconds","description":"<no description>","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

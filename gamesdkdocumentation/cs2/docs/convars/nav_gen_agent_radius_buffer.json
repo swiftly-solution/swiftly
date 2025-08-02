@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_gen_agent_radius_buffer","description":"Buffer to add to agent radius before passing to nav gen","args":"0.5","flags":["gamedll","cheat"],"games":["cs2"]}

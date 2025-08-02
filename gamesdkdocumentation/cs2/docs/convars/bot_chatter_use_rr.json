@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_chatter_use_rr","description":"0 = Use old bot chatter system, 1 = Use response rules","args":"true","flags":["developmentonly","gamedll"],"games":["cs2"]}

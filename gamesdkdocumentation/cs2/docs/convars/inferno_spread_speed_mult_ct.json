@@ -1,1 +1,0 @@
-{"kind":"command","name":"inferno_spread_speed_mult_ct","description":"Speed up the spread rate of the Incendiary until max number of nodes are created. slowdown < 1 > Speedup","args":"10","flags":["gamedll","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_print_tool_properties","description":"Prints the current state of tool properties.","args":"","flags":["cheat"],"games":["cs2"]}

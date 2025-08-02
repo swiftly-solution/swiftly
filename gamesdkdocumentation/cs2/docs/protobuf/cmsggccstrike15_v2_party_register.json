@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"id","type":"uint32"},{"name":"ver","type":"uint32"},{"name":"apr","type":"uint32"},{"name":"ark","type":"uint32"},{"name":"nby","type":"uint32"},{"name":"grp","type":"uint32"},{"name":"slots","type":"uint32"},{"name":"launcher","type":"uint32"},{"name":"gameType","type":"uint32"}],"name":"CMsgGCCStrike15_v2_Party_Register","games":["cs2"]}

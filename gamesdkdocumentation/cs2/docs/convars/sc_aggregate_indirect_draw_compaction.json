@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_aggregate_indirect_draw_compaction","description":"Use multidrawindirect...count if the driver/hardware supports it","args":"true","flags":["release"],"games":["cs2"]}

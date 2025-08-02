@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_broadcast_max_requests","description":"Max number of broadcast http requests in flight. If there is a network issue, the requests may start piling up, degrading server performance. If more than the specified number of requests are in flight, the new requests are dropped.","args":"20","flags":["release"],"games":["cs2"]}

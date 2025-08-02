@@ -1,1 +1,0 @@
-{"kind":"command","name":"ui_party_msg_sound_enabled","description":"When enabled, lobby messages will play a short sound","args":"true","flags":["clientdll","release"],"games":["cs2"]}

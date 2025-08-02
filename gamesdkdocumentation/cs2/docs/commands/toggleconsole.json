@@ -1,1 +1,0 @@
-{"kind":"command","name":"toggleconsole","description":"Show/hide the console.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

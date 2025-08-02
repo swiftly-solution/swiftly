@@ -1,1 +1,0 @@
-{"kind":"command","name":"setinfo","description":"Adds a new user info value","args":"","flags":["clientcmd_can_execute"],"games":["cs2"]}

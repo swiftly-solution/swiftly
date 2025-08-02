@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_silencer_mode","description":"0: cannot detach; 1: press secondary fire to detach","args":"0","flags":["clientdll","archive","userinfo","per_user"],"games":["cs2"]}

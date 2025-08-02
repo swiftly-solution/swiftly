@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_drop_knife_enable","description":"Allows players to drop knives.","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

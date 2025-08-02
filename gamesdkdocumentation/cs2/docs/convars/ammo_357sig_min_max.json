@@ -1,1 +1,0 @@
-{"kind":"command","name":"ammo_357sig_min_max","description":"<no description>","args":"12","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

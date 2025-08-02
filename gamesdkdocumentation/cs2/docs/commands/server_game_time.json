@@ -1,1 +1,0 @@
-{"kind":"command","name":"server_game_time","description":"Gives the game time in seconds (server's curtime)","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

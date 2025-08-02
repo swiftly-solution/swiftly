@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_to_changelevel_before_match_point","description":"Restricts vote to change level to rounds prior to match point (default 0, vote is never disallowed)","args":"false","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

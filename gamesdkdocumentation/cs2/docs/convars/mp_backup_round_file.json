@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_backup_round_file","description":"If set then server will save all played rounds information to files filename_date_time_team1_team2_mapname_roundnum_score1_score2.txt","args":"\"backup\"","flags":["gamedll","release"],"games":["cs2"]}

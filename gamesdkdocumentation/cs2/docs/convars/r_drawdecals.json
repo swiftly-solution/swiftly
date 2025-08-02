@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_drawdecals","description":"Set to render decals","args":"true","flags":["cheat"],"games":["cs2"]}

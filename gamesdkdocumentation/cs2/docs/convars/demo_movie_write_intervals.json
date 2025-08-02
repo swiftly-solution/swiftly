@@ -1,1 +1,0 @@
-{"kind":"command","name":"demo_movie_write_intervals","description":"Write highlight interval metadata along with movie files when recording.","args":"false","flags":["clientdll","hidden","release"],"games":["cs2"]}

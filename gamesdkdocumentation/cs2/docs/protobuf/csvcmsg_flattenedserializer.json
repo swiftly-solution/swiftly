@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"serializers","type":"ProtoFlattenedSerializer_t"},{"name":"symbols","type":"string"},{"name":"fields","type":"ProtoFlattenedSerializerField_t"}],"name":"CSVCMsg_FlattenedSerializer","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_dragscroll_velocitymultiplier","description":"Multiplier for flick velocity off of actual measured velocity","args":"0.5","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

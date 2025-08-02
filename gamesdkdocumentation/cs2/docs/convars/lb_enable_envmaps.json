@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_enable_envmaps","description":"SceneSystem/LightBinner/Enable EnvMaps","args":"true","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_unpause_on_console_close","description":"1 = Unpause the game when pressing ~ to close the console. 0 = Leave the game paused.","args":"false","flags":["archive"],"games":["cs2"]}

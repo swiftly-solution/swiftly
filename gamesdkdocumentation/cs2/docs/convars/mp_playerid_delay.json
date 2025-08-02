@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_playerid_delay","description":"Number of seconds to delay showing information in the status bar","args":"0.4","flags":["min:","0,","max:","1,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

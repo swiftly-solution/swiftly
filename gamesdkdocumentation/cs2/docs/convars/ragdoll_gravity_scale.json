@@ -1,1 +1,0 @@
-{"kind":"command","name":"ragdoll_gravity_scale","description":"<no description>","args":"1","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

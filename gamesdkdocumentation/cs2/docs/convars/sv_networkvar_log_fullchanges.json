@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_networkvar_log_fullchanges","description":"Log FUL_FULL_EDICT_CHANGED calls.","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

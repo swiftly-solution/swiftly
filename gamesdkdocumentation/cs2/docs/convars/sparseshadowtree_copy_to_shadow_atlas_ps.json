@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_copy_to_shadow_atlas_ps","description":"Copy layer from CS output to shadow atlas uses PS copy (vs CopyTexture).","args":"true","flags":["developmentonly"],"games":["cs2"]}

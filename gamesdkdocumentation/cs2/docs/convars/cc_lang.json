@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_lang","description":"Current close caption language (emtpy = use game UI language)","args":"\"\"","flags":["clientdll","archive"],"games":["cs2"]}

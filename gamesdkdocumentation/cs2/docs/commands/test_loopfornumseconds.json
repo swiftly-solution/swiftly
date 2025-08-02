@@ -1,1 +1,0 @@
-{"kind":"command","name":"Test_LoopForNumSeconds","description":"Test_LoopForNumSeconds <loop name> <time> - loop back to the specified start point for the specified # of seconds.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

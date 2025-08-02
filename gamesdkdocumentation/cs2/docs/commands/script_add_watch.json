@@ -1,1 +1,0 @@
-{"kind":"command","name":"script_add_watch","description":"Add a watch to the game debug overlay","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

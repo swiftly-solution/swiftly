@@ -1,1 +1,0 @@
-{"kind":"command","name":"vulkan_dedicated_allocation_threshold","description":"Size (in KBs) above which textures should be allocated in dedicated memory (NV-only).","args":"512","flags":["developmentonly","defensive"],"games":["cs2"]}

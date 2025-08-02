@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_staminamax","description":"Maximum stamina penalty","args":"80","flags":["min:","0,","max:","100,","gamedll","clientdll","replicated","release"],"games":["cs2"]}

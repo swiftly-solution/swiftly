@@ -1,1 +1,0 @@
-{"kind":"type","name":"HoverPoseFlags_t","description":"Automatically generated game type from enum HoverPoseFlags_t","values":{"eNone":0,"ePosition":1,"eAngles":2},"games":["cs2"]}

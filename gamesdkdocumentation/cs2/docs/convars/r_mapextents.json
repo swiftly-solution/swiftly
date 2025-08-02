@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_mapextents","description":"Set the max dimension for the map.  This determines the far clipping plane","args":"16384","flags":["clientdll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mat_colcorrection_forceentitiesclientside","description":"Forces color correction entities to be updated on the client","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

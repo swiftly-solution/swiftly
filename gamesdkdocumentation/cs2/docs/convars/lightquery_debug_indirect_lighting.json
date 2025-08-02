@@ -1,1 +1,0 @@
-{"kind":"command","name":"lightquery_debug_indirect_lighting","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

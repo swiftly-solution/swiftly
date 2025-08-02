@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_crosshairgap_useweaponvalue","description":"If set to 1, the gap will update dynamically based on which weapon is currently equipped","args":"true","flags":["clientdll","archive","per_user"],"games":["cs2"]}

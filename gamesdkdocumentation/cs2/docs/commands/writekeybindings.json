@@ -1,1 +1,0 @@
-{"kind":"command","name":"writekeybindings","description":"Saves current key bindings to disk.","args":"","flags":["release"],"games":["cs2"]}

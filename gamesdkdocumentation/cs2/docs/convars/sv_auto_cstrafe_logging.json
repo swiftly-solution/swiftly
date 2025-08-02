@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_auto_cstrafe_logging","description":"0: never, 1: every time counter-strafe input automation is detected, 2: every counter-strafe","args":"0","flags":["min:","0,","max:","2,","gamedll","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_damage_scale_ct_body","description":"Scales the damage a CT player takes by this much when they take damage in the body. (1 == 100%, 0.5 == 50%)","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

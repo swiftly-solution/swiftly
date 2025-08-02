@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_halftime_pausematch","description":"Set to 1 to pause match after halftime countdown elapses. Match must be resumed by vote or admin.","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

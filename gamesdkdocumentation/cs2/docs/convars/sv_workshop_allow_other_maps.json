@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_workshop_allow_other_maps","description":"When hosting a workshop collection, users can play other workshop map on this server when it is empty and then mapcycle into this server collection.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

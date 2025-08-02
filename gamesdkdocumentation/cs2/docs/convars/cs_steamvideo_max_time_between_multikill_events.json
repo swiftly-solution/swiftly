@@ -1,1 +1,0 @@
-{"kind":"command","name":"cs_steamvideo_max_time_between_multikill_events","description":"Maximum time in seconds between consecutive kills for them to be combined into a multikill event","args":"5","flags":["developmentonly","clientdll"],"games":["cs2"]}

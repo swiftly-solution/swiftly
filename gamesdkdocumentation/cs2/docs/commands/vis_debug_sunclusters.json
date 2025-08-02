@@ -1,1 +1,0 @@
-{"kind":"command","name":"vis_debug_sunclusters","description":"Showing clusters for sun/csm rendering. Red (full sun csm & lighting), Orange (no viewmodel sun or csm), Green (no sun at all)","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

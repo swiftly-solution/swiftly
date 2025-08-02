@@ -1,1 +1,0 @@
-{"kind":"type","name":"StandardLightingAttenuationStyle_t","description":"Automatically generated game type from enum StandardLightingAttenuationStyle_t","values":{"LIGHT_STYLE_OLD":0,"LIGHT_STYLE_NEW":1},"games":["cs2"]}

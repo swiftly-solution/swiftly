@@ -1,1 +1,0 @@
-{"kind":"command","name":"print_mapgroup_sv","description":"Prints the current mapgroup and the contained maps","args":"","flags":["gamedll","release"],"games":["cs2"]}

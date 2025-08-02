@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_replay_autostart","description":"Auto-start Killer Replay when available","args":"true","flags":["clientdll","archive"],"games":["cs2"]}

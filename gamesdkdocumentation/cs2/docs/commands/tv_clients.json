@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_clients","description":"Shows list of connected SourceTV clients.","args":"","flags":["release"],"games":["cs2"]}

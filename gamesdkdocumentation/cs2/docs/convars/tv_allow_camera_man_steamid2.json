@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_allow_camera_man_steamid2","description":"Allows tournament production tv cameraman to run csgo.exe -interactivecaster on SteamID 7650123456XXX and be the tv camera man.","args":"0","flags":["gamedll","release"],"games":["cs2"]}

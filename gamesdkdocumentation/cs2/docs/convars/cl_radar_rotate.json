@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_radar_rotate","description":"1","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

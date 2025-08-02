@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_t_default_melee","description":"The default melee weapon that the Ts will spawn with","args":"\"weapon_knife\"","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

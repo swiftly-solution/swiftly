@@ -1,1 +1,0 @@
-{"kind":"command","name":"vis_debug_tracelos","description":"Trace rays and check vis from the current camera","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

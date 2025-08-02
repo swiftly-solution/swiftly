@@ -1,1 +1,0 @@
-{"kind":"command","name":"vehicle_debug_impact_damage","description":"<no description>","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

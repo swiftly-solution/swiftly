@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_sceneentity_debug","description":"Display all thinking scene entities and its data.","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

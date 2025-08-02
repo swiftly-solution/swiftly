@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_decals_overide_fadestarttime_params","description":"<no description>","args":"-1","flags":["developmentonly","gamedll","clientdll","replicated","commandline_enforced","defensive"],"games":["cs2"]}

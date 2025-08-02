@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_replay_fadein","description":"Amount of time in seconds it takes to visually fade into replay, or into real-time after replay","args":"0.75","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

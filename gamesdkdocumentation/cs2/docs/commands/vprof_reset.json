@@ -1,1 +1,0 @@
-{"kind":"command","name":"vprof_reset","description":"Reset the stats in VProf profiler","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

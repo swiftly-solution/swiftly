@@ -1,1 +1,0 @@
-{"kind":"type","name":"ParticleDirectionNoiseType_t","description":"Automatically generated game type from enum ParticleDirectionNoiseType_t","values":{"PARTICLE_DIR_NOISE_PERLIN":0,"PARTICLE_DIR_NOISE_CURL":1,"PARTICLE_DIR_NOISE_WORLEY_BASIC":2},"games":["cs2"]}

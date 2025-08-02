@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_team_intro_time","description":"How many seconds for team intro","args":"6.5","flags":["min:","0,","gamedll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

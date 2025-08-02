@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_translucent","description":"Enable rendering of translucent geometry","args":"true","flags":["cheat"],"games":["cs2"]}

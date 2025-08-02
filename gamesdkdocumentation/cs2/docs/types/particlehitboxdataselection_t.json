@@ -1,1 +1,0 @@
-{"kind":"type","name":"ParticleHitboxDataSelection_t","description":"Automatically generated game type from enum ParticleHitboxDataSelection_t","values":{"PARTICLE_HITBOX_AVERAGE_SPEED":0,"PARTICLE_HITBOX_COUNT":1},"games":["cs2"]}

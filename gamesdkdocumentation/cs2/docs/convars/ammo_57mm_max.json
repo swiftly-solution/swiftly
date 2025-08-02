@@ -1,1 +1,0 @@
-{"kind":"command","name":"ammo_57mm_max","description":"<no description>","args":"100","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"engine_max_ticks_to_simulate","description":"Max number of ticks to simulate per frame, after which simulation will start to slow down compared to real time.","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

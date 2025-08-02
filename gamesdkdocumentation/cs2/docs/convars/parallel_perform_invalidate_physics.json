@@ -1,1 +1,0 @@
-{"kind":"command","name":"parallel_perform_invalidate_physics","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

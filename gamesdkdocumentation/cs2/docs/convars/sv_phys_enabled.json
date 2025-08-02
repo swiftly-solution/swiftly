@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_phys_enabled","description":"Enable all physics simulation","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

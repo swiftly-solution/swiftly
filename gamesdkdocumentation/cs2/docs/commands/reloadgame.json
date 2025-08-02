@@ -1,1 +1,0 @@
-{"kind":"command","name":"reloadgame","description":"Reload the most recent saved game.","args":"","flags":["cheat","vconsole_set_focus"],"games":["cs2"]}

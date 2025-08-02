@@ -1,1 +1,0 @@
-{"kind":"command","name":"imgui_debug_draw_dashboard_window_toggle_focus","description":"Dashboard toggle focus","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

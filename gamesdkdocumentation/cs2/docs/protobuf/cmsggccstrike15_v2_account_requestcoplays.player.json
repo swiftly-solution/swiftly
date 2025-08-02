@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountid","type":"uint32"},{"name":"rtcoplay","type":"uint32"},{"name":"online","type":"bool"}],"name":"CMsgGCCStrike15_v2_Account_RequestCoPlays.Player","games":["cs2"]}

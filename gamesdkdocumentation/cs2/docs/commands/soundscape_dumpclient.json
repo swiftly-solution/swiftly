@@ -1,1 +1,0 @@
-{"kind":"command","name":"soundscape_dumpclient","description":"Dumps the client's soundscape data.","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

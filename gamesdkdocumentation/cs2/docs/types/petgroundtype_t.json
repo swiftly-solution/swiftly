@@ -1,1 +1,0 @@
-{"kind":"type","name":"PetGroundType_t","description":"Automatically generated game type from enum PetGroundType_t","values":{"PET_GROUND_NONE":0,"PET_GROUND_GRID":1,"PET_GROUND_PLANE":2},"games":["cs2"]}

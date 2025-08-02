@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_boxmove_speed","description":"how fast to run (1 to use player max run speed).","args":"1","flags":["developmentonly","clientdll"],"games":["cs2"]}

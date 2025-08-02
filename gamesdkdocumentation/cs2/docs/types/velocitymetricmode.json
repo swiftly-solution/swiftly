@@ -1,1 +1,0 @@
-{"kind":"type","name":"VelocityMetricMode","description":"Automatically generated game type from enum VelocityMetricMode","values":{"DirectionOnly":0,"MagnitudeOnly":1,"DirectionAndMagnitude":2},"games":["cs2"]}

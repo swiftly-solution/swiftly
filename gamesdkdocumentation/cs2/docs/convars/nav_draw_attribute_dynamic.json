@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_draw_attribute_dynamic","description":"Draw all nav areas with this dynamic attribute","args":"\"\"","flags":["developmentonly","gamedll"],"games":["cs2"]}

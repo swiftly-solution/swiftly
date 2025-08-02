@@ -1,1 +1,0 @@
-{"kind":"command","name":"gameinstructor_start_sound_cooldown","description":"Number of seconds forced between similar lesson start sounds.","args":"4","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

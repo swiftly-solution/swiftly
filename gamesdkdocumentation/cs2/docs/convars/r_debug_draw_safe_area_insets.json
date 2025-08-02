@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_debug_draw_safe_area_insets","description":"Render safe area insets as wireframe.","args":"false","flags":["developmentonly"],"games":["cs2"]}

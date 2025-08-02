@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_disable_immunity_alpha","description":"If set, clients won't slam the player model render settings each frame for immunity [mod authors use this]","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

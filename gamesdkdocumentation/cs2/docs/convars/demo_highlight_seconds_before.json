@@ -1,1 +1,0 @@
-{"kind":"command","name":"demo_highlight_seconds_before","description":"How many seconds before the actual highlight event to show when viewing highlights.","args":"6","flags":["clientdll","release"],"games":["cs2"]}

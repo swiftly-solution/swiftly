@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountid","type":"uint32"},{"name":"entries","type":"ScoreLeaderboardData.Entry"}],"name":"ScoreLeaderboardData.AccountEntries","games":["cs2"]}

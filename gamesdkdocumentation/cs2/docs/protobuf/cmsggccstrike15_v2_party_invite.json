@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountid","type":"uint32"},{"name":"lobbyid","type":"uint32"}],"name":"CMsgGCCStrike15_v2_Party_Invite","games":["cs2"]}

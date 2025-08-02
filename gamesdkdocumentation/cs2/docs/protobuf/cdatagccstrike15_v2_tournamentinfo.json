@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"sections","type":"CDataGCCStrike15_v2_TournamentSection"},{"name":"tournamentEvent","type":"TournamentEvent"},{"name":"tournamentTeams","type":"TournamentTeam"}],"name":"CDataGCCStrike15_v2_TournamentInfo","games":["cs2"]}

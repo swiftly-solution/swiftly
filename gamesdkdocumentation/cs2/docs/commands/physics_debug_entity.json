@@ -1,1 +1,0 @@
-{"kind":"command","name":"physics_debug_entity","description":"Dumps debug info for an entity","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"shake_testpunch","description":"Test a punch-style screen shake.","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

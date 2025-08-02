@@ -1,1 +1,0 @@
-{"kind":"command","name":"filesystem_buffer_size","description":"Size of per file buffers. 0 for none","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_dump_intersection_controller","description":"Dump intersection controller status","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_logbans","description":"Log server bans in the server logs.","args":"false","flags":["archive","release"],"games":["cs2"]}

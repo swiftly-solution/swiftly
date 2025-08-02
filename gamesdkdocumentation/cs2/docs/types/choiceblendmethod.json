@@ -1,1 +1,0 @@
-{"kind":"type","name":"ChoiceBlendMethod","description":"Automatically generated game type from enum ChoiceBlendMethod","values":{"SingleBlendTime":0,"PerChoiceBlendTimes":1},"games":["cs2"]}

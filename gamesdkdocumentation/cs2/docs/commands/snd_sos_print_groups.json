@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_print_groups","description":"Prints the current state of the groups system","args":"","flags":["cheat"],"games":["cs2"]}

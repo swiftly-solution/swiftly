@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_low_latency_trigger_flash","description":"NVIDIA Low Latency Trigger Flash","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

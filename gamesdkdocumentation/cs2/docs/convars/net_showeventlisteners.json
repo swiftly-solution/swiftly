@@ -1,1 +1,0 @@
-{"kind":"command","name":"net_showeventlisteners","description":"Show listening addition/removals","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

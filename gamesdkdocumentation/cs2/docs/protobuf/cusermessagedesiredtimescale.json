@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"desired","type":"float"},{"name":"acceleration","type":"float"},{"name":"minblendrate","type":"float"},{"name":"blenddeltamultiplier","type":"float"}],"name":"CUserMessageDesiredTimescale","games":["cs2"]}

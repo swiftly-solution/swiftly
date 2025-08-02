@@ -1,1 +1,0 @@
-{"kind":"command","name":"vis_debug_find_los","description":"Find or clear the vis LOS to here","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

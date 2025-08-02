@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostTeamplayBroadcastAudio","description":"This event is triggered after teamplay_broadcast_audio is triggered.","arguments":{"team":"int32","sound":"string"},"return":"void","games":["cs2"]}

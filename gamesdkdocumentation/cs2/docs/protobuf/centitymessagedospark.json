@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"origin","type":"CMsgVector"},{"name":"entityindex","type":"int32","default":-1},{"name":"radius","type":"float"},{"name":"color","type":"fixed32"},{"name":"beams","type":"uint32"},{"name":"thick","type":"float"},{"name":"duration","type":"float"},{"name":"entityMsg","type":"CEntityMsg"}],"name":"CEntityMessageDoSpark","games":["cs2"]}

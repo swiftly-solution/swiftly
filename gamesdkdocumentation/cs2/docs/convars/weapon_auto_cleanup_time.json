@@ -1,1 +1,0 @@
-{"kind":"command","name":"weapon_auto_cleanup_time","description":"If set to non-zero, weapons will delete themselves after the specified time (in seconds) if no players are near.","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

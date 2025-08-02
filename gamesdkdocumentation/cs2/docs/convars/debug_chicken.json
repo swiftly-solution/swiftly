@@ -1,1 +1,0 @@
-{"kind":"command","name":"debug_chicken","description":"Chicken debug info","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

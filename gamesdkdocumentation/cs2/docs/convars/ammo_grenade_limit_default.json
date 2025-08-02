@@ -1,1 +1,0 @@
-{"kind":"command","name":"ammo_grenade_limit_default","description":"<no description>","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

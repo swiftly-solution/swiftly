@@ -1,1 +1,0 @@
-{"kind":"command","name":"ik_debug_perlin_solver","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_hide_avatar_images","description":"Hide avatar images for other players.","args":"0","flags":["clientdll","archive"],"games":["cs2"]}

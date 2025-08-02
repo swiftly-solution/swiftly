@@ -1,1 +1,0 @@
-{"kind":"type","name":"MatterialAttributeTagType_t","description":"Automatically generated game type from enum MatterialAttributeTagType_t","values":{"MATERIAL_ATTRIBUTE_TAG_VALUE":0,"MATERIAL_ATTRIBUTE_TAG_COLOR":1},"games":["cs2"]}

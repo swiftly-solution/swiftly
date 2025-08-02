@@ -1,1 +1,0 @@
-{"kind":"command","name":"devonly_chicken_activity_debug","description":"Print chicken activity info to the console","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_particle_shadows_cast_on_world","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

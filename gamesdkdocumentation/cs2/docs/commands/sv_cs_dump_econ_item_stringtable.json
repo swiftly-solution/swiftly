@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_cs_dump_econ_item_stringtable","description":"sv_cs_dump_econ_item_stringtable","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

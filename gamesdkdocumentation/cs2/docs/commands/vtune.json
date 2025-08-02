@@ -1,1 +1,0 @@
-{"kind":"command","name":"vtune","description":"Controls VTune's sampling.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

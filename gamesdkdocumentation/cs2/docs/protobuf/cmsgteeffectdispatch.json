@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"effectdata","type":"CMsgEffectData"}],"name":"CMsgTEEffectDispatch","games":["cs2"]}

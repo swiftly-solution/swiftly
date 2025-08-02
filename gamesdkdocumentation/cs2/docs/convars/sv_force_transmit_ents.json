@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_force_transmit_ents","description":"Will transmit all entities to client, regardless of PVS conditions (will still skip based on transmit flags, however).","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

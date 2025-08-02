@@ -1,1 +1,0 @@
-{"kind":"command","name":"ragdoll_impact_strength","description":"<no description>","args":"500","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_world_wind_offset_speed","description":"<no description>","args":"[0.25, 0.3, 0.25]","flags":["developmentonly","defensive"],"games":["cs2"]}

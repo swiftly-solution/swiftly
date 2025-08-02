@@ -1,1 +1,0 @@
-{"kind":"command","name":"net_client_steamdatagram_enable_override","description":"0: Use connect method requested by GC.  >0: Always use SDR if possible.  <0: Always use direct UDP if possible","args":"0","flags":["clientdll","release"],"games":["cs2"]}

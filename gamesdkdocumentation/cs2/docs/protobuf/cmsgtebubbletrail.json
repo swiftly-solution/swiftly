@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"mins","type":"CMsgVector"},{"name":"maxs","type":"CMsgVector"},{"name":"waterz","type":"float"},{"name":"count","type":"uint32"},{"name":"speed","type":"float"}],"name":"CMsgTEBubbleTrail","games":["cs2"]}

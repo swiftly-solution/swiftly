@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"spawngrouphandle","type":"uint32"},{"name":"tickcount","type":"int32"},{"name":"creationsequence","type":"uint32"}],"name":"CNETMsg_SpawnGroup_SetCreationTick","games":["cs2"]}

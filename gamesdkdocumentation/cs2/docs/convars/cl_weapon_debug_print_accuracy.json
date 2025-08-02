@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_weapon_debug_print_accuracy","description":"<no description>","args":"false","flags":["developmentonly","clientdll","replicated"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_search_team_key","description":"When initiating team search, set this key to match with known opponents team","args":"\"public\"","flags":["release"],"games":["cs2"]}

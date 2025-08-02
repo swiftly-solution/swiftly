@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_replay_group_id","description":"The replay group that this server will be uploading files to","args":"0","flags":["release"],"games":["cs2"]}

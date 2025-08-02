@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_fallback_texture_lod_scale","description":"Scale factor for requested texture size (texture streaming) - used for geo that doesn't have a precomputed UV density measure","args":"2","flags":["cheat"],"games":["cs2"]}

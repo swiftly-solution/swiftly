@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_debug_player_use","description":"Visualizes +use logic. Green cross=trace success, Red cross=trace too far, Green box=radius success","args":"0","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_endmatch_item_drop_interval_ancient","description":"The time between drops on the end match scoreboard for ancient items","args":"3.5","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

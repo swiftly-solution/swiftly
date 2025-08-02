@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_new_visualize","description":"Displays soundevent name played at it's 3d position","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

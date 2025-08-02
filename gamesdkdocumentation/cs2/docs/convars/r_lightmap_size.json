@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_lightmap_size","description":"Maximum lightmap resolution.","args":"65536","flags":["developmentonly","defensive"],"games":["cs2"]}

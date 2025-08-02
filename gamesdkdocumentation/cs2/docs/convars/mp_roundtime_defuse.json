@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_roundtime_defuse","description":"How many minutes each round of Bomb Defuse takes. If 0 then use mp_roundtime instead.","args":"0","flags":["min:","0,","max:","60,","gamedll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

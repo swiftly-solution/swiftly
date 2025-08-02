@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_reserve_slots_for_reconnecting_players_kick_prior","description":"Kick a previously connected player with the same steamID if a replacement comes along","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

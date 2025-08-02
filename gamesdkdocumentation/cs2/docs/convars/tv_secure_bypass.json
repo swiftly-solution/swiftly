@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_secure_bypass","description":"Bypass secure challenge on TV port","args":"false","flags":["release"],"games":["cs2"]}

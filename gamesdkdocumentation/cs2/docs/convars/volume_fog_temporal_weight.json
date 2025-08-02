@@ -1,1 +1,0 @@
-{"kind":"command","name":"volume_fog_temporal_weight","description":"Temporal filtering weight","args":"0.9","flags":["min:","0.1,","max:","0.99,","developmentonly","defensive"],"games":["cs2"]}

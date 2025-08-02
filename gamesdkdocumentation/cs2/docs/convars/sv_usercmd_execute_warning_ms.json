@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_usercmd_execute_warning_ms","description":"Emit a warning if we spend more than N ms executing user commands for a single player","args":"5","flags":["gamedll","archive"],"games":["cs2"]}

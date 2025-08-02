@@ -1,1 +1,0 @@
-{"kind":"command","name":"dev_cs_force_disable_move","description":"forcibly prevent players from moving","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

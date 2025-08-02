@@ -1,1 +1,0 @@
-{"kind":"command","name":"telemetry_message","description":"Place a message in the telemetry timeline","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

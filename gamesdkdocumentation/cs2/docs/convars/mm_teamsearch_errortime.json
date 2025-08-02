@@ -1,1 +1,0 @@
-{"kind":"command","name":"mm_teamsearch_errortime","description":"Time team search is in error state until it self-cancels","args":"3","flags":["developmentonly"],"games":["cs2"]}

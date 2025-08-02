@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostCartUpdated","description":"This event is triggered after cart_updated is triggered.","arguments":{},"return":"void","games":["cs2"]}

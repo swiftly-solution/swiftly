@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_texture_lod_scale","description":"Scale factor for requested texture size (texture streaming)","args":"1","flags":["cheat"],"games":["cs2"]}

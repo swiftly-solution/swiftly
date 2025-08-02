@@ -1,1 +1,0 @@
-{"kind":"command","name":"reload_store_config","description":"<no description>","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

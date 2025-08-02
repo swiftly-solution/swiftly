@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_quota_mode","description":"Determines the type of quota.","args":"\"normal\"","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

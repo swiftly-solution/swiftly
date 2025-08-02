@@ -1,1 +1,0 @@
-{"kind":"type","name":"PerformanceMode_t","description":"Automatically generated game type from enum PerformanceMode_t","values":{"PM_NORMAL":0,"PM_NO_GIBS":1},"games":["cs2"]}

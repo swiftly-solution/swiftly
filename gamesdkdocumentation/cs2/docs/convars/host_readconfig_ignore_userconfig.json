@@ -1,1 +1,0 @@
-{"kind":"command","name":"host_readconfig_ignore_userconfig","description":"Whether we should ignore the user config file for reading/writing.","args":"false","flags":["cheat"],"games":["cs2"]}

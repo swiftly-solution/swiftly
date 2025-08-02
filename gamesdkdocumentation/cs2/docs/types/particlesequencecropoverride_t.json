@@ -1,1 +1,0 @@
-{"kind":"type","name":"ParticleSequenceCropOverride_t","description":"Automatically generated game type from enum ParticleSequenceCropOverride_t","values":{"PARTICLE_SEQUENCE_CROP_OVERRIDE_DEFAULT":-1,"PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_OFF":0,"PARTICLE_SEQUENCE_CROP_OVERRIDE_FORCE_ON":1},"games":["cs2"]}

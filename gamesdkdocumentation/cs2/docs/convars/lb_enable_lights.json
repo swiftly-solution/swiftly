@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_enable_lights","description":"SceneSystem/LightBinner/Enable Lights","args":"true","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

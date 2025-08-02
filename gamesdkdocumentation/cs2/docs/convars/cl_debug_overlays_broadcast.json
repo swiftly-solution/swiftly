@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_debug_overlays_broadcast","description":"Render debug overlays from server.","args":"false","flags":["release"],"games":["cs2"]}

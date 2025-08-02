@@ -1,1 +1,0 @@
-{"kind":"command","name":"instant_replay_history_limit_low","description":"Maximum amount of minutes to save history on low memory (32 bit) systems (0 is unlimited).","args":"10","flags":["developmentonly","defensive"],"games":["cs2"]}

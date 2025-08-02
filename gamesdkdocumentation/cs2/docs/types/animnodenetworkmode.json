@@ -1,1 +1,0 @@
-{"kind":"type","name":"AnimNodeNetworkMode","description":"Automatically generated game type from enum AnimNodeNetworkMode","values":{"ServerAuthoritative":0,"ClientSimulate":1},"games":["cs2"]}

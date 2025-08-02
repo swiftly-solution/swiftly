@@ -1,1 +1,0 @@
-{"kind":"type","name":"ChoiceChangeMethod","description":"Automatically generated game type from enum ChoiceChangeMethod","values":{"OnReset":0,"OnCycleEnd":1,"OnResetOrCycleEnd":2},"games":["cs2"]}

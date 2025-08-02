@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_obs_interp_turn_to_face_start_frac","description":"<no description>","args":"0.1","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

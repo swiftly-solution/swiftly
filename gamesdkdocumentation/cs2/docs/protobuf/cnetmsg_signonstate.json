@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"signonState","type":"SignonState_t","default":"SIGNONSTATE_NONE"},{"name":"spawnCount","type":"uint32"},{"name":"numServerPlayers","type":"uint32"},{"name":"playersNetworkids","type":"string"},{"name":"mapName","type":"string"},{"name":"addons","type":"string"}],"name":"CNETMsg_SignonState","games":["cs2"]}

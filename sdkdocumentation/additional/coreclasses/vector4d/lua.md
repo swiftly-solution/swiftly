@@ -1,1 +1,0 @@
-This class supports doing operations on them: addition, division, multiplication, substraction.

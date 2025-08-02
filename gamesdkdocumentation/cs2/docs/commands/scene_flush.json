@@ -1,1 +1,0 @@
-{"kind":"command","name":"scene_flush","description":"Flush all .vcds from the cache and reload from disk.","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

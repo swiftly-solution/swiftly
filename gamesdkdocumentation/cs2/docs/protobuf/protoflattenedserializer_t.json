@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"serializerNameSym","type":"int32"},{"name":"serializerVersion","type":"int32"},{"name":"fieldsIndex","type":"int32"}],"name":"ProtoFlattenedSerializer_t","games":["cs2"]}

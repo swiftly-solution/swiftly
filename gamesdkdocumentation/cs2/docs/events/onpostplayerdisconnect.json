@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostPlayerDisconnect","description":"This event is triggered after player_disconnect is triggered.","arguments":{"userid":"int32","reason":"int32","name":"string","networkid":"string","xuid":"uint64","PlayerID":"int32"},"return":"void","games":["cs2"]}

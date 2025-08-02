@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_gamevoicevolume","description":"Game v.o. volume","args":"1","flags":["min:","0,","max:","1,","archive"],"games":["cs2"]}

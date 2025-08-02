@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_tickpacket_recvmargin_desired","description":"Recvmargin-based usercommand pacing will try to maintain N ms margin between user command arriving at the server and the server needing that user command.  See also cl_tickpacket_desired_queuelength.","args":"5","flags":["developmentonly"],"games":["cs2"]}

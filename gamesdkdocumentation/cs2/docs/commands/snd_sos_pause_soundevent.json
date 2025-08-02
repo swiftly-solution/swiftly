@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_pause_soundevent","description":"Pause the specified soundevent in the list","args":"","flags":["cheat"],"games":["cs2"]}

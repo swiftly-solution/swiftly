@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_highlight_expensive_objects_strength","description":"Highlight expensive physics objects strength","args":"0.02","flags":["cheat"],"games":["cs2"]}

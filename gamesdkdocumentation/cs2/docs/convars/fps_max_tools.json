@@ -1,1 +1,0 @@
-{"kind":"command","name":"fps_max_tools","description":"Additional frame rate limit while in tools mode and a window other than the game window has focus. Note that fps_max still applies, this only allows the maximum frame rate for tools mode to be lower. 0=no tools specific limit.","args":"120","flags":["archive"],"games":["cs2"]}

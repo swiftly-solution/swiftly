@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_teamname_1","description":"A non-empty string overrides the first team's name.","args":"\"\"","flags":["gamedll","release"],"games":["cs2"]}

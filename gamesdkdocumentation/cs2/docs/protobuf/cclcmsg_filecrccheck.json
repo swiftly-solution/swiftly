@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"codePath","type":"int32"},{"name":"path","type":"string"},{"name":"codeFilename","type":"int32"},{"name":"filename","type":"string"},{"name":"crc","type":"fixed32"}],"name":"CCLCMsg_FileCRCCheck","games":["cs2"]}

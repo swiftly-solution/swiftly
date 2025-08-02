@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_norepeat","description":"In multiplayer games, don't repeat captions more often than this many seconds.","args":"5","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

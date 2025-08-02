@@ -1,1 +1,0 @@
-{"kind":"command","name":"dev_cs_ragdoll_head_ankle_delta_z_threshold","description":"<no description>","args":"35","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

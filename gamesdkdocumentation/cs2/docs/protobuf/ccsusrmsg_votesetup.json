@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"potentialIssues","type":"string"}],"name":"CCSUsrMsg_VoteSetup","games":["cs2"]}

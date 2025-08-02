@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_watchtransmit","description":"Watch NetworkStateChanged info for this entity index.","args":"-2","flags":["gamedll","release"],"games":["cs2"]}

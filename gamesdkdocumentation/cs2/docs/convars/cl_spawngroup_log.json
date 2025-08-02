@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_spawngroup_log","description":"Dump the contents of the next spawngroup manifest to file.","args":"false","flags":["developmentonly"],"games":["cs2"]}

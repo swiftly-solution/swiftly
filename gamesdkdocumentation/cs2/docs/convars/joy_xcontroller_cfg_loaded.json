@@ -1,1 +1,0 @@
-{"kind":"command","name":"joy_xcontroller_cfg_loaded","description":"If 0, the 360controller.cfg file will be executed on startup & option changes.","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

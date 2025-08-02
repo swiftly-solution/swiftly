@@ -4,15 +4,16 @@
 #include <utils/utils.h>
 #include <core/entrypoint.h>
 #include <sdk/game.h>
+#include <public/tier0/dbg.h>
 
 #include <tools/crashreporter/callstack.h>
 #include <tools/resourcemonitor/monitor.h>
 
-std::string FetchPluginName(EContext* state);
+std::string& FetchPluginName(EContext* state);
 std::map<std::string, EContext*> pluginNamesMap = {};
 std::map<EContext*, std::string> pluginNamesMap2 = {};
 
-std::string FetchPluginName(EContext* state)
+std::string& FetchPluginName(EContext* state)
 {
     return pluginNamesMap2[state];
 }
@@ -54,13 +55,13 @@ void SetupScriptingEnvironment(PluginObject plugin, EContext* ctx)
         }
 
         std::vector<std::string> processingNewLines = explode(implode(outputArr, ""), "\n");
-        for (const std::string str : processingNewLines)
+        for (const std::string& str : processingNewLines)
         {
             if (str.size() == 0)
                 continue;
 
             std::string final_string = TerminalProcessColor(string_format("%s%s{DEFAULT}{BGDEFAULT}\n", prefix.c_str(), str.c_str()));
-            META_CONPRINT(final_string.c_str());
+            ConMsg(final_string.c_str());
         }
     });
 

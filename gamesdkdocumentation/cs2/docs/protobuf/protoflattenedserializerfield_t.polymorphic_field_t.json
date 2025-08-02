@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"polymorphicFieldSerializerNameSym","type":"int32"},{"name":"polymorphicFieldSerializerVersion","type":"int32"}],"name":"ProtoFlattenedSerializerField_t.polymorphic_field_t","games":["cs2"]}

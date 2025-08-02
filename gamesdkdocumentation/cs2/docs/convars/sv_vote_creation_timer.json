@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_creation_timer","description":"How often someone can individually call a vote.","args":"120","flags":["gamedll","release"],"games":["cs2"]}

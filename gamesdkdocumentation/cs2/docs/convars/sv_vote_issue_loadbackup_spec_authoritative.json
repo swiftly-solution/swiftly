@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_issue_loadbackup_spec_authoritative","description":"When enabled, admins load match from backup without players vote","args":"false","flags":["gamedll","release"],"games":["cs2"]}

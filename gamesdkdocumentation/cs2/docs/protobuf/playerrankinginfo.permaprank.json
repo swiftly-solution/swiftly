@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"mapId","type":"uint32"},{"name":"rankId","type":"uint32"},{"name":"wins","type":"uint32"}],"name":"PlayerRankingInfo.PerMapRank","games":["cs2"]}

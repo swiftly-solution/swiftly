@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"targetWorldPanel","type":"int32"},{"name":"cssClasses","type":"string"},{"name":"isAdd","type":"bool"}],"name":"CUserMessageUpdateCssClasses","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_rcon_log","description":"Enable/disable rcon logging.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

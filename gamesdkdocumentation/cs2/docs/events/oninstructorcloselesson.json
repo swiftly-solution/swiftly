@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnInstructorCloseLesson","description":"This event is triggered when instructor_close_lesson is triggered.","arguments":{"userid":"int32","hint_name":"string"},"return":"void","games":["cs2"]}

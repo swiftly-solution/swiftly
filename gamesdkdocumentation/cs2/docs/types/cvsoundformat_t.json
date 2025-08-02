@@ -1,1 +1,0 @@
-{"kind":"type","name":"CVSoundFormat_t","description":"Automatically generated game type from enum CVSoundFormat_t","values":{"PCM16":0,"PCM8":1,"MP3":2,"ADPCM":3},"games":["cs2"]}

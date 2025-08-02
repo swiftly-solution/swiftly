@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_issue_nextlevel_prevent_change","description":"Not allowed to vote for a nextlevel if one has already been set.","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

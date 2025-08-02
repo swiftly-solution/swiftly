@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_chasedistancespeed","description":"Chase cam's ideal distance from target","args":"144","flags":["min:","48,","developmentonly","clientdll","defensive"],"games":["cs2"]}

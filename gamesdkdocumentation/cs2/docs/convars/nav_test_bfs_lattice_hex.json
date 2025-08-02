@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_test_bfs_lattice_hex","description":"Demonstrates searching hexagonal lattice over nav mesh.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

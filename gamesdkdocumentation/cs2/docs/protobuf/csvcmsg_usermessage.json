@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"msgType","type":"int32"},{"name":"msgData","type":"bytes"},{"name":"passthrough","type":"int32"}],"name":"CSVCMsg_UserMessage","games":["cs2"]}

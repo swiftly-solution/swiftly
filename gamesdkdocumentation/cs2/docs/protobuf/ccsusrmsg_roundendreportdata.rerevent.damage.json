@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"otherPlayerslot","type":"int32","default":-1},{"name":"otherXuid","type":"uint64"},{"name":"healthRemoved","type":"int32"},{"name":"numHits","type":"int32"},{"name":"returnHealthRemoved","type":"int32"},{"name":"returnNumHits","type":"int32"}],"name":"CCSUsrMsg_RoundEndReportData.RerEvent.Damage","games":["cs2"]}

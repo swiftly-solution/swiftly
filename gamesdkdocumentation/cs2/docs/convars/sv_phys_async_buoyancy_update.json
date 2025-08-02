@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_phys_async_buoyancy_update","description":"If true, server buoyancy motion controllers are updated in an async job after the tick has completed.","args":"false","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

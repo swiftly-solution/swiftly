@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pvs_shadows_include_env","description":"<no description>","args":"false","flags":["gamedll","replicated","release"],"games":["cs2"]}

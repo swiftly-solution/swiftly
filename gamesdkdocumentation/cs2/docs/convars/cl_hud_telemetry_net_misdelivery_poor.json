@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_hud_telemetry_net_misdelivery_poor","description":"Packet delivery anomaly rate (0..100) higher than this is considered 'poor'.","args":"5","flags":["clientdll","archive","release"],"games":["cs2"]}

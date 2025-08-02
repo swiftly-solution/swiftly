@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_technical_timeout_duration_s","description":"How many seconds is a full technical timeout?","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

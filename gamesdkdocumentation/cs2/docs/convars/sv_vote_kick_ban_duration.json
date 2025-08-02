@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_vote_kick_ban_duration","description":"How long should a kick vote ban someone from the server? (in minutes)","args":"15","flags":["gamedll","notify","replicated","release"],"games":["cs2"]}

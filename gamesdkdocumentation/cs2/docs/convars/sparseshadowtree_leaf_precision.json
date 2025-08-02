@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_leaf_precision","description":"precision for depth compression at SST leaf nodes.","args":"0.0004","flags":["developmentonly"],"games":["cs2"]}

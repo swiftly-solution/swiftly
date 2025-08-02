@@ -1,1 +1,0 @@
-{"kind":"command","name":"gamestats_file_output_directory","description":"When -gamestatsfileoutputonly is specified, file will be emitted here instead of to modpath","args":"\"\"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

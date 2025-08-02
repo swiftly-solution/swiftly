@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_logflush","description":"Flush the log file to disk on each write (slow).","args":"false","flags":["archive","release"],"games":["cs2"]}

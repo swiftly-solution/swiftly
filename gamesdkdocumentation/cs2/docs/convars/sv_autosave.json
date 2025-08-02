@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_autosave","description":"Set to 1 to autosave game on level transition. Does not affect autosave triggers.","args":"true","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

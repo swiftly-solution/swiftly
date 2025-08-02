@@ -1,1 +1,0 @@
-{"kind":"type","name":"ParticleFalloffFunction_t","description":"Automatically generated game type from enum ParticleFalloffFunction_t","values":{"PARTICLE_FALLOFF_CONSTANT":0,"PARTICLE_FALLOFF_LINEAR":1,"PARTICLE_FALLOFF_EXPONENTIAL":2},"games":["cs2"]}

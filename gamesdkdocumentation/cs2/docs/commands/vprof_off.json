@@ -1,1 +1,0 @@
-{"kind":"command","name":"vprof_off","description":"Disable vprof","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

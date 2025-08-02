@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_gen_jump_connection_min_overlap_ratio","description":"Minimum edge overlap required for jump connection consideration as a percentage of agent radius","args":"1","flags":["gamedll","cheat"],"games":["cs2"]}

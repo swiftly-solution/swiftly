@@ -1,1 +1,0 @@
-{"kind":"command","name":"cs_steamvideo_max_kills_per_multikill","description":"Max number of kills for a single multikill event","args":"5","flags":["developmentonly","clientdll"],"games":["cs2"]}

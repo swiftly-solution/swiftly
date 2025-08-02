@@ -1,1 +1,0 @@
-{"kind":"command","name":"stop","description":"Finish recording demo.","args":"","flags":["release"],"games":["cs2"]}

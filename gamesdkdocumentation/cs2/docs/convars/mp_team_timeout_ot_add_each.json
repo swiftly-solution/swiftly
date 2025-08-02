@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_team_timeout_ot_add_each","description":"Number of timeouts to add for each team when match goes to 2nd and each next overtime.","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

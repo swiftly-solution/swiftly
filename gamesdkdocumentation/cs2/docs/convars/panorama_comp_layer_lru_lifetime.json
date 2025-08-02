@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_comp_layer_lru_lifetime","description":"<no description>","args":"1","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

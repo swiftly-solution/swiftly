@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_threaded_merge_entity_deltas","description":"Enable SourceTV threading of delta merging","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

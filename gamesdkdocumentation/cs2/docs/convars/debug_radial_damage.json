@@ -1,1 +1,0 @@
-{"kind":"command","name":"debug_radial_damage","description":"<no description>","args":"false","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

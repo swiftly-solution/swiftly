@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_prediction_savedata_postentitypacketreceived","description":"Experimental optimization.  If you are reading this in 2026, please delete this convar.","args":"false","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"ent_skeleton_duration","description":"Duration of ent_skeleton display","args":"0","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

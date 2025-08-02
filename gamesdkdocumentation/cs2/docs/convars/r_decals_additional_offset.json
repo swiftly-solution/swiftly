@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_decals_additional_offset","description":"<no description>","args":"0.01","flags":["developmentonly","clientdll","replicated","defensive"],"games":["cs2"]}

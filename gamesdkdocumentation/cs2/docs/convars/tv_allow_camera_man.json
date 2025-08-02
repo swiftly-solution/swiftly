@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_allow_camera_man","description":"Auto director allows spectators to become camera man","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

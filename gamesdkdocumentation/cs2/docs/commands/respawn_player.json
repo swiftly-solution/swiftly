@@ -1,1 +1,0 @@
-{"kind":"command","name":"respawn_player","description":"Respawns the player from death!","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

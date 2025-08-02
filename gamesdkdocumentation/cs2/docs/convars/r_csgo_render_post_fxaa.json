@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_render_post_fxaa","description":"<no description>","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

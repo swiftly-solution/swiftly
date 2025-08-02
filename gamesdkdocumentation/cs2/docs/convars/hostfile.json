@@ -1,1 +1,0 @@
-{"kind":"command","name":"hostfile","description":"The HOST file to load.","args":"\"host.txt\"","flags":["gamedll","release"],"games":["cs2"]}

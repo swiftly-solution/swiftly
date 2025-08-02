@@ -1,1 +1,0 @@
-{"kind":"command","name":"target_scan_use_query_cache","description":"<no description>","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

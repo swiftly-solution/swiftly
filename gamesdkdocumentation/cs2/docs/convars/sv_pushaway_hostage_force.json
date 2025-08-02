@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pushaway_hostage_force","description":"How hard the hostage is pushed away from physics objects (falls off with inverse square of distance).","args":"20000","flags":["gamedll","replicated","cheat"],"games":["cs2"]}

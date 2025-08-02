@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_vox","description":"Voice chat uses a vox-style always on","args":"0","flags":["clientdll","archive","per_user"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_autoteambalance","description":"<no description>","args":"true","flags":["gamedll","notify","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountId","type":"uint32"},{"name":"seasonId","type":"uint32"},{"name":"dataPerWeek","type":"CMsgGCCStrike15_v2_PremierSeasonSummary.DataPerWeek"},{"name":"dataPerMap","type":"CMsgGCCStrike15_v2_PremierSeasonSummary.DataPerMap"}],"name":"CMsgGCCStrike15_v2_PremierSeasonSummary","games":["cs2"]}

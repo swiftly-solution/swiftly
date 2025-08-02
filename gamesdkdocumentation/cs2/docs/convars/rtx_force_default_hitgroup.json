@@ -1,1 +1,0 @@
-{"kind":"command","name":"rtx_force_default_hitgroup","description":"Forces all ray traced geometry to use default hit shaders instead of specialized ones.","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

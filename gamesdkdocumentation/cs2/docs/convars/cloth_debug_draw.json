@@ -1,1 +1,0 @@
-{"kind":"command","name":"cloth_debug_draw","description":"<no description>","args":"0","flags":["developmentonly","clientdll"],"games":["cs2"]}

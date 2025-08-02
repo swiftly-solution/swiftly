@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_debug_precipitation","description":"Show precipitation volumes","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

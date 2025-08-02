@@ -1,1 +1,0 @@
-{"kind":"type","name":"OrientationWarpTargetOffsetMode_t","description":"Automatically generated game type from enum OrientationWarpTargetOffsetMode_t","values":{"eLiteralValue":0,"eParameter":1,"eAnimationMovementHeading":2,"eAnimationMovementHeadingAtEnd":3},"games":["cs2"]}

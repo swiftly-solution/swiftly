@@ -1,1 +1,0 @@
-{"kind":"command","name":"CS_WarnFriendlyDamageInterval","description":"Defines how frequently the server notifies clients that a player damaged a friend","args":"3","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_retake_t_count","description":"Number of terrorists when playing retakes.","args":"3","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

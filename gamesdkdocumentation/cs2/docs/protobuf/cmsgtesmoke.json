@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"origin","type":"CMsgVector"},{"name":"scale","type":"float"}],"name":"CMsgTESmoke","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"timeLastUpdate","type":"uint32"},{"name":"timeCommsBan","type":"uint32"},{"name":"timePlayBan","type":"uint32"}],"name":"CSOGameAccountSteamChina","games":["cs2"]}

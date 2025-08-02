@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_lock_to_current_player","description":"As an observer, lock the spectator target to the currently observed target","args":"","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"steamvrevent_quit","description":"steamvrevent_quit","args":"","flags":["developmentonly","gamedll","hidden","defensive"],"games":["cs2"]}

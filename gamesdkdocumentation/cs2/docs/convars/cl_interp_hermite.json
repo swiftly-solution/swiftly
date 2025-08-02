@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_interp_hermite","description":"Set to zero do disable hermite interpolation.","args":"true","flags":["clientdll","cheat"],"games":["cs2"]}

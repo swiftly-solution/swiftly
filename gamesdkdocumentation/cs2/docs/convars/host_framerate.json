@@ -1,1 +1,0 @@
-{"kind":"command","name":"host_framerate","description":"Set to lock per-frame time elapse.","args":"0","flags":["release"],"games":["cs2"]}

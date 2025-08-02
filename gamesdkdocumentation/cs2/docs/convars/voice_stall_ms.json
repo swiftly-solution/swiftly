@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_stall_ms","description":"<no description>","args":"250","flags":["developmentonly","defensive"],"games":["cs2"]}

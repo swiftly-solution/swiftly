@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_cluster","description":"Data center cluster this server lives in.","args":"0","flags":["release"],"games":["cs2"]}

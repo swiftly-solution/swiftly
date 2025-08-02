@@ -1,1 +1,0 @@
-{"kind":"command","name":"quit","description":"Quit the game","args":"","flags":["release","vconsole_set_focus"],"games":["cs2"]}

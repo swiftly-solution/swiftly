@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_showmissing","description":"Show missing closecaption entries.","args":"false","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

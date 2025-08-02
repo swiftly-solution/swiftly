@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_light_probe_volume_debug_grid_roughness","description":"roughness for LPV debug grid","args":"0.5","flags":["cheat"],"games":["cs2"]}

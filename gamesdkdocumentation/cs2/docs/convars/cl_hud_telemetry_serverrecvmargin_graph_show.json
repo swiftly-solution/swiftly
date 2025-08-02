@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_hud_telemetry_serverrecvmargin_graph_show","description":"Show graph of the server recv margin in the HUD.  (How early/late user commands are arriving at the server before they are executed.)   0=never, 1=only when there are command queue problems, 2=always","args":"0","flags":["clientdll","archive","release"],"games":["cs2"]}

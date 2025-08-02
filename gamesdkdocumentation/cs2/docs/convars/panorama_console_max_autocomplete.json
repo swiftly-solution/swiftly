@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_console_max_autocomplete","description":"<no description>","args":"100","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cv_bot_ai_bt_moveto_show_next_hiding_spot","description":"Draw the hiding spot the bot will check next.","args":"false","flags":["gamedll","replicated","cheat"],"games":["cs2"]}

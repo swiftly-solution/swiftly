@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_debug_overlays_broadcast","description":"Broadcast server debug overlays","args":"false","flags":["notify","cheat","release"],"games":["cs2"]}

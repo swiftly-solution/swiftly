@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_allow_ground_weapon_pickup","description":"<no description>","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

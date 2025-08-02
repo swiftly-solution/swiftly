@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_msg","description":"Send a screen message to all clients.","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

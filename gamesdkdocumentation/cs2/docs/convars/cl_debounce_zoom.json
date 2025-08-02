@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_debounce_zoom","description":"Whether or not to disable holding secondary fire to cycle zoom levels","args":"true","flags":["clientdll","archive","userinfo","per_user"],"games":["cs2"]}

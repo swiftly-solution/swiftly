@@ -1,1 +1,0 @@
-{"kind":"command","name":"dev_cs_ragdoll_progress_check_interval","description":"<no description>","args":"0.25","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

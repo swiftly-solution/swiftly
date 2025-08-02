@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnRoundMvp","description":"This event is triggered when round_mvp is triggered.","arguments":{"userid":"int32","reason":"int32","value":"int32","musickitmvps":"int32","nomusic":"int32","musickitid":"int32"},"return":"void","games":["cs2"]}

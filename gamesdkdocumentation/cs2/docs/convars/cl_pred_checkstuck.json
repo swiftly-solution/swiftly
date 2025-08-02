@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_pred_checkstuck","description":"Perform the additional 'stuck' traces on the client side during prediction.","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

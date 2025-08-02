@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_walkable_normal","description":"<no description>","args":"0.7","flags":["gamedll","clientdll","replicated","cheat","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_replay_on_death","description":"When > 0, sets the mode whereas players see delayed replay, and are segregated into a domain of chat and voice separate from the alive players","args":"false","flags":["replicated","release"],"games":["cs2"]}

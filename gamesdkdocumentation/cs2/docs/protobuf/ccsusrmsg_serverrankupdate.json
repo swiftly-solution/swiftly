@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"rankUpdate","type":"CCSUsrMsg_ServerRankUpdate.RankUpdate"}],"name":"CCSUsrMsg_ServerRankUpdate","games":["cs2"]}

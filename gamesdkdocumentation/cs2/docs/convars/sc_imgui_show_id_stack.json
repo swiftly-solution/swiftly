@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_imgui_show_id_stack","description":"SceneSystem/Imgui/Show ID Stack Tool","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

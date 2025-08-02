@@ -1,1 +1,0 @@
-{"kind":"command","name":"Test_StartScript","description":"Start a test script running..","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

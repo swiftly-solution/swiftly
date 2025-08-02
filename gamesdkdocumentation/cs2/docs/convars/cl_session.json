@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_session","description":"<no description>","args":"\"\"","flags":["developmentonly","hidden","server_can_execute"],"games":["cs2"]}

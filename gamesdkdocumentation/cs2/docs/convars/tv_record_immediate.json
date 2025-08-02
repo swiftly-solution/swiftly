@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_record_immediate","description":"tv_record starting the moment tv_record was executed, not tv_delay earlier","args":"0","flags":["release"],"games":["cs2"]}

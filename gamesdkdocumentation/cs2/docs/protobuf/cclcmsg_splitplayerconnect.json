@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"playername","type":"string"}],"name":"CCLCMsg_SplitPlayerConnect","games":["cs2"]}

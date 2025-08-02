@@ -1,1 +1,0 @@
-{"kind":"command","name":"slope_drop_enable","description":"Toggles a test dropping the view offset based on the slope","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

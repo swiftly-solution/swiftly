@@ -1,1 +1,0 @@
-{"kind":"command","name":"rr_reloadresponsesystems","description":"Reload all response system scripts.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

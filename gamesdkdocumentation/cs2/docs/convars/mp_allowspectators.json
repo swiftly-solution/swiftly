@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_allowspectators","description":"toggles whether the server allows spectator mode or not","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

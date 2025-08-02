@@ -1,1 +1,0 @@
-{"kind":"command","name":"cs_ShowStateTransitions","description":"cs_ShowStateTransitions <ent index or -1 for all>. Show player state transitions.","args":"-2","flags":["gamedll","cheat"],"games":["cs2"]}

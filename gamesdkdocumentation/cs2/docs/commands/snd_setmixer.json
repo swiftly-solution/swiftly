@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_setmixer","description":"Set named Mixgroup of current mixer to mix vol, mute, solo.","args":"","flags":["developmentonly"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_disable_deathcam_audio_mix_fade_out","description":"When set to true, disables audio being silenced while the death cam fades out.","args":"false","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"animgraph_footlock_ik_enable","description":"Enable IK.","args":"true","flags":["replicated","cheat"],"games":["cs2"]}

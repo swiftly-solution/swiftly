@@ -1,1 +1,0 @@
-{"kind":"command","name":"resource_reset_allocate_timing","description":"Reset tracked time spent in Allocate (see resource_log_allocate_timing)","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

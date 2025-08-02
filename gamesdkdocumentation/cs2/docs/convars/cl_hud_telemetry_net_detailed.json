@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_hud_telemetry_net_detailed","description":"Show breakdown network misdelivery (loss, late delivery, and peak jitter).  0=never, 1=only in poor network conditions, 2=always","args":"0","flags":["clientdll","archive","release"],"games":["cs2"]}

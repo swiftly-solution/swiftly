@@ -1,1 +1,0 @@
-{"kind":"command","name":"shatterglass_cleanup","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

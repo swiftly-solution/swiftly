@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_renderdoc_capture_generation","description":"Capture dual shadow maps during sparseshadowtree generation.","args":"false","flags":["developmentonly"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pvs_cache_query_inflate_amount","description":"<no description>","args":"0","flags":["developmentonly","gamedll"],"games":["cs2"]}

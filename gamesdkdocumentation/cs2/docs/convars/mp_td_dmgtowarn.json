@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_td_dmgtowarn","description":"The damage threshhold players have to exceed in a match to get warned that they are about to be kicked.","args":"200","flags":["gamedll","replicated","release"],"games":["cs2"]}

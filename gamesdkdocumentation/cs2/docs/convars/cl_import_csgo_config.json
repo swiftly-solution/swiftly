@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_import_csgo_config","description":"<no description>","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_relay_quit_after_game","description":"Quit after a game has been relayed, do not hibernate","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

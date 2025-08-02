@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_weapons_allow_pistols","description":"Determines which team, if any, can purchase Pistols. -1 = any; 0 = non; 2 = Ts; 3 = CTs.","args":"-1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

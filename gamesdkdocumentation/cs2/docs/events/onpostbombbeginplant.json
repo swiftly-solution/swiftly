@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostBombBeginplant","description":"This event is triggered after bomb_beginplant is triggered.","arguments":{"userid":"int32","site":"int32"},"return":"void","games":["cs2"]}

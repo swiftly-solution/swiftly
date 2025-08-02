@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_remove_ent_from_pvs","description":"<no description>","args":"0","flags":["developmentonly","gamedll"],"games":["cs2"]}

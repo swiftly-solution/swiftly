@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_grenadecrosshair_keepusercrosshair","description":"Keep the user's crosshair when the grenade crosshair is enabled","args":"true","flags":["clientdll","archive","per_user"],"games":["cs2"]}

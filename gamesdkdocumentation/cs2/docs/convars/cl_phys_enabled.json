@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_phys_enabled","description":"Enable all physics simulation","args":"true","flags":["clientdll","cheat"],"games":["cs2"]}

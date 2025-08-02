@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"util1","type":"int32"},{"name":"util2","type":"int32"},{"name":"util3","type":"int32"},{"name":"util4","type":"int32"},{"name":"util5","type":"int32"}],"name":"CUserMessageRequestUtilAction","games":["cs2"]}

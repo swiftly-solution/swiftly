@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_replay_winddown_time","description":"The trailing time, in seconds, of replay past the event, including fade-out","args":"2","flags":["gamedll","release"],"games":["cs2"]}

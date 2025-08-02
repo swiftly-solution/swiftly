@@ -1,1 +1,0 @@
-{"kind":"command","name":"ff_damage_reduction_grenade","description":"How much to reduce damage done to teammates by a thrown grenade.  Range is from 0 - 1 (with 1 being damage equal to what is done to an enemy)","args":"0.25","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

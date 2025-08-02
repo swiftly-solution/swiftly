@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_texture_stream_max_resolution","description":"Maximum resolution for top mip level in streaming textures","args":"2147483647","flags":["min:","512,","developmentonly","defensive"],"games":["cs2"]}

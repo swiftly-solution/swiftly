@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_experimental_lag_limiter","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

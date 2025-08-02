@@ -1,1 +1,0 @@
-{"kind":"command","name":"pulse_debug_print","description":"Usage: pulse_debug_print <vpulse_resource>","args":"","flags":["developmentonly"],"games":["cs2"]}

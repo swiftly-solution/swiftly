@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"typeId","type":"int32"},{"name":"objectData","type":"bytes"}],"name":"CMsgSOMultipleObjects.SingleObject","games":["cs2"]}

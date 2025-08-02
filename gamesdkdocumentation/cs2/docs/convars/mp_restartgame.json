@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_restartgame","description":"If non-zero, game will restart in the specified number of seconds","args":"0","flags":["gamedll","release"],"games":["cs2"]}

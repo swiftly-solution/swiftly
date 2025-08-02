@@ -1,1 +1,0 @@
-{"kind":"command","name":"scrubber","description":"Scrub system off - not a dev build","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

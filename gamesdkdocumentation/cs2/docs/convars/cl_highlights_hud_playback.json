@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_highlights_hud_playback","description":"Highlights hud playback","args":"0","flags":["clientdll","hidden","release"],"games":["cs2"]}

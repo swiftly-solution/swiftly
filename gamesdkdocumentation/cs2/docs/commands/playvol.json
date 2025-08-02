@@ -1,1 +1,0 @@
-{"kind":"command","name":"playvol","description":"Play a sound at a specified volume.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"weapon_land_dip_amt","description":"The amount the gun should dip when the player lands after a jump.","args":"20","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"hostage_debug","description":"Show hostage AI debug information","args":"0","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

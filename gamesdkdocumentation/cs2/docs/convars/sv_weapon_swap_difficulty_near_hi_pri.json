@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_weapon_swap_difficulty_near_hi_pri","description":"0 = Cone searches easily reach past high priority items to swap weapons. 1 = Cone searches are narrowed and require that the weapon is strictly closer. 2 = cone searches are disabled near high priority items","args":"2","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

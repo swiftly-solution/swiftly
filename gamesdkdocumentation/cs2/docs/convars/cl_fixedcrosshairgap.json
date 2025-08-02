@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_fixedcrosshairgap","description":"For crosshair style 1: How big to make the gap between the pips in the fixed crosshair","args":"3","flags":["clientdll","archive","per_user"],"games":["cs2"]}

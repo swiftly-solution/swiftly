@@ -1,1 +1,0 @@
-{"kind":"type","name":"NavDirType","description":"Automatically generated game type from enum NavDirType","values":{"NORTH":0,"EAST":1,"SOUTH":2,"WEST":3,"NUM_NAV_DIR_TYPE_DIRECTIONS":4},"games":["cs2"]}

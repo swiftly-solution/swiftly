@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_hud_telemetry_net_quality_graph_show","description":"Show packet jitter and netframe loss/reordering in the HUD.  0=never, 1=only in poor conditions, 2=always","args":"0","flags":["clientdll","archive","release"],"games":["cs2"]}

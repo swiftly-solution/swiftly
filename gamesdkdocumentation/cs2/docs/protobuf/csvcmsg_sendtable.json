@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"isEnd","type":"bool"},{"name":"netTableName","type":"string"},{"name":"needsDecoder","type":"bool"},{"name":"props","type":"CSVCMsg_SendTable.sendprop_t"}],"name":"CSVCMsg_SendTable","games":["cs2"]}

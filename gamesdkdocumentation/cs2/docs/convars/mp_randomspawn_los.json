@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_randomspawn_los","description":"If using mp_randomspawn, determines whether to test Line of Sight when spawning.","args":"true","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

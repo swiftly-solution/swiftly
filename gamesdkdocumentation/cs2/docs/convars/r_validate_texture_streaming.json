@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_validate_texture_streaming","description":"Dumps state of texture streaming at the next frame boundary.","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

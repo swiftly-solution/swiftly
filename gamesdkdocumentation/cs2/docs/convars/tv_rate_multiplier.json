@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_rate_multiplier","description":"Multiply requested rate by this value to adjust Dota TV send rate","args":"2","flags":["developmentonly","defensive"],"games":["cs2"]}

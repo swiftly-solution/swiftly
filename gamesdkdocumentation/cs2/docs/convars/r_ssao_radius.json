@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_ssao_radius","description":"<no description>","args":"30","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"soundpatch_captionlength","description":"How long looping soundpatch captions should display for.","args":"2","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"vprof_reset_peaks","description":"Reset just the peak time in VProf profiler","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

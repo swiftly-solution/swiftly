@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_purge_vsnd_table","description":"Purges the VSnd table","args":"","flags":["developmentonly"],"games":["cs2"]}

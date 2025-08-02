@@ -1,1 +1,0 @@
-{"kind":"type","name":"OrientationWarpMode_t","description":"Automatically generated game type from enum OrientationWarpMode_t","values":{"eInvalid":0,"eAngle":1,"eWorldPosition":2},"games":["cs2"]}

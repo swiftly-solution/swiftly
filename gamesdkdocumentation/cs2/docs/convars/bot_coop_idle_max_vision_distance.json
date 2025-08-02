@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_coop_idle_max_vision_distance","description":"Max distance bots can see targets (in coop) when they are idle, dormant, hiding or asleep.","args":"1400","flags":["min:","-1,","gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

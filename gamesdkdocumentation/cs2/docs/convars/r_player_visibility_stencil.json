@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_player_visibility_stencil","description":"<no description>","args":"true","flags":["developmentonly","clientdll","cheat"],"games":["cs2"]}

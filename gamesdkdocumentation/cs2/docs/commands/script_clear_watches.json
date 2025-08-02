@@ -1,1 +1,0 @@
-{"kind":"command","name":"script_clear_watches","description":"Clear all watches from the game debug overlay","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

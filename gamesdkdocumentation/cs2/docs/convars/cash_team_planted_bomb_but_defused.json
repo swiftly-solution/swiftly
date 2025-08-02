@@ -1,1 +1,0 @@
-{"kind":"command","name":"cash_team_planted_bomb_but_defused","description":"<no description>","args":"600","flags":["gamedll","clientdll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

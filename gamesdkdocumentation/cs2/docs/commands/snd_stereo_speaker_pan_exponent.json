@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_stereo_speaker_pan_exponent","description":"Specifies the exponent for the pan xfade from speaker to speaker if the \"exp\" pan law is being used.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

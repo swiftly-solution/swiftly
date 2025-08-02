@@ -1,1 +1,0 @@
-{"kind":"command","name":"break_invulnerable_spawn_duration","description":"<no description>","args":"0.5","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

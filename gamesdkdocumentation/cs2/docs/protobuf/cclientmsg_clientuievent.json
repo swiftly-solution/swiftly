@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"event","type":"EClientUIEvent","default":"EClientUIEvent_Invalid"},{"name":"entEhandle","type":"uint32"},{"name":"clientEhandle","type":"uint32"},{"name":"data1","type":"string"},{"name":"data2","type":"string"}],"name":"CClientMsg_ClientUIEvent","games":["cs2"]}

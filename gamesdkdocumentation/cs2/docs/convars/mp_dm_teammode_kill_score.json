@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_dm_teammode_kill_score","description":"Team deathmatch victory points to award for enemy kill","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

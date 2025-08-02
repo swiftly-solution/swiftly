@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_render_cables","description":"Render cables into SST.","args":"false","flags":["developmentonly"],"games":["cs2"]}

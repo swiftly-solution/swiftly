@@ -1,1 +1,0 @@
-{"kind":"command","name":"sparseshadowtree_parallel_generation","description":"Split SST tile generation into threadjobs (0 - disabled, 1 - wait on readpixels for job batch, 2 - async readpixels).","args":"2","flags":["developmentonly"],"games":["cs2"]}

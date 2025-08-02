@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_explode_smokegrenade_at_crosshair","description":"explodes smoke grenade at crosshair location","args":"","flags":["developmentonly","gamedll","cheat"],"games":["cs2"]}

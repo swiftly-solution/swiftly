@@ -1,1 +1,0 @@
-{"kind":"command","name":"vis_debug_lock","description":"Lock vis LOS origin to current","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

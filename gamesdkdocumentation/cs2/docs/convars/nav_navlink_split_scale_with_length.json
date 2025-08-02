@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_navlink_split_scale_with_length","description":"Nav link splits' widths are proportional to the nav link's length.","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

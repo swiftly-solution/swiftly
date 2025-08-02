@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_retire_low_priority_lights","description":"Low priority dlights are replaced by high priority ones","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_report_verbose_error","description":"If set to 1, report more error found when playing sounds.","args":"false","flags":["cheat"],"games":["cs2"]}

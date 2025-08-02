@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_hud_telemetry_ping_show","description":"Show ping in the HUD.  0=never, 1=only in poor conditions, 2=always","args":"1","flags":["clientdll","archive","release"],"games":["cs2"]}

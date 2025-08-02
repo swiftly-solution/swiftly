@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"origin","type":"CMsgVector"},{"name":"direction","type":"CMsgVector"},{"name":"color","type":"fixed32"},{"name":"amount","type":"uint32"}],"name":"CMsgTEBloodStream","games":["cs2"]}

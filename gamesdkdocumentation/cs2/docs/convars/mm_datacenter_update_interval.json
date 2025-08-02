@@ -1,1 +1,0 @@
-{"kind":"command","name":"mm_datacenter_update_interval","description":"Interval between datacenter stats updates.","args":"3600","flags":["developmentonly"],"games":["cs2"]}

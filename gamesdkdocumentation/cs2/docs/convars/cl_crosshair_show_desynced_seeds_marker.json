@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_crosshair_show_desynced_seeds_marker","description":"<no description>","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

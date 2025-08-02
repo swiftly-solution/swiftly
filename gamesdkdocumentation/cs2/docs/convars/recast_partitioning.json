@@ -1,1 +1,0 @@
-{"kind":"command","name":"recast_partitioning","description":"0 = watershed, 1 = monotone, 2 = layers","args":"0","flags":["gamedll","replicated","cheat"],"games":["cs2"]}

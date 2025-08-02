@@ -1,1 +1,0 @@
-{"kind":"command","name":"vis_enable","description":"Enable precomputed visibility when true","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

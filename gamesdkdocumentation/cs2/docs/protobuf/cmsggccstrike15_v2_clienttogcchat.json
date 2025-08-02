@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"matchId","type":"uint64"},{"name":"text","type":"string"}],"name":"CMsgGCCStrike15_v2_ClientToGCChat","games":["cs2"]}

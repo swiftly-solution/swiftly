@@ -1,1 +1,0 @@
-{"kind":"command","name":"hullivr_faceisland_merge_tan","description":"Should we try to straighten an island of faces deviating from their average normal (tangent)?","args":"0.04","flags":["developmentonly","replicated","defensive"],"games":["cs2"]}

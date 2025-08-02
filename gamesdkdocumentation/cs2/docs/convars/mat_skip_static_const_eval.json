@@ -1,1 +1,0 @@
-{"kind":"command","name":"mat_skip_static_const_eval","description":"<no description>","args":"true","flags":["developmentonly"],"games":["cs2"]}

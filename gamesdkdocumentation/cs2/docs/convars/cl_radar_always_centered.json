@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_radar_always_centered","description":"If set to 0, the radar is maximally used. Otherwise the player is always centered, even at map extents.","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

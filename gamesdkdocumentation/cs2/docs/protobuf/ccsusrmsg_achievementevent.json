@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"achievement","type":"int32"},{"name":"count","type":"int32"},{"name":"userId","type":"int32"}],"name":"CCSUsrMsg_AchievementEvent","games":["cs2"]}

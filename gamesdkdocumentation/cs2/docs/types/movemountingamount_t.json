@@ -1,1 +1,0 @@
-{"kind":"type","name":"MoveMountingAmount_t","description":"Automatically generated game type from enum MoveMountingAmount_t","values":{"MOVE_MOUNT_NONE":0,"MOVE_MOUNT_LOW":1,"MOVE_MOUNT_HIGH":2,"MOVE_MOUNT_MAXCOUNT":3},"games":["cs2"]}

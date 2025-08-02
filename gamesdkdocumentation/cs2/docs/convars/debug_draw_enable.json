@@ -1,1 +1,0 @@
-{"kind":"command","name":"debug_draw_enable","description":"<no description>","args":"true","flags":["developmentonly","replicated"],"games":["cs2"]}

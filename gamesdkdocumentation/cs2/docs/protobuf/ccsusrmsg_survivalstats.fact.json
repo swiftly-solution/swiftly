@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"type","type":"int32"},{"name":"display","type":"int32"},{"name":"value","type":"int32"},{"name":"interestingness","type":"float"}],"name":"CCSUsrMsg_SurvivalStats.Fact","games":["cs2"]}

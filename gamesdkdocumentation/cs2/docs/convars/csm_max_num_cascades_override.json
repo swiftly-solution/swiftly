@@ -1,1 +1,0 @@
-{"kind":"command","name":"csm_max_num_cascades_override","description":"Number of cascades in sunlight shadow","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

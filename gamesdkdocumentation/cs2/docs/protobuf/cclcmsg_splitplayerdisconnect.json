@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"slot","type":"int32"}],"name":"CCLCMsg_SplitPlayerDisconnect","games":["cs2"]}

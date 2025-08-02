@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_net_showevents","description":"Dump game events to console (1=client only, 2=all).","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

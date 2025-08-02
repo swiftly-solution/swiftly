@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_max_texture_pool_size","description":"Upper limit on texture pool size.","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

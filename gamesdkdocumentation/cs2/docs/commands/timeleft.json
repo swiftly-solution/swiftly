@@ -1,1 +1,0 @@
-{"kind":"command","name":"timeleft","description":"prints the time remaining in the match","args":"","flags":["gamedll","client_can_execute"],"games":["cs2"]}

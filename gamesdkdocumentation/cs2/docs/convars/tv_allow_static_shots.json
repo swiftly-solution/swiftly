@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_allow_static_shots","description":"Auto director uses fixed level cameras for shots","args":"true","flags":["gamedll","release"],"games":["cs2"]}

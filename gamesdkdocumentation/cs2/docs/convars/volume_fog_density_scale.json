@@ -1,1 +1,0 @@
-{"kind":"command","name":"volume_fog_density_scale","description":"Scale global volume fog density","args":"1","flags":["developmentonly","cheat"],"games":["cs2"]}

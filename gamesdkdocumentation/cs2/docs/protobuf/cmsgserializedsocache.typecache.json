@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"type","type":"uint32"},{"name":"objects","type":"bytes"},{"name":"serviceId","type":"uint32"}],"name":"CMsgSerializedSOCache.TypeCache","games":["cs2"]}

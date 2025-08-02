@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_search_key_token","description":"Development search key token.","args":"\"\"","flags":["clientdll","hidden","release"],"games":["cs2"]}

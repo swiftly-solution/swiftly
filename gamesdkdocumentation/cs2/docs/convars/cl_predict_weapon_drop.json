@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_predict_weapon_drop","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

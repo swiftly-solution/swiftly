@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_texture_budget_threshold","description":"Reduce texture memory pool size when this percentage of the budget is full.","args":"0.9","flags":["developmentonly","defensive"],"games":["cs2"]}

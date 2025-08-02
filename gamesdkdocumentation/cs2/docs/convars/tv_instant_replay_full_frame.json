@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_instant_replay_full_frame","description":"Send embedded full frames","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

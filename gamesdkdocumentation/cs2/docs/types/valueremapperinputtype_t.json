@@ -1,1 +1,0 @@
-{"kind":"type","name":"ValueRemapperInputType_t","description":"Automatically generated game type from enum ValueRemapperInputType_t","values":{"InputType_PlayerShootPosition":0,"InputType_PlayerShootPositionAroundAxis":1},"games":["cs2"]}

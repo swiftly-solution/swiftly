@@ -1,1 +1,0 @@
-{"kind":"command","name":"fs_async_threads","description":"Number of IO threads in async filesystem (-1 == auto)","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

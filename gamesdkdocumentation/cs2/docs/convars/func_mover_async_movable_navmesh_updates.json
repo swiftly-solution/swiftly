@@ -1,1 +1,0 @@
-{"kind":"command","name":"func_mover_async_movable_navmesh_updates","description":"<no description>","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

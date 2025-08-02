@@ -1,1 +1,0 @@
-{"kind":"command","name":"inferno_max_range","description":"Maximum distance flames can spread from their initial ignition point","args":"150","flags":["gamedll","replicated","release"],"games":["cs2"]}

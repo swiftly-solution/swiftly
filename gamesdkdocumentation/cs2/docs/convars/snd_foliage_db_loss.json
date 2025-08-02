@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_foliage_db_loss","description":"foliage dB loss per 1200 units","args":"4","flags":["gamedll","cheat"],"games":["cs2"]}

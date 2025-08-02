@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_warmup_items_nocount_policy","description":"Which items are unlimited during warmup (bitfield, 1=gun, 2=c4, 4=nade, 8=defuser/kevlar, 16=taser, 32=healthshot)","args":"42","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

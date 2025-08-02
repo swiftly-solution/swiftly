@@ -1,1 +1,0 @@
-{"kind":"command","name":"rate","description":"Min bytes/sec the host can receive data","args":"80000","flags":["archive","userinfo"],"games":["cs2"]}

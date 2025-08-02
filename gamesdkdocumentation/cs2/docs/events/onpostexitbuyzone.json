@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostExitBuyzone","description":"This event is triggered after exit_buyzone is triggered.","arguments":{"userid":"int32","canbuy":"bool"},"return":"void","games":["cs2"]}

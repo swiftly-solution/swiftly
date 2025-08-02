@@ -1,1 +1,0 @@
-{"kind":"command","name":"viewmodel_offset_x","description":"viewmodel_offset_x","args":"1","flags":["min:","-2,","max:","2.5,","clientdll","archive","userinfo","per_user"],"games":["cs2"]}

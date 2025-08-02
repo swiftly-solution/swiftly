@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_globallight_shadow_mode","description":"<no description>","args":"2","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

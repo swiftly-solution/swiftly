@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pausable_dev","description":"Whether listen server is pausable when running -dev and playing solo against bots","args":"true","flags":["developmentonly"],"games":["cs2"]}

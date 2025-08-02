@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_bloom_threshold_downsample_jimenez","description":"Custom downsample based on Jimenez14, (default enabled, higher quality, decreases bloom aliasing further)","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

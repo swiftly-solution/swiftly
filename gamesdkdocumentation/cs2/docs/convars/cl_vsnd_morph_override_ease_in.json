@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_vsnd_morph_override_ease_in","description":"If cl_enable_vsnd_morph_override_ease_enabled is true, ease into vsnd morph driven animation over the specified number of seconds.","args":"0.2","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

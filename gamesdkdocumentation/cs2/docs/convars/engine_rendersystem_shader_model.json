@@ -1,1 +1,0 @@
-{"kind":"command","name":"engine_rendersystem_shader_model","description":"Rendersystem shader model in use (changing this does not change the shader model).","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

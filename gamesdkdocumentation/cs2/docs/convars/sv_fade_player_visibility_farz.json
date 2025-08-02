@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_fade_player_visibility_farz","description":"<no description>","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

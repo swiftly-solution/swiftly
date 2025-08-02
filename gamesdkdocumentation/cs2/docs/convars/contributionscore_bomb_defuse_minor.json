@@ -1,1 +1,0 @@
-{"kind":"command","name":"contributionscore_bomb_defuse_minor","description":"amount of contribution score for defusing a bomb after eliminating enemy team","args":"1","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_gpu_culling_two_pass","description":"CSGO/Graphics/GPU Culling (Two Pass)","args":"false","flags":["developmentonly","clientdll","menubar_item","defensive"],"games":["cs2"]}

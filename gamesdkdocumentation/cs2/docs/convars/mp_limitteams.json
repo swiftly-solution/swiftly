@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_limitteams","description":"Max # of players 1 team can have over another (0 disables check)","args":"2","flags":["min:","0,","max:","30,","gamedll","notify","replicated","release","commandline_enforced"],"games":["cs2"]}

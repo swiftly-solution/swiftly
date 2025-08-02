@@ -1,1 +1,0 @@
-{"kind":"command","name":"mic_listen_while_nonfocused","description":"Enables the ability for the mic to remain open if the window loses focus such as when a caster tabs out to adjust settings","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

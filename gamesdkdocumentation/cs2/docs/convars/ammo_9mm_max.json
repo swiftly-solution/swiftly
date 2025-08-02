@@ -1,1 +1,0 @@
-{"kind":"command","name":"ammo_9mm_max","description":"<no description>","args":"120","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

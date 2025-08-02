@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPlayerBlind","description":"This event is triggered when player_blind is triggered.","arguments":{"userid":"int32","attacker":"int32","entityid":"int32","blind_duration":"float"},"return":"void","games":["cs2"]}

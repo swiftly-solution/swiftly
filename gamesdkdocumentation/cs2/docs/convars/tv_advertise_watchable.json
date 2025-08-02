@@ -1,1 +1,0 @@
-{"kind":"command","name":"tv_advertise_watchable","description":"GOTV advertises the match as watchable via game UI, clients watching via UI will not need to type password","args":"false","flags":["protected","notify","dontrecord","release"],"games":["cs2"]}

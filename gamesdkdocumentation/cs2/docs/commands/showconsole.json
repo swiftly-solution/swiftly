@@ -1,1 +1,0 @@
-{"kind":"command","name":"showconsole","description":"Show the console.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"startEffect","type":"bool"},{"name":"entityMsg","type":"CEntityMsg"}],"name":"CEntityMessageScreenOverlay","games":["cs2"]}

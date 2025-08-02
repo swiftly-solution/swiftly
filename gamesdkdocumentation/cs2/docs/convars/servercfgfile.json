@@ -1,1 +1,0 @@
-{"kind":"command","name":"servercfgfile","description":"<no description>","args":"\"server.cfg\"","flags":["gamedll","release"],"games":["cs2"]}

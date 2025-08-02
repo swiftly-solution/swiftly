@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"leaderboardSafeName","type":"string"}],"name":"CMsgGCCStrike15_v2_SetPlayerLeaderboardSafeName","games":["cs2"]}

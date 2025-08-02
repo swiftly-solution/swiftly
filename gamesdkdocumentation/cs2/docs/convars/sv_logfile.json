@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_logfile","description":"Log server information in the log file.","args":"false","flags":["archive","release"],"games":["cs2"]}

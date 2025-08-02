@@ -1,1 +1,0 @@
-{"kind":"command","name":"soundscape_debug","description":"When on, draws lines to all env_soundscape entities. Green lines show the active soundscape, red lines show soundscapes that aren't in range, and white lines show soundscapes that are in range, but not the active soundscape.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

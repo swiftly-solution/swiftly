@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_gpu_opt_firstpersonlegs_visible_angle","description":"avoid overhead of firstpersonlegs layers if not looking down enough to see them","args":"40","flags":["developmentonly","clientdll"],"games":["cs2"]}

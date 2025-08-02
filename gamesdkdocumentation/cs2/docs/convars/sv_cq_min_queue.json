@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_cq_min_queue","description":"Server min buffer size.","args":"0","flags":["min:","0,","developmentonly","replicated","defensive"],"games":["cs2"]}

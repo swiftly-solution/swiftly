@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_create_indirect_connection_set_to","description":"Set the 'to' location of an indirect connection.","args":"[0, 0, 0]","flags":["gamedll","cheat"],"games":["cs2"]}

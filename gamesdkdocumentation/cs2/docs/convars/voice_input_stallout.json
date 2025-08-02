@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_input_stallout","description":"Time before we consider a mic stalled out and need to reset it.","args":"2","flags":["userinfo"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_spec_show_bindings","description":"Toggle the visibility of the spectator bindings.","args":"true","flags":["clientdll","release","clientcmd_can_execute"],"games":["cs2"]}

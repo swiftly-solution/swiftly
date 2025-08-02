@@ -1,1 +1,0 @@
-{"kind":"type","name":"StanceType_t","description":"Automatically generated game type from enum StanceType_t","values":{"STANCE_CURRENT":-1,"STANCE_DEFAULT":0,"STANCE_CROUCHING":1,"STANCE_PRONE":2,"NUM_STANCES":3},"games":["cs2"]}

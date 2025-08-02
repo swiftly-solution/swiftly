@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"materialName","type":"string"},{"name":"includeChildren","type":"bool"}],"name":"CUserMsg_ParticleManager.SetMaterialOverride","games":["cs2"]}

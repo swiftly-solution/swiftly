@@ -1,1 +1,0 @@
-{"kind":"type","name":"HitboxLerpType_t","description":"Automatically generated game type from enum HitboxLerpType_t","values":{"HITBOX_LERP_LIFETIME":0,"HITBOX_LERP_CONSTANT":1},"games":["cs2"]}

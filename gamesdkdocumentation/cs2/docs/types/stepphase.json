@@ -1,1 +1,0 @@
-{"kind":"type","name":"StepPhase","description":"Automatically generated game type from enum StepPhase","values":{"StepPhase_OnGround":0,"StepPhase_InAir":1},"games":["cs2"]}

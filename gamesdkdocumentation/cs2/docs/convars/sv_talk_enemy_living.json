@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_talk_enemy_living","description":"Living players can hear all living enemy communication (voice, chat)","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

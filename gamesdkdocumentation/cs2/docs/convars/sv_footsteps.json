@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_footsteps","description":"Play footstep sound for players","args":"1","flags":["developmentonly","gamedll","clientdll","notify","replicated"],"games":["cs2"]}

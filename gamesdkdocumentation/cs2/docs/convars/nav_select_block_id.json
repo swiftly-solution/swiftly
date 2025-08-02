@@ -1,1 +1,0 @@
-{"kind":"command","name":"nav_select_block_id","description":"Select nav space block with matching ID.","args":"-1","flags":["gamedll","cheat"],"games":["cs2"]}

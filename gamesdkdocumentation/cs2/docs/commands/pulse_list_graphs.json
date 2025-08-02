@@ -1,1 +1,0 @@
-{"kind":"command","name":"pulse_list_graphs","description":"List all the active pulse graph instances","args":"","flags":["cheat"],"games":["cs2"]}

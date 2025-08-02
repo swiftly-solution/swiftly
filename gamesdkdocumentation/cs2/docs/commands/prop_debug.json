@@ -1,1 +1,0 @@
-{"kind":"command","name":"prop_debug","description":"Toggle prop debug mode. If on, props will show colorcoded bounding boxes. Red means ignore all damage. White means respond physically to damage but never break. Green maps health in the range of 100 down to 1.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"save_fake_hitch","description":"Force a busy wait for the specified number of milliseconds during save to simulate a hitch","args":"0","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

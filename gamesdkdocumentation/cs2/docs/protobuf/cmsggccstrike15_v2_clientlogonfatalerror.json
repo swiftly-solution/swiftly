@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"errorcode","type":"uint32"},{"name":"message","type":"string"},{"name":"country","type":"string"}],"name":"CMsgGCCStrike15_v2_ClientLogonFatalError","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"volume_fog_width","description":"Width of volume fog texture","args":"240","flags":["min:","64,","max:","1024,","developmentonly","defensive"],"games":["cs2"]}

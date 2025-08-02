@@ -1,1 +1,0 @@
-{"kind":"type","name":"OnFrame","description":"Automatically generated game type from enum OnFrame","values":{"ONFRAME_UNKNOWN":0,"ONFRAME_TRUE":1,"ONFRAME_FALSE":2},"games":["cs2"]}

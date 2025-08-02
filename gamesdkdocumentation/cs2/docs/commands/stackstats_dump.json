@@ -1,1 +1,0 @@
-{"kind":"command","name":"StackStats_Dump","description":"Dump a named stackstats structure to disk. Usage: stackstats_dump \"structname\" [\"filename\"]","args":"","flags":["developmentonly"],"games":["cs2"]}

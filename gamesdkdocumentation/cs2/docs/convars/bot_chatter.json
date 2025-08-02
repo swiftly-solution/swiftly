@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_chatter","description":"Control how bots talk. Allowed values: 'off', 'radio', 'minimal', or 'normal'.","args":"\"normal\"","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

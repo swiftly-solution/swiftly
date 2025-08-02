@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_radar_square_with_scoreboard","description":"If set, the radar will toggle to square when the scoreboard is visible.","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

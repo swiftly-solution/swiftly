@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_shutdown","description":"Sets the server to shutdown when all games have completed","args":"","flags":["release"],"games":["cs2"]}

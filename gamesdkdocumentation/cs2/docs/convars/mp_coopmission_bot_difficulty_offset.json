@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_coopmission_bot_difficulty_offset","description":"The difficulty offset modifier for bots during coop missions.","args":"0","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

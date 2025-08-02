@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"systemSpecs","type":"CMsgSource2SystemSpecs"},{"name":"vprofReport","type":"CMsgSource2VProfLiteReport"},{"name":"downstreamFlow","type":"CMsgSource2NetworkFlowQuality"},{"name":"upstreamFlow","type":"CMsgSource2NetworkFlowQuality"}],"name":"CCLCMsg_Diagnostic","games":["cs2"]}

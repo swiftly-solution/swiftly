@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"type","type":"int32"},{"name":"regionId","type":"int32"},{"name":"regionR","type":"float"},{"name":"distance","type":"float"}],"name":"CMsgGCCStrike15_v2_MatchmakingGC2ClientUpdate_Note","games":["cs2"]}

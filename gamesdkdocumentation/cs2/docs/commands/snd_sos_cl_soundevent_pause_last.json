@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_cl_soundevent_pause_last","description":"Test","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

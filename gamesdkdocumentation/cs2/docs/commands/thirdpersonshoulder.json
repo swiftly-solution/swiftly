@@ -1,1 +1,0 @@
-{"kind":"command","name":"thirdpersonshoulder","description":"Switch to thirdperson-shoulder camera.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

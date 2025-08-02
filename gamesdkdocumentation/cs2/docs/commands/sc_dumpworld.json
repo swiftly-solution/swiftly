@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_dumpworld","description":"Dump a list of the objects in a sceneworld (Usage: sc_dumpworld <world_index>)","args":"","flags":["cheat"],"games":["cs2"]}

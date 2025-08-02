@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_noclipspeed","description":"<no description>","args":"1200","flags":["gamedll","clientdll","archive","notify","replicated"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"inferno_dlights","description":"Min FPS at which molotov dlights will be created","args":"30","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

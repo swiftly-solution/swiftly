@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_rear_surround_speaker_position","description":"Specifies the position (in degrees) of the virtual rear left/right speakers.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

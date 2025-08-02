@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_log_updaters_exclude","description":"<no description>","args":"\"weapon pistol rifle survivor common_male\"","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

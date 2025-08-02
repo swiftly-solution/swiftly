@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_dm_bonus_percent","description":"Percent of points additionally awarded when someone gets a kill with the bonus weapon during the bonus period.","args":"50","flags":["min:","0,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

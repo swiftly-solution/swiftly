@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_gpu_mem_stats","description":"Display GPU memory usage.","args":"","flags":["linked_concommand","developmentonly","defensive"],"games":["cs2"]}

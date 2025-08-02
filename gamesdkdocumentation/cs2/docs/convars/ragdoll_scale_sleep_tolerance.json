@@ -1,1 +1,0 @@
-{"kind":"command","name":"ragdoll_scale_sleep_tolerance","description":"<no description>","args":"true","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

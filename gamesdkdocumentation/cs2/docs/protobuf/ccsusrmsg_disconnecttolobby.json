@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"dummy","type":"int32"}],"name":"CCSUsrMsg_DisconnectToLobby","games":["cs2"]}

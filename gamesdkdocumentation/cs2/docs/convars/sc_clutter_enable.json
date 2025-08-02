@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_clutter_enable","description":"SceneSystem/Clutter/Draw Clutter","args":"true","flags":["developmentonly","menubar_item"],"games":["cs2"]}

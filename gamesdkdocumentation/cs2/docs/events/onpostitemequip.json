@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostItemEquip","description":"This event is triggered after item_equip is triggered.","arguments":{"userid":"int32","item":"string","defindex":"int32","canzoom":"bool","hassilencer":"bool","issilenced":"bool","hastracers":"bool","weptype":"int32","ispainted":"bool"},"return":"void","games":["cs2"]}

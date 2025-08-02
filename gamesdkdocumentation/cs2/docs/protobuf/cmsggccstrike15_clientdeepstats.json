@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"accountId","type":"uint32"},{"name":"range","type":"CMsgGCCStrike15_ClientDeepStats.DeepStatsRange"},{"name":"matches","type":"CMsgGCCStrike15_ClientDeepStats.DeepStatsMatch"}],"name":"CMsgGCCStrike15_ClientDeepStats","games":["cs2"]}

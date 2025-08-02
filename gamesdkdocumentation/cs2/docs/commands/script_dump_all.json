@@ -1,1 +1,0 @@
-{"kind":"command","name":"script_dump_all","description":"Dump the state of the VM to the console","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_accelerate_debug_speed","description":"<no description>","args":"false","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

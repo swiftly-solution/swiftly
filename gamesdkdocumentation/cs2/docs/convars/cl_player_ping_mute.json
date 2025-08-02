@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_player_ping_mute","description":"If 1, player pinging will make a sound, if 0, pings will be silent","args":"0","flags":["clientdll","archive","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"type","name":"eSplinePushType","description":"Automatically generated game type from enum eSplinePushType","values":{"k_eSplinePushAlong":0,"k_eSplinePushAway":1,"k_eSplinePushTowards":2},"games":["cs2"]}

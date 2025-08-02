@@ -1,1 +1,0 @@
-{"kind":"command","name":"animgraph_enable","description":"Enable animation graph","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

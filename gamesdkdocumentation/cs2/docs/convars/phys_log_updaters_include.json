@@ -1,1 +1,0 @@
-{"kind":"command","name":"phys_log_updaters_include","description":"<no description>","args":"\"limbs\"","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

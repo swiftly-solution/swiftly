@@ -1,1 +1,0 @@
-{"kind":"command","name":"weapon_accuracy_nospread","description":"Disable weapon inaccuracy spread","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

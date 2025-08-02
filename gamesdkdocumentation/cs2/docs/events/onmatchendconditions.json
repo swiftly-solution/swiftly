@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnMatchEndConditions","description":"This event is triggered when match_end_conditions is triggered.","arguments":{"frags":"int32","max_rounds":"int32","win_rounds":"int32","time":"int32"},"return":"void","games":["cs2"]}

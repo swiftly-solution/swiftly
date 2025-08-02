@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnPostPlayerFootstep","description":"This event is triggered after player_footstep is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

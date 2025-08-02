@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"objects","type":"CMsgSOCacheSubscribed.SubscribedType"},{"name":"version","type":"fixed64"},{"name":"ownerSoid","type":"CMsgSOIDOwner"}],"name":"CMsgSOCacheSubscribed","games":["cs2"]}

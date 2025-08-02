@@ -1,1 +1,0 @@
-{"kind":"command","name":"phonemefilter","description":"Time duration of box filter to pass over phonemes.","args":"0.08","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

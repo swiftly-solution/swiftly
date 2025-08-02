@@ -1,1 +1,0 @@
-{"kind":"command","name":"player_ping_token_cooldown","description":"Cooldown for how long it takes for a player's ping token to refresh allowing them to ping again (they get 5 tokens).","args":"20","flags":["gamedll","cheat","release"],"games":["cs2"]}

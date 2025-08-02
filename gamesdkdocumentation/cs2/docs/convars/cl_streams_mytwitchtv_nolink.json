@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_streams_mytwitchtv_nolink","description":"Twitch.tv account linking URL","args":"\"http://www.twitch.tv/settings/connections\"","flags":["developmentonly","clientdll"],"games":["cs2"]}

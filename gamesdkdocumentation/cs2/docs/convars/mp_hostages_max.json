@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_hostages_max","description":"Maximum number of hostages to spawn.","args":"2","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"audio_input_test_signal","description":"For testing the audio input pathway with a sine tone instead of SDL3.","args":"false","flags":["developmentonly"],"games":["cs2"]}

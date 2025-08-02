@@ -1,1 +1,0 @@
-{"kind":"command","name":"commentary_available","description":"Automatically set by the game when a commentary file is available for the current map.","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

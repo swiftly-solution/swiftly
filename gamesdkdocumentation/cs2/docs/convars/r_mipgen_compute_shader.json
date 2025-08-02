@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_mipgen_compute_shader","description":"Use compute shader for mipgen.","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

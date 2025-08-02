@@ -1,1 +1,0 @@
-{"kind":"command","name":"cs_minimap_create_output_size","description":"Size of minimap texture generated with cs_minimap_create (512 default)","args":"1024","flags":["clientdll","release"],"games":["cs2"]}

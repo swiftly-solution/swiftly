@@ -1,1 +1,0 @@
-{"kind":"type","name":"LinearRootMotionBlendMode_t","description":"Automatically generated game type from enum LinearRootMotionBlendMode_t","values":{"LERP":0,"NLERP":1,"SLERP":2},"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"csgo_nav_jump_link_detour_threshold","description":"don't traverse a jump link if there's a detour that costs less than this amount","args":"1500","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

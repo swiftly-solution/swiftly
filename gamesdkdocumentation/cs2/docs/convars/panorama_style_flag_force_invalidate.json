@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_style_flag_force_invalidate","description":"Force style invalidation of the entire panel subtree when adding / removing style flags.","args":"false","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

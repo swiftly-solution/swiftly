@@ -1,1 +1,0 @@
-{"kind":"command","name":"gpu_level","description":"GPU Level - Default: High","args":"3","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

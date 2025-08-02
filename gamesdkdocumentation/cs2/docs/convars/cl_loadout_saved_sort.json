@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_loadout_saved_sort","description":"<no description>","args":"\"inv_sort_age\"","flags":["clientdll","archive","release"],"games":["cs2"]}

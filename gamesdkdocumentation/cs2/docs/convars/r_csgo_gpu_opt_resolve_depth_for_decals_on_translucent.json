@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_csgo_gpu_opt_resolve_depth_for_decals_on_translucent","description":"optimize layers for decals on translucent geo, avoid one resolve and some fullscreen passes","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

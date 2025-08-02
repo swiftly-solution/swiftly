@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_equipment_reset_rounds","description":"Reset all player equipment every N rounds (0 for never)","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

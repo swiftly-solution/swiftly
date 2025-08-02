@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"controlPoint","type":"int32"},{"name":"position","type":"CMsgVector"}],"name":"CUserMsg_ParticleManager.UpdateParticle_OBSOLETE","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_wallbang_heavy_threshold","description":"The Threshold where to switch from Light to Heavy Wallbang tracer","args":"22","flags":["clientdll","cheat","release"],"games":["cs2"]}

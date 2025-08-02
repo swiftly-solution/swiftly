@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_sos_soundevent_profile","description":"Dump a record of current soundevents and profile data","args":"","flags":["cheat"],"games":["cs2"]}

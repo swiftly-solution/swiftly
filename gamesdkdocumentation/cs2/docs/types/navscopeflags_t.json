@@ -1,1 +1,0 @@
-{"kind":"type","name":"NavScopeFlags_t","description":"Automatically generated game type from enum NavScopeFlags_t","values":{"eGround":1,"eAir":2,"eAll":3,"eNone":0},"games":["cs2"]}

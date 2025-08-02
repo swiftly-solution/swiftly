@@ -1,1 +1,0 @@
-{"kind":"command","name":"rr_debugclassname","description":"If set, rr_debugclassname will print only response tests where 'classname' corresponds to this variable. Use to filter for a specific character.","args":"\"\"","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

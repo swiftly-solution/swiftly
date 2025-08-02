@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_buywheel_nonumberpurchasing","description":"Set non-zero to prevent buy wheel from purchasing via number keys","args":"false","flags":["clientdll","archive","per_user","release"],"games":["cs2"]}

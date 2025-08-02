@@ -1,1 +1,0 @@
-{"kind":"command","name":"telemetry_toggle_timespan","description":"Starts/stops a timespan with an ever increasing name.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"spawngrouphandle","type":"uint32"}],"name":"CNETMsg_SpawnGroup_LoadCompleted","games":["cs2"]}

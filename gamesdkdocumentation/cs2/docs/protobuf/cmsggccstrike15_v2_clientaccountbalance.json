@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"amount","type":"uint64"},{"name":"url","type":"string"}],"name":"CMsgGCCStrike15_v2_ClientAccountBalance","games":["cs2"]}

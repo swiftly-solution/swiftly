@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_server_graphic1_enable","description":"When enabled, 360x60 (<16kb) image file will be displayed to on-server spectators.","args":"true","flags":["clientdll","release"],"games":["cs2"]}

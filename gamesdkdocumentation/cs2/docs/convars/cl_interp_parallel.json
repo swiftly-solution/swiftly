@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_interp_parallel","description":"Run interpolation in parallel for entities with no children.","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

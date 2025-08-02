@@ -1,1 +1,0 @@
-{"kind":"command","name":"mp_buy_allow_grenades","description":"Whether players can purchase grenades from the buy menu or not.","args":"true","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"odds","type":"int32"}],"name":"CCSUsrMsg_CurrentRoundOdds","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"screenshot_height","description":"Screenshot height. -1 for screen height.","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"timeNextCycle","type":"uint32"},{"name":"timeInitiated","type":"uint32"}],"name":"CSOAccountRecurringSubscription","games":["cs2"]}

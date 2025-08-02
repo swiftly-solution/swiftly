@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_specnoclip","description":"<no description>","args":"true","flags":["gamedll","clientdll","archive","notify","replicated"],"games":["cs2"]}

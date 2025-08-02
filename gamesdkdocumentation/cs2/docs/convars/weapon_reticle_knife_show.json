@@ -1,1 +1,0 @@
-{"kind":"command","name":"weapon_reticle_knife_show","description":"When enabled will show knife reticle on clients. Used for game modes requiring target id display when holding a knife.","args":"true","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

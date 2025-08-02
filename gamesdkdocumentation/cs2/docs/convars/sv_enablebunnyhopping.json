@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_enablebunnyhopping","description":"Allow player speed to exceed maximum running speed","args":"false","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

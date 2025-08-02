@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_allow_pistols","description":"If nonzero, bots may use pistols.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

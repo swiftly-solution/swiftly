@@ -1,1 +1,0 @@
-{"kind":"command","name":"shake_stop","description":"Stops all active screen shakes.","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

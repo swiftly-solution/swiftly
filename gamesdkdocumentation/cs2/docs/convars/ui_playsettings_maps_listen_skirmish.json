@@ -1,1 +1,0 @@
-{"kind":"command","name":"ui_playsettings_maps_listen_skirmish","description":"<no description>","args":"\"mg_skirmish_armsrace\"","flags":["clientdll","archive","release"],"games":["cs2"]}

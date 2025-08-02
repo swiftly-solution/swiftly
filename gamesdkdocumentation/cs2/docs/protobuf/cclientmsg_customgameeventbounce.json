@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"eventName","type":"string"},{"name":"data","type":"bytes"},{"name":"playerSlot","type":"int32","default":-1}],"name":"CClientMsg_CustomGameEventBounce","games":["cs2"]}

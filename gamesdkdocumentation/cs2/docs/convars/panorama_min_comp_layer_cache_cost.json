@@ -1,1 +1,0 @@
-{"kind":"command","name":"panorama_min_comp_layer_cache_cost","description":"<no description>","args":"4096","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

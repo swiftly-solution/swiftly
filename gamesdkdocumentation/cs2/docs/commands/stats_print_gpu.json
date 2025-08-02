@@ -1,1 +1,0 @@
-{"kind":"command","name":"stats_print_gpu","description":"Prints out GPU perf statistics to the console.  Requires stats_display > 0, and stats_collect_gpu = true.  Optional argument of CSV filename","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

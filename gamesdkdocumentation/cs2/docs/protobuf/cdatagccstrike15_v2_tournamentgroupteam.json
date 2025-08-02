@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"teamId","type":"int32"},{"name":"score","type":"int32"},{"name":"correctpick","type":"bool"}],"name":"CDataGCCStrike15_v2_TournamentGroupTeam","games":["cs2"]}

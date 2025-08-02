@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"fraglimit","type":"int32"},{"name":"mpMaxrounds","type":"int32"},{"name":"mpWinlimit","type":"int32"},{"name":"mpTimelimit","type":"float"}],"name":"CCSUsrMsg_MatchEndConditions","games":["cs2"]}

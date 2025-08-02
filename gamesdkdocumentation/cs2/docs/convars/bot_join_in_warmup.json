@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_join_in_warmup","description":"Prevents bots from joining the server while warmup phase is active.","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

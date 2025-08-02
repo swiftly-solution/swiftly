@@ -1,1 +1,0 @@
-{"kind":"command","name":"rangefinder","description":"Measures distance along a ray","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_panel_freeze_time_after_press","description":"time to freeze mouse/pointer motion after a mouse button press","args":"0.5","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

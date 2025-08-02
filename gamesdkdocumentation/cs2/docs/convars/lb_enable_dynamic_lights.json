@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_enable_dynamic_lights","description":"Allows rendering dynamic lights","args":"true","flags":["developmentonly","cheat"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cloth_ground_plane_thickness","description":"Raise ground by this much for all cloth that traces the ground; should be 0 ideally","args":"3","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"spec_glow_spike_factor","description":"Noisy player xray glow scaling (pop when noise is made).  Make >1 to add a 'spike' to noise-making players","args":"1.2","flags":["min:","1,","max:","3,","clientdll","release"],"games":["cs2"]}

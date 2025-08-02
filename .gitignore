@@ -1,8 +1,7 @@
 build/
-prototemp/
 .xmake/
 custom_builder.sh
 swiftly.so
 src/managed/bin/
 src/managed/obj/
-documentation/temp/
+generators/documentation/temp/

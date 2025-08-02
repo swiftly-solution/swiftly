@@ -1,1 +1,0 @@
-{"kind":"command","name":"rangefinder2d","description":"Measures distance along a ray, only measuring along XY plane.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

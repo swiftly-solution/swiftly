@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"fowControlPoint","type":"int32"},{"name":"fowControlPoint2","type":"int32"},{"name":"fowRadius","type":"float"}],"name":"CUserMsg_ParticleManager.SetParticleFoWProperties","games":["cs2"]}

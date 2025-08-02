@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_pvs_random","description":"If set, objects blink in/out of pvs randomly.","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

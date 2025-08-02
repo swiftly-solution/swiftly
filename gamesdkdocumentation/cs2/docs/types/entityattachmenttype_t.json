@@ -1,1 +1,0 @@
-{"kind":"type","name":"EntityAttachmentType_t","description":"Automatically generated game type from enum EntityAttachmentType_t","values":{"eAbsOrigin":0,"eCenter":1,"eEyes":2,"eAttachment":3},"games":["cs2"]}

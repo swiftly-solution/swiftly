@@ -1,1 +1,0 @@
-{"kind":"command","name":"r_fullscreen_gamma","description":"Screen Gamma (only in fullscreen modes)","args":"2.2","flags":["min:","1,","max:","4,","archive","missing1"],"games":["cs2"]}

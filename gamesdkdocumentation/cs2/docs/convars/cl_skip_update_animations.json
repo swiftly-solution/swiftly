@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_skip_update_animations","description":"Enable to skip game animations","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

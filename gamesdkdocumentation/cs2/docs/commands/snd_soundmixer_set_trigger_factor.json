@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_soundmixer_set_trigger_factor","description":"Set named mix layer / mix group, trigger amount.","args":"","flags":["developmentonly"],"games":["cs2"]}

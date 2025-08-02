@@ -1,1 +1,0 @@
-{"kind":"command","name":"cam_head_constraint_soft_transition","description":"Constraint soft transition distance","args":"4","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

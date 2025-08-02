@@ -1,1 +1,0 @@
-{"kind":"command","name":"sc_instanced_mesh_motion_vectors","description":"Toggles motion vector support for instanced meshes","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

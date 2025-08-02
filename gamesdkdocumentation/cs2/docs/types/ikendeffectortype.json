@@ -1,1 +1,0 @@
-{"kind":"type","name":"IkEndEffectorType","description":"Automatically generated game type from enum IkEndEffectorType","values":{"IkEndEffector_Attachment":0,"IkEndEffector_Bone":1},"games":["cs2"]}

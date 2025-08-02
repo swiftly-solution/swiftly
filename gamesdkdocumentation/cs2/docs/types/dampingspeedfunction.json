@@ -1,1 +1,0 @@
-{"kind":"type","name":"DampingSpeedFunction","description":"Automatically generated game type from enum DampingSpeedFunction","values":{"NoDamping":0,"Constant":1,"Spring":2,"AsymmetricSpring":3},"games":["cs2"]}

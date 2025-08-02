@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"stats","type":"CMsgGCCStrike15_ClientDeepStats"}],"name":"CCSUsrMsg_DeepStats","games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"protobuf","fields":[{"name":"duration","type":"uint32"},{"name":"holdTime","type":"uint32"},{"name":"flags","type":"uint32"},{"name":"color","type":"fixed32"}],"name":"CUserMessageFade","games":["cs2"]}

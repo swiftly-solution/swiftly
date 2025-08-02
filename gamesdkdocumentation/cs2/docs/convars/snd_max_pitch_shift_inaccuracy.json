@@ -1,1 +1,0 @@
-{"kind":"command","name":"snd_max_pitch_shift_inaccuracy","description":"<no description>","args":"0.08","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

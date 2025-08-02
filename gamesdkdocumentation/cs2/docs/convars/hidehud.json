@@ -1,1 +1,0 @@
-{"kind":"command","name":"hidehud","description":"bitmask: 1=weapon selection, 2=flashlight, 4=all, 8=health, 16=player dead, 32=needssuit, 64=misc, 128=chat, 256=crosshair, 512=vehicle crosshair, 1024=in vehicle","args":"0","flags":["clientdll","cheat"],"games":["cs2"]}

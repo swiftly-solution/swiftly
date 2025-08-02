@@ -1,1 +1,0 @@
-{"kind":"command","name":"lb_debug_visualize_lights","description":"SceneSystem/LightBinner/Debug Visualize Lights","args":"0","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

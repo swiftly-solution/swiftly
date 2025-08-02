@@ -1,1 +1,0 @@
-{"kind":"command","name":"voice_unmute","description":"Unmute a specific Steam user, or `all` to unmute all connected players.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"sv_cq_trim_bloat_space","description":"When trimming a bloated CQ, try to leave room for N more commands to be added.  0 will trim only what is needed to remove the immediate bloat, a very large value will reset the whole queue.","args":"0","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,1 +1,0 @@
-{"kind":"command","name":"cc_captiontrace","description":"Show missing closecaptions (0 = no, 1 = devconsole, 2 = show in hud)","args":"1","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

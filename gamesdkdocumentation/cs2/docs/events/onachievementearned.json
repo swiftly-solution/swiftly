@@ -1,1 +1,0 @@
-{"kind":"event","mode":"game","event_name":"OnAchievementEarned","description":"This event is triggered when achievement_earned is triggered.","arguments":{"player":"int32","achievement":"int32"},"return":"void","games":["cs2"]}

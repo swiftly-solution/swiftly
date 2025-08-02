@@ -1,1 +1,0 @@
-{"kind":"command","name":"bot_dont_shoot","description":"If nonzero, bots will not fire weapons (for debugging).","args":"false","flags":["gamedll","cheat","release"],"games":["cs2"]}

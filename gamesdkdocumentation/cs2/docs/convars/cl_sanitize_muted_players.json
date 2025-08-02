@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_sanitize_muted_players","description":"Hide names and avatars of muted players.","args":"true","flags":["clientdll","release"],"games":["cs2"]}

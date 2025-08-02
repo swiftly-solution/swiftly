@@ -1,1 +1,0 @@
-{"kind":"command","name":"cl_demo_steadycam_deflection","description":"if camera orientation changes this much update orientation","args":"5","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

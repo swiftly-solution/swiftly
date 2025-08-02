@@ -1,1 +1,0 @@
-{"kind":"command","name":"animgraph_debug_variables_ignore_nonchanges","description":"If set, animgraph_debug_variables won't show debug for variable sets that don't change the value.","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}
