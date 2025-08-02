@@ -23,8 +23,7 @@ README також доступний [англійською](https://github.com
 
 - [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Автоматично завантажується під час клонування репозиторію з використанням Recurse Submodules)
 - [metamod-source](https://github.com/alliedmodders/metamod-source) (Автоматично завантажується під час клонування репозиторію з використанням Recurse Submodules)
-- [python3](https://www.python.org/)
-- [AMBuild](https://github.com/alliedmodders/ambuild) (ПЕРЕКОНАЙТЕСЬ ЩО КОМАНДА `ambuild` ДОСТУПНА ЧЕРЕЗ `PATH` У WINDOWS)
+- [XMake](https://xmake.io/)
 
 ---
 
@@ -78,7 +77,7 @@ Swiftly поширюється за ліцензією MIT. Ви можете о
 
 Система схем та базові класи SDK надані завдяки [CS2Fixes](https://github.com/Source2ZE/CS2Fixes).
 
-Інші поля SDK надані завдяки [Source2SDK](https://github.com/neverlosecc/source2sdk/tree/cs2/sdk).
+Інші поля SDK надані завдяки [SteamDatabase](https://github.com/SteamDatabase).
 
 Дякуємо GAMMACASE, Poggu та всім, хто постійно працює над покращенням спільноти серверів Counter Strike 2.
 
