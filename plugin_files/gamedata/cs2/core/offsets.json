@@ -4,24 +4,24 @@
         "linux": 80
     },
     "CBasePlayerPawn_CommitSuicide": {
-        "windows": 380,
-        "linux": 380
+        "windows": 404,
+        "linux": 404
     },
     "CCSPlayerController_ChangeTeam": {
-        "windows": 100,
-        "linux": 99
+        "windows": 107,
+        "linux": 106
     },
     "CBaseEntity_Teleport": {
-        "windows": 157,
-        "linux": 156
+        "windows": 166,
+        "linux": 165
     },
     "CCSPlayerController_Respawn": {
-        "windows": 257,
-        "linux": 259
+        "windows": 276,
+        "linux": 278
     },
     "CollisionRulesChanged": {
-        "windows": 179,
-        "linux": 178
+        "windows": 190,
+        "linux": 189
     },
     "CCSPlayer_WeaponServices_DropWeapon": {
         "windows": 22,
@@ -35,13 +35,9 @@
         "windows": 39,
         "linux": 41
     },
-    "CCSPlayer_MovementServices_CheckMovingGround": {
-        "windows": 32,
-        "linux": 33
-    },
     "GetHammerUniqueID": {
-        "windows": 109,
-        "linux": 108
+        "windows": 116,
+        "linux": 115
     },
     "CEntityResourceManifest_AddResource": {
         "windows": 2,
