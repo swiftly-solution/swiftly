@@ -68,15 +68,10 @@ jobs:
           path: ${{ matrix.extension }}
           submodules: recursive
 
-      - name: Checkout AMBuild
-        uses: actions/checkout@v4
+      - name: Setup XMake
+        uses: xmake-io/github-action-setup-xmake@v1
         with:
-          repository: alliedmodders/ambuild
-          path: ambuild
-
-      - name: Install AMBuild
-        run: |
-          cd ambuild; python setup.py install; cd ..
+          xmake-version: latest
 
       - name: Version
         shell: bash
@@ -144,6 +139,29 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "8.0.x"
+
+      - name: Clone Extensions
+        working-directory: swiftly
+        shell: bash
+        run: |
+          extensions=(
+            "mysql-extension",
+            "console-filter",
+            "addons-extension",
+            "http-extension",
+            "ip-extension",
+            "utils-extension",
+            "sdktools-extension",
+            "websocket-extension",
+          )
+
+          for repo in "${extensions[@]}"; do
+            git clone https://github.com/swiftly-solution/$repo.git
+            if [ -d $repo/managed ]; then
+              mkdir -p src/managed/Extensions/$repo
+              cp -rf $repo/managed/* src/managed/Extensions/$repo/
+            end
+          done
 
       - name: Restore CSProj
         working-directory: swiftly
