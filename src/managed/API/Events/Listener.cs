@@ -1,28 +1,37 @@
 ﻿using System.Text.Json;
-using System.Text.Json.Serialization;
 using SwiftlyS2.API.Scripting;
 using SwiftlyS2.Internal_API;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace SwiftlyS2.API.Events
 {
     static class Listener
     {
-        private static unsafe EventResult CallEventHandlers(List<Scripting.EventHandler> events, Scripting.Events.Event ev, IntPtr[] args)
+        private static unsafe EventResult CallEventHandlers(ref List<Scripting.EventHandler> events, Scripting.Events.Event ev, ref IntPtr[] args)
         {
             for (int i = 0; i < events.Count; i++)
             {
                 Scripting.EventHandler eventInfo = events[i];
 
-                var functionParams = eventInfo.Callback.Method.GetParameters();
-                List<object> a = [ev];
-                for(int j = 0; j < args.Length; j++)
-                {
-                    if (functionParams.Length == j + 1) break;
-                    a.Add(Internal_API.CallContext.ReadValue(functionParams[j+1].ParameterType, (byte*)args[j]));
-                } 
+                var functionParams = eventInfo.Parameters;
 
-                object returnValue = eventInfo.Callback.DynamicInvoke(a.Take(functionParams.Length).ToArray()) ?? EventResult.Continue;
+                object returnValue;
+                if (functionParams.Length == 0)
+                {
+                    returnValue = eventInfo.Callback(eventInfo.TargetInstance, []) ?? EventResult.Continue;
+                }
+                else
+                {
+                    List<object> a = [ev];
+                    for (int j = 0; j < args.Length; j++)
+                    {
+                        if (functionParams.Length == j + 1) break;
+                        Type t = functionParams[j + 1].ParameterType;
+                        byte* arg = (byte*)args[j];
+                        a.Add(Internal_API.CallContext.ReadValue(ref t, ref arg));
+                    }
+                    returnValue = eventInfo.Callback(eventInfo.TargetInstance, a.ToArray()) ?? EventResult.Continue;
+                }
+
                 if (!returnValue.GetType().IsEnum) returnValue = EventResult.Continue;
 
                 if ((EventResult)returnValue != EventResult.Continue) return (EventResult)returnValue;
@@ -31,21 +40,17 @@ namespace SwiftlyS2.API.Events
             return EventResult.Continue;
         }
 
-        private static EventResult CallEventHandlersJSON(List<Scripting.EventHandler> events, Scripting.Events.Event ev, object[] args)
+        private static EventResult CallEventHandlersJSON(ref List<Scripting.EventHandler> events, Scripting.Events.Event ev, ref object[] args)
         {
             for (int i = 0; i < events.Count; i++)
             {
                 Scripting.EventHandler eventInfo = events[i];
 
-                var functionParams = eventInfo.Callback.Method.GetParameters();
+                var functionParams = eventInfo.Parameters;
                 List<object> a = [ev];
-                for (int j = 0; j < args.Length; j++)
-                {
-                    if (functionParams.Length == j + 1) break;
-                    a.Add(args[j]);
-                }
+                a.AddRange(args.Take(functionParams.Length));
 
-                object returnValue = eventInfo.Callback.DynamicInvoke(a.Take(functionParams.Length).ToArray()) ?? EventResult.Continue;
+                object returnValue = eventInfo.Callback(eventInfo.TargetInstance, a.ToArray()) ?? EventResult.Continue;
                 if (!returnValue.GetType().IsEnum) returnValue = EventResult.Continue;
 
                 if ((EventResult)returnValue != EventResult.Continue) return (EventResult)returnValue;
@@ -69,7 +74,7 @@ namespace SwiftlyS2.API.Events
                     return;
                 }
 
-                ctx.SetReturn(CallEventHandlers(callbacks, new Scripting.Events.Event(eventObject), arguments));
+                ctx.SetReturn(CallEventHandlers(ref callbacks, new Scripting.Events.Event(eventObject), ref arguments));
             });
 
             FunctionCallers.AddFunctionCaller(Plugin.PluginContext, "AddGlobalEventsJSON", (ctx) =>
@@ -86,7 +91,7 @@ namespace SwiftlyS2.API.Events
                     return;
                 }
 
-                ctx.SetReturn(CallEventHandlersJSON(callbacks, new Scripting.Events.Event(eventObject), parsedArgs));
+                ctx.SetReturn(CallEventHandlersJSON(ref callbacks, new Scripting.Events.Event(eventObject), ref parsedArgs));
             });
 
             Invoker.CallNative("_G", "AddGlobalEvents", CallKind.Function, "AddGlobalEvents");

@@ -20,34 +20,27 @@ namespace SwiftlyS2.Internal_API
         [SecurityCritical]
         public static T? CallNative<T>(string ns, string func, CallKind call, params object[] args)
         {
-            T? returnVal;
-
             StackTrace trace = new(true);
             StackFrame? callTrace = trace.GetFrame(2);
 
-            lock (CallContext.GlobalScriptContext.Lock)
+            CallContext.GlobalScriptContext.Reset();
+            CallContext.GlobalScriptContext.PushArgument(Plugin.PluginContext);
+            foreach(object arg in args)
             {
-                CallContext.GlobalScriptContext.Reset();
-                CallContext.GlobalScriptContext.PushArgument(Plugin.PluginContext);
-                foreach(object arg in args)
-                {
-                    CallContext.GlobalScriptContext.PushArgument(arg);
-                }
-                CallContext.GlobalScriptContext.SetCallKind(call);
-                CallContext.GlobalScriptContext.SetFunction(ns, func);
-                if(callTrace != null)
-                {
-                    CallContext.GlobalScriptContext.SetDebugInfo($"{callTrace.GetFileName()}:{callTrace.GetFileLineNumber()}:{callTrace.GetFileColumnNumber()}");
-                }
-                else
-                {
-                    CallContext.GlobalScriptContext.SetDebugInfo($"No debug symbols available. (PDB file with DLL)");
-                }
-                CallContext.GlobalScriptContext.InvokeFunction();
-                returnVal = CallContext.GlobalScriptContext.GetReturn<T>();
+                CallContext.GlobalScriptContext.PushArgument(arg);
             }
-
-            return returnVal;
+            CallContext.GlobalScriptContext.SetCallKind(call);
+            CallContext.GlobalScriptContext.SetFunction(ns, func);
+            if(callTrace != null)
+            {
+                CallContext.GlobalScriptContext.SetDebugInfo($"{callTrace.GetFileName()}:{callTrace.GetFileLineNumber()}:{callTrace.GetFileColumnNumber()}");
+            }
+            else
+            {
+                CallContext.GlobalScriptContext.SetDebugInfo($"No debug symbols available. (PDB file with DLL)");
+            }
+            CallContext.GlobalScriptContext.InvokeFunction();
+            return CallContext.GlobalScriptContext.GetReturn<T>();
         }
 
         [SecurityCritical]
@@ -56,26 +49,23 @@ namespace SwiftlyS2.Internal_API
             StackTrace trace = new(true);
             StackFrame? callTrace = trace.GetFrame(2);
 
-            lock (CallContext.GlobalScriptContext.Lock)
+            CallContext.GlobalScriptContext.Reset();
+            CallContext.GlobalScriptContext.PushArgument(Plugin.PluginContext);
+            foreach (object arg in args)
             {
-                CallContext.GlobalScriptContext.Reset();
-                CallContext.GlobalScriptContext.PushArgument(Plugin.PluginContext);
-                foreach (object arg in args)
-                {
-                    CallContext.GlobalScriptContext.PushArgument(arg);
-                }
-                CallContext.GlobalScriptContext.SetCallKind(call);
-                CallContext.GlobalScriptContext.SetFunction(ns, func);
-                if (callTrace != null)
-                {
-                    CallContext.GlobalScriptContext.SetDebugInfo($"{callTrace.GetFileName()}:{callTrace.GetFileLineNumber()}:{callTrace.GetFileColumnNumber()}");
-                }
-                else
-                {
-                    CallContext.GlobalScriptContext.SetDebugInfo($"No debug symbols available. (PDB file with DLL)");
-                }
-                CallContext.GlobalScriptContext.InvokeFunction();
+                CallContext.GlobalScriptContext.PushArgument(arg);
             }
+            CallContext.GlobalScriptContext.SetCallKind(call);
+            CallContext.GlobalScriptContext.SetFunction(ns, func);
+            if (callTrace != null)
+            {
+                CallContext.GlobalScriptContext.SetDebugInfo($"{callTrace.GetFileName()}:{callTrace.GetFileLineNumber()}:{callTrace.GetFileColumnNumber()}");
+            }
+            else
+            {
+                CallContext.GlobalScriptContext.SetDebugInfo($"No debug symbols available. (PDB file with DLL)");
+            }
+            CallContext.GlobalScriptContext.InvokeFunction();
         }
 
         public static void FinalizeClassdata(IntPtr item)

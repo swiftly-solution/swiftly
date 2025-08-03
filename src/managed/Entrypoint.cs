@@ -70,11 +70,13 @@ namespace SwiftlyS2
 
                 var asString = Interpreter.TryInterpretUnknownPtr(obj, type) ?? "Couldn't retrieve the value";
 
-                byte[] bytes = Encoding.UTF8.GetBytes(asString);
+                byte[] bytes = Encoding.UTF8.GetBytes(asString + "\0");
                 int bytesLen = Math.Min(len - 1, bytes.Length);
-
-                Marshal.Copy(bytes, 0, outStr, bytesLen);
-                Marshal.WriteByte(outStr, bytesLen, 0);
+                
+                fixed (byte* src = bytes)
+                {
+                    Buffer.MemoryCopy(src, (void*)outStr, bytesLen, bytesLen);
+                }
             } catch(Exception e) { }
         }
 
@@ -106,8 +108,8 @@ namespace SwiftlyS2
             IntPtr old_ctx = Plugin.PluginContext;
             Plugin.PluginContext = plugin_ctx;
 
-            string functionName = Marshal.PtrToStringUTF8(ct->func_ptr, ct->func_length);
-            FunctionCallers.GetActionCaller(plugin_ctx, functionName).Invoke(ctx);
+            string functionName = Encoding.UTF8.GetString(new ReadOnlySpan<byte>((void*)ct->func_ptr, ct->func_length));
+            FunctionCallers.GetActionCaller(plugin_ctx, functionName)(ctx);
 
             Plugin.PluginContext = old_ctx;
         }

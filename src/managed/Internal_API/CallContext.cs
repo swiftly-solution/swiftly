@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Concurrent;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Text;
@@ -94,7 +95,6 @@ namespace SwiftlyS2.Internal_API
             }
         }
 
-
         public static Dictionary<Type, int> typesMap = new Dictionary<Type, int>
         {
             { typeof(IntPtr), 1 },
@@ -166,27 +166,11 @@ namespace SwiftlyS2.Internal_API
         {
             fixed (CallData* data = &m_cdata)
             {
-                var b = Encoding.UTF8.GetBytes(ns);
+                data->ns_ptr = Cacher.GenerateStringPointer(ns);
+                data->ns_length = ns.Length;
 
-                var ns_ptr = Marshal.AllocHGlobal(b.Length + 1);
-                Marshal.Copy(b, 0, ns_ptr, b.Length);
-                Marshal.WriteByte(ns_ptr, b.Length, 0);
-
-                data->ns_ptr = ns_ptr;
-                data->ns_length = b.Length;
-
-                finalizers.Enqueue(() => Marshal.FreeHGlobal(ns_ptr));
-
-                b = Encoding.UTF8.GetBytes(func);
-
-                var func_ptr = Marshal.AllocHGlobal(b.Length + 1);
-                Marshal.Copy(b, 0, func_ptr, b.Length);
-                Marshal.WriteByte(func_ptr, b.Length, 0);
-
-                data->func_ptr = func_ptr;
-                data->func_length = b.Length;
-
-                finalizers.Enqueue(() => Marshal.FreeHGlobal(func_ptr));
+                data->func_ptr = Cacher.GenerateStringPointer(func);
+                data->func_length = func.Length;
             }
         }
 
@@ -195,16 +179,8 @@ namespace SwiftlyS2.Internal_API
         {
             fixed (CallData* data = &m_cdata)
             {
-                var b = Encoding.UTF8.GetBytes(info);
-
-                var info_ptr = Marshal.AllocHGlobal(b.Length + 1);
-                Marshal.Copy(b, 0, info_ptr, b.Length);
-                Marshal.WriteByte(info_ptr, b.Length, 0);
-
-                data->dbginfo_ptr = info_ptr;
-                data->dbginfo_length = b.Length;
-
-                finalizers.Enqueue(() => Marshal.FreeHGlobal(info_ptr));
+                data->dbginfo_ptr = Cacher.GenerateStringPointer(info);
+                data->dbginfo_length = info.Length;
             }
         }
 
@@ -222,7 +198,8 @@ namespace SwiftlyS2.Internal_API
         {
             if(value is string)
             {
-                var str = (string)Convert.ChangeType(value, typeof(string));
+                if (value == null) value = "";
+                var str = value.ToString() ?? "";
                 var ptr = PushString(str);
 
                 return ptr;
@@ -243,7 +220,7 @@ namespace SwiftlyS2.Internal_API
             }
             else if(value is IntPtr)
             {
-                return (IntPtr)Convert.ChangeType(value, typeof(IntPtr));
+                return (IntPtr)value;
             }
             else if (value is ClassData v)
             {
@@ -253,6 +230,59 @@ namespace SwiftlyS2.Internal_API
             return value;
         }
 
+        internal static unsafe void WritePrimitiveToPointer(object value, void* dest)
+        {
+            switch(value)
+            {
+                case bool b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case char c:
+                    Unsafe.WriteUnaligned(dest, c); break;
+                case sbyte b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case byte b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case short b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case ushort b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case int b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case uint b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case long b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case ulong b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case float b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case double b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+                case decimal b:
+                    Unsafe.WriteUnaligned(dest, b); break;
+            }
+        }
+
+        internal static unsafe object ReadPointerToPrimitive(ref byte* ptr, ref Type type)
+        {
+            ref byte start = ref ptr[0];
+
+            if (type == typeof(bool)) return Unsafe.ReadUnaligned<bool>(ref start);
+            if (type == typeof(char)) return Unsafe.ReadUnaligned<char>(ref start);
+            if (type == typeof(sbyte)) return Unsafe.ReadUnaligned<sbyte>(ref start);
+            if (type == typeof(byte)) return Unsafe.ReadUnaligned<byte>(ref start);
+            if (type == typeof(short)) return Unsafe.ReadUnaligned<short>(ref start);
+            if (type == typeof(ushort)) return Unsafe.ReadUnaligned<ushort>(ref start);
+            if (type == typeof(int)) return Unsafe.ReadUnaligned<int>(ref start);
+            if (type == typeof(uint)) return Unsafe.ReadUnaligned<uint>(ref start);
+            if (type == typeof(long)) return Unsafe.ReadUnaligned<long>(ref start);
+            if (type == typeof(ulong)) return Unsafe.ReadUnaligned<ulong>(ref start);
+            if (type == typeof(float)) return Unsafe.ReadUnaligned<float>(ref start);
+            if (type == typeof(double)) return Unsafe.ReadUnaligned<double>(ref start);
+            if (type == typeof(decimal)) return Unsafe.ReadUnaligned<decimal>(ref start);
+            return IntPtr.Zero;
+        }
+
         [SecurityCritical]
         internal unsafe void PushObject(object value, CallData* data)
         {
@@ -260,20 +290,16 @@ namespace SwiftlyS2.Internal_API
 
             if (value.GetType().IsEnum)
             {
-                value = Convert.ChangeType(value, value.GetType().GetEnumUnderlyingType());
-                typesMap.TryGetValue(typeof(int), out data->args_type[data->args_count]);
+                value = Convert.ToInt64(value);
             }
 
             if (value is string)
             {
                 var ptr = PushInternal(value);
 
-                unsafe
-                {
-                    *(IntPtr*)(&data->args_data[8 * data->args_count]) = (IntPtr)ptr;
-                }
+                *(IntPtr*)(&data->args_data[data->args_count << 3]) = (IntPtr)ptr;
 
-                typesMap.TryGetValue(typeof(string), out data->args_type[data->args_count]);
+                data->args_type[data->args_count] = Cacher.GetTypeID(typeof(string));
                 data->args_count++;
                 return;
             }
@@ -283,10 +309,10 @@ namespace SwiftlyS2.Internal_API
 
                 unsafe
                 {
-                    *(IntPtr*)(&data->args_data[8 * data->args_count]) = (IntPtr)arr;
+                    *(IntPtr*)(&data->args_data[data->args_count << 3]) = (IntPtr)arr;
                 }
 
-                typesMap.TryGetValue(typeof(Array), out data->args_type[data->args_count]);
+                data->args_type[data->args_count] = Cacher.GetTypeID(typeof(Array));
                 data->args_count++;
                 return;
             }
@@ -296,10 +322,10 @@ namespace SwiftlyS2.Internal_API
 
                 unsafe
                 {
-                    *(IntPtr*)(&data->args_data[8 * data->args_count]) = (IntPtr)arr;
+                    *(IntPtr*)(&data->args_data[data->args_count << 3]) = (IntPtr)arr;
                 }
 
-                typesMap.TryGetValue(typeof(IDictionary), out data->args_type[data->args_count]);
+                data->args_type[data->args_count] = Cacher.GetTypeID(typeof(IDictionary));
                 data->args_count++;
                 return;
             }
@@ -309,10 +335,10 @@ namespace SwiftlyS2.Internal_API
 
                 unsafe
                 {
-                    *(IntPtr*)(&data->args_data[8 * data->args_count]) = ptr;
+                    *(IntPtr*)(&data->args_data[data->args_count << 3]) = ptr;
                 }
 
-                typesMap.TryGetValue(typeof(IntPtr), out data->args_type[data->args_count]);
+                data->args_type[data->args_count] = Cacher.GetTypeID(typeof(IntPtr));
                 data->args_count++;
                 return;
             }
@@ -327,27 +353,26 @@ namespace SwiftlyS2.Internal_API
 
                 unsafe
                 {
-                    *(IntPtr*)(&data->args_data[8 * data->args_count]) = ptr;
+                    *(IntPtr*)(&data->args_data[data->args_count << 3]) = ptr;
                 }
 
-                typesMap.TryGetValue(typeof(ClassData), out data->args_type[data->args_count]);
+                data->args_type[data->args_count] = Cacher.GetTypeID(typeof(ClassData));
                 data->args_count++;
                 return;
             }
 
-                typesMap.TryGetValue(value.GetType(), out data->args_type[data->args_count]);
+            Type t = value.GetType();
+
+            data->args_type[data->args_count] = Cacher.GetTypeID(ref t);
             if (data->args_type[data->args_count] == 0)
             {
-                throw new Exception($"Invalid data type tried to be pushed: {value.GetType().FullName}");
+                throw new Exception($"Invalid data type tried to be pushed: {t.FullName}");
             }
 
-            if (Marshal.SizeOf(value.GetType()) <= 8)
-            {
-                *(long*)(&data->args_data[8 * data->args_count]) = 0;
-                Marshal.StructureToPtr(value, new IntPtr(data->args_data + (8 * data->args_count)), true);
-                data->args_count++;
-                return;
-            }
+            *(long*)(&data->args_data[data->args_count << 3]) = 0;
+            WritePrimitiveToPointer(value, (void*)(new IntPtr(data->args_data + (data->args_count << 3))));
+            data->args_count++;
+            return;
         }
 
         [SecurityCritical]
@@ -364,19 +389,19 @@ namespace SwiftlyS2.Internal_API
                 }
             }
 
-            bool isKeyPointer = (dictTypes[0] == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(dictTypes[0]) || dictTypes[0] == typeof(IntPtr) || dictTypes[0] == typeof(string) || dictTypes[0].IsArray || typeof(IDictionary).IsAssignableFrom(dictTypes[0]));
-            bool isValuePointer = (dictTypes[1] == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(dictTypes[1]) || dictTypes[1] == typeof(IntPtr) || dictTypes[1] == typeof(string) || dictTypes[1].IsArray || typeof(IDictionary).IsAssignableFrom(dictTypes[1]));
+            bool isKeyPointer = Cacher.ConsiderTypeAPointer(ref dictTypes[0]);
+            bool isValuePointer = Cacher.ConsiderTypeAPointer(ref dictTypes[1]);
 
-            int keySize = Marshal.SizeOf(isKeyPointer ? sizeof(IntPtr) : dictTypes[0]);
-            int valueSize = Marshal.SizeOf(isValuePointer ? sizeof(IntPtr) : dictTypes[1]);
+            int keySize = isKeyPointer ? Cacher.GetTypeSize<IntPtr>() : Cacher.GetTypeSize(ref dictTypes[0]);
+            int valueSize = isValuePointer ? Cacher.GetTypeSize<IntPtr>() : Cacher.GetTypeSize(ref dictTypes[1]);
 
-            IntPtr keysArray = Marshal.AllocHGlobal(keySize * count);
-            IntPtr valuesArray = Marshal.AllocHGlobal(valueSize * count);
+            IntPtr keysArray = (nint)NativeMemory.Alloc((nuint)(keySize * count));
+            IntPtr valuesArray = (nint)NativeMemory.Alloc((nuint)(valueSize * count));
 
             int valuesCounter = 0;
 
-            int mapDataSize = Marshal.SizeOf(typeof(MapData));
-            IntPtr structPtr = Marshal.AllocHGlobal(mapDataSize);
+            int mapDataSize = Cacher.GetTypeSize<MapData>();
+            IntPtr structPtr = (nint)NativeMemory.Alloc((nuint)mapDataSize);
 
             MapData* p = (MapData*)structPtr.ToPointer();
             
@@ -384,15 +409,8 @@ namespace SwiftlyS2.Internal_API
             p->Values = (byte*)valuesArray;
             p->Length = count;
 
-            if(dictTypes[0].IsArray) typesMap.TryGetValue(typeof(Array), out p->keyType);
-            else if(typeof(IDictionary).IsAssignableFrom(dictTypes[0])) typesMap.TryGetValue(typeof(IDictionary), out p->keyType);
-            else if (dictTypes[0] == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(dictTypes[0])) typesMap.TryGetValue(typeof(ClassData), out p->keyType);
-            else typesMap.TryGetValue(dictTypes[0], out p->keyType);
-
-            if (dictTypes[1].IsArray) typesMap.TryGetValue(typeof(Array), out p->valueType);
-            else if (typeof(IDictionary).IsAssignableFrom(dictTypes[1])) typesMap.TryGetValue(typeof(IDictionary), out p->valueType);
-            else if(dictTypes[1] == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(dictTypes[1])) typesMap.TryGetValue(typeof(ClassData), out p->valueType);
-            else typesMap.TryGetValue(dictTypes[1], out p->valueType);
+            p->keyType = Cacher.GetTypeID(ref dictTypes[0]);
+            p->valueType = Cacher.GetTypeID(ref dictTypes[1]);
 
             if(p->keyType == 0 || p->valueType == 0)
             {
@@ -403,28 +421,28 @@ namespace SwiftlyS2.Internal_API
             {
                 if (isKeyPointer)
                 {
-                    Marshal.WriteIntPtr(keysArray, valuesCounter * keySize, (IntPtr)PushInternal(entry.Key));
+                    Unsafe.Write((void*)(keysArray + (valuesCounter * keySize)), (IntPtr)PushInternal(entry.Key));
                 }
                 else
                 {
-                    Marshal.StructureToPtr(PushInternal(entry.Key!), keysArray + (valuesCounter * keySize), false);
+                    WritePrimitiveToPointer(PushInternal(entry.Key!), (void*)(keysArray + (valuesCounter * keySize)));
                 }
 
                 if (isValuePointer)
                 {
-                    Marshal.WriteIntPtr(valuesArray, valuesCounter * valueSize, entry.Value == null ? IntPtr.Zero : (IntPtr)PushInternal(entry.Value));
+                    Unsafe.Write((void*)(valuesArray + (valuesCounter * valueSize)), (entry.Value == null ? IntPtr.Zero : (IntPtr)PushInternal(entry.Value)));
                 }
                 else
                 {
-                    Marshal.StructureToPtr(entry.Value == null ? 0 : PushInternal(entry.Value), valuesArray + (valuesCounter * valueSize), false);
+                    WritePrimitiveToPointer(entry.Value == null ? 0 : PushInternal(entry.Value), (void*)(valuesArray + (valuesCounter * valueSize)));
                 }
 
                 valuesCounter++;
             }
 
-            finalizers.Enqueue(() => Marshal.FreeHGlobal(keysArray));
-            finalizers.Enqueue(() => Marshal.FreeHGlobal(valuesArray));
-            finalizers.Enqueue(() => Marshal.FreeHGlobal(structPtr));
+            finalizers.Enqueue(() => NativeMemory.Free((void*)keysArray));
+            finalizers.Enqueue(() => NativeMemory.Free((void*)valuesArray));
+            finalizers.Enqueue(() => NativeMemory.Free((void*)structPtr));
 
             return structPtr;
         }
@@ -441,22 +459,18 @@ namespace SwiftlyS2.Internal_API
             }
 
 
-            int arrayDataSize = Marshal.SizeOf(typeof(ArrayData));
-            IntPtr structPtr = Marshal.AllocHGlobal(arrayDataSize);
+            IntPtr structPtr = (nint)NativeMemory.Alloc((nuint)Cacher.GetTypeSize<ArrayData>());
 
             ArrayData* p = (ArrayData*)structPtr.ToPointer();
 
-            bool isPointer = (t == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(t) || t == typeof(IntPtr) || t == typeof(string) || t.IsArray || typeof(IDictionary).IsAssignableFrom(t));
-            int elementSize = Marshal.SizeOf(isPointer ? typeof(IntPtr) : t);
-            IntPtr arrayPtr = Marshal.AllocHGlobal(elementSize * array.Length);
+            bool isPointer = Cacher.ConsiderTypeAPointer(ref t);
+            int elementSize = isPointer ? Cacher.GetTypeSize<IntPtr>() : Cacher.GetTypeSize(ref t);
+            IntPtr arrayPtr = (nint)NativeMemory.Alloc((nuint)(elementSize * array.Length));
+            byte* arrAsBytes = (byte*)arrayPtr;
 
             p->Length = array.Length;
             p->Elements = (byte*)arrayPtr;
-
-            if (t.IsArray) p->type = typesMap.GetValueOrDefault(typeof(Array));
-            else if(typeof(IDictionary).IsAssignableFrom(t)) p->type = typesMap.GetValueOrDefault(typeof(IDictionary));
-            else if(t == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(t)) p->type = typesMap.GetValueOrDefault(typeof(ClassData));
-            else typesMap.TryGetValue(t, out p->type);
+            p->type = Cacher.GetTypeID(ref t);
 
             var i = 0;
             IEnumerator enums = array.GetEnumerator();
@@ -464,17 +478,17 @@ namespace SwiftlyS2.Internal_API
             {
                 if (isPointer)
                 {
-                    Marshal.WriteIntPtr(arrayPtr, i * elementSize, (IntPtr)PushInternal(enums.Current));
+                    Unsafe.Write((void*)(arrayPtr + (i * elementSize)), (IntPtr)PushInternal(enums.Current));
                 }
                 else
                 {
-                    Marshal.StructureToPtr(PushInternal(enums.Current), arrayPtr + (i * elementSize), false);
+                    WritePrimitiveToPointer(PushInternal(enums.Current), (void*)(arrayPtr + (i * elementSize)));
                 }
                 i++;
             }
 
-            finalizers.Enqueue(() => Marshal.FreeHGlobal(arrayPtr));
-            finalizers.Enqueue(() => Marshal.FreeHGlobal(structPtr));
+            finalizers.Enqueue(() => NativeMemory.Free((void*)arrayPtr));
+            finalizers.Enqueue(() => NativeMemory.Free((void*)structPtr));
             return structPtr;
         }
 
@@ -483,15 +497,16 @@ namespace SwiftlyS2.Internal_API
         {
             if(str == null) return IntPtr.Zero;
 
-            var b = Encoding.UTF8.GetBytes(str);
+            var b = Encoding.UTF8.GetBytes(str + "\0");
+            void* ptr = NativeMemory.Alloc((nuint)b.Length);
 
-            var ptr = Marshal.AllocHGlobal(b.Length + 1);
+            fixed(byte* src = b)
+            {
+                Buffer.MemoryCopy(src, ptr, b.Length, b.Length);
+            }
 
-            Marshal.Copy(b, 0, ptr, b.Length);
-            Marshal.WriteByte(ptr, b.Length, 0);
-
-            finalizers.Enqueue(() => Marshal.FreeHGlobal(ptr));
-            return ptr;
+            finalizers.Enqueue(() => NativeMemory.Free(ptr));
+            return (nint)ptr;
         }
 
         [SecuritySafeCritical]
@@ -510,53 +525,43 @@ namespace SwiftlyS2.Internal_API
 
             if (value.GetType().IsEnum)
             {
-                value = Convert.ChangeType(value, value.GetType().GetEnumUnderlyingType());
-                typesMap.TryGetValue(typeof(int), out data->return_type);
+                value = Convert.ToInt64(value);
             }
+
+            Type t = value.GetType();
 
             if (value is string)
             {
-                var str = (string)Convert.ChangeType(value, typeof(string));
+                if (value == null) value = "";
+                var str = value.ToString() ?? "";
                 var ptr = PushString(str);
 
-                unsafe
-                {
-                    *(IntPtr*)(&data->return_value[8]) = ptr;
-                }
+                *(IntPtr*)(&data->return_value[8]) = ptr;
 
-                typesMap.TryGetValue(typeof(string), out data->return_type);
+                data->return_type = Cacher.GetTypeID(typeof(string));
                 return;
             }
             else if (value is Array)
             {
-                unsafe
-                {
-                    *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
-                }
+                *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
 
-                typesMap.TryGetValue(typeof(Array), out data->return_type);
+                data->return_type = Cacher.GetTypeID(typeof(Array));
                 return;
             }
             else if (value is IDictionary)
             {
-                unsafe
-                {
-                    *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
-                }
+                *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
 
-                typesMap.TryGetValue(typeof(IDictionary), out data->return_type);
+                data->return_type = Cacher.GetTypeID(typeof(IDictionary));
                 return;
             }
             else if (value is IntPtr)
             {
-                var ptr = (IntPtr)Convert.ChangeType(value, typeof(IntPtr));
+                var ptr = (IntPtr)value;
 
-                unsafe
-                {
-                    *(IntPtr*)(&data->return_value[8]) = ptr;
-                }
-
-                typesMap.TryGetValue(typeof(IntPtr), out data->return_type);
+                *(IntPtr*)(&data->return_value[8]) = ptr;
+                
+                data->return_type = Cacher.GetTypeID(typeof(IntPtr));
                 return;
             }
             else if (value is EValue ea)
@@ -566,27 +571,21 @@ namespace SwiftlyS2.Internal_API
             }
             else if(value is ClassData)
             {
-                unsafe
-                {
-                    *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
-                }
+                *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
 
-                typesMap.TryGetValue(typeof(IntPtr), out data->return_type);
+                data->return_type = Cacher.GetTypeID(typeof(IntPtr));
                 return;
             }
 
-            typesMap.TryGetValue(value.GetType(), out data->return_type);
+            data->return_type = Cacher.GetTypeID(ref t);
             if (data->return_type == 0)
             {
-                throw new Exception($"Invalid data type tried to be set as return: {value.GetType().FullName}");
+                throw new Exception($"Invalid data type tried to be set as return: {t.FullName}");
             }
             
-            if (Marshal.SizeOf(value.GetType()) <= 8)
-            {
-                *(long*)(&data->return_value[0]) = 0;
-                Marshal.StructureToPtr(value, new IntPtr(data->return_value), true);
-                return;
-            }
+            *(long*)(&data->return_value[0]) = 0;
+            WritePrimitiveToPointer(value, (void*)(new IntPtr(data->return_value)));
+            return;
         }
 
         [SecuritySafeCritical]
@@ -600,7 +599,8 @@ namespace SwiftlyS2.Internal_API
         {
             fixed (CallData* data = &m_cdata)
             {
-                return ReadValue(type, &data->args_data[index * 8]);
+                byte* p = &data->args_data[index<<3];
+                return ReadValue(ref type, ref p);
             }
         }
 
@@ -616,12 +616,13 @@ namespace SwiftlyS2.Internal_API
             fixed (CallData* data = &m_cdata)
             {
                 if (data->has_return == 0) return null;
-                return ReadValue(type, &data->return_value[0]);
+                byte* p = &data->return_value[0];
+                return ReadValue(ref type, ref p);
             }
         }
 
         [SecurityCritical]
-        public static unsafe object ReadValue(Type type, byte* ptr)
+        public static unsafe object ReadValue(ref Type type, ref byte* ptr)
         {
             if (ptr == null) return null;
             if (type == typeof(string))
@@ -629,21 +630,20 @@ namespace SwiftlyS2.Internal_API
                 var natUTF8 = *(IntPtr*)&ptr[0];
 
                 if (natUTF8 == IntPtr.Zero) return null;
+                byte* str = (byte*)natUTF8;
 
                 var len = 0;
-                while(Marshal.ReadByte(natUTF8, len) != 0)
+                while(str[len] != 0)
                 {
                     ++len;
                 }
 
-                var buf = new byte[len];
-                Marshal.Copy(natUTF8, buf, 0, buf.Length);
-                return Encoding.UTF8.GetString(buf);
+                return Encoding.UTF8.GetString(new ReadOnlySpan<byte>((void*)natUTF8, len));
             }
             else if(type == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(type))
             {
                 IntPtr p = *(IntPtr*)ptr;
-                if (p == null) return null; 
+                if (p == IntPtr.Zero) return null; 
                 
                 if(type == typeof(Memory) || type == typeof(CEntityKeyValues))
                 {
@@ -666,22 +666,27 @@ namespace SwiftlyS2.Internal_API
 
             if (type.IsEnum)
             {
-                return Enum.ToObject(type, (int)ReadValue(typeof(int), ptr));
+                Type t = typeof(int);
+                return Enum.ToObject(type, (int)ReadValue(ref t, ref ptr));
             }
 
             if(type.IsArray)
             {
                 IntPtr p = *(IntPtr*)ptr;
-                ArrayData data = Marshal.PtrToStructure<ArrayData>(p);
+                ArrayData *data = (ArrayData*)p;
 
-                Array? arr = (Array?)Activator.CreateInstance(type, data.Length);
+                Type t = type.GetElementType()!;
+                Array? arr = Array.CreateInstance(t, data->Length);
                 if (arr == null) return null;
 
-                bool isPointer = (type.GetElementType()! == typeof(IntPtr) || type.GetElementType()! == typeof(string) || type.GetElementType()!.IsArray || typeof(IDictionary).IsAssignableFrom(type.GetElementType()!));
-                int elemSize = Marshal.SizeOf(isPointer ? typeof(IntPtr) : type.GetElementType()!);
+                bool isPointer = Cacher.ConsiderTypeAPointer(ref t);
+                int elemSize = isPointer ? Cacher.GetTypeSize<IntPtr>() : Cacher.GetTypeSize(ref t);
 
-                for (int i = 0; i < data.Length; i++) arr.SetValue(ReadValue(type.GetElementType()!, &data.Elements[i*elemSize]), i);
-
+                for (int i = 0; i < data->Length; i++)
+                {
+                    byte* element = &data->Elements[elemSize * i];
+                    arr.SetValue(ReadValue(ref t, ref element), i);
+                }
                 return arr;
             }
 
@@ -691,22 +696,28 @@ namespace SwiftlyS2.Internal_API
                 if (dict == null) return null;
 
                 IntPtr p = *(IntPtr*)ptr;
-                MapData data = Marshal.PtrToStructure<MapData>(p);
+                MapData* data = (MapData*)p;
 
-                IntPtr* keys = (IntPtr*)data.Keys;
-                IntPtr* values = (IntPtr*)data.Values;
+                IntPtr* keys = (IntPtr*)data->Keys;
+                IntPtr* values = (IntPtr*)data->Values;
 
-                bool isKeyPointer = (type.GetGenericArguments()[0] == typeof(IntPtr) || type.GetGenericArguments()[0] == typeof(string) || type.GetGenericArguments()[0].IsArray || typeof(IDictionary).IsAssignableFrom(type.GetGenericArguments()[0]));
-                int keySize = Marshal.SizeOf(isKeyPointer ? typeof(IntPtr) : type.GetGenericArguments()[0]);
+                Type keyType = type.GetGenericArguments()[0];
+                Type valueType = type.GetGenericArguments()[1];
 
-                bool isValuePointer = (type.GetGenericArguments()[1] == typeof(IntPtr) || type.GetGenericArguments()[1] == typeof(string) || type.GetGenericArguments()[1].IsArray || typeof(IDictionary).IsAssignableFrom(type.GetGenericArguments()[1]));
-                int valueSize = Marshal.SizeOf(isValuePointer ? typeof(IntPtr) : type.GetGenericArguments()[1]);
+                bool isKeyPointer = Cacher.ConsiderTypeAPointer(ref keyType);
+                int keySize = isKeyPointer ? Cacher.GetTypeSize<IntPtr>() : Cacher.GetTypeSize(ref keyType);
 
-                for (int i = 0; i < data.Length; i++)
+                bool isValuePointer = Cacher.ConsiderTypeAPointer(ref valueType);
+                int valueSize = isValuePointer ? Cacher.GetTypeSize<IntPtr>() : Cacher.GetTypeSize(ref valueType);
+
+                for (int i = 0; i < data->Length; i++)
                 {
+                    byte* key = &data->Keys[keySize * i];
+                    byte* value = &data->Values[valueSize * i];
+
                     dict.Add(
-                        ReadValue(type.GetGenericArguments()[0], &data.Keys[i*keySize]), 
-                        ReadValue(type.GetGenericArguments()[1], &data.Values[i*valueSize])
+                        ReadValue(ref keyType, ref key), 
+                        ReadValue(ref valueType, ref value)
                     );
                 }
 
@@ -718,13 +729,7 @@ namespace SwiftlyS2.Internal_API
                 return *(IntPtr*)ptr;
             }
 
-            if(Marshal.SizeOf(type) <= 8)
-            {
-                var obj = Marshal.PtrToStructure(new IntPtr(ptr), type);
-                return obj;
-            }
-
-            return null;
+            return ReadPointerToPrimitive(ref ptr, ref type);
         }
 
         [SecuritySafeCritical]
@@ -759,10 +764,10 @@ namespace SwiftlyS2.Internal_API
         }
 
         [SecurityCritical]
-        public IntPtr AllocatePointer(int elementSize, int count)
+        public unsafe IntPtr AllocatePointer(int elementSize, int count)
         {
-            IntPtr ptr = Marshal.AllocHGlobal(elementSize * count);
-            finalizers.Enqueue(() => Marshal.FreeHGlobal(ptr));
+            IntPtr ptr = (nint)NativeMemory.Alloc((nuint)(elementSize * count));
+            finalizers.Enqueue(() => NativeMemory.Free((void*)ptr));
             return ptr;
         }
     }

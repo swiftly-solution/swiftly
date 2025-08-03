@@ -1,4 +1,6 @@
-﻿using System.Text.Json;
+﻿using System.Reflection;
+using System.Text.Json;
+using SwiftlyS2.API.Events;
 using SwiftlyS2.Internal_API;
 
 namespace SwiftlyS2.API.Scripting
@@ -7,7 +9,9 @@ namespace SwiftlyS2.API.Scripting
     {
         public int Key;
         public string EventName;
-        public Delegate Callback;
+        public Func<object, object[], object> Callback;
+        public ParameterInfo[] Parameters;
+        public object TargetInstance;
     }
 
     public static class Events
@@ -31,8 +35,10 @@ namespace SwiftlyS2.API.Scripting
             EventHandler info = new()
             {
                 EventName = event_name,
-                Callback = callback,
-                Key = eventRegistryIndex++
+                Callback = Cacher.CreateInvoker(callback.Method),
+                Key = eventRegistryIndex++,
+                Parameters = callback.Method.GetParameters(),
+                TargetInstance = callback.Target
             };
 
             if (!eventCallbacks.ContainsKey(event_name))
@@ -69,15 +75,17 @@ namespace SwiftlyS2.API.Scripting
 
         public static List<EventHandler> GetEventCallbacks(string event_name)
         {
-            if (!eventCallbacks.TryGetValue(event_name, out List<EventHandler>? value)) return [];
-            else return value!;
+            if (!eventCallbacks.ContainsKey(event_name)) return [];
+            else return eventCallbacks[event_name];
         }
 
         public static unsafe (EventResult, Event) TriggerEvent(string event_name, params object[] args)
         {
             IntPtr[] a = Invoker.CallNative<IntPtr[]>("_G", "TriggerEventInternal", CallKind.Function, event_name, JsonSerializer.Serialize(args));
-            
-            EventResult res = (EventResult)CallContext.ReadValue(typeof(EventResult), (byte*)a[0]);
+
+            byte* p = (byte*)a[0];
+            Type evResult = typeof(EventResult);
+            EventResult res = (EventResult)CallContext.ReadValue(ref evResult, ref p);
             Event ev = new(a[1]);
 
             return (res, ev);
