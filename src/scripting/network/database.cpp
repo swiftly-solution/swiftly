@@ -9,7 +9,9 @@
 #undef strdup
 #endif
 
-void Query(IDatabase* db, std::string query, std::string callback)
+std::string& FetchPluginName(EContext* state);
+
+void Query(IDatabase* db, std::string query, std::string callback, EContext* ctx)
 {
     if (db->GetKind() != "mysql" && db->GetKind() != "sqlite") {
         PLUGIN_PRINT("Database - Query", "This function is supporting only SQL databases.\n");
@@ -21,6 +23,7 @@ void Query(IDatabase* db, std::string query, std::string callback)
     DatabaseQueryQueue queue = {
         nq,
         callback,
+        FetchPluginName(ctx)
     };
     db->AddQueryQueue(queue);
 }
@@ -79,7 +82,7 @@ LoadScriptingComponent(database, [](PluginObject plugin, EContext* ctx) -> void 
         if (query == "") return;
 
         std::string callback = context->GetArgument<std::string>(1);
-        Query(db, query, callback);
+        Query(db, query, callback, context->GetPluginContext());
     });
 
     ADD_CLASS_FUNCTION("DB", "QueryBuilder", [](FunctionContext* context, ClassData* data) -> void {

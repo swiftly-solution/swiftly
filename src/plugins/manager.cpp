@@ -359,3 +359,20 @@ EXT_API int swiftly_TriggerEvent(const char* ext_name, const char* evName, void*
     delete data;
     return (int)result;
 }
+
+EXT_API int swiftly_TriggerEventV2(const char* ext_name, const char* evName, void* args, void* eventReturn, const char* specific_plugin)
+{
+    ClassData* data = new ClassData({ { "plugin_name", std::string(ext_name) } }, "Event", nullptr);
+    std::string plugin = specific_plugin;
+    EventResult result = EventResult::Continue;
+    if (plugin != "") {
+        auto plg = g_pluginManager.FetchPlugin(plugin);
+        if (plg) result = plg->TriggerEvent(ext_name, evName, *(std::vector<std::any>*)args, data);
+    }
+    else {
+        result = g_pluginManager.ExecuteEvent(ext_name, evName, *(std::vector<std::any>*)args, data);
+    }
+    *reinterpret_cast<std::any*>(eventReturn) = data->GetAnyData("event_return");
+    delete data;
+    return (int)result;
+}
