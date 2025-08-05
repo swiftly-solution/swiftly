@@ -10,6 +10,7 @@ on:
       - 'protobufs/**'
       - 'alliedmodders/**'
       - 'vendor/**'
+      - '.github/workflows/**'
   pull_request:
   workflow_dispatch:
 
