@@ -12,7 +12,7 @@ function LoadDatabase(global) {
             console.log("An error has been occured while trying to execute a query.\nError: " + err)
         }
 
-        delete databaseRequestsQueue[databaseRequestID];
+        delete global.databaseRequestsQueue[databaseRequestID];
         UnregisterCallstack(GetCurrentPluginName(), stackid)
         return EventResult.Stop
     })
@@ -21,6 +21,8 @@ function LoadDatabase(global) {
         return {
             dbval: DB(name),
             Query: (query, callback) => {
+                if (typeof callback != "function") return;
+
                 let callback_uuid = uuid()
                 if (callback) databaseRequestsQueue[callback_uuid] = callback;
                 this.dbval.Query(query, callback_uuid)

@@ -27,7 +27,7 @@ namespace SwiftlyS2.Internal_API
             { 18, typeof(ClassData) },
         };
 
-        public static unsafe string? TryInterpretUnknownPtr(IntPtr ptr, int type)
+        public static unsafe string? TryInterpretUnknownPtr(ref IntPtr ptr, ref int type)
         {
             if (ptr == IntPtr.Zero)
                 return null;

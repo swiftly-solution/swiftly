@@ -10,15 +10,16 @@ const luaReplacer = {
     float: "number",
     uint32: "number",
     uint8: "number",
+    int8: "number",
     int16: "number",
     uint16: "number",
-    SDKClass: "SDKClass",
     Color: "Color",
     Vector: "Vector",
     Vector2D: "Vector2D",
     Vector4D: "Vector4D",
     void: "nil",
-    any: "any"
+    any: "any",
+    SDKClass: "ClassData"
 }
 
 const jsReplacer = {
@@ -31,15 +32,16 @@ const jsReplacer = {
     float: "number",
     uint32: "number",
     uint8: "number",
+    int8: "number",
     int16: "number",
     uint16: "number",
-    SDKClass: "SDKClass",
     Color: "Color",
     Vector: "Vector",
     Vector2D: "Vector2D",
     Vector4D: "Vector4D",
     void: "void",
-    any: "any"
+    any: "any",
+    SDKClass: "ClassData"
 }
 
 const csReplacer = {
@@ -52,15 +54,16 @@ const csReplacer = {
     float: "float",
     uint32: "uint",
     uint8: "byte",
+    int8: "char",
     int16: "short",
     uint16: "ushort",
-    SDKClass: "SDKClass",
     Color: "Color",
     Vector: "Vector",
     Vector2D: "Vector2D",
     Vector4D: "Vector4D",
     void: "void",
-    any: "object"
+    any: "object",
+    SDKClass: "ClassData"
 }
 
 export default function GenerateType(data, language) {
@@ -104,7 +107,6 @@ export default function GenerateType(data, language) {
             else if (links[data]) return data
             else if (data.includes(",")) return `[${data.split(",").map((v) => GenerateType(v, language)).join(", ")}]`
             else {
-                console.log(data)
                 return data
             }
         }

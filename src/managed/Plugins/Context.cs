@@ -49,16 +49,31 @@ namespace SwiftlyS2.Plugins
 
                 servCollection.Scan((scan) => scan.FromAssemblies(asm).AddClasses((c) => c.AssignableTo<API.Plugin>()).AsSelf().WithSingletonLifetime());
 
+                Type ifaceServiceCollection = typeof(IPluginServiceCollection<>).MakeGenericType(type);
+                Type[] serviceCollectionConfiguratorTypes = AppDomain.CurrentDomain.GetAssemblies()
+                    .SelectMany(assembly => assembly.GetTypes())
+                    .Where(type => ifaceServiceCollection.IsAssignableFrom(type) && !type.IsInterface && !type.IsAbstract)
+                    .ToArray();
+
+                if (serviceCollectionConfiguratorTypes.Any())
+                {
+                    foreach (var t in serviceCollectionConfiguratorTypes)
+                    {
+                        var pluginServiceCollection = Activator.CreateInstance(t);
+                        MethodInfo method = t.GetMethod("ConfigureServiceCollection");
+                        method?.Invoke(pluginServiceCollection, [servCollection]);
+                    }
+                }
+
                 m_serviceProvider = servCollection.BuildServiceProvider();
 
                 ServScope = m_serviceProvider.CreateScope();
 
-                if (ServScope.ServiceProvider.GetRequiredService(type) is not API.Plugin)
+                Plugin = ServScope.ServiceProvider.GetRequiredService(type) as Plugin;
+                if (Plugin == null)
                 {
                     throw new Exception("Couldn't initialize plugin instance.");
                 }
-
-                Plugin ??= Activator.CreateInstance(type) as Plugin;
 
                 Plugin.Initialize(m_ctx);
             }

@@ -100,6 +100,7 @@ export default function GenerateType(data, language) {
             else if (data.includes(":")) return `Object.<${GenerateType(data.split(":")[0], language)}, ${GenerateType(data.split(":")[1], language)}>`
             else if (data.endsWith("?")) return `${GenerateType(data.split("?")[0], language)}?`
             else if (jsReplacer.hasOwnProperty(data)) return jsReplacer[data]
+            else if (links[data]) return data
             else if (data.includes(",")) return `[${data.split(",").map((v) => GenerateType(v, language)).join(", ")}]`
             else {
                 return data

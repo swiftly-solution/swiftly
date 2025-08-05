@@ -24,6 +24,8 @@ function Database(name)
     return {
         dbval = DB(name),
         Query = function(self, query, callback)
+            if type(callback) ~= "function" then return end
+            
             local callback_uuid = uuid()
             if callback then databaseRequestsQueue[callback_uuid] = callback end
             self.dbval:Query(query, callback_uuid)

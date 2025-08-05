@@ -68,7 +68,7 @@ namespace SwiftlyS2
                 if (outStr == IntPtr.Zero) return;
                 if (obj == IntPtr.Zero) return;
 
-                var asString = Interpreter.TryInterpretUnknownPtr(obj, type) ?? "Couldn't retrieve the value";
+                var asString = Interpreter.TryInterpretUnknownPtr(ref obj, ref type) ?? "Couldn't retrieve the value";
 
                 byte[] bytes = Encoding.UTF8.GetBytes(asString + "\0");
                 int bytesLen = Math.Min(len - 1, bytes.Length);

@@ -1,6 +1,7 @@
 ﻿using static SwiftlyS2.API.Scripting.Events;
 using System.Reflection;
 using System.Linq.Expressions;
+using SwiftlyS2.Internal_API;
 
 namespace SwiftlyS2.API
 {
@@ -23,6 +24,7 @@ namespace SwiftlyS2.API
         public void Initialize(IntPtr ctx)
         {
             PluginContext = ctx;
+            Cacher.PrepareCache();
             Console.SetOut(new Scripting.ConsoleWriter(Console.Out));
             Events.Listener.StartListening();
             RegisterEventAttribute();

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Concurrent;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -199,10 +200,7 @@ namespace SwiftlyS2.Internal_API
             if(value is string)
             {
                 if (value == null) value = "";
-                var str = value.ToString() ?? "";
-                var ptr = PushString(str);
-
-                return ptr;
+                return PushString(value.ToString() ?? "");
             }
             else if(value is Array)
             {
@@ -230,7 +228,7 @@ namespace SwiftlyS2.Internal_API
             return value;
         }
 
-        internal static unsafe void WritePrimitiveToPointer(object value, void* dest)
+        internal static unsafe void WritePrimitiveToPointer(ref object value, ref void* dest)
         {
             switch(value)
             {
@@ -267,7 +265,7 @@ namespace SwiftlyS2.Internal_API
         {
             ref byte start = ref ptr[0];
 
-            if (type == typeof(bool)) return Unsafe.ReadUnaligned<bool>(ref start);
+            if (type == typeof(bool)) return (Unsafe.ReadUnaligned<int>(ref start) != 0);
             if (type == typeof(char)) return Unsafe.ReadUnaligned<char>(ref start);
             if (type == typeof(sbyte)) return Unsafe.ReadUnaligned<sbyte>(ref start);
             if (type == typeof(byte)) return Unsafe.ReadUnaligned<byte>(ref start);
@@ -370,7 +368,8 @@ namespace SwiftlyS2.Internal_API
             }
 
             *(long*)(&data->args_data[data->args_count << 3]) = 0;
-            WritePrimitiveToPointer(value, (void*)(new IntPtr(data->args_data + (data->args_count << 3))));
+            void* p = (void*)(new IntPtr(data->args_data + (data->args_count << 3)));
+            WritePrimitiveToPointer(ref value, ref p);
             data->args_count++;
             return;
         }
@@ -425,7 +424,10 @@ namespace SwiftlyS2.Internal_API
                 }
                 else
                 {
-                    WritePrimitiveToPointer(PushInternal(entry.Key!), (void*)(keysArray + (valuesCounter * keySize)));
+                    object v = PushInternal(entry.Key!);
+                    void* pt = (void*)(keysArray + (valuesCounter * keySize));
+
+                    WritePrimitiveToPointer(ref v, ref pt);
                 }
 
                 if (isValuePointer)
@@ -434,7 +436,10 @@ namespace SwiftlyS2.Internal_API
                 }
                 else
                 {
-                    WritePrimitiveToPointer(entry.Value == null ? 0 : PushInternal(entry.Value), (void*)(valuesArray + (valuesCounter * valueSize)));
+                    object v = entry.Value == null ? 0 : PushInternal(entry.Value);
+                    void* pt = (void*)(valuesArray + (valuesCounter * valueSize));
+
+                    WritePrimitiveToPointer(ref v, ref pt);
                 }
 
                 valuesCounter++;
@@ -482,7 +487,10 @@ namespace SwiftlyS2.Internal_API
                 }
                 else
                 {
-                    WritePrimitiveToPointer(PushInternal(enums.Current), (void*)(arrayPtr + (i * elementSize)));
+                    object v = PushInternal(enums.Current);
+                    void* pt = (void*)(arrayPtr + (i * elementSize));
+
+                    WritePrimitiveToPointer(ref v, ref pt);
                 }
                 i++;
             }
@@ -536,21 +544,21 @@ namespace SwiftlyS2.Internal_API
                 var str = value.ToString() ?? "";
                 var ptr = PushString(str);
 
-                *(IntPtr*)(&data->return_value[8]) = ptr;
+                *(IntPtr*)(data->return_value) = ptr;
 
                 data->return_type = Cacher.GetTypeID(typeof(string));
                 return;
             }
             else if (value is Array)
             {
-                *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
+                *(IntPtr*)(data->return_value) = (nint)PushInternal(value);
 
                 data->return_type = Cacher.GetTypeID(typeof(Array));
                 return;
             }
             else if (value is IDictionary)
             {
-                *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
+                *(IntPtr*)(data->return_value) = (nint)PushInternal(value);
 
                 data->return_type = Cacher.GetTypeID(typeof(IDictionary));
                 return;
@@ -559,7 +567,7 @@ namespace SwiftlyS2.Internal_API
             {
                 var ptr = (IntPtr)value;
 
-                *(IntPtr*)(&data->return_value[8]) = ptr;
+                *(IntPtr*)(data->return_value) = ptr;
                 
                 data->return_type = Cacher.GetTypeID(typeof(IntPtr));
                 return;
@@ -571,7 +579,7 @@ namespace SwiftlyS2.Internal_API
             }
             else if(value is ClassData)
             {
-                *(IntPtr*)(&data->return_value[8]) = (nint)PushInternal(value);
+                *(IntPtr*)(data->return_value) = (nint)PushInternal(value);
 
                 data->return_type = Cacher.GetTypeID(typeof(IntPtr));
                 return;
@@ -583,8 +591,9 @@ namespace SwiftlyS2.Internal_API
                 throw new Exception($"Invalid data type tried to be set as return: {t.FullName}");
             }
             
-            *(long*)(&data->return_value[0]) = 0;
-            WritePrimitiveToPointer(value, (void*)(new IntPtr(data->return_value)));
+            void* ret = data->return_value;
+            *(long*)(ret) = 0;
+            WritePrimitiveToPointer(ref value, ref ret);
             return;
         }
 
@@ -616,7 +625,7 @@ namespace SwiftlyS2.Internal_API
             fixed (CallData* data = &m_cdata)
             {
                 if (data->has_return == 0) return null;
-                byte* p = &data->return_value[0];
+                byte* p = data->return_value;
                 return ReadValue(ref type, ref p);
             }
         }
@@ -633,10 +642,7 @@ namespace SwiftlyS2.Internal_API
                 byte* str = (byte*)natUTF8;
 
                 var len = 0;
-                while(str[len] != 0)
-                {
-                    ++len;
-                }
+                while (str[len++] != 0) { }
 
                 return Encoding.UTF8.GetString(new ReadOnlySpan<byte>((void*)natUTF8, len));
             }
@@ -663,20 +669,18 @@ namespace SwiftlyS2.Internal_API
                     return data;
                 }
             }
-
-            if (type.IsEnum)
+            else if (type.IsEnum)
             {
                 Type t = typeof(int);
                 return Enum.ToObject(type, (int)ReadValue(ref t, ref ptr));
             }
-
-            if(type.IsArray)
+            else if(type.IsArray)
             {
                 IntPtr p = *(IntPtr*)ptr;
                 ArrayData *data = (ArrayData*)p;
 
                 Type t = type.GetElementType()!;
-                Array? arr = Array.CreateInstance(t, data->Length);
+                Array? arr = Cacher.CreateArray(t, data->Length);
                 if (arr == null) return null;
 
                 bool isPointer = Cacher.ConsiderTypeAPointer(ref t);
@@ -689,10 +693,12 @@ namespace SwiftlyS2.Internal_API
                 }
                 return arr;
             }
-
-            if (typeof(IDictionary).IsAssignableFrom(type))
+            else if (typeof(IDictionary).IsAssignableFrom(type))
             {
-                IDictionary? dict = Activator.CreateInstance(type) as IDictionary;
+                Type keyType = type.GetGenericArguments()[0];
+                Type valueType = type.GetGenericArguments()[1];
+
+                IDictionary? dict = Cacher.CreateDict(keyType, valueType) as IDictionary;
                 if (dict == null) return null;
 
                 IntPtr p = *(IntPtr*)ptr;
@@ -700,9 +706,6 @@ namespace SwiftlyS2.Internal_API
 
                 IntPtr* keys = (IntPtr*)data->Keys;
                 IntPtr* values = (IntPtr*)data->Values;
-
-                Type keyType = type.GetGenericArguments()[0];
-                Type valueType = type.GetGenericArguments()[1];
 
                 bool isKeyPointer = Cacher.ConsiderTypeAPointer(ref keyType);
                 int keySize = isKeyPointer ? Cacher.GetTypeSize<IntPtr>() : Cacher.GetTypeSize(ref keyType);
@@ -723,10 +726,10 @@ namespace SwiftlyS2.Internal_API
 
                 return dict;
             }
-
-            if(type == typeof(IntPtr))
+            else if(type == typeof(IntPtr))
             {
-                return *(IntPtr*)ptr;
+                ref byte start = ref ptr[0];
+                return Unsafe.ReadUnaligned<IntPtr>(ref start);
             }
 
             return ReadPointerToPrimitive(ref ptr, ref type);
