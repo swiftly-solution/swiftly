@@ -62,7 +62,7 @@
     "CTakeDamageInfo_Constructor": {
         "lib": "server",
         "windows": "40 53 48 83 EC 60 48 C7 41 38 FF FF FF FF",
-        "linux": "55 48 89 E5 48 83 EC 10 4C 8D 15 2A 2A 2A 2A"
+        "linux": "55 48 89 E5 48 83 EC 10 4C 8D 15 ? ? ? ?"
     },
     "FireOutputInternal": {
         "lib": "server",
@@ -81,8 +81,8 @@
     },
     "CBaseEntity_EmitSoundFilter": {
         "lib": "server",
-        "windows": "4C 8B DC 49 89 5B 2A 49 89 6B 2A 49 89 73 2A 49 89 7B 2A 41 56 48 83 EC 2A 49 C7 43 2A 2A 2A 2A 2A 48 8D 05 2A 2A 2A 2A 49 89 43 2A 41 8B F8",
-        "linux": "55 48 8D 05 2A 2A 2A 2A 48 89 E5 41 57 49 89 CF 41 56 41 89 D6"
+        "windows": "4C 8B DC 49 89 5B ? 49 89 6B ? 49 89 73 ? 49 89 7B ? 41 56 48 83 EC ? 49 C7 43 ? ? ? ? ? 48 8D 05 ? ? ? ? 49 89 43 ? 41 8B F8",
+        "linux": "55 48 8D 05 ? ? ? ? 48 89 E5 41 57 49 89 CF 41 56 41 89 D6"
     },
     "CBaseEntity_EmitSoundParams": {
         "lib": "server",
@@ -122,7 +122,7 @@
     "CCSPlayerController_ProcessUsercmds": {
         "lib": "server",
         "windows": "48 8B C4 44 88 48 20 44 89 40 18 48 89 50 10 53",
-        "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 53 48 89 FB 48 83 EC 2A 89 4D"
+        "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 53 48 89 FB 48 83 EC ? 89 4D"
     },
     "CSoundOpGameSystem_SetSoundEventParam": {
         "lib": "server",
