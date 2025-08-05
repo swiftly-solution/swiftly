@@ -145,16 +145,7 @@ jobs:
         working-directory: swiftly
         shell: bash
         run: |
-          extensions=(
-            "mysql-extension",
-            "console-filter",
-            "addons-extension",
-            "http-extension",
-            "ip-extension",
-            "utils-extension",
-            "sdktools-extension",
-            "websocket-extension",
-          )
+          extensions=("mysql-extension" "console-filter" "addons-extension" "http-extension" "ip-extension" "utils-extension" "sdktools-extension" "websocket-extension")
 
           for repo in "${extensions[@]}"; do
             git clone https://github.com/swiftly-solution/$repo.git
