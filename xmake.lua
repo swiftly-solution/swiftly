@@ -81,6 +81,8 @@ target(PROJECT_NAME.."-CS2")
         'src/core/configuration/setup.cpp',
         'src/core/console/console.cpp',
 
+        'src/engine/patches/functions.cpp',
+
         'src/engine/convars/manager.cpp',
         'src/engine/convars/query.cpp',
 
@@ -202,7 +204,7 @@ target(PROJECT_NAME.."-CS2")
 
     on_load(function(target)
         local protoc = is_plat("windows") and SDK_PATH.."/devtools/bin/protoc.exe" or SDK_PATH.."/devtools/bin/linux/protoc" 
-        local args = "--proto_path="..SDK_PATH.."/thirdparty/protobuf-3.21.8/src --proto_path=./protobufs/cs2 --proto_path="..SDK_PATH.."/public --proto_path="..SDK_PATH.."/public/engine --proto_path="..SDK_PATH.."/public/mathlib --proto_path="..SDK_PATH.."/public/vstdlib --proto_path="..SDK_PATH.."/public/tier0 --proto_path="..SDK_PATH.."/public/tier1 --proto_path="..SDK_PATH.."/public/entity2 --proto_path="..SDK_PATH.."/public/game/server --proto_path="..SDK_PATH.."/game/shared --proto_path="..SDK_PATH.."/game/server --proto_path="..SDK_PATH.."/common --cpp_out=build/proto"
+        local args = "--proto_path="..SDK_PATH.."/thirdparty/protobuf-3.21.8/src --proto_path=./protobufs/cs2 --proto_path="..SDK_PATH.."/public --proto_path="..SDK_PATH.."/public/engine --proto_path="..SDK_PATH.."/public/mathlib --proto_path="..SDK_PATH.."/public/tier0 --proto_path="..SDK_PATH.."/public/tier1 --proto_path="..SDK_PATH.."/public/entity2 --proto_path="..SDK_PATH.."/public/game/server --proto_path="..SDK_PATH.."/game/shared --proto_path="..SDK_PATH.."/game/server --proto_path="..SDK_PATH.."/common --cpp_out=build/proto"
 
         function mysplit (inputstr, sep)
             if sep == nil then sep = "%s" end
@@ -220,11 +222,24 @@ target(PROJECT_NAME.."-CS2")
             local splitted = mysplit(sourcefile, "/")
             local filename = splitted[#splitted]
 
-            os.iorun(protoc .. " "..args.." --dependency_out=build/proto/"..filename..".d "..sourcefile)
+            try {
+                function()
+                    os.iorun(protoc .. " "..args.." --dependency_out=build/proto/"..filename..".d "..sourcefile)
+                end,
+                catch {
+                    function(err)
+                        print(err)
+                    end
+                }
+            }
         end
     end)
 
     --[[ Flags Section ]]
+
+    if is_plat("windows") then
+        add_cxflags("/utf-8")
+    end
 
     add_cxxflags("gcc::-Wno-invalid-offsetof")
     add_cxxflags("gcc::-Wno-return-local-addr")
@@ -361,7 +376,8 @@ target(PROJECT_NAME.."-CS2")
             "PLATFORM_64BITS",
             "NDEBUG",
             "JSON_HAS_CPP_14",
-            "JSON_HAS_CPP_11"
+            "JSON_HAS_CPP_11",
+            "LUA_USE_WINDOWS",
         })
     else
         add_defines({
@@ -373,6 +389,7 @@ target(PROJECT_NAME.."-CS2")
             "PLATFORM_64BITS",
             "META_IS_SOURCE2",
             "_GLIBCXX_USE_CXX11_ABI=0",
+            "LUA_USE_LINUX",
 
             "_vsnprintf=vsnprintf",
             "_alloca=alloca",
@@ -390,7 +407,6 @@ target(PROJECT_NAME.."-CS2")
         "SWIFTLY_VERSION=\""..SWIFTLY_VERSION.."\"",
         "ASMJIT_STATIC",
         "HAVE_STRUCT_TIMESPEC",
-        "LUA_USE_LINUX",
         "LUA_USE_READLINE",
     })
 

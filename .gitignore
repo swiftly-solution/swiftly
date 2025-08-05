@@ -5,3 +5,4 @@ swiftly.so
 src/managed/bin/
 src/managed/obj/
 generators/documentation/temp/
+.vs/

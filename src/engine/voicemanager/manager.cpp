@@ -4,17 +4,6 @@
 #include <server/player/manager.h>
 #include <sdk/schema.h>
 
-dyno::ReturnAction Hook_CSoundOpGameSystem_SetSoundEventParam(dyno::CallbackType cbType, dyno::IHook& hook)
-{
-    uint32_t hash = hook.getArgument<uint32_t>(3);
-    if (hash == 0x2D8464AF) {
-        hook.setArgument<uint32_t>(3, 0xBD6054E9);
-    }
-    return dyno::ReturnAction::Handled;
-}
-
-FunctionHook CSoundOpGameSystem_SetSoundEventParam("CSoundOpGameSystem_SetSoundEventParam", dyno::CallbackType::Pre, Hook_CSoundOpGameSystem_SetSoundEventParam, "pppupuu", 'p');
-
 enum ListenOverride
 {
     Listen_Default = 0,
