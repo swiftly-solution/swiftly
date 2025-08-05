@@ -160,8 +160,13 @@ jobs:
             if [ -d $repo/managed ]; then
               mkdir -p src/managed/Extensions/$repo
               cp -rf $repo/managed/* src/managed/Extensions/$repo/
-            end
+            fi
           done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: swiftlys2-managed-files-${{ needs.versioning.outputs.version }}
+          path: ${{ github.workspace }}/swiftly/src/managed
 
       - name: Restore CSProj
         working-directory: swiftly
