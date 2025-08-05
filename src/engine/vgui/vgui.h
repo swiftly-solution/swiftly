@@ -31,7 +31,7 @@ public:
     void Initialize();
     void Shutdown();
 
-    void CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount, CBitVec<16384>& unionTransmitEdicts, const Entity2Networkable_t** pNetworkables, const uint16_t* pEntityIndicies, int nEntities, bool bEnablePVSBits);
+    void CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount, CBitVec<16384>& unionTransmitEdicts, CBitVec<16384>&, const Entity2Networkable_t** pNetworkables, const uint16_t* pEntityIndicies, int nEntities);
 };
 
 extern VGUI g_VGUI;

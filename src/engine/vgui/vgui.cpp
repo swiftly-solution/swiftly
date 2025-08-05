@@ -13,7 +13,7 @@
 #include <server/player/manager.h>
 #include <plugins/manager.h>
 
-SH_DECL_EXTERN7_void(ISource2GameEntities, CheckTransmit, SH_NOATTRIB, 0, CCheckTransmitInfo**, int, CBitVec<16384>&, const Entity2Networkable_t**, const uint16_t*, int, bool);
+SH_DECL_EXTERN7_void(ISource2GameEntities, CheckTransmit, SH_NOATTRIB, 0, CCheckTransmitInfo**, int, CBitVec<16384>&, CBitVec<16384>&, const Entity2Networkable_t**, const uint16_t*, int);
 
 VGUI::~VGUI()
 {
@@ -129,7 +129,7 @@ void VGUI::Shutdown()
 
 ClassData* checktransmitEvent = new ClassData({ {"plugin_name", std::string("core")} }, "Event", nullptr);
 
-void VGUI::CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount, CBitVec<16384>& unionTransmitEdicts, const Entity2Networkable_t** pNetworkables, const uint16_t* pEntityIndicies, int nEntities, bool bEnablePVSBits)
+void VGUI::CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount, CBitVec<16384>& unionTransmitEdicts, CBitVec<16384>&, const Entity2Networkable_t** pNetworkables, const uint16_t* pEntityIndicies, int nEntities)
 {
     if (!g_pGameEntitySystem) return;
 
