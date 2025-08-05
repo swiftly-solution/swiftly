@@ -7,16 +7,16 @@
     "BotNavIgnore1": {
         "signature": "BotNavIgnore1",
         "windows": "E9 2C 00 00 00 90",
-        "linux": "E9 15 00 00 00"
+        "linux": "E9 25 00 00 00 90"
     },
     "BotNavIgnore2": {
         "signature": "BotNavIgnore2",
-        "windows": "",
-        "linux": "E9 15 00 00 00"
+        "windows": "E9 2C 00 00 00 90",
+        "linux": "E9 25 00 00 00 90"
     },
     "BotNavIgnore3": {
         "signature": "BotNavIgnore3",
-        "windows": "",
-        "linux": "E9 15 00 00 00"
+        "windows": "E9 2C 00 00 00 90",
+        "linux": "E9 25 00 00 00 90"
     }
 }
