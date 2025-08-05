@@ -65,6 +65,12 @@ git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
 ./setup.sh - Linux
 ```
 
+#### Build using Docker
+
+```
+docker run --rm -it -e "FOLDER=swiftly" -e "GAME=cs2" -v .:/swiftly ghcr.io/swiftly-solution/swiftly:cross-compiler
+```
+
 ---
 
 ### License
