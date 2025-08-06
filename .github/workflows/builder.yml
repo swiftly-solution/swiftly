@@ -278,21 +278,18 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: Swiftly.Plugin.Linux
+          name: Swiftly.Core.Linux
           path: ${{ github.workspace }}/swiftly/build/package
 
       - name: Upload Artifacts Windows
         if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: Swiftly.Plugin.Windows
+          name: Swiftly.Core.Windows
           path: ${{ github.workspace }}/swiftly/build/package
 
-  release:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.head_commit.verification.verified == true }}
-    permissions:
-      contents: write
-    needs: ["versioning", "build", "extensions_build"]
+  packer:
+    needs: ["versioning", "build", "extensions_build", "build_managed"]
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
@@ -306,12 +303,45 @@ jobs:
         run: |
           sudo apt install p7zip-full -y;
 
-          find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Plugin.Linux \;
-          find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Plugin.Windows \;
+          find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Core.Linux \;
+          find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Core.Windows \;
 
-          (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
-          (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
+          (cd build/Swiftly.Core.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
+          (cd build/Swiftly.Core.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
           echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
+
+      - name: Upload Artifacts Linux
+        uses: actions/upload-artifact@v4
+        with:
+          name: Swiftly.Plugin.Linux
+          path: ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
+
+      - name: Upload Artifacts Windows
+        uses: actions/upload-artifact@v4
+        with:
+          name: Swiftly.Plugin.Windows
+          path: ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip
+
+  release:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.head_commit.verification.verified == true }}
+    permissions:
+      contents: write
+    needs: packer
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+    steps:
+      - uses: actions/download-artifact@v4
+        id: download-artifacts
+        with:
+          name: Swiftly.Plugin.Linux
+          path: build
+
+      - uses: actions/download-artifact@v4
+        id: download-artifacts
+        with:
+          name: Swiftly.Plugin.Windows
+          path: build
 
       - name: Release
         id: release
@@ -321,5 +351,5 @@ jobs:
           make_latest: "true"
           body: "Changelog for this version can be found inside [CHANGELOG.md](https://github.com/swiftly-solution/swiftly/blob/master/CHANGELOG.md)"
           files: |
-            ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
-            ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip
+            build/Swiftly.Plugin.Linux.zip
+            build/Swiftly.Plugin.Windows.zip
