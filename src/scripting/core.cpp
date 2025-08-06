@@ -40,7 +40,6 @@ void SetupScriptingEnvironment(PluginObject plugin, EContext* ctx)
 
     static std::map<ContextKinds, std::pair<std::string, std::string>> consoleOutput = {
         { ContextKinds::Lua, { "_G", "print" } },
-        { ContextKinds::JavaScript, { "_G", "print" } },
         { ContextKinds::Dotnet, { "Console", "WriteLine" } },
     };
 

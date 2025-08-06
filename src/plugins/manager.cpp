@@ -174,9 +174,6 @@ void PluginsManager::LoadPlugin(std::string plugin_name)
             if (pluginKind == "lua") {
                 ct = ContextKinds::Lua;
             }
-            else if (pluginKind == "js") {
-                ct = ContextKinds::JavaScript;
-            }
             else if (pluginKind == "cs") {
                 ct = ContextKinds::Dotnet;
             }
@@ -204,11 +201,6 @@ void PluginsManager::LoadPlugin(std::string plugin_name)
             if (ends_with(file, ".lua"))
             {
                 ct = ContextKinds::Lua;
-                break;
-            }
-            else if (ends_with(file, ".js"))
-            {
-                ct = ContextKinds::JavaScript;
                 break;
             }
         }

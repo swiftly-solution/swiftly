@@ -316,7 +316,6 @@ bool PluginObject::LoadScriptingEnvironment()
     std::string fileExt;
 
     if (GetKind() == ContextKinds::Lua) fileExt = ".lua";
-    else if (GetKind() == ContextKinds::JavaScript) fileExt = ".js";
     else if (GetKind() == ContextKinds::Dotnet) fileExt = ".dll";
 
     SetupScriptingEnvironment(*this, ctx);

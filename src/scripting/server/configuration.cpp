@@ -75,6 +75,7 @@ LoadScriptingComponent(configuration, [](PluginObject plugin, EContext* ctx) -> 
 
         rapidjson::Document doc(rapidjson::kObjectType);
 
+        // @todo: .NET Implementation
         std::string jsonResult = "";
         if (L->GetKind() == ContextKinds::Lua) {
             EValue rapidJsonTable = EValue::getGlobal(L, "json");
@@ -96,9 +97,6 @@ LoadScriptingComponent(configuration, [](PluginObject plugin, EContext* ctx) -> 
                 return;
 
             jsonResult = encodedResult.cast<std::string>();
-        }
-        else if (L->GetKind() == ContextKinds::JavaScript) {
-            jsonResult = EValue(L, JS_JSONStringify(L->GetJSState(), table.pushJS(), JS_NULL, JS_NULL)).cast<std::string>();
         }
 
         doc.Parse(jsonResult.c_str());

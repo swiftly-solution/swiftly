@@ -9,7 +9,6 @@
 
 static std::map<ContextKinds, std::string> runtimeNames = {
     { ContextKinds::Lua, "Lua" },
-    { ContextKinds::JavaScript, "Javascript" },
     { ContextKinds::Dotnet, ".NET" },
 };
 

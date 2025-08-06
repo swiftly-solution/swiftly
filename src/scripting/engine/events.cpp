@@ -233,6 +233,4 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
     ADD_CLASS_FUNCTION("Event", "GetNoBroadcast", [](FunctionContext* context, ClassData* data) -> void {
         context->SetReturn(data->GetDataOr<bool>("dontBroadcast", false));
     });
-
-    if (ctx->GetKind() == ContextKinds::JavaScript) ADD_VARIABLE("_G", "PEvent", EValue::getGlobal(ctx, "Event"));
 })

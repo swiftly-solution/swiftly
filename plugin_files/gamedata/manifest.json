@@ -21,7 +21,6 @@
             "type": "string",
             "enum": [
                 "lua",
-                "js",
                 "cs"
             ]
         },
