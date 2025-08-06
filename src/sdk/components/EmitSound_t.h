@@ -7,6 +7,7 @@ struct SndOpEventGuid_t
 {
     SoundEventGuid_t m_nGuid;
     uint64_t m_hStackHash;
+    uint64_t unk;
 };
 
 enum gender_t : uint8_t
@@ -37,32 +38,32 @@ enum gender_t : uint8_t
 struct EmitSound_t
 {
     EmitSound_t() : m_nChannel(0),
-                    m_pSoundName(0),
-                    m_flVolume(1.0f),
-                    m_SoundLevel(SNDLVL_NONE),
-                    m_nFlags(0),
-                    m_nPitch(100),
-                    m_pOrigin(0),
-                    m_flSoundTime(0.0f),
-                    m_pflSoundDuration(0),
-                    m_bEmitCloseCaption(true),
-                    m_bWarnOnMissingCloseCaption(false),
-                    m_bWarnOnDirectWaveReference(false),
-                    m_nSpeakerEntity(-1),
-                    m_UtlVecSoundOrigin(),
-                    m_nForceGuid(0),
-                    m_SpeakerGender(GENDER_NONE)
+        m_pSoundName(0),
+        m_flVolume(1.0f),
+        m_SoundLevel(SNDLVL_NONE),
+        m_nFlags(0),
+        m_nPitch(100),
+        m_pOrigin(0),
+        m_flSoundTime(0.0f),
+        m_pflSoundDuration(0),
+        m_bEmitCloseCaption(true),
+        m_bWarnOnMissingCloseCaption(false),
+        m_bWarnOnDirectWaveReference(false),
+        m_nSpeakerEntity(-1),
+        m_UtlVecSoundOrigin(),
+        m_nForceGuid(0),
+        m_SpeakerGender(GENDER_NONE)
     {
     }
     int m_nChannel;
-    const char *m_pSoundName;
+    const char* m_pSoundName;
     float m_flVolume;
     soundlevel_t m_SoundLevel;
     int m_nFlags;
     int m_nPitch;
-    const Vector *m_pOrigin;
+    const Vector* m_pOrigin;
     float m_flSoundTime;
-    float *m_pflSoundDuration;
+    float* m_pflSoundDuration;
     bool m_bEmitCloseCaption;
     bool m_bWarnOnMissingCloseCaption;
     bool m_bWarnOnDirectWaveReference;
