@@ -21,10 +21,42 @@ std::string Extension::GetName()
     return m_name;
 }
 
+#ifdef _WIN32
+const char* dlerror()
+{
+    static char buf[1024];
+    DWORD num;
+
+    num = GetLastError();
+
+    if (FormatMessage(FORMAT_MESSAGE_FROM_SYSTEM | FORMAT_MESSAGE_IGNORE_INSERTS,
+        NULL,
+        num,
+        MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
+        buf,
+        sizeof(buf),
+        NULL)
+        == 0)
+    {
+        _snprintf(buf, sizeof(buf), "unknown error %x", num);
+    }
+
+    return buf;
+}
+#endif
+
 bool Extension::LoadExtension(bool late)
 {
 #ifdef _WIN32
     m_hModule = dlmount(GeneratePath(std::string("addons/swiftly/extensions/win64/") + m_name + ".dll").c_str());
+    if (!m_hModule)
+    {
+        std::string err = dlerror();
+        PRINTF("Failed to load extension: %s\n", err.c_str());
+        m_errored = true;
+        m_error = err;
+        return false;
+    }
 #else
     m_hModule = dlopen(GeneratePath(std::string("addons/swiftly/extensions/linuxsteamrt64/") + m_name + ".so").c_str(), RTLD_NOW);
 
@@ -34,7 +66,7 @@ bool Extension::LoadExtension(bool late)
         m_errored = true;
         m_error = err;
         return false;
-}
+    }
 #endif
 
     void* fnGetClass = reinterpret_cast<void*>(dlsym(m_hModule, "GetExtensionClass"));
