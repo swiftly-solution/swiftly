@@ -93,7 +93,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         context->SetReturn(MAKE_CLASS_INSTANCE("SDKClass", { { "class_name", context->GetArgument<std::string>(0) }, { "class_ptr", ptr } }));
     });
 
-    ADD_CLASS_FUNCTION("SDKClass", ctx->GetKind() == ContextKinds::Lua ? "__tostring" : "toString", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("SDKClass", "__tostring", [](FunctionContext* context, ClassData* data) -> void {
         if (!data->HasData("class_string")) {
             if (!data->HasData("class_ptr")) data->SetData("class_ptr", (void*)nullptr);
             data->SetData("class_string", string_format("%s(ptr=%p)", data->GetData<std::string>("class_name").c_str(), data->GetData<void*>("class_ptr")));

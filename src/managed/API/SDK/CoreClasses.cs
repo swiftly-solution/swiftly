@@ -98,6 +98,8 @@ namespace SwiftlyS2.API.SDK
                 get { return Invoker.CallNative<byte>("Color", "a", CallKind.ClassMember, m_classData); }
                 set { Invoker.CallNative("Color", "a", CallKind.ClassMember, m_classData, value); }
             }
+
+            public override string ToString() => $"Color({r},{g},{b},{a})";
         }
         public class QAngle : ClassData
         {
@@ -123,6 +125,33 @@ namespace SwiftlyS2.API.SDK
                 get { return Invoker.CallNative<float>("QAngle", "z", CallKind.ClassMember, m_classData); }
                 set { Invoker.CallNative("QAngle", "z", CallKind.ClassMember, m_classData, value); }
             }
+
+            public static QAngle operator +(QAngle a, QAngle b)
+                => new(a.x + b.x, a.y + b.y, a.z + b.z);
+
+            public static QAngle operator -(QAngle a, QAngle b)
+                => new(a.x - b.x, a.y - b.y, a.z - b.z);
+
+            public static QAngle operator -(QAngle a)
+                => new(-a.x, -a.y, -a.z);
+
+            public static QAngle operator *(QAngle a, float scalar)
+                => new(a.x * scalar, a.y * scalar, a.z * scalar);
+
+            public static QAngle operator *(float scalar, QAngle a)
+                => new(a.x * scalar, a.y * scalar, a.z * scalar);
+
+            public static QAngle operator /(QAngle a, float scalar)
+                => new(a.x / scalar, a.y / scalar, a.z / scalar);
+
+            public static bool operator ==(QAngle a, QAngle b)
+                => a.x == b.x && a.y == b.y && a.z == b.z;
+
+            public static bool operator !=(QAngle a, QAngle b)
+                => a.x != b.x || a.y != b.y || a.z != b.z;
+       
+            public double Length => Math.Sqrt(x*x+y*y+z*z);
+            public override string ToString() => $"QAngle({x},{y},{z})";
         }
         public class Vector : ClassData
         {
@@ -148,6 +177,32 @@ namespace SwiftlyS2.API.SDK
                 get { return Invoker.CallNative<float>("Vector", "z", CallKind.ClassMember, m_classData); }
                 set { Invoker.CallNative("Vector", "z", CallKind.ClassMember, m_classData, value); }
             }
+
+            public static Vector operator +(Vector a, Vector b)
+                => new(a.x + b.x, a.y + b.y, a.z+b.z);
+
+            public static Vector operator -(Vector a, Vector b)
+                => new(a.x - b.x, a.y - b.y, a.z-b.z);
+
+            public static Vector operator -(Vector a)
+                => new(-a.x, -a.y, -a.z);
+
+            public static Vector operator *(Vector a, float scalar)
+                => new(a.x * scalar, a.y * scalar, a.z * scalar);
+
+            public static Vector operator *(float scalar, Vector a)
+                => new(a.x * scalar, a.y * scalar, a.z * scalar);
+
+            public static Vector operator /(Vector a, float scalar)
+                => new(a.x / scalar, a.y / scalar, a.z / scalar);
+
+            public static bool operator ==(Vector a, Vector b)
+                => a.x == b.x && a.y == b.y && a.z == b.z;
+
+            public static bool operator !=(Vector a, Vector b)
+                => a.x != b.x || a.y != b.y || a.z != b.z;
+            public double Length => Math.Sqrt(x*x+y*y+z*z);
+            public override string ToString() => $"Vector({x},{y},{z})";
         }
         public class Vector2D : ClassData
         {
@@ -168,6 +223,33 @@ namespace SwiftlyS2.API.SDK
                 get { return Invoker.CallNative<float>("Vector2D", "y", CallKind.ClassMember, m_classData); }
                 set { Invoker.CallNative("Vector2D", "y", CallKind.ClassMember, m_classData, value); }
             }
+
+            public static Vector2D operator +(Vector2D a, Vector2D b)
+                => new(a.x + b.x, a.y + b.y);
+
+            public static Vector2D operator -(Vector2D a, Vector2D b)
+                => new(a.x - b.x, a.y - b.y);
+
+            public static Vector2D operator -(Vector2D a)
+                => new(-a.x, -a.y);
+
+            public static Vector2D operator *(Vector2D a, float scalar)
+                => new(a.x * scalar, a.y * scalar);
+
+            public static Vector2D operator *(float scalar, Vector2D a)
+                => new(a.x * scalar, a.y * scalar);
+
+            public static Vector2D operator /(Vector2D a, float scalar)
+                => new(a.x / scalar, a.y / scalar);
+
+            public static bool operator ==(Vector2D a, Vector2D b)
+                => a.x == b.x && a.y == b.y;
+
+            public static bool operator !=(Vector2D a, Vector2D b)
+                => a.x != b.x || a.y != b.y;
+    
+            public double Length => Math.Sqrt(x*x+y*y);
+            public override string ToString() => $"Vector2D({x},{y})";
         }
         public class Vector4D : ClassData
         {
@@ -198,6 +280,32 @@ namespace SwiftlyS2.API.SDK
                 get { return Invoker.CallNative<float>("Vector4D", "w", CallKind.ClassMember, m_classData); }
                 set { Invoker.CallNative("Vector4D", "w", CallKind.ClassMember, m_classData, value); }
             }
+
+            public static Vector4D operator +(Vector4D a, Vector4D b)
+                => new(a.x + b.x, a.y + b.y, a.z + b.z, a.w + b.w);
+
+            public static Vector4D operator -(Vector4D a, Vector4D b)
+                => new(a.x - b.x, a.y - b.y, a.z - b.z, a.w - b.w);
+
+            public static Vector4D operator -(Vector4D a)
+                => new(-a.x, -a.y, -a.z, -a.w);
+
+            public static Vector4D operator *(Vector4D a, float scalar)
+                => new(a.x * scalar, a.y * scalar, a.z * scalar, a.w * scalar);
+
+            public static Vector4D operator *(float scalar, Vector4D a)
+                => new(a.x * scalar, a.y * scalar, a.z * scalar, a.w * scalar);
+
+            public static Vector4D operator /(Vector4D a, float scalar)
+                => new(a.x / scalar, a.y / scalar, a.z / scalar, a.w / scalar);
+
+            public static bool operator ==(Vector4D a, Vector4D b)
+                => a.x == b.x && a.y == b.y && a.z == b.z && a.w == b.w;
+
+            public static bool operator !=(Vector4D a, Vector4D b)
+                => a.x != b.x || a.y != b.y || a.z != b.z || a.w != b.w;
+            public double Length => Math.Sqrt(x*x+y*y+z*z+w*w);
+            public override string ToString() => $"Vector4D({x},{y},{z},{w})";
         }
     }
 }

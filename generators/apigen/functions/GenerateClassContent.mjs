@@ -41,6 +41,7 @@ export default function GenerateClassContent(pageContent, category) {
         return `public class ${pageContent.name} : ${parentProp ? parentProp.type : "ClassData"}
 {
 ${constructor}${GenerateClassFunctions(pageContent, category).replace(new RegExp(`\"${pageContent.name}\"`, "g"), "\"SDKClass\"")}${GenerateClassProperties(pageContent, category).replace(new RegExp(`\"${pageContent.name}\"`, "g"), "\"SDKClass\"")}
+    public override string ToString() => $"${pageContent.name}(ptr={this.m_classData})";
 }`
     } else {
         const constructorArgs = ProcessFunctionParameters(typeof pageContent["constructor"] == "object" ? pageContent["constructor"].arguments : {}, "cs")
