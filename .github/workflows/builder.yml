@@ -150,8 +150,8 @@ jobs:
           for repo in "${extensions[@]}"; do
             git clone https://github.com/swiftly-solution/$repo.git
             if [ -d $repo/managed ]; then
-              mkdir -p src/managed/Extensions/$repo
-              cp -rf $repo/managed/* src/managed/Extensions/$repo/
+              mkdir -p src/managed/API/Extensions/$repo
+              cp -rf $repo/managed/* src/managed/API/Extensions/$repo/
             fi
           done
 
@@ -215,9 +215,8 @@ jobs:
         shell: bash
         run: |
           sudo apt update
-          sudo apt install -y libreadline-dev libboost-all-dev unzip patchelf
+          sudo apt install -y libreadline-dev libboost-all-dev unzip
           bash ./setup.sh
-          patchelf --set-rpath '$ORIGIN' build/package/addons/swiftly/bin/linuxsteamrt64/swiftly.so
 
           echo "[Builder] Setting up default plugins"
           cp -r build/package build/package2
