@@ -4,7 +4,6 @@
     "override_variable": true,
     "override_function": {
         "lua": "json.decode",
-        "js": "JSON.parse",
         "cs": "JsonSerializer.Deserialize<T>"
     },
     "description": "Decodes a JSON string into a table.",

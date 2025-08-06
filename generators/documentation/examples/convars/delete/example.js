@@ -1,1 +1,0 @@
-convar.Delete("parachute")

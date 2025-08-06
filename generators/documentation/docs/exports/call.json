@@ -4,7 +4,6 @@
     "override_variable": true,
     "override_function": {
         "lua": "exports[\"PLUGIN_NAME\"]:EXPORT_NAME",
-        "js": "exports[\"PLUGIN_NAME\"].EXPORT_NAME",
         "cs": "Call(\"PLUGIN_NAME\", \"EXPORT_NAME\", "
     },
     "description": "Calls the specified export.",

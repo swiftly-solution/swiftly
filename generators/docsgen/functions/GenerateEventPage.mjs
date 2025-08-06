@@ -30,7 +30,7 @@ export default function GenerateEventPage(pageKey, pageContent, category) {
     for (const lang of considerLanguages) {
         tabsTrigger.push(`<TabsTrigger value="${lang}">${langs[lang]}</TabsTrigger>`)
         tabContents.push(`<TabsContent value="${lang}">
-\`\`\`${lang}${GenerateFunctionParameters(pageContent.mode == "core" ? { [lang == "cs" ? "@event" : "event"]: "Event", ...pageContent.arguments } : { [lang == "cs" ? "@event" : "event"]: "Event" }, lang)}${lang == "js" ? `\n * @description Event returns ${GenerateType(pageContent.return, lang)} via event.SetReturn` : (lang == "cs" ? `\n// Event returns ${GenerateType(pageContent.return, lang)} via event.SetReturn\n// The function returns an EventResult` : "")}
+\`\`\`${lang}${GenerateFunctionParameters(pageContent.mode == "core" ? { [lang == "cs" ? "@event" : "event"]: "Event", ...pageContent.arguments } : { [lang == "cs" ? "@event" : "event"]: "Event" }, lang)}${lang == "cs" ? `\n// Event returns ${GenerateType(pageContent.return, lang)} via event.SetReturn\n// The function returns an EventResult` : ""}
 ${lang != "cs" ? GenerateFunctionReturn("EventResult", lang) : ""}${lang == "lua" ? `--- @event returns ${GenerateType(pageContent.return, lang)} via event:SetReturn\n` : ""}${lang == "cs" ? "Events." : ""}AddEventHandler("${pageContent.event_name}", ${lang == "lua" ? "function" : ""}(${ProcessFunctionParameters(pageContent.mode == "core" ? { [lang == "cs" ? "@event" : "event"]: "Event", ...pageContent.arguments } : { [lang == "cs" ? "@event" : "event"]: "Event" }, lang)})${lang == "lua" ? "" : " => {"}
     ${lang == "lua" ? "-- [[...]]" : "// ..."}
     return EventResult.Continue;

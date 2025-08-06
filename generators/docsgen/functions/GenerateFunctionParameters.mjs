@@ -14,16 +14,12 @@ export default function GenerateFunctionParameters(args, language) {
             const type = GenerateType(args[paramkey], language);
 
             if (language == "lua") returnParams.push(`--- @param ${name} ${type}`)
-            else if (language == "js") returnParams.push(` * @param {${type.includes("} ") ? (type.split("} ")[0] + "}") : type}} ${name}${type.includes("} ") ? ` ${type.split("} ")[1].trim()}` : ""}`)
         }
     }
 
     if (language == "lua") {
         if (returnParams.length == 0) return "";
         else return `\n${returnParams.join("\n")}`
-    } else if (language == "js") {
-        if (returnParams.length == 0) return "\n/**";
-        else return `\n/**\n${returnParams.join("\n")}`
     } else if (language == "cs") {
         return ""
     }

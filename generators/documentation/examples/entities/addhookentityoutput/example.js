@@ -1,1 +1,0 @@
-const output = AddHookEntityOutput("weapon_knife", "*")

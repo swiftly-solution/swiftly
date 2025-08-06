@@ -14,8 +14,6 @@ ${lang == "cs" ? "" : GenerateFunctionReturn(constr.return, lang)}`
         let cls = category.data.title.split(" ").join("")
 
         outString += `var ${pageContent.name.toLowerCase()} = ${cls}.${pageContent.name}`
-    } else if (lang == "js") {
-        outString += `let ${pageContent.name.toLowerCase()} = ${v}${v == "" ? "" : "."}${pageContent.name}`
     } else if (lang == "lua") {
         if (pageContent.override_variable) v = ""
         outString += `local ${pageContent.name.toLowerCase()} = ${v}${v == "" ? "" : ":"}${pageContent.name}`

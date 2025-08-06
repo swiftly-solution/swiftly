@@ -6,10 +6,6 @@ export default function GenerateFunctionVariable(pageContent, category, language
         else cls = category.data.title.split(" ").join("")
 
         return `${cls}.${pageContent.function}`
-    } else if (language == "js") {
-        let v = category.data.variable
-        if (pageContent.override_variable) v = ""
-        return `${v}${v == "" ? "" : "."}${pageContent.function}`
     } else if (language == "lua") {
         let v = category.data.variable
         if (pageContent.override_variable) v = ""

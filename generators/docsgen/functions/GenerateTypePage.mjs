@@ -39,8 +39,7 @@ ${Object.keys(pageContent.values).map((k) => `        ${k} = ${pageContent.value
 \`\`\`${lang}
 ${category.data.variable != "" ? category.data.variable.toLowerCase() + "." : ""}${pageContent.name} = {
 ${Object.keys(pageContent.values).map((k) => {
-                if (lang == "js") return `        "${k}": ${pageContent.values[k]}`
-                else if (lang == "lua") return `        ${k} = ${pageContent.values[k]}`
+                if (lang == "lua") return `        ${k} = ${pageContent.values[k]}`
             }).join(",\n")}
 }
 \`\`\`${existsSync(`${path}/additional/${pageKey.split(".").join("/")}/${lang}.md`) ? "\n" + readFileSync(`${path}/additional/${pageKey.split(".").join("/")}/${lang}.md`) : ""}

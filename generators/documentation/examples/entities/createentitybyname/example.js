@@ -1,1 +1,0 @@
-const ent = CreateEntityByName("prop_dynamic_override")

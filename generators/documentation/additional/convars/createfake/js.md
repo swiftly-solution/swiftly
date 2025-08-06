@@ -1,1 +1,0 @@
-If the protected is set to true, no data will be sent by the server to the client about this convar

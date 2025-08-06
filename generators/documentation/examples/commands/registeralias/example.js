@@ -1,1 +1,0 @@
-commands.RegisterAlias("testcmd", "consolecmd")
