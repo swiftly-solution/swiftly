@@ -4,6 +4,7 @@
 #include <core/entrypoint.h>
 #include "netmessages.pb.h"
 
+
 class CvarQuery
 {
 public:

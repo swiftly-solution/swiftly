@@ -31,10 +31,6 @@
         "windows": 8,
         "linux": 8
     },
-    "CServerSideClient_OnConVarQuery": {
-        "windows": 39,
-        "linux": 41
-    },
     "GetHammerUniqueID": {
         "windows": 116,
         "linux": 115
@@ -42,9 +38,5 @@
     "CEntityResourceManifest_AddResource": {
         "windows": 2,
         "linux": 0
-    },
-    "INetworkMessageProcessingPreFilter": {
-        "windows": 8,
-        "linux": -64
     }
 }

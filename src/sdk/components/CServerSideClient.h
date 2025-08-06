@@ -200,7 +200,7 @@ public:
     virtual bool ProcessMove(const CCLCMsg_Move& msg) = 0;
     virtual bool ProcessVoiceData(const CCLCMsg_VoiceData& msg) = 0;
     virtual bool ProcessFileCRCCheck(const CCLCMsg_FileCRCCheck& msg) = 0;
-    virtual bool ProcessRespondCvarValue(const CCLCMsg_RespondCvarValue& msg) = 0;
+    virtual bool ProcessRespondCvarValue(const CNetMessagePB<CCLCMsg_RespondCvarValue>& msg) = 0;
 
     virtual bool ProcessPacketStart(const NetMessagePacketStart& msg) = 0;
     virtual bool ProcessPacketEnd(const NetMessagePacketEnd& msg) = 0;

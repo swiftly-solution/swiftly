@@ -17,104 +17,105 @@ SH_DECL_EXTERN7_void(ISource2GameEntities, CheckTransmit, SH_NOATTRIB, 0, CCheck
 
 VGUI::~VGUI()
 {
-    for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it)
-        delete it->second;
+    // for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it)
+    //     delete it->second;
 }
 
 uint64_t VGUI::RegisterScreenText()
 {
     internalScreenTextID++;
-    ScreenText* txt = new ScreenText();
-    screenTexts.insert({ internalScreenTextID, txt });
+    // ScreenText* txt = new ScreenText();
+    // screenTexts.insert({ internalScreenTextID, txt });
 
     return internalScreenTextID;
 }
 
 ScreenText* VGUI::GetScreenText(uint64_t id)
 {
-    if (screenTexts.find(id) == screenTexts.end()) return nullptr;
+    // if (screenTexts.find(id) == screenTexts.end()) return nullptr;
 
-    return screenTexts[id];
+    // return screenTexts[id];
+    return nullptr;
 }
 
 void VGUI::DeleteScreenText(uint64_t id)
 {
-    if (screenTexts.find(id) == screenTexts.end()) return;
+    // if (screenTexts.find(id) == screenTexts.end()) return;
 
-    ScreenText* txt = screenTexts[id];
-    delete txt;
+    // ScreenText* txt = screenTexts[id];
+    // delete txt;
 
-    screenTexts.erase(id);
+    // screenTexts.erase(id);
 }
 
 void VGUI::ResetStateOfScreenTexts()
 {
-    for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
-        it->second->ResetSpawnState();
-    }
+    // for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
+    //     it->second->ResetSpawnState();
+    // }
 }
 
 void VGUI::RegenerateScreenTexts()
 {
-    for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
-        it->second->RegenerateText();
-    }
+    // for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
+    //     it->second->RegenerateText();
+    // }
 }
 
 void VGUI::FilterRenderingItems(Player* player, CCheckTransmitInfo* pInfo)
 {
-    for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
-        if (it->second->GetPlayer() != player) {
-            int entIndex = it->second->GetEntityIndex();
-            pInfo->m_pTransmitEntity->Clear(entIndex);
-            if (pInfo->m_pTransmitAlways->Get(entIndex))
-                pInfo->m_pTransmitAlways->Clear(entIndex);
-        }
-    }
+    // for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
+    //     if (it->second->GetPlayer() != player) {
+    //         int entIndex = it->second->GetEntityIndex();
+    //         pInfo->m_pTransmitEntity->Clear(entIndex);
+    //         if (pInfo->m_pTransmitAlways->Get(entIndex))
+    //             pInfo->m_pTransmitAlways->Clear(entIndex);
+    //     }
+    // }
 }
 
 void VGUI::CheckRenderForPlayer(int pid, Player* player, CHandle<CEntityInstance> specView)
 {
-    bool shouldRegenerate = false;
-    if (((rendersToSpectator & (1ULL << pid)) != 0) && !specView) {
-        rendersToSpectator &= ~(1ULL << pid);
-        shouldRegenerate = true;
-    }
-    else if (((rendersToSpectator & (1ULL << pid)) == 0) && specView.IsValid()) {
-        rendersToSpectator |= (1ULL << pid);
-        shouldRegenerate = true;
-    }
+    // bool shouldRegenerate = false;
+    // if (((rendersToSpectator & (1ULL << pid)) != 0) && !specView) {
+    //     rendersToSpectator &= ~(1ULL << pid);
+    //     shouldRegenerate = true;
+    // }
+    // else if (((rendersToSpectator & (1ULL << pid)) == 0) && specView.IsValid()) {
+    //     rendersToSpectator |= (1ULL << pid);
+    //     shouldRegenerate = true;
+    // }
 
-    if (shouldRegenerate) {
-        for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
-            if (it->second->GetPlayer() == player) {
-                it->second->RegenerateText(false);
-                it->second->SetRenderingTo(specView.Get());
-            }
-        }
-    }
-    else {
-        for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
-            if (it->second->GetPlayer() == player && !it->second->IsRenderingTo(specView)) {
-                it->second->RegenerateText(false);
-                it->second->SetRenderingTo(specView.Get());
-            }
-        }
-    }
+    // if (shouldRegenerate) {
+    //     for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
+    //         if (it->second->GetPlayer() == player) {
+    //             it->second->RegenerateText(false);
+    //             it->second->SetRenderingTo(specView.Get());
+    //         }
+    //     }
+    // }
+    // else {
+    //     for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
+    //         if (it->second->GetPlayer() == player && !it->second->IsRenderingTo(specView)) {
+    //             it->second->RegenerateText(false);
+    //             it->second->SetRenderingTo(specView.Get());
+    //         }
+    //     }
+    // }
 }
 
 void VGUI::Unregister(Player* player)
 {
-    std::vector<uint64_t> eraseIDs;
-    for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
-        if (it->second->GetPlayer() == player) {
-            delete it->second;
-            eraseIDs.push_back(it->first);
-        }
-    }
+    // std::vector<uint64_t> eraseIDs;
+    // for (auto it = screenTexts.begin(); it != screenTexts.end(); ++it) {
+    //     if (it->second->GetPlayer() == player) {
+    //         delete it->second;
+    //         eraseIDs.push_back(it->first);
+    //     }
+    // }
 
-    for (auto id : eraseIDs)
-        screenTexts.erase(id);
+    // for (auto id : eraseIDs)
+    //     screenTexts.erase(id);
 }
 
 void VGUI::Initialize()
@@ -144,6 +145,6 @@ void VGUI::CheckTransmit(CCheckTransmitInfo** ppInfoList, int infoCount, CBitVec
         g_pluginManager.ExecuteEvent("core", "OnPlayerCheckTransmit", { playerid, tInfo }, checktransmitEvent);
         delete tInfo;
 
-        FilterRenderingItems(player, (CCheckTransmitInfo*)pInfo);
+        // FilterRenderingItems(player, (CCheckTransmitInfo*)pInfo);
     }
 }

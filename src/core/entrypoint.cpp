@@ -205,8 +205,8 @@ bool SwiftlyS2::Load(PluginId id, ISmmAPI* ismm, char* error, size_t maxlen, boo
 
     META_CONVAR_REGISTER(FCVAR_RELEASE | FCVAR_SERVER_CAN_EXECUTE | FCVAR_CLIENT_CAN_EXECUTE | FCVAR_GAMEDLL);
 
-    g_pluginManager.LoadPlugins("");
-    g_pluginManager.StartPlugins();
+    // g_pluginManager.LoadPlugins("");
+    // g_pluginManager.StartPlugins();
 
     if (!InitGameSystem())
         PRINTRET("Failed to setup Game System (Precacher).\n", false);

@@ -15,12 +15,12 @@ void MenuManager::RegisterMenu(std::string plugin_name, std::string id, std::str
     if (kind != "screen" && kind != "center") kind = g_Config.FetchValue<std::string>("core.menu.kind");
 
     Menu* menu = nullptr;
-    if (kind == "screen") {
-        menu = new ScreenMenu(id, title, color, options, temporary);
-    }
-    else if (kind == "center") {
-        menu = new CenterMenu(id, title, color, options, temporary);
-    }
+    // if (kind == "screen") {
+        // menu = new ScreenMenu(id, title, color, options, temporary);
+    // }
+    // else if (kind == "center") {
+    menu = new CenterMenu(id, title, color, options, temporary);
+    // }
     if (!menu) return;
 
     this->menu_ids.insert(std::make_pair(id, menu));

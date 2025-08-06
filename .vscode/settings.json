@@ -97,5 +97,6 @@
         "variant": "cpp",
         "csetjmp": "cpp",
         "typeindex": "cpp"
-    }
+    },
+    "cmake.sourceDirectory": "/root/swiftly/vendor/asmjit"
 }

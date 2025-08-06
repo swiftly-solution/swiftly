@@ -366,29 +366,5 @@ LoadScriptingComponent(weapons, [](PluginObject plugin, EContext* ctx) -> void {
                 }
             }
         }
-
-        void* vmServices = schema::GetProp<void*>(pawn, "CCSPlayerPawnBase", "m_pViewModelServices");
-        if (!vmServices) return;
-
-        CHandle<CEntityInstance>* viewmodelHandles = schema::GetPropPtr<CHandle<CEntityInstance>>(vmServices, "CCSPlayer_ViewModelServices", "m_hViewModel");
-        if (!viewmodelHandles) return;
-
-        CEntityInstance* viewmodel = viewmodelHandles[0];
-        if (!viewmodel) return;
-
-        void* vmbodyComponent = schema::GetProp<void*>(viewmodel, "CBaseEntity", "m_CBodyComponent");
-        if (vmbodyComponent) {
-            void* vmsceneNode = schema::GetProp<void*>(vmbodyComponent, "CBodyComponent", "m_pSceneNode");
-            if (vmsceneNode) {
-                void* vmskeletonInstance = CALL_VIRTUAL(void*, g_GameData.GetOffset("CGameSceneNode_GetSkeletonInstance"), vmsceneNode);
-                if (vmskeletonInstance) {
-                    void* vmmodelState = schema::GetPropPtr<void>(vmskeletonInstance, "CSkeletonInstance", "m_modelState");
-                    if (vmmodelState) {
-                        uint64_t meshGroupMask = schema::GetProp<uint64_t>(vmmodelState, "CModelState", "m_MeshGroupMask");
-                        if (meshGroupMask != (legacy ? 2 : 1)) schema::SetProp<uint64_t>(vmmodelState, "CModelState", "m_MeshGroupMask", (legacy ? 2 : 1));
-                    }
-                }
-            }
-        }
     });
 })
