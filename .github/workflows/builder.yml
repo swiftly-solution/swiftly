@@ -338,7 +338,7 @@ jobs:
           path: build
 
       - uses: actions/download-artifact@v4
-        id: download-artifacts
+        id: download-artifacts-2
         with:
           name: Swiftly.Plugin.Windows
           path: build
