@@ -59,6 +59,8 @@ namespace SwiftlyS2.Internal_API
         static readonly ConcurrentDictionary<Type, Func<int, Array>> _arrayCtorCache = new();
         static readonly ConcurrentDictionary<(Type, Type), Func<object>> _dictCtorCache = new();
 
+        static readonly Dictionary<string, object> _cacher = [];
+
         public static int GetTypeSize(Type t)
         {
             if (_sizeCache.ContainsKey(t)) return _sizeCache[t];
@@ -218,6 +220,15 @@ namespace SwiftlyS2.Internal_API
             }
 
             GenerateStringPointer("_G");
+        }
+
+        public static object CacheValue(string key, Func<object> call)
+        {
+            if (_cacher.TryGetValue(key, out object? value)) return value;
+
+            value = call();
+            _cacher[key] = value;
+            return value;
         }
     }
 }

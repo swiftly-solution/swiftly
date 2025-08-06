@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Stop",
+    "description": "Stops the profiling using the specified name in start.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

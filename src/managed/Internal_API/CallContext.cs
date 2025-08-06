@@ -265,7 +265,7 @@ namespace SwiftlyS2.Internal_API
         {
             ref byte start = ref ptr[0];
 
-            if (type == typeof(bool)) return (Unsafe.ReadUnaligned<int>(ref start) != 0);
+            if (type == typeof(bool)) return (Unsafe.ReadUnaligned<bool>(ref start));
             if (type == typeof(char)) return Unsafe.ReadUnaligned<char>(ref start);
             if (type == typeof(sbyte)) return Unsafe.ReadUnaligned<sbyte>(ref start);
             if (type == typeof(byte)) return Unsafe.ReadUnaligned<byte>(ref start);

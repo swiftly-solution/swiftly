@@ -124,6 +124,7 @@ target(PROJECT_NAME.."-CS2")
         'src/scripting/engine/events.cpp',
         'src/scripting/engine/gameevents.cpp',
         'src/scripting/engine/precacher.cpp',
+        'src/scripting/engine/profiler.cpp',
         'src/scripting/engine/server.cpp',
         'src/scripting/engine/vgui.cpp',
 

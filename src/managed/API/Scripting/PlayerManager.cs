@@ -14,7 +14,7 @@ namespace SwiftlyS2.API.Scripting
         public static int GetPlayerCap()
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<int>("PlayerManager", "GetPlayerCap", Internal_API.CallKind.CoreClassFunction, _ctx);
+            return (int)Cacher.CacheValue("PlayerManager->GetPlayerCap", () => Internal_API.Invoker.CallNative<int>("PlayerManager", "GetPlayerCap", Internal_API.CallKind.CoreClassFunction, _ctx));
         }
         public static int GetPlayerCount()
         {

@@ -18,9 +18,11 @@ namespace SwiftlyS2.API.Scripting
                 Action<string?, Dictionary<string, object>[]>? callback;
                 if (!_callbacks.TryGetValue(reqID, out callback)) return EventResult.Continue;
                 if(callback == null) return EventResult.Continue;
-
+                
+                ulong id = Generic.RegisterCallstack(Generic.GetCurrentPluginName(), "DatabaseCallback");
                 callback(error, JsonSerializer.Deserialize<Dictionary<string, object>[]>(output) ?? []);
-
+                Generic.UnregisterCallstack(Generic.GetCurrentPluginName(), id);
+                
                 return EventResult.Stop;
             });
         }
