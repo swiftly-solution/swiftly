@@ -35,7 +35,7 @@ jobs:
         id: version
         with:
           release_branch: master
-          increment: patch
+          increment: major
           use_api: true
 
   extensions_build:
