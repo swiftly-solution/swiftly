@@ -38,9 +38,5 @@
     "CEntityResourceManifest_AddResource": {
         "windows": 2,
         "linux": 0
-    },
-    "CBaseEntity_StateChanged": {
-        "windows": 25,
-        "linux": 26
     }
 }

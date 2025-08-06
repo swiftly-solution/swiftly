@@ -128,10 +128,5 @@
         "lib": "server",
         "windows": "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 48 8B B4 24 ? ? ? ? 49 8B F8",
         "linux": "55 48 89 E5 41 57 49 89 F7 41 56 45 89 CE 41 55 49 89 CD"
-    },
-    "NetworkStateChanged": {
-        "lib": "server",
-        "windows": "4C 8B C2 48 8B D1 48 8B 09",
-        "linux": "48 8B 07 48 85 C0 74 ? 48 8B 50 10"
     }
 }

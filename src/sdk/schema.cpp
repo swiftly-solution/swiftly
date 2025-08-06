@@ -6,40 +6,20 @@
 #include <utils/platform/platform.h>
 #include <ehandle.h>
 
+#ifndef WIN_LINUX
+#ifdef _WIN32
+#define WIN_LINUX(win,linux) win
+#else
+#define WIN_LINUX(win,linux) linux
+#endif
+#endif
+
 extern CSchemaSystem* g_pSchemaSystem2;
 
 std::map<uint64_t, int32_t> offsetsCache;
 std::map<uint64_t, bool> networkedCache;
 std::set<uint32_t> structCache;
 std::set<uint32_t> isClassLoaded;
-
-struct CNetworkStateChangedInfo
-{
-    CNetworkStateChangedInfo() = delete;
-
-    CNetworkStateChangedInfo(uint32_t nOffset, uint32_t nArrayIndex, uint32_t nPathIndex)
-    {
-        m_vecOffsetData.EnsureCount(1);
-        m_vecOffsetData[0] = nOffset;
-
-        unk_30 = -1;
-
-        unk_3c = 0;
-
-        m_nArrayIndex = nArrayIndex;
-        m_nPathIndex = nPathIndex;
-    }
-
-private:
-    int m_nSize;						  // 0x0
-    CUtlVector<uint32_t> m_vecOffsetData; // 0x8
-    char* m_pszFieldName{};				  // 0x20
-    char* m_pszFileName{};				  // 0x28
-    uint32_t unk_30 = -1;				  // 0x30
-    uint32_t m_nArrayIndex{};			  // 0x34
-    uint32_t m_nPathIndex{};			  // 0x38
-    uint16_t unk_3c{};					  // 0x3c
-}; // Size: 0x3e
 
 typedef void(*NetworkStateChanged_t)(void*, CNetworkStateChangedInfo&);
 
@@ -158,18 +138,23 @@ void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fie
     auto m_key = sch::GetOffset(cName, fName);
     auto m_chain = sch::FindChainOffset(cName);
 
-    CNetworkStateChangedInfo info(m_key, -1, -1);
-
     if (m_chain) {
         entityPtr += m_chain;
 
-        g_GameData.FetchSignature<NetworkStateChanged_t>("NetworkStateChanged")((void*)entityPtr, info);
+        CEntityInstance* pEnt = reinterpret_cast<CNetworkVarChainer*>(entityPtr)->m_pEntity;
+
+        if (pEnt)
+            pEnt->NetworkStateChanged(NetworkStateChangedData(m_key, -1, reinterpret_cast<CNetworkVarChainer*>(entityPtr)->m_PathIndex));
     }
     else {
         auto isStruct = sch::IsStruct(cName);
         if (!isStruct) {
-            static int offset = g_GameData.GetOffset("CBaseEntity_StateChanged");
-            CALL_VIRTUAL(void, offset, reinterpret_cast<void*>(entityPtr), &info);
+            CEntityInstance* pEnt = reinterpret_cast<CNetworkVarChainer*>(entityPtr)->m_pEntity;
+            pEnt->NetworkStateChanged(NetworkStateChangedData(m_key));
+        }
+        else {
+            NetworkStateChangedData data(m_key);
+            CALL_VIRTUAL(void, WIN_LINUX(27, 28), (void*)entityPtr, &data);
         }
     }
 }

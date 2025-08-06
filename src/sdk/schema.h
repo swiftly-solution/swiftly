@@ -19,15 +19,30 @@ extern void* gameRules;
 #undef SetProp
 #endif
 
+class CNetworkVarChainer
+{
+public:
+    CEntityInstance* m_pEntity;
+
+private:
+    uint8 pad_0000[24];
+
+public:
+    ChangeAccessorFieldPathIndex_t m_PathIndex;
+
+private:
+    uint8 pad_0024[4];
+};
+
 void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fieldName, int extraOffset);
 
 namespace sch
 {
     int32_t FindChainOffset(const char* className);
-    
+
     int32_t GetOffset(const char* className, const char* memberName);
     int32_t GetOffset(uint64_t path);
-    
+
     bool IsNetworked(const char* className, const char* memberName);
     bool IsNetworked(uint64_t path);
 
