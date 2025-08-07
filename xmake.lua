@@ -116,6 +116,7 @@ target(PROJECT_NAME.."-CS2")
         'src/network/database/DatabaseManager.cpp',
         'src/network/usermessages/usermessage.cpp',
         'src/network/usermessages/usermessages.cpp',
+        'src/network/soundevents/soundevent.cpp',
 
         'src/plugins/manager.cpp',
         'src/plugins/object.cpp',
