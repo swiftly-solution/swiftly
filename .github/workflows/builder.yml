@@ -306,6 +306,9 @@ jobs:
           find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Core.Linux \;
           find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Core.Windows \;
 
+          find build -type d -name "swiftlys2-managed-*" -exec sh -c 'cp "$1"/net8.0/publish/* build/Swiftly.Core.Linux/addons/swiftly/bin/managed' _ {} \;
+          find build -type d -name "swiftlys2-managed-*" -exec sh -c 'cp "$1"/net8.0/publish/* build/Swiftly.Core.Windows/addons/swiftly/bin/managed' _ {} \;
+
           mkdir -p build/Swiftly.Core.Linux/addons/swiftly/bin/managed/dotnet
           cd build/Swiftly.Core.Linux/addons/swiftly/bin/managed/dotnet
 
