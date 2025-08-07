@@ -148,8 +148,7 @@ void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fie
     else {
         auto isStruct = sch::IsStruct(cName);
         if (!isStruct) {
-            CEntityInstance* pEnt = reinterpret_cast<CNetworkVarChainer*>(entityPtr)->m_pEntity;
-            pEnt->NetworkStateChanged(NetworkStateChangedData(m_key));
+            reinterpret_cast<CEntityInstance*>(entityPtr)->NetworkStateChanged(NetworkStateChangedData(m_key));
         }
         else {
             NetworkStateChangedData data(m_key);
