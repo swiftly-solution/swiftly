@@ -15,6 +15,7 @@ void ShowSwiftlyCommandHelp(CPlayerSlot slot)
         PrintToClientOrConsole(slot, "Commands", " config       - Configuration Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " exts         - Extension Management Menu\n");
         PrintToClientOrConsole(slot, "Commands", " plugins      - Plugin Management Menu\n");
+        PrintToClientOrConsole(slot, "Commands", " gc           - Garbage Collector Menu\n");
         PrintToClientOrConsole(slot, "Commands", " resmon       - Resource Monitor Menu\n");
         PrintToClientOrConsole(slot, "Commands", " translations - Translations Menu\n");
         PrintToClientOrConsole(slot, "Commands", " chat         - Chat Menu\n");

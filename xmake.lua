@@ -70,6 +70,7 @@ target(PROJECT_NAME.."-CS2")
         "src/core/commands/credits.cpp",
         "src/core/commands/cvars.cpp",
         "src/core/commands/exts.cpp",
+        "src/core/commands/gc.cpp",
         "src/core/commands/help.cpp",
         "src/core/commands/list.cpp",
         "src/core/commands/plugins.cpp",
