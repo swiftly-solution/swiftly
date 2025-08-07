@@ -63,9 +63,12 @@ void Files::Append(std::string path, std::string content, bool hasdate)
 #if GCC_COMPILER
 #pragma GCC diagnostic pop
 #endif
-    std::ofstream File(GeneratePath(path), std::ios_base::app);
-    File << (hasdate ? date : "") << content << std::endl;
-    File.close();
+    path = GeneratePath(path);
+    auto f = std::fopen(path.c_str(), "a");
+    if (f) {
+        fprintf(f, "%s%s", hasdate ? date : "", content.c_str());
+        fclose(f);
+    }
 }
 
 void Files::Write(std::string path, std::string content, bool hasdate)
@@ -86,9 +89,12 @@ void Files::Write(std::string path, std::string content, bool hasdate)
 #pragma GCC diagnostic pop
 #endif
 
-    std::ofstream File(GeneratePath(path), std::ios_base::trunc);
-    File << (hasdate ? date : "") << content << std::endl;
-    File.close();
+    path = GeneratePath(path);
+    auto f = std::fopen(path.c_str(), "w");
+    if (f) {
+        fprintf(f, "%s%s", hasdate ? date : "", content.c_str());
+        fclose(f);
+    }
 }
 
 bool Files::ExistsPath(std::string path)
