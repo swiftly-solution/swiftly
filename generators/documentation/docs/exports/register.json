@@ -4,7 +4,7 @@
     "override_variable": true,
     "override_function": {
         "lua": "export",
-        "cs": "Register"
+        "cs": "Exports.Register"
     },
     "description": "Registers an export for this plugin.",
     "arguments": {

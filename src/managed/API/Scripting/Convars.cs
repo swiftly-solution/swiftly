@@ -46,10 +46,10 @@ namespace SwiftlyS2.API.Scripting
             InitializeContext();
             return Internal_API.Invoker.CallNative<bool>("Convars", "ExistsFake", Internal_API.CallKind.CoreClassFunction, _ctx, name);
         }
-        public static object Get(string name)
+        public static T? Get<T>(string name)
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<object>("Convars", "Get", Internal_API.CallKind.CoreClassFunction, _ctx, name);
+            return Internal_API.Invoker.CallNative<T>("Convars", "Get", Internal_API.CallKind.CoreClassFunction, _ctx, name);
         }
         public static long GetFlags(string name)
         {

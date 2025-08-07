@@ -7,13 +7,13 @@ export default function GenerateClassConstructor(pageContent, lang, category) {
     if (!constr || typeof constr == "function" || constr.hidden) return "";
     let outString = "## Constructor\n"
     outString += `\`\`\`${lang}${GenerateFunctionParameters(constr["arguments"], lang)}
-${lang == "cs" ? "" : GenerateFunctionReturn(constr.return, lang)}`
+${lang == "cs" ? "using SwiftlyS2.API.Scripting;\n" : GenerateFunctionReturn(constr.return, lang)}`
 
     let v = category.data.variable
     if (lang == "cs") {
         let cls = category.data.title.split(" ").join("")
 
-        outString += `var ${pageContent.name.toLowerCase()} = ${cls}.${pageContent.name}`
+        outString += `var ${pageContent.name.toLowerCase()} = new ${cls}.${pageContent.name}`
     } else if (lang == "lua") {
         if (pageContent.override_variable) v = ""
         outString += `local ${pageContent.name.toLowerCase()} = ${v}${v == "" ? "" : ":"}${pageContent.name}`

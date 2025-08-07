@@ -33,8 +33,8 @@ export default function GenerateFunctionPage(pageKey, pageContent, category) {
         const fvar = GenerateFunctionVariable(pageContent, category, lang)
         tabsTrigger.push(`<TabsTrigger value="${lang}">${langs[lang]}</TabsTrigger>`)
         tabContents.push(`<TabsContent value="${lang}">
-\`\`\`${lang}${GenerateFunctionParameters(pageContent.arguments, lang)}
-${GenerateFunctionReturn(pageContent.return, lang)} ${fvar}${fvar.includes("(") ? "" : "("}${ProcessFunctionParameters(pageContent.arguments, lang)})
+\`\`\`${lang}${lang == "cs" ? "\nusing SwiftlyS2.API.Scripting;" : ""}${GenerateFunctionParameters(pageContent.arguments, lang)}
+${GenerateFunctionReturn(pageContent.return, lang)}${lang == "cs" ? " " : ""}${fvar}${fvar.includes("(") ? "" : "("}${ProcessFunctionParameters(pageContent.arguments, lang)})
 \`\`\`${existsSync(`${path}/additional/${pageKey.split(".").join("/")}/${lang}.md`) ? "\n" + readFileSync(`${path}/additional/${pageKey.split(".").join("/")}/${lang}.md`) : ""}
 ${existsSync(`${path}/examples/${pageKey.split(".").join("/")}/example.${lang}`) ? `\n### Example\n\`\`\`${lang}\n${readFileSync(`${path}/examples/${pageKey.split(".").join("/")}/example.${lang}`)}\n\`\`\`` : ""}
 </TabsContent>`)

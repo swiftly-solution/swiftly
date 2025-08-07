@@ -91,17 +91,21 @@ export default function GenerateType(data, language) {
         }
     } else if (language == "cs") {
         if (typeof data == "object") {
-            const args = Object.values(data.arguments)
+            const args = Object.entries(data.arguments)
             let types = []
-            for (const arg of args) {
+            let shouldDelegate = false
+            for (const [key, arg] of args) {
                 types.push(GenerateType(arg, language))
+                if (key == "...") shouldDelegate = true
             }
 
-            return `Func<${types.join(",")}${types.length != 0 ? ", " : ""}${GenerateType(data.return, language)}>`
+            if (shouldDelegate) return `Delegate`
+            else return `Func&lt;${types.join(",")}${types.length != 0 ? ", " : ""}${GenerateType(data.return, language)}>`
         } else {
             if (data.includes(",")) return `(${data.split(",").map((v) => GenerateType(v, language)).join(", ")})`
             else if (data.includes(")")) return GenerateType(data.split(")")[0].split("(")[1], language) + data.split(")")[1]
-            else if (data.includes(":")) return `Dictionary<${data.split(":").map((v) => GenerateType(v, language)).join(", ")}>`
+            else if (data.includes(":")) return `Dictionary&lt;${data.split(":").map((v) => GenerateType(v, language)).join(", ")}>`
+            else if (data.includes("?")) return `${GenerateType(data.split("?")[0], language)}?`
             else if (csReplacer.hasOwnProperty(data)) return csReplacer[data]
             else if (links[data]) return data
             else return data;

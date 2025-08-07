@@ -27,9 +27,11 @@ export default function GenerateCategoryPage(category_key, data) {
 
     let categoryText = ""
     for (const [kind, entries] of Object.entries(perCategoryPages)) {
-        categoryText += `## ${pageCategories[kind]}\n\n`
+        categoryText += `${categoryText == "" ? "" : "\n"}## ${pageCategories[kind] || "Informations"}\n\n`
         categoryText += `<Catalog filter="${entries.join(",")}"></Catalog>`
     }
+    if (categoryText == "") categoryText = "<Catalog />"
+
     page = page.replace("{catalog}", categoryText)
 
     return page

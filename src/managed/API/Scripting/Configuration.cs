@@ -21,10 +21,10 @@ namespace SwiftlyS2.API.Scripting
             InitializeContext();
             return Internal_API.Invoker.CallNative<bool>("Configuration", "Exists", Internal_API.CallKind.CoreClassFunction, _ctx, key);
         }
-        public static object Fetch(string key)
+        public static T? Fetch<T>(string key)
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<object>("Configuration", "Fetch", Internal_API.CallKind.CoreClassFunction, _ctx, key);
+            return Internal_API.Invoker.CallNative<T>("Configuration", "Fetch", Internal_API.CallKind.CoreClassFunction, _ctx, key);
         }
         public static int FetchArraySize(string key)
         {
