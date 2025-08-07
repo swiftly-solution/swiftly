@@ -301,10 +301,28 @@ jobs:
 
       - name: Prepare ZIP Files
         run: |
-          sudo apt install p7zip-full -y;
+          sudo apt install p7zip-full unzip -y;
 
           find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Core.Linux \;
           find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Core.Windows \;
+
+          mkdir -p build/Swiftly.Core.Linux/addons/swiftly/bin/managed/dotnet
+          cd build/Swiftly.Core.Linux/addons/swiftly/bin/managed/dotnet
+
+          wget https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/8.0.19/aspnetcore-runtime-8.0.19-linux-x64.tar.gz
+          tar zxvf aspnetcore-runtime-8.0.19-linux-x64.tar.gz
+          rm aspnetcore-runtime-8.0.19-linux-x64.tar.gz
+
+          cd ../../../../../../..
+
+          mkdir -p build/Swiftly.Core.Windows/addons/swiftly/bin/managed/dotnet
+          cd build/Swiftly.Core.Windows/addons/swiftly/bin/managed/dotnet
+
+          wget https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/8.0.19/aspnetcore-runtime-8.0.19-win-x64.zip
+          unzip aspnetcore-runtime-8.0.19-win-x64.zip
+          rm aspnetcore-runtime-8.0.19-win-x64.zip
+
+          cd ../../../../../../..
 
           (cd build/Swiftly.Core.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
           (cd build/Swiftly.Core.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
