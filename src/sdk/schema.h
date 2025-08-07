@@ -7,6 +7,8 @@
 #include <set>
 #include <memory/gamedata/gamedata.h>
 #include <schemasystem/schemasystem.h>
+#include <entity2/entityinstance.h>
+#include <entity2/entityidentity.h>
 #include <vector>
 
 extern void* gameRules;

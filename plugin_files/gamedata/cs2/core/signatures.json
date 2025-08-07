@@ -124,9 +124,9 @@
         "windows": "48 8B C4 44 88 48 20 44 89 40 18 48 89 50 10 53",
         "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 53 48 89 FB 48 83 EC ? 89 4D"
     },
-    "CSoundOpGameSystem_SetSoundEventParam": {
+    "CSoundOpGameSystem_SetSoundEventParam_BadVolumeHash": {
         "lib": "server",
-        "windows": "48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 48 8B B4 24 ? ? ? ? 49 8B F8",
-        "linux": "55 48 89 E5 41 57 49 89 F7 41 56 45 89 CE 41 55 49 89 CD"
+        "windows": "41 B9 ? ? ? ? 4C 89 64 24 ? 49 8B D5",
+        "linux": "E8 ? ? ? ? F3 0F 6F 03 48 83 EC ? 45 31 C9 89 C2 45 31 C0 4C 89 E7"
     }
 }
