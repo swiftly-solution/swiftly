@@ -204,6 +204,11 @@ target(PROJECT_NAME.."-CS2")
     --[[ Protobuf Section ]]
 
     on_load(function(target)
+    
+        if os.exists("build/proto") then
+            return
+        end
+
         local protoc = is_plat("windows") and SDK_PATH.."/devtools/bin/protoc.exe" or SDK_PATH.."/devtools/bin/linux/protoc" 
         local args = "--proto_path="..SDK_PATH.."/thirdparty/protobuf-3.21.8/src --proto_path=./protobufs/cs2 --proto_path="..SDK_PATH.."/public --proto_path="..SDK_PATH.."/public/engine --proto_path="..SDK_PATH.."/public/mathlib --proto_path="..SDK_PATH.."/public/tier0 --proto_path="..SDK_PATH.."/public/tier1 --proto_path="..SDK_PATH.."/public/entity2 --proto_path="..SDK_PATH.."/public/game/server --proto_path="..SDK_PATH.."/game/shared --proto_path="..SDK_PATH.."/game/server --proto_path="..SDK_PATH.."/common --cpp_out=build/proto"
 
@@ -214,9 +219,6 @@ target(PROJECT_NAME.."-CS2")
             return t
         end
     
-        if os.exists("build/proto") then
-            os.rmdir("build/proto")
-        end
         os.mkdir("build/proto")
 
         for _, sourcefile in ipairs(os.files("./protobufs/cs2/*.proto")) do

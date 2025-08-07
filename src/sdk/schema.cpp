@@ -4,6 +4,7 @@
 
 #include <utils/utils.h>
 #include <utils/platform/platform.h>
+#include <entity2/entityinstance.h>
 #include <ehandle.h>
 
 #ifndef WIN_LINUX
@@ -20,8 +21,6 @@ std::map<uint64_t, int32_t> offsetsCache;
 std::map<uint64_t, bool> networkedCache;
 std::set<uint32_t> structCache;
 std::set<uint32_t> isClassLoaded;
-
-typedef void(*NetworkStateChanged_t)(void*, CNetworkStateChangedInfo&);
 
 static bool IsFieldNetworked(SchemaClassFieldData_t& field)
 {
@@ -135,7 +134,7 @@ void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fie
     if ((void*)entityPtr == nullptr) return;
     if (!sch::IsNetworked(cName, fName)) return;
 
-    auto m_key = sch::GetOffset(cName, fName);
+    auto m_key = (uint32)sch::GetOffset(cName, fName);
     auto m_chain = sch::FindChainOffset(cName);
 
     if (m_chain) {
