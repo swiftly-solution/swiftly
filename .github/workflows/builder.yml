@@ -339,7 +339,7 @@ jobs:
           path: ${{ github.workspace }}/swiftly/build/package
 
   packer:
-    needs: ["versioning", "build", "extensions_build", "build_managed"]
+    needs: ["build", "extensions_build", "build_managed", "build_docs"]
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
