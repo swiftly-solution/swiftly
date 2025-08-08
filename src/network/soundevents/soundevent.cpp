@@ -39,7 +39,7 @@ void insert(std::vector<uint8_t>& vec, const T* value, int size = -1) {
     }
 }
 
-int Soundevent::Emit()
+uint32_t Soundevent::Emit()
 {
 	// packed_param serialization
 	std::vector<uint8_t> buffer;

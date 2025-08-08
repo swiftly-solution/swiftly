@@ -42,7 +42,7 @@ private:
 
 public:
 	Soundevent();
-	int Emit();
+	uint32_t Emit();
 
 	void SetName(std::string name);
 	std::string GetName();

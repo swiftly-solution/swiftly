@@ -197,16 +197,17 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
             if (controllerPtr == instance) {
                 sound.AddClient(i - 1);
                 context->SetReturn(sound.Emit());
+                return;
             }
             else {
                 CHandle<CEntityInstance> pawnHandle = schema::GetProp<CHandle<CEntityInstance>>(instance, "CCSPlayerController", "m_hPlayerPawn");
                 if (pawnHandle.Get() == instance) {
                     sound.AddClient(i - 1);
                     context->SetReturn(sound.Emit());
+                    return;
                 }
             }
         }
-
         context->SetReturn(0);
     });
 
