@@ -178,6 +178,50 @@ jobs:
           name: swiftlys2-managed-${{ needs.versioning.outputs.version }}
           path: ${{ github.workspace }}/swiftly/src/managed/bin/Release
 
+  build_docs:
+    name: Build Documentation
+    needs: versioning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: swiftly
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Clone Extensions
+        working-directory: swiftly
+        shell: bash
+        run: |
+          extensions=("mysql-extension" "console-filter" "addons-extension" "http-extension" "ip-extension" "utils-extension" "sdktools-extension" "websocket-extension")
+
+          for repo in "${extensions[@]}"; do
+            git clone https://github.com/swiftly-solution/$repo.git
+            if [ -d $repo/documentation ]; then
+              cp -rf $repo/documentation/* generators/documentation
+            fi
+            if [ -d $repo/sdkdocumentation ]; then
+              cp -rf $repo/sdkdocumentation/* generators/sdkdocumentation
+            fi
+          done
+
+      - name: Build Documentation
+        working-directory: swiftly
+        shell: bash
+        run: |
+          cd generators/docsgen
+          node index.mjs
+
+
+      - name: Upload Pages
+        uses: actions/upload-artifact@v4
+        with:
+          name: swiftlys2-documentation
+          path: ${{ github.workspace }}/swiftly/generators/docsgen/*.json
+
   build:
     name: Build
     needs: versioning
