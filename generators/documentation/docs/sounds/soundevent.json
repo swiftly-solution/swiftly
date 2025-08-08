@@ -1,0 +1,166 @@
+{
+    "kind": "class",
+    "name": "SoundEvent",
+    "description": "A class to send sounds to clients.",
+    "constructor": {
+        "arguments": {},
+        "return": "SoundEvent"
+    },
+    "functions": [
+        {
+            "name": "Emit",
+            "arguments": {},
+            "return": "uint32"
+        },
+        {
+            "name": "GetName",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "SetName",
+            "arguments": {
+                "name": "string"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetSourceEntityIndex",
+            "arguments": {},
+            "return": "int32"
+        },
+        {
+            "name": "SetSourceEntityIndex",
+            "arguments": {
+                "ent_idx": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddClient",
+            "arguments": {
+                "playerid": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "RemoveClient",
+            "arguments": {
+                "playerid": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "ClearClients",
+            "arguments": {},
+            "return": "void"
+        },
+        {
+            "name": "AddClients",
+            "arguments": {},
+            "return": "void"
+        },
+        {
+            "name": "GetClients",
+            "arguments": {},
+            "return": "int32[]"
+        },
+        {
+            "name": "HasField",
+            "arguments": {
+                "name": "string"
+            },
+            "return": "bool"
+        },
+        {
+            "name": "GetBool",
+            "arguments": {
+                "name": "string"
+            },
+            "return": "bool"
+        },
+        {
+            "name": "SetBool",
+            "arguments": {
+                "name": "string",
+                "value": "bool"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetInt",
+            "arguments": {
+                "name": "string"
+            },
+            "return": "int32"
+        },
+        {
+            "name": "SetInt",
+            "arguments": {
+                "name": "string",
+                "value": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetUInt32",
+            "arguments": {
+                "name": "string"
+            },
+            "return": "uint32"
+        },
+        {
+            "name": "SetUInt32",
+            "arguments": {
+                "name": "string",
+                "value": "uint32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetUInt64",
+            "arguments": {
+                "name": "string"
+            },
+            "return": "uint64"
+        },
+        {
+            "name": "SetUInt64",
+            "arguments": {
+                "name": "string",
+                "value": "uint64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetFloat",
+            "arguments": {
+                "name": "string"
+            },
+            "return": "float"
+        },
+        {
+            "name": "SetFloat",
+            "arguments": {
+                "name": "string",
+                "value": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetFloat3",
+            "arguments": {
+                "name": "string"
+            },
+            "return": "Vector"
+        },
+        {
+            "name": "SetFloat3",
+            "arguments": {
+                "name": "string",
+                "value": "Vector"
+            },
+            "return": "void"
+        }
+    ]
+}
