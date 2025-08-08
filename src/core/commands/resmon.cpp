@@ -4,7 +4,6 @@
 #include <plugins/manager.h>
 #include <filesystem/files/files.h>
 
-#include <sstream>
 #include <map>
 
 static std::map<ContextKinds, std::string> runtimeNames = {

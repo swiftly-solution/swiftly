@@ -1,7 +1,5 @@
 #include <scripting/core.h>
 
-#include <sstream>
-
 #include <core/entrypoint.h>
 #include <tools/crashreporter/callstack.h>
 #include <plugins/manager.h>
@@ -157,9 +155,7 @@ LoadScriptingComponent(utils, [](PluginObject plugin, EContext* ctx) -> void {
             tbl.endOfRow();
         }
 
-        std::stringstream outputTable;
-        outputTable << tbl;
-        context->SetReturn(outputTable.str());
+        context->SetReturn(TableToString(tbl));
     });
 
     ADD_FUNCTION("RegisterCallstack", [](FunctionContext* context) -> void {

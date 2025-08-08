@@ -2,7 +2,6 @@
 
 #include <iomanip>
 #include <ctime>
-#include <sstream>
 
 #include <network/usermessages/usermessage.h>
 #include <filesystem/files/files.h>
@@ -87,12 +86,7 @@ std::map<std::string, std::string> textMessageReplacements = {
 std::string getCurrentTime() {
     std::time_t now = std::time(nullptr);
     std::tm* localTime = std::localtime(&now);
-
-    std::ostringstream oss;
-    oss << std::setw(2) << std::setfill('0') << localTime->tm_hour << ":"
-        << std::setw(2) << std::setfill('0') << localTime->tm_min;
-
-    return oss.str();
+    return string_format("%02d:%02d", localTime->tm_hour, localTime->tm_min);
 }
 std::string getCompTeammateColorString(void* controller)
 {
