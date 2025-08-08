@@ -222,6 +222,12 @@ jobs:
           name: swiftlys2-documentation
           path: ${{ github.workspace }}/swiftly/generators/docsgen/*.json
 
+      - name: Upload Pages
+        uses: actions/upload-artifact@v4
+        with:
+          name: swiftlys2-generator-files
+          path: ${{ github.workspace }}/swiftly/generators
+
   build:
     name: Build
     needs: versioning
