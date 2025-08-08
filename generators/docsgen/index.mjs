@@ -16,7 +16,8 @@ let cats = [
     },
     {
         key: "sdk.cs2",
-        value: "../gamesdkdocumentation/cs2/docs"
+        value: "../gamesdkdocumentation/cs2/docs",
+        subcategory: true
     }
 ]
 
@@ -71,13 +72,18 @@ for (const ent of cats) {
     }
 }
 
+let pages = {}
+
 for (const ent of cats) {
     currentPath = ent.value
 
-    let pages = {}
+    let currentCategory = ent.subcategory ? ent.key.split(".")[0] : ent.key
+    let subcategory = ent.subcategory ? `${ent.key.split(".").pop()}.` : ""
+
+    if (!pages[currentCategory]) pages[currentCategory] = {}
     for (const [category, data] of Object.entries(metadata)) {
         if (data.category != ent.key) continue;
-        pages[category] = {
+        pages[currentCategory][`${subcategory}${category}`] = {
             page: GenerateCategoryPage(category, data),
             title: data.data.title,
             icon: data.data.icon
@@ -85,9 +91,9 @@ for (const ent of cats) {
 
         for (const pg of data.pages) {
             const pageContent = JSON.parse(readFileSync(pg.filePath));
-            pages[pg.key] = GeneratePage(pg.key, pageContent, data)
+            pages[currentCategory][`${subcategory}${pg.key}`] = GeneratePage(pg.key, pageContent, data)
         }
     }
 
-    writeFileSync(ent.key.split("/").join(".") + ".json", JSON.stringify(pages, null, 4))
+    writeFileSync(currentCategory + ".json", JSON.stringify(pages[currentCategory], null, 4))
 }

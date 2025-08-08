@@ -27,7 +27,7 @@ export default function GenerateTypePage(pageKey, pageContent, category) {
         if (lang == "cs") {
             tabContents.push(`<TabsContent value="${lang}">
 \`\`\`${lang}
-using SwiftlyS2.API.Scripting.${category.data.variable != "" ? category.data.variable : "Generic"};
+using SwiftlyS2.API.${category.category.includes("sdk") ? category.category.toUpperCase() : "Scripting"};
 enum ${pageContent.name}
 {
 ${Object.keys(pageContent.values).map((k) => `        ${k} = ${pageContent.values[k]}`).join(",\n")}
