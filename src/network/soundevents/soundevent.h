@@ -4,7 +4,6 @@
 #include <string>
 #include <map>
 #include <vector>
-#include <variant.h>
 #include <public/bitvec.h>
 #include <mathlib/vector.h>
 #include <sdk/components/CSingleRecipientFilter.h>
@@ -25,20 +24,47 @@ enum SosFieldType {
 	SE_Float3 = 0xA
 };
 
-struct SosField {
+constexpr uint8_t SosFieldTypeSize(SosFieldType t) {
+	switch (t) {
+		case SosFieldType::SE_Bool:    return 1;
+		case SosFieldType::SE_Int:     return 4;
+		case SosFieldType::SE_UInt32:  return 4;
+		case SosFieldType::SE_UInt64:  return 8;
+		case SosFieldType::SE_Float:   return 4;
+		case SosFieldType::SE_Float3:  return 12;
+		default:                       return 0;
+	}
+}
+
+class SosField {
+private:
 	SosFieldType type;
-	CVariant data;
+	char data[32];
+
+public:
+	SosField() {
+		// for container, never use this, i fell guilty
+	}
+	SosField(SosFieldType type, const void* src) {
+		int length = SosFieldTypeSize(type);
+		Assert(length <= 32, "SosField buffer overflow");
+		this->type = type;
+		memcpy(data, src, length);
+	}
+
+	SosFieldType GetType() const { return type; }
+	const void* GetData() const { return data; }
 };
 
 class Soundevent {
 private:
 	std::string name;
-	int sourceEntityIndex = -1;
+	int sourceEntityIndex = -1; // if source entity index is -1, the sound will emit at recipient position
 	std::map<std::string, SosField> parameters;
 	CRecipientFilter clients;
 
 	SosField* GetField(std::string pszFieldName);
-	void AddOrReplaceField(std::string pszFieldName, const SosField* field);
+	void AddOrReplaceField(std::string pszFieldName, const SosField field);
 
 public:
 	Soundevent();
