@@ -96,11 +96,15 @@ export default function GenerateType(data, language) {
             let shouldDelegate = false
             for (const [key, arg] of args) {
                 types.push(GenerateType(arg, language))
-                if (key == "...") shouldDelegate = true
+                if (key == "...") {
+                    shouldDelegate = true
+                    break
+                }
             }
 
             if (shouldDelegate) return `Delegate`
-            else return `Func&lt;${types.join(",")}${types.length != 0 ? ", " : ""}${GenerateType(data.return, language)}>`
+            else if (GenerateType(data.return, language) == "void") return `Action&lt;${types.join(",")}>`
+            else return `Func&lt;${types.join(",")}, ${GenerateType(data.return, language)}>`
         } else {
             if (data.includes(",")) return `(${data.split(",").map((v) => GenerateType(v, language)).join(", ")})`
             else if (data.includes(")")) return GenerateType(data.split(")")[0].split("(")[1], language) + data.split(")")[1]
