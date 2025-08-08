@@ -196,16 +196,18 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
             auto controllerPtr = g_pEntitySystem->GetEntityInstance(CEntityIndex(i));
             if (controllerPtr == instance) {
                 sound.AddClient(i - 1);
-                sound.Emit();
+                context->SetReturn(sound.Emit());
             }
             else {
                 CHandle<CEntityInstance> pawnHandle = schema::GetProp<CHandle<CEntityInstance>>(instance, "CCSPlayerController", "m_hPlayerPawn");
                 if (pawnHandle.Get() == instance) {
                     sound.AddClient(i - 1);
-                    sound.Emit();
+                    context->SetReturn(sound.Emit());
                 }
             }
         }
+
+        context->SetReturn(0);
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "EmitSoundFromEntity", [](FunctionContext* context, ClassData* data) -> void {
@@ -222,7 +224,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         sound.SetFloat("public.delay", delay);
         sound.AddClients();
         sound.SetSourceEntityIndex(instance->GetEntityIndex().Get());
-        sound.Emit();
+        context->SetReturn(sound.Emit());
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "TakeDamage", [](FunctionContext* context, ClassData* data) -> void {
