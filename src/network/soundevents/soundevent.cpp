@@ -92,6 +92,7 @@ int Soundevent::Emit()
 	data->set_soundevent_hash(soundeventHash);
 	data->set_source_entity_index(this->sourceEntityIndex);
 	data->set_soundevent_guid(guid);
+	data->set_seed(guid);
 	data->set_packed_params(std::string(buffer.begin(), buffer.end()));
 	
 	g_pGameEventSystem->PostEventAbstract(-1, false, &this->clients, pNetMsg, data, 0);
@@ -101,6 +102,7 @@ int Soundevent::Emit()
 
 Soundevent::Soundevent()
 {
+	this->clients = CRecipientFilter();
 }
 
 void Soundevent::SetName(std::string name) 
@@ -121,6 +123,11 @@ void Soundevent::SetSourceEntityIndex(int sourceEntityIndex)
 int Soundevent::GetSourceEntityIndex() 
 {
 	return this->sourceEntityIndex;
+}
+
+void Soundevent::SetRecipientFilter(CRecipientFilter filter)
+{
+	this->clients = filter;
 }
 
 void Soundevent::AddClient(int playerid) 

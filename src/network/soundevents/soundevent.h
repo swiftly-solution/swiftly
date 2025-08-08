@@ -49,6 +49,7 @@ public:
 	void SetSourceEntityIndex(int sourceEntityIndex);
 	int GetSourceEntityIndex();
 
+	void SetRecipientFilter(CRecipientFilter filter);
 	void AddClient(int playerid);
 	void RemoveClient(int playerId);
     void ClearClients();

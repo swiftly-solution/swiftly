@@ -2,6 +2,7 @@
 
 #include <entities/system.h>
 #include <engine/precacher/precacher.h>
+#include <network/soundevents/soundevent.h>
 #include <memory/virtual/virtual.h>
 #include <memory/gamedata/gamedata.h>
 #include <sdk/schema.h>
@@ -185,38 +186,43 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         std::string sound_name = context->GetArgumentOr<std::string>(0, "");
         float pitch = context->GetArgumentOr<float>(1, 0.0f);
         float volume = context->GetArgumentOr<float>(2, 0.0f);
-
-        EmitSound_t params;
-        params.m_pSoundName = sound_name.c_str();
-        params.m_flVolume = volume;
-        params.m_nPitch = pitch;
-
-        CBaseEntity_EmitSoundFilter filter = g_GameData.FetchSignature<CBaseEntity_EmitSoundFilter>("CBaseEntity_EmitSoundFilter");
+        
+        Soundevent sound;
+        sound.SetName(sound_name);
+        sound.SetFloat("public.volume", volume);
+        sound.SetFloat("public.pitch", pitch);
 
         for (int i = 1; i <= GetMaxGameClients(); i++) {
             auto controllerPtr = g_pEntitySystem->GetEntityInstance(CEntityIndex(i));
             if (controllerPtr == instance) {
-                CSingleRecipientFilter playerfilter(i - 1);
-                filter(playerfilter, instance->m_pEntity->m_EHandle.GetEntryIndex(), params);
+                sound.AddClient(i - 1);
+                sound.Emit();
             }
             else {
                 CHandle<CEntityInstance> pawnHandle = schema::GetProp<CHandle<CEntityInstance>>(instance, "CCSPlayerController", "m_hPlayerPawn");
                 if (pawnHandle.Get() == instance) {
-                    CSingleRecipientFilter playerfilter(i - 1);
-                    filter(playerfilter, instance->m_pEntity->m_EHandle.GetEntryIndex(), params);
+                    sound.AddClient(i - 1);
+                    sound.Emit();
                 }
             }
         }
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "EmitSoundFromEntity", [](FunctionContext* context, ClassData* data) -> void {
-        void* instance = data->GetData<void*>("class_ptr");
+        CEntityInstance* instance = (CEntityInstance*)data->GetData<void*>("class_ptr");
         std::string sound_name = context->GetArgumentOr<std::string>(0, "");
         float pitch = context->GetArgumentOr<float>(1, 0.0f);
         float volume = context->GetArgumentOr<float>(2, 0.0f);
         float delay = context->GetArgumentOr<float>(3, 0.0f);
 
-        g_GameData.FetchSignature<CBaseEntity_EmitSoundParams>("CBaseEntity_EmitSoundParams")(instance, sound_name.c_str(), pitch, volume, delay);
+        Soundevent sound;
+        sound.SetName(sound_name);
+        sound.SetFloat("public.pitch", pitch);
+        sound.SetFloat("public.volume", volume);
+        sound.SetFloat("public.delay", delay);
+        sound.AddClients();
+        sound.SetSourceEntityIndex(instance->GetEntityIndex().Get());
+        sound.Emit();
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "TakeDamage", [](FunctionContext* context, ClassData* data) -> void {
