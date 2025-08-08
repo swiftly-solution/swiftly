@@ -25,34 +25,32 @@ typedef void (*CBaseEntity_TakeDamage)(void*, CTakeDamageInfo*);
 typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
 typedef void (*CBaseEntity_EmitSoundParams)(void*, const char*, int, float, float);
 
-std::set<uint64_t> classFuncs = {
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EHandle")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Spawn")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Despawn")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("AcceptInput")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetClassname")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetVData")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Teleport")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EmitSound")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EmitSoundFromEntity")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("TakeDamage")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("CollisionRulesChanged")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetModel")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetSolidType")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetBodygroup")),
-    ((uint64_t)hash_32_fnv1a_const("CAttributeList") << 32 | hash_32_fnv1a_const("SetOrAddAttributeValueByName")),
-    ((uint64_t)hash_32_fnv1a_const("CBasePlayerController") << 32 | hash_32_fnv1a_const("EntityIndex")),
-    ((uint64_t)hash_32_fnv1a_const("CGameSceneNode") << 32 | hash_32_fnv1a_const("GetSkeletonInstance")),
-    ((uint64_t)hash_32_fnv1a_const("CPlayerPawnComponent") << 32 | hash_32_fnv1a_const("GetPawn")),
-};
-
 std::set<std::string> skipFunctions = {
     "__call",
-    "call",
     "__tostring",
-    "toString",
     "ToPtr",
     "IsValid"
+};
+
+std::set<std::string> validFuncs = {
+    "EHandle",
+    "Spawn",
+    "Despawn",
+    "AcceptInput",
+    "GetClassname",
+    "GetVData",
+    "Teleport",
+    "EmitSound",
+    "EmitSoundFromEntity",
+    "TakeDamage",
+    "CollisionRulesChanged",
+    "SetModel",
+    "SetSolidType",
+    "SetBodygroup",
+    "SetOrAddAttributeValueByName",
+    "EntityIndex",
+    "GetSkeletonInstance",
+    "GetPawn",
 };
 
 void DummyGetSetSDK(FunctionContext* context, ClassData* data) {}
@@ -346,42 +344,13 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         std::string function_name = explode(context->GetFunctionKey(), " ").back();
         if (skipFunctions.find(function_name) != skipFunctions.end()) return;
 
-        std::string className = data->GetData<std::string>("class_name");
-        uint64_t path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(function_name.c_str()));
-        if (classFuncs.find(path) != classFuncs.end()) {
+        if (validFuncs.find(function_name) != validFuncs.end()) {
             void* instance = data->GetData<void*>("class_ptr");
             if (!g_entSystem.IsValidEntity(instance)) {
                 ReportPreventionIncident("Schema / SDK", string_format("Tried to call function '%s::%s' but the entity is invalid.", className.c_str(), function_name.c_str()));
                 return context->StopExecution();
             }
             return;
-        }
-        else {
-            uint64_t parent = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const("Parent"));
-
-            bool found = false;
-            while (g_sdk.ExistsField(parent)) {
-                className = g_sdk.GetFieldName(parent);
-
-                path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(function_name.c_str()));
-
-                if (g_sdk.ExistsField(path)) {
-                    found = true;
-                    break;
-                }
-                else {
-                    parent = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const("Parent"));
-                }
-            }
-
-            if (found) {
-                void* instance = data->GetData<void*>("class_ptr");
-                if (!g_entSystem.IsValidEntity(instance)) {
-                    ReportPreventionIncident("Schema / SDK", string_format("Tried to call function '%s::%s' but the entity is invalid.", className.c_str(), function_name.c_str()));
-                    return context->StopExecution();
-                }
-                return;
-            }
         }
         context->StopExecution();
     });
