@@ -7,9 +7,10 @@
 #include <variant.h>
 #include <public/bitvec.h>
 #include <mathlib/vector.h>
+#include <sdk/components/CSingleRecipientFilter.h>
 
-#define SOUNDEVENT_NAME_HASH 0x53524332
-#define SOUNDEVENT_PARAM_NAME_HASH 0x31415926
+#define SOUNDEVENT_NAME_HASH_SEED 0x53524332
+#define SOUNDEVENT_FIELD_NAME_HASH_SEED 0x31415926
 /*
 reversed from game, there's more type than the following,
 but we only implement these for now, because we don't know what other types' serialization looks like,
@@ -32,15 +33,16 @@ struct SosField {
 class Soundevent {
 private:
 	std::string name;
-	int sourceEntityIndex;
+	int sourceEntityIndex = -1;
 	std::map<std::string, SosField> parameters;
-	CPlayerBitVec clients;
+	CRecipientFilter clients;
 
 	SosField* GetField(std::string pszFieldName);
 	void AddOrReplaceField(std::string pszFieldName, const SosField* field);
 
 public:
-	void Emit();
+	Soundevent();
+	int Emit();
 
 	void SetName(std::string name);
 	std::string GetName();

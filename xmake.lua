@@ -138,6 +138,7 @@ target(PROJECT_NAME.."-CS2")
 
         'src/scripting/network/database.cpp',
         'src/scripting/network/usermessage.cpp',
+        'src/scripting/network/soundevent.cpp',
 
         'src/scripting/player/manager.cpp',
         'src/scripting/player/player.cpp',
