@@ -403,7 +403,7 @@
                 "pitch": "float",
                 "volume": "float"
             },
-            "return": "void"
+            "return": "uint32"
         },
         {
             "name": "EmitSoundFromEntity",
@@ -413,7 +413,7 @@
                 "volume": "float",
                 "delay": "float"
             },
-            "return": "void"
+            "return": "uint32"
         },
         {
             "name": "TakeDamage",

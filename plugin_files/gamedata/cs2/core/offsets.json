@@ -38,5 +38,9 @@
     "CEntityResourceManifest_AddResource": {
         "windows": 2,
         "linux": 0
+    },
+    "CSoundSystem_TakeGuid": {
+        "windows": 72,
+        "linux": 71
     }
 }

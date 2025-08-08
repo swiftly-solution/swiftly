@@ -1,4 +1,8 @@
 #include <public/irecipientfilter.h>
+#include <core/entrypoint.h>
+
+#ifndef _recipient_filter_h
+#define _recipient_filter_h
 
 #define INVALID_PLAYER_SLOT_INDEX -1
 #define INVALID_PLAYER_SLOT CPlayerSlot( INVALID_PLAYER_SLOT_INDEX )
@@ -35,10 +39,21 @@ public:
                 AddRecipient(i);
     }
 
+    void RemoveAllPlayers(void)
+    {
+        m_Recipients.ClearAll();
+    }
+
     void AddRecipient(CPlayerSlot slot)
     {
         if (slot.Get() >= 0 && slot.Get() < ABSOLUTE_PLAYER_LIMIT)
             m_Recipients.Set(slot.Get());
+    }
+
+    void RemoveRecipient(CPlayerSlot slot)
+    {
+        if (slot.Get() >= 0 && slot.Get() < ABSOLUTE_PLAYER_LIMIT)
+            m_Recipients.Clear(slot.Get());
     }
 
     int GetRecipientCount()
@@ -78,3 +93,5 @@ public:
             m_Recipients.Set(nRecipientSlot.Get());
     }
 };
+
+#endif
