@@ -1,5 +1,5 @@
 export default function GenerateFunctionVariable(pageContent, category, language) {
-    if (pageContent.override_function && pageContent.override_function[language]) return pageContent.override_function[language]
+    if (pageContent.override_function && pageContent.override_function[language]) return pageContent.override_function[language].replace("<", "&lt;")
     if (language == "cs") {
         let cls = ""
         if (pageContent.override_variable) cls = "Generic"

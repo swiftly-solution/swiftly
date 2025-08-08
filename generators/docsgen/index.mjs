@@ -59,14 +59,14 @@ for (const ent of cats) {
                     category: ent.key,
                     pages: []
                 }
-                links[JSON.parse(readFileSync(page)).title.split(" ").join("")] = pageKey
+                links[JSON.parse(readFileSync(page)).title.split(" ").join("")] = { pageKey, category: ent.key }
             } else {
                 metadata[origKey.replace(".json", "").split("/").slice(0, -1).join(".")].pages.push({ filePath: page, key: pageKey })
 
                 const pageData = JSON.parse(readFileSync(page))
-                if (pageData.kind == 'function') links[pageData.function] = pageKey
-                else if (pageData.kind == 'static') links[pageData.title] = pageKey
-                else links[pageData.name] = pageKey
+                if (pageData.kind == 'function') links[pageData.function] = { pageKey, category: ent.key }
+                else if (pageData.kind == 'static') links[pageData.title] = { pageKey, category: ent.key }
+                else links[pageData.name] = { pageKey, category: ent.key }
             }
         }
     }
@@ -91,7 +91,19 @@ for (const ent of cats) {
 
         for (const pg of data.pages) {
             const pageContent = JSON.parse(readFileSync(pg.filePath));
-            pages[currentCategory][`${subcategory}${pg.key}`] = GeneratePage(pg.key, pageContent, data)
+            let page = GeneratePage(pg.key, pageContent, data)
+            let foundRef = false
+            for (const key of Object.keys(links)) {
+                if (!page.page) continue;
+                if (page.page.includes(key)) {
+                    if (!foundRef) {
+                        foundRef = true
+                        page.page += `\n\n## References`
+                    }
+                    page.page += `\n- [${key}](/${links[key].category.split(".").join("/")}/${links[key].pageKey.split(".").join("/")})`
+                }
+            }
+            pages[currentCategory][`${subcategory}${pg.key}`] = page
         }
     }
 

@@ -25,10 +25,12 @@ export default function GenerateCategoryPage(category_key, data) {
         perCategoryPages[pageContent.kind].push(pg.key)
     }
 
+    let subcategory = (data.category != category_key ? data.category.split(".").slice(1).join(".") : "")
+
     let categoryText = ""
     for (const [kind, entries] of Object.entries(perCategoryPages)) {
         categoryText += `${categoryText == "" ? "" : "\n"}## ${pageCategories[kind] || "Informations"}\n\n`
-        categoryText += `<Catalog filter="${category_key}.${entries.join(",")}"></Catalog>`
+        categoryText += `<Catalog filter="${subcategory != "" ? entries.map((v) => `${subcategory}.${v}`).join(",") : entries.join(",")}"></Catalog>`
     }
     if (categoryText == "") categoryText = "<Catalog />"
 

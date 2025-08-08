@@ -7,7 +7,7 @@ export default function GenerateClassConstructor(pageContent, lang, category) {
     if (!constr || typeof constr == "function" || constr.hidden) return "";
     let outString = "## Constructor\n"
     outString += `\`\`\`${lang}${GenerateFunctionParameters(constr["arguments"], lang)}
-${lang == "cs" ? `using SwiftlyS2.API.${category.category.includes("sdk") ? category.category.toUpperCase() : ""};\n` : GenerateFunctionReturn(constr.return, lang)}`
+${lang == "cs" ? `using SwiftlyS2.API.${category.category.includes("sdk") ? category.category.toUpperCase() : "Scripting"};\n` : GenerateFunctionReturn(constr.return, lang)}`
 
     let v = category.data.variable
     if (lang == "cs") {
