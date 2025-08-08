@@ -22,19 +22,19 @@
 		return return_value;
 
 #define CHECK_FIELD_TYPE(check_type, return_value)					\
-    if (field->type != check_type) return return_value;
+    if (field->GetType() != check_type) return return_value;
 
 #define SET_FIELD(check_type, value)								\
-	SosField field;													\
-	field.type = check_type;										\
-	field.data = value;												\
-	this->AddOrReplaceField(pszFieldName, &field);
+	SosField field(check_type, &value);								\
+	this->AddOrReplaceField(pszFieldName, field);
 
-template<typename T>
-void insert(std::vector<uint8_t>& vec, const T* value, int size = -1) {
+#define RETURN_FIELD(return_type)										\
+	return *reinterpret_cast<const return_type*>(field->GetData());
+
+void insert(std::vector<uint8_t>& vec, const void* value, uint8_t size) {
     const char* bytes = reinterpret_cast<const char*>(value);
     
-    for (size_t i = 0; i < (size == -1 ? sizeof(T) : size); ++i) {
+	for (int i = 0; i < size; i++) {
         vec.push_back(bytes[i]);
     }
 }
@@ -46,36 +46,12 @@ uint32_t Soundevent::Emit()
 	for (const auto& pair : this->parameters) {
 		auto fieldName = pair.first;
 		auto fieldData = &pair.second;
-		auto data = &fieldData->data;
 		uint32_t paramNameHash = MurmurHash2LowerCase(fieldName.c_str(), SOUNDEVENT_FIELD_NAME_HASH_SEED);
-		insert(buffer, &paramNameHash);										// name hash
-		buffer.push_back(fieldData->type);									// data type
-
-		char size;
-		switch (fieldData->type) {
-			case SE_Bool:
-				buffer.push_back(1);										// data size
-				buffer.push_back(0);										// padding
-				buffer.push_back(data->m_bool);								// data
-				break;
-			case SE_Int:
-			case SE_UInt32:
-			case SE_Float:
-				buffer.push_back(4);
-				buffer.push_back(0);
-				insert(buffer, data, 4);	// insert in little endian order
-				break;
-			case SE_UInt64:
-				buffer.push_back(8);
-				buffer.push_back(0);
-				insert(buffer, data, 8);
-				break;
-			case SE_Float3:
-				buffer.push_back(12);
-				buffer.push_back(0);
-				insert(buffer, data->m_pVector, 12);
-				break;
-		}
+		insert(buffer, &paramNameHash, 4);													// name hash
+		buffer.push_back(fieldData->GetType());												// data type
+		buffer.push_back(SosFieldTypeSize(fieldData->GetType()));							// data size
+		buffer.push_back(0);																// padding
+		insert(buffer, fieldData->GetData(), SosFieldTypeSize(fieldData->GetType()));		// data
 	}
 
 	auto soundeventHash = MurmurHash2LowerCase(this->name.c_str(), SOUNDEVENT_NAME_HASH_SEED);
@@ -102,7 +78,6 @@ uint32_t Soundevent::Emit()
 
 Soundevent::Soundevent()
 {
-	this->clients = CRecipientFilter();
 }
 
 void Soundevent::SetName(std::string name) 
@@ -169,9 +144,9 @@ SosField* Soundevent::GetField(std::string pszFieldName)
     return (it != this->parameters.end()) ? &it->second : nullptr;
 }
 
-void Soundevent::AddOrReplaceField(std::string pszFieldName, const SosField* field)
+void Soundevent::AddOrReplaceField(std::string pszFieldName, const SosField field)
 {
-	this->parameters[pszFieldName] = *field;
+	this->parameters[pszFieldName] = field;
 }
 
 bool Soundevent::HasField(std::string pszFieldName)
@@ -181,85 +156,73 @@ bool Soundevent::HasField(std::string pszFieldName)
 
 void Soundevent::SetBool(std::string pszFieldName, bool value)
 {
-	CVariant data(value);
-	SET_FIELD(SE_Bool, data);
+	SET_FIELD(SE_Bool, value);
 }
 
 bool Soundevent::GetBool(std::string pszFieldName)
 {
 	GETCHECK_FIELD(false);
 	CHECK_FIELD_TYPE(SE_Bool, false);
-
-	return field->data.Get<bool>();
+	RETURN_FIELD(bool);
 }
 
 void Soundevent::SetInt(std::string pszFieldName, int value)
 {
-	CVariant data((int32)value);
-	SET_FIELD(SE_Int, data);
+	SET_FIELD(SE_Int, value);
 }
 
 int Soundevent::GetInt(std::string pszFieldName)
 {
 	GETCHECK_FIELD(0);
 	CHECK_FIELD_TYPE(SE_Int, 0);
-
-	return (int)field->data.Get<int32>();
+	RETURN_FIELD(int);
 }
 
 void Soundevent::SetUInt32(std::string pszFieldName, uint32_t value)
 {
-	CVariant data((uint32)value);
-	SET_FIELD(SE_UInt32, data);
+	SET_FIELD(SE_UInt32, value);
 }
 
 uint32_t Soundevent::GetUInt32(std::string pszFieldName)
 {
 	GETCHECK_FIELD(0);
 	CHECK_FIELD_TYPE(SE_UInt32, 0);
-
-	return (uint32_t)field->data.Get<uint32>();
+	RETURN_FIELD(uint32_t);
 }
 
 void Soundevent::SetUInt64(std::string pszFieldName, uint64_t value)
 {
-	CVariant data((uint64)value);
-	SET_FIELD(SE_UInt64, data);
+	SET_FIELD(SE_UInt64, value);
 }
 
 uint64_t Soundevent::GetUInt64(std::string pszFieldName)
 {
 	GETCHECK_FIELD(0);
 	CHECK_FIELD_TYPE(SE_UInt64, 0);
-
-	return (uint64_t)field->data.Get<uint64>();
+	RETURN_FIELD(uint64_t);
 }
 
 void Soundevent::SetFloat(std::string pszFieldName, float value)
 {
-	CVariant data(value);
-	SET_FIELD(SE_Float, data);
+	SET_FIELD(SE_Float, value);
 }
 
 float Soundevent::GetFloat(std::string pszFieldName)
 {
 	GETCHECK_FIELD(0.0f);
 	CHECK_FIELD_TYPE(SE_Float, 0.0f);
-
-	return field->data.Get<float>();
+	RETURN_FIELD(float);
 }
 
 void Soundevent::SetFloat3(std::string pszFieldName, Vector& value)
 {
-	CVariant data(value);
-	SET_FIELD(SE_Float3, data);
+	SET_FIELD(SE_Float3, value);
 }
 
 Vector Soundevent::GetFloat3(std::string pszFieldName)
 {
-	Vector def;
+	Vector def(0, 0, 0);
 	GETCHECK_FIELD(def);
 	CHECK_FIELD_TYPE(SE_Float3, def);
-
-	return field->data.Get<Vector>();
+	RETURN_FIELD(Vector);
 }
