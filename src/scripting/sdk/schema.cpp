@@ -341,6 +341,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         });
 
     ADD_CLASS_FUNCTION_PRE("SDKClass", ".*", [](FunctionContext* context, ClassData* data) -> void {
+        std::string className = data->GetData<std::string>("class_name");
         std::string function_name = explode(context->GetFunctionKey(), " ").back();
         if (skipFunctions.find(function_name) != skipFunctions.end()) return;
 
