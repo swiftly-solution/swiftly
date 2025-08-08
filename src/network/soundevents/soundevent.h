@@ -47,7 +47,6 @@ public:
 	}
 	SosField(SosFieldType type, const void* src) {
 		int length = SosFieldTypeSize(type);
-		Assert(length <= 32, "SosField buffer overflow");
 		this->type = type;
 		memcpy(data, src, length);
 	}

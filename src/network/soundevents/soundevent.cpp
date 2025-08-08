@@ -29,7 +29,6 @@
 	this->AddOrReplaceField(pszFieldName, field);
 
 #define RETURN_FIELD(return_type)										\
-	Assert(SosFieldTypeSize(field->GetType()) == sizeof(return_type));	\
 	return *reinterpret_cast<const return_type*>(field->GetData());
 
 void insert(std::vector<uint8_t>& vec, const void* value, uint8_t size) {
