@@ -2,6 +2,10 @@
     "kind": "function",
     "function": "RemoveEventHandler",
     "override_variable": true,
+    "override_function": {
+        "lua": "RemoveEventHandler",
+        "cs": "Events.RemoveEventHandler"
+    },
     "description": "Removes the specified event handler.",
     "arguments": {
         "handler": "EventHandler"

@@ -2,6 +2,10 @@
     "kind": "function",
     "function": "AddEventHandler",
     "override_variable": true,
+    "override_function": {
+        "lua": "AddEventHandler",
+        "cs": "Events.AddEventHandler"
+    },
     "description": "Adds a new event handler for the specified event.",
     "arguments": {
         "event_name": "string",
