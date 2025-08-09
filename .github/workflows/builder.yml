@@ -345,7 +345,7 @@ jobs:
 
       - name: Prepare ZIP Files
         run: |
-          sudo apt install p7zip-full unzip -y;
+          sudo apt install unzip -y;
 
           find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Core.Linux \;
           find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Core.Windows \;
@@ -371,21 +371,19 @@ jobs:
 
           cd ../../../../../../..
 
-          (cd build/Swiftly.Core.Linux; 7z a -tzip ../../../../Swiftly.Plugin.Linux.zip *)
-          (cd build/Swiftly.Core.Windows; 7z a -tzip ../../../../Swiftly.Plugin.Windows.zip *)
-          echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
+          echo "PATH_ARTIFACTS=$(pwd)" >> $GITHUB_ENV
 
       - name: Upload Artifacts Linux
         uses: actions/upload-artifact@v4
         with:
           name: Swiftly.Plugin.Linux
-          path: ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
+          path: ${{env.PATH_ARTIFACTS}}/build/Swiftly.Core.Linux
 
       - name: Upload Artifacts Windows
         uses: actions/upload-artifact@v4
         with:
           name: Swiftly.Plugin.Windows
-          path: ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip
+          path: ${{env.PATH_ARTIFACTS}}/build/Swiftly.Core.Windows
 
   release:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.head_commit.verification.verified == true }}
@@ -400,12 +398,6 @@ jobs:
         id: download-artifacts
         with:
           name: Swiftly.Plugin.Linux
-          path: build
-
-      - uses: actions/download-artifact@v4
-        id: download-artifacts-2
-        with:
-          name: Swiftly.Plugin.Windows
           path: build
 
       - uses: actions/download-artifact@v4
