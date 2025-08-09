@@ -28,6 +28,7 @@ export default function GenerateClassContent(pageContent, category) {
                 }
             }
             constructor += `\n    public ${pageContent.name}()\n    {\n    }`;
+            constructor += `\n    public ${pageContent.name}(IntPtr ptr_or_class)\n    {\n        this.m_classData = Internal_API.Invoker.CallNative<IntPtr>("${pageContent.name}", "${pageContent.name}", Internal_API.CallKind.ClassFunction, $"0x{ptr_or_class:X}");\n    }`;
         } else {
             if (typeof pageContent["constructor"] != "function" && !pageContent["constructor"].hide) {
                 constructor += `    public ${pageContent.name}(${ProcessFunctionParameters(pageContent["constructor"].arguments, "cs")}): base(Internal_API.Invoker.CallNative<IntPtr>("${pageContent.name}", "${pageContent.name}", Internal_API.CallKind.ClassFunction${processedParams}))\n    {\n    }`;
