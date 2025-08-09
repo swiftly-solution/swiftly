@@ -371,8 +371,8 @@ jobs:
 
           cd ../../../../../../..
 
-          (cd build/Swiftly.Core.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
-          (cd build/Swiftly.Core.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
+          (cd build/Swiftly.Core.Linux; 7z a -tzip ../../../../Swiftly.Plugin.Linux.zip *)
+          (cd build/Swiftly.Core.Windows; 7z a -tzip ../../../../Swiftly.Plugin.Windows.zip *)
           echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
 
       - name: Upload Artifacts Linux
@@ -391,7 +391,7 @@ jobs:
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.head_commit.verification.verified == true }}
     permissions:
       contents: write
-    needs: packer
+    needs: ["packer", "versioning"]
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
@@ -407,6 +407,27 @@ jobs:
         with:
           name: Swiftly.Plugin.Windows
           path: build
+
+      - uses: actions/download-artifact@v4
+        id: download-artifacts-2
+        with:
+          name: Swiftly.Plugin.Windows
+          path: build
+
+      - uses: actions/download-artifact@v4
+        id: download-managed
+        with:
+          name: swiftlys2-managed-${{ needs.versioning.outputs.version }}
+          path: build
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Prepare ZIP Files
+        run: |
+          dotnet nuget push build/swiftlys2-managed-${{ needs.versioning.outputs.version }}/SwiftlyS2.${{ needs.versioning.outputs.version }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Release
         id: release
