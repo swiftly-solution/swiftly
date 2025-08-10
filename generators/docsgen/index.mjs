@@ -61,7 +61,16 @@ for (const ent of cats) {
                 }
                 links[JSON.parse(readFileSync(page)).title.split(" ").join("")] = { pageKey, category: ent.key }
             } else {
-                metadata[origKey.replace(".json", "").split("/").slice(0, -1).join(".")].pages.push({ filePath: page, key: pageKey })
+                let cat = origKey.replace(".json", "").split("/").slice(0, -1).join(".")
+                if (!metadata[cat]) {
+                    metadata[cat] = {
+                        data: JSON.parse(readFileSync(`${ent.value}/${cat}/_index.json`)),
+                        category: ent.key,
+                        pages: []
+                    }
+                } else {
+                    metadata[cat].pages.push({ filePath: page, key: pageKey })
+                }
 
                 const pageData = JSON.parse(readFileSync(page))
                 if (pageData.kind == 'function') links[pageData.function] = { pageKey, category: ent.key }
