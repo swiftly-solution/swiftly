@@ -26,10 +26,10 @@ struct Stack<std::any>
     static void pushDotnet(EContext* ctx, CallContext* context, std::any value, bool shouldReturn = false)
     {
         if (shouldReturn) {
-            context->SetResult(value);
+            context->SetResult(pushRawDotnet(ctx, context, value));
         }
         else {
-            context->PushArgument(value);
+            context->PushArgument(pushRawDotnet(ctx, context, value));
         }
     }
 
