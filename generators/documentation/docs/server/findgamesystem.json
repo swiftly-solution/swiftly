@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "FindGameSystem",
+    "description": "Find the pointer of the game system with specified name. Return 0 if not found.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "Memory",
+    "games": "all"
+}

@@ -56,5 +56,11 @@ namespace SwiftlyS2.API.Scripting
             InitializeContext();
             Internal_API.Invoker.CallNative("Server", "TerminateRound", Internal_API.CallKind.CoreClassFunction, _ctx, delay, reason);
         }
+
+        public static IntPtr FindGameSystem(string name)
+        {
+            InitializeContext();
+            Internal_API.Invoker.CallNative("Server", "GetGameSystem", Internal_API.CallKind.CoreClassFunction, _ctx, name);
+        }
     }
 }

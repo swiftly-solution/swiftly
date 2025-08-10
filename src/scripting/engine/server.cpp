@@ -3,6 +3,7 @@
 #include <sdk/game.h>
 #include <utils/utils.h>
 #include <entities/system.h>
+#include <igamesystemfactory.h>
 
 #include <public/steam/isteamgameserver.h>
 
@@ -71,5 +72,11 @@ LoadScriptingComponent(server, [](PluginObject plugin, EContext* ctx) -> void {
 
         auto ip_addr = g_SteamAPI.SteamGameServer()->GetPublicIP();
         context->SetReturn(string_format("%d.%d.%d.%d", (ip_addr.m_unIPv4 >> 24) & 0xFF, (ip_addr.m_unIPv4 >> 16) & 0xFF, (ip_addr.m_unIPv4 >> 8) & 0xFF, ip_addr.m_unIPv4 & 0xff));
+    });
+
+    ADD_CLASS_FUNCTION("Server", "FindGameSystem", [](FunctionContext* context, ClassData* data) -> void {
+        std::string name = context->GetArgumentOr<std::string>(0, "");
+
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { {"ptr", (void*)CBaseGameSystemFactory::GetGlobalPtrByName(name.c_str()) } }));
     });
 });
