@@ -84,8 +84,9 @@ jobs:
         shell: bash
         run: |
           sudo apt update
-          sudo apt install -y libreadline-dev libboost-all-dev
+          sudo apt install -y libreadline-dev libboost-all-dev patchelf
           bash ./setup.sh
+          patchelf --set-rpath '$ORIGIN' build/package/addons/swiftly/bin/linuxsteamrt64/swiftly.so
 
       - name: Build - Windows
         if: matrix.os == 'windows-latest'
@@ -398,13 +399,13 @@ jobs:
         id: download-artifacts
         with:
           name: Swiftly.Plugin.Linux
-          path: build
+          path: buildlin
 
       - uses: actions/download-artifact@v4
         id: download-artifacts-2
         with:
           name: Swiftly.Plugin.Windows
-          path: build
+          path: buildwin
 
       - uses: actions/download-artifact@v4
         id: download-managed
@@ -429,5 +430,5 @@ jobs:
           make_latest: "true"
           body: "Changelog for this version can be found inside [CHANGELOG.md](https://github.com/swiftly-solution/swiftly/blob/master/CHANGELOG.md)"
           files: |
-            build/Swiftly.Plugin.Linux.zip
-            build/Swiftly.Plugin.Windows.zip
+            buildlin/Swiftly.Plugin.Linux.zip
+            buildwin/Swiftly.Plugin.Windows.zip
