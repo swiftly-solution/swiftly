@@ -386,7 +386,7 @@ jobs:
           path: ${{env.PATH_ARTIFACTS}}/build/Swiftly.Core.Windows
 
   release:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.head_commit.verification.verified == true }}
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
     permissions:
       contents: write
     needs: ["packer", "versioning"]
