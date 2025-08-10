@@ -1,0 +1,118 @@
+{
+    "kind": "class",
+    "name": "CGameScriptedMoveData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGameScriptedMoveData"
+    },
+    "properties": [
+        {
+            "name": "AccumulatedRootMotion",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AccumulatedRootMotionRotation",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Src",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Src1",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Current",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "LockedSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TeleportOnEnd",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IgnoreRotation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Success",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForcedCrouchState",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "IgnoreCollisions",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Dest",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Dst",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "DestEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

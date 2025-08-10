@@ -1,0 +1,1 @@
+{"kind":"command","name":"multvar","description":"Multiply specified convar value.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

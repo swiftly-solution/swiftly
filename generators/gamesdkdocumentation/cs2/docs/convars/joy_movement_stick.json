@@ -1,0 +1,1 @@
+{"kind":"command","name":"joy_movement_stick","description":"Which stick controls movement (0 is left stick)","args":"false","flags":["clientdll","archive","per_user"],"games":["cs2"]}

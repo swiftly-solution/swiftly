@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleHitboxBiasType_t","description":"Automatically generated game type from enum ParticleHitboxBiasType_t","values":{"PARTICLE_HITBOX_BIAS_ENTITY":0,"PARTICLE_HITBOX_BIAS_HITBOX":1},"games":["cs2"]}

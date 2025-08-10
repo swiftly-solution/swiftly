@@ -1,0 +1,1 @@
+{"kind":"command","name":"bindtoggle","description":"Performs a bind <key> \"increment var <cvar> 0 1 1\".","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

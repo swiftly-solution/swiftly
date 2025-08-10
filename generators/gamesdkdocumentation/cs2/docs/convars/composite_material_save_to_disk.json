@@ -1,0 +1,1 @@
+{"kind":"command","name":"composite_material_save_to_disk","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

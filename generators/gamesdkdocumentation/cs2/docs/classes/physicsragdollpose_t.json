@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "PhysicsRagdollPose_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PhysicsRagdollPose_t"
+    },
+    "properties": [
+        {
+            "name": "Owner",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "SetFromDebugHistory",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

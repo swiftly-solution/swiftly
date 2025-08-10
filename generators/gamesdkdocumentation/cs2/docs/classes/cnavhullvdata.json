@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "CNavHullVData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNavHullVData"
+    },
+    "properties": [
+        {
+            "name": "AgentEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AgentRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AgentHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AgentShortHeightEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AgentShortHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AgentCrawlEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AgentCrawlHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AgentMaxClimb",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AgentMaxSlope",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AgentMaxJumpDownDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AgentMaxJumpHorizDistBase",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AgentMaxJumpUpDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AgentBorderErosion",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FlowMapGenerationEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FlowMapNodeMaxRadius",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

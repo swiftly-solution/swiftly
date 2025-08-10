@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CStopAtGoalUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CStopAtGoalUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "OuterRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InnerRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Damping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

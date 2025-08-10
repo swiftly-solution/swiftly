@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "IsValid",
+    "description": "Checks if it's a valid player.",
+    "arguments": {},
+    "return": "bool",
+    "games": "all"
+}

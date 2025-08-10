@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_mark_attribute","description":"Set nav attribute for all areas in the selected set.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

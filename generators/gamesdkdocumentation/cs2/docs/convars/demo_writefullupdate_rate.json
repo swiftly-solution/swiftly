@@ -1,0 +1,1 @@
+{"kind":"command","name":"demo_writefullupdate_rate","description":"Interval time in seconds to write full updates to demo.","args":"60","flags":["developmentonly","defensive"],"games":["cs2"]}

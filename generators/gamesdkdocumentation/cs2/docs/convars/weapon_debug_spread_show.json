@@ -1,0 +1,1 @@
+{"kind":"command","name":"weapon_debug_spread_show","description":"Enables display of weapon accuracy; 1: show accuracy box, 3: show accuracy with dynamic crosshair","args":"0","flags":["clientdll","cheat","per_user"],"games":["cs2"]}

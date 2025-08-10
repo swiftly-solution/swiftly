@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CBtNodeConditionInactive",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBtNodeConditionInactive"
+    },
+    "properties": [
+        {
+            "name": "RoundStartThresholdSeconds",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SensorInactivityThresholdSeconds",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SensorInactivityTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBtNodeCondition",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

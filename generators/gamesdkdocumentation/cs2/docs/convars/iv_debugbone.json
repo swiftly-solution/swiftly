@@ -1,0 +1,1 @@
+{"kind":"command","name":"iv_debugbone","description":"Debug bone name for interpolation spew of CAnimationState.","args":"\"\"","flags":["release"],"games":["cs2"]}

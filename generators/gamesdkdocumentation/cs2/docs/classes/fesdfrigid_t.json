@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "FeSDFRigid_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeSDFRigid_t"
+    },
+    "properties": [
+        {
+            "name": "LocalMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LocalMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Bounciness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Node",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "CollisionMask",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "VertexMapIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Distances",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "Width",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Height",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Depth",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

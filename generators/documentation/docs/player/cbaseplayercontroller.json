@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "CBasePlayerController",
+    "description": "Returns the player's CBasePlayerController.",
+    "arguments": {},
+    "return": "CBasePlayerController",
+    "games": "all"
+}

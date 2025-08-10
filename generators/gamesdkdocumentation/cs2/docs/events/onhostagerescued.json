@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnHostageRescued","description":"This event is triggered when hostage_rescued is triggered.","arguments":{"userid":"int32","hostage":"int32","site":"int32"},"return":"void","games":["cs2"]}

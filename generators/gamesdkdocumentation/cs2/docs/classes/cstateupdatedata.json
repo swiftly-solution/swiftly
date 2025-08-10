@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CStateUpdateData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CStateUpdateData"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Script",
+            "type": "AnimScriptHandle",
+            "writable": false
+        },
+        {
+            "name": "TransitionIndices",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "StateID",
+            "type": "AnimStateID",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

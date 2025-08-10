@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CAudioEmphasisSample",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAudioEmphasisSample"
+    },
+    "properties": [
+        {
+            "name": "Time",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Value",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

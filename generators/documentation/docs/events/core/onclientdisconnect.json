@@ -1,0 +1,11 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnClientDisconnect",
+    "description": "This game event is triggered when a client disconnects.",
+    "arguments": {
+        "playerid": "int32"
+    },
+    "return": "void",
+    "games": "all"
+}

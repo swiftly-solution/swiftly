@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "VMixPitchShiftDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixPitchShiftDesc_t"
+    },
+    "properties": [
+        {
+            "name": "GrainSampleCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PitchShift",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Quality",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ProcType",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

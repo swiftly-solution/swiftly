@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CAnimComponentUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimComponentUpdater"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Id",
+            "type": "AnimComponentID",
+            "writable": false
+        },
+        {
+            "name": "NetworkMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StartEnabled",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

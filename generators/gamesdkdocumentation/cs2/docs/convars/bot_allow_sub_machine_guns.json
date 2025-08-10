@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_allow_sub_machine_guns","description":"If nonzero, bots may use sub-machine guns.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

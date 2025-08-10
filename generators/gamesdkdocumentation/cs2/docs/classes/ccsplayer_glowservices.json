@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CCSPlayer_GlowServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayer_GlowServices"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CPlayerPawnComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

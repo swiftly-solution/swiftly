@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_show_team_equipment_prohibit","description":"Determines whether +cl_show_team_equipment is prohibited.","args":"false","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

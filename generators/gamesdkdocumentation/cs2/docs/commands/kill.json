@@ -1,0 +1,1 @@
+{"kind":"command","name":"kill","description":"Kills the player with generic damage","args":"","flags":["gamedll","cheat","client_can_execute"],"games":["cs2"]}

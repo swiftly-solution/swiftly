@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "ActiveModelConfig_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ActiveModelConfig_t"
+    },
+    "properties": [
+        {
+            "name": "Handle",
+            "type": "ModelConfigHandle_t",
+            "writable": false
+        },
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AssociatedEntityNames",
+            "type": "string[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

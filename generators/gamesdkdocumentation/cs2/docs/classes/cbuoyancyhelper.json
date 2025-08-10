@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CBuoyancyHelper",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBuoyancyHelper"
+    },
+    "properties": [
+        {
+            "name": "FluidType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FluidDensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NeutrallyBuoyantGravity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NeutrallyBuoyantLinearDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NeutrallyBuoyantAngularDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NeutrallyBuoyant",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FractionOfWheelSubmergedForWheelFriction",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "WheelFrictionScales",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "FractionOfWheelSubmergedForWheelDrag",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "WheelDrag",
+            "type": "float[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

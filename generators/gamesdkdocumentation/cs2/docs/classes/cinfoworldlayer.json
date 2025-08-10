@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CInfoWorldLayer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CInfoWorldLayer"
+    },
+    "properties": [
+        {
+            "name": "OutputOnEntitiesSpawned",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "WorldName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LayerName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "WorldLayerVisible",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EntitiesSpawned",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CreateAsChildSpawnGroup",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LayerSpawnGroup",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

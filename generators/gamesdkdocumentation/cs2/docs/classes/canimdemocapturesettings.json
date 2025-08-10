@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CAnimDemoCaptureSettings",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimDemoCaptureSettings"
+    },
+    "properties": [
+        {
+            "name": "ErrorRangeSplineRotation",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "ErrorRangeSplineTranslation",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "ErrorRangeSplineScale",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "IkRotation_MaxSplineError",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IkTranslation_MaxSplineError",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ErrorRangeQuantizationRotation",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "ErrorRangeQuantizationTranslation",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "ErrorRangeQuantizationScale",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "IkRotation_MaxQuantizationError",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IkTranslation_MaxQuantizationError",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseSequence",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BaseSequenceFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BoneSelectionMode",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

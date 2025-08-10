@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CBot",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBot"
+    },
+    "properties": [
+        {
+            "name": "Controller",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Player",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "HasSpawned",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Id",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "IsRunning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsCrouching",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForwardSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LeftSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VerticalSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ButtonFlags",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "JumpTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ViewForward",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PostureStackIndex",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

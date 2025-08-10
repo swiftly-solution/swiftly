@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "VertexPositionNormal_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VertexPositionNormal_t"
+    },
+    "properties": [
+        {
+            "name": "Position",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Normal",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

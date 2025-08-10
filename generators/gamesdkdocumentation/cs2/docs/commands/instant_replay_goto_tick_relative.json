@@ -1,0 +1,1 @@
+{"kind":"command","name":"instant_replay_goto_tick_relative","description":"Goto a direct timestamp of the replay","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,728 @@
+{
+    "kind": "class",
+    "name": "CCSBot",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSBot"
+    },
+    "properties": [
+        {
+            "name": "EyePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CombatRange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsRogue",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RogueTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "DiedLastRound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SafeTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WasSafe",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BlindFire",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SurpriseTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "AllowActive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsFollowing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Leader",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "FollowTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AllowAutoFollowTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HurryTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "AlertTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "SneakTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "PanicTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "StateTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsAttacking",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsOpeningDoor",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TaskEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "GoalPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "GoalEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Avoid",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "AvoidTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsStopping",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasVisitedEnemySpawn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StillTimer",
+            "type": "IntervalTimer",
+            "writable": false
+        },
+        {
+            "name": "EyeAnglesUnderPathFinderControl",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PathIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AreaEnteredTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RepathTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "AvoidFriendTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "IsFriendInTheWay",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PoliteTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "IsWaitingBehindFriend",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PathLadderEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MustRunTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "WaitTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "UpdateTravelDistanceTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "PlayerTravelDistance",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "TravelDistancePhase",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "HostageEscortCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "HostageEscortCountTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DesiredTeam",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HasJoined",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsWaitingForHostage",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InhibitWaitingForHostageTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "WaitForHostageTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "NoisePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "NoiseTravelDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseSource",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "NoiseBendTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "BentNoisePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BendNoisePositionValid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LookAroundStateTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookAheadAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ForwardAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InhibitLookAroundTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookAtSpot",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LookAtSpotDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookAtSpotTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookAtSpotAngleTolerance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookAtSpotClearIfClose",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LookAtSpotAttack",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LookAtDesc",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "PeripheralTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ApproachPointCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ApproachPointViewPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ViewSteadyTimer",
+            "type": "IntervalTimer",
+            "writable": false
+        },
+        {
+            "name": "TossGrenadeTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "IsAvoidingGrenade",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "SpotCheckTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CheckedHidingSpotCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LookPitch",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookPitchVel",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookYaw",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookYawVel",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TargetSpot",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TargetSpotVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TargetSpotPredicted",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AimError",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "AimGoal",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "TargetSpotTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AimFocus",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AimFocusInterval",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AimFocusNextUpdate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IgnoreEnemiesTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "Enemy",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "IsEnemyVisible",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "VisibleEnemyParts",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "LastEnemyPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastSawEnemyTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FirstSawEnemyTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurrentEnemyAcquireTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnemyDeathTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FriendDeathTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsLastEnemyDead",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NearbyEnemyCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Bomber",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "NearbyFriendCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ClosestVisibleFriend",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "ClosestVisibleHumanFriend",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "AttentionInterval",
+            "type": "IntervalTimer",
+            "writable": false
+        },
+        {
+            "name": "Attacker",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "AttackedTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BurnedByFlamesTimer",
+            "type": "IntervalTimer",
+            "writable": false
+        },
+        {
+            "name": "LastVictimID",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsAimingAtEnemy",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsRapidFiring",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EquipTimer",
+            "type": "IntervalTimer",
+            "writable": false
+        },
+        {
+            "name": "ZoomTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "FireWeaponTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookForWeaponsOnGroundTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "IsSleeping",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsEnemySniperVisible",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SawEnemySniperTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "EnemyQueueIndex",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "EnemyQueueCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "EnemyQueueAttendIndex",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "IsStuck",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StuckTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StuckSpot",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "WiggleTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "StuckJumpTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "NextCleanupCheckTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AvgVel",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "AvgVelIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AvgVelCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastRadioRecievedTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastRadioSentTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RadioSubject",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "RadioPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "VoiceEndTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastValidReactionQueueFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBot",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

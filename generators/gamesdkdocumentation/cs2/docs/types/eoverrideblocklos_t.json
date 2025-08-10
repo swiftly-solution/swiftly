@@ -1,0 +1,1 @@
+{"kind":"type","name":"EOverrideBlockLOS_t","description":"Automatically generated game type from enum EOverrideBlockLOS_t","values":{"BLOCK_LOS_DEFAULT":0,"BLOCK_LOS_FORCE_FALSE":1,"BLOCK_LOS_FORCE_TRUE":2},"games":["cs2"]}

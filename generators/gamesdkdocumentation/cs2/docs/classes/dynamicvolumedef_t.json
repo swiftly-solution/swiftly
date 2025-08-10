@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "DynamicVolumeDef_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "DynamicVolumeDef_t"
+    },
+    "properties": [
+        {
+            "name": "Source",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Target",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "HullIdx",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SourceAnchorPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TargetAnchorPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AreaSrc",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AreaDst",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Attached",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

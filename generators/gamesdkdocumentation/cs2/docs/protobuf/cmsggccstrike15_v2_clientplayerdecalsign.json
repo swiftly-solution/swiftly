@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"data","type":"PlayerDecalDigitalSignature"},{"name":"itemid","type":"uint64"}],"name":"CMsgGCCStrike15_v2_ClientPlayerDecalSign","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"crash_error_job","description":"Cause the engine to crash by Plat_FatalError on job thread (Debug!!)","args":"","flags":["cheat"],"games":["cs2"]}

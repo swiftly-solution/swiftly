@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CSAdditionalMatchStats_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSAdditionalMatchStats_t"
+    },
+    "properties": [
+        {
+            "name": "NumRoundsSurvived",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxNumRoundsSurvived",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumRoundsSurvivedTotal",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundsWonWithoutPurchase",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundsWonWithoutPurchaseTotal",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumFirstKills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumClutchKills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumPistolKills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumSniperKills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumSuicides",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumTeamKills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TeamDamage",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSAdditionalPerRoundStats_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

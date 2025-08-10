@@ -1,0 +1,1 @@
+{"kind":"command","name":"dump_panorama_events","description":"print panorama event types and their documentation","args":"","flags":["release"],"games":["cs2"]}

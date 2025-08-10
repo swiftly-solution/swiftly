@@ -1,0 +1,1 @@
+{"kind":"command","name":"collect_entity_model_name","description":"Collect model names of the entities you're pointing at","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "FeTreeChildren_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeTreeChildren_t"
+    },
+    "properties": [
+        {
+            "name": "Child",
+            "type": "uint16[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

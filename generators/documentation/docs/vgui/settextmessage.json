@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "SetTextMessage",
+    "description": "Sets the message of a text.",
+    "arguments": {
+        "textID": "int64",
+        "message": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

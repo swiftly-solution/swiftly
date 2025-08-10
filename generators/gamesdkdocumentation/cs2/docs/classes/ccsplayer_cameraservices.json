@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CCSPlayer_CameraServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayer_CameraServices"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CCSPlayerBase_CameraServices",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

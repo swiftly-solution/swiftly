@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CEnvSoundscape",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvSoundscape"
+    },
+    "properties": [
+        {
+            "name": "OnPlay",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoundEventName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OverrideWithEvent",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SoundscapeIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SoundscapeEntityListId",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PositionNames",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "ProxySoundscape",
+            "type": "CEnvSoundscape",
+            "writable": false
+        },
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SoundscapeName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundEventHash",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

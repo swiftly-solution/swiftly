@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"progress","type":"int32"}],"name":"CCLCMsg_LoadingProgress","games":["cs2"]}

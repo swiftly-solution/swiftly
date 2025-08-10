@@ -1,0 +1,1 @@
+{"kind":"command","name":"autobuy","description":"Attempt to purchase items with the order listed in cl_autobuy","args":"","flags":["clientdll","clientcmd_can_execute"],"games":["cs2"]}

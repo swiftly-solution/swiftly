@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CTonemapTrigger",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTonemapTrigger"
+    },
+    "properties": [
+        {
+            "name": "TonemapControllerName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TonemapController",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

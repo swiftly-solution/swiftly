@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "ChangeMap",
+    "description": "Change the map in the specified one.",
+    "arguments": {
+        "map": "string",
+        "workshop": "bool"
+    },
+    "return": "void",
+    "games": "all"
+}

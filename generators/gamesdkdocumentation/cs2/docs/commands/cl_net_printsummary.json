@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_net_printsummary","description":"Print a summary report of Source2 engine networking statistics.  (Ticks, netchan messages, etc.)","args":"","flags":["dontrecord","release"],"games":["cs2"]}

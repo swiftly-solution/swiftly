@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"eventId","type":"uint32"},{"name":"groupMatchTeamPicks","type":"CMsgGCCStrike15_v2_Predictions.GroupMatchTeamPick"}],"name":"CMsgGCCStrike15_v2_Predictions","games":["cs2"]}

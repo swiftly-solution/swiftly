@@ -1,0 +1,1 @@
+{"kind":"type","name":"MaterialProxyType_t","description":"Automatically generated game type from enum MaterialProxyType_t","values":{"MATERIAL_PROXY_STATUS_EFFECT":0,"MATERIAL_PROXY_TINT":1},"games":["cs2"]}

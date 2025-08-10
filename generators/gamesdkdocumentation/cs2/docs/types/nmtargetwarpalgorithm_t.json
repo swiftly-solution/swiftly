@@ -1,0 +1,1 @@
+{"kind":"type","name":"NmTargetWarpAlgorithm_t","description":"Automatically generated game type from enum NmTargetWarpAlgorithm_t","values":{"Lerp":0,"Hermite":1,"HermiteFeaturePreserving":2,"Bezier":3},"games":["cs2"]}

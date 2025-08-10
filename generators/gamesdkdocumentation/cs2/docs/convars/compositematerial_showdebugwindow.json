@@ -1,0 +1,1 @@
+{"kind":"command","name":"compositematerial_showdebugwindow","description":"Source2/Composite Material Debug","args":"false","flags":["developmentonly","clientdll","archive","replicated","cheat","menubar_item"],"games":["cs2"]}

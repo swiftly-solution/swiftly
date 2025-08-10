@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPlayerScore","description":"This event is triggered when player_score is triggered.","arguments":{"userid":"int32","kills":"int32","deaths":"int32","score":"int32"},"return":"void","games":["cs2"]}

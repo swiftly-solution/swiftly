@@ -13,9 +13,9 @@ public:
 	CBitVec<MAX_EDICTS>* m_pTransmitAlways; // 32
 	CUtlVector<int> m_unk40;				// 40
 	vis_info_t* m_VisInfo;					// 64
-	[[maybe_unused]] byte m_unk72[0x200];	// 72
-	CEntityIndex m_nClientEntityIndex;		// 584
-	bool m_bFullUpdate;						// 588
+	[[maybe_unused]] byte m_unk72[0x1F8];	// 72
+	CEntityIndex m_nClientEntityIndex;		// 576
+	bool m_bFullUpdate;						// 580
 };
 
 #endif

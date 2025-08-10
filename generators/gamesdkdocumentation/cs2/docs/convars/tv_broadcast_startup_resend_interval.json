@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_broadcast_startup_resend_interval","description":"The interval, in seconds, of re-sending startup data to the broadcast relay server (useful in case relay crashes, restarts or startup data http request fails)","args":"10","flags":["release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cv_bot_ai_bt_hiding_spot_show","description":"Draw hiding spots.","args":"false","flags":["gamedll","replicated","cheat"],"games":["cs2"]}

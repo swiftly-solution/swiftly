@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CPlatTrigger",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPlatTrigger"
+    },
+    "properties": [
+        {
+            "name": "Platform",
+            "type": "CFuncPlat",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

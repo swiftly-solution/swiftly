@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetPtr",
+    "description": "Returns the pointer which is being hold by the class.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}

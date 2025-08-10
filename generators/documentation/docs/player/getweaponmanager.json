@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetWeaponManager",
+    "description": "Returns the Weapon Manager for the player.",
+    "arguments": {},
+    "return": "WeaponManager",
+    "games": "all"
+}

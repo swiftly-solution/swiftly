@@ -1,0 +1,1 @@
+{"kind":"command","name":"dump_secondary_scene_worlds","description":"Lists secondary scene worlds and ref counts","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

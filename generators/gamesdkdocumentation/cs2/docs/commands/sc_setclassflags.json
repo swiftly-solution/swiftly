@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_setclassflags","description":"Low level command to set the flags byte associated with an object class. sc_SetClassFlags <classname> <value>","args":"","flags":["cheat"],"games":["cs2"]}

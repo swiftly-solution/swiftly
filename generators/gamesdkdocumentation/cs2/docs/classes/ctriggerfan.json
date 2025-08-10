@@ -1,0 +1,148 @@
+{
+    "kind": "class",
+    "name": "CTriggerFan",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerFan"
+    },
+    "properties": [
+        {
+            "name": "FanOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FanOriginOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FanEnd",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "NoiseDirectionTarget",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Direction",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PushTowardsInfoTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PushAwayFromInfoTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InfoFan",
+            "type": "CInfoFan",
+            "writable": false
+        },
+        {
+            "name": "Force",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Falloff",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RampTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "InfoFan1",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "RopeForceScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ParticleForceScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PlayerForce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PlayerWindblock",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NPCForce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RampTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseDegrees",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PushPlayer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RampDown",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ManagerFanIdx",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

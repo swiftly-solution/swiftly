@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_footsteps_serverside","description":"Makes the server always play footstep sounds. Clients never calculate footstep sounds locally, instead relying on the server.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

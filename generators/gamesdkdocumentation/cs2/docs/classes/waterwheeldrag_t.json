@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "WaterWheelDrag_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "WaterWheelDrag_t"
+    },
+    "properties": [
+        {
+            "name": "FractionOfWheelSubmerged",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WheelDrag",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

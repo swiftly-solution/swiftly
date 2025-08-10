@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CAnimationGraphVisualizerText",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimationGraphVisualizerText"
+    },
+    "properties": [
+        {
+            "name": "WsPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Text",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimationGraphVisualizerPrimitiveBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnRoundTimeWarning","description":"This event is triggered when round_time_warning is triggered.","arguments":{},"return":"void","games":["cs2"]}

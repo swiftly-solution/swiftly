@@ -1,0 +1,11 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnEntityParentChanged",
+    "description": "This game event is triggered when an entity parent has been changed.",
+    "arguments": {
+        "entityptr": "CEntityInstance"
+    },
+    "return": "void",
+    "games": "all"
+}

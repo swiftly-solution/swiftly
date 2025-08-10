@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "ExecuteCommand",
+    "description": "Executes a command on behalf of a player.",
+    "arguments": {
+        "command": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

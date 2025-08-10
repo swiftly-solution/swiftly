@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_t_default_secondary","description":"The default secondary (pistol) weapon that the Ts will spawn with","args":"\"weapon_glock\"","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

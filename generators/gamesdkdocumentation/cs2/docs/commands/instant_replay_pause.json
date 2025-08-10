@@ -1,0 +1,1 @@
+{"kind":"command","name":"instant_replay_pause","description":"Pauses instant replay.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

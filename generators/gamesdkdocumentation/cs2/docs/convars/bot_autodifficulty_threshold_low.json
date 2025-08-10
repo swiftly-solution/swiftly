@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_autodifficulty_threshold_low","description":"Lower bound below Average Human Contribution Score that a bot must be below to change its difficulty","args":"-2","flags":["min:","-20,","max:","20,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_print_dead_materials","description":"Print loaded materials that have no valid layers due to not supporting any of the modes in gameinfo.gi.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

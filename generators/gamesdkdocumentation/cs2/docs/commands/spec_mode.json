@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_mode","description":"Set spectator mode","args":"","flags":["clientdll","clientcmd_can_execute"],"games":["cs2"]}

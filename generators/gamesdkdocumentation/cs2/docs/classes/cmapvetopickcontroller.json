@@ -1,0 +1,128 @@
+{
+    "kind": "class",
+    "name": "CMapVetoPickController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMapVetoPickController"
+    },
+    "properties": [
+        {
+            "name": "PlayedIntroVcd",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NeedToPlayFiveSecondsRemaining",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DblPreMatchDraftSequenceTime",
+            "type": "double",
+            "writable": true
+        },
+        {
+            "name": "PreMatchDraftStateChanged",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DraftType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TeamWinningCoinToss",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TeamWithFirstChoice",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "VoteMapIdsList",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "AccountIDs",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MapId0",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MapId1",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MapId2",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MapId3",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MapId4",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MapId5",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "StartingSide0",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "CurrentPhase",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PhaseStartTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PhaseDurationTicks",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

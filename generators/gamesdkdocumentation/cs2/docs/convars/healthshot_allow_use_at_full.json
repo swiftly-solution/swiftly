@@ -1,0 +1,1 @@
+{"kind":"command","name":"healthshot_allow_use_at_full","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

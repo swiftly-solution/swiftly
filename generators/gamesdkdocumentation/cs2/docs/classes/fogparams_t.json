@@ -1,0 +1,153 @@
+{
+    "kind": "class",
+    "name": "fogparams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "fogparams_t"
+    },
+    "properties": [
+        {
+            "name": "DirPrimary",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ColorPrimary",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "ColorSecondary",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "ColorPrimaryLerpTo",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "ColorSecondaryLerpTo",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Start",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "End",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Farz",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Maxdensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Exponent",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HDRColorScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SkyboxFogFactor",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SkyboxFogFactorLerpTo",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartLerpTo",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EndLerpTo",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxdensityLerpTo",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Lerptime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Blendtobackground",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Scattering",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Locallightscale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Enable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Blend",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Padding2",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Padding",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

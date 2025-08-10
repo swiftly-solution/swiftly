@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CExpressionActionUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CExpressionActionUpdater"
+    },
+    "properties": [
+        {
+            "name": "Param",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParamType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Script",
+            "type": "AnimScriptHandle",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimActionUpdater",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_delete_all_hull","description":"Deletes all areas with given hull category.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

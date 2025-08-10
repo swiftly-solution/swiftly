@@ -1,0 +1,1 @@
+{"kind":"type","name":"FuncDoorSpawnPos_t","description":"Automatically generated game type from enum FuncDoorSpawnPos_t","values":{"FUNC_DOOR_SPAWN_CLOSED":0,"FUNC_DOOR_SPAWN_OPEN":1},"games":["cs2"]}

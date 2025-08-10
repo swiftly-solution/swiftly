@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"etype","type":"int32"},{"name":"vectors","type":"CMsgVector"},{"name":"colors","type":"CMsgRGBA"},{"name":"dimensions","type":"float"},{"name":"times","type":"float"},{"name":"bools","type":"bool"},{"name":"uint64s","type":"uint64"},{"name":"strings","type":"string"}],"name":"CNETMsg_DebugOverlay","games":["cs2"]}

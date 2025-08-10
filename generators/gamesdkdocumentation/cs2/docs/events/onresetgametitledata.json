@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnResetGameTitledata","description":"This event is triggered when reset_game_titledata is triggered.","arguments":{"controllerId":"int32"},"return":"void","games":["cs2"]}

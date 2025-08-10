@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_cascade_mask","description":"Bitfield describing which cascades to generate/use SST for. (OR'd 1UL<<cascadeIndex, default is 1UL<<2 only, i.e. just cascade 2)","args":"4","flags":["developmentonly"],"games":["cs2"]}

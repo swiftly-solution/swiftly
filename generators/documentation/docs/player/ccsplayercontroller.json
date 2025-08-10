@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "CCSPlayerController",
+    "description": "Returns the player's CCSPlayerController.",
+    "arguments": {},
+    "return": "CCSPlayerController",
+    "games": "all"
+}

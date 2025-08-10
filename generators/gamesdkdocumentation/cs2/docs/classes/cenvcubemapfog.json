@@ -1,0 +1,113 @@
+{
+    "kind": "class",
+    "name": "CEnvCubemapFog",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvCubemapFog"
+    },
+    "properties": [
+        {
+            "name": "EndDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogFalloffExponent",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HeightFogEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FogHeightWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogHeightEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogHeightStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogHeightExponent",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LODBias",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FogMaxOpacity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CubemapSourceType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SkyEntity",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "HasHeightFogEnd",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FirstTime",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

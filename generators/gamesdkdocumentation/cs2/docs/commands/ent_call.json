@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_call","description":"ent_call <funcname> <option:entname> calls function on current look target or filtername, checks on ent, then root, then mode, then map scope","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

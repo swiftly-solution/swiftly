@@ -1,0 +1,1 @@
+{"kind":"command","name":"noclip","description":"Toggle. Player becomes non-solid and flies.  Optional argument of 0 or 1 to force enable/disable","args":"","flags":["gamedll","cheat","client_can_execute"],"games":["cs2"]}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CIntAnimParameter",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CIntAnimParameter"
+    },
+    "properties": [
+        {
+            "name": "DefaultValue",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MinValue",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxValue",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CConcreteAnimParameter",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

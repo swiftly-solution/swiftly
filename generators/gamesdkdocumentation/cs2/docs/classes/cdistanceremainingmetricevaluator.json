@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CDistanceRemainingMetricEvaluator",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDistanceRemainingMetricEvaluator"
+    },
+    "properties": [
+        {
+            "name": "MaxDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartGoalFilterDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxGoalOvershootScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FilterFixedMinDistance",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FilterGoalDistance",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FilterGoalOvershoot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CMotionMetricEvaluator",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

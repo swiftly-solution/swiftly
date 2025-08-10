@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CVoiceContainerAmpedDecayingSineWave",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVoiceContainerAmpedDecayingSineWave"
+    },
+    "properties": [
+        {
+            "name": "GainAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CVoiceContainerDecayingSineWave",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

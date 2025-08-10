@@ -1,0 +1,1 @@
+{"kind":"command","name":"ik_debug_fabrik_forwards_iteration_toggle","description":"<no description>","args":"","flags":["linked_concommand","developmentonly","defensive"],"games":["cs2"]}

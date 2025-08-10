@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_allow_dynamic_constant_batching","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

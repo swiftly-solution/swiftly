@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostClientsideReloadCustomEcon","description":"This event is triggered after clientside_reload_custom_econ is triggered.","arguments":{"steamid":"string"},"return":"void","games":["cs2"]}

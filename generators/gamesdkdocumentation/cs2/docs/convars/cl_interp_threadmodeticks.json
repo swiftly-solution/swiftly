@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_interp_threadmodeticks","description":"Additional interpolation ticks to use when interpolating with threaded engine mode set.","args":"0","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CBaseMoveBehavior",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseMoveBehavior"
+    },
+    "properties": [
+        {
+            "name": "PositionInterpolator",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RotationInterpolator",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AnimStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnimEndTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AverageSpeedAcrossFrame",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurrentKeyFrame",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "TargetKeyFrame",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "PreKeyFrame",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "PostKeyFrame",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "TimeIntoFrame",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Direction",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPathKeyFrame",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

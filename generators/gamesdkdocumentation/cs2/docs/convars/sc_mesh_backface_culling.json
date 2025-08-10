@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_mesh_backface_culling","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

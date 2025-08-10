@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CLogicRelay",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicRelay"
+    },
+    "properties": [
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WaitForRefire",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TriggerOnce",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FastRetrigger",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PassthoughCaller",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

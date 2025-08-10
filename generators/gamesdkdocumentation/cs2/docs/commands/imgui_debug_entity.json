@@ -1,0 +1,1 @@
+{"kind":"command","name":"imgui_debug_entity","description":"Shows the entity browser, focused on the entity you specify.","args":"   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}","flags":["gamedll","cheat"],"games":["cs2"]}

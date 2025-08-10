@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "AccessVTableFromOffset",
+    "description": "Accesses the VTable at the specified offset from `offsets.json`.",
+    "arguments": {
+        "offsetName": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

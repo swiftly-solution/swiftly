@@ -1,0 +1,1 @@
+{"kind":"command","name":"phys_dump_memory","description":"Dump memory usage","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

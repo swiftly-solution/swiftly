@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CSeqSynthAnimDesc",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSeqSynthAnimDesc"
+    },
+    "properties": [
+        {
+            "name": "Flags",
+            "type": "CSeqSeqDescFlag",
+            "writable": false
+        },
+        {
+            "name": "Transition",
+            "type": "CSeqTransition",
+            "writable": false
+        },
+        {
+            "name": "LocalBaseReference",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "LocalBoneMask",
+            "type": "int16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CAnimationGraphVisualizerSphere",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimationGraphVisualizerSphere"
+    },
+    "properties": [
+        {
+            "name": "WsPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimationGraphVisualizerPrimitiveBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

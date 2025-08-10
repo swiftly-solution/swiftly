@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_drawtracers_firstperson","description":"Toggle visibility of first person weapon tracers","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

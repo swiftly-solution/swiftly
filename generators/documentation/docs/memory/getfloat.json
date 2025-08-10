@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetFloat",
+    "description": "Returns the float value at the memory address.",
+    "arguments": {},
+    "return": "float",
+    "games": "all"
+}

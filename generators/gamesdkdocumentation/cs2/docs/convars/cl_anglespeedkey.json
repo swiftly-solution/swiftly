@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_anglespeedkey","description":"<no description>","args":"0.67","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

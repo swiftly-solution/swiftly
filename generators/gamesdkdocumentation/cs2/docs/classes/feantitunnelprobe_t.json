@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "FeAntiTunnelProbe_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeAntiTunnelProbe_t"
+    },
+    "properties": [
+        {
+            "name": "Weight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ProbeNode",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Count",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Begin",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ActivationDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurvatureRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Bias",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

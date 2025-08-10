@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_texture_pool_size","description":"Total size of the texture pool in MB","args":"1600","flags":["developmentonly","defensive"],"games":["cs2"]}

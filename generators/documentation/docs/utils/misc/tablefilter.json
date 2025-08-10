@@ -1,0 +1,20 @@
+{
+    "kind": "function",
+    "function": "Table Filter",
+    "override_variable": true,
+    "override_function": {
+        "lua": "table.filter"
+    },
+    "description": "Filters elements of a table based on a provided predicate function, returning a new table with elements that satisfy the condition.",
+    "arguments": {
+        "list": "any[]",
+        "callback": {
+            "arguments": {
+                "element": "any"
+            },
+            "return": "bool"
+        }
+    },
+    "return": "any[]",
+    "games": "all"
+}

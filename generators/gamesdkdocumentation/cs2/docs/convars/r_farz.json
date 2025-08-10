@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_farz","description":"Override the far clipping plane. -1 means to use the value in env_fog_controller.","args":"-1","flags":["clientdll","cheat"],"games":["cs2"]}

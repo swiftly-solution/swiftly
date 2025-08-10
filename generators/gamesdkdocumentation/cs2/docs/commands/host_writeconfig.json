@@ -1,0 +1,1 @@
+{"kind":"command","name":"host_writeconfig","description":"Saves out the user config values.","args":"","flags":["release"],"games":["cs2"]}

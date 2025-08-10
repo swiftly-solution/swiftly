@@ -36,6 +36,8 @@ void SwiftlyCommand(const CCommandContext& context, const CCommand& args)
         SwiftlyStatus(slot);
     else if (subcmd == "chat")
         SwiftlyChatManager(slot, args[2]);
+    else if (subcmd == "gc")
+        SwiftlyGCManager(slot, args[2], args[3]);
     else
         ShowSwiftlyCommandHelp(slot);
 }

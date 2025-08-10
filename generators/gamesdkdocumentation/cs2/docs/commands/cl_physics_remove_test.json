@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_physics_remove_test","description":"remove test object","args":"","flags":["developmentonly","clientdll"],"games":["cs2"]}

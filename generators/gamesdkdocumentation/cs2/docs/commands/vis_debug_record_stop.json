@@ -1,0 +1,1 @@
+{"kind":"command","name":"vis_debug_record_stop","description":"Record a path to debug vis","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

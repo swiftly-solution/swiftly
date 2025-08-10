@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CDecoyGrenade",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDecoyGrenade"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CBaseCSGrenade",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

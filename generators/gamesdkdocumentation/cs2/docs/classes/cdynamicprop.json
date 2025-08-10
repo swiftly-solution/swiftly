@@ -1,0 +1,143 @@
+{
+    "kind": "class",
+    "name": "CDynamicProp",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDynamicProp"
+    },
+    "properties": [
+        {
+            "name": "CreateNavObstacle",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NavObstacleUpdatesOverridden",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseHitboxesForRenderBox",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseAnimGraph",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OutputAnimBegun",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OutputAnimOver",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OutputAnimLoopCycleOver",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnAnimReachedStart",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnAnimReachedEnd",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "IdleAnim",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "IdleAnimLoopMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "RandomizeCycle",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FiredStartEndOutput",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForceNpcExclude",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CreateNonSolid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsOverrideProp",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InitialGlowState",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowRange",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowRangeMin",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GlowColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "GlowTeam",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBreakableProp",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

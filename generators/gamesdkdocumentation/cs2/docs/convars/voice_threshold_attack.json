@@ -1,0 +1,1 @@
+{"kind":"command","name":"voice_threshold_attack","description":"Amount of time we buffer outgoing audio to detect an onset.","args":"0.3","flags":["developmentonly"],"games":["cs2"]}

@@ -4,7 +4,16 @@
 
 #include <utils/utils.h>
 #include <utils/platform/platform.h>
+#include <entity2/entityinstance.h>
 #include <ehandle.h>
+
+#ifndef WIN_LINUX
+#ifdef _WIN32
+#define WIN_LINUX(win,linux) win
+#else
+#define WIN_LINUX(win,linux) linux
+#endif
+#endif
 
 extern CSchemaSystem* g_pSchemaSystem2;
 
@@ -23,26 +32,26 @@ static bool IsFieldNetworked(SchemaClassFieldData_t& field)
     return false;
 }
 
-bool IsStandardLayoutClass(SchemaClassInfoData_t *classData) {
+bool IsStandardLayoutClass(SchemaClassInfoData_t* classData) {
     {
         auto pClass = classData;
         int classesWithFields = 0;
         do {
             classesWithFields += ((pClass->m_nSize > 1) || (pClass->m_nFieldCount != 0)) ? 1 : 0;
 
-            if(classesWithFields > 1) return false;
+            if (classesWithFields > 1) return false;
 
             pClass = (pClass->m_pBaseClasses == nullptr) ? nullptr : pClass->m_pBaseClasses->m_pClass;
-        } while(pClass != nullptr);
+        } while (pClass != nullptr);
     }
 
     auto fields = classData->m_pFields;
     auto fieldsCount = classData->m_nFieldCount;
-    for(uint16_t i = 0; i < fieldsCount; i++) {
+    for (uint16_t i = 0; i < fieldsCount; i++) {
         auto fieldType = fields[i].m_pType;
-        if(fieldType->m_eTypeCategory == SchemaTypeCategory_t::SCHEMA_TYPE_DECLARED_CLASS) {
+        if (fieldType->m_eTypeCategory == SchemaTypeCategory_t::SCHEMA_TYPE_DECLARED_CLASS) {
             CSchemaType_DeclaredClass* fClass = reinterpret_cast<CSchemaType_DeclaredClass*>(fieldType);
-            if(fClass->m_pClassInfo && !IsStandardLayoutClass(fClass->m_pClassInfo)) return false;
+            if (fClass->m_pClassInfo && !IsStandardLayoutClass(fClass->m_pClassInfo)) return false;
         }
     }
 
@@ -52,24 +61,24 @@ bool IsStandardLayoutClass(SchemaClassInfoData_t *classData) {
 void PopulateClassData(const char* className, uint32_t classOffset)
 {
     CSchemaSystemTypeScope* pType = g_pSchemaSystem2->FindTypeScopeForModule(MODULE_PREFIX "server" MODULE_EXT);
-    if(!pType) return;
+    if (!pType) return;
 
     auto classData = pType->FindDeclaredClass(className).Get();
 
-    if(!classData) return;
+    if (!classData) return;
 
     isClassLoaded.insert(classOffset);
 
-    if(structCache.find(classOffset) == structCache.end())
-        if(IsStandardLayoutClass(classData))
+    if (structCache.find(classOffset) == structCache.end())
+        if (IsStandardLayoutClass(classData))
             structCache.insert(classOffset);
 
     short fieldsSize = classData->m_nFieldCount;
     SchemaClassFieldData_t* pFields = classData->m_pFields;
 
-    for(short i = 0; i < fieldsSize; i++) {
+    for (short i = 0; i < fieldsSize; i++) {
         auto field = pFields[i];
-        uint64_t offsetKey = ((uint64_t) classOffset) << 32 | hash_32_fnv1a_const(field.m_pszName);
+        uint64_t offsetKey = ((uint64_t)classOffset) << 32 | hash_32_fnv1a_const(field.m_pszName);
 
         offsetsCache.insert({ offsetKey, field.m_nSingleInheritanceOffset });
         networkedCache.insert({ offsetKey, IsFieldNetworked(field) });
@@ -84,7 +93,7 @@ int32_t sch::FindChainOffset(const char* className)
 int32_t sch::GetOffset(const char* className, const char* memberName)
 {
     uint32_t classOffset = hash_32_fnv1a_const(className);
-    uint64_t fullOffset = ((uint64_t) classOffset) << 32 | hash_32_fnv1a_const(memberName);
+    uint64_t fullOffset = ((uint64_t)classOffset) << 32 | hash_32_fnv1a_const(memberName);
 
     return offsetsCache[fullOffset];
 }
@@ -97,7 +106,7 @@ int32_t sch::GetOffset(uint64_t path)
 bool sch::IsNetworked(const char* className, const char* memberName)
 {
     uint32_t classOffset = hash_32_fnv1a_const(className);
-    uint64_t fullOffset = ((uint64_t) classOffset) << 32 | hash_32_fnv1a_const(memberName);
+    uint64_t fullOffset = ((uint64_t)classOffset) << 32 | hash_32_fnv1a_const(memberName);
 
     return networkedCache[fullOffset];
 }
@@ -125,21 +134,26 @@ void SetStateChanged(uintptr_t entityPtr, std::string className, std::string fie
     if ((void*)entityPtr == nullptr) return;
     if (!sch::IsNetworked(cName, fName)) return;
 
-    auto m_key = sch::GetOffset(cName, fName);
+    auto m_key = (uint32)sch::GetOffset(cName, fName);
     auto m_chain = sch::FindChainOffset(cName);
 
     if (m_chain) {
         entityPtr += m_chain;
-        CEntityInstance* pEntity = *reinterpret_cast<CEntityInstance**>(entityPtr);
-        if (pEntity && (pEntity->m_pEntity->m_flags & EF_IS_CONSTRUCTION_IN_PROGRESS) == 0)
-            pEntity->NetworkStateChanged(m_key + extraOffset, -1, *reinterpret_cast<ChangeAccessorFieldPathIndex_t*>(entityPtr + 32));
+
+        CEntityInstance* pEnt = reinterpret_cast<CNetworkVarChainer*>(entityPtr)->m_pEntity;
+
+        if (pEnt)
+            pEnt->NetworkStateChanged(NetworkStateChangedData(m_key, -1, reinterpret_cast<CNetworkVarChainer*>(entityPtr)->m_PathIndex));
     }
     else {
         auto isStruct = sch::IsStruct(cName);
-        if (isStruct)
-            CALL_VIRTUAL(void, 1, (void*)entityPtr, m_key + extraOffset, 0xFFFFFFFF, 0xFFFF);
-        else
-            reinterpret_cast<CEntityInstance*>(entityPtr)->NetworkStateChanged(m_key + extraOffset);
+        if (!isStruct) {
+            reinterpret_cast<CEntityInstance*>(entityPtr)->NetworkStateChanged(NetworkStateChangedData(m_key));
+        }
+        else {
+            NetworkStateChangedData data(m_key);
+            CALL_VIRTUAL(void, WIN_LINUX(27, 28), (void*)entityPtr, &data);
+        }
     }
 }
 

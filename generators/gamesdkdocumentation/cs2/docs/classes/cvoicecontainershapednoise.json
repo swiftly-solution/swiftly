@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CVoiceContainerShapedNoise",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVoiceContainerShapedNoise"
+    },
+    "properties": [
+        {
+            "name": "UseCurveForFrequency",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Frequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UseCurveForResonance",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Resonance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UseCurveForAmplitude",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GainInDecibels",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CVoiceContainerBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CRemapValueUpdateItem",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRemapValueUpdateItem"
+    },
+    "properties": [
+        {
+            "name": "ParamIn",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParamOut",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "MinInputValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxInputValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinOutputValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxOutputValue",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

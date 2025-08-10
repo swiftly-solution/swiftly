@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CFutureVelocityMetricEvaluator",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFutureVelocityMetricEvaluator"
+    },
+    "properties": [
+        {
+            "name": "Distance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StoppingDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TargetSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Mode",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CMotionMetricEvaluator",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

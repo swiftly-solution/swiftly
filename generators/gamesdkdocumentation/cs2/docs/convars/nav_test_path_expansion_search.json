@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_test_path_expansion_search","description":"Extend nav_test_path by doing an expansion search on that path.  Convar value defines dist.","args":"0","flags":["gamedll","cheat"],"games":["cs2"]}

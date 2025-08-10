@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CPhysConstraint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysConstraint"
+    },
+    "properties": [
+        {
+            "name": "NameAttach1",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NameAttach2",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Attach1",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Attach2",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "NameAttachment1",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NameAttachment2",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BreakSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ForceLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TorqueLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinTeleportDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SnapObjectPositions",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnBreak",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

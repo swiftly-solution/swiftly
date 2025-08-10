@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CSSDSMsg_ViewTarget",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSSDSMsg_ViewTarget"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TextureId",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "Width",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Height",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RequestedWidth",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RequestedHeight",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumMipLevels",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Depth",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MultisampleNumSamples",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Format",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

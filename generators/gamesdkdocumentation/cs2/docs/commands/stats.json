@@ -1,0 +1,1 @@
+{"kind":"command","name":"stats","description":"Prints server performance variables","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

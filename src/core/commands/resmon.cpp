@@ -4,7 +4,12 @@
 #include <plugins/manager.h>
 #include <filesystem/files/files.h>
 
-#include <sstream>
+#include <map>
+
+static std::map<ContextKinds, std::string> runtimeNames = {
+    { ContextKinds::Lua, "Lua" },
+    { ContextKinds::Dotnet, ".NET" },
+};
 
 void SwiftlyResourceMonitorManagerHelp(CPlayerSlot slot)
 {
@@ -65,15 +70,6 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, std::string plugi
     if (!g_pluginManager.PluginExists(plugin_id) && plugin_id != "core")
         return PrintToClientOrConsole(slot, "Resource Monitor", "Invalid plugin ID.\n");
 
-    auto PrintTable = [](TextTable tbl) -> void
-        {
-            std::stringstream outputTable;
-            outputTable << tbl;
-            std::vector<std::string> rows = explode(outputTable.str(), "\n");
-            for (int i = 0; i < rows.size(); i++)
-                PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
-        };
-
     PrintToClientOrConsole(slot, "Resource Monitor", "Resource Monitor View Plugin\n");
     PrintToClientOrConsole(slot, "Resource Monitor", "ID: %s\n", plugin_id.c_str());
     PrintToClientOrConsole(slot, "Resource Monitor", " \n", plugin_id.c_str());
@@ -120,7 +116,7 @@ void SwiftlyResourceMonitorManagerViewPlugin(CPlayerSlot slot, std::string plugi
         }
     }
 
-    PrintTable(usagesTable);
+    PrintTextTable("Resource Monitor", usagesTable);
 }
 
 void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
@@ -136,15 +132,6 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
     pluginsTable.add(" Memory ");
     pluginsTable.add(" min/avg/max ");
     pluginsTable.endOfRow();
-
-    auto PrintTable = [](TextTable tbl) -> void
-        {
-            std::stringstream outputTable;
-            outputTable << tbl;
-            std::vector<std::string> rows = explode(outputTable.str(), "\n");
-            for (int i = 0; i < rows.size(); i++)
-                PLUGIN_PRINTF("Resource Monitor", "%s\n", rows[i].c_str());
-        };
 
     PLUGIN_PRINTF("Resource Monitor", "Plugin Resource Viewer\n");
 
@@ -196,7 +183,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
 
         pluginsTable.add(" " + plugin_id + " ");
         pluginsTable.add(std::string(" ") + (plugin->GetPluginState() == PluginState_t::Started ? "Loaded" : "Unloaded") + " ");
-        pluginsTable.add(std::string(" ") + (plugin->GetKind() == ContextKinds::Lua ? "Lua" : "JavaScript") + " ");
+        pluginsTable.add(std::string(" ") + (runtimeNames[plugin->GetKind()]) + " ");
         if (plugin->GetPluginState() == PluginState_t::Started)
             pluginsTable.add(string_format(" %.4f MB ", (double(plugin->GetMemoryUsage()) / 1024.0f / 1024.0f)));
         else
@@ -238,7 +225,7 @@ void SwiftlyResourceMonitorManagerView(CPlayerSlot slot)
         pluginsTable.endOfRow();
     }
 
-    PrintTable(pluginsTable);
+    PrintTextTable("Resource Monitor", pluginsTable);
     PrintToClientOrConsole(slot, "Resource Monitor", "To view more detailed informations for each plugin, use: sw resmon viewplugin <ID>\n");
 }
 

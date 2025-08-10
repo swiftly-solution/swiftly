@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_pushaway_max_player_force","description":"Maximum of how hard the player is pushed away from physics objects.","args":"20","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

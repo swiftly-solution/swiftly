@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_disable_radar","description":"0: regular radar; 1: always disabled; 2: disabled in warmup","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

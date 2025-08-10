@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "IKTargetSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "IKTargetSettings_t"
+    },
+    "properties": [
+        {
+            "name": "TargetSource",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Bone",
+            "type": "IKBoneNameAndIndex_t",
+            "writable": false
+        },
+        {
+            "name": "AnimgraphParameterNamePosition",
+            "type": "AnimParamID",
+            "writable": false
+        },
+        {
+            "name": "AnimgraphParameterNameOrientation",
+            "type": "AnimParamID",
+            "writable": false
+        },
+        {
+            "name": "TargetCoordSystem",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

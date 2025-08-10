@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "CBreakable",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBreakable"
+    },
+    "properties": [
+        {
+            "name": "CPropDataComponent",
+            "type": "CPropDataComponent",
+            "writable": false
+        },
+        {
+            "name": "Material",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Breaker",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Explosion",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SpawnObject",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PressureDelay",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinHealthDmg",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PropData",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ImpactEnergyScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OverrideBlockLOS",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OnBreak",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "PerformanceMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PhysicsAttacker",
+            "type": "CBasePlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "LastPhysicsInfluenceTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

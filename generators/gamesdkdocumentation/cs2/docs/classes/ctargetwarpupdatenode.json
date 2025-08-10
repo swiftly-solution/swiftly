@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "CTargetWarpUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTargetWarpUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "AngleMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TargetPositionParameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TargetUpVectorParameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TargetFacePositionParameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "MoveHeadingParameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "DesiredMoveHeadingParameter",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "CorrectionMethod",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TargetWarpTimingMethod",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TargetFacePositionIsWorldSpace",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TargetPositionIsWorldSpace",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnlyWarpWhenTagIsFound",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WarpOrientationDuringTranslation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WarpAroundCenter",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MaxAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

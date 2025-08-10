@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_particles_dump_effects","description":"<no description>","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

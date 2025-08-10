@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CCSGO_TeamIntroCounterTerroristPosition",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSGO_TeamIntroCounterTerroristPosition"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CCSGO_TeamIntroCharacterPosition",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

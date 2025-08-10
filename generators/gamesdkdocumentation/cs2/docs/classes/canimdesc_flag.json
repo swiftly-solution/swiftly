@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CAnimDesc_Flag",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimDesc_Flag"
+    },
+    "properties": [
+        {
+            "name": "Looping",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AllZeros",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hidden",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Delta",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LegacyWorldspace",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ModelDoc",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ImplicitSeqIgnoreDelta",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AnimGraphAdditive",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

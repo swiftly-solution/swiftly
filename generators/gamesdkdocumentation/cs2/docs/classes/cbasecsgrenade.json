@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CBaseCSGrenade",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseCSGrenade"
+    },
+    "properties": [
+        {
+            "name": "Redraw",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsHeldByPlayer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PinPulled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "JumpThrow",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ThrowAnimating",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ThrowTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ThrowStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DropTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PinPullTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "JustPulledPin",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NextHoldTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NextHoldFrac",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SwitchToWeaponAfterThrow",
+            "type": "CCSWeaponBase",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CCSWeaponBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

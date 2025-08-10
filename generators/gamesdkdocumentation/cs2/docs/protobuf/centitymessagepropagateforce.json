@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"impulse","type":"CMsgVector"},{"name":"entityMsg","type":"CEntityMsg"}],"name":"CEntityMessagePropagateForce","games":["cs2"]}

@@ -1,0 +1,41 @@
+{
+    "kind": "class",
+    "name": "CAttributeList",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAttributeList"
+    },
+    "properties": [
+        {
+            "name": "Manager",
+            "type": "int32[]",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "SetOrAddAttributeValueByName",
+            "arguments": {
+                "key": "string",
+                "value": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

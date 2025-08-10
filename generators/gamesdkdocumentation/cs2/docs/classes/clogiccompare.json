@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CLogicCompare",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicCompare"
+    },
+    "properties": [
+        {
+            "name": "InValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CompareValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

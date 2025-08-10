@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostDroneCargoDetached","description":"This event is triggered after drone_cargo_detached is triggered.","arguments":{"userid":"int32","cargo":"int32","delivered":"bool"},"return":"void","games":["cs2"]}

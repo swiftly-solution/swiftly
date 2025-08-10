@@ -1,0 +1,1 @@
+{"kind":"command","name":"net_debug_to_file","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

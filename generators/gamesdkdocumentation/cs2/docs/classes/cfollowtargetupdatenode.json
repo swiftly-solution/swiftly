@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CFollowTargetUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFollowTargetUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "OpFixedData",
+            "type": "FollowTargetOpFixedSettings_t",
+            "writable": false
+        },
+        {
+            "name": "ParameterPosition",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "ParameterOrientation",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

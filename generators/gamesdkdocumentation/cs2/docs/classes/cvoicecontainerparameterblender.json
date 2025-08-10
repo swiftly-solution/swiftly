@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CVoiceContainerParameterBlender",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVoiceContainerParameterBlender"
+    },
+    "properties": [
+        {
+            "name": "FirstSound",
+            "type": "CSoundContainerReference",
+            "writable": false
+        },
+        {
+            "name": "SecondSound",
+            "type": "CSoundContainerReference",
+            "writable": false
+        },
+        {
+            "name": "EnableOcclusionBlend",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableDistanceBlend",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CVoiceContainerBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_friction","description":"World friction.","args":"5.2","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

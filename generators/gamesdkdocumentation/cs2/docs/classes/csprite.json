@@ -1,0 +1,138 @@
+{
+    "kind": "class",
+    "name": "CSprite",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSprite"
+    },
+    "properties": [
+        {
+            "name": "AttachedToEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "SpriteFramerate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Frame",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DieTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Brightness",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BrightnessDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpriteScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ScaleDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WorldSpaceScale",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GlowProxySize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HDRColorScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxFrame",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DestScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ScaleTimeStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartBrightness",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DestBrightness",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BrightnessTimeStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpriteWidth",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpriteHeight",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

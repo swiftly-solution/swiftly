@@ -1,0 +1,1 @@
+{"kind":"command","name":"ragdoll_resolve_initial_conflict","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

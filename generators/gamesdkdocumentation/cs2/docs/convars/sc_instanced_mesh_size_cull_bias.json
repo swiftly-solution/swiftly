@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_instanced_mesh_size_cull_bias","description":"Bias for size culling of instanced meshes","args":"1.5","flags":["developmentonly","defensive"],"games":["cs2"]}

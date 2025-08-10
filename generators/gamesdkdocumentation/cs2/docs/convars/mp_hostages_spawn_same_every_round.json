@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_hostages_spawn_same_every_round","description":"0 = spawn hostages randomly every round, 1 = same spawns for entire match.","args":"true","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CSlopeComponentUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSlopeComponentUpdater"
+    },
+    "properties": [
+        {
+            "name": "TraceDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SlopeAngle",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "SlopeAngleFront",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "SlopeAngleSide",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "SlopeHeading",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "SlopeNormal",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "SlopeNormal_WorldSpace",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimComponentUpdater",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

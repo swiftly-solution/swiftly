@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "GetBase",
+    "description": "Returns the base path of a file",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "string",
+    "games": "all"
+}

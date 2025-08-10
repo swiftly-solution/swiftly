@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"agreementUrl","type":"string"}],"name":"CChinaAgreementSessions_StartAgreementSessionInGame_Response","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"ragdoll_prop_sleepdisabletime","description":"Ragdoll is not allowed to physically sleep until this timer has elapsed.","args":"1.5","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

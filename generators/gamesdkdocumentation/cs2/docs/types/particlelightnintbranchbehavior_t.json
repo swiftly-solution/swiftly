@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleLightnintBranchBehavior_t","description":"Automatically generated game type from enum ParticleLightnintBranchBehavior_t","values":{"PARTICLE_LIGHTNING_BRANCH_CURRENT_DIR":0,"PARTICLE_LIGHTNING_BRANCH_ENDPOINT_DIR":1},"games":["cs2"]}

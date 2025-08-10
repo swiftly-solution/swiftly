@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetWeapons",
+    "description": "Returns a table of all the player weapons.",
+    "arguments": {},
+    "return": "Weapon[]",
+    "games": "all"
+}

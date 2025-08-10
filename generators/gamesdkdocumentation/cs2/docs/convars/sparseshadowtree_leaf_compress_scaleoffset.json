@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_leaf_compress_scaleoffset","description":"Compress leaf node depths using scale & offset.","args":"true","flags":["developmentonly"],"games":["cs2"]}

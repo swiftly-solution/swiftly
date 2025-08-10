@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "FetchFileNames",
+    "description": "Returns a list of all the file names in a directory.",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "string[]",
+    "games": "all"
+}

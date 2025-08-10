@@ -29,8 +29,7 @@ README还提供：
 
 - [HL2SDK](https://github.com/alliedmodders/hl2sdk/tree/cs2)（使用Git克隆时通过递归子模块自动下载）
 - [Metamod-Source](https://github.com/alliedmodders/metamod-source)（使用Git克隆时通过递归子模块自动下载）
-- [Python3](https://www.python.org/)
-- [AMBuild](https://github.com/alliedmodders/ambuild)（Windows系统需确保`ambuild`命令可通过`PATH`调用）
+- [XMake](https://xmake.io/)
 
 ---
 
@@ -83,7 +82,7 @@ git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
 
 Schema系统与基础SDK由 [CS2Fixes](https://github.com/Source2ZE/CS2Fixes) 提供.
 
-扩展SDK字段来自 [Source2SDK](https://github.com/neverlosecc/source2sdk/tree/cs2/sdk).
+扩展SDK字段来自 [SteamDatabase](https://github.com/SteamDatabase).
 
 特别致谢GAMMACASE、Poggu等CS2服务器社区贡献者，是你们让《反恐精英2》 社区变得更好.
 

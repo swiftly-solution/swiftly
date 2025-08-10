@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostTeamchangePending","description":"This event is triggered after teamchange_pending is triggered.","arguments":{"userid":"int32","toteam":"int32"},"return":"void","games":["cs2"]}

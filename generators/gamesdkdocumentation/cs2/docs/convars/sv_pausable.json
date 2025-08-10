@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_pausable","description":"Is the server pausable.","args":"0","flags":["release"],"games":["cs2"]}

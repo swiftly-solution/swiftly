@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CCSPlayerController_ActionTrackingServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayerController_ActionTrackingServices"
+    },
+    "properties": [
+        {
+            "name": "MatchStats",
+            "type": "CSMatchStats_t",
+            "writable": false
+        },
+        {
+            "name": "NumRoundKills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumRoundKillsHeadshots",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalRoundDamageDealt",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayerControllerComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

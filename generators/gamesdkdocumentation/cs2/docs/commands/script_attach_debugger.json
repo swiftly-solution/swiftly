@@ -1,0 +1,1 @@
+{"kind":"command","name":"script_attach_debugger","description":"Connect the vscript VM to the script debugger","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

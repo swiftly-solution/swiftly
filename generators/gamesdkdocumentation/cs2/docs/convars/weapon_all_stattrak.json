@@ -1,0 +1,1 @@
+{"kind":"command","name":"weapon_all_stattrak","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

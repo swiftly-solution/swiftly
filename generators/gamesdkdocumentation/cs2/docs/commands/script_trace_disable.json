@@ -1,0 +1,1 @@
+{"kind":"command","name":"script_trace_disable","description":"Turn off a particular trace output by file or function name","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

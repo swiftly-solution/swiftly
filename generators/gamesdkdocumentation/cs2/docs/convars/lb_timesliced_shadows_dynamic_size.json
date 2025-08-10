@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_timesliced_shadows_dynamic_size","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

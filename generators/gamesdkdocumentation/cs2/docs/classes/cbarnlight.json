@@ -1,0 +1,398 @@
+{
+    "kind": "class",
+    "name": "CBarnLight",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBarnLight"
+    },
+    "properties": [
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ColorMode",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "ColorTemperature",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Brightness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BrightnessScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DirectLight",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BakedShadowIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LightPathUniqueId",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LightMapUniqueId",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LuminaireShape",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LuminaireSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LuminaireAnisotropy",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LightStyleString",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LightStyleStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "QueuedLightStyleStrings",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "LightStyleEvents",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "Shape",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoftX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoftY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Skirt",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SkirtNear",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SizeParams",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Range",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Shear",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BakeSpecularToCubemaps",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BakeSpecularToCubemapsSize",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CastShadows",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShadowMapSize",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShadowPriority",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ContactShadow",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForceShadowsEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BounceLight",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BounceScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinRoughness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AlternateColor",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AlternateColorBrightness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Fog",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FogStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogShadows",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FogScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FogMixedShadows",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FadeSizeStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeSizeEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowFadeSizeStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowFadeSizeEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedFieldsValid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedBoundsMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedBoundsMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBExtent",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedSubFrusta",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBOrigin0",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBAngles0",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBExtent0",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBOrigin1",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBAngles1",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBExtent1",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBOrigin2",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBAngles2",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBExtent2",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBOrigin3",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBAngles3",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBExtent3",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBOrigin4",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBAngles4",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBExtent4",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBOrigin5",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBAngles5",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PrecomputedOBBExtent5",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PvsModifyEntity",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "VisClusters",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

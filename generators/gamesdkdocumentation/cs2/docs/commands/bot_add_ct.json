@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_add_ct","description":"bot_add_ct <type> <difficulty> <name> - Adds a Counter-Terrorist bot matching the given criteria.","args":"","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CClientAlphaProperty",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CClientAlphaProperty"
+    },
+    "properties": [
+        {
+            "name": "RenderFX",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "RenderMode",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Alpha",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "DesyncOffset",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Reserved2",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "DistFadeStart",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "DistFadeEnd",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "FadeScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RenderFxStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RenderFxDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "IClientAlphaProperty",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

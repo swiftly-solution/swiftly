@@ -1,0 +1,1 @@
+{"kind":"command","name":"suspicious_hit_strategy","description":"What to do about suspicious hits. 0: Nothing. 1: Skip the bullet. 2: Skip the bullet and re-roll a new bullet.","args":"0","flags":["gamedll","release"],"games":["cs2"]}

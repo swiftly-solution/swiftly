@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_select","description":"Select or deselects the given entities(s) for later manipulation","args":"   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}","flags":["gamedll","cheat"],"games":["cs2"]}

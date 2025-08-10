@@ -1,0 +1,1 @@
+{"kind":"type","name":"ModifyDamageReturn_t","description":"Automatically generated game type from enum ModifyDamageReturn_t","values":{"CONTINUE_TO_APPLY_DAMAGE":0,"ABORT_DO_NOT_APPLY_DAMAGE":1},"games":["cs2"]}

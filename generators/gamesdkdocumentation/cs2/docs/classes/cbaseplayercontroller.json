@@ -1,0 +1,153 @@
+{
+    "kind": "class",
+    "name": "CBasePlayerController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBasePlayerController"
+    },
+    "properties": [
+        {
+            "name": "InButtonsWhichAreToggles",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "TickBase",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Pawn",
+            "type": "CBasePlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "KnownTeamMismatch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SplitScreenSlot",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SplitOwner",
+            "type": "CBasePlayerController",
+            "writable": false
+        },
+        {
+            "name": "IsHLTV",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Connected",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PlayerName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NetworkIDString",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LerpTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LagCompensation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Predict",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsLowViolence",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GamePaused",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IgnoreGlobalChat",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LastPlayerTalkTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastEntitySteadyState",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AvailableEntitySteadyState",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HasAnySteadyStateEnts",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SteamID",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "NoClipEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DesiredFOV",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "EntityIndex",
+            "arguments": {},
+            "return": "int32"
+        },
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

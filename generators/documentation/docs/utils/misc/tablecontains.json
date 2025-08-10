@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "Table Contains",
+    "override_variable": true,
+    "override_function": {
+        "lua": "table.contains"
+    },
+    "description": "Checks if a table contains a specific value.",
+    "arguments": {
+        "list": "any[]",
+        "element": "any"
+    },
+    "return": "bool",
+    "games": "all"
+}

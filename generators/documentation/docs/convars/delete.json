@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Delete",
+    "description": "Deletes a convar created by plugins.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

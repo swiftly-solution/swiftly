@@ -1,0 +1,21 @@
+{
+    "kind": "function",
+    "function": "Register Export",
+    "override_variable": true,
+    "override_function": {
+        "lua": "export",
+        "cs": "Exports.Register"
+    },
+    "description": "Registers an export for this plugin.",
+    "arguments": {
+        "export_name": "string",
+        "callback": {
+            "arguments": {
+                "...": "any"
+            },
+            "return": "any"
+        }
+    },
+    "return": "void",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_enable_secondary_layout_pass","description":"<no description>","args":"true","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

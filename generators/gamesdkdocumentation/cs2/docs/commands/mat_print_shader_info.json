@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_print_shader_info","description":"Print detailed info about a single shader. Takes a shader name (hero.vfx) as an argument.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

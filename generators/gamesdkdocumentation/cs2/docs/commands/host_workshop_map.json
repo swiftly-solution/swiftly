@@ -1,0 +1,1 @@
+{"kind":"command","name":"host_workshop_map","description":"Get the latest version of the map and host it on this server.","args":"","flags":["gamedll","release"],"games":["cs2"]}

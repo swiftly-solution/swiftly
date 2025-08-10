@@ -1,0 +1,15 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnPlayerDamage",
+    "description": "This game event is triggered when a player receives damage.",
+    "arguments": {
+        "playerid": "int32",
+        "attackerid": "int32",
+        "damageinfo": "CTakeDamageInfo",
+        "inflictor": "CBaseEntity",
+        "ability": "CBaseEntity"
+    },
+    "return": "bool",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_reloadshaders","description":"Reloads all shaders. Takes optional substrings of shader names to recompile as arguments.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

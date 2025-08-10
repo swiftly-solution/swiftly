@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "DynamicMeshDeformParams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "DynamicMeshDeformParams_t"
+    },
+    "properties": [
+        {
+            "name": "TensionCompressScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TensionStretchScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RecomputeSmoothNormalsAfterAnimation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ComputeDynamicMeshTensionAfterAnimation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SmoothNormalsAcrossUvSeams",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

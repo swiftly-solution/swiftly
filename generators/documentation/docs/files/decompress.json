@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "Decompress",
+    "description": "Decompresses a file.",
+    "arguments": {
+        "path": "string",
+        "output": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

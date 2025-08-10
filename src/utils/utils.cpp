@@ -6,7 +6,6 @@
 #include <cstddef>
 #include <server/configuration/configuration.h>
 #include <filesystem/logs/logger.h>
-#include <sstream>
 
 const char* wws = " \t\n\r\f\v";
 
@@ -295,9 +294,7 @@ std::string PtrToString(void* ptr)
 
 void PrintTextTable(std::string category, TextTable table)
 {
-    std::stringstream outputTable;
-    outputTable << table;
-    std::vector<std::string> rows = explode(outputTable.str(), "\n");
+    std::vector<std::string> rows = explode(TableToString(table), "\n");
     for (int i = 0; i < rows.size() - 1; i++)
         PLUGIN_PRINTF(category, "%s\n", rows[i].c_str());
 }

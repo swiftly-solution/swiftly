@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"frameTime","type":"float"}],"name":"CUserMessageServerFrameTime","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_create_indirect_connection_from_to","description":"Create a connection between the current 'from' and 'to' locations.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

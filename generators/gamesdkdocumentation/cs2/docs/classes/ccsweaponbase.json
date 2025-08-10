@@ -1,0 +1,298 @@
+{
+    "kind": "class",
+    "name": "CCSWeaponBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSWeaponBase"
+    },
+    "properties": [
+        {
+            "name": "Removeable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ThirdPersonFireSequences",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "CurrentThirdPersonSequence",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ThirdPersonSequences",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "PlayerAmmoStockOnPickup",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RequireUseToTouch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WeaponGameplayAnimState",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "WeaponGameplayAnimStateTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InspectCancelCompleteTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InspectPending",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InspectShouldLoop",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastEmptySoundCmdNum",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FireOnEmpty",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnPlayerPickup",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "WeaponMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TurningInaccuracyDelta",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TurningInaccuracyEyeDirLast",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TurningInaccuracy",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AccuracyPenalty",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastAccuracyUpdateTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AccuracySmoothedForZoom",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RecoilIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RecoilIndex1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BurstMode",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PostponeFireReadyTicks",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PostponeFireReadyFrac",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InReload",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisallowAttackAfterReloadStartUntilTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DroppedAtTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsHauledBack",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SilencerOn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TimeSilencerSwitchComplete",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OriginalTeamNumber",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MostRecentTeamNumber",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DroppedNearBuyZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NextAttackRenderTimeOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CanBePickedUp",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseCanOverrideNextOwnerTouchTime",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NextOwnerTouchTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextPrevOwnerTouchTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextPrevOwnerUseTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PrevOwner",
+            "type": "CCSPlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "DropTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "WasActiveWeaponWhenDropped",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Donated",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastShotTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WasOwnedByCT",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WasOwnedByTerrorist",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NumRemoveUnownedWeaponThink",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IronSightController",
+            "type": "CIronSightController",
+            "writable": false
+        },
+        {
+            "name": "IronSightMode",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastLOSTraceFailureTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WatTickOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBasePlayerWeapon",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

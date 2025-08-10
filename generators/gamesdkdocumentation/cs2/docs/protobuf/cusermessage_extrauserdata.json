@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"item","type":"int32"},{"name":"value1","type":"int64"},{"name":"value2","type":"int64"},{"name":"detail1","type":"bytes"},{"name":"detail2","type":"bytes"}],"name":"CUserMessage_ExtraUserData","games":["cs2"]}

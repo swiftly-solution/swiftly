@@ -1,0 +1,1 @@
+{"kind":"command","name":"vprof_loadhitstore_scale","description":"Scale used when displaying load-hit-stores (0 = use default)","args":"","flags":["developmentonly","hidden"],"games":["cs2"]}

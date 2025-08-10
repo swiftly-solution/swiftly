@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_delay_sound_ms_max","description":"Sound device synchronization max delay (ms)","args":"250","flags":["min:","0,","max:","250,","developmentonly","defensive"],"games":["cs2"]}

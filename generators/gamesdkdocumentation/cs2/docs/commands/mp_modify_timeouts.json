@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_modify_timeouts","description":"mp_modify_timeouts <CT|T> <N>, e.g., mp_modify ct -1","args":"","flags":["gamedll","release"],"games":["cs2"]}

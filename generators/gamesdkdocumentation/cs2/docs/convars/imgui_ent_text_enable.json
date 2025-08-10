@@ -1,0 +1,1 @@
+{"kind":"command","name":"imgui_ent_text_enable","description":"Show Entity Text in Window","args":"true","flags":["developmentonly","gamedll","clientdll","archive","replicated","cheat","menubar_item"],"games":["cs2"]}

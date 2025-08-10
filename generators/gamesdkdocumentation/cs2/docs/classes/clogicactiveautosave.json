@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CLogicActiveAutosave",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicActiveAutosave"
+    },
+    "properties": [
+        {
+            "name": "TriggerHitPoints",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TimeToTrigger",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DangerousTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicAutosave",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

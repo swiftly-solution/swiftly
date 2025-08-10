@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "ragdoll_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ragdoll_t"
+    },
+    "properties": [
+        {
+            "name": "BoneIndex",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "AllowStretch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Unused",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

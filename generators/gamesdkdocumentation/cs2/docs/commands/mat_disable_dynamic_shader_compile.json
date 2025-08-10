@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_disable_dynamic_shader_compile","description":"Reloads all shaders from vcs files until the next time mat_reloadshaders is called","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

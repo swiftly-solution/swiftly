@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"workshopFileId","type":"uint64"},{"name":"ruleDescription","type":"string"}],"name":"CWorkshop_SetItemPaymentRules_Request.WorkshopDirectPaymentRule","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"entity_lump_list","description":"List all known entity lumps","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"camera_jolt_fix","description":"camera jolt fix","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

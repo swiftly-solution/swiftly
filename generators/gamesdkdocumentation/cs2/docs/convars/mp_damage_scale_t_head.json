@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_damage_scale_t_head","description":"Scales the damage a T player takes by this much when they take damage in the head (1 == 100%, 0.5 == 50%).\t REMEMBER! headshots do 4x the damage of the body before this scaler is applied.","args":"1","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,44 @@
+{
+    "kind": "class",
+    "name": "Color",
+    "description": "This class represents the Color object from C++.",
+    "constructor": {
+        "arguments": {
+            "r": "uint8",
+            "g": "uint8",
+            "b": "uint8",
+            "a": "uint8"
+        },
+        "return": "Color"
+    },
+    "properties": [
+        {
+            "name": "r",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "g",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "b",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "a",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "GetPtr",
+            "arguments": {},
+            "return": "string"
+        }
+    ],
+    "games": "all"
+}

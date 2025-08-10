@@ -1,0 +1,353 @@
+{
+    "kind": "class",
+    "name": "PhysFeModelDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PhysFeModelDesc_t"
+    },
+    "properties": [
+        {
+            "name": "CtrlHash",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "CtrlName",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "StaticNodeFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DynamicNodeFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LocalForce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LocalRotation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NodeCount",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "StaticNodes",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "RotLockStaticNodes",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "FirstPositionDrivenNode",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "SimdTriCount1",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "SimdTriCount2",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "SimdQuadCount1",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "SimdQuadCount2",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "QuadCount1",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "QuadCount2",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "TreeDepth",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "NodeBaseJiggleboneDependsCount",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "RopeCount",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Ropes",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "AntiTunnelBytecode",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "AntiTunnelTargetNodes",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "NodeInvMasses",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "LegacyStretchForce",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "NodeCollisionRadii",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "DynNodeFriction",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "LocalRotation1",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "LocalForce1",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "WorldCollisionNodes",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "TreeParents",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "TreeCollisionMasks",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "FreeNodes",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "SourceElems",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "GoalDampedSpringIntegrators",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "TriCount1",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "TriCount2",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "ReservedUint8",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ExtraPressureIterations",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ExtraGoalIterations",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ExtraIterations",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "DynNodeVertexSet",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "VertexSetNames",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "MorphSetData",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "VertexMapValues",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "LockToGoal",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "SkelParents",
+            "type": "int16[]",
+            "writable": true
+        },
+        {
+            "name": "InternalPressure",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultTimeDilation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Windage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WindDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultSurfaceStretch",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultThreadStretch",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultGravityScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultVelAirDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultExpAirDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultVelQuadAirDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultExpQuadAirDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RodVelocitySmoothRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "QuadVelocitySmoothRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AddWorldCollisionRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultVolumetricSolveAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MotionSmoothCDT",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LocalDrag1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RodVelocitySmoothIterations",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "QuadVelocitySmoothIterations",
+            "type": "uint16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

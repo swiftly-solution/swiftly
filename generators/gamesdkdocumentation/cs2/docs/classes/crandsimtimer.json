@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CRandSimTimer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRandSimTimer"
+    },
+    "properties": [
+        {
+            "name": "MinInterval",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxInterval",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSimpleSimTimer",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

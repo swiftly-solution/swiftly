@@ -1,0 +1,1 @@
+{"kind":"command","name":"workshop_annotation_submit","description":"Submit annotation to workshop. To update an existing submission add its ID number from the workshop URL as a second argument.","args":"","flags":["clientdll","release"],"games":["cs2"]}

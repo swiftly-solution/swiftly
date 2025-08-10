@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"typeId","type":"int32"},{"name":"objectData","type":"bytes"},{"name":"version","type":"fixed64"},{"name":"ownerSoid","type":"CMsgSOIDOwner"}],"name":"CMsgSOSingleObject","games":["cs2"]}

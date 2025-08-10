@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_raise_drag_volume_max","description":"Raise the top of the drag select volume.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

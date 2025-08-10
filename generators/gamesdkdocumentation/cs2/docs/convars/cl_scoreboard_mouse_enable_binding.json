@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_scoreboard_mouse_enable_binding","description":"Name of the binding to enable mouse selection in the scoreboard","args":"\"+attack2\"","flags":["clientdll","archive"],"games":["cs2"]}

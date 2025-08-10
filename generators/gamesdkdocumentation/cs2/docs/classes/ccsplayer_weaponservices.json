@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "CCSPlayer_WeaponServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayer_WeaponServices"
+    },
+    "properties": [
+        {
+            "name": "NextAttack",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsLookingAtWeapon",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsHoldingLookAtWeapon",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SavedWeapon",
+            "type": "CBasePlayerWeapon",
+            "writable": false
+        },
+        {
+            "name": "TimeToMelee",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TimeToSecondary",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TimeToPrimary",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TimeToSniperRifle",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsBeingGivenItem",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsPickingUpItemWithUse",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PickedUpWeapon",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisableAutoDeploy",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsPickingUpGroundWeapon",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NetworkAnimTiming",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "BlockInspectUntilNextGraphUpdate",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayer_WeaponServices",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

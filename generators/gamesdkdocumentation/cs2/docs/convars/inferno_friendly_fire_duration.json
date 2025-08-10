@@ -1,0 +1,1 @@
+{"kind":"command","name":"inferno_friendly_fire_duration","description":"For this long, FF is credited back to the thrower.","args":"6","flags":["gamedll","cheat"],"games":["cs2"]}

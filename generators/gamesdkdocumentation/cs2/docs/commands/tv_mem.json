@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_mem","description":"hltv memory statistics. Use with \"ent 10\" (dump entity 10 memory usage) or \"top 8\" (dump top 8 memory users) or \"class\" CWorld (dump CWorld class)","args":"","flags":["release"],"games":["cs2"]}

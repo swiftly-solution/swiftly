@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CEconItemAttribute",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEconItemAttribute"
+    },
+    "properties": [
+        {
+            "name": "AttributeDefinitionIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Value",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InitialValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RefundableCurrency",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SetBonus",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_classes_force_invalidate","description":"Force style invalidation of the entire panel subtree when adding / removing classes.","args":"false","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

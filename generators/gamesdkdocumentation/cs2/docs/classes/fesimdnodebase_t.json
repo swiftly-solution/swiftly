@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "FeSimdNodeBase_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeSimdNodeBase_t"
+    },
+    "properties": [
+        {
+            "name": "Node",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "NodeX0",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "NodeX1",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "NodeY0",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "NodeY1",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "Dummy",
+            "type": "uint16[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

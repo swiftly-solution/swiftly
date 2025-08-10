@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CLogicBranchList",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicBranchList"
+    },
+    "properties": [
+        {
+            "name": "LogicBranchNames",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "OnAllTrue",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnAllFalse",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMixed",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

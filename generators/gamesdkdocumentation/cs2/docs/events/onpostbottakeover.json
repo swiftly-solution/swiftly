@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostBotTakeover","description":"This event is triggered after bot_takeover is triggered.","arguments":{"userid":"int32","botid":"int32","p":"float","y":"float","r":"float"},"return":"void","games":["cs2"]}

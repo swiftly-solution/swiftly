@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_ignore_enemies","description":"If nonzero, bots will ignore enemies (for debugging).","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

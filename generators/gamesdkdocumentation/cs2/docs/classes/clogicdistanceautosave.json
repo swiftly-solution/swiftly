@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CLogicDistanceAutosave",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicDistanceAutosave"
+    },
+    "properties": [
+        {
+            "name": "TargetEntity",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DistanceToPlayer",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ForceNewLevelUnit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CheckCough",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ThinkDangerous",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DangerousTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

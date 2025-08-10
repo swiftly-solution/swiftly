@@ -1,0 +1,1 @@
+{"kind":"command","name":"mem_test_quiet","description":"Don't print stats when memtesting","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

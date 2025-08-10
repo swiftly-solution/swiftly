@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CAnimEncodeDifference",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimEncodeDifference"
+    },
+    "properties": [
+        {
+            "name": "HasRotationBitArray",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "HasMovementBitArray",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "HasMorphBitArray",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "HasUserBitArray",
+            "type": "uint8[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

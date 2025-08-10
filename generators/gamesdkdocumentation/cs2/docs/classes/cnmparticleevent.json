@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CNmParticleEvent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmParticleEvent"
+    },
+    "properties": [
+        {
+            "name": "Relevance",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Type",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Tags",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StopImmediately",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AttachmentPoint0",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachmentType0",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AttachmentPoint1",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachmentType1",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Config",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "EffectForConfig",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DetachFromOwner",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PlayEndCap",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CNmEvent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

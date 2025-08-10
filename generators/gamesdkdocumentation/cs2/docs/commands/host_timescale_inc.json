@@ -1,0 +1,1 @@
+{"kind":"command","name":"host_timescale_inc","description":"Increment the timescale by one step","args":"","flags":["cheat"],"games":["cs2"]}

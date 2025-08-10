@@ -1,0 +1,1 @@
+{"kind":"command","name":"adjacent_preload","description":"Preload adjacennt level data - will override regular changelevel code -- PROTOTYPE/WIP","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

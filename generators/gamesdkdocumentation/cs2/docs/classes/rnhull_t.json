@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "RnHull_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "RnHull_t"
+    },
+    "properties": [
+        {
+            "name": "Centroid",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MaxAngularRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Bounds",
+            "type": "AABB_t",
+            "writable": false
+        },
+        {
+            "name": "OrthographicAreas",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Volume",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SurfaceArea",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VertexPositions",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "RegionSVM",
+            "type": "int32[]",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

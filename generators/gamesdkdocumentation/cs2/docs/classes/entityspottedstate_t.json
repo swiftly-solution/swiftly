@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "EntitySpottedState_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EntitySpottedState_t"
+    },
+    "properties": [
+        {
+            "name": "Spotted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SpottedByMask",
+            "type": "uint32[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

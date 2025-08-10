@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_listen_voice_indices_h","description":"High 32 bits of bitfield of playerslots to listen to voice messages from when connected to SourceTV, default is none","args":"0","flags":["clientdll","userinfo"],"games":["cs2"]}

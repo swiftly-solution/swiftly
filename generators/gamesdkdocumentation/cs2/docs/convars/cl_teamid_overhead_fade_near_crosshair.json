@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_teamid_overhead_fade_near_crosshair","description":"The amount to fade teamid when near the crosshair. Range is 0.0-1.0. 0: off","args":"0.5","flags":["clientdll","archive","release"],"games":["cs2"]}

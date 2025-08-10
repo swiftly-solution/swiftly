@@ -1,0 +1,1 @@
+{"kind":"command","name":"inferno_ct_experiment","description":"enable ct incendiary experiment","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_compare_operator_stacks","description":"Compares 2 operator stacks and spews any errors","args":"","flags":["cheat"],"games":["cs2"]}

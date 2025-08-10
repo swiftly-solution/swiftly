@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_debugoverlay_cycle_state","description":"Toggles visibility of the debug overlay system.","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

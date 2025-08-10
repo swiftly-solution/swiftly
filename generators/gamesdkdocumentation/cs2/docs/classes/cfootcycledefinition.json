@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CFootCycleDefinition",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFootCycleDefinition"
+    },
+    "properties": [
+        {
+            "name": "StancePositionMS",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MidpointPositionMS",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StanceDirectionMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ToStrideStartPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StanceCycle",
+            "type": "CAnimCycle",
+            "writable": false
+        },
+        {
+            "name": "FootLiftCycle",
+            "type": "CFootCycle",
+            "writable": false
+        },
+        {
+            "name": "FootOffCycle",
+            "type": "CFootCycle",
+            "writable": false
+        },
+        {
+            "name": "FootStrikeCycle",
+            "type": "CFootCycle",
+            "writable": false
+        },
+        {
+            "name": "FootLandCycle",
+            "type": "CFootCycle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CFuncTrain",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncTrain"
+    },
+    "properties": [
+        {
+            "name": "CurrentTarget",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Activated",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Enemy",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "BlockDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextBlockTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBasePlatTrain",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

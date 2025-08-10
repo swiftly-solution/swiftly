@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_human_autojoin_team","description":"Force human players on to a team. 0 to disable.","args":"0","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

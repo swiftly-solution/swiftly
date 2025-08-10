@@ -1,0 +1,1 @@
+{"kind":"command","name":"test_voice_container_nesting","description":"Test nesting voice containers.","args":"","flags":["linked_concommand","developmentonly","defensive"],"games":["cs2"]}

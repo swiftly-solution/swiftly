@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_draw_mesh_offset","description":"Vertical offset for drawing the mesh (useful for flat planes where the mesh is often a fixed offset from the physical ground","args":"1","flags":["gamedll","cheat"],"games":["cs2"]}

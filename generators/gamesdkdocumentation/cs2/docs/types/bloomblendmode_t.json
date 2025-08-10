@@ -1,0 +1,1 @@
+{"kind":"type","name":"BloomBlendMode_t","description":"Automatically generated game type from enum BloomBlendMode_t","values":{"BLOOM_BLEND_ADD":0,"BLOOM_BLEND_SCREEN":1,"BLOOM_BLEND_BLUR":2},"games":["cs2"]}

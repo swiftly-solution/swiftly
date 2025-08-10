@@ -1,0 +1,1 @@
+{"kind":"command","name":"gcmd","description":"Generate a command","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

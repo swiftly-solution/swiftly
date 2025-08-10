@@ -1,0 +1,16 @@
+{
+    "kind": "function",
+    "function": "Create",
+    "description": "Creates a convar.",
+    "arguments": {
+        "name": "string",
+        "description": "string",
+        "cvar_type": "EConVarType",
+        "flags": "int64",
+        "default_value": "any?",
+        "min_value": "any?",
+        "max_value": "any?"
+    },
+    "return": "void",
+    "games": "all"
+}

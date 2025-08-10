@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CGameText",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGameText"
+    },
+    "properties": [
+        {
+            "name": "Message",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TextParms",
+            "type": "hudtextparms_t",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CRulePointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

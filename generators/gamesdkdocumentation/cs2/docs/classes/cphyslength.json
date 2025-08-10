@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CPhysLength",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysLength"
+    },
+    "properties": [
+        {
+            "name": "Offset",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "Attach",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AddLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TotalLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableCollision",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPhysConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

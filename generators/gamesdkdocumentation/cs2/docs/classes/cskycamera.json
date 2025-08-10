@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CSkyCamera",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSkyCamera"
+    },
+    "properties": [
+        {
+            "name": "SkyboxData",
+            "type": "sky3dparams_t",
+            "writable": false
+        },
+        {
+            "name": "SkyboxSlotToken",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "UseAngles",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Next",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -2,6 +2,7 @@
 
 #include <entities/system.h>
 #include <engine/precacher/precacher.h>
+#include <network/soundevents/soundevent.h>
 #include <memory/virtual/virtual.h>
 #include <memory/gamedata/gamedata.h>
 #include <sdk/schema.h>
@@ -24,34 +25,32 @@ typedef void (*CBaseEntity_TakeDamage)(void*, CTakeDamageInfo*);
 typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
 typedef void (*CBaseEntity_EmitSoundParams)(void*, const char*, int, float, float);
 
-std::set<uint64_t> classFuncs = {
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EHandle")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Spawn")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Despawn")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("AcceptInput")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetClassname")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("GetVData")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("Teleport")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EmitSound")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("EmitSoundFromEntity")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("TakeDamage")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseEntity") << 32 | hash_32_fnv1a_const("CollisionRulesChanged")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetModel")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetSolidType")),
-    ((uint64_t)hash_32_fnv1a_const("CBaseModelEntity") << 32 | hash_32_fnv1a_const("SetBodygroup")),
-    ((uint64_t)hash_32_fnv1a_const("CAttributeList") << 32 | hash_32_fnv1a_const("SetOrAddAttributeValueByName")),
-    ((uint64_t)hash_32_fnv1a_const("CBasePlayerController") << 32 | hash_32_fnv1a_const("EntityIndex")),
-    ((uint64_t)hash_32_fnv1a_const("CGameSceneNode") << 32 | hash_32_fnv1a_const("GetSkeletonInstance")),
-    ((uint64_t)hash_32_fnv1a_const("CPlayerPawnComponent") << 32 | hash_32_fnv1a_const("GetPawn")),
-};
-
 std::set<std::string> skipFunctions = {
     "__call",
-    "call",
     "__tostring",
-    "toString",
     "ToPtr",
     "IsValid"
+};
+
+std::set<std::string> validFuncs = {
+    "EHandle",
+    "Spawn",
+    "Despawn",
+    "AcceptInput",
+    "GetClassname",
+    "GetVData",
+    "Teleport",
+    "EmitSound",
+    "EmitSoundFromEntity",
+    "TakeDamage",
+    "CollisionRulesChanged",
+    "SetModel",
+    "SetSolidType",
+    "SetBodygroup",
+    "SetOrAddAttributeValueByName",
+    "EntityIndex",
+    "GetSkeletonInstance",
+    "GetPawn",
 };
 
 void DummyGetSetSDK(FunctionContext* context, ClassData* data) {}
@@ -60,7 +59,7 @@ EValue MakeSDKClassInstance(std::string className, void* ptr, EContext* context)
     return MAKE_CLASS_INSTANCE("SDKClass", { { "class_name", className }, { "class_ptr", ptr } });
 }
 
-EValue AccessSDK(void* ptr, std::string className, std::string fieldName, uint64_t path, EContext* state);
+EValue AccessSDK(void* ptr, std::string className, std::string fieldName, EContext* state);
 void UpdateSDK(void* ptr, std::string className, std::string fieldName, EValue value, EContext* state);
 
 void SchemaCallback(PluginObject plugin, EContext* ctx) {
@@ -90,13 +89,15 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
             else ptr = (void*)nullptr;
         }
 
-        EValue ent = MakeSDKClassInstance(context->GetArgument<std::string>(0), ptr, context->GetPluginContext());
-        context->SetReturn(ent);
+        context->SetReturn(MAKE_CLASS_INSTANCE("SDKClass", { { "class_name", context->GetArgument<std::string>(0) }, { "class_ptr", ptr } }));
     });
 
-    ADD_CLASS_FUNCTION("SDKClass", ctx->GetKind() == ContextKinds::Lua ? "__tostring" : "toString", [](FunctionContext* context, ClassData* data) -> void {
-        if (!data->HasData("class_ptr")) data->SetData("class_ptr", (void*)nullptr);
-        context->SetReturn(string_format("%s(ptr=%p)", data->GetData<std::string>("class_name").c_str(), data->GetData<void*>("class_ptr")));
+    ADD_CLASS_FUNCTION("SDKClass", "__tostring", [](FunctionContext* context, ClassData* data) -> void {
+        if (!data->HasData("class_string")) {
+            if (!data->HasData("class_ptr")) data->SetData("class_ptr", (void*)nullptr);
+            data->SetData("class_string", string_format("%s(ptr=%p)", data->GetData<std::string>("class_name").c_str(), data->GetData<void*>("class_ptr")));
+        }
+        context->SetReturn(data->GetData<std::string>("class_string"));
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "IsValid", [](FunctionContext* context, ClassData* data) -> void {
@@ -183,38 +184,46 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         std::string sound_name = context->GetArgumentOr<std::string>(0, "");
         float pitch = context->GetArgumentOr<float>(1, 0.0f);
         float volume = context->GetArgumentOr<float>(2, 0.0f);
-
-        EmitSound_t params;
-        params.m_pSoundName = sound_name.c_str();
-        params.m_flVolume = volume;
-        params.m_nPitch = pitch;
-
-        CBaseEntity_EmitSoundFilter filter = g_GameData.FetchSignature<CBaseEntity_EmitSoundFilter>("CBaseEntity_EmitSoundFilter");
+        
+        Soundevent sound;
+        sound.SetName(sound_name);
+        sound.SetFloat("public.volume", volume);
+        sound.SetFloat("public.pitch", pitch);
 
         for (int i = 1; i <= GetMaxGameClients(); i++) {
             auto controllerPtr = g_pEntitySystem->GetEntityInstance(CEntityIndex(i));
             if (controllerPtr == instance) {
-                CSingleRecipientFilter playerfilter(i - 1);
-                filter(playerfilter, instance->m_pEntity->m_EHandle.GetEntryIndex(), params);
+                sound.AddClient(i - 1);
+                context->SetReturn(sound.Emit());
+                return;
             }
             else {
                 CHandle<CEntityInstance> pawnHandle = schema::GetProp<CHandle<CEntityInstance>>(instance, "CCSPlayerController", "m_hPlayerPawn");
                 if (pawnHandle.Get() == instance) {
-                    CSingleRecipientFilter playerfilter(i - 1);
-                    filter(playerfilter, instance->m_pEntity->m_EHandle.GetEntryIndex(), params);
+                    sound.AddClient(i - 1);
+                    context->SetReturn(sound.Emit());
+                    return;
                 }
             }
         }
+        context->SetReturn(0);
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "EmitSoundFromEntity", [](FunctionContext* context, ClassData* data) -> void {
-        void* instance = data->GetData<void*>("class_ptr");
+        CEntityInstance* instance = (CEntityInstance*)data->GetData<void*>("class_ptr");
         std::string sound_name = context->GetArgumentOr<std::string>(0, "");
         float pitch = context->GetArgumentOr<float>(1, 0.0f);
         float volume = context->GetArgumentOr<float>(2, 0.0f);
         float delay = context->GetArgumentOr<float>(3, 0.0f);
 
-        g_GameData.FetchSignature<CBaseEntity_EmitSoundParams>("CBaseEntity_EmitSoundParams")(instance, sound_name.c_str(), pitch, volume, delay);
+        Soundevent sound;
+        sound.SetName(sound_name);
+        sound.SetFloat("public.pitch", pitch);
+        sound.SetFloat("public.volume", volume);
+        sound.SetFloat("public.delay", delay);
+        sound.AddClients();
+        sound.SetSourceEntityIndex(instance->GetEntityIndex().Get());
+        context->SetReturn(sound.Emit());
     });
 
     ADD_CLASS_FUNCTION("SDKClass", "TakeDamage", [](FunctionContext* context, ClassData* data) -> void {
@@ -308,14 +317,14 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         std::string className = data->GetData<std::string>("class_name");
         std::string fieldName = explode(context->GetFunctionKey(), " ").back();
         if (skipFunctions.find(fieldName) != skipFunctions.end()) return;
-        uint64_t path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(fieldName.c_str()));
 
         void* instance = data->GetData<void*>("class_ptr");
         if (!g_entSystem.IsValidEntity(instance)) {
             ReportPreventionIncident("Schema / SDK", string_format("Tried to get member '%s::%s' but the entity is invalid.", className.c_str(), fieldName.c_str()));
             return context->StopExecution();
         }
-        context->SetReturn(AccessSDK(data->GetData<void*>("class_ptr"), className, fieldName, path, context->GetPluginContext()));
+
+        context->SetReturn(AccessSDK(data->GetData<void*>("class_ptr"), className, fieldName, context->GetPluginContext()));
         context->StopExecution();
     }, [](FunctionContext* context, ClassData* data) -> void {
         std::string className = data->GetData<std::string>("class_name");
@@ -332,12 +341,11 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
         });
 
     ADD_CLASS_FUNCTION_PRE("SDKClass", ".*", [](FunctionContext* context, ClassData* data) -> void {
+        std::string className = data->GetData<std::string>("class_name");
         std::string function_name = explode(context->GetFunctionKey(), " ").back();
         if (skipFunctions.find(function_name) != skipFunctions.end()) return;
 
-        std::string className = data->GetData<std::string>("class_name");
-        uint64_t path = ((uint64_t)hash_32_fnv1a_const(className.c_str()) << 32 | hash_32_fnv1a_const(function_name.c_str()));
-        if (classFuncs.find(path) != classFuncs.end()) {
+        if (validFuncs.find(function_name) != validFuncs.end()) {
             void* instance = data->GetData<void*>("class_ptr");
             if (!g_entSystem.IsValidEntity(instance)) {
                 ReportPreventionIncident("Schema / SDK", string_format("Tried to call function '%s::%s' but the entity is invalid.", className.c_str(), function_name.c_str()));

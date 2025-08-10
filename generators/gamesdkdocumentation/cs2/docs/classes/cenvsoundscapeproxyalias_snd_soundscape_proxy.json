@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CEnvSoundscapeProxyAlias_snd_soundscape_proxy",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvSoundscapeProxyAlias_snd_soundscape_proxy"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CEnvSoundscapeProxy",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "IsValidItem",
+    "override_variable": true,
+    "description": "Checks if the provided item name is valid.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

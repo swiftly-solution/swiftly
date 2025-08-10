@@ -1,0 +1,1 @@
+{"kind":"type","name":"CanPlaySequence_t","description":"Automatically generated game type from enum CanPlaySequence_t","values":{"CANNOT_PLAY":0,"CAN_PLAY_NOW":1,"CAN_PLAY_ENQUEUED":2},"games":["cs2"]}

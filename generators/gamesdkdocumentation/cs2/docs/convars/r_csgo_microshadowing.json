@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_microshadowing","description":"<no description>","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

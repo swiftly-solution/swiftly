@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_generate_postdataupdatepreserved","description":"Do we invoke PostDataUpdatePreserved callbacks for entities that had no changes but are still in the PVS?","args":"true","flags":["developmentonly"],"games":["cs2"]}

@@ -1,0 +1,113 @@
+{
+    "kind": "class",
+    "name": "CBaseToggle",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseToggle"
+    },
+    "properties": [
+        {
+            "name": "Toggle_state",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MoveDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Wait",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Lip",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AlwaysFireBlockedOutputs",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Position1",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Position2",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MoveAng",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Angle1",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Angle2",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Height",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Activator",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "FinalDest",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FinalAngle",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "MovementType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Master",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CSeqAutoLayerFlag",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSeqAutoLayerFlag"
+    },
+    "properties": [
+        {
+            "name": "Post",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Spline",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "XFade",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoBlend",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Local",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Pose",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FetchFrame",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Subtract",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

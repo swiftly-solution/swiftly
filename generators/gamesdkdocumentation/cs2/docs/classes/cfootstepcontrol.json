@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CFootstepControl",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFootstepControl"
+    },
+    "properties": [
+        {
+            "name": "Source",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Destination",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

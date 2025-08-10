@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "Deallocate",
+    "description": "Deallocates the memory stored.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

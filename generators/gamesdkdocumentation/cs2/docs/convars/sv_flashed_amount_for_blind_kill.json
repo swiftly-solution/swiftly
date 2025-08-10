@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_flashed_amount_for_blind_kill","description":"Minimum flashed alpha value for a player to be awarded a blind kill on the kill feed.","args":"0.7","flags":["gamedll","release"],"games":["cs2"]}

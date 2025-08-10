@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CPlayer_MovementServices_Humanoid",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPlayer_MovementServices_Humanoid"
+    },
+    "properties": [
+        {
+            "name": "StepSoundTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FallVelocity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InCrouch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CrouchState",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CrouchTransitionStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Ducked",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Ducking",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InDuckJump",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GroundNormal",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SurfaceFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SurfaceProps",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Stepside",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SmoothedVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayer_MovementServices",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

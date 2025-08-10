@@ -1,0 +1,1 @@
+{"kind":"command","name":"addons","description":"list current addon info.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

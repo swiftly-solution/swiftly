@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CReplicationParameters",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CReplicationParameters"
+    },
+    "properties": [
+        {
+            "name": "ReplicationMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ScaleChildParticleRadii",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinRandomRadiusScale",
+            "type": "CParticleCollectionFloatInput",
+            "writable": false
+        },
+        {
+            "name": "MaxRandomRadiusScale",
+            "type": "CParticleCollectionFloatInput",
+            "writable": false
+        },
+        {
+            "name": "ModellingScale",
+            "type": "CParticleCollectionFloatInput",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

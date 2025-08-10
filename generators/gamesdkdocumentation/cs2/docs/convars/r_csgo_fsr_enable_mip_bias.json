@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_fsr_enable_mip_bias","description":"Apply negative mip bias when rendering with FSR.","args":"true","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

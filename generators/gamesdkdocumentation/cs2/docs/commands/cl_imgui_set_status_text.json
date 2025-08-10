@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_imgui_set_status_text","description":"Sets ImGui header status text","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

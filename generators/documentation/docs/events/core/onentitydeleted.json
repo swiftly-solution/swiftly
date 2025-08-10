@@ -1,0 +1,11 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnEntityDeleted",
+    "description": "This game event is triggered when an entity is deleted from the server.",
+    "arguments": {
+        "entityptr": "CEntityInstance"
+    },
+    "return": "void",
+    "games": "all"
+}

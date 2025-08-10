@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CGameScriptedMoveDef_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGameScriptedMoveDef_t"
+    },
+    "properties": [
+        {
+            "name": "DestOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DestEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Dest",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MoveSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AimDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IgnoreRotation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForcedCrouchState",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

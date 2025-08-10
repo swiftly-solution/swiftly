@@ -1,0 +1,1 @@
+{"kind":"command","name":"econ_show_items_with_tag","description":"Lists the item definitions that have a specified tag.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

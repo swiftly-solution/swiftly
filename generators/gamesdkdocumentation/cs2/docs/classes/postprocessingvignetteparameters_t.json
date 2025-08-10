@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "PostProcessingVignetteParameters_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PostProcessingVignetteParameters_t"
+    },
+    "properties": [
+        {
+            "name": "VignetteStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Center",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Roundness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Feather",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ColorTint",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

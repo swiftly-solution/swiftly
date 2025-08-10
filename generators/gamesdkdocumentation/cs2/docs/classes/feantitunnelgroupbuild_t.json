@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "FeAntiTunnelGroupBuild_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeAntiTunnelGroupBuild_t"
+    },
+    "properties": [
+        {
+            "name": "VertexMapHash",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CollisionMask",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

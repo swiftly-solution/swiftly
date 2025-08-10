@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_hrtf_distance_behind","description":"HRTF calculations will calculate the player as being this far behind the camera.","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

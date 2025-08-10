@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetChatTag",
+    "description": "Sets the chat tag of the player.",
+    "arguments": {
+        "tag": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

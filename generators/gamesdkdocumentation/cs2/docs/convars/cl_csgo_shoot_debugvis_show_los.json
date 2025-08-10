@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_csgo_shoot_debugvis_show_los","description":"Show line of last shot.","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

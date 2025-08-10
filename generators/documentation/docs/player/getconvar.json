@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "GetConvar",
+    "description": "Returns the convar value of the player.",
+    "arguments": {
+        "convar": "string"
+    },
+    "return": "string",
+    "games": "all"
+}

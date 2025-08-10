@@ -1,0 +1,13 @@
+{
+    "kind": "function",
+    "function": "AddHook",
+    "override_variable": true,
+    "description": "Creates a function hook.",
+    "arguments": {
+        "memory": "Memory",
+        "args_list": "string",
+        "return_type": "string"
+    },
+    "return": "HookHandle",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"give","description":"Give item to player.","args":" <item_name>","flags":["gamedll","vconsole_fuzzy_matching","client_can_execute"],"games":["cs2"]}

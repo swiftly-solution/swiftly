@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CPathParticleRopeAlias_path_particle_rope_clientside",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPathParticleRopeAlias_path_particle_rope_clientside"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CPathParticleRope",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

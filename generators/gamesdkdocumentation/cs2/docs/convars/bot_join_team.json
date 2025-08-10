@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_join_team","description":"Determines the team bots will join into. Allowed values: 'any', 'T', or 'CT'.","args":"\"any\"","flags":["gamedll","release"],"games":["cs2"]}

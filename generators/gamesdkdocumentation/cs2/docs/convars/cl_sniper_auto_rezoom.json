@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_sniper_auto_rezoom","description":"Auto-rezoom snipers after a shot","args":"true","flags":["clientdll","archive","userinfo","per_user"],"games":["cs2"]}

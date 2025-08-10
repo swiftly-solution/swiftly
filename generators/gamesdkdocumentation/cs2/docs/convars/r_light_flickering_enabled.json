@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_light_flickering_enabled","description":"<no description>","args":"true","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Start",
+    "description": "Starts the profiling using the specified name to appear in Resource Monitor.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"contributionscore_kill_factor","description":"percentage of victim's contribution score to award to their killer as a bonus","args":"0","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "fogplayerparams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "fogplayerparams_t"
+    },
+    "properties": [
+        {
+            "name": "Ctrl",
+            "type": "CFogController",
+            "writable": false
+        },
+        {
+            "name": "TransitionTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OldColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "OldStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OldEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OldMaxDensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OldHDRColorScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OldFarZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NewColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "NewStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NewEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NewMaxDensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NewHDRColorScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NewFarZ",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

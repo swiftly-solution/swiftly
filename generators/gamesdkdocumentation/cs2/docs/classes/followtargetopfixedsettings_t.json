@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "FollowTargetOpFixedSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FollowTargetOpFixedSettings_t"
+    },
+    "properties": [
+        {
+            "name": "BoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BoneTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BoneTargetIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "WorldCoodinateTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MatchTargetOrientation",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

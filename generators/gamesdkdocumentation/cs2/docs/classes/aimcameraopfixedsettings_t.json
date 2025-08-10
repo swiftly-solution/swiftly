@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "AimCameraOpFixedSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "AimCameraOpFixedSettings_t"
+    },
+    "properties": [
+        {
+            "name": "ChainIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CameraJointIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PelvisJointIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ClavicleLeftJointIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ClavicleRightJointIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DepenetrationJointIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PropJoints",
+            "type": "int32[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

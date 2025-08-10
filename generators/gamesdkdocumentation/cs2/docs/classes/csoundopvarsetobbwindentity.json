@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CSoundOpvarSetOBBWindEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundOpvarSetOBBWindEntity"
+    },
+    "properties": [
+        {
+            "name": "Mins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Maxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DistanceMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DistanceMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "WindMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WindMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WindMapMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WindMapMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSoundOpvarSetPointBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

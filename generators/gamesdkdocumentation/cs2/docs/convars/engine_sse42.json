@@ -1,0 +1,1 @@
+{"kind":"command","name":"engine_sse42","description":"turn on sse4.2 optimizations in the engine","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

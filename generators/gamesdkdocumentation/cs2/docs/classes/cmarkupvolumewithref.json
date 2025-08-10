@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CMarkupVolumeWithRef",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMarkupVolumeWithRef"
+    },
+    "properties": [
+        {
+            "name": "UseRef",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RefPosEntitySpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RefPosWorldSpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RefDot",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CMarkupVolumeTagged",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

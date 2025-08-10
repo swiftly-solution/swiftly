@@ -1,0 +1,495 @@
+{
+    "kind": "class",
+    "name": "CBaseEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseEntity"
+    },
+    "properties": [
+        {
+            "name": "CBodyComponent",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "NetworkTransmitComponent",
+            "type": "CNetworkTransmitComponent",
+            "writable": false
+        },
+        {
+            "name": "CurrentThinkContext",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastThinkTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DisabledContextThinks",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastNetworkChange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ResponseContext",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Health",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxHealth",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LifeState",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "DamageAccumulator",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TakesDamage",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TakeDamageFlags",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "PlatformType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "MoveCollide",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "MoveType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ActualMoveType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "WaterTouch",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "SlimeTouch",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "RestoreInHierarchy",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Target",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DamageFilter",
+            "type": "CBaseFilter",
+            "writable": false
+        },
+        {
+            "name": "DamageFilterName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MoveDoneTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SubclassID",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AnimTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SimulationTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CreateTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ClientSideRagdoll",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InterpolationFrame",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "PrevVPhysicsUpdatePos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TeamNum",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Globalname",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SentToClients",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Speed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UniqueHammerID",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Spawnflags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NextThinkTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SimulationTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OnKilled",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AbsVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Velocity",
+            "type": "CNetworkVelocityVector",
+            "writable": false
+        },
+        {
+            "name": "BaseVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PushEnumCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Collision",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "EffectEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "OwnerEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Effects",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "GroundEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "GroundBodyIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Friction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Elasticity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GravityScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WaterLevel",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GravityDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AnimatedEveryTick",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ActualGravityScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GravityActuallyDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisableLowViolence",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WaterType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "EFlags",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OnUser1",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnUser2",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnUser3",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnUser4",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "InitialTeamNum",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NavIgnoreUntilTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngVelocity",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "NetworkQuantizeOriginAndAngles",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LagCompensate",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Blocker",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "LocalTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VPhysicsUpdateLocalTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BloodType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CEntityInstance",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "EmitSound",
+            "arguments": {
+                "sound_name": "string",
+                "pitch": "float",
+                "volume": "float"
+            },
+            "return": "uint32"
+        },
+        {
+            "name": "EmitSoundFromEntity",
+            "arguments": {
+                "sound_name": "string",
+                "pitch": "float",
+                "volume": "float",
+                "delay": "float"
+            },
+            "return": "uint32"
+        },
+        {
+            "name": "TakeDamage",
+            "arguments": {
+                "attacker": "SDKClass?",
+                "inflictor": "SDKClass?",
+                "ability": "SDKClass?",
+                "damageType": "DamageTypes_t",
+                "damage": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "CollisionRulesChanged",
+            "arguments": {},
+            "return": "void"
+        },
+        {
+            "name": "EHandle",
+            "arguments": {},
+            "return": "CBaseEntity"
+        },
+        {
+            "name": "Spawn",
+            "arguments": {
+                "keys": "CEntityKeyValues?"
+            },
+            "return": "void"
+        },
+        {
+            "name": "Despawn",
+            "arguments": {},
+            "return": "void"
+        },
+        {
+            "name": "AcceptInput",
+            "arguments": {
+                "input": "string",
+                "activator": "CEntityInstance",
+                "caller": "CEntityInstance",
+                "value": "string",
+                "outputID": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetClassname",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "GetVData",
+            "arguments": {},
+            "return": "CEntitySubclassVDataBase"
+        },
+        {
+            "name": "Teleport",
+            "arguments": {
+                "position": "Vector?",
+                "angle": "QAngle?",
+                "velocity": "Vector?"
+            },
+            "return": "void"
+        },
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

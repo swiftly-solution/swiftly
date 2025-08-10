@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "RemoveByClassname",
+    "description": "Removes the weapons with the specified classname.",
+    "arguments": {
+        "classname": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

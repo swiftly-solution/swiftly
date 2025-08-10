@@ -1,0 +1,13 @@
+{
+    "kind": "function",
+    "function": "ReplyToCommand",
+    "override_variable": true,
+    "description": "Replies to a command used by a client or console.",
+    "arguments": {
+        "playerid": "int32",
+        "prefix": "string",
+        "text": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

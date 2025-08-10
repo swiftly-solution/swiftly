@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CPhysMagnet",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysMagnet"
+    },
+    "properties": [
+        {
+            "name": "OnMagnetAttach",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMagnetDetach",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "MassScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ForceLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TorqueLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasHitSomething",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TotalMass",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextSuckTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxObjectsAttached",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseAnimGraph",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

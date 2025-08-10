@@ -1,0 +1,1 @@
+{"kind":"command","name":"dumpstringtable","description":"Usage:  dumpstringtable <tablename |all> <sv | cl> <verbose | simple> <element>      Print string tables to console, verbose to dump data, simple to show name and count only, can specifiy a single numeric element index to restrict spew.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

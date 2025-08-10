@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "Set",
+    "description": "Sets a convar value.",
+    "arguments": {
+        "name": "string",
+        "value": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

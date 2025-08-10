@@ -1,0 +1,1 @@
+{"kind":"command","name":"generate_null_container","description":"Generated a nulled out container.","args":"","flags":["linked_concommand","developmentonly","defensive"],"games":["cs2"]}

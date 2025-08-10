@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CSPerRoundStats_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSPerRoundStats_t"
+    },
+    "properties": [
+        {
+            "name": "Kills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Deaths",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Assists",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Damage",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EquipmentValue",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MoneySaved",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "KillReward",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LiveTime",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HeadShotKills",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Objective",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CashEarned",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "UtilityDamage",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EnemiesFlashed",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

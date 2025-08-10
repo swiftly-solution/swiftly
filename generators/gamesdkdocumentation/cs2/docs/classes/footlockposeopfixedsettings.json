@@ -1,0 +1,113 @@
+{
+    "kind": "class",
+    "name": "FootLockPoseOpFixedSettings",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FootLockPoseOpFixedSettings"
+    },
+    "properties": [
+        {
+            "name": "HipDampingSettings",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "HipBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IkSolverType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ApplyTilt",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ApplyHipDrop",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AlwaysUseFallbackHinge",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ApplyFootRotationLimits",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ApplyLegTwistLimits",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MaxFootHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExtensionScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxLegTwist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableLockBreaking",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LockBreakTolerance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LockBlendTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableStretching",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MaxStretchAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StretchExtensionScale",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

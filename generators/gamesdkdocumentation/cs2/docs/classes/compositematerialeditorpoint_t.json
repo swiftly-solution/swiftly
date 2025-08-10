@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CompositeMaterialEditorPoint_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CompositeMaterialEditorPoint_t"
+    },
+    "properties": [
+        {
+            "name": "SequenceIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Cycle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableChildModel",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

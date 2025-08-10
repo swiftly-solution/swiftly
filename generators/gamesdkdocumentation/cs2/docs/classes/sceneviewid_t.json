@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "SceneViewId_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SceneViewId_t"
+    },
+    "properties": [
+        {
+            "name": "ViewId",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "FrameCount",
+            "type": "uint64",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

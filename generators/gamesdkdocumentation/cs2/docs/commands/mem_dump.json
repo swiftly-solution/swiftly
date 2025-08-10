@@ -1,0 +1,1 @@
+{"kind":"command","name":"mem_dump","description":"Dump memory stats to text file or <stdout>.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

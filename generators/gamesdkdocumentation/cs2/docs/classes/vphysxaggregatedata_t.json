@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "VPhysXAggregateData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VPhysXAggregateData_t"
+    },
+    "properties": [
+        {
+            "name": "Flags",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "RefCounter",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "BonesHash",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "BoneNames",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "IndexNames",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "IndexHash",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "FeModel",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "BoneParents",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "SurfacePropertyHashes",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "DebugPartNames",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "EmbeddedKeyvalues",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

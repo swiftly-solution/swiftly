@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_streams_mytwitchtv_channel","description":"Twitch.tv account channel URL","args":"\"http://www.twitch.tv/\"","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CLogicAuto",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicAuto"
+    },
+    "properties": [
+        {
+            "name": "OnMapSpawn",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnDemoMapSpawn",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnNewGame",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnLoadGame",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMapTransition",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnBackgroundMap",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMultiNewMap",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMultiNewRound",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnVREnabled",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnVRNotEnabled",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Globalstate",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

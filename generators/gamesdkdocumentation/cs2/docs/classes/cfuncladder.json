@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CFuncLadder",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncLadder"
+    },
+    "properties": [
+        {
+            "name": "LadderDir",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LocalTop",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PlayerMountPositionTop",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PlayerMountPositionBottom",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AutoRideSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FakeLadder",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasSlack",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SurfacePropName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OnPlayerGotOnLadder",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPlayerGotOffLadder",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

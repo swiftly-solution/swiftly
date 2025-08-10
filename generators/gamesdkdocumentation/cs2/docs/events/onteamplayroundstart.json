@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnTeamplayRoundStart","description":"This event is triggered when teamplay_round_start is triggered.","arguments":{"full_reset":"bool"},"return":"void","games":["cs2"]}

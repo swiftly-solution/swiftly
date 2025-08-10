@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_items_prohibited","description":"Set this convar to a comma-delimited list of definition indices of weapons that should be prohibited from use.","args":"\"\"","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

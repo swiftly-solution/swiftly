@@ -1,0 +1,1 @@
+{"kind":"command","name":"engine_allow_multiple_ticks_per_frame","description":"When the client is catching up in low frame rate situations, should we run tick more than once a frame?","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

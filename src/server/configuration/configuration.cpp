@@ -548,7 +548,7 @@ std::map<std::string, std::any>& Configuration::FetchConfiguration() {
     return config;
 }
 
-std::map<std::string, unsigned int> Configuration::FetchConfigArraySizes() {
+std::map<std::string, unsigned int>& Configuration::FetchConfigArraySizes() {
     return configArraySizes;
 }
 

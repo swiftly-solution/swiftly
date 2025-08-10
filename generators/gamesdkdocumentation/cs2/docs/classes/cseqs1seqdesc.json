@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CSeqS1SeqDesc",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSeqS1SeqDesc"
+    },
+    "properties": [
+        {
+            "name": "Flags",
+            "type": "CSeqSeqDescFlag",
+            "writable": false
+        },
+        {
+            "name": "Fetch",
+            "type": "CSeqMultiFetch",
+            "writable": false
+        },
+        {
+            "name": "LocalWeightlist",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Transition",
+            "type": "CSeqTransition",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

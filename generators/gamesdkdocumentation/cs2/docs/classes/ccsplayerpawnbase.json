@@ -1,0 +1,113 @@
+{
+    "kind": "class",
+    "name": "CCSPlayerPawnBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayerPawnBase"
+    },
+    "properties": [
+        {
+            "name": "CTouchExpansionComponent",
+            "type": "CTouchExpansionComponent",
+            "writable": false
+        },
+        {
+            "name": "PingServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "BlindUntilTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BlindStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PlayerState",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Respawning",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasMovedSinceSpawn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NumSpawns",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IdleTimeSinceLastAction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextRadarUpdateTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FlashDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FlashMaxAlpha",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ProgressBarStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ProgressBarDuration",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EyeAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "OriginalController",
+            "type": "CCSPlayerController",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBasePlayerPawn",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

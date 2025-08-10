@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_autodirector","description":"Auto-director chooses best view modes while spectating","args":"true","flags":["clientdll","clientcmd_can_execute"],"games":["cs2"]}

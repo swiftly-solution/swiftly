@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_remove_all","description":"Removes all entities of the specified type","args":"   \t{entity_name} / {class_name} ","flags":["gamedll","cheat"],"games":["cs2"]}

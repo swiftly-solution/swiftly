@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_teamlogo_1","description":"Enter a team's shorthand image name to display their logo. Images can be found here: 'resource/flash/econ/tournaments/teams'","args":"\"\"","flags":["gamedll","release"],"games":["cs2"]}

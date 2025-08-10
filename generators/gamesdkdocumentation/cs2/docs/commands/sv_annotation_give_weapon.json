@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_annotation_give_weapon","description":"Give weapon required by annotation","args":"","flags":["gamedll","hidden","release"],"games":["cs2"]}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "EventAdvanceTick_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EventAdvanceTick_t"
+    },
+    "properties": [
+        {
+            "name": "CurrentTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CurrentTickThisFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalTicksThisFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalTicks",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "EventSimulate_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,248 @@
+{
+    "kind": "class",
+    "name": "VPhysXConstraintParams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VPhysXConstraintParams_t"
+    },
+    "properties": [
+        {
+            "name": "Type",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "TranslateMotion",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "RotateMotion",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "Anchor",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "MaxForce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxTorque",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearLimitValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearLimitRestitution",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearLimitSpring",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearLimitDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TwistLowLimitValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TwistLowLimitRestitution",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TwistLowLimitSpring",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TwistLowLimitDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TwistHighLimitValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TwistHighLimitRestitution",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TwistHighLimitSpring",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TwistHighLimitDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Swing1LimitValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Swing1LimitRestitution",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Swing1LimitSpring",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Swing1LimitDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Swing2LimitValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Swing2LimitRestitution",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Swing2LimitSpring",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Swing2LimitDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GoalPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "GoalAngularVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DriveSpringX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveSpringY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveSpringZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveDampingX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveDampingY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveDampingZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveSpringTwist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveSpringSwing",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveSpringSlerp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveDampingTwist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveDampingSwing",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DriveDampingSlerp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SolverIterationCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ProjectionLinearTolerance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ProjectionAngularTolerance",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

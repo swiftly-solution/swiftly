@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CParticleCollectionBindingInstance",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleCollectionBindingInstance"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CBasePulseGraphInstance",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

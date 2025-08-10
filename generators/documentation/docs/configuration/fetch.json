@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Fetch",
+    "description": "Returns the configuration value for the specified key.",
+    "arguments": {
+        "key": "string"
+    },
+    "return": "any",
+    "games": "all"
+}

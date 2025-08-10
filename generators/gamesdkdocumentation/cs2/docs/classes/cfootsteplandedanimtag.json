@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CFootstepLandedAnimTag",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFootstepLandedAnimTag"
+    },
+    "properties": [
+        {
+            "name": "FootstepType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OverrideSoundName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DebugAnimSourceString",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimTagBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

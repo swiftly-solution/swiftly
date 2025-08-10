@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CMotionGraphGroup",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMotionGraphGroup"
+    },
+    "properties": [
+        {
+            "name": "SearchDB",
+            "type": "CMotionSearchDB",
+            "writable": false
+        },
+        {
+            "name": "SampleToConfig",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "IsActiveScript",
+            "type": "AnimScriptHandle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

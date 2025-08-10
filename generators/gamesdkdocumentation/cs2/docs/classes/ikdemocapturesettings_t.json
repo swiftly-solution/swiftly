@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "IKDemoCaptureSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "IKDemoCaptureSettings_t"
+    },
+    "properties": [
+        {
+            "name": "ParentBoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Mode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "IkChainName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OneBoneStart",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OneBoneEnd",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

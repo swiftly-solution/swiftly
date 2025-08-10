@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"perfcounter","type":"uint32"},{"name":"length","type":"uint32"},{"name":"reference","type":"bytes"},{"name":"actual","type":"bytes"},{"name":"sourceid","type":"uint32"},{"name":"status","type":"uint32"}],"name":"CMsgGCCStrike15_v2_ClientPerfReport.Entry","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"eventid","type":"uint32"},{"name":"stageid","type":"uint32"},{"name":"gameType","type":"uint32"},{"name":"teamids","type":"uint32"}],"name":"CMsgGCCStrike15_v2_GC2ClientTournamentInfo","games":["cs2"]}

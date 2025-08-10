@@ -1,0 +1,1 @@
+{"kind":"command","name":"jpeg_screenshot","description":"Take a jpeg screenshot: jpeg_screenshot [filename] [quality 1-100].","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

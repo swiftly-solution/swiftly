@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_embedded_stream_video_playing","description":"Embedded stream video playing state","args":"0","flags":["developmentonly","clientdll","hidden","defensive"],"games":["cs2"]}

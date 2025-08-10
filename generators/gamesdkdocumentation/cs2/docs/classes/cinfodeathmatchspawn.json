@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CInfoDeathmatchSpawn",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CInfoDeathmatchSpawn"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "SpawnPoint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostPhysgunPickup","description":"This event is triggered after physgun_pickup is triggered.","arguments":{},"return":"void","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_use_illumination_silhouette","description":"SceneSystem/LightBinner/Use Illumination Bounds","args":"true","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

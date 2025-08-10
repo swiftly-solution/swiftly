@@ -1,0 +1,1 @@
+{"kind":"command","name":"drawcross","description":"Draws a cross at the given location","args":" x y z","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "SetConvar",
+    "description": "Sets the convar value of the player.",
+    "arguments": {
+        "convar": "string",
+        "value": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

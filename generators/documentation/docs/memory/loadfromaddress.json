@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "LoadFromAddress",
+    "description": "Loads the memory from a provided address.",
+    "arguments": {
+        "address": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

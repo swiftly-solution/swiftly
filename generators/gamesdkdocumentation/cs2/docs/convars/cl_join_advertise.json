@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_join_advertise","description":"Advertise joinable game in progress to Steam friends, otherwise need a Steam invite (2: all servers, 1: official servers, 0: none)","args":"1","flags":["clientdll","archive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_clockcorrection_msecs","description":"The server tries to keep each player's m_nTickBase withing this many msecs of the server absolute tickcount","args":"30","flags":["gamedll","release"],"games":["cs2"]}

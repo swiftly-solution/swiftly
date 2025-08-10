@@ -1,0 +1,208 @@
+{
+    "kind": "class",
+    "name": "RnBodyDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "RnBodyDesc_t"
+    },
+    "properties": [
+        {
+            "name": "DebugName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Position",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LinearVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AngularVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LocalMassCenter",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LocalInertiaInv",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "MassInv",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GameMass",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MassScaleInv",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InertiaScaleInv",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearBuoyancyDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularBuoyancyDrag",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastAwakeForceAccum",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastAwakeTorqueAccum",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BuoyancyFactor",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GravityScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BodyType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GameIndex",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "GameFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MinVelocityIterations",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "MinPositionIterations",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "MassPriority",
+            "type": "int8",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Sleeping",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsContinuousEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DragEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BuoyancyDragEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Gravity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SpeculativeEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasShadowController",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DynamicContinuousContactBehavior",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

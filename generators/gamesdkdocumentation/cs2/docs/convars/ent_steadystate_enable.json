@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_steadystate_enable","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

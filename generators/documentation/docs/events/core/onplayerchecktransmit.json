@@ -1,0 +1,12 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnPlayerCheckTransmit",
+    "description": "This game event is triggered when a player checks for transmitting entities.",
+    "arguments": {
+        "playerid": "int32",
+        "transmitinfo": "CCheckTransmitInfo"
+    },
+    "return": "void",
+    "games": "all"
+}

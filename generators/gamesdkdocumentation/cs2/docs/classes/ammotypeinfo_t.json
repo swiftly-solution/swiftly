@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "AmmoTypeInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "AmmoTypeInfo_t"
+    },
+    "properties": [
+        {
+            "name": "MaxCarry",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SplashSize",
+            "type": "CRangeInt",
+            "writable": false
+        },
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Mass",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Speed",
+            "type": "CRangeFloat",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

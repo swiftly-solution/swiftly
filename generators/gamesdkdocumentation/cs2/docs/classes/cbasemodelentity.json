@@ -1,0 +1,240 @@
+{
+    "kind": "class",
+    "name": "CBaseModelEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseModelEntity"
+    },
+    "properties": [
+        {
+            "name": "CRenderComponent",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "CHitboxComponent",
+            "type": "CHitboxComponent",
+            "writable": false
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed0",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed1",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed2",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed3",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed4",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed0_PartIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed1_PartIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed2_PartIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed3_PartIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartInitialStateDestructed4_PartIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DestructiblePartsSystemComponent",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "LastHitGroup",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LastDamagePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DissolveStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnIgnite",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "RenderMode",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "RenderFX",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "AllowFadeInView",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Render",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "RenderToCubemaps",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoInterpolate",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Collision",
+            "type": "CCollisionProperty",
+            "writable": false
+        },
+        {
+            "name": "Glow",
+            "type": "CGlowProperty",
+            "writable": false
+        },
+        {
+            "name": "GlowBackfaceMult",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeMinDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeMaxDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShadowStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ObjectCulling",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "AddDecal",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DecalPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DecalForwardAxis",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DecalHealBloodRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DecalHealHeightRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ViewOffset",
+            "type": "CNetworkViewOffsetVector",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "SetBodygroup",
+            "arguments": {
+                "key": "string",
+                "value": "uint64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetModel",
+            "arguments": {
+                "model": "string"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SetSolidType",
+            "arguments": {
+                "solidType": "uint8"
+            },
+            "return": "void"
+        },
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

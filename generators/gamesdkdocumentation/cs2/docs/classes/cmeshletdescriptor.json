@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CMeshletDescriptor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMeshletDescriptor"
+    },
+    "properties": [
+        {
+            "name": "CullingData",
+            "type": "CDrawCullingData",
+            "writable": false
+        },
+        {
+            "name": "VertexOffset",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TriangleOffset",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "VertexCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "TriangleCount",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

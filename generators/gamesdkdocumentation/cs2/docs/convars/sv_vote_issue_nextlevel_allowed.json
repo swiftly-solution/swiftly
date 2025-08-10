@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_vote_issue_nextlevel_allowed","description":"Can people hold votes to set the next level?","args":"true","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

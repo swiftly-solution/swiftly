@@ -1,0 +1,1 @@
+{"kind":"command","name":"pickup_check_period","description":"<no description>","args":"0.25","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

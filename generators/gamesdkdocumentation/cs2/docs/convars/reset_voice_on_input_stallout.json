@@ -1,0 +1,1 @@
+{"kind":"command","name":"reset_voice_on_input_stallout","description":"If true, resets the input device when there was a long enough hitch between callbacks.","args":"false","flags":["userinfo"],"games":["cs2"]}

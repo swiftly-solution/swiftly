@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_grouprelaydatavoice","description":"Similar to tv_grouprelaydata, but controls whether or not the voice channels should be routed into the grouped data for the relays","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

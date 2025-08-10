@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "Call Export",
+    "override_variable": true,
+    "override_function": {
+        "lua": "exports[\"PLUGIN_NAME\"]:EXPORT_NAME",
+        "cs": "Exports.Call(\"PLUGIN_NAME\", \"EXPORT_NAME\", "
+    },
+    "description": "Calls the specified export.",
+    "arguments": {
+        "...": "any"
+    },
+    "return": "any",
+    "games": "all"
+}

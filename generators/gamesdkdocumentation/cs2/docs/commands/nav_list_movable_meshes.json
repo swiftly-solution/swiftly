@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_list_movable_meshes","description":"List the movable meshes registered with the movable meshes manager.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

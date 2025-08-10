@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "VMixAutoFilterDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixAutoFilterDesc_t"
+    },
+    "properties": [
+        {
+            "name": "EnvelopeAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AttackTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ReleaseTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Filter",
+            "type": "VMixFilterDesc_t",
+            "writable": false
+        },
+        {
+            "name": "LFOAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LFORate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Phase",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LFOShape",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

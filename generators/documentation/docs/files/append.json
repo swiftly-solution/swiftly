@@ -1,0 +1,12 @@
+{
+    "kind": "function",
+    "function": "Append",
+    "description": "Appends the content to a file",
+    "arguments": {
+        "path": "string",
+        "content": "string",
+        "hasdate": "bool"
+    },
+    "return": "void",
+    "games": "all"
+}

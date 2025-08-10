@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CPhysWheelConstraint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysWheelConstraint"
+    },
+    "properties": [
+        {
+            "name": "SuspensionFrequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SuspensionDampingRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SuspensionHeightOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableSuspensionLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinSuspensionOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxSuspensionOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableSteeringLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinSteeringAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxSteeringAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SteeringAxisFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpinAxisFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SteeringMimicsEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPhysConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

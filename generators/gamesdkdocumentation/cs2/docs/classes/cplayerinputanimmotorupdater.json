@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CPlayerInputAnimMotorUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPlayerInputAnimMotorUpdater"
+    },
+    "properties": [
+        {
+            "name": "SampleTimes",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "SpringConstant",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnticipationDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnticipationPosParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "AnticipationHeadingParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "UseAcceleration",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimMotorUpdaterBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

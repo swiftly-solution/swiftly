@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "TextureGroup_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "TextureGroup_t"
+    },
+    "properties": [
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ReplaceTextureWithGradient",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TextureType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TextureChannels",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TextureBlendMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TextureBlend",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "TextureControls",
+            "type": "TextureControls_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

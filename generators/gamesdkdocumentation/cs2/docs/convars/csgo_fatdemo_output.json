@@ -1,0 +1,1 @@
+{"kind":"command","name":"csgo_fatdemo_output","description":"<no description>","args":"\"test.fatdem\"","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_clear_attribute","description":"Remove given nav attribute from all areas in the selected set.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

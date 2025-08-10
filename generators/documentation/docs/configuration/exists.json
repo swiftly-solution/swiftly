@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Exists",
+    "description": "Checks if the configuration key exists.",
+    "arguments": {
+        "key": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

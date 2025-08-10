@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "Write",
+    "description": "Writes a specific text in the plugin's log file.",
+    "arguments": {
+        "log_type": "LogType_t",
+        "text": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

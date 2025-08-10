@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnInstructorServerHintStop","description":"This event is triggered when instructor_server_hint_stop is triggered.","arguments":{"hint_name":"string","hint_entindex":"int32"},"return":"void","games":["cs2"]}

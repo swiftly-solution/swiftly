@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CAudioAnimTag",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAudioAnimTag"
+    },
+    "properties": [
+        {
+            "name": "ClipName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachmentName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Volume",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StopWhenTagEnds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StopWhenGraphEnds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PlayOnServer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PlayOnClient",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimTagBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

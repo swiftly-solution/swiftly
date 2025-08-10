@@ -1,0 +1,1 @@
+{"kind":"command","name":"cast_physics","description":"Tests physics shape collision detection","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

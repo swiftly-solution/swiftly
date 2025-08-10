@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CMoverPathNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMoverPathNode"
+    },
+    "properties": [
+        {
+            "name": "InTangentLocal",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OutTangentLocal",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ParentPathUniqueID",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PathNodeParameter",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OnStartFromOrInSegment",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStoppedAtOrInSegment",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPassThrough",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPassThroughForward",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPassThroughReverse",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Mover",
+            "type": "CPathMover",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

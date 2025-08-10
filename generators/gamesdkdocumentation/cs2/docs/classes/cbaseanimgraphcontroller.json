@@ -1,0 +1,128 @@
+{
+    "kind": "class",
+    "name": "CBaseAnimGraphController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseAnimGraphController"
+    },
+    "properties": [
+        {
+            "name": "AnimGraphNetworkedVars",
+            "type": "CAnimGraphNetworkedVariables",
+            "writable": false
+        },
+        {
+            "name": "SequenceFinished",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SoundSyncTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ActiveIKChainMask",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Sequence",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SeqStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SeqFixedCycle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnimLoopMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PlaybackRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NotifyState",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "NetworkedAnimationInputsChanged",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NetworkedSequenceChanged",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastUpdateSkipped",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PrevAnimUpdateTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsUsingAG2",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SerializedPoseRecipeAG2",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "SerializePoseRecipeSizeAG2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "GraphCreationFlagsAG2",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ServerGraphDefReloadCountAG2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSkeletonAnimationController",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

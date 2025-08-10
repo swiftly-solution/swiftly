@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "constraint_hingeparams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "constraint_hingeparams_t"
+    },
+    "properties": [
+        {
+            "name": "WorldPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "WorldAxisDirection",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "HingeAxis",
+            "type": "constraint_axislimit_t",
+            "writable": false
+        },
+        {
+            "name": "Constraint",
+            "type": "constraint_breakableparams_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

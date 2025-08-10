@@ -1,0 +1,1 @@
+{"kind":"command","name":"dev_simulate_gcdown","description":"<state> Turn on/off simulated GC communications failure (GC is down in a way that we know it is down)","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

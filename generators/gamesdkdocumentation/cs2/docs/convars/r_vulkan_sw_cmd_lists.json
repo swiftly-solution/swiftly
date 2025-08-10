@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_vulkan_sw_cmd_lists","description":"Enable Software Command lists for Vulkan","args":"true","flags":["release"],"games":["cs2"]}

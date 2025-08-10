@@ -1,0 +1,12 @@
+{
+    "kind": "type",
+    "name": "Team",
+    "description": "These are the teams available.",
+    "values": {
+        "None": "0",
+        "Spectator": "1",
+        "T": "2",
+        "CT": "3"
+    },
+    "games": "all"
+}

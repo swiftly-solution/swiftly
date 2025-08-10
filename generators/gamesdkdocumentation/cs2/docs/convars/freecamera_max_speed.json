@@ -1,0 +1,1 @@
+{"kind":"command","name":"freecamera_max_speed","description":"Tweak this parameter to adjust Free Camera movement max speed.","args":"500","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

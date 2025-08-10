@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "GetPluginsList",
+    "override_variable": true,
+    "description": "Returns all the plugins loaded on the server.",
+    "arguments": {},
+    "return": "(string:string)[]",
+    "games": "all"
+}

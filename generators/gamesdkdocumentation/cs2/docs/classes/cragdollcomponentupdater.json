@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CRagdollComponentUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRagdollComponentUpdater"
+    },
+    "properties": [
+        {
+            "name": "BoneIndices",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "BoneNames",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "BoneToWeightIndices",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "SpringFrequencyMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpringFrequencyMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxStretch",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SolidCollisionAtZeroWeight",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimComponentUpdater",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

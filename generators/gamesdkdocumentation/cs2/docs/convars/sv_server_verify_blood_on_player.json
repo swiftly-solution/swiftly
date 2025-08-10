@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_server_verify_blood_on_player","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

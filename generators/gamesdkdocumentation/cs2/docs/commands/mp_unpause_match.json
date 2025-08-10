@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_unpause_match","description":"Resume the match","args":"","flags":["gamedll","release"],"games":["cs2"]}

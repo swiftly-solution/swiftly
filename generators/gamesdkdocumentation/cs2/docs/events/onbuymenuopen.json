@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnBuymenuOpen","description":"This event is triggered when buymenu_open is triggered.","arguments":{},"return":"void","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"spawngrouphandle","type":"uint32"},{"name":"flags","type":"uint32"},{"name":"tickcount","type":"int32"}],"name":"CNETMsg_SpawnGroup_Unload","games":["cs2"]}

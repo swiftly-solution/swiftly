@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_resend","description":"Delay in seconds before the client will resend the 'connect' attempt","args":"0.5","flags":["min:","0.1,","max:","2,","release"],"games":["cs2"]}

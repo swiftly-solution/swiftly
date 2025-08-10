@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "FeBandBendLimit_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeBandBendLimit_t"
+    },
+    "properties": [
+        {
+            "name": "DistMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Node",
+            "type": "uint16[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ironsight_min_channel_color","description":"Ironsight min channel color value","args":"0.3","flags":["min:","0,","max:","1,","developmentonly","clientdll"],"games":["cs2"]}

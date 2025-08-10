@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostHltvFixed","description":"This event is triggered after hltv_fixed is triggered.","arguments":{"posx":"int32","posy":"int32","posz":"int32","theta":"int32","phi":"int32","offset":"int32","fov":"float","target":"int32"},"return":"void","games":["cs2"]}

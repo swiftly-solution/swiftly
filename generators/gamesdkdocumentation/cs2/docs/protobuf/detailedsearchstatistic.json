@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"gameType","type":"uint32"},{"name":"searchTimeAvg","type":"uint32"},{"name":"playersSearching","type":"uint32"}],"name":"DetailedSearchStatistic","games":["cs2"]}

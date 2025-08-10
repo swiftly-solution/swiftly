@@ -1,0 +1,118 @@
+{
+    "kind": "class",
+    "name": "CPropDoorRotating",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPropDoorRotating"
+    },
+    "properties": [
+        {
+            "name": "Axis",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Distance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpawnPosition",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OpenDirection",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CurrentOpenDirection",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AjarAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RotationAjarDeprecated",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "RotationClosed",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "RotationOpenForward",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "RotationOpenBack",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Goal",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "ForwardBoundsMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ForwardBoundsMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BackBoundsMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BackBoundsMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AjarDoorShouldntAlwaysOpen",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EntityBlocker",
+            "type": "CEntityBlocker",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBasePropDoor",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

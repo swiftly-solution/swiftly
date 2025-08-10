@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"version","type":"uint32"},{"name":"accountId","type":"uint32"},{"name":"joinToken","type":"uint32"},{"name":"joinIpp","type":"uint32"},{"name":"res","type":"CMsgGCCStrike15_v2_MatchmakingGC2ClientReserve"},{"name":"errormsg","type":"string"}],"name":"CMsgGCCStrike15_v2_ClientRequestJoinFriendData","games":["cs2"]}

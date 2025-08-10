@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CSoundOpvarSetPathCornerEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundOpvarSetPathCornerEntity"
+    },
+    "properties": [
+        {
+            "name": "DistMinSqr",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistMaxSqr",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PathCornerEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSoundOpvarSetPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

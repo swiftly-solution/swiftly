@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_visiblemaxplayers","description":"Overrides the max players reported to prospective clients","args":"-1","flags":["release"],"games":["cs2"]}

@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CMovementStatsProperty",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMovementStatsProperty"
+    },
+    "properties": [
+        {
+            "name": "UseCounter",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EmaMovementDirection",
+            "type": "CVectorExponentialMovingAverage",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

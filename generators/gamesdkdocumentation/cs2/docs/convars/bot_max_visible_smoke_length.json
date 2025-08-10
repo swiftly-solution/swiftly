@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_max_visible_smoke_length","description":"Bots will see players through smoke clouds up to this length.","args":"200","flags":["gamedll","replicated","release"],"games":["cs2"]}

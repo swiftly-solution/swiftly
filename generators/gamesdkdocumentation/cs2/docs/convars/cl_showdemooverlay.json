@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_showdemooverlay","description":"How often to flash demo recording/playback overlay (0 - disable overlay, -1 - show always)","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

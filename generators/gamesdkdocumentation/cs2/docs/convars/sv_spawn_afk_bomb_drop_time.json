@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_spawn_afk_bomb_drop_time","description":"Players that have never moved since they spawned will drop the bomb after this amount of time.","args":"15","flags":["gamedll","replicated","release"],"games":["cs2"]}

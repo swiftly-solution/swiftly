@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_death_drop_healthshot","description":"Drop healthshot on player death","args":"true","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -51,9 +51,6 @@ EValue SerializeData(std::any data, EContext* state)
 
                     return decodedResult;
                 }
-                else if (state->GetKind() == ContextKinds::JavaScript) {
-                    return EValue(state, JS_ParseJSON((JSContext*)state->GetState(), json.c_str(), json.length(), "SerializeData"));
-                }
                 else return EValue(state, nullptr);
             }
             else return EValue(state, val);
@@ -197,14 +194,6 @@ std::any DeserializeData(EValue ref, EContext* state)
                 return DeserializeSerpent(ref, state);
 
             return string_format("JSON⇚%s⇛", encodedResult.cast<std::string>().c_str());
-        }
-        else if (state->GetKind() == ContextKinds::JavaScript) {
-            auto retval = JS_JSONStringify(state->GetJSState(), ref.pushJS(), JS_NULL, JS_NULL);
-            if (JS_IsException(retval)) {
-                return std::vector<std::string>{};
-            }
-
-            return string_format("JSON⇚%s⇛", EValue(state, retval).cast<std::string>().c_str());
         }
         else return nullptr;
     }

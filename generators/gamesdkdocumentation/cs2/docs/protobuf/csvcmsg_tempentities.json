@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"reliable","type":"bool"},{"name":"numEntries","type":"int32"},{"name":"entityData","type":"bytes"}],"name":"CSVCMsg_TempEntities","games":["cs2"]}

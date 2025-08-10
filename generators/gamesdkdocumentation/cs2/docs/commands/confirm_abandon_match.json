@@ -1,0 +1,1 @@
+{"kind":"command","name":"confirm_abandon_match","description":"Confirm that we wish to abandon match","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

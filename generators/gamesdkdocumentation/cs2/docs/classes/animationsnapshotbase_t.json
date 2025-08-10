@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "AnimationSnapshotBase_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "AnimationSnapshotBase_t"
+    },
+    "properties": [
+        {
+            "name": "RealTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BonesInWorldSpace",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BoneSetupMask",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "FlexControllers",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "SnapshotType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HasDecodeDump",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DecodeDump",
+            "type": "AnimationDecodeDebugDumpElement_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ents","description":"List client entities, sorted by spawn group","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

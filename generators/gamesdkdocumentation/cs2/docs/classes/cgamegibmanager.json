@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CGameGibManager",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGameGibManager"
+    },
+    "properties": [
+        {
+            "name": "AllowNewGibs",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CurrentMaxPieces",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxPieces",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

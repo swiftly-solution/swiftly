@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_globallight_slope_scale_depth_bias","description":"<no description>","args":"-999","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

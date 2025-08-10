@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "CBtActionMoveTo",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBtActionMoveTo"
+    },
+    "properties": [
+        {
+            "name": "DestinationInputKey",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "HidingSpotInputKey",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ThreatInputKey",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Destination",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AutoLookAdjust",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ComputePath",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DamagingAreasPenaltyCost",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CheckApproximateCornersTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "CheckHighPriorityItem",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "RepathTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "ArrivalEpsilon",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AdditionalArrivalEpsilon2D",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HidingSpotCheckDistanceThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NearestAreaDistanceThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBtNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

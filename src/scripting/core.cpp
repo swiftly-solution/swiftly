@@ -4,15 +4,16 @@
 #include <utils/utils.h>
 #include <core/entrypoint.h>
 #include <sdk/game.h>
+#include <public/tier0/dbg.h>
 
 #include <tools/crashreporter/callstack.h>
 #include <tools/resourcemonitor/monitor.h>
 
-std::string FetchPluginName(EContext* state);
+std::string& FetchPluginName(EContext* state);
 std::map<std::string, EContext*> pluginNamesMap = {};
 std::map<EContext*, std::string> pluginNamesMap2 = {};
 
-std::string FetchPluginName(EContext* state)
+std::string& FetchPluginName(EContext* state)
 {
     return pluginNamesMap2[state];
 }
@@ -37,7 +38,12 @@ void SetupScriptingEnvironment(PluginObject plugin, EContext* ctx)
 
     if (ctx->GetKind() == ContextKinds::Lua) ctx->RegisterLuaLib("json", luaopen_rapidjson);
 
-    ADD_FUNCTION_NS(ctx->GetKind() == ContextKinds::Lua ? "_G" : "console", ctx->GetKind() == ContextKinds::Lua ? "print" : "log", [](FunctionContext* context) -> void {
+    static std::map<ContextKinds, std::pair<std::string, std::string>> consoleOutput = {
+        { ContextKinds::Lua, { "_G", "print" } },
+        { ContextKinds::Dotnet, { "Console", "WriteLine" } },
+    };
+
+    ADD_FUNCTION_NS(consoleOutput[ctx->GetKind()].first, consoleOutput[ctx->GetKind()].second, [](FunctionContext* context) -> void {
         std::string prefix = TerminalProcessColor(string_format("[Swiftly] %s[%s]{DEFAULT} ", GetTerminalStringColor(FetchPluginName(context->GetPluginContext())).c_str(), ("plugin:" + FetchPluginName(context->GetPluginContext())).c_str()));
 
         std::vector<std::string> outputArr;
@@ -48,13 +54,13 @@ void SetupScriptingEnvironment(PluginObject plugin, EContext* ctx)
         }
 
         std::vector<std::string> processingNewLines = explode(implode(outputArr, ""), "\n");
-        for (const std::string str : processingNewLines)
+        for (const std::string& str : processingNewLines)
         {
             if (str.size() == 0)
                 continue;
 
             std::string final_string = TerminalProcessColor(string_format("%s%s{DEFAULT}{BGDEFAULT}\n", prefix.c_str(), str.c_str()));
-            META_CONPRINT(final_string.c_str());
+            ConMsg(final_string.c_str());
         }
     });
 
@@ -86,6 +92,10 @@ void SetupScriptingEnvironment(PluginObject plugin, EContext* ctx)
                     function_call += string_format(" -> %s:%d", ar.short_src, ar.currentline);
                 }
             }
+        }
+        else if (context->GetPluginContext()->GetKind() == ContextKinds::Dotnet)
+        {
+            function_call += " -> " + context->GetDebugInfo();
         }
 
         context->temporaryData.push_back(g_callStack.RegisterPluginCallstack(FetchPluginName(context->GetPluginContext()), function_call));

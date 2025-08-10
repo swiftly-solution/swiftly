@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CPointTemplate",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointTemplate"
+    },
+    "properties": [
+        {
+            "name": "WorldName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Source2EntityLumpName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "EntityFilterName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TimeoutInterval",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AsynchronouslySpawnEntities",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ClientOnlyEntityBehavior",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OwnerSpawnGroupType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CreatedSpawnGroupHandles",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

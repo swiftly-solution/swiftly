@@ -1,0 +1,1 @@
+{"kind":"protobuf","values":{"EClientUIEvent_Invalid":0,"EClientUIEvent_DialogFinished":1,"EClientUIEvent_FireOutput":2},"name":"EClientUIEvent","games":["cs2"]}

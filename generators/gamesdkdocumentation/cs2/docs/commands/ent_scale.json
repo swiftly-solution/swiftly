@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_scale","description":"Scales entities.\tArguments: <scale factor> <{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}>","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

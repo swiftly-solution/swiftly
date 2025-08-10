@@ -1,0 +1,1 @@
+{"kind":"command","name":"cli_ent_hitbox","description":"Displays the skeleton for the given entity(ies).","args":"   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}","flags":["clientdll","cheat"],"games":["cs2"]}

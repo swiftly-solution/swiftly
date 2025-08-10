@@ -1,0 +1,1 @@
+{"kind":"command","name":"contributionscore_hostage_rescue_minor","description":"amount of contribution score added to all alive CTs per hostage rescued","args":"1","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

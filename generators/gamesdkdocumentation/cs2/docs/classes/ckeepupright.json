@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CKeepUpright",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CKeepUpright"
+    },
+    "properties": [
+        {
+            "name": "WorldGoalAxis",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LocalTestAxis",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "NameAttach",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachedObject",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "AngularLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DampAllRotation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

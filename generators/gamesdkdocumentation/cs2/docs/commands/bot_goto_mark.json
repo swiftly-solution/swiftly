@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_goto_mark","description":"Sends a bot to the marked nav area (useful for testing navigation meshes)","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

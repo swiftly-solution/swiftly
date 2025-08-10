@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_banid_enabled","description":"Whether server supports banid command","args":"true","flags":["release"],"games":["cs2"]}

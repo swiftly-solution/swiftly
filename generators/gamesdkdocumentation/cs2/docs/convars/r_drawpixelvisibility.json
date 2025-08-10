@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_drawpixelvisibility","description":"Show the occlusion proxies","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

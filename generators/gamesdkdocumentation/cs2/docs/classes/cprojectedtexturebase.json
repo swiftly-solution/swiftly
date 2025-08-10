@@ -1,0 +1,178 @@
+{
+    "kind": "class",
+    "name": "CProjectedTextureBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CProjectedTextureBase"
+    },
+    "properties": [
+        {
+            "name": "TargetEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "State",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AlwaysUpdate",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LightFOV",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableShadows",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SimpleProjection",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LightOnlyTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LightWorld",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CameraSpace",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BrightnessScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LightColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Intensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearAttenuation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "QuadraticAttenuation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Volumetric",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "VolumetricIntensity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FlashlightTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NumPlanes",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PlaneOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ColorTransitionTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Ambient",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpotlightTextureName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SpotlightTextureFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShadowQuality",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NearZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FarZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ProjectionSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Rotation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FlipHorizontal",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

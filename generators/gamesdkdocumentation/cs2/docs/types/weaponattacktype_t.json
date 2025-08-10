@@ -1,0 +1,1 @@
+{"kind":"type","name":"WeaponAttackType_t","description":"Automatically generated game type from enum WeaponAttackType_t","values":{"eInvalid":-1,"ePrimary":0,"eSecondary":1,"eCount":2},"games":["cs2"]}

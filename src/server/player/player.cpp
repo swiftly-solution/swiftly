@@ -484,43 +484,44 @@ void Player::SetClientConvar(std::string cmd, std::string val)
 
 void* Player::EnsureCustomView(int index)
 {
-    auto pawn = GetPlayerPawn();
-    if (!pawn) return nullptr;
+    //     auto pawn = GetPlayerPawn();
+    //     if (!pawn) return nullptr;
 
-    if (schema::GetProp<uint32_t>(pawn, "CBaseEntity", "m_lifeState") == 2) {
-        auto controller = GetController();
-        if (!controller) return nullptr;
-        if (schema::GetProp<bool>(controller, "CCSPlayerController", "m_bControllingBot")) return nullptr;
+    //     if (schema::GetProp<uint32_t>(pawn, "CBaseEntity", "m_lifeState") == 2) {
+    //         auto controller = GetController();
+    //         if (!controller) return nullptr;
+    //         if (schema::GetProp<bool>(controller, "CCSPlayerController", "m_bControllingBot")) return nullptr;
 
-        auto observerServices = schema::GetProp<void*>(pawn, "CBasePlayerPawn", "m_pObserverServices");
-        if (!observerServices) return nullptr;
+    //         auto observerServices = schema::GetProp<void*>(pawn, "CBasePlayerPawn", "m_pObserverServices");
+    //         if (!observerServices) return nullptr;
 
-        CHandle<CEntityInstance> observerTarget = schema::GetProp<CHandle<CEntityInstance>>(observerServices, "CPlayer_ObserverServices", "m_hObserverTarget");
-        if (!observerTarget) return nullptr;
+    //         CHandle<CEntityInstance> observerTarget = schema::GetProp<CHandle<CEntityInstance>>(observerServices, "CPlayer_ObserverServices", "m_hObserverTarget");
+    //         if (!observerTarget) return nullptr;
 
-        auto observerController = schema::GetProp<CHandle<CEntityInstance>>(observerTarget.Get(), "CCSPlayerPawnBase", "m_hOriginalController");
-        if (!observerController) return nullptr;
+    //         auto observerController = schema::GetProp<CHandle<CEntityInstance>>(observerTarget.Get(), "CCSPlayerPawnBase", "m_hOriginalController");
+    //         if (!observerController) return nullptr;
 
-        CHandle<CEntityInstance> pawnHandle = schema::GetProp<CHandle<CEntityInstance>>(observerController, "CCSPlayerController", "m_hPlayerPawn");
-        if (!pawnHandle) return nullptr;
-        pawn = (void*)(pawnHandle.Get());
-    }
+    //         CHandle<CEntityInstance> pawnHandle = schema::GetProp<CHandle<CEntityInstance>>(observerController, "CCSPlayerController", "m_hPlayerPawn");
+    //         if (!pawnHandle) return nullptr;
+    //         pawn = (void*)(pawnHandle.Get());
+    //     }
 
-    if (!pawn) return nullptr;
+    //     if (!pawn) return nullptr;
 
-    void* vmServices = schema::GetProp<void*>(pawn, "CCSPlayerPawnBase", "m_pViewModelServices");
-    if (!vmServices) return nullptr;
+    //     void* vmServices = schema::GetProp<void*>(pawn, "CCSPlayerPawnBase", "m_pViewModelServices");
+    //     if (!vmServices) return nullptr;
 
-    auto vmHandle = (void*)(schema::GetPropPtr<CHandle<CEntityInstance>>(vmServices, "CCSPlayer_ViewModelServices", "m_hViewModel")[index].Get());
-    if (!vmHandle) {
-        vmHandle = g_entSystem.CreateByName("predicted_viewmodel");
-        g_entSystem.Spawn(vmHandle, nullptr);
-        schema::GetPropPtr<CHandle<CEntityInstance>>(vmServices, "CCSPlayer_ViewModelServices", "m_hViewModel")[index].Set((CEntityInstance*)(vmHandle));
-        schema::SetProp(vmHandle, "CBaseViewModel", "m_nViewModelIndex", index);
-        ((CEntityInstance*)pawn)->NetworkStateChanged();
-    }
+    //     auto vmHandle = (void*)(schema::GetPropPtr<CHandle<CEntityInstance>>(vmServices, "CCSPlayer_ViewModelServices", "m_hViewModel")[index].Get());
+    //     if (!vmHandle) {
+    //         vmHandle = g_entSystem.CreateByName("predicted_viewmodel");
+    //         g_entSystem.Spawn(vmHandle, nullptr);
+    //         schema::GetPropPtr<CHandle<CEntityInstance>>(vmServices, "CCSPlayer_ViewModelServices", "m_hViewModel")[index].Set((CEntityInstance*)(vmHandle));
+    //         schema::SetProp(vmHandle, "CBaseViewModel", "m_nViewModelIndex", index);
+    //         ((CEntityInstance*)pawn)->NetworkStateChanged();
+    //     }
 
-    return vmHandle;
+    //     return vmHandle;
+    return nullptr;
 }
 
 ClassData* Player::GetPlayerObject()

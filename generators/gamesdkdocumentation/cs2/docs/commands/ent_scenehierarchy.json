@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_scenehierarchy","description":"Prints the entity scenenode hierarchy tree rooted at the specified ent(s)","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

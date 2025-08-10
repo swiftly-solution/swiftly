@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostHostageCallForHelp","description":"This event is triggered after hostage_call_for_help is triggered.","arguments":{"hostage":"int32"},"return":"void","games":["cs2"]}

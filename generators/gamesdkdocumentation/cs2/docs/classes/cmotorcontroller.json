@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CMotorController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMotorController"
+    },
+    "properties": [
+        {
+            "name": "Speed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxTorque",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Axis",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "InertiaFactor",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

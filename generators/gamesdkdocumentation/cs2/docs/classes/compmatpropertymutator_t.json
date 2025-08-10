@@ -1,0 +1,153 @@
+{
+    "kind": "class",
+    "name": "CompMatPropertyMutator_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CompMatPropertyMutator_t"
+    },
+    "properties": [
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MutatorCommandType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StrInitWith_Container",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrCopyProperty_InputContainerSrc",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrCopyProperty_InputContainerProperty",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrCopyProperty_TargetProperty",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrRandomRollInputVars_SeedInputVar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "RandomRollInputVars_InputVarsToRoll",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "StrCopyMatchingKeys_InputContainerSrc",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrCopyKeysWithSuffix_InputContainerSrc",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrCopyKeysWithSuffix_FindSuffix",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrCopyKeysWithSuffix_ReplaceSuffix",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SetValue_Value",
+            "type": "CompositeMaterialInputLooseVariable_t",
+            "writable": false
+        },
+        {
+            "name": "StrGenerateTexture_TargetParam",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrGenerateTexture_InitialContainer",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Resolution",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsScratchTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SplatDebugInfo",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CaptureInRenderDoc",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StrPopInputQueue_Container",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrDrawText_InputContainerSrc",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrDrawText_InputContainerProperty",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DrawText_Position",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "ColDrawText_Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "StrDrawText_Font",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"damage_impact_medium","description":"Damage BELOW this value is considered light damage","args":"20","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

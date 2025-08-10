@@ -1,0 +1,1 @@
+{"kind":"command","name":"mapoverview_icon_scale","description":"Sets the icon scale multiplier for the overview map. Valid values are 0.5 to 3.0.","args":"1","flags":["min:","0.5,","max:","3,","clientdll","archive","release"],"games":["cs2"]}

@@ -1,0 +1,12 @@
+{
+    "kind": "function",
+    "function": "AddHookEntityOutput",
+    "override_variable": true,
+    "description": "Adds a hook output for an entity.",
+    "arguments": {
+        "class_name": "string",
+        "output": "string"
+    },
+    "return": "HookHandle",
+    "games": "all"
+}

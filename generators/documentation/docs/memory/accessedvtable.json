@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "AccessedVTable",
+    "description": "Returns if the memory is in the VTable.",
+    "arguments": {},
+    "return": "bool",
+    "games": "all"
+}

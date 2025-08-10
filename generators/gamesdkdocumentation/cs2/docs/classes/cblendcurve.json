@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CBlendCurve",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBlendCurve"
+    },
+    "properties": [
+        {
+            "name": "ControlPoint1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ControlPoint2",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

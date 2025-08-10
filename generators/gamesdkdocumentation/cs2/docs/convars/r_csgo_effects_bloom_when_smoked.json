@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_effects_bloom_when_smoked","description":"<no description>","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

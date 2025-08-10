@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_jump_precision_enable","description":"Enable jump precision. Some game modes benefit from being able to turn this off.","args":"true","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

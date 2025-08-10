@@ -1,0 +1,1 @@
+{"kind":"command","name":"mobile_fps_increase_during_charging","description":"MOBILE_FPS_CONTROL: If true we increase framerate limit while charging","args":"false","flags":["archive"],"games":["cs2"]}

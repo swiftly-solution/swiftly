@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_assert_on_error_shader_use","description":"<no description>","args":"false","flags":["developmentonly"],"games":["cs2"]}

@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CEnvWindController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvWindController"
+    },
+    "properties": [
+        {
+            "name": "EnvWindShared",
+            "type": "CEnvWindShared",
+            "writable": false
+        },
+        {
+            "name": "DirectionVariation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpeedVariation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Turbulence",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VolumeHalfExtentXY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VolumeHalfExtentZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VolumeResolutionXY",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "VolumeResolutionZ",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ClipmapLevels",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsMaster",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FirstTime",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

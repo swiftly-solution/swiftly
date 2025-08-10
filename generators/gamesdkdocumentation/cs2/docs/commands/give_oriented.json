@@ -1,0 +1,1 @@
+{"kind":"command","name":"give_oriented","description":"Give item oriented to player angles.","args":" <item_name>","flags":["gamedll","vconsole_fuzzy_matching","client_can_execute"],"games":["cs2"]}

@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetCurrentTime",
+    "description": "Returns the current time on the server.",
+    "arguments": {},
+    "return": "float",
+    "games": "all"
+}

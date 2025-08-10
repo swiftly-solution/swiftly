@@ -1,0 +1,203 @@
+{
+    "kind": "class",
+    "name": "CFeJiggleBone",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFeJiggleBone"
+    },
+    "properties": [
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Length",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TipMass",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "YawStiffness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "YawDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PitchStiffness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PitchDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AlongStiffness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AlongDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngleLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinYaw",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxYaw",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "YawFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "YawBounce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinPitch",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxPitch",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PitchFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PitchBounce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseMass",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseStiffness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseMinLeft",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseMaxLeft",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseLeftFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseMinUp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseMaxUp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseUpFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseMinForward",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseMaxForward",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BaseForwardFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Radius0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Radius1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Point0",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Point1",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CollisionMask",
+            "type": "uint16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

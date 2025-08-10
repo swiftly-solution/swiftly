@@ -1,0 +1,1 @@
+{"kind":"command","name":"throttle_expensive_ai","description":"<no description>","args":"false","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

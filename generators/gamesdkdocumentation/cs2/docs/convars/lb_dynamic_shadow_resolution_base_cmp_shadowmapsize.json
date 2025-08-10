@@ -1,0 +1,1 @@
+{"kind":"command","name":"lb_dynamic_shadow_resolution_base_cmp_shadowmapsize","description":"take min of lb_dynamic_shadow_resolution and barnlight shadowmapsize as base shadowmapsize","args":"false","flags":["developmentonly","cheat"],"games":["cs2"]}

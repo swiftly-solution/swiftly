@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "VMixConvolutionDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixConvolutionDesc_t"
+    },
+    "properties": [
+        {
+            "name": "FldbGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PreDelayMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WetMix",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbLow",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbMid",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbHigh",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LowCutoffFreq",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HighCutoffFreq",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

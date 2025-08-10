@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "lerpdata_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "lerpdata_t"
+    },
+    "properties": [
+        {
+            "name": "Ent",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "MoveType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FXIndex",
+            "type": "ParticleIndex_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

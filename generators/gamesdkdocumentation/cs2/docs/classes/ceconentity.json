@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CEconEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEconEntity"
+    },
+    "properties": [
+        {
+            "name": "AttributeManager",
+            "type": "CAttributeContainer",
+            "writable": false
+        },
+        {
+            "name": "OriginalOwnerXuidLow",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OriginalOwnerXuidHigh",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FallbackPaintKit",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FallbackSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FallbackWear",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FallbackStatTrak",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OldProvidee",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "OldOwnerClass",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseFlex",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"achievement","type":"string"}],"name":"CCSUsrMsg_MarkAchievement","games":["cs2"]}

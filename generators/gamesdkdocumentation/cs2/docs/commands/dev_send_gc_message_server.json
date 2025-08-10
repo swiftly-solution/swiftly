@@ -1,0 +1,1 @@
+{"kind":"command","name":"dev_send_gc_message_server","description":"<msgid> Send a blank body message with a given ID to gc for routing tests","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

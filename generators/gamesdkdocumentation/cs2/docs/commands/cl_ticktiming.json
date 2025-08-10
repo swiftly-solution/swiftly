@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ticktiming","description":"{print|<interval>} [summary|detail]  Print timing stats now, or set report interval","args":"","flags":["dontrecord","release"],"games":["cs2"]}

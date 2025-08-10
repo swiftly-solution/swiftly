@@ -1,0 +1,123 @@
+{
+    "kind": "class",
+    "name": "CFuncRotating",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncRotating"
+    },
+    "properties": [
+        {
+            "name": "OnStopped",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStarted",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnReachedStart",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "LocalRotationVector",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FanFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Attenuation",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Volume",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TargetSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BlockDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoiseRunning",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Reversed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AccelDecel",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PrevLocalAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Start",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "StopAtStartPos",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ClientOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ClientAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

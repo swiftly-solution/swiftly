@@ -1,0 +1,1 @@
+{"kind":"command","name":"demo_skip_to_shot_seconds_before","description":"How many seconds before the shot to skip to when skipping to a specific shot ID.","args":"2","flags":["clientdll","release"],"games":["cs2"]}

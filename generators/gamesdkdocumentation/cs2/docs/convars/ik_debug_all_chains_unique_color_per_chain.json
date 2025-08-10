@@ -1,0 +1,1 @@
+{"kind":"command","name":"ik_debug_all_chains_unique_color_per_chain","description":"<no description>","args":"false","flags":["developmentonly","replicated","defensive"],"games":["cs2"]}

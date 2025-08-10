@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "FourCovMatrices3",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FourCovMatrices3"
+    },
+    "properties": [
+        {
+            "name": "XY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "XZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "YZ",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CFuncMonitor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncMonitor"
+    },
+    "properties": [
+        {
+            "name": "TargetCamera",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ResolutionEnum",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RenderShadows",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseUniqueColorTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BrushModelName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TargetCamera1",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Draw3DSkybox",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CFuncBrush",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

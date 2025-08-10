@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "SosEditItemInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SosEditItemInfo_t"
+    },
+    "properties": [
+        {
+            "name": "ItemType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ItemName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ItemTypeName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ItemKVString",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ItemPos",
+            "type": "Vector4D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

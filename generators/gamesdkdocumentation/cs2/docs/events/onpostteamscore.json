@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostTeamScore","description":"This event is triggered after team_score is triggered.","arguments":{"teamid":"int32","score":"int32"},"return":"void","games":["cs2"]}

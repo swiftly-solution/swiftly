@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_stressbots","description":"If set to 1, the server calculates data and fills packets to bots. Used for perf testing.","args":"false","flags":["release"],"games":["cs2"]}

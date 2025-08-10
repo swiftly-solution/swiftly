@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_debug_origin_changes","description":"turn on, off, or toggle origin changes on server for entity by index","args":"","flags":["developmentonly","gamedll"],"games":["cs2"]}

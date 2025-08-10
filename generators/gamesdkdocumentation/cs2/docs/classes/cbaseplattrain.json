@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CBasePlatTrain",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBasePlatTrain"
+    },
+    "properties": [
+        {
+            "name": "NoiseMoving",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NoiseArrived",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Volume",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseToggle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

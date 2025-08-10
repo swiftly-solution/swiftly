@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CEnvCombinedLightProbeVolumeAlias_func_combined_light_probe_volume",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvCombinedLightProbeVolumeAlias_func_combined_light_probe_volume"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CEnvCombinedLightProbeVolume",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

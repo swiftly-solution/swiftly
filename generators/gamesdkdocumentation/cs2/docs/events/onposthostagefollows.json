@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostHostageFollows","description":"This event is triggered after hostage_follows is triggered.","arguments":{"userid":"int32","hostage":"int32"},"return":"void","games":["cs2"]}

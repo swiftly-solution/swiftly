@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_rcon_maxfailures","description":"Max number of times a user can fail rcon authentication before being banned","args":"10","flags":["min:","1,","max:","20,","developmentonly","defensive"],"games":["cs2"]}

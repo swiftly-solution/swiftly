@@ -810,11 +810,13 @@
             "type": 6
         }
     },
+    "FollowAttachmentData": {
+        "BoneIndex": {
+            "field": "m_boneIndex",
+            "type": 2
+        }
+    },
     "MoodAnimation_t": {
-        "Name": {
-            "field": "m_sName",
-            "type": 14
-        },
         "Weight": {
             "field": "m_flWeight",
             "type": 8
@@ -860,11 +862,6 @@
             "field": "m_damping",
             "classname": "CAnimInputDamping",
             "type": 16
-        },
-        "PoseCacheHandles": {
-            "field": "m_poseCacheHandles",
-            "type": 45,
-            "size": 10
         },
         "BlendMode": {
             "field": "m_eBlendMode",
@@ -1199,6 +1196,10 @@
         "SpeedScale": {
             "field": "m_fSpeedScale",
             "type": 8
+        },
+        "FallingSpeedScale": {
+            "field": "m_fFallingSpeedScale",
+            "type": 8
         }
     },
     "CAnimMotorUpdaterBase": {
@@ -1212,11 +1213,6 @@
         }
     },
     "CAnimNodePath": {
-        "Path": {
-            "field": "m_path",
-            "type": 45,
-            "size": 11
-        },
         "Count": {
             "field": "m_nCount",
             "type": 2
@@ -1388,11 +1384,6 @@
         "Type": {
             "field": "m_Type",
             "type": 6
-        },
-        "OwningAnimNodePaths": {
-            "field": "m_OwningAnimNodePaths",
-            "type": 45,
-            "size": 11
         },
         "OwningAnimNodePathCount": {
             "field": "m_nOwningAnimNodePathCount",
@@ -1592,6 +1583,10 @@
             "field": "m_blendValueSource",
             "type": 6
         },
+        "LinearRootMotionBlendMode": {
+            "field": "m_eLinearRootMotionBlendMode",
+            "type": 6
+        },
         "ParamIndex": {
             "field": "m_paramIndex",
             "classname": "CAnimParamHandle",
@@ -1620,6 +1615,10 @@
         },
         "LockWhenWaning": {
             "field": "m_bLockWhenWaning",
+            "type": 10
+        },
+        "IsAngle": {
+            "field": "m_bIsAngle",
             "type": 10
         },
         "Parent": {
@@ -2626,11 +2625,6 @@
             "type": 31,
             "size": 3
         },
-        "Poses": {
-            "field": "m_poses",
-            "type": 45,
-            "size": 9
-        },
         "Damping": {
             "field": "m_damping",
             "classname": "CAnimInputDamping",
@@ -2706,6 +2700,11 @@
     "CLookComponentUpdater": {
         "LookHeading": {
             "field": "m_hLookHeading",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "LookHeadingNormalized": {
+            "field": "m_hLookHeadingNormalized",
             "classname": "CAnimParamHandle",
             "type": 16
         },
@@ -3044,11 +3043,6 @@
             "field": "m_bNetworkFacing",
             "type": 10
         },
-        "ParamHandles": {
-            "field": "m_paramHandles",
-            "type": 45,
-            "size": 30
-        },
         "Parent": {
             "field": "CAnimComponentUpdater",
             "type": 11
@@ -3119,15 +3113,62 @@
         }
     },
     "COrientationWarpUpdateNode": {
-        "FacingPositionParameter": {
-            "field": "m_hFacingPositionParameter",
+        "Mode": {
+            "field": "m_eMode",
+            "type": 6
+        },
+        "TargetParam": {
+            "field": "m_hTargetParam",
             "classname": "CAnimParamHandle",
             "type": 16
         },
-        "TurnDamping": {
-            "field": "m_turnDamping",
+        "TargetPositionParam": {
+            "field": "m_hTargetPositionParam",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "FallbackTargetPositionParam": {
+            "field": "m_hFallbackTargetPositionParam",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "TargetOffsetMode": {
+            "field": "m_eTargetOffsetMode",
+            "type": 6
+        },
+        "TargetOffset": {
+            "field": "m_flTargetOffset",
+            "type": 8
+        },
+        "TargetOffsetParam": {
+            "field": "m_hTargetOffsetParam",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "Damping": {
+            "field": "m_damping",
             "classname": "CAnimInputDamping",
             "type": 16
+        },
+        "RootMotionSource": {
+            "field": "m_eRootMotionSource",
+            "type": 6
+        },
+        "MaxRootMotionScale": {
+            "field": "m_flMaxRootMotionScale",
+            "type": 8
+        },
+        "EnablePreferredRotationDirection": {
+            "field": "m_bEnablePreferredRotationDirection",
+            "type": 10
+        },
+        "PreferredRotationDirection": {
+            "field": "m_ePreferredRotationDirection",
+            "type": 6
+        },
+        "PreferredRotationThreshold": {
+            "field": "m_flPreferredRotationThreshold",
+            "type": 8
         },
         "Parent": {
             "field": "CUnaryUpdateNode",
@@ -3158,6 +3199,10 @@
         },
         "DetachFromOwner": {
             "field": "m_bDetachFromOwner",
+            "type": 10
+        },
+        "Aggregate": {
+            "field": "m_bAggregate",
             "type": 10
         },
         "StopWhenTagEnds": {
@@ -3290,30 +3335,6 @@
         }
     },
     "CRagdollAnimTag": {
-        "PoseControl": {
-            "field": "m_nPoseControl",
-            "type": 6
-        },
-        "Frequency": {
-            "field": "m_flFrequency",
-            "type": 8
-        },
-        "DampingRatio": {
-            "field": "m_flDampingRatio",
-            "type": 8
-        },
-        "DecayDuration": {
-            "field": "m_flDecayDuration",
-            "type": 8
-        },
-        "DecayBias": {
-            "field": "m_flDecayBias",
-            "type": 8
-        },
-        "Destroy": {
-            "field": "m_bDestroy",
-            "type": 10
-        },
         "Parent": {
             "field": "CAnimTagBase",
             "type": 11
@@ -3327,6 +3348,10 @@
         "BoneNames": {
             "field": "m_boneNames",
             "type": 50
+        },
+        "BoneToWeightIndices": {
+            "field": "m_boneToWeightIndices",
+            "type": 53
         },
         "SpringFrequencyMin": {
             "field": "m_flSpringFrequencyMin",
@@ -3361,6 +3386,40 @@
         "Parent": {
             "field": "CUnaryUpdateNode",
             "type": 11
+        }
+    },
+    "CRemapValueComponentUpdater": {
+        "Parent": {
+            "field": "CAnimComponentUpdater",
+            "type": 11
+        }
+    },
+    "CRemapValueUpdateItem": {
+        "ParamIn": {
+            "field": "m_hParamIn",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "ParamOut": {
+            "field": "m_hParamOut",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "MinInputValue": {
+            "field": "m_flMinInputValue",
+            "type": 8
+        },
+        "MaxInputValue": {
+            "field": "m_flMaxInputValue",
+            "type": 8
+        },
+        "MinOutputValue": {
+            "field": "m_flMinOutputValue",
+            "type": 8
+        },
+        "MaxOutputValue": {
+            "field": "m_flMaxOutputValue",
+            "type": 8
         }
     },
     "CRootUpdateNode": {
@@ -3629,6 +3688,10 @@
             "field": "m_bLockStateWhenWaning",
             "type": 10
         },
+        "ResetWhenActivated": {
+            "field": "m_bResetWhenActivated",
+            "type": 10
+        },
         "Parent": {
             "field": "CAnimUpdateNodeBase",
             "type": 11
@@ -3760,15 +3823,45 @@
         }
     },
     "CTargetSelectorUpdateNode": {
-        "PositionParameter": {
-            "field": "m_hPositionParameter",
+        "AngleMode": {
+            "field": "m_eAngleMode",
+            "type": 6
+        },
+        "TargetPosition": {
+            "field": "m_hTargetPosition",
             "classname": "CAnimParamHandle",
             "type": 16
         },
-        "FacePositionParameter": {
-            "field": "m_hFacePositionParameter",
+        "TargetFacePositionParameter": {
+            "field": "m_hTargetFacePositionParameter",
             "classname": "CAnimParamHandle",
             "type": 16
+        },
+        "MoveHeadingParameter": {
+            "field": "m_hMoveHeadingParameter",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "DesiredMoveHeadingParameter": {
+            "field": "m_hDesiredMoveHeadingParameter",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "TargetPositionIsWorldSpace": {
+            "field": "m_bTargetPositionIsWorldSpace",
+            "type": 10
+        },
+        "TargetFacePositionIsWorldSpace": {
+            "field": "m_bTargetFacePositionIsWorldSpace",
+            "type": 10
+        },
+        "EnablePhaseMatching": {
+            "field": "m_bEnablePhaseMatching",
+            "type": 10
+        },
+        "PhaseMatchingMaxRootMotionSkip": {
+            "field": "m_flPhaseMatchingMaxRootMotionSkip",
+            "type": 8
         },
         "Parent": {
             "field": "CAnimUpdateNodeBase",
@@ -3776,15 +3869,66 @@
         }
     },
     "CTargetWarpUpdateNode": {
-        "PositionParameter": {
-            "field": "m_hPositionParameter",
+        "AngleMode": {
+            "field": "m_eAngleMode",
+            "type": 6
+        },
+        "TargetPositionParameter": {
+            "field": "m_hTargetPositionParameter",
             "classname": "CAnimParamHandle",
             "type": 16
         },
-        "FacePositionParameter": {
-            "field": "m_hFacePositionParameter",
+        "TargetUpVectorParameter": {
+            "field": "m_hTargetUpVectorParameter",
             "classname": "CAnimParamHandle",
             "type": 16
+        },
+        "TargetFacePositionParameter": {
+            "field": "m_hTargetFacePositionParameter",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "MoveHeadingParameter": {
+            "field": "m_hMoveHeadingParameter",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "DesiredMoveHeadingParameter": {
+            "field": "m_hDesiredMoveHeadingParameter",
+            "classname": "CAnimParamHandle",
+            "type": 16
+        },
+        "CorrectionMethod": {
+            "field": "m_eCorrectionMethod",
+            "type": 6
+        },
+        "TargetWarpTimingMethod": {
+            "field": "m_eTargetWarpTimingMethod",
+            "type": 6
+        },
+        "TargetFacePositionIsWorldSpace": {
+            "field": "m_bTargetFacePositionIsWorldSpace",
+            "type": 10
+        },
+        "TargetPositionIsWorldSpace": {
+            "field": "m_bTargetPositionIsWorldSpace",
+            "type": 10
+        },
+        "OnlyWarpWhenTagIsFound": {
+            "field": "m_bOnlyWarpWhenTagIsFound",
+            "type": 10
+        },
+        "WarpOrientationDuringTranslation": {
+            "field": "m_bWarpOrientationDuringTranslation",
+            "type": 10
+        },
+        "WarpAroundCenter": {
+            "field": "m_bWarpAroundCenter",
+            "type": 10
+        },
+        "MaxAngle": {
+            "field": "m_flMaxAngle",
+            "type": 8
         },
         "Parent": {
             "field": "CUnaryUpdateNode",
@@ -3941,6 +4085,26 @@
         },
         "Parent": {
             "field": "CAnimParameterBase",
+            "type": 11
+        }
+    },
+    "CWarpSectionAnimTag": {
+        "WarpPosition": {
+            "field": "m_bWarpPosition",
+            "type": 10
+        },
+        "WarpOrientation": {
+            "field": "m_bWarpOrientation",
+            "type": 10
+        },
+        "Parent": {
+            "field": "CWarpSectionAnimTagBase",
+            "type": 11
+        }
+    },
+    "CWarpSectionAnimTagBase": {
+        "Parent": {
+            "field": "CAnimTagBase",
             "type": 11
         }
     },
@@ -4680,15 +4844,11 @@
     },
     "CNmBlendTaskBase": {
         "Parent": {
-            "field": "CNmTask",
+            "field": "CNmPoseTask",
             "type": 11
         }
     },
-    "CNmBoneMask": {
-        "WeightInfo": {
-            "field": "m_weightInfo",
-            "type": 4
-        },
+    "CNmBoneWeightList": {
         "Weights": {
             "field": "m_weights",
             "type": 59
@@ -4696,13 +4856,102 @@
     },
     "CNmCachedPoseReadTask": {
         "Parent": {
-            "field": "CNmTask",
+            "field": "CNmPoseTask",
             "type": 11
         }
     },
     "CNmCachedPoseWriteTask": {
         "Parent": {
-            "field": "CNmTask",
+            "field": "CNmPoseTask",
+            "type": 11
+        }
+    },
+    "CNmChainLookatTask": {
+        "ChainEndBoneIdx": {
+            "field": "m_nChainEndBoneIdx",
+            "type": 2
+        },
+        "NumBonesInChain": {
+            "field": "m_nNumBonesInChain",
+            "type": 2
+        },
+        "ChainForwardDir": {
+            "field": "m_chainForwardDir",
+            "type": 21
+        },
+        "BlendWeight": {
+            "field": "m_flBlendWeight",
+            "type": 8
+        },
+        "HorizontalAngleLimitDegrees": {
+            "field": "m_flHorizontalAngleLimitDegrees",
+            "type": 8
+        },
+        "VerticalAngleLimitDegrees": {
+            "field": "m_flVerticalAngleLimitDegrees",
+            "type": 8
+        },
+        "LookatTarget": {
+            "field": "m_lookatTarget",
+            "type": 21
+        },
+        "IsTargetInWorldSpace": {
+            "field": "m_bIsTargetInWorldSpace",
+            "type": 10
+        },
+        "IsRunningFromDeserializedData": {
+            "field": "m_bIsRunningFromDeserializedData",
+            "type": 10
+        },
+        "HorizontalAngleDegrees": {
+            "field": "m_flHorizontalAngleDegrees",
+            "type": 8
+        },
+        "VerticalAngleDegrees": {
+            "field": "m_flVerticalAngleDegrees",
+            "type": 8
+        },
+        "Parent": {
+            "field": "CNmPoseTask",
+            "type": 11
+        }
+    },
+    "CNmChainSolverTask": {
+        "EffectorBoneIdx": {
+            "field": "m_nEffectorBoneIdx",
+            "type": 2
+        },
+        "NumBonesInChain": {
+            "field": "m_nNumBonesInChain",
+            "type": 2
+        },
+        "EffectorTarget": {
+            "field": "m_effectorTarget",
+            "classname": "CNmTarget",
+            "type": 16
+        },
+        "BlendMode": {
+            "field": "m_blendMode",
+            "type": 4
+        },
+        "BlendWeight": {
+            "field": "m_flBlendWeight",
+            "type": 8
+        },
+        "IsTargetInWorldSpace": {
+            "field": "m_bIsTargetInWorldSpace",
+            "type": 10
+        },
+        "IsRunningFromDeserializedData": {
+            "field": "m_bIsRunningFromDeserializedData",
+            "type": 10
+        },
+        "DebugTotalChainLength": {
+            "field": "m_debugTotalChainLength",
+            "type": 8
+        },
+        "Parent": {
+            "field": "CNmPoseTask",
             "type": 11
         }
     },
@@ -4732,6 +4981,10 @@
         "IsAdditive": {
             "field": "m_bIsAdditive",
             "type": 10
+        },
+        "ModelSpaceBoneSamplingIndices": {
+            "field": "m_modelSpaceBoneSamplingIndices",
+            "type": 53
         }
     },
     "CNmEvent": {
@@ -4742,6 +4995,16 @@
         "DurationSeconds": {
             "field": "m_flDurationSeconds",
             "type": 8
+        },
+        "ClientOnly": {
+            "field": "m_bClientOnly",
+            "type": 10
+        }
+    },
+    "CNmFollowBoneTask": {
+        "Parent": {
+            "field": "CNmPoseTask",
+            "type": 11
         }
     },
     "CNmFootEvent": {
@@ -4782,11 +5045,72 @@
             "type": 50
         }
     },
-    "CNmGraphVariation": {},
     "CNmIDEvent": {
         "Parent": {
             "field": "CNmEvent",
             "type": 11
+        }
+    },
+    "CNmIKBody": {
+        "Mass": {
+            "field": "m_flMass",
+            "type": 8
+        },
+        "LocalMassCenter": {
+            "field": "m_vLocalMassCenter",
+            "type": 21
+        },
+        "Radius": {
+            "field": "m_vRadius",
+            "type": 21
+        },
+        "Resistance": {
+            "field": "m_flResistance",
+            "type": 8
+        }
+    },
+    "CNmIKEffector": {
+        "BodyIndex": {
+            "field": "m_nBodyIndex",
+            "type": 2
+        },
+        "Enabled": {
+            "field": "m_bEnabled",
+            "type": 10
+        },
+        "TargetPosition": {
+            "field": "m_vTargetPosition",
+            "type": 21
+        },
+        "Weight": {
+            "field": "m_flWeight",
+            "type": 8
+        }
+    },
+    "CNmIKJoint": {
+        "ParentIndex": {
+            "field": "m_nParentIndex",
+            "type": 2
+        },
+        "BodyIndex": {
+            "field": "m_nBodyIndex",
+            "type": 2
+        },
+        "SwingLimit": {
+            "field": "m_flSwingLimit",
+            "type": 8
+        },
+        "MinTwistLimit": {
+            "field": "m_flMinTwistLimit",
+            "type": 8
+        },
+        "MaxTwistLimit": {
+            "field": "m_flMaxTwistLimit",
+            "type": 8
+        },
+        "Weight": {
+            "field": "m_flWeight",
+            "type": 8
         }
     },
     "CNmIKRig": {},
@@ -4794,6 +5118,20 @@
         "AnimEventClassName": {
             "field": "m_animEventClassName",
             "type": 14
+        },
+        "Parent": {
+            "field": "CNmEvent",
+            "type": 11
+        }
+    },
+    "CNmMaterialAttributeEvent": {
+        "AttributeName": {
+            "field": "m_attributeName",
+            "type": 14
+        },
+        "AttributeNameToken": {
+            "field": "m_attributeNameToken",
+            "type": 12
         },
         "Parent": {
             "field": "CNmEvent",
@@ -4818,9 +5156,64 @@
             "type": 11
         }
     },
+    "CNmParticleEvent": {
+        "Relevance": {
+            "field": "m_relevance",
+            "type": 6
+        },
+        "Type": {
+            "field": "m_type",
+            "type": 6
+        },
+        "Tags": {
+            "field": "m_tags",
+            "type": 14
+        },
+        "StopImmediately": {
+            "field": "m_bStopImmediately",
+            "type": 10
+        },
+        "AttachmentPoint0": {
+            "field": "m_attachmentPoint0",
+            "type": 14
+        },
+        "AttachmentType0": {
+            "field": "m_attachmentType0",
+            "type": 6
+        },
+        "AttachmentPoint1": {
+            "field": "m_attachmentPoint1",
+            "type": 14
+        },
+        "AttachmentType1": {
+            "field": "m_attachmentType1",
+            "type": 6
+        },
+        "Config": {
+            "field": "m_config",
+            "type": 14
+        },
+        "EffectForConfig": {
+            "field": "m_effectForConfig",
+            "type": 14
+        },
+        "DetachFromOwner": {
+            "field": "m_bDetachFromOwner",
+            "type": 10
+        },
+        "PlayEndCap": {
+            "field": "m_bPlayEndCap",
+            "type": 10
+        },
+        "Parent": {
+            "field": "CNmEvent",
+            "type": 11
+        }
+    },
+    "CNmPoseTask": {},
     "CNmReferencePoseTask": {
         "Parent": {
-            "field": "CNmTask",
+            "field": "CNmPoseTask",
             "type": 11
         }
     },
@@ -4850,7 +5243,13 @@
     },
     "CNmSampleTask": {
         "Parent": {
-            "field": "CNmTask",
+            "field": "CNmPoseTask",
+            "type": 11
+        }
+    },
+    "CNmScaleTask": {
+        "Parent": {
+            "field": "CNmPoseTask",
             "type": 11
         }
     },
@@ -4862,6 +5261,44 @@
         "NumBonesToSampleAtLowLOD": {
             "field": "m_numBonesToSampleAtLowLOD",
             "type": 2
+        },
+        "IsPropSkeleton": {
+            "field": "m_bIsPropSkeleton",
+            "type": 10
+        }
+    },
+    "CNmSoundEvent": {
+        "Relevance": {
+            "field": "m_relevance",
+            "type": 6
+        },
+        "Type": {
+            "field": "m_type",
+            "type": 6
+        },
+        "Name": {
+            "field": "m_name",
+            "type": 14
+        },
+        "Position": {
+            "field": "m_position",
+            "type": 6
+        },
+        "AttachmentName": {
+            "field": "m_attachmentName",
+            "type": 14
+        },
+        "Tags": {
+            "field": "m_tags",
+            "type": 14
+        },
+        "IsServerOnly": {
+            "field": "m_bIsServerOnly",
+            "type": 10
+        },
+        "Parent": {
+            "field": "CNmEvent",
+            "type": 11
         }
     },
     "CNmSyncTrack": {
@@ -4902,7 +5339,6 @@
             "type": 11
         }
     },
-    "CNmTask": {},
     "CNmTransitionEvent": {
         "Rule": {
             "field": "m_rule",
@@ -4915,8 +5351,15 @@
     },
     "CNmZeroPoseTask": {
         "Parent": {
-            "field": "CNmTask",
+            "field": "CNmPoseTask",
             "type": 11
+        }
+    },
+    "NmBoneMaskSetDefinition_t": {
+        "PrimaryWeightList": {
+            "field": "m_primaryWeightList",
+            "classname": "CNmBoneWeightList",
+            "type": 16
         }
     },
     "NmCompressionSettings_t": {
@@ -5168,16 +5611,22 @@
             "classname": "PhysicsRagdollPose_t",
             "type": 16
         },
+        "RagdollEnabled": {
+            "field": "m_bRagdollEnabled",
+            "type": 10
+        },
         "RagdollClientSide": {
             "field": "m_bRagdollClientSide",
             "type": 10
         },
-        "LastDestructiblePartDestroyedAnimgraphSetTick": {
-            "field": "m_nLastDestructiblePartDestroyedAnimgraphSetTick",
-            "type": 2
-        },
         "Parent": {
             "field": "CBaseModelEntity",
+            "type": 11
+        }
+    },
+    "CBaseAnimGraphAnimGraphController": {
+        "Parent": {
+            "field": "CAnimGraphControllerBase",
             "type": 11
         }
     },
@@ -5239,8 +5688,48 @@
             "field": "m_flPrevAnimUpdateTime",
             "type": 8
         },
+        "IsUsingAG2": {
+            "field": "m_bIsUsingAG2",
+            "type": 10
+        },
+        "SerializedPoseRecipeAG2": {
+            "field": "m_serializedPoseRecipeAG2",
+            "type": 55
+        },
+        "SerializePoseRecipeSizeAG2": {
+            "field": "m_nSerializePoseRecipeSizeAG2",
+            "type": 2
+        },
+        "GraphCreationFlagsAG2": {
+            "field": "m_nGraphCreationFlagsAG2",
+            "type": 4
+        },
+        "ServerGraphDefReloadCountAG2": {
+            "field": "m_nServerGraphDefReloadCountAG2",
+            "type": 2
+        },
         "Parent": {
             "field": "CSkeletonAnimationController",
+            "type": 11
+        }
+    },
+    "CBaseFilter": {
+        "Negated": {
+            "field": "m_bNegated",
+            "type": 10
+        },
+        "OnPass": {
+            "field": "m_OnPass",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "OnFail": {
+            "field": "m_OnFail",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "Parent": {
+            "field": "CLogicalEntity",
             "type": 11
         }
     },
@@ -5332,6 +5821,10 @@
             "field": "m_steamID",
             "type": 7
         },
+        "NoClipEnabled": {
+            "field": "m_bNoClipEnabled",
+            "type": 10
+        },
         "DesiredFOV": {
             "field": "m_iDesiredFOV",
             "type": 6
@@ -5414,6 +5907,18 @@
             "field": "m_bAllowFlipping",
             "type": 10
         },
+        "MuzzleSmokeShotThreshold": {
+            "field": "m_nMuzzleSmokeShotThreshold",
+            "type": 4
+        },
+        "MuzzleSmokeTimeout": {
+            "field": "m_flMuzzleSmokeTimeout",
+            "type": 8
+        },
+        "MuzzleSmokeDecrementRate": {
+            "field": "m_flMuzzleSmokeDecrementRate",
+            "type": 8
+        },
         "LinkedCooldowns": {
             "field": "m_bLinkedCooldowns",
             "type": 10
@@ -5450,6 +5955,10 @@
             "field": "m_bReserveAmmoAsClips",
             "type": 10
         },
+        "TreatAsSingleClip": {
+            "field": "m_bTreatAsSingleClip",
+            "type": 10
+        },
         "Weight": {
             "field": "m_iWeight",
             "type": 2
@@ -5465,6 +5974,10 @@
         "RumbleEffect": {
             "field": "m_iRumbleEffect",
             "type": 6
+        },
+        "DropSpeed": {
+            "field": "m_flDropSpeed",
+            "type": 8
         },
         "Slot": {
             "field": "m_iSlot",
@@ -5497,6 +6010,7 @@
             "type": 11
         }
     },
+    "CBaseTriggerAPI": {},
     "CBodyComponent": {
         "SceneNode": {
             "field": "m_pSceneNode",
@@ -5617,6 +6131,22 @@
             "field": "m_flFluidDensity",
             "type": 8
         },
+        "NeutrallyBuoyantGravity": {
+            "field": "m_flNeutrallyBuoyantGravity",
+            "type": 8
+        },
+        "NeutrallyBuoyantLinearDamping": {
+            "field": "m_flNeutrallyBuoyantLinearDamping",
+            "type": 8
+        },
+        "NeutrallyBuoyantAngularDamping": {
+            "field": "m_flNeutrallyBuoyantAngularDamping",
+            "type": 8
+        },
+        "NeutrallyBuoyant": {
+            "field": "m_bNeutrallyBuoyant",
+            "type": 10
+        },
         "FractionOfWheelSubmergedForWheelFriction": {
             "field": "m_vecFractionOfWheelSubmergedForWheelFriction",
             "type": 59
@@ -5634,6 +6164,32 @@
             "type": 59
         }
     },
+    "CCS2ChickenGraphController": {
+        "HasActionCompletedEvent": {
+            "field": "m_bHasActionCompletedEvent",
+            "type": 10
+        },
+        "WaitingForCompletedEvent": {
+            "field": "m_bWaitingForCompletedEvent",
+            "type": 10
+        },
+        "Parent": {
+            "field": "CAnimGraphControllerBase",
+            "type": 11
+        }
+    },
+    "CCS2UIPawnGraphController": {
+        "Parent": {
+            "field": "CAnimGraphControllerBase",
+            "type": 11
+        }
+    },
+    "CCS2WeaponGraphController": {
+        "Parent": {
+            "field": "CAnimGraphControllerBase",
+            "type": 11
+        }
+    },
     "CCSClientPointScriptEntity": {
         "Parent": {
             "field": "CCSPointScriptEntity",
@@ -5641,12 +6197,6 @@
         }
     },
     "CCSGOPlayerAnimGraphState": {},
-    "CCSGOViewModel_GraphController": {
-        "Parent": {
-            "field": "CAnimGraphControllerBase",
-            "type": 11
-        }
-    },
     "CCSGO_WingmanIntroCharacterPosition": {
         "Parent": {
             "field": "CCSGO_TeamIntroCharacterPosition",
@@ -5727,12 +6277,6 @@
     "CCSObserver_UseServices": {
         "Parent": {
             "field": "CPlayer_UseServices",
-            "type": 11
-        }
-    },
-    "CCSObserver_ViewModelServices": {
-        "Parent": {
-            "field": "CPlayer_ViewModelServices",
             "type": 11
         }
     },
@@ -6340,10 +6884,6 @@
             "field": "m_bHasHelmet",
             "type": 10
         },
-        "HasHeavyArmor": {
-            "field": "m_bHasHeavyArmor",
-            "type": 10
-        },
         "Parent": {
             "field": "CPlayer_ItemServices",
             "type": 11
@@ -6409,11 +6949,6 @@
         "InStuckTest": {
             "field": "m_bInStuckTest",
             "type": 10
-        },
-        "StuckCheckTime": {
-            "field": "m_flStuckCheckTime",
-            "type": 37,
-            "size": 2
         },
         "TraceCount": {
             "field": "m_nTraceCount",
@@ -6511,6 +7046,14 @@
             "field": "m_flAccumulatedJumpError",
             "type": 8
         },
+        "TicksSinceLastSurfingDetected": {
+            "field": "m_flTicksSinceLastSurfingDetected",
+            "type": 8
+        },
+        "WasSurfing": {
+            "field": "m_bWasSurfing",
+            "type": 10
+        },
         "Parent": {
             "field": "CPlayer_MovementServices_Humanoid",
             "type": 11
@@ -6548,17 +7091,6 @@
         },
         "Parent": {
             "field": "CPlayer_UseServices",
-            "type": 11
-        }
-    },
-    "CCSPlayer_ViewModelServices": {
-        "ViewModel": {
-            "field": "m_hViewModel",
-            "type": 46,
-            "size": 3
-        },
-        "Parent": {
-            "field": "CPlayer_ViewModelServices",
             "type": 11
         }
     },
@@ -6646,13 +7178,13 @@
             "field": "m_bIsPickingUpGroundWeapon",
             "type": 10
         },
-        "OldShootPositionHistoryCount": {
-            "field": "m_nOldShootPositionHistoryCount",
-            "type": 6
+        "NetworkAnimTiming": {
+            "field": "m_networkAnimTiming",
+            "type": 55
         },
-        "OldInputHistoryCount": {
-            "field": "m_nOldInputHistoryCount",
-            "type": 6
+        "BlockInspectUntilNextGraphUpdate": {
+            "field": "m_bBlockInspectUntilNextGraphUpdate",
+            "type": 10
         },
         "Parent": {
             "field": "CPlayer_WeaponServices",
@@ -6686,6 +7218,14 @@
             "field": "m_WeaponCategory",
             "type": 6
         },
+        "MuzzlePos0": {
+            "field": "m_vecMuzzlePos0",
+            "type": 21
+        },
+        "MuzzlePos1": {
+            "field": "m_vecMuzzlePos1",
+            "type": 21
+        },
         "GearSlot": {
             "field": "m_GearSlot",
             "type": 6
@@ -6697,10 +7237,6 @@
         "DefaultLoadoutSlot": {
             "field": "m_DefaultLoadoutSlot",
             "type": 6
-        },
-        "WrongTeamMsg": {
-            "field": "m_sWrongTeamMsg",
-            "type": 14
         },
         "Price": {
             "field": "m_nPrice",
@@ -6734,10 +7270,6 @@
             "field": "m_bCannotShootUnderwater",
             "type": 10
         },
-        "AnimExtension": {
-            "field": "m_szAnimExtension",
-            "type": 14
-        },
         "SilencerType": {
             "field": "m_eSilencerType",
             "type": 6
@@ -6757,6 +7289,10 @@
         "NumBullets": {
             "field": "m_nNumBullets",
             "type": 2
+        },
+        "ReloadsSingleShells": {
+            "field": "m_bReloadsSingleShells",
+            "type": 10
         },
         "CycleTime": {
             "field": "m_flCycleTime",
@@ -6845,6 +7381,14 @@
             "field": "m_flInaccuracyReload",
             "type": 8
         },
+        "DeployDuration": {
+            "field": "m_flDeployDuration",
+            "type": 8
+        },
+        "DisallowAttackAfterReloadStartDuration": {
+            "field": "m_flDisallowAttackAfterReloadStartDuration",
+            "type": 8
+        },
         "RecoilSeed": {
             "field": "m_nRecoilSeed",
             "type": 2
@@ -6853,20 +7397,8 @@
             "field": "m_nSpreadSeed",
             "type": 2
         },
-        "TimeToIdleAfterFire": {
-            "field": "m_flTimeToIdleAfterFire",
-            "type": 8
-        },
-        "IdleInterval": {
-            "field": "m_flIdleInterval",
-            "type": 8
-        },
         "AttackMovespeedFactor": {
             "field": "m_flAttackMovespeedFactor",
-            "type": 8
-        },
-        "HeatPerShot": {
-            "field": "m_flHeatPerShot",
             "type": 8
         },
         "InaccuracyPitchShift": {
@@ -6875,10 +7407,6 @@
         },
         "InaccuracyAltSoundThreshold": {
             "field": "m_flInaccuracyAltSoundThreshold",
-            "type": 8
-        },
-        "BotAudibleRange": {
-            "field": "m_flBotAudibleRange",
             "type": 8
         },
         "UseRadioSubtitle": {
@@ -6936,14 +7464,6 @@
         "IronSightLooseness": {
             "field": "m_flIronSightLooseness",
             "type": 8
-        },
-        "PivotAngle": {
-            "field": "m_angPivotAngle",
-            "type": 20
-        },
-        "IronSightEyePos": {
-            "field": "m_vecIronSightEyePos",
-            "type": 21
         },
         "Damage": {
             "field": "m_nDamage",
@@ -7104,7 +7624,6 @@
             "type": 11
         }
     },
-    "CClientGapTypeQueryRegistration": {},
     "CCollisionProperty": {
         "CollisionAttribute": {
             "field": "m_collisionAttribute",
@@ -7174,12 +7693,6 @@
         "CapsuleRadius": {
             "field": "m_flCapsuleRadius",
             "type": 8
-        }
-    },
-    "CCompositeMaterialEditorDoc": {
-        "Version": {
-            "field": "m_nVersion",
-            "type": 2
         }
     },
     "CCopyRecipientFilter": {
@@ -7310,25 +7823,34 @@
             "type": 2
         }
     },
-    "CDestructiblePartRuntimeData": {
-        "HealthRemaining": {
-            "field": "m_nHealthRemaining",
+    "CDestructiblePartsSystemComponent": {
+        "__pChainEntity": {
+            "field": "__m_pChainEntity",
+            "classname": "CNetworkVarChainer",
+            "type": 16
+        },
+        "DamageLevelTakenByHitGroup": {
+            "field": "m_DamageLevelTakenByHitGroup",
+            "type": 56
+        },
+        "Owner": {
+            "field": "m_hOwner",
+            "type": 17,
+            "classname": "CBaseModelEntity"
+        },
+        "LastHitDamageLevel": {
+            "field": "m_nLastHitDamageLevel",
             "type": 2
         }
     },
-    "CDestructiblePartRuntimeDataVector": {},
-    "CDestructiblePartsSystemData": {},
-    "CDestructiblePartsSystemData_HitGroupInfoAndPartData": {
-        "Name": {
-            "field": "m_sName",
-            "type": 14
-        },
-        "DisableHitGroupWhenDestroyed": {
-            "field": "m_bDisableHitGroupWhenDestroyed",
-            "type": 10
+    "CDestructiblePartsSystemData": {
+        "MinMaxNumberHitGroupsToDestroyWhenGibbing": {
+            "field": "m_nMinMaxNumberHitGroupsToDestroyWhenGibbing",
+            "classname": "CRangeInt",
+            "type": 16
         }
     },
-    "CDestructiblePartsSystemData_PartData": {
+    "CDestructiblePartsSystemData_DamageLevel": {
         "Name": {
             "field": "m_sName",
             "type": 14
@@ -7346,8 +7868,35 @@
             "field": "m_nDamagePassthroughType",
             "type": 6
         },
-        "KillNPCOnDestruction": {
-            "field": "m_bKillNPCOnDestruction",
+        "DestructionDeathBehavior": {
+            "field": "m_nDestructionDeathBehavior",
+            "type": 6
+        },
+        "ShouldDestroyOnDeath": {
+            "field": "m_bShouldDestroyOnDeath",
+            "type": 10
+        },
+        "DeathDestroyTime": {
+            "field": "m_flDeathDestroyTime",
+            "classname": "CRangeFloat",
+            "type": 16
+        }
+    },
+    "CDestructiblePartsSystemData_HitGroupInfoAndDamageLevels": {
+        "HitGroup": {
+            "field": "m_nHitGroup",
+            "type": 6
+        },
+        "DisableHitGroupWhenDestroyed": {
+            "field": "m_bDisableHitGroupWhenDestroyed",
+            "type": 10
+        },
+        "OtherHitgroupsToDestroyWhenFullyDestructed": {
+            "field": "m_nOtherHitgroupsToDestroyWhenFullyDestructed",
+            "type": 57
+        },
+        "OnlyDestroyWhenGibbing": {
+            "field": "m_bOnlyDestroyWhenGibbing",
             "type": 10
         }
     },
@@ -7541,22 +8090,95 @@
             "type": 11
         }
     },
-    "CFireOverlay": {
-        "BaseColors": {
-            "field": "m_vBaseColors",
-            "type": 42,
-            "size": 4
+    "CFilterAttributeInt": {
+        "AttributeName": {
+            "field": "m_sAttributeName",
+            "type": 13
         },
-        "Scale": {
-            "field": "m_flScale",
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
+    "CFilterClass": {
+        "FilterClass": {
+            "field": "m_iFilterClass",
+            "type": 13
+        },
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
+    "CFilterLOS": {
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
+    "CFilterMassGreater": {
+        "FilterMass": {
+            "field": "m_fFilterMass",
             "type": 8
         },
-        "GUID": {
-            "field": "m_nGUID",
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
+    "CFilterModel": {
+        "FilterModel": {
+            "field": "m_iFilterModel",
+            "type": 13
+        },
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
+    "CFilterMultiple": {
+        "FilterType": {
+            "field": "m_nFilterType",
+            "type": 6
+        },
+        "FilterName": {
+            "field": "m_iFilterName",
+            "type": 26,
+            "size": 10
+        },
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
+    "CFilterMultipleAPI": {},
+    "CFilterName": {
+        "FilterName": {
+            "field": "m_iFilterName",
+            "type": 13
+        },
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
+    "CFilterProximity": {
+        "Radius": {
+            "field": "m_flRadius",
+            "type": 8
+        },
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
+    "CFilterTeam": {
+        "FilterTeam": {
+            "field": "m_iFilterTeam",
             "type": 2
         },
         "Parent": {
-            "field": "CGlowOverlay",
+            "field": "CBaseFilter",
             "type": 11
         }
     },
@@ -7617,6 +8239,8 @@
             "size": 64
         }
     },
+    "CFloatExponentialMovingAverage": {},
+    "CFloatMovingAverage": {},
     "CFootstepTableHandle": {},
     "CFuncWater": {
         "BuoyancyHelper": {
@@ -7901,69 +8525,6 @@
             "classname": "CBaseEntity"
         }
     },
-    "CGlowOverlay": {
-        "Pos": {
-            "field": "m_vPos",
-            "type": 21
-        },
-        "Directional": {
-            "field": "m_bDirectional",
-            "type": 10
-        },
-        "Direction": {
-            "field": "m_vDirection",
-            "type": 21
-        },
-        "InSky": {
-            "field": "m_bInSky",
-            "type": 10
-        },
-        "SkyObstructionScale": {
-            "field": "m_skyObstructionScale",
-            "type": 8
-        },
-        "Sprites": {
-            "field": "m_Sprites",
-            "type": 45,
-            "size": 4
-        },
-        "Sprites1": {
-            "field": "m_nSprites",
-            "type": 2
-        },
-        "ProxyRadius": {
-            "field": "m_flProxyRadius",
-            "type": 8
-        },
-        "HDRColorScale": {
-            "field": "m_flHDRColorScale",
-            "type": 8
-        },
-        "GlowObstructionScale": {
-            "field": "m_flGlowObstructionScale",
-            "type": 8
-        },
-        "CacheGlowObstruction": {
-            "field": "m_bCacheGlowObstruction",
-            "type": 10
-        },
-        "CacheSkyObstruction": {
-            "field": "m_bCacheSkyObstruction",
-            "type": 10
-        },
-        "Activated": {
-            "field": "m_bActivated",
-            "type": 1
-        },
-        "ListIndex": {
-            "field": "m_ListIndex",
-            "type": 5
-        },
-        "QueryHandle": {
-            "field": "m_queryHandle",
-            "type": 2
-        }
-    },
     "CGlowProperty": {
         "GlowColor": {
             "field": "m_fGlowColor",
@@ -8008,20 +8569,6 @@
         "Glowing": {
             "field": "m_bGlowing",
             "type": 10
-        }
-    },
-    "CGlowSprite": {
-        "Color": {
-            "field": "m_vColor",
-            "type": 21
-        },
-        "HorzSize": {
-            "field": "m_flHorzSize",
-            "type": 8
-        },
-        "VertSize": {
-            "field": "m_flVertSize",
-            "type": 8
         }
     },
     "CGrenadeTracer": {
@@ -8106,6 +8653,28 @@
         },
         "Parent": {
             "field": "CInfoDynamicShadowHint",
+            "type": 11
+        }
+    },
+    "CInfoFan": {
+        "FanForceMaxRadius": {
+            "field": "m_fFanForceMaxRadius",
+            "type": 8
+        },
+        "FanForceMinRadius": {
+            "field": "m_fFanForceMinRadius",
+            "type": 8
+        },
+        "CurveDistRange": {
+            "field": "m_flCurveDistRange",
+            "type": 8
+        },
+        "FanForceCurveString": {
+            "field": "m_FanForceCurveString",
+            "type": 13
+        },
+        "Parent": {
+            "field": "CPointEntity",
             "type": 11
         }
     },
@@ -8214,6 +8783,21 @@
         "InterpType": {
             "field": "m_nInterpType",
             "type": 2
+        }
+    },
+    "CInventoryImageData": {
+        "NodeType": {
+            "field": "m_nNodeType",
+            "type": 6
+        },
+        "Name": {
+            "field": "name",
+            "type": 14
+        },
+        "Inventory_image_data": {
+            "field": "inventory_image_data",
+            "classname": "inv_image_data_t",
+            "type": 16
         }
     },
     "CLightComponent": {
@@ -8370,8 +8954,20 @@
             "field": "m_nBakedShadowIndex",
             "type": 2
         },
+        "LightPathUniqueId": {
+            "field": "m_nLightPathUniqueId",
+            "type": 2
+        },
+        "LightMapUniqueId": {
+            "field": "m_nLightMapUniqueId",
+            "type": 2
+        },
         "RenderToCubemaps": {
             "field": "m_bRenderToCubemaps",
+            "type": 10
+        },
+        "AllowSSTGeneration": {
+            "field": "m_bAllowSSTGeneration",
             "type": 10
         },
         "DirectLight": {
@@ -8488,16 +9084,6 @@
         }
     },
     "CLogicRelay": {
-        "OnTrigger": {
-            "field": "m_OnTrigger",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "OnSpawn": {
-            "field": "m_OnSpawn",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
         "Disabled": {
             "field": "m_bDisabled",
             "type": 10
@@ -8523,6 +9109,7 @@
             "type": 11
         }
     },
+    "CLogicRelayAPI": {},
     "CLogicalEntity": {
         "Parent": {
             "field": "CServerOnlyEntity",
@@ -8583,6 +9170,10 @@
         "MeshGroupMask": {
             "field": "m_MeshGroupMask",
             "type": 7
+        },
+        "BodyGroupChoices": {
+            "field": "m_nBodyGroupChoices",
+            "type": 53
         },
         "IdealMotionType": {
             "field": "m_nIdealMotionType",
@@ -8725,10 +9316,74 @@
             "type": 8
         }
     },
+    "CNmEventConsumer": {},
+    "CNmEventConsumerBody": {
+        "Parent": {
+            "field": "CNmEventConsumer",
+            "type": 11
+        }
+    },
+    "CNmEventConsumerHudModelArms": {
+        "Parent": {
+            "field": "CNmEventConsumerBody",
+            "type": 11
+        }
+    },
+    "CNmEventConsumerLegacy": {
+        "Parent": {
+            "field": "CNmEventConsumer",
+            "type": 11
+        }
+    },
+    "CNmEventConsumerParticle": {
+        "Parent": {
+            "field": "CNmEventConsumer",
+            "type": 11
+        }
+    },
+    "CNmEventConsumerSound": {
+        "Parent": {
+            "field": "CNmEventConsumer",
+            "type": 11
+        }
+    },
+    "CPathQueryComponent": {
+        "Parent": {
+            "field": "CEntityComponent",
+            "type": 11
+        }
+    },
+    "CPathQueryUtil": {
+        "PathSamplePositions": {
+            "field": "m_vecPathSamplePositions",
+            "type": 63
+        },
+        "PathSampleParameters": {
+            "field": "m_vecPathSampleParameters",
+            "type": 59
+        },
+        "PathSampleDistances": {
+            "field": "m_vecPathSampleDistances",
+            "type": 59
+        },
+        "IsClosedLoop": {
+            "field": "m_bIsClosedLoop",
+            "type": 10
+        }
+    },
     "CPathSimple": {
+        "CPathQueryComponent": {
+            "field": "m_CPathQueryComponent",
+            "classname": "CPathQueryComponent",
+            "type": 16
+        },
         "PathString": {
             "field": "m_pathString",
             "type": 14
+        },
+        "ClosedLoop": {
+            "field": "m_bClosedLoop",
+            "type": 10
         },
         "Parent": {
             "field": "CBaseEntity",
@@ -8736,6 +9391,13 @@
         }
     },
     "CPathSimpleAPI": {},
+    "CPhysicsBodyGameMarkup": {
+        "TargetBody": {
+            "field": "m_TargetBody",
+            "type": 14
+        }
+    },
+    "CPhysicsBodyGameMarkupData": {},
     "CPlayerControllerComponent": {
         "__pChainEntity": {
             "field": "__m_pChainEntity",
@@ -8880,6 +9542,10 @@
             "field": "m_vecLastMovementImpulses",
             "type": 21
         },
+        "LastFinishTickViewAngles": {
+            "field": "m_vecLastFinishTickViewAngles",
+            "type": 20
+        },
         "OldViewAngles": {
             "field": "m_vecOldViewAngles",
             "type": 20
@@ -8938,10 +9604,6 @@
             "field": "m_nStepside",
             "type": 2
         },
-        "TargetVolume": {
-            "field": "m_iTargetVolume",
-            "type": 2
-        },
         "SmoothedVelocity": {
             "field": "m_vecSmoothedVelocity",
             "type": 21
@@ -8975,12 +9637,6 @@
         }
     },
     "CPlayer_UseServices": {
-        "Parent": {
-            "field": "CPlayerPawnComponent",
-            "type": 11
-        }
-    },
-    "CPlayer_ViewModelServices": {
         "Parent": {
             "field": "CPlayerPawnComponent",
             "type": 11
@@ -9045,6 +9701,41 @@
             "type": 11
         }
     },
+    "CPointOrient": {
+        "SpawnTargetName": {
+            "field": "m_iszSpawnTargetName",
+            "type": 13
+        },
+        "Target": {
+            "field": "m_hTarget",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
+        "Active": {
+            "field": "m_bActive",
+            "type": 10
+        },
+        "GoalDirection": {
+            "field": "m_nGoalDirection",
+            "type": 6
+        },
+        "Constraint": {
+            "field": "m_nConstraint",
+            "type": 6
+        },
+        "MaxTurnRate": {
+            "field": "m_flMaxTurnRate",
+            "type": 8
+        },
+        "LastGameTime": {
+            "field": "m_flLastGameTime",
+            "type": 8
+        },
+        "Parent": {
+            "field": "CBaseEntity",
+            "type": 11
+        }
+    },
     "CPointTemplate": {
         "WorldName": {
             "field": "m_iszWorldName",
@@ -9065,11 +9756,6 @@
         "AsynchronouslySpawnEntities": {
             "field": "m_bAsynchronouslySpawnEntities",
             "type": 10
-        },
-        "OutputOnSpawned": {
-            "field": "m_pOutputOnSpawned",
-            "classname": "CEntityIOOutput",
-            "type": 16
         },
         "ClientOnlyEntityBehavior": {
             "field": "m_clientOnlyEntityBehavior",
@@ -9313,11 +9999,11 @@
     },
     "CRandSimTimer": {
         "MinInterval": {
-            "field": "m_minInterval",
+            "field": "m_flMinInterval",
             "type": 8
         },
         "MaxInterval": {
-            "field": "m_maxInterval",
+            "field": "m_flMaxInterval",
             "type": 8
         },
         "Parent": {
@@ -9327,11 +10013,11 @@
     },
     "CRandStopwatch": {
         "MinInterval": {
-            "field": "m_minInterval",
+            "field": "m_flMinInterval",
             "type": 8
         },
         "MaxInterval": {
-            "field": "m_maxInterval",
+            "field": "m_flMaxInterval",
             "type": 8
         },
         "Parent": {
@@ -9606,10 +10292,9 @@
             "type": 11
         }
     },
-    "CSharedGapTypeQueryRegistration": {},
     "CSimTimer": {
         "Interval": {
-            "field": "m_interval",
+            "field": "m_flInterval",
             "type": 8
         },
         "Parent": {
@@ -9619,7 +10304,7 @@
     },
     "CSimpleSimTimer": {
         "Next": {
-            "field": "m_next",
+            "field": "m_flNext",
             "type": 8
         },
         "WorldGroupId": {
@@ -9803,7 +10488,7 @@
     },
     "CStopwatch": {
         "Interval": {
-            "field": "m_interval",
+            "field": "m_flInterval",
             "type": 8
         },
         "Parent": {
@@ -9861,10 +10546,6 @@
             "field": "m_flTotalledDamage",
             "type": 8
         },
-        "TotalledDamageAbsorbed": {
-            "field": "m_flTotalledDamageAbsorbed",
-            "type": 8
-        },
         "BitsDamageType": {
             "field": "m_bitsDamageType",
             "type": 6
@@ -9896,6 +10577,10 @@
         "DamageFlags": {
             "field": "m_nDamageFlags",
             "type": 7
+        },
+        "HitGroupId": {
+            "field": "m_iHitGroupId",
+            "type": 6
         },
         "NumObjectsPenetrated": {
             "field": "m_nNumObjectsPenetrated",
@@ -9975,6 +10660,108 @@
             "type": 11
         }
     },
+    "CTriggerFan": {
+        "FanOrigin": {
+            "field": "m_vFanOrigin",
+            "type": 21
+        },
+        "FanOriginOffset": {
+            "field": "m_vFanOriginOffset",
+            "type": 21
+        },
+        "FanEnd": {
+            "field": "m_vFanEnd",
+            "type": 21
+        },
+        "NoiseDirectionTarget": {
+            "field": "m_vNoiseDirectionTarget",
+            "type": 21
+        },
+        "Direction": {
+            "field": "m_vDirection",
+            "type": 21
+        },
+        "PushTowardsInfoTarget": {
+            "field": "m_bPushTowardsInfoTarget",
+            "type": 10
+        },
+        "PushAwayFromInfoTarget": {
+            "field": "m_bPushAwayFromInfoTarget",
+            "type": 10
+        },
+        "InfoFan": {
+            "field": "m_hInfoFan",
+            "type": 17,
+            "classname": "CInfoFan"
+        },
+        "Force": {
+            "field": "m_flForce",
+            "type": 8
+        },
+        "Falloff": {
+            "field": "m_bFalloff",
+            "type": 10
+        },
+        "RampTimer": {
+            "field": "m_RampTimer",
+            "classname": "CountdownTimer",
+            "type": 16
+        },
+        "InfoFan1": {
+            "field": "m_iszInfoFan",
+            "type": 13
+        },
+        "RopeForceScale": {
+            "field": "m_flRopeForceScale",
+            "type": 8
+        },
+        "ParticleForceScale": {
+            "field": "m_flParticleForceScale",
+            "type": 8
+        },
+        "PlayerForce": {
+            "field": "m_flPlayerForce",
+            "type": 8
+        },
+        "PlayerWindblock": {
+            "field": "m_bPlayerWindblock",
+            "type": 10
+        },
+        "NPCForce": {
+            "field": "m_flNPCForce",
+            "type": 8
+        },
+        "RampTime": {
+            "field": "m_flRampTime",
+            "type": 8
+        },
+        "NoiseDegrees": {
+            "field": "m_fNoiseDegrees",
+            "type": 8
+        },
+        "NoiseSpeed": {
+            "field": "m_fNoiseSpeed",
+            "type": 8
+        },
+        "PushPlayer": {
+            "field": "m_bPushPlayer",
+            "type": 10
+        },
+        "RampDown": {
+            "field": "m_bRampDown",
+            "type": 10
+        },
+        "ManagerFanIdx": {
+            "field": "m_nManagerFanIdx",
+            "type": 2
+        },
+        "Parent": {
+            "field": "CBaseTrigger",
+            "type": 11
+        }
+    },
+    "CVectorExponentialMovingAverage": {},
+    "CVectorMovingAverage": {},
     "CWaterSplasher": {
         "Parent": {
             "field": "C_BaseModelEntity",
@@ -9991,383 +10778,6 @@
             "type": 14
         }
     },
-    "CommandToolCommand_t": {
-        "Enabled": {
-            "field": "m_bEnabled",
-            "type": 10
-        },
-        "Opened": {
-            "field": "m_bOpened",
-            "type": 10
-        },
-        "InternalId": {
-            "field": "m_InternalId",
-            "type": 6
-        },
-        "ShortName": {
-            "field": "m_ShortName",
-            "type": 14
-        },
-        "ExecMode": {
-            "field": "m_ExecMode",
-            "type": 6
-        },
-        "SpawnGroup": {
-            "field": "m_SpawnGroup",
-            "type": 14
-        },
-        "PeriodicExecDelay": {
-            "field": "m_PeriodicExecDelay",
-            "type": 8
-        },
-        "SpecType": {
-            "field": "m_SpecType",
-            "type": 6
-        },
-        "EntitySpec": {
-            "field": "m_EntitySpec",
-            "type": 14
-        },
-        "Commands": {
-            "field": "m_Commands",
-            "type": 14
-        },
-        "SetDebugBits": {
-            "field": "m_SetDebugBits",
-            "type": 7
-        },
-        "ClearDebugBits": {
-            "field": "m_ClearDebugBits",
-            "type": 7
-        }
-    },
-    "CompMatMutatorCondition_t": {
-        "MutatorCondition": {
-            "field": "m_nMutatorCondition",
-            "type": 6
-        },
-        "StrMutatorConditionContainerName": {
-            "field": "m_strMutatorConditionContainerName",
-            "type": 14
-        },
-        "StrMutatorConditionContainerVarName": {
-            "field": "m_strMutatorConditionContainerVarName",
-            "type": 14
-        },
-        "StrMutatorConditionContainerVarValue": {
-            "field": "m_strMutatorConditionContainerVarValue",
-            "type": 14
-        },
-        "PassWhenTrue": {
-            "field": "m_bPassWhenTrue",
-            "type": 10
-        }
-    },
-    "CompMatPropertyMutator_t": {
-        "Enabled": {
-            "field": "m_bEnabled",
-            "type": 10
-        },
-        "MutatorCommandType": {
-            "field": "m_nMutatorCommandType",
-            "type": 6
-        },
-        "StrInitWith_Container": {
-            "field": "m_strInitWith_Container",
-            "type": 14
-        },
-        "StrCopyProperty_InputContainerSrc": {
-            "field": "m_strCopyProperty_InputContainerSrc",
-            "type": 14
-        },
-        "StrCopyProperty_InputContainerProperty": {
-            "field": "m_strCopyProperty_InputContainerProperty",
-            "type": 14
-        },
-        "StrCopyProperty_TargetProperty": {
-            "field": "m_strCopyProperty_TargetProperty",
-            "type": 14
-        },
-        "StrRandomRollInputVars_SeedInputVar": {
-            "field": "m_strRandomRollInputVars_SeedInputVar",
-            "type": 14
-        },
-        "RandomRollInputVars_InputVarsToRoll": {
-            "field": "m_vecRandomRollInputVars_InputVarsToRoll",
-            "type": 50
-        },
-        "StrCopyMatchingKeys_InputContainerSrc": {
-            "field": "m_strCopyMatchingKeys_InputContainerSrc",
-            "type": 14
-        },
-        "StrCopyKeysWithSuffix_InputContainerSrc": {
-            "field": "m_strCopyKeysWithSuffix_InputContainerSrc",
-            "type": 14
-        },
-        "StrCopyKeysWithSuffix_FindSuffix": {
-            "field": "m_strCopyKeysWithSuffix_FindSuffix",
-            "type": 14
-        },
-        "StrCopyKeysWithSuffix_ReplaceSuffix": {
-            "field": "m_strCopyKeysWithSuffix_ReplaceSuffix",
-            "type": 14
-        },
-        "SetValue_Value": {
-            "field": "m_nSetValue_Value",
-            "classname": "CompositeMaterialInputLooseVariable_t",
-            "type": 16
-        },
-        "StrGenerateTexture_TargetParam": {
-            "field": "m_strGenerateTexture_TargetParam",
-            "type": 14
-        },
-        "StrGenerateTexture_InitialContainer": {
-            "field": "m_strGenerateTexture_InitialContainer",
-            "type": 14
-        },
-        "Resolution": {
-            "field": "m_nResolution",
-            "type": 2
-        },
-        "IsScratchTarget": {
-            "field": "m_bIsScratchTarget",
-            "type": 10
-        },
-        "SplatDebugInfo": {
-            "field": "m_bSplatDebugInfo",
-            "type": 10
-        },
-        "CaptureInRenderDoc": {
-            "field": "m_bCaptureInRenderDoc",
-            "type": 10
-        },
-        "StrPopInputQueue_Container": {
-            "field": "m_strPopInputQueue_Container",
-            "type": 14
-        },
-        "StrDrawText_InputContainerSrc": {
-            "field": "m_strDrawText_InputContainerSrc",
-            "type": 14
-        },
-        "StrDrawText_InputContainerProperty": {
-            "field": "m_strDrawText_InputContainerProperty",
-            "type": 14
-        },
-        "DrawText_Position": {
-            "field": "m_vecDrawText_Position",
-            "type": 22
-        },
-        "ColDrawText_Color": {
-            "field": "m_colDrawText_Color",
-            "type": 19
-        },
-        "StrDrawText_Font": {
-            "field": "m_strDrawText_Font",
-            "type": 14
-        }
-    },
-    "CompositeMaterialAssemblyProcedure_t": {},
-    "CompositeMaterialEditorPoint_t": {
-        "SequenceIndex": {
-            "field": "m_nSequenceIndex",
-            "type": 2
-        },
-        "Cycle": {
-            "field": "m_flCycle",
-            "type": 8
-        },
-        "EnableChildModel": {
-            "field": "m_bEnableChildModel",
-            "type": 10
-        }
-    },
-    "CompositeMaterialInputContainer_t": {
-        "Enabled": {
-            "field": "m_bEnabled",
-            "type": 10
-        },
-        "CompositeMaterialInputContainerSourceType": {
-            "field": "m_nCompositeMaterialInputContainerSourceType",
-            "type": 6
-        },
-        "StrAttrName": {
-            "field": "m_strAttrName",
-            "type": 14
-        },
-        "StrAlias": {
-            "field": "m_strAlias",
-            "type": 14
-        },
-        "StrAttrNameForVar": {
-            "field": "m_strAttrNameForVar",
-            "type": 14
-        },
-        "ExposeExternally": {
-            "field": "m_bExposeExternally",
-            "type": 10
-        }
-    },
-    "CompositeMaterialInputLooseVariable_t": {
-        "StrName": {
-            "field": "m_strName",
-            "type": 14
-        },
-        "ExposeExternally": {
-            "field": "m_bExposeExternally",
-            "type": 10
-        },
-        "StrExposedFriendlyName": {
-            "field": "m_strExposedFriendlyName",
-            "type": 14
-        },
-        "StrExposedFriendlyGroupName": {
-            "field": "m_strExposedFriendlyGroupName",
-            "type": 14
-        },
-        "ExposedVariableIsFixedRange": {
-            "field": "m_bExposedVariableIsFixedRange",
-            "type": 10
-        },
-        "StrExposedVisibleWhenTrue": {
-            "field": "m_strExposedVisibleWhenTrue",
-            "type": 14
-        },
-        "StrExposedHiddenWhenTrue": {
-            "field": "m_strExposedHiddenWhenTrue",
-            "type": 14
-        },
-        "StrExposedValueList": {
-            "field": "m_strExposedValueList",
-            "type": 14
-        },
-        "VariableType": {
-            "field": "m_nVariableType",
-            "type": 6
-        },
-        "ValueBoolean": {
-            "field": "m_bValueBoolean",
-            "type": 10
-        },
-        "ValueIntX": {
-            "field": "m_nValueIntX",
-            "type": 2
-        },
-        "ValueIntY": {
-            "field": "m_nValueIntY",
-            "type": 2
-        },
-        "ValueIntZ": {
-            "field": "m_nValueIntZ",
-            "type": 2
-        },
-        "ValueIntW": {
-            "field": "m_nValueIntW",
-            "type": 2
-        },
-        "HasFloatBounds": {
-            "field": "m_bHasFloatBounds",
-            "type": 10
-        },
-        "ValueFloatX": {
-            "field": "m_flValueFloatX",
-            "type": 8
-        },
-        "ValueFloatX_Min": {
-            "field": "m_flValueFloatX_Min",
-            "type": 8
-        },
-        "ValueFloatX_Max": {
-            "field": "m_flValueFloatX_Max",
-            "type": 8
-        },
-        "ValueFloatY": {
-            "field": "m_flValueFloatY",
-            "type": 8
-        },
-        "ValueFloatY_Min": {
-            "field": "m_flValueFloatY_Min",
-            "type": 8
-        },
-        "ValueFloatY_Max": {
-            "field": "m_flValueFloatY_Max",
-            "type": 8
-        },
-        "ValueFloatZ": {
-            "field": "m_flValueFloatZ",
-            "type": 8
-        },
-        "ValueFloatZ_Min": {
-            "field": "m_flValueFloatZ_Min",
-            "type": 8
-        },
-        "ValueFloatZ_Max": {
-            "field": "m_flValueFloatZ_Max",
-            "type": 8
-        },
-        "ValueFloatW": {
-            "field": "m_flValueFloatW",
-            "type": 8
-        },
-        "ValueFloatW_Min": {
-            "field": "m_flValueFloatW_Min",
-            "type": 8
-        },
-        "ValueFloatW_Max": {
-            "field": "m_flValueFloatW_Max",
-            "type": 8
-        },
-        "CValueColor4": {
-            "field": "m_cValueColor4",
-            "type": 19
-        },
-        "ValueSystemVar": {
-            "field": "m_nValueSystemVar",
-            "type": 6
-        },
-        "StrTextureContentAssetPath": {
-            "field": "m_strTextureContentAssetPath",
-            "type": 14
-        },
-        "StrTextureCompilationVtexTemplate": {
-            "field": "m_strTextureCompilationVtexTemplate",
-            "type": 14
-        },
-        "TextureType": {
-            "field": "m_nTextureType",
-            "type": 6
-        },
-        "StrString": {
-            "field": "m_strString",
-            "type": 14
-        },
-        "StrPanoramaPanelPath": {
-            "field": "m_strPanoramaPanelPath",
-            "type": 14
-        },
-        "PanoramaRenderRes": {
-            "field": "m_nPanoramaRenderRes",
-            "type": 2
-        }
-    },
-    "CompositeMaterialMatchFilter_t": {
-        "CompositeMaterialMatchFilterType": {
-            "field": "m_nCompositeMaterialMatchFilterType",
-            "type": 6
-        },
-        "StrMatchFilter": {
-            "field": "m_strMatchFilter",
-            "type": 14
-        },
-        "StrMatchValue": {
-            "field": "m_strMatchValue",
-            "type": 14
-        },
-        "PassWhenTrue": {
-            "field": "m_bPassWhenTrue",
-            "type": 10
-        }
-    },
-    "CompositeMaterial_t": {},
     "CountdownTimer": {
         "Duration": {
             "field": "m_duration",
@@ -10422,10 +10832,6 @@
         "ID": {
             "field": "m_ID",
             "type": 12
-        },
-        "Values": {
-            "field": "m_Values",
-            "type": 23
         }
     },
     "EntitySpottedState_t": {
@@ -10815,6 +11221,34 @@
         }
     },
     "EventSplitScreenStateChanged_t": {},
+    "FilterDamageType": {
+        "DamageType": {
+            "field": "m_iDamageType",
+            "type": 2
+        },
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
+    "FilterHealth": {
+        "AdrenalineActive": {
+            "field": "m_bAdrenalineActive",
+            "type": 10
+        },
+        "HealthMin": {
+            "field": "m_iHealthMin",
+            "type": 2
+        },
+        "HealthMax": {
+            "field": "m_iHealthMax",
+            "type": 2
+        },
+        "Parent": {
+            "field": "CBaseFilter",
+            "type": 11
+        }
+    },
     "GameAmmoTypeInfo_t": {
         "BuySize": {
             "field": "m_nBuySize",
@@ -10827,12 +11261,6 @@
         "Parent": {
             "field": "AmmoTypeInfo_t",
             "type": 11
-        }
-    },
-    "GeneratedTextureHandle_t": {
-        "StrBitmapName": {
-            "field": "m_strBitmapName",
-            "type": 14
         }
     },
     "HullFlags_t": {
@@ -10880,7 +11308,6 @@
     "IChoreoServices": {},
     "IClientAlphaProperty": {},
     "IEconItemInterface": {},
-    "IGapHost_GameEntity": {},
     "IHasAttributes": {},
     "IRagdoll": {},
     "ISkeletonAnimationController": {},
@@ -10906,11 +11333,53 @@
             "type": 2
         }
     },
+    "ParticleNode_t": {
+        "Entity": {
+            "field": "m_hEntity",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
+        "Index": {
+            "field": "m_iIndex",
+            "classname": "ParticleIndex_t",
+            "type": 16
+        },
+        "StartTime": {
+            "field": "m_flStartTime",
+            "type": 8
+        },
+        "GrowthDuration": {
+            "field": "m_flGrowthDuration",
+            "type": 8
+        },
+        "GrowthOrigin": {
+            "field": "m_vecGrowthOrigin",
+            "type": 21
+        },
+        "EndcapTime": {
+            "field": "m_flEndcapTime",
+            "type": 8
+        },
+        "MarkedForDelete": {
+            "field": "m_bMarkedForDelete",
+            "type": 10
+        }
+    },
+    "PhysicsParticleId_t": {
+        "Value": {
+            "field": "m_Value",
+            "type": 6
+        }
+    },
     "PhysicsRagdollPose_t": {
         "Owner": {
             "field": "m_hOwner",
             "type": 17,
             "classname": "CBaseEntity"
+        },
+        "SetFromDebugHistory": {
+            "field": "m_bSetFromDebugHistory",
+            "type": 10
         }
     },
     "PointCameraSettings_t": {
@@ -10961,6 +11430,10 @@
         },
         "ForceCurrentWorldTransform": {
             "field": "m_bForceCurrentWorldTransform",
+            "type": 10
+        },
+        "UseLRURetirement": {
+            "field": "m_bUseLRURetirement",
             "type": 10
         },
         "HealthToGrant": {
@@ -11313,8 +11786,8 @@
             "field": "blend",
             "type": 10
         },
-        "NoReflectionFog": {
-            "field": "m_bNoReflectionFog",
+        "Padding2": {
+            "field": "m_bPadding2",
             "type": 10
         },
         "Padding": {
@@ -11348,6 +11821,143 @@
             "type": 8
         }
     },
+    "inv_image_camera_t": {
+        "Angle": {
+            "field": "angle",
+            "type": 20
+        },
+        "Fov": {
+            "field": "fov",
+            "type": 8
+        },
+        "Znear": {
+            "field": "znear",
+            "type": 8
+        },
+        "Zfar": {
+            "field": "zfar",
+            "type": 8
+        },
+        "Target": {
+            "field": "target",
+            "type": 21
+        },
+        "Target_nudge": {
+            "field": "target_nudge",
+            "type": 21
+        },
+        "Orbit_distance": {
+            "field": "orbit_distance",
+            "type": 8
+        }
+    },
+    "inv_image_data_t": {
+        "Map": {
+            "field": "map",
+            "classname": "inv_image_map_t",
+            "type": 16
+        },
+        "Item": {
+            "field": "item",
+            "classname": "inv_image_item_t",
+            "type": 16
+        },
+        "Camera": {
+            "field": "camera",
+            "classname": "inv_image_camera_t",
+            "type": 16
+        },
+        "Lightsun": {
+            "field": "lightsun",
+            "classname": "inv_image_light_sun_t",
+            "type": 16
+        },
+        "Lightfill": {
+            "field": "lightfill",
+            "classname": "inv_image_light_fill_t",
+            "type": 16
+        },
+        "Light0": {
+            "field": "light0",
+            "classname": "inv_image_light_barn_t",
+            "type": 16
+        },
+        "Light1": {
+            "field": "light1",
+            "classname": "inv_image_light_barn_t",
+            "type": 16
+        }
+    },
+    "inv_image_item_t": {
+        "Position": {
+            "field": "position",
+            "type": 21
+        },
+        "Angle": {
+            "field": "angle",
+            "type": 20
+        },
+        "Pose_sequence": {
+            "field": "pose_sequence",
+            "type": 14
+        }
+    },
+    "inv_image_light_barn_t": {
+        "Color": {
+            "field": "color",
+            "type": 21
+        },
+        "Angle": {
+            "field": "angle",
+            "type": 20
+        },
+        "Brightness": {
+            "field": "brightness",
+            "type": 8
+        },
+        "Orbit_distance": {
+            "field": "orbit_distance",
+            "type": 8
+        }
+    },
+    "inv_image_light_fill_t": {
+        "Color": {
+            "field": "color",
+            "type": 21
+        },
+        "Angle": {
+            "field": "angle",
+            "type": 20
+        },
+        "Brightness": {
+            "field": "brightness",
+            "type": 8
+        }
+    },
+    "inv_image_light_sun_t": {
+        "Color": {
+            "field": "color",
+            "type": 21
+        },
+        "Angle": {
+            "field": "angle",
+            "type": 20
+        },
+        "Brightness": {
+            "field": "brightness",
+            "type": 8
+        }
+    },
+    "inv_image_map_t": {
+        "Map_name": {
+            "field": "map_name",
+            "type": 14
+        },
+        "Map_rotation": {
+            "field": "map_rotation",
+            "type": 8
+        }
+    },
     "ragdoll_t": {
         "BoneIndex": {
             "field": "boneIndex",
@@ -11374,6 +11984,20 @@
         "Radius": {
             "field": "m_flRadius",
             "type": 8
+        },
+        "Height": {
+            "field": "m_nHeight",
+            "type": 2
+        }
+    },
+    "ragdollhierarchyjoint_t": {
+        "ParentIndex": {
+            "field": "parentIndex",
+            "type": 2
+        },
+        "ChildIndex": {
+            "field": "childIndex",
+            "type": 2
         }
     },
     "shard_model_desc_t": {
@@ -11485,6 +12109,345 @@
             "type": 2
         }
     },
+    "CCompositeMaterialEditorDoc": {
+        "Version": {
+            "field": "m_nVersion",
+            "type": 2
+        }
+    },
+    "CompMatMutatorCondition_t": {
+        "MutatorCondition": {
+            "field": "m_nMutatorCondition",
+            "type": 6
+        },
+        "StrMutatorConditionContainerName": {
+            "field": "m_strMutatorConditionContainerName",
+            "type": 14
+        },
+        "StrMutatorConditionContainerVarName": {
+            "field": "m_strMutatorConditionContainerVarName",
+            "type": 14
+        },
+        "StrMutatorConditionContainerVarValue": {
+            "field": "m_strMutatorConditionContainerVarValue",
+            "type": 14
+        },
+        "PassWhenTrue": {
+            "field": "m_bPassWhenTrue",
+            "type": 10
+        }
+    },
+    "CompMatPropertyMutator_t": {
+        "Enabled": {
+            "field": "m_bEnabled",
+            "type": 10
+        },
+        "MutatorCommandType": {
+            "field": "m_nMutatorCommandType",
+            "type": 6
+        },
+        "StrInitWith_Container": {
+            "field": "m_strInitWith_Container",
+            "type": 14
+        },
+        "StrCopyProperty_InputContainerSrc": {
+            "field": "m_strCopyProperty_InputContainerSrc",
+            "type": 14
+        },
+        "StrCopyProperty_InputContainerProperty": {
+            "field": "m_strCopyProperty_InputContainerProperty",
+            "type": 14
+        },
+        "StrCopyProperty_TargetProperty": {
+            "field": "m_strCopyProperty_TargetProperty",
+            "type": 14
+        },
+        "StrRandomRollInputVars_SeedInputVar": {
+            "field": "m_strRandomRollInputVars_SeedInputVar",
+            "type": 14
+        },
+        "RandomRollInputVars_InputVarsToRoll": {
+            "field": "m_vecRandomRollInputVars_InputVarsToRoll",
+            "type": 50
+        },
+        "StrCopyMatchingKeys_InputContainerSrc": {
+            "field": "m_strCopyMatchingKeys_InputContainerSrc",
+            "type": 14
+        },
+        "StrCopyKeysWithSuffix_InputContainerSrc": {
+            "field": "m_strCopyKeysWithSuffix_InputContainerSrc",
+            "type": 14
+        },
+        "StrCopyKeysWithSuffix_FindSuffix": {
+            "field": "m_strCopyKeysWithSuffix_FindSuffix",
+            "type": 14
+        },
+        "StrCopyKeysWithSuffix_ReplaceSuffix": {
+            "field": "m_strCopyKeysWithSuffix_ReplaceSuffix",
+            "type": 14
+        },
+        "SetValue_Value": {
+            "field": "m_nSetValue_Value",
+            "classname": "CompositeMaterialInputLooseVariable_t",
+            "type": 16
+        },
+        "StrGenerateTexture_TargetParam": {
+            "field": "m_strGenerateTexture_TargetParam",
+            "type": 14
+        },
+        "StrGenerateTexture_InitialContainer": {
+            "field": "m_strGenerateTexture_InitialContainer",
+            "type": 14
+        },
+        "Resolution": {
+            "field": "m_nResolution",
+            "type": 2
+        },
+        "IsScratchTarget": {
+            "field": "m_bIsScratchTarget",
+            "type": 10
+        },
+        "SplatDebugInfo": {
+            "field": "m_bSplatDebugInfo",
+            "type": 10
+        },
+        "CaptureInRenderDoc": {
+            "field": "m_bCaptureInRenderDoc",
+            "type": 10
+        },
+        "StrPopInputQueue_Container": {
+            "field": "m_strPopInputQueue_Container",
+            "type": 14
+        },
+        "StrDrawText_InputContainerSrc": {
+            "field": "m_strDrawText_InputContainerSrc",
+            "type": 14
+        },
+        "StrDrawText_InputContainerProperty": {
+            "field": "m_strDrawText_InputContainerProperty",
+            "type": 14
+        },
+        "DrawText_Position": {
+            "field": "m_vecDrawText_Position",
+            "type": 22
+        },
+        "ColDrawText_Color": {
+            "field": "m_colDrawText_Color",
+            "type": 19
+        },
+        "StrDrawText_Font": {
+            "field": "m_strDrawText_Font",
+            "type": 14
+        }
+    },
+    "CompositeMaterialAssemblyProcedure_t": {},
+    "CompositeMaterialEditorPoint_t": {
+        "SequenceIndex": {
+            "field": "m_nSequenceIndex",
+            "type": 2
+        },
+        "Cycle": {
+            "field": "m_flCycle",
+            "type": 8
+        },
+        "EnableChildModel": {
+            "field": "m_bEnableChildModel",
+            "type": 10
+        }
+    },
+    "CompositeMaterialInputContainer_t": {
+        "Enabled": {
+            "field": "m_bEnabled",
+            "type": 10
+        },
+        "CompositeMaterialInputContainerSourceType": {
+            "field": "m_nCompositeMaterialInputContainerSourceType",
+            "type": 6
+        },
+        "StrAttrName": {
+            "field": "m_strAttrName",
+            "type": 14
+        },
+        "StrAlias": {
+            "field": "m_strAlias",
+            "type": 14
+        },
+        "StrAttrNameForVar": {
+            "field": "m_strAttrNameForVar",
+            "type": 14
+        },
+        "ExposeExternally": {
+            "field": "m_bExposeExternally",
+            "type": 10
+        }
+    },
+    "CompositeMaterialInputLooseVariable_t": {
+        "StrName": {
+            "field": "m_strName",
+            "type": 14
+        },
+        "ExposeExternally": {
+            "field": "m_bExposeExternally",
+            "type": 10
+        },
+        "StrExposedFriendlyName": {
+            "field": "m_strExposedFriendlyName",
+            "type": 14
+        },
+        "StrExposedFriendlyGroupName": {
+            "field": "m_strExposedFriendlyGroupName",
+            "type": 14
+        },
+        "ExposedVariableIsFixedRange": {
+            "field": "m_bExposedVariableIsFixedRange",
+            "type": 10
+        },
+        "StrExposedVisibleWhenTrue": {
+            "field": "m_strExposedVisibleWhenTrue",
+            "type": 14
+        },
+        "StrExposedHiddenWhenTrue": {
+            "field": "m_strExposedHiddenWhenTrue",
+            "type": 14
+        },
+        "StrExposedValueList": {
+            "field": "m_strExposedValueList",
+            "type": 14
+        },
+        "VariableType": {
+            "field": "m_nVariableType",
+            "type": 6
+        },
+        "ValueBoolean": {
+            "field": "m_bValueBoolean",
+            "type": 10
+        },
+        "ValueIntX": {
+            "field": "m_nValueIntX",
+            "type": 2
+        },
+        "ValueIntY": {
+            "field": "m_nValueIntY",
+            "type": 2
+        },
+        "ValueIntZ": {
+            "field": "m_nValueIntZ",
+            "type": 2
+        },
+        "ValueIntW": {
+            "field": "m_nValueIntW",
+            "type": 2
+        },
+        "HasFloatBounds": {
+            "field": "m_bHasFloatBounds",
+            "type": 10
+        },
+        "ValueFloatX": {
+            "field": "m_flValueFloatX",
+            "type": 8
+        },
+        "ValueFloatX_Min": {
+            "field": "m_flValueFloatX_Min",
+            "type": 8
+        },
+        "ValueFloatX_Max": {
+            "field": "m_flValueFloatX_Max",
+            "type": 8
+        },
+        "ValueFloatY": {
+            "field": "m_flValueFloatY",
+            "type": 8
+        },
+        "ValueFloatY_Min": {
+            "field": "m_flValueFloatY_Min",
+            "type": 8
+        },
+        "ValueFloatY_Max": {
+            "field": "m_flValueFloatY_Max",
+            "type": 8
+        },
+        "ValueFloatZ": {
+            "field": "m_flValueFloatZ",
+            "type": 8
+        },
+        "ValueFloatZ_Min": {
+            "field": "m_flValueFloatZ_Min",
+            "type": 8
+        },
+        "ValueFloatZ_Max": {
+            "field": "m_flValueFloatZ_Max",
+            "type": 8
+        },
+        "ValueFloatW": {
+            "field": "m_flValueFloatW",
+            "type": 8
+        },
+        "ValueFloatW_Min": {
+            "field": "m_flValueFloatW_Min",
+            "type": 8
+        },
+        "ValueFloatW_Max": {
+            "field": "m_flValueFloatW_Max",
+            "type": 8
+        },
+        "CValueColor4": {
+            "field": "m_cValueColor4",
+            "type": 19
+        },
+        "ValueSystemVar": {
+            "field": "m_nValueSystemVar",
+            "type": 6
+        },
+        "StrTextureContentAssetPath": {
+            "field": "m_strTextureContentAssetPath",
+            "type": 14
+        },
+        "StrTextureCompilationVtexTemplate": {
+            "field": "m_strTextureCompilationVtexTemplate",
+            "type": 14
+        },
+        "TextureType": {
+            "field": "m_nTextureType",
+            "type": 6
+        },
+        "StrString": {
+            "field": "m_strString",
+            "type": 14
+        },
+        "StrPanoramaPanelPath": {
+            "field": "m_strPanoramaPanelPath",
+            "type": 14
+        },
+        "PanoramaRenderRes": {
+            "field": "m_nPanoramaRenderRes",
+            "type": 2
+        }
+    },
+    "CompositeMaterialMatchFilter_t": {
+        "CompositeMaterialMatchFilterType": {
+            "field": "m_nCompositeMaterialMatchFilterType",
+            "type": 6
+        },
+        "StrMatchFilter": {
+            "field": "m_strMatchFilter",
+            "type": 14
+        },
+        "StrMatchValue": {
+            "field": "m_strMatchValue",
+            "type": 14
+        },
+        "PassWhenTrue": {
+            "field": "m_bPassWhenTrue",
+            "type": 10
+        }
+    },
+    "CompositeMaterial_t": {},
+    "GeneratedTextureHandle_t": {
+        "StrBitmapName": {
+            "field": "m_strBitmapName",
+            "type": 14
+        }
+    },
     "CEmptyEntityInstance": {},
     "CEntityComponent": {},
     "CEntityComponentHelper": {
@@ -11573,10 +12536,6 @@
             "field": "m_CScriptComponent",
             "classname": "CScriptComponent",
             "type": 24
-        },
-        "VisibleinPVS": {
-            "field": "m_bVisibleinPVS",
-            "type": 10
         }
     },
     "CNetworkVarChainer": {
@@ -11679,10 +12638,6 @@
         }
     },
     "MaterialParamVector_t": {
-        "Value": {
-            "field": "m_value",
-            "type": 23
-        },
         "Parent": {
             "field": "MaterialParam_t",
             "type": 11
@@ -11741,6 +12696,30 @@
             "field": "m_flBloomStartValue",
             "type": 8
         },
+        "ComputeBloomStrength": {
+            "field": "m_flComputeBloomStrength",
+            "type": 8
+        },
+        "ComputeBloomThreshold": {
+            "field": "m_flComputeBloomThreshold",
+            "type": 8
+        },
+        "ComputeBloomRadius": {
+            "field": "m_flComputeBloomRadius",
+            "type": 8
+        },
+        "ComputeBloomEffectsScale": {
+            "field": "m_flComputeBloomEffectsScale",
+            "type": 8
+        },
+        "ComputeBloomLensDirtStrength": {
+            "field": "m_flComputeBloomLensDirtStrength",
+            "type": 8
+        },
+        "ComputeBloomLensDirtBlackLevel": {
+            "field": "m_flComputeBloomLensDirtBlackLevel",
+            "type": 8
+        },
         "BlurWeight": {
             "field": "m_flBlurWeight",
             "type": 37,
@@ -11750,6 +12729,28 @@
             "field": "m_vBlurTint",
             "type": 42,
             "size": 5
+        }
+    },
+    "PostProcessingFogScatteringParameters_t": {
+        "Radius": {
+            "field": "m_fRadius",
+            "type": 8
+        },
+        "Scale": {
+            "field": "m_fScale",
+            "type": 8
+        },
+        "CubemapScale": {
+            "field": "m_fCubemapScale",
+            "type": 8
+        },
+        "VolumetricScale": {
+            "field": "m_fVolumetricScale",
+            "type": 8
+        },
+        "GradientScale": {
+            "field": "m_fGradientScale",
+            "type": 8
         }
     },
     "PostProcessingLocalContrastParameters_t": {
@@ -11818,6 +12819,15 @@
         "HasColorCorrection": {
             "field": "m_bHasColorCorrection",
             "type": 10
+        },
+        "HasFogScatteringParams": {
+            "field": "m_bHasFogScatteringParams",
+            "type": 10
+        },
+        "FogScatteringParams": {
+            "field": "m_fogScatteringParams",
+            "classname": "PostProcessingFogScatteringParameters_t",
+            "type": 16
         }
     },
     "PostProcessingTonemapParameters_t": {
@@ -12224,6 +13234,12 @@
             "type": 11
         }
     },
+    "CBoneConstraintRbf": {
+        "Parent": {
+            "field": "CBoneConstraintBase",
+            "type": 11
+        }
+    },
     "CConstraintSlave": {
         "BasePosition": {
             "field": "m_vBasePosition",
@@ -12271,10 +13287,6 @@
         }
     },
     "CDrawCullingData": {
-        "ConeApex": {
-            "field": "m_vConeApex",
-            "type": 21
-        },
         "ConeAxis": {
             "field": "m_ConeAxis",
             "type": 29,
@@ -12539,6 +13551,18 @@
             "field": "m_nFirstMeshlet",
             "type": 6
         },
+        "AppliedIndexOffset": {
+            "field": "m_nAppliedIndexOffset",
+            "type": 6
+        },
+        "DepthVertexBufferIndex": {
+            "field": "m_nDepthVertexBufferIndex",
+            "type": 4
+        },
+        "MeshletPackedIVBIndex": {
+            "field": "m_nMeshletPackedIVBIndex",
+            "type": 4
+        },
         "PrimitiveType": {
             "field": "m_nPrimitiveType",
             "type": 6
@@ -12563,6 +13587,11 @@
             "field": "m_indexBuffer",
             "classname": "CRenderBufferBinding",
             "type": 16
+        },
+        "MeshletPackedIVB": {
+            "field": "m_meshletPackedIVB",
+            "classname": "CRenderBufferBinding",
+            "type": 16
         }
     },
     "CMeshletDescriptor": {
@@ -12570,6 +13599,22 @@
             "field": "m_CullingData",
             "classname": "CDrawCullingData",
             "type": 16
+        },
+        "VertexOffset": {
+            "field": "m_nVertexOffset",
+            "type": 6
+        },
+        "TriangleOffset": {
+            "field": "m_nTriangleOffset",
+            "type": 6
+        },
+        "VertexCount": {
+            "field": "m_nVertexCount",
+            "type": 4
+        },
+        "TriangleCount": {
+            "field": "m_nTriangleCount",
+            "type": 4
         }
     },
     "CModelConfig": {
@@ -12579,6 +13624,10 @@
         },
         "TopLevel": {
             "field": "m_bTopLevel",
+            "type": 10
+        },
+        "ActiveInEditorByDefault": {
+            "field": "m_bActiveInEditorByDefault",
             "type": 10
         }
     },
@@ -12677,10 +13726,6 @@
         }
     },
     "CModelConfigElement_SetBodygroup": {
-        "GroupName": {
-            "field": "m_GroupName",
-            "type": 14
-        },
         "Choice": {
             "field": "m_nChoice",
             "type": 2
@@ -12832,6 +13877,36 @@
             "type": 57
         }
     },
+    "CNPCPhysicsHull": {
+        "Type": {
+            "field": "m_eType",
+            "type": 6
+        },
+        "CapsuleHeight": {
+            "field": "m_flCapsuleHeight",
+            "type": 8
+        },
+        "CapsuleRadius": {
+            "field": "m_flCapsuleRadius",
+            "type": 8
+        },
+        "CapsuleCenter1": {
+            "field": "m_vCapsuleCenter1",
+            "type": 21
+        },
+        "CapsuleCenter2": {
+            "field": "m_vCapsuleCenter2",
+            "type": 21
+        },
+        "GroundBoxHeight": {
+            "field": "m_flGroundBoxHeight",
+            "type": 8
+        },
+        "GroundBoxWidth": {
+            "field": "m_flGroundBoxWidth",
+            "type": 8
+        }
+    },
     "COrientConstraint": {
         "Parent": {
             "field": "CBaseConstraint",
@@ -12868,6 +13943,11 @@
         "Physics": {
             "field": "m_physics",
             "classname": "CPhysSurfacePropertiesPhysics",
+            "type": 16
+        },
+        "VehicleParams": {
+            "field": "m_vehicleParams",
+            "classname": "CPhysSurfacePropertiesVehicle",
             "type": 16
         },
         "AudioSounds": {
@@ -12939,18 +14019,6 @@
         "SoftContactDampingRatio": {
             "field": "m_softContactDampingRatio",
             "type": 8
-        },
-        "WheelDrag": {
-            "field": "m_wheelDrag",
-            "type": 8
-        },
-        "HeatConductivity": {
-            "field": "m_heatConductivity",
-            "type": 8
-        },
-        "Flashpoint": {
-            "field": "m_flashpoint",
-            "type": 8
         }
     },
     "CPhysSurfacePropertiesSoundNames": {
@@ -12997,6 +14065,20 @@
         "SkidStop": {
             "field": "m_skidStop",
             "type": 14
+        },
+        "Resonant": {
+            "field": "m_resonant",
+            "type": 14
+        }
+    },
+    "CPhysSurfacePropertiesVehicle": {
+        "WheelDrag": {
+            "field": "m_wheelDrag",
+            "type": 8
+        },
+        "WheelFrictionScale": {
+            "field": "m_wheelFrictionScale",
+            "type": 8
         }
     },
     "CPointConstraint": {
@@ -13020,8 +14102,12 @@
             "field": "m_hairPositionOffsets",
             "type": 57
         },
-        "SegmentsPerHairStrand": {
-            "field": "m_nSegmentsPerHairStrand",
+        "StrandSegmentCountHist": {
+            "field": "m_strandSegmentCountHist",
+            "type": 53
+        },
+        "MaxSegmentsPerHairStrand": {
+            "field": "m_nMaxSegmentsPerHairStrand",
             "type": 2
         },
         "GuideHairCount": {
@@ -13030,6 +14116,14 @@
         },
         "HairCount": {
             "field": "m_nHairCount",
+            "type": 2
+        },
+        "TotalVertexCount": {
+            "field": "m_nTotalVertexCount",
+            "type": 2
+        },
+        "TotalSegmentCount": {
+            "field": "m_nTotalSegmentCount",
             "type": 2
         },
         "GroomGroupID": {
@@ -13058,6 +14152,14 @@
             "field": "m_skeleton",
             "classname": "CRenderSkeleton",
             "type": 16
+        },
+        "UseUV2ForCharting": {
+            "field": "m_bUseUV2ForCharting",
+            "type": 10
+        },
+        "EmbeddedMapMesh": {
+            "field": "m_bEmbeddedMapMesh",
+            "type": 10
         },
         "MeshDeformParams": {
             "field": "m_meshDeformParams",
@@ -13088,10 +14190,6 @@
         "MaxBounds": {
             "field": "m_vMaxBounds",
             "type": 21
-        },
-        "TintColor": {
-            "field": "m_vTintColor",
-            "type": 23
         }
     },
     "CTiltTwistConstraint": {
@@ -13179,6 +14277,74 @@
             "type": 6
         }
     },
+    "ModelEmbeddedMesh_t": {
+        "Name": {
+            "field": "m_Name",
+            "type": 14
+        },
+        "MeshIndex": {
+            "field": "m_nMeshIndex",
+            "type": 2
+        },
+        "DataBlock": {
+            "field": "m_nDataBlock",
+            "type": 2
+        },
+        "MorphBlock": {
+            "field": "m_nMorphBlock",
+            "type": 2
+        },
+        "VBIBBlock": {
+            "field": "m_nVBIBBlock",
+            "type": 2
+        },
+        "ToolsVBBlock": {
+            "field": "m_nToolsVBBlock",
+            "type": 2
+        }
+    },
+    "ModelMeshBufferData_t": {
+        "BlockIndex": {
+            "field": "m_nBlockIndex",
+            "type": 2
+        },
+        "ElementCount": {
+            "field": "m_nElementCount",
+            "type": 6
+        },
+        "ElementSizeInBytes": {
+            "field": "m_nElementSizeInBytes",
+            "type": 6
+        },
+        "MeshoptCompressed": {
+            "field": "m_bMeshoptCompressed",
+            "type": 10
+        },
+        "MeshoptIndexSequence": {
+            "field": "m_bMeshoptIndexSequence",
+            "type": 10
+        },
+        "CompressedZSTD": {
+            "field": "m_bCompressedZSTD",
+            "type": 10
+        },
+        "CreateBufferSRV": {
+            "field": "m_bCreateBufferSRV",
+            "type": 10
+        },
+        "CreateBufferUAV": {
+            "field": "m_bCreateBufferUAV",
+            "type": 10
+        },
+        "CreateRawBuffer": {
+            "field": "m_bCreateRawBuffer",
+            "type": 10
+        },
+        "CreatePooledBuffer": {
+            "field": "m_bCreatePooledBuffer",
+            "type": 10
+        }
+    },
     "ModelSkeletonData_t": {
         "BoneName": {
             "field": "m_boneName",
@@ -13205,6 +14371,7 @@
             "type": 59
         }
     },
+    "MovementGaitId_t": {},
     "PermModelDataAnimatedMaterialAttribute_t": {
         "AttributeName": {
             "field": "m_AttributeName",
@@ -13324,6 +14491,16 @@
             "type": 14
         }
     },
+    "PhysShapeMarkup_t": {
+        "BodyInAggregate": {
+            "field": "m_nBodyInAggregate",
+            "type": 2
+        },
+        "ShapeInBody": {
+            "field": "m_nShapeInBody",
+            "type": 2
+        }
+    },
     "PhysSoftbodyDesc_t": {
         "ParticleBoneHash": {
             "field": "m_ParticleBoneHash",
@@ -13362,6 +14539,38 @@
         "PackedSurfaceTangentOs": {
             "field": "m_nPackedSurfaceTangentOs",
             "type": 6
+        },
+        "DataOffset_Segments": {
+            "field": "m_nDataOffset_Segments",
+            "type": 6
+        }
+    },
+    "RenderInputLayoutField_t": {
+        "SemanticName": {
+            "field": "m_pSemanticName",
+            "type": 15,
+            "size": 32
+        },
+        "SemanticIndex": {
+            "field": "m_nSemanticIndex",
+            "type": 0
+        },
+        "Offset": {
+            "field": "m_nOffset",
+            "type": 1
+        },
+        "Slot": {
+            "field": "m_nSlot",
+            "type": 0
+        },
+        "SlotType": {
+            "field": "m_nSlotType",
+            "type": 4
+        },
+        "ShaderSemantic": {
+            "field": "m_szShaderSemantic",
+            "type": 15,
+            "size": 32
         }
     },
     "RenderSkeletonBone_t": {
@@ -13508,6 +14717,14 @@
         },
         "AngularDamping": {
             "field": "m_flAngularDamping",
+            "type": 8
+        },
+        "LinearDrag": {
+            "field": "m_flLinearDrag",
+            "type": 8
+        },
+        "AngularDrag": {
+            "field": "m_flAngularDrag",
             "type": 8
         },
         "OverrideMassCenter": {
@@ -13772,6 +14989,14 @@
             "field": "m_bEnableCollision",
             "type": 10
         },
+        "IsLinearConstraintDisabled": {
+            "field": "m_bIsLinearConstraintDisabled",
+            "type": 10
+        },
+        "IsAngularConstraintDisabled": {
+            "field": "m_bIsAngularConstraintDisabled",
+            "type": 10
+        },
         "EnableLinearLimit": {
             "field": "m_bEnableLinearLimit",
             "type": 10
@@ -13854,6 +15079,10 @@
         "Plasticity": {
             "field": "m_flPlasticity",
             "type": 8
+        },
+        "Tag": {
+            "field": "m_Tag",
+            "type": 14
         }
     },
     "VPhysXRange_t": {
@@ -13872,6 +15101,28 @@
             "type": 56
         }
     },
+    "VsInputSignatureElement_t": {
+        "Name": {
+            "field": "m_pName",
+            "type": 15,
+            "size": 64
+        },
+        "Semantic": {
+            "field": "m_pSemantic",
+            "type": 15,
+            "size": 64
+        },
+        "D3DSemanticName": {
+            "field": "m_pD3DSemanticName",
+            "type": 15,
+            "size": 64
+        },
+        "D3DSemanticIndex": {
+            "field": "m_nD3DSemanticIndex",
+            "type": 2
+        }
+    },
+    "VsInputSignature_t": {},
     "CNavHullPresetVData": {
         "NavHulls": {
             "field": "m_vecNavHulls",
@@ -13897,6 +15148,14 @@
         },
         "AgentShortHeight": {
             "field": "m_agentShortHeight",
+            "type": 8
+        },
+        "AgentCrawlEnabled": {
+            "field": "m_agentCrawlEnabled",
+            "type": 10
+        },
+        "AgentCrawlHeight": {
+            "field": "m_agentCrawlHeight",
             "type": 8
         },
         "AgentMaxClimb": {
@@ -14259,6 +15518,11 @@
         },
         "FeatheringFilter": {
             "field": "m_flFeatheringFilter",
+            "classname": "CParticleCollectionRendererFloatInput",
+            "type": 16
+        },
+        "FeatheringDepthMapFilter": {
+            "field": "m_flFeatheringDepthMapFilter",
             "classname": "CParticleCollectionRendererFloatInput",
             "type": 16
         },
@@ -15665,12 +16929,6 @@
             "type": 2
         }
     },
-    "PARTICLE_WORLD_HANDLE__": {
-        "Unused": {
-            "field": "unused",
-            "type": 2
-        }
-    },
     "ParticleNamedValueConfiguration_t": {
         "ConfigName": {
             "field": "m_ConfigName",
@@ -15984,6 +17242,16 @@
             "type": 8
         }
     },
+    "FeAntiTunnelGroupBuild_t": {
+        "VertexMapHash": {
+            "field": "m_nVertexMapHash",
+            "type": 6
+        },
+        "CollisionMask": {
+            "field": "m_nCollisionMask",
+            "type": 6
+        }
+    },
     "FeAntiTunnelProbeBuild_t": {
         "Weight": {
             "field": "flWeight",
@@ -16118,6 +17386,10 @@
             "field": "m_nVertexMapHash",
             "type": 6
         },
+        "AntitunnelGroupBits": {
+            "field": "m_nAntitunnelGroupBits",
+            "type": 6
+        },
         "Parent": {
             "field": "FeBoxRigid_t",
             "type": 11
@@ -16130,6 +17402,10 @@
         },
         "VertexMapHash": {
             "field": "m_nVertexMapHash",
+            "type": 6
+        },
+        "AntitunnelGroupBits": {
+            "field": "m_nAntitunnelGroupBits",
             "type": 6
         },
         "Parent": {
@@ -16146,6 +17422,10 @@
             "field": "m_nVertexMapHash",
             "type": 6
         },
+        "AntitunnelGroupBits": {
+            "field": "m_nAntitunnelGroupBits",
+            "type": 6
+        },
         "Parent": {
             "field": "FeSphereRigid_t",
             "type": 11
@@ -16158,6 +17438,10 @@
         },
         "VertexMapHash": {
             "field": "m_nVertexMapHash",
+            "type": 6
+        },
+        "AntitunnelGroupBits": {
+            "field": "m_nAntitunnelGroupBits",
             "type": 6
         },
         "Parent": {
@@ -16224,6 +17508,16 @@
         "Alpha": {
             "field": "flAlpha",
             "type": 8
+        }
+    },
+    "FeDynKinLink_t": {
+        "Parent": {
+            "field": "m_nParent",
+            "type": 5
+        },
+        "Child": {
+            "field": "m_nChild",
+            "type": 5
         }
     },
     "FeEdgeDesc_t": {
@@ -17179,6 +18473,10 @@
             "field": "m_Ropes",
             "type": 56
         },
+        "AntiTunnelBytecode": {
+            "field": "m_AntiTunnelBytecode",
+            "type": 57
+        },
         "AntiTunnelTargetNodes": {
             "field": "m_AntiTunnelTargetNodes",
             "type": 56
@@ -17424,6 +18722,10 @@
             "field": "m_flGameMass",
             "type": 8
         },
+        "MassScaleInv": {
+            "field": "m_flMassScaleInv",
+            "type": 8
+        },
         "InertiaScaleInv": {
             "field": "m_flInertiaScaleInv",
             "type": 8
@@ -17516,9 +18818,9 @@
             "field": "m_bBuoyancyDragEnabled",
             "type": 10
         },
-        "GravityDisabled": {
-            "field": "m_bGravityDisabled",
-            "type": 10
+        "Gravity": {
+            "field": "m_vGravity",
+            "type": 21
         },
         "SpeculativeEnabled": {
             "field": "m_bSpeculativeEnabled",
@@ -17527,6 +18829,10 @@
         "HasShadowController": {
             "field": "m_bHasShadowController",
             "type": 10
+        },
+        "DynamicContinuousContactBehavior": {
+            "field": "m_nDynamicContinuousContactBehavior",
+            "type": 4
         }
     },
     "RnCapsuleDesc_t": {
@@ -17645,6 +18951,10 @@
         "Max": {
             "field": "m_vMax",
             "type": 21
+        },
+        "TriangleEdgeFlags": {
+            "field": "m_TriangleEdgeFlags",
+            "type": 55
         },
         "Materials": {
             "field": "m_Materials",
@@ -17792,6 +19102,24 @@
             "type": 21
         }
     },
+    "OutflowWithRequirements_t": {
+        "CursorStateBlockIndex": {
+            "field": "m_nCursorStateBlockIndex",
+            "type": 53
+        }
+    },
+    "SignatureOutflow_Continue": {
+        "Parent": {
+            "field": "CPulse_OutflowConnection",
+            "type": 11
+        }
+    },
+    "SignatureOutflow_Resume": {
+        "Parent": {
+            "field": "CPulse_ResumePoint",
+            "type": 11
+        }
+    },
     "CTestDomainDerived_Cursor": {
         "CursorValueA": {
             "field": "m_nCursorValueA",
@@ -17809,84 +19137,6 @@
     "FakeEntityDerivedA_tAPI": {},
     "FakeEntityDerivedB_tAPI": {},
     "FakeEntity_tAPI": {},
-    "IGapHost_Cursor": {
-        "Parent": {
-            "field": "IGapHost_ExecLog",
-            "type": 11
-        }
-    },
-    "IGapHost_ExecLog": {},
-    "IGapHost_YieldingCursor": {
-        "Parent": {
-            "field": "IGapHost_Cursor",
-            "type": 11
-        }
-    },
-    "SignatureOutflow_Continue": {
-        "Parent": {
-            "field": "CPulse_OutflowConnection",
-            "type": 11
-        }
-    },
-    "SignatureOutflow_Resume": {
-        "Parent": {
-            "field": "CPulse_ResumePoint",
-            "type": 11
-        }
-    },
-    "RenderInputLayoutField_t": {
-        "SemanticName": {
-            "field": "m_pSemanticName",
-            "type": 33,
-            "size": 32
-        },
-        "SemanticIndex": {
-            "field": "m_nSemanticIndex",
-            "type": 2
-        },
-        "Format": {
-            "field": "m_Format",
-            "type": 6
-        },
-        "Offset": {
-            "field": "m_nOffset",
-            "type": 2
-        },
-        "Slot": {
-            "field": "m_nSlot",
-            "type": 2
-        },
-        "SlotType": {
-            "field": "m_nSlotType",
-            "type": 6
-        },
-        "InstanceStepRate": {
-            "field": "m_nInstanceStepRate",
-            "type": 2
-        }
-    },
-    "VsInputSignatureElement_t": {
-        "Name": {
-            "field": "m_pName",
-            "type": 15,
-            "size": 64
-        },
-        "Semantic": {
-            "field": "m_pSemantic",
-            "type": 15,
-            "size": 64
-        },
-        "D3DSemanticName": {
-            "field": "m_pD3DSemanticName",
-            "type": 15,
-            "size": 64
-        },
-        "D3DSemanticIndex": {
-            "field": "m_nD3DSemanticIndex",
-            "type": 2
-        }
-    },
-    "VsInputSignature_t": {},
     "CExampleSchemaVData_Monomorphic": {
         "Example1": {
             "field": "m_nExample1",
@@ -17935,12 +19185,6 @@
             "type": 14
         }
     },
-    "TestResource_t": {
-        "Name": {
-            "field": "m_name",
-            "type": 14
-        }
-    },
     "CSSDSEndFrameViewInfo": {
         "ViewId": {
             "field": "m_nViewId",
@@ -17961,10 +19205,6 @@
         "ViewName": {
             "field": "m_ViewName",
             "type": 14
-        },
-        "LayerIndex": {
-            "field": "m_nLayerIndex",
-            "type": 2
         },
         "LayerId": {
             "field": "m_nLayerId",
@@ -18075,36 +19315,6 @@
             "type": 21
         }
     },
-    "CAISound": {
-        "SoundType": {
-            "field": "m_iSoundType",
-            "type": 5
-        },
-        "SoundFlags": {
-            "field": "m_iSoundFlags",
-            "type": 5
-        },
-        "Volume": {
-            "field": "m_iVolume",
-            "type": 2
-        },
-        "SoundIndex": {
-            "field": "m_iSoundIndex",
-            "type": 2
-        },
-        "Duration": {
-            "field": "m_flDuration",
-            "type": 8
-        },
-        "ProxyEntityName": {
-            "field": "m_iszProxyEntityName",
-            "type": 13
-        },
-        "Parent": {
-            "field": "CPointEntity",
-            "type": 11
-        }
-    },
     "CAI_ChangeHintGroup": {
         "SearchType": {
             "field": "m_iSearchType",
@@ -18134,6 +19344,10 @@
         },
         "StopTalkTimeWithoutDelay": {
             "field": "m_flStopTalkTimeWithoutDelay",
+            "type": 8
+        },
+        "QueuedSpeechTime": {
+            "field": "m_flQueuedSpeechTime",
             "type": 8
         },
         "BlockedTalkTime": {
@@ -18171,11 +19385,6 @@
         }
     },
     "CAI_ExpresserWithFollowup": {
-        "PostponedFollowup": {
-            "field": "m_pPostponedFollowup",
-            "classname": "ResponseFollowup",
-            "type": 24
-        },
         "Parent": {
             "field": "CAI_Expresser",
             "type": 11
@@ -18279,6 +19488,14 @@
             "field": "m_nBakedShadowIndex",
             "type": 2
         },
+        "LightPathUniqueId": {
+            "field": "m_nLightPathUniqueId",
+            "type": 2
+        },
+        "LightMapUniqueId": {
+            "field": "m_nLightMapUniqueId",
+            "type": 2
+        },
         "LuminaireShape": {
             "field": "m_nLuminaireShape",
             "type": 2
@@ -18306,11 +19523,6 @@
         "LightStyleEvents": {
             "field": "m_LightStyleEvents",
             "type": 50
-        },
-        "StyleEvent": {
-            "field": "m_StyleEvent",
-            "type": 45,
-            "size": 4
         },
         "Shape": {
             "field": "m_flShape",
@@ -18366,6 +19578,10 @@
         },
         "ContactShadow": {
             "field": "m_bContactShadow",
+            "type": 10
+        },
+        "ForceShadowsEnabled": {
+            "field": "m_bForceShadowsEnabled",
             "type": 10
         },
         "BounceLight": {
@@ -18681,10 +19897,6 @@
             "field": "m_flThrowStrength",
             "type": 8
         },
-        "ThrowStrengthApproach": {
-            "field": "m_flThrowStrengthApproach",
-            "type": 8
-        },
         "DropTime": {
             "field": "m_fDropTime",
             "type": 8
@@ -18862,8 +20074,16 @@
             "field": "m_impactEnergyScale",
             "type": 8
         },
+        "MinVehicleDamageToTempRagdoll": {
+            "field": "m_nMinVehicleDamageToTempRagdoll",
+            "type": 2
+        },
         "ApplyStressDamage": {
             "field": "m_bApplyStressDamage",
+            "type": 10
+        },
+        "DeathEventsDispatched": {
+            "field": "m_bDeathEventsDispatched",
             "type": 10
         },
         "DamageCount": {
@@ -18881,6 +20101,11 @@
         "NavHullIdx": {
             "field": "m_nNavHullIdx",
             "type": 6
+        },
+        "MovementStats": {
+            "field": "m_movementStats",
+            "classname": "CMovementStatsProperty",
+            "type": 16
         },
         "Parent": {
             "field": "CBaseFlex",
@@ -18925,6 +20150,10 @@
         },
         "IgnoreDebris": {
             "field": "m_bIgnoreDebris",
+            "type": 10
+        },
+        "NoNPCs": {
+            "field": "m_bNoNPCs",
             "type": 10
         },
         "SpawnPosition": {
@@ -19255,8 +20484,20 @@
             "field": "m_flWaterLevel",
             "type": 8
         },
+        "GravityDisabled": {
+            "field": "m_bGravityDisabled",
+            "type": 10
+        },
         "AnimatedEveryTick": {
             "field": "m_bAnimatedEveryTick",
+            "type": 10
+        },
+        "ActualGravityScale": {
+            "field": "m_flActualGravityScale",
+            "type": 8
+        },
+        "GravityActuallyDisabled": {
+            "field": "m_bGravityActuallyDisabled",
             "type": 10
         },
         "DisableLowViolence": {
@@ -19311,10 +20552,6 @@
             "field": "m_bLagCompensate",
             "type": 10
         },
-        "OverriddenFriction": {
-            "field": "m_flOverriddenFriction",
-            "type": 8
-        },
         "Blocker": {
             "field": "m_pBlocker",
             "type": 17,
@@ -19338,48 +20575,6 @@
         }
     },
     "CBaseEntityAPI": {},
-    "CBaseFilter": {
-        "Negated": {
-            "field": "m_bNegated",
-            "type": 10
-        },
-        "OnPass": {
-            "field": "m_OnPass",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "OnFail": {
-            "field": "m_OnFail",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "Parent": {
-            "field": "CLogicalEntity",
-            "type": 11
-        }
-    },
-    "CBaseFire": {
-        "Scale": {
-            "field": "m_flScale",
-            "type": 8
-        },
-        "StartScale": {
-            "field": "m_flStartScale",
-            "type": 8
-        },
-        "ScaleTime": {
-            "field": "m_flScaleTime",
-            "type": 8
-        },
-        "Flags": {
-            "field": "m_nFlags",
-            "type": 6
-        },
-        "Parent": {
-            "field": "CBaseEntity",
-            "type": 11
-        }
-    },
     "CBaseFlex": {
         "FlexWeight": {
             "field": "m_flexWeight",
@@ -19542,13 +20737,38 @@
             "field": "m_nDestructiblePartInitialStateDestructed4",
             "type": 6
         },
-        "LastHitDestructiblePartIndex": {
-            "field": "m_nLastHitDestructiblePartIndex",
+        "DestructiblePartInitialStateDestructed0_PartIndex": {
+            "field": "m_nDestructiblePartInitialStateDestructed0_PartIndex",
             "type": 2
+        },
+        "DestructiblePartInitialStateDestructed1_PartIndex": {
+            "field": "m_nDestructiblePartInitialStateDestructed1_PartIndex",
+            "type": 2
+        },
+        "DestructiblePartInitialStateDestructed2_PartIndex": {
+            "field": "m_nDestructiblePartInitialStateDestructed2_PartIndex",
+            "type": 2
+        },
+        "DestructiblePartInitialStateDestructed3_PartIndex": {
+            "field": "m_nDestructiblePartInitialStateDestructed3_PartIndex",
+            "type": 2
+        },
+        "DestructiblePartInitialStateDestructed4_PartIndex": {
+            "field": "m_nDestructiblePartInitialStateDestructed4_PartIndex",
+            "type": 2
+        },
+        "DestructiblePartsSystemComponent": {
+            "field": "m_pDestructiblePartsSystemComponent",
+            "classname": "CDestructiblePartsSystemComponent",
+            "type": 24
         },
         "LastHitGroup": {
             "field": "m_LastHitGroup",
             "type": 6
+        },
+        "LastDamagePosition": {
+            "field": "m_vLastDamagePosition",
+            "type": 21
         },
         "DissolveStartTime": {
             "field": "m_flDissolveStartTime",
@@ -19647,6 +20867,7 @@
             "type": 11
         }
     },
+    "CBaseModelEntityAPI": {},
     "CBaseMoveBehavior": {
         "PositionInterpolator": {
             "field": "m_iPositionInterpolator",
@@ -19773,10 +20994,6 @@
             "classname": "CPlayer_MovementServices",
             "type": 24
         },
-        "HighestGeneratedServerViewAngleChangeIndex": {
-            "field": "m_nHighestGeneratedServerViewAngleChangeIndex",
-            "type": 6
-        },
         "_angle": {
             "field": "v_angle",
             "type": 20
@@ -19817,6 +21034,11 @@
         },
         "Controller": {
             "field": "m_hController",
+            "type": 17,
+            "classname": "CBasePlayerController"
+        },
+        "DefaultController": {
+            "field": "m_hDefaultController",
             "type": 17,
             "classname": "CBasePlayerController"
         },
@@ -19896,6 +21118,10 @@
         },
         "Locked": {
             "field": "m_bLocked",
+            "type": 10
+        },
+        "NoNPCs": {
+            "field": "m_bNoNPCs",
             "type": 10
         },
         "ClosedPosition": {
@@ -20113,19 +21339,6 @@
         }
     },
     "CBaseTrigger": {
-        "Disabled": {
-            "field": "m_bDisabled",
-            "type": 10
-        },
-        "FilterName": {
-            "field": "m_iFilterName",
-            "type": 13
-        },
-        "Filter": {
-            "field": "m_hFilter",
-            "type": 17,
-            "classname": "CBaseFilter"
-        },
         "OnStartTouch": {
             "field": "m_OnStartTouch",
             "classname": "CEntityIOOutput",
@@ -20161,64 +21374,25 @@
             "classname": "CEntityIOOutput",
             "type": 16
         },
-        "ClientSidePredicted": {
-            "field": "m_bClientSidePredicted",
+        "FilterName": {
+            "field": "m_iFilterName",
+            "type": 13
+        },
+        "Filter": {
+            "field": "m_hFilter",
+            "type": 17,
+            "classname": "CBaseFilter"
+        },
+        "Disabled": {
+            "field": "m_bDisabled",
+            "type": 10
+        },
+        "UseAsyncQueries": {
+            "field": "m_bUseAsyncQueries",
             "type": 10
         },
         "Parent": {
             "field": "CBaseToggle",
-            "type": 11
-        }
-    },
-    "CBaseViewModel": {
-        "LastFacing": {
-            "field": "m_vecLastFacing",
-            "type": 21
-        },
-        "ViewModelIndex": {
-            "field": "m_nViewModelIndex",
-            "type": 6
-        },
-        "AnimationParity": {
-            "field": "m_nAnimationParity",
-            "type": 6
-        },
-        "AnimationStartTime": {
-            "field": "m_flAnimationStartTime",
-            "type": 8
-        },
-        "Weapon": {
-            "field": "m_hWeapon",
-            "type": 17,
-            "classname": "CBasePlayerWeapon"
-        },
-        "VMName": {
-            "field": "m_sVMName",
-            "type": 13
-        },
-        "AnimationPrefix": {
-            "field": "m_sAnimationPrefix",
-            "type": 13
-        },
-        "OldLayerSequence": {
-            "field": "m_hOldLayerSequence",
-            "type": 2
-        },
-        "OldLayer": {
-            "field": "m_oldLayer",
-            "type": 2
-        },
-        "OldLayerStartTime": {
-            "field": "m_oldLayerStartTime",
-            "type": 8
-        },
-        "ControlPanel": {
-            "field": "m_hControlPanel",
-            "type": 17,
-            "classname": "CBaseEntity"
-        },
-        "Parent": {
-            "field": "CBaseAnimGraph",
             "type": 11
         }
     },
@@ -20250,11 +21424,6 @@
         "BeamFlags": {
             "field": "m_nBeamFlags",
             "type": 6
-        },
-        "AttachEntity": {
-            "field": "m_hAttachEntity",
-            "type": 46,
-            "size": 10
         },
         "Width": {
             "field": "m_fWidth",
@@ -20464,6 +21633,11 @@
             "classname": "CPropDataComponent",
             "type": 16
         },
+        "OnStartDeath": {
+            "field": "m_OnStartDeath",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
         "OnBreak": {
             "field": "m_OnBreak",
             "classname": "CEntityIOOutput",
@@ -20564,10 +21738,6 @@
             "field": "m_flLastPhysicsInfluenceTime",
             "type": 8
         },
-        "OriginalBlockLOS": {
-            "field": "m_bOriginalBlockLOS",
-            "type": 10
-        },
         "DefaultFadeScale": {
             "field": "m_flDefaultFadeScale",
             "type": 8
@@ -20577,21 +21747,16 @@
             "type": 17,
             "classname": "CBaseEntity"
         },
-        "FlareEnt": {
-            "field": "m_hFlareEnt",
-            "type": 17,
-            "classname": "CBaseEntity"
+        "PuntSound": {
+            "field": "m_iszPuntSound",
+            "type": 13
         },
         "UsePuntSound": {
             "field": "m_bUsePuntSound",
             "type": 10
         },
-        "PuntSound": {
-            "field": "m_iszPuntSound",
-            "type": 13
-        },
-        "NoGhostCollision": {
-            "field": "m_noGhostCollision",
+        "OriginalBlockLOS": {
+            "field": "m_bOriginalBlockLOS",
             "type": 10
         },
         "Parent": {
@@ -20794,24 +21959,6 @@
     "CBtNodeDecorator": {
         "Parent": {
             "field": "CBtNode",
-            "type": 11
-        }
-    },
-    "CBubbling": {
-        "Density": {
-            "field": "m_density",
-            "type": 2
-        },
-        "Frequency": {
-            "field": "m_frequency",
-            "type": 2
-        },
-        "State": {
-            "field": "m_state",
-            "type": 2
-        },
-        "Parent": {
-            "field": "CBaseModelEntity",
             "type": 11
         }
     },
@@ -21481,16 +22628,6 @@
             "type": 11
         }
     },
-    "CCSGOViewModel": {
-        "ShouldIgnoreOffsetAndAccuracy": {
-            "field": "m_bShouldIgnoreOffsetAndAccuracy",
-            "type": 10
-        },
-        "Parent": {
-            "field": "CPredictedViewModel",
-            "type": 11
-        }
-    },
     "CCSGO_TeamIntroCharacterPosition": {
         "Parent": {
             "field": "CCSGO_TeamPreviewCharacterPosition",
@@ -21584,10 +22721,6 @@
         "WarmupPeriodStart": {
             "field": "m_fWarmupPeriodStart",
             "type": 8
-        },
-        "ServerPaused": {
-            "field": "m_bServerPaused",
-            "type": 10
         },
         "TerroristTimeOutActive": {
             "field": "m_bTerroristTimeOutActive",
@@ -21845,10 +22978,6 @@
             "type": 37,
             "size": 8
         },
-        "SpawnedTerrorHuntHeavy": {
-            "field": "m_bSpawnedTerrorHuntHeavy",
-            "type": 10
-        },
         "UllLocalMatchID": {
             "field": "m_ullLocalMatchID",
             "type": 7
@@ -21990,6 +23119,14 @@
         "NumSpectatorsCountMaxLnk": {
             "field": "m_numSpectatorsCountMaxLnk",
             "type": 6
+        },
+        "CTsAliveAtFreezetimeEnd": {
+            "field": "m_nCTsAliveAtFreezetimeEnd",
+            "type": 2
+        },
+        "TerroristsAliveAtFreezetimeEnd": {
+            "field": "m_nTerroristsAliveAtFreezetimeEnd",
+            "type": 2
         },
         "ForceTeamChangeSilent": {
             "field": "m_bForceTeamChangeSilent",
@@ -22344,6 +23481,12 @@
     "CCSObserverPawn": {
         "Parent": {
             "field": "CCSPlayerPawnBase",
+            "type": 11
+        }
+    },
+    "CCSPetPlacement": {
+        "Parent": {
+            "field": "CBaseEntity",
             "type": 11
         }
     },
@@ -22833,6 +23976,26 @@
             "field": "m_nHighestAppliedDamageTagTick",
             "type": 2
         },
+        "CommittingSuicideOnTeamChange": {
+            "field": "m_bCommittingSuicideOnTeamChange",
+            "type": 10
+        },
+        "WasNotKilledNaturally": {
+            "field": "m_wasNotKilledNaturally",
+            "type": 10
+        },
+        "ImmuneToGunGameDamageTime": {
+            "field": "m_fImmuneToGunGameDamageTime",
+            "type": 8
+        },
+        "GunGameImmunity": {
+            "field": "m_bGunGameImmunity",
+            "type": 10
+        },
+        "MolotovDamageTime": {
+            "field": "m_fMolotovDamageTime",
+            "type": 8
+        },
         "Parent": {
             "field": "CCSPlayerPawnBase",
             "type": 11
@@ -22847,11 +24010,6 @@
         "PingServices": {
             "field": "m_pPingServices",
             "classname": "CCSPlayer_PingServices",
-            "type": 24
-        },
-        "ViewModelServices": {
-            "field": "m_pViewModelServices",
-            "classname": "CPlayer_ViewModelServices",
             "type": 24
         },
         "BlindUntilTime": {
@@ -22869,18 +24027,6 @@
         "Respawning": {
             "field": "m_bRespawning",
             "type": 10
-        },
-        "ImmuneToGunGameDamageTime": {
-            "field": "m_fImmuneToGunGameDamageTime",
-            "type": 8
-        },
-        "GunGameImmunity": {
-            "field": "m_bGunGameImmunity",
-            "type": 10
-        },
-        "MolotovDamageTime": {
-            "field": "m_fMolotovDamageTime",
-            "type": 8
         },
         "HasMovedSinceSpawn": {
             "field": "m_bHasMovedSinceSpawn",
@@ -22917,14 +24063,6 @@
         "EyeAngles": {
             "field": "m_angEyeAngles",
             "type": 20
-        },
-        "WasNotKilledNaturally": {
-            "field": "m_wasNotKilledNaturally",
-            "type": 10
-        },
-        "CommittingSuicideOnTeamChange": {
-            "field": "m_bCommittingSuicideOnTeamChange",
-            "type": 10
         },
         "OriginalController": {
             "field": "m_hOriginalController",
@@ -23098,48 +24236,12 @@
             "field": "m_bRemoveable",
             "type": 10
         },
-        "FireSequenceStartTime": {
-            "field": "m_flFireSequenceStartTime",
-            "type": 8
-        },
-        "FireSequenceStartTimeChange": {
-            "field": "m_nFireSequenceStartTimeChange",
-            "type": 2
-        },
-        "FireSequenceStartTimeAck": {
-            "field": "m_nFireSequenceStartTimeAck",
-            "type": 2
-        },
-        "PlayerFireEvent": {
-            "field": "m_ePlayerFireEvent",
-            "type": 6
-        },
-        "PlayerFireEventAttackType": {
-            "field": "m_ePlayerFireEventAttackType",
-            "type": 6
-        },
-        "SeqIdle": {
-            "field": "m_seqIdle",
-            "type": 2
-        },
-        "SeqFirePrimary": {
-            "field": "m_seqFirePrimary",
-            "type": 2
-        },
-        "SeqFireSecondary": {
-            "field": "m_seqFireSecondary",
-            "type": 2
-        },
         "ThirdPersonFireSequences": {
             "field": "m_thirdPersonFireSequences",
             "type": 53
         },
         "CurrentThirdPersonSequence": {
             "field": "m_hCurrentThirdPersonSequence",
-            "type": 2
-        },
-        "SilencerBoneIndex": {
-            "field": "m_nSilencerBoneIndex",
             "type": 2
         },
         "ThirdPersonSequences": {
@@ -23155,29 +24257,29 @@
             "field": "m_bRequireUseToTouch",
             "type": 10
         },
-        "State": {
-            "field": "m_iState",
-            "type": 6
+        "WeaponGameplayAnimState": {
+            "field": "m_iWeaponGameplayAnimState",
+            "type": 5
         },
-        "LastTimeInAir": {
-            "field": "m_flLastTimeInAir",
+        "WeaponGameplayAnimStateTimestamp": {
+            "field": "m_flWeaponGameplayAnimStateTimestamp",
             "type": 8
+        },
+        "InspectCancelCompleteTime": {
+            "field": "m_flInspectCancelCompleteTime",
+            "type": 8
+        },
+        "InspectPending": {
+            "field": "m_bInspectPending",
+            "type": 10
+        },
+        "InspectShouldLoop": {
+            "field": "m_bInspectShouldLoop",
+            "type": 10
         },
         "LastEmptySoundCmdNum": {
             "field": "m_nLastEmptySoundCmdNum",
             "type": 2
-        },
-        "ViewModelIndex": {
-            "field": "m_nViewModelIndex",
-            "type": 6
-        },
-        "ReloadsWithClips": {
-            "field": "m_bReloadsWithClips",
-            "type": 10
-        },
-        "TimeWeaponIdle": {
-            "field": "m_flTimeWeaponIdle",
-            "type": 8
         },
         "FireOnEmpty": {
             "field": "m_bFireOnEmpty",
@@ -23216,10 +24318,6 @@
             "field": "m_fAccuracySmoothedForZoom",
             "type": 8
         },
-        "ScopeZoomEndTime": {
-            "field": "m_fScopeZoomEndTime",
-            "type": 8
-        },
         "RecoilIndex": {
             "field": "m_iRecoilIndex",
             "type": 2
@@ -23244,9 +24342,9 @@
             "field": "m_bInReload",
             "type": 10
         },
-        "ReloadVisuallyComplete": {
-            "field": "m_bReloadVisuallyComplete",
-            "type": 10
+        "DisallowAttackAfterReloadStartUntilTime": {
+            "field": "m_flDisallowAttackAfterReloadStartUntilTime",
+            "type": 8
         },
         "DroppedAtTime": {
             "field": "m_flDroppedAtTime",
@@ -23309,6 +24407,10 @@
             "field": "m_nDropTick",
             "type": 2
         },
+        "WasActiveWeaponWhenDropped": {
+            "field": "m_bWasActiveWeaponWhenDropped",
+            "type": 10
+        },
         "Donated": {
             "field": "m_donated",
             "type": 10
@@ -23323,10 +24425,6 @@
         },
         "WasOwnedByTerrorist": {
             "field": "m_bWasOwnedByTerrorist",
-            "type": 10
-        },
-        "FiredOutOfAmmoEvent": {
-            "field": "m_bFiredOutOfAmmoEvent",
             "type": 10
         },
         "NumRemoveUnownedWeaponThink": {
@@ -23345,10 +24443,6 @@
         "LastLOSTraceFailureTime": {
             "field": "m_flLastLOSTraceFailureTime",
             "type": 8
-        },
-        "NumEmptyAttacks": {
-            "field": "m_iNumEmptyAttacks",
-            "type": 2
         },
         "WatTickOffset": {
             "field": "m_flWatTickOffset",
@@ -23379,6 +24473,10 @@
         "NeedsBoltAction": {
             "field": "m_bNeedsBoltAction",
             "type": 10
+        },
+        "RevolverCylinderIdx": {
+            "field": "m_nRevolverCylinderIdx",
+            "type": 2
         },
         "SkillReloadAvailable": {
             "field": "m_bSkillReloadAvailable",
@@ -23645,10 +24743,6 @@
         }
     },
     "CColorCorrectionVolume": {
-        "Enabled": {
-            "field": "m_bEnabled",
-            "type": 10
-        },
         "MaxWeight": {
             "field": "m_MaxWeight",
             "type": 8
@@ -23656,10 +24750,6 @@
         "FadeDuration": {
             "field": "m_FadeDuration",
             "type": 8
-        },
-        "StartDisabled": {
-            "field": "m_bStartDisabled",
-            "type": 10
         },
         "Weight": {
             "field": "m_Weight",
@@ -23874,6 +24964,32 @@
         },
         "Parent": {
             "field": "CBaseModelEntity",
+            "type": 11
+        }
+    },
+    "CDynamicNavConnectionsVolume": {
+        "ConnectionTarget": {
+            "field": "m_iszConnectionTarget",
+            "type": 13
+        },
+        "ConnectionsEnabled": {
+            "field": "m_bConnectionsEnabled",
+            "type": 10
+        },
+        "TargetAreaSearchRadius": {
+            "field": "m_flTargetAreaSearchRadius",
+            "type": 8
+        },
+        "UpdateDistance": {
+            "field": "m_flUpdateDistance",
+            "type": 8
+        },
+        "MaxConnectionDistance": {
+            "field": "m_flMaxConnectionDistance",
+            "type": 8
+        },
+        "Parent": {
+            "field": "CTriggerMultiple",
             "type": 11
         }
     },
@@ -24207,10 +25323,6 @@
             "type": 17,
             "classname": "CBaseEntity"
         },
-        "DangerSound": {
-            "field": "m_iDangerSound",
-            "type": 2
-        },
         "DirectDamagePerSecond": {
             "field": "m_flDirectDamagePerSecond",
             "type": 8
@@ -24397,6 +25509,12 @@
         },
         "Parent": {
             "field": "CBaseEntity",
+            "type": 11
+        }
+    },
+    "CEnvCombinedLightProbeVolumeAlias_func_combined_light_probe_volume": {
+        "Parent": {
+            "field": "CEnvCombinedLightProbeVolume",
             "type": 11
         }
     },
@@ -24687,10 +25805,6 @@
             "field": "m_flInnerRadius",
             "type": 8
         },
-        "SpriteScale": {
-            "field": "m_spriteScale",
-            "type": 2
-        },
         "DamageForce": {
             "field": "m_flDamageForce",
             "type": 8
@@ -24708,10 +25822,6 @@
             "field": "m_bCreateDebris",
             "type": 10
         },
-        "ExplosionType": {
-            "field": "m_iszExplosionType",
-            "type": 13
-        },
         "CustomEffectName": {
             "field": "m_iszCustomEffectName",
             "type": 13
@@ -24719,6 +25829,10 @@
         "CustomSoundName": {
             "field": "m_iszCustomSoundName",
             "type": 13
+        },
+        "SuppressParticleImpulse": {
+            "field": "m_bSuppressParticleImpulse",
+            "type": 10
         },
         "ClassIgnore": {
             "field": "m_iClassIgnore",
@@ -24762,70 +25876,6 @@
         },
         "Parent": {
             "field": "CLogicalEntity",
-            "type": 11
-        }
-    },
-    "CEnvFireSensor": {
-        "Enabled": {
-            "field": "m_bEnabled",
-            "type": 10
-        },
-        "HeatAtLevel": {
-            "field": "m_bHeatAtLevel",
-            "type": 10
-        },
-        "Radius": {
-            "field": "m_radius",
-            "type": 8
-        },
-        "TargetLevel": {
-            "field": "m_targetLevel",
-            "type": 8
-        },
-        "TargetTime": {
-            "field": "m_targetTime",
-            "type": 8
-        },
-        "LevelTime": {
-            "field": "m_levelTime",
-            "type": 8
-        },
-        "OnHeatLevelStart": {
-            "field": "m_OnHeatLevelStart",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "OnHeatLevelEnd": {
-            "field": "m_OnHeatLevelEnd",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "Parent": {
-            "field": "CBaseEntity",
-            "type": 11
-        }
-    },
-    "CEnvFireSource": {
-        "Enabled": {
-            "field": "m_bEnabled",
-            "type": 10
-        },
-        "Radius": {
-            "field": "m_radius",
-            "type": 8
-        },
-        "Damage": {
-            "field": "m_damage",
-            "type": 8
-        },
-        "Parent": {
-            "field": "CBaseEntity",
-            "type": 11
-        }
-    },
-    "CEnvFunnel": {
-        "Parent": {
-            "field": "CBaseEntity",
             "type": 11
         }
     },
@@ -25090,86 +26140,6 @@
             "type": 11
         }
     },
-    "CEnvMicrophone": {
-        "Disabled": {
-            "field": "m_bDisabled",
-            "type": 10
-        },
-        "MeasureTarget": {
-            "field": "m_hMeasureTarget",
-            "type": 17,
-            "classname": "CBaseEntity"
-        },
-        "SoundType": {
-            "field": "m_nSoundType",
-            "type": 5
-        },
-        "SoundFlags": {
-            "field": "m_nSoundFlags",
-            "type": 5
-        },
-        "Sensitivity": {
-            "field": "m_flSensitivity",
-            "type": 8
-        },
-        "SmoothFactor": {
-            "field": "m_flSmoothFactor",
-            "type": 8
-        },
-        "MaxRange": {
-            "field": "m_flMaxRange",
-            "type": 8
-        },
-        "SpeakerName": {
-            "field": "m_iszSpeakerName",
-            "type": 13
-        },
-        "Speaker": {
-            "field": "m_hSpeaker",
-            "type": 17,
-            "classname": "CBaseEntity"
-        },
-        "AvoidFeedback": {
-            "field": "m_bAvoidFeedback",
-            "type": 10
-        },
-        "SpeakerDSPPreset": {
-            "field": "m_iSpeakerDSPPreset",
-            "type": 2
-        },
-        "ListenFilter": {
-            "field": "m_iszListenFilter",
-            "type": 13
-        },
-        "ListenFilter1": {
-            "field": "m_hListenFilter",
-            "type": 17,
-            "classname": "CBaseFilter"
-        },
-        "OnRoutedSound": {
-            "field": "m_OnRoutedSound",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "OnHeardSound": {
-            "field": "m_OnHeardSound",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "LastSound": {
-            "field": "m_szLastSound",
-            "type": 15,
-            "size": 256
-        },
-        "LastRoutedFrame": {
-            "field": "m_iLastRoutedFrame",
-            "type": 2
-        },
-        "Parent": {
-            "field": "CPointEntity",
-            "type": 11
-        }
-    },
     "CEnvMuzzleFlash": {
         "Scale": {
             "field": "m_flScale",
@@ -25334,34 +26304,6 @@
             "type": 11
         }
     },
-    "CEnvScreenOverlay": {
-        "OverlayNames": {
-            "field": "m_iszOverlayNames",
-            "type": 26,
-            "size": 10
-        },
-        "OverlayTimes": {
-            "field": "m_flOverlayTimes",
-            "type": 37,
-            "size": 10
-        },
-        "StartTime": {
-            "field": "m_flStartTime",
-            "type": 8
-        },
-        "DesiredOverlay": {
-            "field": "m_iDesiredOverlay",
-            "type": 2
-        },
-        "IsActive": {
-            "field": "m_bIsActive",
-            "type": 10
-        },
-        "Parent": {
-            "field": "CPointEntity",
-            "type": 11
-        }
-    },
     "CEnvShake": {
         "LimitToEntity": {
             "field": "m_limitToEntity",
@@ -25514,20 +26456,6 @@
             "type": 11
         }
     },
-    "CEnvTracer": {
-        "End": {
-            "field": "m_vecEnd",
-            "type": 21
-        },
-        "Delay": {
-            "field": "m_flDelay",
-            "type": 8
-        },
-        "Parent": {
-            "field": "CPointEntity",
-            "type": 11
-        }
-    },
     "CEnvViewPunch": {
         "Radius": {
             "field": "m_flRadius",
@@ -25546,6 +26474,10 @@
         "Scattering": {
             "field": "m_flScattering",
             "type": 8
+        },
+        "TintColor": {
+            "field": "m_TintColor",
+            "type": 19
         },
         "Anisotropy": {
             "field": "m_flAnisotropy",
@@ -25647,10 +26579,6 @@
             "field": "m_bEnableIndirect",
             "type": 10
         },
-        "IndirectUseLPVs": {
-            "field": "m_bIndirectUseLPVs",
-            "type": 10
-        },
         "IsMaster": {
             "field": "m_bIsMaster",
             "type": 10
@@ -25669,6 +26597,14 @@
         },
         "NoiseScale": {
             "field": "m_vNoiseScale",
+            "type": 21
+        },
+        "WindSpeed": {
+            "field": "m_fWindSpeed",
+            "type": 8
+        },
+        "WindDirection": {
+            "field": "m_vWindDirection",
             "type": 21
         },
         "FirstTime": {
@@ -25695,6 +26631,10 @@
         },
         "StartDisabled": {
             "field": "m_bStartDisabled",
+            "type": 10
+        },
+        "IndirectUseLPVs": {
+            "field": "m_bIndirectUseLPVs",
             "type": 10
         },
         "Strength": {
@@ -25729,6 +26669,14 @@
             "field": "m_fNoiseStrength",
             "type": 8
         },
+        "TintColor": {
+            "field": "m_TintColor",
+            "type": 19
+        },
+        "OverrideTintColor": {
+            "field": "m_bOverrideTintColor",
+            "type": 10
+        },
         "OverrideIndirectLightStrength": {
             "field": "m_bOverrideIndirectLightStrength",
             "type": 10
@@ -25741,10 +26689,6 @@
             "field": "m_bOverrideNoiseStrength",
             "type": 10
         },
-        "AllowLPVIndirect": {
-            "field": "m_bAllowLPVIndirect",
-            "type": 10
-        },
         "Parent": {
             "field": "CBaseEntity",
             "type": 11
@@ -25755,6 +26699,57 @@
             "field": "m_EnvWindShared",
             "classname": "CEnvWindShared",
             "type": 16
+        },
+        "Parent": {
+            "field": "CBaseEntity",
+            "type": 11
+        }
+    },
+    "CEnvWindController": {
+        "EnvWindShared": {
+            "field": "m_EnvWindShared",
+            "classname": "CEnvWindShared",
+            "type": 16
+        },
+        "DirectionVariation": {
+            "field": "m_fDirectionVariation",
+            "type": 8
+        },
+        "SpeedVariation": {
+            "field": "m_fSpeedVariation",
+            "type": 8
+        },
+        "Turbulence": {
+            "field": "m_fTurbulence",
+            "type": 8
+        },
+        "VolumeHalfExtentXY": {
+            "field": "m_fVolumeHalfExtentXY",
+            "type": 8
+        },
+        "VolumeHalfExtentZ": {
+            "field": "m_fVolumeHalfExtentZ",
+            "type": 8
+        },
+        "VolumeResolutionXY": {
+            "field": "m_nVolumeResolutionXY",
+            "type": 2
+        },
+        "VolumeResolutionZ": {
+            "field": "m_nVolumeResolutionZ",
+            "type": 2
+        },
+        "ClipmapLevels": {
+            "field": "m_nClipmapLevels",
+            "type": 2
+        },
+        "IsMaster": {
+            "field": "m_bIsMaster",
+            "type": 10
+        },
+        "FirstTime": {
+            "field": "m_bFirstTime",
+            "type": 10
         },
         "Parent": {
             "field": "CBaseEntity",
@@ -25806,34 +26801,6 @@
             "field": "m_iGustDirChange",
             "type": 5
         },
-        "Location": {
-            "field": "m_location",
-            "type": 21
-        },
-        "GustSound": {
-            "field": "m_iszGustSound",
-            "type": 2
-        },
-        "WindDir": {
-            "field": "m_iWindDir",
-            "type": 2
-        },
-        "WindSpeed": {
-            "field": "m_flWindSpeed",
-            "type": 8
-        },
-        "CurrentWindVector": {
-            "field": "m_currentWindVector",
-            "type": 21
-        },
-        "CurrentSwayVector": {
-            "field": "m_CurrentSwayVector",
-            "type": 21
-        },
-        "PrevSwayVector": {
-            "field": "m_PrevSwayVector",
-            "type": 21
-        },
         "InitialWindDir": {
             "field": "m_iInitialWindDir",
             "type": 5
@@ -25841,6 +26808,10 @@
         "InitialWindSpeed": {
             "field": "m_flInitialWindSpeed",
             "type": 8
+        },
+        "Location": {
+            "field": "m_location",
+            "type": 21
         },
         "OnGustStart": {
             "field": "m_OnGustStart",
@@ -25852,61 +26823,51 @@
             "classname": "CEntityIOOutput",
             "type": 16
         },
-        "VariationTime": {
-            "field": "m_flVariationTime",
-            "type": 8
-        },
-        "SwayTime": {
-            "field": "m_flSwayTime",
-            "type": 8
-        },
-        "SimTime": {
-            "field": "m_flSimTime",
-            "type": 8
-        },
-        "SwitchTime": {
-            "field": "m_flSwitchTime",
-            "type": 8
-        },
-        "AveWindSpeed": {
-            "field": "m_flAveWindSpeed",
-            "type": 8
-        },
-        "Gusting": {
-            "field": "m_bGusting",
-            "type": 10
-        },
-        "WindAngleVariation": {
-            "field": "m_flWindAngleVariation",
-            "type": 8
-        },
-        "WindSpeedVariation": {
-            "field": "m_flWindSpeedVariation",
-            "type": 8
-        },
         "EntOwner": {
             "field": "m_hEntOwner",
             "type": 17,
             "classname": "CBaseEntity"
         }
     },
-    "CFilterAttributeInt": {
-        "AttributeName": {
-            "field": "m_sAttributeName",
-            "type": 12
+    "CEnvWindVolume": {
+        "Active": {
+            "field": "m_bActive",
+            "type": 10
+        },
+        "BoxMins": {
+            "field": "m_vBoxMins",
+            "type": 21
+        },
+        "BoxMaxs": {
+            "field": "m_vBoxMaxs",
+            "type": 21
+        },
+        "StartDisabled": {
+            "field": "m_bStartDisabled",
+            "type": 10
+        },
+        "Shape": {
+            "field": "m_nShape",
+            "type": 2
+        },
+        "WindSpeedMultiplier": {
+            "field": "m_fWindSpeedMultiplier",
+            "type": 8
+        },
+        "WindTurbulenceMultiplier": {
+            "field": "m_fWindTurbulenceMultiplier",
+            "type": 8
+        },
+        "WindSpeedVariationMultiplier": {
+            "field": "m_fWindSpeedVariationMultiplier",
+            "type": 8
+        },
+        "WindDirectionVariationMultiplier": {
+            "field": "m_fWindDirectionVariationMultiplier",
+            "type": 8
         },
         "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
-        }
-    },
-    "CFilterClass": {
-        "FilterClass": {
-            "field": "m_iFilterClass",
-            "type": 13
-        },
-        "Parent": {
-            "field": "CBaseFilter",
+            "field": "CBaseEntity",
             "type": 11
         }
     },
@@ -25946,179 +26907,9 @@
             "type": 11
         }
     },
-    "CFilterLOS": {
-        "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
-        }
-    },
-    "CFilterMassGreater": {
-        "FilterMass": {
-            "field": "m_fFilterMass",
-            "type": 8
-        },
-        "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
-        }
-    },
-    "CFilterModel": {
-        "FilterModel": {
-            "field": "m_iFilterModel",
-            "type": 13
-        },
-        "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
-        }
-    },
-    "CFilterMultiple": {
-        "FilterType": {
-            "field": "m_nFilterType",
-            "type": 6
-        },
-        "FilterName": {
-            "field": "m_iFilterName",
-            "type": 26,
-            "size": 10
-        },
-        "Filter": {
-            "field": "m_hFilter",
-            "type": 46,
-            "size": 10
-        },
-        "FilterCount": {
-            "field": "m_nFilterCount",
-            "type": 2
-        },
-        "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
-        }
-    },
-    "CFilterName": {
-        "FilterName": {
-            "field": "m_iFilterName",
-            "type": 13
-        },
-        "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
-        }
-    },
-    "CFilterProximity": {
-        "Radius": {
-            "field": "m_flRadius",
-            "type": 8
-        },
-        "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
-        }
-    },
-    "CFire": {
-        "Effect": {
-            "field": "m_hEffect",
-            "type": 17,
-            "classname": "CBaseFire"
-        },
-        "Owner": {
-            "field": "m_hOwner",
-            "type": 17,
-            "classname": "CBaseEntity"
-        },
-        "FireType": {
-            "field": "m_nFireType",
-            "type": 2
-        },
-        "Fuel": {
-            "field": "m_flFuel",
-            "type": 8
-        },
-        "DamageTime": {
-            "field": "m_flDamageTime",
-            "type": 8
-        },
-        "LastDamage": {
-            "field": "m_lastDamage",
-            "type": 8
-        },
-        "FireSize": {
-            "field": "m_flFireSize",
-            "type": 8
-        },
-        "LastNavUpdateTime": {
-            "field": "m_flLastNavUpdateTime",
-            "type": 8
-        },
-        "HeatLevel": {
-            "field": "m_flHeatLevel",
-            "type": 8
-        },
-        "HeatAbsorb": {
-            "field": "m_flHeatAbsorb",
-            "type": 8
-        },
-        "DamageScale": {
-            "field": "m_flDamageScale",
-            "type": 8
-        },
-        "MaxHeat": {
-            "field": "m_flMaxHeat",
-            "type": 8
-        },
-        "LastHeatLevel": {
-            "field": "m_flLastHeatLevel",
-            "type": 8
-        },
-        "AttackTime": {
-            "field": "m_flAttackTime",
-            "type": 8
-        },
-        "Enabled": {
-            "field": "m_bEnabled",
-            "type": 10
-        },
-        "StartDisabled": {
-            "field": "m_bStartDisabled",
-            "type": 10
-        },
-        "DidActivate": {
-            "field": "m_bDidActivate",
-            "type": 10
-        },
-        "OnIgnited": {
-            "field": "m_OnIgnited",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "OnExtinguished": {
-            "field": "m_OnExtinguished",
-            "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "Parent": {
-            "field": "CBaseModelEntity",
-            "type": 11
-        }
-    },
     "CFireCrackerBlast": {
         "Parent": {
             "field": "CInferno",
-            "type": 11
-        }
-    },
-    "CFireSmoke": {
-        "FlameModelIndex": {
-            "field": "m_nFlameModelIndex",
-            "type": 2
-        },
-        "FlameFromAboveModelIndex": {
-            "field": "m_nFlameFromAboveModelIndex",
-            "type": 2
-        },
-        "Parent": {
-            "field": "CBaseFire",
             "type": 11
         }
     },
@@ -26614,6 +27405,10 @@
             "field": "m_bCreateMovableNavMesh",
             "type": 10
         },
+        "AllowMovableNavMeshDockingOnEntireEntity": {
+            "field": "m_bAllowMovableNavMeshDockingOnEntireEntity",
+            "type": 10
+        },
         "CreateNavObstacle": {
             "field": "m_bCreateNavObstacle",
             "type": 10
@@ -26630,10 +27425,6 @@
         }
     },
     "CFuncMover": {
-        "CreateMovableNavMesh": {
-            "field": "m_bCreateMovableNavMesh",
-            "type": 10
-        },
         "PathName": {
             "field": "m_iszPathName",
             "type": 13
@@ -26645,6 +27436,10 @@
         },
         "PathNodeStart": {
             "field": "m_iszPathNodeStart",
+            "type": 13
+        },
+        "PathNodeEnd": {
+            "field": "m_iszPathNodeEnd",
             "type": 13
         },
         "MoveType": {
@@ -26678,14 +27473,6 @@
         "PreviousNodeIndex": {
             "field": "m_nPreviousNodeIndex",
             "type": 2
-        },
-        "FixedOrientation": {
-            "field": "m_bFixedOrientation",
-            "type": 10
-        },
-        "FixedPitch": {
-            "field": "m_bFixedPitch",
-            "type": 10
         },
         "SolidType": {
             "field": "m_eSolidType",
@@ -26761,6 +27548,10 @@
             "classname": "CEntityIOOutput",
             "type": 16
         },
+        "StartAtClosestPoint": {
+            "field": "m_bStartAtClosestPoint",
+            "type": 10
+        },
         "StartAtEnd": {
             "field": "m_bStartAtEnd",
             "type": 10
@@ -26780,6 +27571,140 @@
         "DurationBlendToNewOrientationRan": {
             "field": "m_flDurationBlendToNewOrientationRan",
             "type": 8
+        },
+        "OriginalOrientationIndex": {
+            "field": "m_nOriginalOrientationIndex",
+            "type": 2
+        },
+        "CreateMovableNavMesh": {
+            "field": "m_bCreateMovableNavMesh",
+            "type": 10
+        },
+        "AllowMovableNavMeshDockingOnEntireEntity": {
+            "field": "m_bAllowMovableNavMeshDockingOnEntireEntity",
+            "type": 10
+        },
+        "OnNodePassed": {
+            "field": "m_OnNodePassed",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "OrientationMatchEntityName": {
+            "field": "m_iszOrientationMatchEntityName",
+            "type": 13
+        },
+        "OrientationMatchEntity": {
+            "field": "m_hOrientationMatchEntity",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
+        "TimeToTraverseToNextNode": {
+            "field": "m_flTimeToTraverseToNextNode",
+            "type": 8
+        },
+        "LerpToNewPosStartInPathEntitySpace": {
+            "field": "m_vLerpToNewPosStartInPathEntitySpace",
+            "type": 21
+        },
+        "LerpToNewPosEndInPathEntitySpace": {
+            "field": "m_vLerpToNewPosEndInPathEntitySpace",
+            "type": 21
+        },
+        "LerpToPositionT": {
+            "field": "m_flLerpToPositionT",
+            "type": 8
+        },
+        "LerpToPositionDeltaT": {
+            "field": "m_flLerpToPositionDeltaT",
+            "type": 8
+        },
+        "OnLerpToPositionComplete": {
+            "field": "m_OnLerpToPositionComplete",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "IsPaused": {
+            "field": "m_bIsPaused",
+            "type": 10
+        },
+        "TransitionedToPathNodeAction": {
+            "field": "m_eTransitionedToPathNodeAction",
+            "type": 6
+        },
+        "DelayedTeleportToNode": {
+            "field": "m_nDelayedTeleportToNode",
+            "type": 2
+        },
+        "IsVerboseLogging": {
+            "field": "m_bIsVerboseLogging",
+            "type": 10
+        },
+        "FollowEntity": {
+            "field": "m_hFollowEntity",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
+        "FollowDistance": {
+            "field": "m_flFollowDistance",
+            "type": 8
+        },
+        "FollowMinimumSpeed": {
+            "field": "m_flFollowMinimumSpeed",
+            "type": 8
+        },
+        "CurFollowEntityT": {
+            "field": "m_flCurFollowEntityT",
+            "type": 8
+        },
+        "CurFollowSpeed": {
+            "field": "m_flCurFollowSpeed",
+            "type": 8
+        },
+        "StrOrientationFaceEntityName": {
+            "field": "m_strOrientationFaceEntityName",
+            "type": 13
+        },
+        "OrientationFaceEntity": {
+            "field": "m_hOrientationFaceEntity",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
+        "OnStart": {
+            "field": "m_OnStart",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "OnStartForward": {
+            "field": "m_OnStartForward",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "OnStartReverse": {
+            "field": "m_OnStartReverse",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "OnStop": {
+            "field": "m_OnStop",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "OnStopped": {
+            "field": "m_OnStopped",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "NextNodeReturnsCurrent": {
+            "field": "m_bNextNodeReturnsCurrent",
+            "type": 10
+        },
+        "StartedMoving": {
+            "field": "m_bStartedMoving",
+            "type": 10
+        },
+        "FollowEntityDirection": {
+            "field": "m_eFollowEntityDirection",
+            "type": 6
         },
         "Parent": {
             "field": "CBaseModelEntity",
@@ -26804,6 +27729,10 @@
     "CFuncNavObstruction": {
         "Disabled": {
             "field": "m_bDisabled",
+            "type": 10
+        },
+        "UseAsyncObstacleUpdate": {
+            "field": "m_bUseAsyncObstacleUpdate",
             "type": 10
         },
         "Parent": {
@@ -27470,9 +28399,9 @@
             "field": "m_vAccumulatedRootMotion",
             "type": 21
         },
-        "Dest": {
-            "field": "m_vDest",
-            "type": 21
+        "AccumulatedRootMotionRotation": {
+            "field": "m_angAccumulatedRootMotionRotation",
+            "type": 20
         },
         "Src": {
             "field": "m_vSrc",
@@ -27482,18 +28411,9 @@
             "field": "m_angSrc",
             "type": 20
         },
-        "Dst": {
-            "field": "m_angDst",
-            "type": 20
-        },
         "Current": {
             "field": "m_angCurrent",
             "type": 20
-        },
-        "DestEntity": {
-            "field": "m_hDestEntity",
-            "type": 17,
-            "classname": "CBaseEntity"
         },
         "LockedSpeed": {
             "field": "m_flLockedSpeed",
@@ -27523,10 +28443,6 @@
             "field": "m_bIgnoreRotation",
             "type": 10
         },
-        "Type": {
-            "field": "m_nType",
-            "type": 6
-        },
         "Success": {
             "field": "m_bSuccess",
             "type": 10
@@ -27538,13 +28454,22 @@
         "IgnoreCollisions": {
             "field": "m_bIgnoreCollisions",
             "type": 10
+        },
+        "Dest": {
+            "field": "m_vDest",
+            "type": 21
+        },
+        "Dst": {
+            "field": "m_angDst",
+            "type": 20
+        },
+        "DestEntity": {
+            "field": "m_hDestEntity",
+            "type": 17,
+            "classname": "CBaseEntity"
         }
     },
     "CGameScriptedMoveDef_t": {
-        "Type": {
-            "field": "m_nType",
-            "type": 6
-        },
         "DestOffset": {
             "field": "m_vDestOffset",
             "type": 21
@@ -27565,6 +28490,22 @@
         "AngRate": {
             "field": "m_flAngRate",
             "type": 8
+        },
+        "MoveSpeed": {
+            "field": "m_flMoveSpeed",
+            "type": 8
+        },
+        "AimDisabled": {
+            "field": "m_bAimDisabled",
+            "type": 10
+        },
+        "IgnoreRotation": {
+            "field": "m_bIgnoreRotation",
+            "type": 10
+        },
+        "ForcedCrouchState": {
+            "field": "m_nForcedCrouchState",
+            "type": 6
         }
     },
     "CGameText": {
@@ -28358,12 +29299,20 @@
             "field": "m_flTimeoutInterval",
             "type": 8
         },
-        "StreamingStarted": {
-            "field": "m_bStreamingStarted",
+        "AutoActivate": {
+            "field": "m_bAutoActivate",
             "type": 10
         },
         "UnloadingStarted": {
             "field": "m_bUnloadingStarted",
+            "type": 10
+        },
+        "QueueActiveSpawnGroupChange": {
+            "field": "m_bQueueActiveSpawnGroupChange",
+            "type": 10
+        },
+        "QueueFinishLoading": {
+            "field": "m_bQueueFinishLoading",
             "type": 10
         },
         "Parent": {
@@ -28559,12 +29508,6 @@
             "type": 11
         }
     },
-    "CItemHeavyAssaultSuit": {
-        "Parent": {
-            "field": "CItemAssaultSuit",
-            "type": 11
-        }
-    },
     "CItemKevlar": {
         "Parent": {
             "field": "CItem",
@@ -28648,40 +29591,6 @@
     "CLightEnvironmentEntity": {
         "Parent": {
             "field": "CLightDirectionalEntity",
-            "type": 11
-        }
-    },
-    "CLightGlow": {
-        "HorizontalSize": {
-            "field": "m_nHorizontalSize",
-            "type": 6
-        },
-        "VerticalSize": {
-            "field": "m_nVerticalSize",
-            "type": 6
-        },
-        "MinDist": {
-            "field": "m_nMinDist",
-            "type": 6
-        },
-        "MaxDist": {
-            "field": "m_nMaxDist",
-            "type": 6
-        },
-        "OuterMaxDist": {
-            "field": "m_nOuterMaxDist",
-            "type": 6
-        },
-        "GlowProxySize": {
-            "field": "m_flGlowProxySize",
-            "type": 8
-        },
-        "HDRColorScale": {
-            "field": "m_flHDRColorScale",
-            "type": 8
-        },
-        "Parent": {
-            "field": "CBaseModelEntity",
             "type": 11
         }
     },
@@ -28879,11 +29788,6 @@
         "UchShuffleCaseMap": {
             "field": "m_uchShuffleCaseMap",
             "type": 33,
-            "size": 32
-        },
-        "OnCase": {
-            "field": "m_OnCase",
-            "type": 45,
             "size": 32
         },
         "Parent": {
@@ -29379,6 +30283,16 @@
             "type": 11
         }
     },
+    "CMapSharedEnvironment": {
+        "TargetMapName": {
+            "field": "m_targetMapName",
+            "type": 13
+        },
+        "Parent": {
+            "field": "CLogicalEntity",
+            "type": 11
+        }
+    },
     "CMapVetoPickController": {
         "PlayedIntroVcd": {
             "field": "m_bPlayedIntroVcd",
@@ -29508,14 +30422,26 @@
         }
     },
     "CMarkupVolumeTagged_Nav": {
+        "Scopes": {
+            "field": "m_nScopes",
+            "type": 4
+        },
         "Parent": {
             "field": "CMarkupVolumeTagged",
             "type": 11
         }
     },
     "CMarkupVolumeTagged_NavGame": {
+        "Scopes": {
+            "field": "m_nScopes",
+            "type": 4
+        },
         "FloodFillAttribute": {
             "field": "m_bFloodFillAttribute",
+            "type": 10
+        },
+        "SplitNavSpace": {
+            "field": "m_bSplitNavSpace",
             "type": 10
         },
         "Parent": {
@@ -29528,8 +30454,12 @@
             "field": "m_bUseRef",
             "type": 10
         },
-        "RefPos": {
-            "field": "m_vRefPos",
+        "RefPosEntitySpace": {
+            "field": "m_vRefPosEntitySpace",
+            "type": 21
+        },
+        "RefPosWorldSpace": {
+            "field": "m_vRefPosWorldSpace",
             "type": 21
         },
         "RefDot": {
@@ -29831,6 +30761,17 @@
             "type": 8
         }
     },
+    "CMovementStatsProperty": {
+        "UseCounter": {
+            "field": "m_nUseCounter",
+            "type": 2
+        },
+        "EmaMovementDirection": {
+            "field": "m_emaMovementDirection",
+            "classname": "CVectorExponentialMovingAverage",
+            "type": 16
+        }
+    },
     "CMoverPathNode": {
         "InTangentLocal": {
             "field": "m_vInTangentLocal",
@@ -29843,6 +30784,20 @@
         "ParentPathUniqueID": {
             "field": "m_szParentPathUniqueID",
             "type": 13
+        },
+        "PathNodeParameter": {
+            "field": "m_szPathNodeParameter",
+            "type": 13
+        },
+        "OnStartFromOrInSegment": {
+            "field": "m_OnStartFromOrInSegment",
+            "classname": "CEntityIOOutput",
+            "type": 16
+        },
+        "OnStoppedAtOrInSegment": {
+            "field": "m_OnStoppedAtOrInSegment",
+            "classname": "CEntityIOOutput",
+            "type": 16
         },
         "OnPassThrough": {
             "field": "m_OnPassThrough",
@@ -29904,11 +30859,6 @@
         }
     },
     "CMultiSource": {
-        "RgEntities": {
-            "field": "m_rgEntities",
-            "type": 46,
-            "size": 32
-        },
         "RgTriggered": {
             "field": "m_rgTriggered",
             "type": 31,
@@ -29969,16 +30919,12 @@
             "field": "m_strMovementReverse",
             "type": 13
         },
-        "NavLinkIdForward": {
-            "field": "m_nNavLinkIdForward",
-            "type": 2
-        },
-        "NavLinkIdReverse": {
-            "field": "m_nNavLinkIdReverse",
-            "type": 2
-        },
         "Enabled": {
             "field": "m_bEnabled",
+            "type": 10
+        },
+        "AllowCrossMovableConnections": {
+            "field": "m_bAllowCrossMovableConnections",
             "type": 10
         },
         "StrFilterName": {
@@ -30004,16 +30950,16 @@
             "field": "m_bIsTerminus",
             "type": 10
         },
+        "Splits": {
+            "field": "m_nSplits",
+            "type": 2
+        },
         "Parent": {
             "field": "CPointEntity",
             "type": 11
         }
     },
     "CNavSpaceInfo": {
-        "CreateFlightSpace": {
-            "field": "m_bCreateFlightSpace",
-            "type": 10
-        },
         "Parent": {
             "field": "CPointEntity",
             "type": 11
@@ -30129,11 +31075,6 @@
             "type": 33,
             "size": 4
         },
-        "ControlPointEnts": {
-            "field": "m_hControlPointEnts",
-            "type": 46,
-            "size": 64
-        },
         "NoSave": {
             "field": "m_bNoSave",
             "type": 10
@@ -30242,16 +31183,8 @@
         }
     },
     "CPathMover": {
-        "PathLength": {
-            "field": "m_flPathLength",
-            "type": 8
-        },
-        "ClosedLoop": {
-            "field": "m_bClosedLoop",
-            "type": 10
-        },
         "Parent": {
-            "field": "CBaseEntity",
+            "field": "CPathSimple",
             "type": 11
         }
     },
@@ -30416,8 +31349,12 @@
             "field": "m_flForceToEnableMotion",
             "type": 8
         },
-        "PreferredCarryAngles": {
-            "field": "m_angPreferredCarryAngles",
+        "HoverPosePosition": {
+            "field": "m_vHoverPosePosition",
+            "type": 21
+        },
+        "HoverPoseAngles": {
+            "field": "m_angHoverPoseAngles",
             "type": 20
         },
         "NotSolidToWorld": {
@@ -30428,9 +31365,9 @@
             "field": "m_bEnableUseOutput",
             "type": 10
         },
-        "ExploitableByPlayer": {
-            "field": "m_iExploitableByPlayer",
-            "type": 2
+        "HoverPoseFlags": {
+            "field": "m_nHoverPoseFlags",
+            "type": 4
         },
         "TouchOutputPerEntityDelay": {
             "field": "m_flTouchOutputPerEntityDelay",
@@ -30510,10 +31447,6 @@
             "field": "m_torqueLimit",
             "type": 8
         },
-        "TeleportTick": {
-            "field": "m_teleportTick",
-            "type": 6
-        },
         "MinTeleportDistance": {
             "field": "m_minTeleportDistance",
             "type": 8
@@ -30565,6 +31498,10 @@
             "field": "m_bConvertToDebrisWhenPossible",
             "type": 10
         },
+        "AffectInvulnerableEnts": {
+            "field": "m_bAffectInvulnerableEnts",
+            "type": 10
+        },
         "OnPushedPlayer": {
             "field": "m_OnPushedPlayer",
             "classname": "CEntityIOOutput",
@@ -30599,6 +31536,14 @@
         "EnableAngularConstraint": {
             "field": "m_bEnableAngularConstraint",
             "type": 10
+        },
+        "BoneName1": {
+            "field": "m_sBoneName1",
+            "type": 13
+        },
+        "BoneName2": {
+            "field": "m_sBoneName2",
+            "type": 13
         },
         "Parent": {
             "field": "CPhysConstraint",
@@ -30833,13 +31778,30 @@
             "field": "m_nameAttach",
             "type": 13
         },
+        "NameAnchor": {
+            "field": "m_nameAnchor",
+            "type": 13
+        },
         "AttachedObject": {
             "field": "m_hAttachedObject",
             "type": 17,
             "classname": "CBaseEntity"
         },
+        "AnchorObject": {
+            "field": "m_hAnchorObject",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
         "SpinUp": {
             "field": "m_spinUp",
+            "type": 8
+        },
+        "SpinDown": {
+            "field": "m_spinDown",
+            "type": 8
+        },
+        "MotorFriction": {
+            "field": "m_flMotorFriction",
             "type": 8
         },
         "AdditionalAcceleration": {
@@ -30850,8 +31812,16 @@
             "field": "m_angularAcceleration",
             "type": 8
         },
-        "LastTime": {
-            "field": "m_lastTime",
+        "TorqueScale": {
+            "field": "m_flTorqueScale",
+            "type": 8
+        },
+        "TargetSpeed": {
+            "field": "m_flTargetSpeed",
+            "type": 8
+        },
+        "SpeedWhenSpinUpOrSpinDownStarted": {
+            "field": "m_flSpeedWhenSpinUpOrSpinDownStarted",
             "type": 8
         },
         "Motor": {
@@ -30864,6 +31834,7 @@
             "type": 11
         }
     },
+    "CPhysMotorAPI": {},
     "CPhysPulley": {
         "Position2": {
             "field": "m_position2",
@@ -30999,6 +31970,11 @@
             "field": "m_flSpinAxisFriction",
             "type": 8
         },
+        "SteeringMimicsEntity": {
+            "field": "m_hSteeringMimicsEntity",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
         "Parent": {
             "field": "CPhysConstraint",
             "type": 11
@@ -31086,10 +32062,6 @@
             "field": "m_massScale",
             "type": 8
         },
-        "InertiaScale": {
-            "field": "m_inertiaScale",
-            "type": 8
-        },
         "BuoyancyScale": {
             "field": "m_buoyancyScale",
             "type": 8
@@ -31122,10 +32094,6 @@
             "field": "m_bFirstCollisionAfterLaunch",
             "type": 10
         },
-        "ExploitableByPlayer": {
-            "field": "m_iExploitableByPlayer",
-            "type": 2
-        },
         "HasBeenAwakened": {
             "field": "m_bHasBeenAwakened",
             "type": 10
@@ -31133,6 +32101,10 @@
         "IsOverrideProp": {
             "field": "m_bIsOverrideProp",
             "type": 10
+        },
+        "DynamicContinuousContactBehavior": {
+            "field": "m_nDynamicContinuousContactBehavior",
+            "type": 4
         },
         "NextCheckDisableMotionContactsTime": {
             "field": "m_fNextCheckDisableMotionContactsTime",
@@ -31190,6 +32162,10 @@
         },
         "Awake": {
             "field": "m_bAwake",
+            "type": 10
+        },
+        "AttachedToReferenceFrame": {
+            "field": "m_bAttachedToReferenceFrame",
             "type": 10
         },
         "Parent": {
@@ -31375,11 +32351,6 @@
             "field": "m_hBombDefuser",
             "type": 17,
             "classname": "CCSPlayerPawn"
-        },
-        "ControlPanel": {
-            "field": "m_hControlPanel",
-            "type": 17,
-            "classname": "CBaseEntity"
         },
         "ProgressBarTime": {
             "field": "m_iProgressBarTime",
@@ -32136,6 +33107,7 @@
             "type": 11
         }
     },
+    "CPointTeleportAPI": {},
     "CPointValueRemapper": {
         "Disabled": {
             "field": "m_bDisabled",
@@ -32459,22 +33431,6 @@
             "field": "m_bExposureControl",
             "type": 10
         },
-        "Rate": {
-            "field": "m_flRate",
-            "type": 8
-        },
-        "TonemapPercentTarget": {
-            "field": "m_flTonemapPercentTarget",
-            "type": 8
-        },
-        "TonemapPercentBrightPixels": {
-            "field": "m_flTonemapPercentBrightPixels",
-            "type": 8
-        },
-        "TonemapMinAvgLum": {
-            "field": "m_flTonemapMinAvgLum",
-            "type": 8
-        },
         "Parent": {
             "field": "CBaseTrigger",
             "type": 11
@@ -32489,12 +33445,6 @@
     "CPrecipitationBlocker": {
         "Parent": {
             "field": "CBaseModelEntity",
-            "type": 11
-        }
-    },
-    "CPredictedViewModel": {
-        "Parent": {
-            "field": "CBaseViewModel",
             "type": 11
         }
     },
@@ -32689,6 +33639,10 @@
             "field": "m_bStartDisabled",
             "type": 10
         },
+        "RagEnabled": {
+            "field": "m_ragEnabled",
+            "type": 66
+        },
         "RagPos": {
             "field": "m_ragPos",
             "type": 63
@@ -32769,6 +33723,10 @@
             "field": "m_bShouldTeleportPhysics",
             "type": 10
         },
+        "AllowStretch": {
+            "field": "m_bAllowStretch",
+            "type": 10
+        },
         "BlendWeight": {
             "field": "m_flBlendWeight",
             "type": 8
@@ -32842,6 +33800,25 @@
         "Parent": {
             "field": "CBarnLight",
             "type": 11
+        }
+    },
+    "CRelativeLocation": {
+        "Type": {
+            "field": "m_Type",
+            "type": 4
+        },
+        "RelativeOffset": {
+            "field": "m_vRelativeOffset",
+            "type": 21
+        },
+        "WorldSpacePos": {
+            "field": "m_vWorldSpacePos",
+            "type": 21
+        },
+        "Entity": {
+            "field": "m_hEntity",
+            "type": 17,
+            "classname": "CBaseEntity"
         }
     },
     "CResponseQueue": {},
@@ -33230,6 +34207,10 @@
             "field": "m_flAutomationTime",
             "type": 8
         },
+        "SpeechPriority": {
+            "field": "m_nSpeechPriority",
+            "type": 2
+        },
         "WaitingForThisResumeScene": {
             "field": "m_hWaitingForThisResumeScene",
             "type": 17,
@@ -33299,11 +34280,6 @@
             "field": "m_OnResumed",
             "classname": "CEntityIOOutput",
             "type": 16
-        },
-        "OnTrigger": {
-            "field": "m_OnTrigger",
-            "type": 45,
-            "size": 16
         },
         "InterruptScene": {
             "field": "m_hInterruptScene",
@@ -33375,11 +34351,6 @@
         "Scenes": {
             "field": "m_iszScenes",
             "type": 26,
-            "size": 16
-        },
-        "Scenes1": {
-            "field": "m_hScenes",
-            "type": 46,
             "size": 16
         },
         "Parent": {
@@ -33492,6 +34463,10 @@
             "field": "m_nHeldWeaponBehavior",
             "type": 6
         },
+        "ForcedCrouchState": {
+            "field": "m_nForcedCrouchState",
+            "type": 6
+        },
         "IsPlayingPreIdle": {
             "field": "m_bIsPlayingPreIdle",
             "type": 10
@@ -33584,6 +34559,14 @@
             "field": "m_bDontAddModifiers",
             "type": 10
         },
+        "DisableAimingWhileMoving": {
+            "field": "m_bDisableAimingWhileMoving",
+            "type": 10
+        },
+        "IgnoreRotation": {
+            "field": "m_bIgnoreRotation",
+            "type": 10
+        },
         "Radius": {
             "field": "m_flRadius",
             "type": 8
@@ -33602,6 +34585,10 @@
         },
         "AngRate": {
             "field": "m_flAngRate",
+            "type": 8
+        },
+        "MoveSpeed": {
+            "field": "m_flMoveSpeed",
             "type": 8
         },
         "WaitUntilMoveCompletesToStartAnimation": {
@@ -33729,11 +34716,6 @@
             "classname": "CEntityIOOutput",
             "type": 16
         },
-        "OnScriptEvent": {
-            "field": "m_OnScriptEvent",
-            "type": 45,
-            "size": 8
-        },
         "InteractionMainEntity": {
             "field": "m_hInteractionMainEntity",
             "type": 17,
@@ -33742,6 +34724,10 @@
         "PlayerDeathBehavior": {
             "field": "m_iPlayerDeathBehavior",
             "type": 2
+        },
+        "SkipFadeIn": {
+            "field": "m_bSkipFadeIn",
+            "type": 10
         },
         "Parent": {
             "field": "CBaseEntity",
@@ -33995,6 +34981,10 @@
             "field": "m_bExplodeFromInferno",
             "type": 10
         },
+        "DidGroundScorch": {
+            "field": "m_bDidGroundScorch",
+            "type": 10
+        },
         "Parent": {
             "field": "CBaseCSGrenadeProjectile",
             "type": 11
@@ -34020,54 +35010,6 @@
         "SmoothDir": {
             "field": "m_nSmoothDir",
             "type": 2
-        }
-    },
-    "CSound": {
-        "Owner": {
-            "field": "m_hOwner",
-            "type": 17,
-            "classname": "CBaseEntity"
-        },
-        "Target": {
-            "field": "m_hTarget",
-            "type": 17,
-            "classname": "CBaseEntity"
-        },
-        "Volume": {
-            "field": "m_iVolume",
-            "type": 2
-        },
-        "OcclusionScale": {
-            "field": "m_flOcclusionScale",
-            "type": 8
-        },
-        "NextAudible": {
-            "field": "m_iNextAudible",
-            "type": 2
-        },
-        "ExpireTime": {
-            "field": "m_flExpireTime",
-            "type": 8
-        },
-        "Next": {
-            "field": "m_iNext",
-            "type": 1
-        },
-        "NoExpirationTime": {
-            "field": "m_bNoExpirationTime",
-            "type": 10
-        },
-        "OwnerChannelIndex": {
-            "field": "m_ownerChannelIndex",
-            "type": 2
-        },
-        "Origin": {
-            "field": "m_vecOrigin",
-            "type": 21
-        },
-        "HasOwner": {
-            "field": "m_bHasOwner",
-            "type": 10
         }
     },
     "CSoundAreaEntityBase": {
@@ -34109,29 +35051,6 @@
         },
         "Parent": {
             "field": "CSoundAreaEntityBase",
-            "type": 11
-        }
-    },
-    "CSoundEnt": {
-        "FreeSound": {
-            "field": "m_iFreeSound",
-            "type": 2
-        },
-        "ActiveSound": {
-            "field": "m_iActiveSound",
-            "type": 2
-        },
-        "CLastActiveSounds": {
-            "field": "m_cLastActiveSounds",
-            "type": 2
-        },
-        "SoundPool": {
-            "field": "m_SoundPool",
-            "type": 45,
-            "size": 128
-        },
-        "Parent": {
-            "field": "CPointEntity",
             "type": 11
         }
     },
@@ -34606,6 +35525,43 @@
             "field": "m_vAnchorOffsetRestore",
             "type": 21
         },
+        "SplineEntity": {
+            "field": "m_hSplineEntity",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
+        "EnableLateralConstraint": {
+            "field": "m_bEnableLateralConstraint",
+            "type": 10
+        },
+        "EnableVerticalConstraint": {
+            "field": "m_bEnableVerticalConstraint",
+            "type": 10
+        },
+        "EnableAngularConstraint": {
+            "field": "m_bEnableAngularConstraint",
+            "type": 10
+        },
+        "EnableLimit": {
+            "field": "m_bEnableLimit",
+            "type": 10
+        },
+        "FireEventsOnPath": {
+            "field": "m_bFireEventsOnPath",
+            "type": 10
+        },
+        "LinearFrequency": {
+            "field": "m_flLinearFrequency",
+            "type": 8
+        },
+        "LinarDampingRatio": {
+            "field": "m_flLinarDampingRatio",
+            "type": 8
+        },
+        "PreSolveAnchorPos": {
+            "field": "m_vPreSolveAnchorPos",
+            "type": 21
+        },
         "Parent": {
             "field": "CPhysConstraint",
             "type": 11
@@ -34727,68 +35683,6 @@
     "CSpriteAlias_env_glow": {
         "Parent": {
             "field": "CSprite",
-            "type": 11
-        }
-    },
-    "CSun": {
-        "Direction": {
-            "field": "m_vDirection",
-            "type": 21
-        },
-        "Overlay": {
-            "field": "m_clrOverlay",
-            "type": 19
-        },
-        "EffectName": {
-            "field": "m_iszEffectName",
-            "type": 13
-        },
-        "SSEffectName": {
-            "field": "m_iszSSEffectName",
-            "type": 13
-        },
-        "On": {
-            "field": "m_bOn",
-            "type": 10
-        },
-        "BmaxColor": {
-            "field": "m_bmaxColor",
-            "type": 10
-        },
-        "Size": {
-            "field": "m_flSize",
-            "type": 8
-        },
-        "Rotation": {
-            "field": "m_flRotation",
-            "type": 8
-        },
-        "HazeScale": {
-            "field": "m_flHazeScale",
-            "type": 8
-        },
-        "AlphaHaze": {
-            "field": "m_flAlphaHaze",
-            "type": 8
-        },
-        "AlphaHdr": {
-            "field": "m_flAlphaHdr",
-            "type": 8
-        },
-        "AlphaScale": {
-            "field": "m_flAlphaScale",
-            "type": 8
-        },
-        "HDRColorScale": {
-            "field": "m_flHDRColorScale",
-            "type": 8
-        },
-        "FarZScale": {
-            "field": "m_flFarZScale",
-            "type": 8
-        },
-        "Parent": {
-            "field": "CBaseModelEntity",
             "type": 11
         }
     },
@@ -34987,18 +35881,6 @@
             "field": "m_flAutoExposureMax",
             "type": 8
         },
-        "TonemapPercentTarget": {
-            "field": "m_flTonemapPercentTarget",
-            "type": 8
-        },
-        "TonemapPercentBrightPixels": {
-            "field": "m_flTonemapPercentBrightPixels",
-            "type": 8
-        },
-        "TonemapMinAvgLum": {
-            "field": "m_flTonemapMinAvgLum",
-            "type": 8
-        },
         "ExposureAdaptationSpeedUp": {
             "field": "m_flExposureAdaptationSpeedUp",
             "type": 8
@@ -35133,61 +36015,6 @@
         "OnDetectedExplosion": {
             "field": "m_OnDetectedExplosion",
             "classname": "CEntityIOOutput",
-            "type": 16
-        },
-        "Parent": {
-            "field": "CBaseTrigger",
-            "type": 11
-        }
-    },
-    "CTriggerFan": {
-        "FanOrigin": {
-            "field": "m_vFanOrigin",
-            "type": 21
-        },
-        "FanEnd": {
-            "field": "m_vFanEnd",
-            "type": 21
-        },
-        "Noise": {
-            "field": "m_vNoise",
-            "type": 21
-        },
-        "Force": {
-            "field": "m_flForce",
-            "type": 8
-        },
-        "RopeForceScale": {
-            "field": "m_flRopeForceScale",
-            "type": 8
-        },
-        "PlayerForce": {
-            "field": "m_flPlayerForce",
-            "type": 8
-        },
-        "RampTime": {
-            "field": "m_flRampTime",
-            "type": 8
-        },
-        "Falloff": {
-            "field": "m_bFalloff",
-            "type": 10
-        },
-        "PushPlayer": {
-            "field": "m_bPushPlayer",
-            "type": 10
-        },
-        "RampDown": {
-            "field": "m_bRampDown",
-            "type": 10
-        },
-        "AddNoise": {
-            "field": "m_bAddNoise",
-            "type": 10
-        },
-        "RampTimer": {
-            "field": "m_RampTimer",
-            "classname": "CountdownTimer",
             "type": 16
         },
         "Parent": {
@@ -35405,6 +36232,10 @@
         },
         "TestOcclusion": {
             "field": "m_bTestOcclusion",
+            "type": 10
+        },
+        "TestAllVisibleOcclusion": {
+            "field": "m_bTestAllVisibleOcclusion",
             "type": 10
         },
         "OnTimeout": {
@@ -35748,6 +36579,10 @@
         }
     },
     "CWeaponCZ75a": {
+        "MagazineRemoved": {
+            "field": "m_bMagazineRemoved",
+            "type": 10
+        },
         "Parent": {
             "field": "CCSWeaponBaseGun",
             "type": 11
@@ -35978,42 +36813,40 @@
             "type": 10
         }
     },
-    "FilterDamageType": {
-        "DamageType": {
-            "field": "m_iDamageType",
+    "DynamicVolumeDef_t": {
+        "Source": {
+            "field": "m_source",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
+        "Target": {
+            "field": "m_target",
+            "type": 17,
+            "classname": "CBaseEntity"
+        },
+        "HullIdx": {
+            "field": "m_nHullIdx",
             "type": 2
         },
-        "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
-        }
-    },
-    "FilterHealth": {
-        "AdrenalineActive": {
-            "field": "m_bAdrenalineActive",
+        "SourceAnchorPos": {
+            "field": "m_vSourceAnchorPos",
+            "type": 21
+        },
+        "TargetAnchorPos": {
+            "field": "m_vTargetAnchorPos",
+            "type": 21
+        },
+        "AreaSrc": {
+            "field": "m_nAreaSrc",
+            "type": 6
+        },
+        "AreaDst": {
+            "field": "m_nAreaDst",
+            "type": 6
+        },
+        "Attached": {
+            "field": "m_bAttached",
             "type": 10
-        },
-        "HealthMin": {
-            "field": "m_iHealthMin",
-            "type": 2
-        },
-        "HealthMax": {
-            "field": "m_iHealthMax",
-            "type": 2
-        },
-        "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
-        }
-    },
-    "FilterTeam": {
-        "FilterTeam": {
-            "field": "m_iFilterTeam",
-            "type": 2
-        },
-        "Parent": {
-            "field": "CBaseFilter",
-            "type": 11
         }
     },
     "RelationshipOverride_t": {
@@ -36749,6 +37582,77 @@
             "type": 6
         }
     },
+    "VMixBoxverb2Desc_t": {
+        "SizeMax": {
+            "field": "m_flSizeMax",
+            "type": 8
+        },
+        "SizeMin": {
+            "field": "m_flSizeMin",
+            "type": 8
+        },
+        "Complexity": {
+            "field": "m_flComplexity",
+            "type": 8
+        },
+        "Diffusion": {
+            "field": "m_flDiffusion",
+            "type": 8
+        },
+        "ModDepth": {
+            "field": "m_flModDepth",
+            "type": 8
+        },
+        "ModRate": {
+            "field": "m_flModRate",
+            "type": 8
+        },
+        "Parallel": {
+            "field": "m_bParallel",
+            "type": 10
+        },
+        "FilterType": {
+            "field": "m_filterType",
+            "classname": "VMixFilterDesc_t",
+            "type": 16
+        },
+        "Width": {
+            "field": "m_flWidth",
+            "type": 8
+        },
+        "Height": {
+            "field": "m_flHeight",
+            "type": 8
+        },
+        "Depth": {
+            "field": "m_flDepth",
+            "type": 8
+        },
+        "FeedbackScale": {
+            "field": "m_flFeedbackScale",
+            "type": 8
+        },
+        "FeedbackWidth": {
+            "field": "m_flFeedbackWidth",
+            "type": 8
+        },
+        "FeedbackHeight": {
+            "field": "m_flFeedbackHeight",
+            "type": 8
+        },
+        "FeedbackDepth": {
+            "field": "m_flFeedbackDepth",
+            "type": 8
+        },
+        "OutputGain": {
+            "field": "m_flOutputGain",
+            "type": 8
+        },
+        "Taps": {
+            "field": "m_flTaps",
+            "type": 8
+        }
+    },
     "VMixBoxverbDesc_t": {
         "SizeMax": {
             "field": "m_flSizeMax",
@@ -36903,6 +37807,29 @@
             "type": 8
         }
     },
+    "VMixDualCompressorDesc_t": {
+        "RMSTimeMS": {
+            "field": "m_flRMSTimeMS",
+            "type": 8
+        },
+        "FldbKneeWidth": {
+            "field": "m_fldbKneeWidth",
+            "type": 8
+        },
+        "WetMix": {
+            "field": "m_flWetMix",
+            "type": 8
+        },
+        "PeakMode": {
+            "field": "m_bPeakMode",
+            "type": 10
+        },
+        "BandDesc": {
+            "field": "m_bandDesc",
+            "classname": "VMixDynamicsBand_t",
+            "type": 16
+        }
+    },
     "VMixDynamics3BandDesc_t": {
         "FldbGainOutput": {
             "field": "m_fldbGainOutput",
@@ -36939,11 +37866,6 @@
         "PeakMode": {
             "field": "m_bPeakMode",
             "type": 10
-        },
-        "BandDesc": {
-            "field": "m_bandDesc",
-            "type": 45,
-            "size": 3
         }
     },
     "VMixDynamicsBand_t": {
@@ -37076,13 +37998,7 @@
             "type": 10
         }
     },
-    "VMixEQ8Desc_t": {
-        "Stages": {
-            "field": "m_stages",
-            "type": 45,
-            "size": 8
-        }
-    },
+    "VMixEQ8Desc_t": {},
     "VMixEffectChainDesc_t": {
         "CrossfadeTime": {
             "field": "m_flCrossfadeTime",
@@ -37516,9 +38432,9 @@
             "field": "m_mode",
             "type": 6
         },
-        "Samples": {
-            "field": "m_nSamples",
-            "type": 2
+        "AnalysisWindowMs": {
+            "field": "m_fAnalysisWindowMs",
+            "type": 8
         },
         "Threshold": {
             "field": "m_flThreshold",
@@ -37545,6 +38461,10 @@
         "PlaybackJitter": {
             "field": "m_flPlaybackJitter",
             "type": 8
+        },
+        "ShouldWraparound": {
+            "field": "m_bShouldWraparound",
+            "type": 10
         },
         "Parent": {
             "field": "CVoiceContainerBase",
@@ -37579,6 +38499,30 @@
         }
     },
     "CVoiceContainerNull": {
+        "Parent": {
+            "field": "CVoiceContainerBase",
+            "type": 11
+        }
+    },
+    "CVoiceContainerParameterBlender": {
+        "FirstSound": {
+            "field": "m_firstSound",
+            "classname": "CSoundContainerReference",
+            "type": 16
+        },
+        "SecondSound": {
+            "field": "m_secondSound",
+            "classname": "CSoundContainerReference",
+            "type": 16
+        },
+        "EnableOcclusionBlend": {
+            "field": "m_bEnableOcclusionBlend",
+            "type": 10
+        },
+        "EnableDistanceBlend": {
+            "field": "m_bEnableDistanceBlend",
+            "type": 10
+        },
         "Parent": {
             "field": "CVoiceContainerBase",
             "type": 11
@@ -37792,6 +38736,12 @@
             "type": 11
         }
     },
+    "AggregateInstanceStreamOnDiskData_t": {
+        "DecodedSize": {
+            "field": "m_DecodedSize",
+            "type": 6
+        }
+    },
     "AggregateLODSetup_t": {
         "LODOrigin": {
             "field": "m_vLODOrigin",
@@ -37819,6 +38769,10 @@
             "field": "m_bHasTransform",
             "type": 10
         },
+        "LODGroupMask": {
+            "field": "m_nLODGroupMask",
+            "type": 4
+        },
         "DrawCallIndex": {
             "field": "m_nDrawCallIndex",
             "type": 1
@@ -37826,10 +38780,6 @@
         "LODSetupIndex": {
             "field": "m_nLODSetupIndex",
             "type": 1
-        },
-        "LODGroupMask": {
-            "field": "m_nLODGroupMask",
-            "type": 4
         },
         "TintColor": {
             "field": "m_vTintColor",
@@ -37842,6 +38792,18 @@
         "LightProbeVolumePrecomputedHandshake": {
             "field": "m_nLightProbeVolumePrecomputedHandshake",
             "type": 2
+        },
+        "InstanceStreamOffset": {
+            "field": "m_nInstanceStreamOffset",
+            "type": 6
+        },
+        "VertexAlbedoStreamOffset": {
+            "field": "m_nVertexAlbedoStreamOffset",
+            "type": 6
+        },
+        "InstanceStreams": {
+            "field": "m_instanceStreams",
+            "type": 4
         }
     },
     "AggregateSceneObject_t": {
@@ -37857,11 +38819,20 @@
             "field": "m_nLayer",
             "type": 1
         },
+        "InstanceStream": {
+            "field": "m_instanceStream",
+            "type": 1
+        },
+        "VertexAlbedoStream": {
+            "field": "m_vertexAlbedoStream",
+            "type": 1
+        },
         "VisClusterMembership": {
             "field": "m_visClusterMembership",
             "type": 56
         }
     },
+    "AggregateVertexAlbedoStreamOnDiskData_t": {},
     "BakedLightingInfo_t": {
         "LightmapVersionNumber": {
             "field": "m_nLightmapVersionNumber",
@@ -37885,6 +38856,10 @@
         },
         "CompressionEnabled": {
             "field": "m_bCompressionEnabled",
+            "type": 10
+        },
+        "SHLightmaps": {
+            "field": "m_bSHLightmaps",
             "type": 10
         },
         "ChartPackIterations": {
@@ -37987,6 +38962,18 @@
         "InstanceTintSrgb": {
             "field": "m_instanceTintSrgb",
             "type": 61
+        },
+        "MaterialGroup": {
+            "field": "m_materialGroup",
+            "type": 12
+        },
+        "BeginCullSize": {
+            "field": "m_flBeginCullSize",
+            "type": 8
+        },
+        "EndCullSize": {
+            "field": "m_flEndCullSize",
+            "type": 8
         }
     },
     "ClutterTile_t": {
@@ -38083,10 +39070,6 @@
             "field": "m_nRenderOrder",
             "type": 2
         },
-        "TintColor": {
-            "field": "m_vTintColor",
-            "type": 23
-        },
         "SequenceOverride": {
             "field": "m_nSequenceOverride",
             "type": 2
@@ -38100,6 +39083,10 @@
         "DrawCallIndex": {
             "field": "m_nDrawCallIndex",
             "type": 6
+        },
+        "LinearTintColor": {
+            "field": "m_vLinearTintColor",
+            "type": 21
         },
         "Parent": {
             "field": "BaseSceneObjectOverride_t",
@@ -38160,10 +39147,6 @@
             "field": "m_flFadeEndDistance",
             "type": 8
         },
-        "TintColor": {
-            "field": "m_vTintColor",
-            "type": 23
-        },
         "Skin": {
             "field": "m_skin",
             "type": 14
@@ -38211,6 +39194,10 @@
         },
         "BuildBakedLighting": {
             "field": "m_bBuildBakedLighting",
+            "type": 10
+        },
+        "AggregateInstanceStreams": {
+            "field": "m_bAggregateInstanceStreams",
             "type": 10
         },
         "BakedLightingInfo": {

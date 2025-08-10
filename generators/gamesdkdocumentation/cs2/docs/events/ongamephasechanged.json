@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnGamePhaseChanged","description":"This event is triggered when game_phase_changed is triggered.","arguments":{"new_phase":"int32"},"return":"void","games":["cs2"]}

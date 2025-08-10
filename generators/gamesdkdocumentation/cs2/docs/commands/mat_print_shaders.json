@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_print_shaders","description":"Print loaded shaders. Takes a substring as an argument.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

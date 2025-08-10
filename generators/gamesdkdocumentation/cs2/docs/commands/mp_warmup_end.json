@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_warmup_end","description":"End warmup immediately.","args":"","flags":["gamedll","release"],"games":["cs2"]}

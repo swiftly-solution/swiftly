@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"entityindex","type":"int32","default":-1},{"name":"chat","type":"bool"},{"name":"messagename","type":"string"},{"name":"param1","type":"string"},{"name":"param2","type":"string"},{"name":"param3","type":"string"},{"name":"param4","type":"string"}],"name":"CUserMessageSayText2","games":["cs2"]}

@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CTriggerSndSosOpvar",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerSndSosOpvar"
+    },
+    "properties": [
+        {
+            "name": "Position",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CenterSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinVal",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxVal",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpvarName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StackName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OperatorName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "VolIs2D",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OpvarNameChar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StackNameChar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OperatorNameChar",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "VecNormPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "NormCenterSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

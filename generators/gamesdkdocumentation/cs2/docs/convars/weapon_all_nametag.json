@@ -1,0 +1,1 @@
+{"kind":"command","name":"weapon_all_nametag","description":"<no description>","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "GetCCSGameRules",
+    "override_variable": true,
+    "description": "Returns the CCSGameRules of the server.",
+    "arguments": {},
+    "return": "CCSGameRules",
+    "games": "all"
+}

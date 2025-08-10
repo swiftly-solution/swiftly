@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CCycleControlClipUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCycleControlClipUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Sequence",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueSource",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ParamIndex",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CLeafUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

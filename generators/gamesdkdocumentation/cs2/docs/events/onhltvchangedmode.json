@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnHltvChangedMode","description":"This event is triggered when hltv_changed_mode is triggered.","arguments":{"oldmode":"int32","newmode":"int32","obs_target":"int32"},"return":"void","games":["cs2"]}

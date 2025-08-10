@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CEnvInstructorVRHint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvInstructorVRHint"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "HintTargetEntity",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Timeout",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Caption",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StartSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LayoutFileType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CustomLayoutFile",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HeightOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

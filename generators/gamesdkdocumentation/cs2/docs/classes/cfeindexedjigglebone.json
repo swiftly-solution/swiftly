@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CFeIndexedJiggleBone",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFeIndexedJiggleBone"
+    },
+    "properties": [
+        {
+            "name": "Node",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "JiggleParent",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "JiggleBone",
+            "type": "CFeJiggleBone",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "PrecacheSound",
+    "description": "Adds a sound to precache.",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

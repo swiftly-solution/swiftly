@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Delete",
+    "description": "Deletes a file",
+    "arguments": {
+        "path": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

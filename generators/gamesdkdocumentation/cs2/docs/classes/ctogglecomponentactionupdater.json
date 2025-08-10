@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CToggleComponentActionUpdater",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CToggleComponentActionUpdater"
+    },
+    "properties": [
+        {
+            "name": "ComponentID",
+            "type": "AnimComponentID",
+            "writable": false
+        },
+        {
+            "name": "SetEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimActionUpdater",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

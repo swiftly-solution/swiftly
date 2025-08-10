@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "FeSimdRodConstraintAnim_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeSimdRodConstraintAnim_t"
+    },
+    "properties": [
+        {
+            "name": "Node",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "4Weight0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "4RelaxationFactor",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

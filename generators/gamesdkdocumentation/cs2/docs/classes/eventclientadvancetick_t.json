@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "EventClientAdvanceTick_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EventClientAdvanceTick_t"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "EventAdvanceTick_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

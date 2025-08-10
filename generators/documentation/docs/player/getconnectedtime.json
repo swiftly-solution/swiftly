@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetConnectedTime",
+    "description": "Returns the connected time of the player.",
+    "arguments": {},
+    "return": "uint64",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_round_restart_delay","description":"Number of seconds to delay before restarting a round after a win","args":"7","flags":["min:","0,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

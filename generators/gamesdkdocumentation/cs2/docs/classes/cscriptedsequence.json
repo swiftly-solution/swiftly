@@ -1,0 +1,408 @@
+{
+    "kind": "class",
+    "name": "CScriptedSequence",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CScriptedSequence"
+    },
+    "properties": [
+        {
+            "name": "Entry",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PreIdle",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Play",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PostIdle",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ModifierToAddOnPlay",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NextScript",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Entity",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SyncGroup",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MoveTo",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MoveToGait",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "HeldWeaponBehavior",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ForcedCrouchState",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "IsPlayingPreIdle",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsPlayingEntry",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsPlayingAction",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsPlayingPostIdle",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DontRotateOther",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsRepeatable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldLeaveCorpse",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartOnSpawn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisallowInterrupts",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CanOverrideNPCState",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DontTeleportAtEnd",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HighPriority",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HideDebugComplaints",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ContinueOnDeath",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LoopPreIdleSequence",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LoopActionSequence",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LoopPostIdleSequence",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SynchPostIdles",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IgnoreLookAt",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IgnoreGravity",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisableNPCCollisions",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "KeepAnimgraphLockedPost",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DontAddModifiers",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisableAimingWhileMoving",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IgnoreRotation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Repeat",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PlayAnimFadeInTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MoveInterpTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MoveSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WaitUntilMoveCompletesToStartAnimation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NotReadySequenceCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WaitForBeginSequence",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Saved_effects",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SavedFlags",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SavedCollisionGroup",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Interruptable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SequenceStarted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PositionRelativeToOtherEntity",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TargetEnt",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "NextCine",
+            "type": "CScriptedSequence",
+            "writable": false
+        },
+        {
+            "name": "Thinking",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InitiatedSelfDelete",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsTeleportingDueToMoveTo",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AllowCustomInterruptConditions",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForcedTarget",
+            "type": "CBaseAnimGraph",
+            "writable": false
+        },
+        {
+            "name": "DontCancelOtherSequences",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForceSynch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PreventUpdateYawOnFinish",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnsureOnNavmeshOnFinish",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnDeathBehavior",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ConflictResponse",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OnBeginSequence",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnActionStartOrLoop",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnEndSequence",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPostIdleEndSequence",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnCancelSequence",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnCancelFailedSequence",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "InteractionMainEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "PlayerDeathBehavior",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SkipFadeIn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

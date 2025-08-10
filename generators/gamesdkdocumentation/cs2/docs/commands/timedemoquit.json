@@ -1,0 +1,1 @@
+{"kind":"command","name":"timedemoquit","description":"Play a demo, report performance info, and then exit","args":"","flags":["release"],"games":["cs2"]}

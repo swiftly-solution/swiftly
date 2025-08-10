@@ -41,18 +41,16 @@ std::map<std::string, std::string> languages = {
     { "vietnamese", "vn" },
 };
 
-SH_DECL_MANUALHOOK1(OnConVarQuery, 0, 0, 0, bool, const CNetMessagePB<CCLCMsg_RespondCvarValue>&);
+SH_DECL_HOOK1(CServerSideClientBase, ProcessRespondCvarValue, SH_NOATTRIB, 0, bool, const CNetMessagePB<CCLCMsg_RespondCvarValue>&);
 DynLibUtils::CModule DetermineModuleByLibrary(std::string library);
 
 int OnConVarQueryID = -1;
 
 void CvarQuery::Initialize()
 {
-    SH_MANUALHOOK_RECONFIGURE(OnConVarQuery, g_GameData.GetOffset("CServerSideClient_OnConVarQuery"), 0, 0);
-
     DynLibUtils::CModule eng = DetermineModuleByLibrary("engine2");
     void* serverSideClientVTable = eng.GetVirtualTableByName("CServerSideClient");
-    OnConVarQueryID = SH_ADD_MANUALDVPHOOK(OnConVarQuery, serverSideClientVTable, SH_MEMBER(this, &CvarQuery::OnConvarQuery), true);
+    OnConVarQueryID = SH_ADD_DVPHOOK(CServerSideClientBase, ProcessRespondCvarValue, (CServerSideClientBase*)serverSideClientVTable, SH_MEMBER(this, &CvarQuery::OnConvarQuery), false);
 }
 
 void CvarQuery::Shutdown()
@@ -66,7 +64,7 @@ void OnClientConvarQuery(int playerid, std::string convar_name, std::string conv
 
 bool CvarQuery::OnConvarQuery(const CNetMessagePB<CCLCMsg_RespondCvarValue>& msg)
 {
-    auto client = META_IFACEPTR(CServerSideClient);
+    auto client = META_IFACEPTR(CServerSideClientBase);
 
     auto player = g_playerManager.GetPlayer(client->GetPlayerSlot());
     if (!player) RETURN_META_VALUE(MRES_IGNORED, true);

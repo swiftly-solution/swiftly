@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CConcreteAnimParameter",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CConcreteAnimParameter"
+    },
+    "properties": [
+        {
+            "name": "PreviewButton",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NetworkSetting",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "UseMostRecentValue",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AutoReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GameWritable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GraphWritable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimParameterBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

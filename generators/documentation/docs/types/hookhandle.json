@@ -1,0 +1,6 @@
+{
+    "kind": "class",
+    "name": "HookHandle",
+    "description": "This is the HookHandle class used for some identifiers.",
+    "games": "all"
+}

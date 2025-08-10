@@ -42,6 +42,7 @@ void SwiftlyPluginManager(CPlayerSlot slot, const char* subcmd, const char* plug
 void SwiftlyResourceMonitorManager(CPlayerSlot slot, const char* subcmd, const char* subcmd2);
 void SwiftlyStatus(CPlayerSlot slot);
 void SwiftlyTranslationManager(CPlayerSlot slot, const char* subcmd);
+void SwiftlyGCManager(CPlayerSlot slot, const char* subcmd, const char* subcmd2);
 void SwiftlyVersion(CPlayerSlot slot);
 
 #endif

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "FeCollisionPlane_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeCollisionPlane_t"
+    },
+    "properties": [
+        {
+            "name": "CtrlParent",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "ChildNode",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Plane",
+            "type": "RnPlane_t",
+            "writable": false
+        },
+        {
+            "name": "Strength",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetMaxPlayers",
+    "description": "Returns the maximum capacity of players on the server.",
+    "arguments": {},
+    "return": "int32",
+    "games": "all"
+}

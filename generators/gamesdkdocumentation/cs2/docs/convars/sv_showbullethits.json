@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_showbullethits","description":"1=show hits and near misses, 2=show hits only","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,0 +1,238 @@
+{
+    "kind": "class",
+    "name": "CPointValueRemapper",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointValueRemapper"
+    },
+    "properties": [
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UpdateOnClient",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InputType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "RemapLineStartName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "RemapLineEndName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "RemapLineStart",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "RemapLineEnd",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "MaximumChangePerSecond",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DisengageDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EngageDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RequiresUseKey",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OutputType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OutputEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OutputEntity2Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OutputEntity3Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OutputEntity4Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "HapticsType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MomentumType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MomentumModifier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SnapValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurrentMomentum",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RatchetType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "RatchetOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InputOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Engaged",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FirstUpdate",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PreviousValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PreviousUpdateTickTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PreviousTestPoint",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "UsingPlayer",
+            "type": "CBasePlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "CustomOutputValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SoundEngage",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundDisengage",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundReachedValueZero",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundReachedValueOne",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SoundMovingLoop",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OnReachedValueZero",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnReachedValueOne",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnReachedValueCustom",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnEngage",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnDisengage",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

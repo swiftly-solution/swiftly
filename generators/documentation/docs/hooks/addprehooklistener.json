@@ -1,0 +1,17 @@
+{
+    "kind": "function",
+    "function": "AddPreHookListener",
+    "override_variable": true,
+    "description": "Adds a new hook listener before the hook is executed.",
+    "arguments": {
+        "hook_handle": "HookHandle",
+        "callback": {
+            "arguments": {
+                "event": "Event"
+            },
+            "return": "EventResult?"
+        }
+    },
+    "return": "EventHandler",
+    "games": "all"
+}

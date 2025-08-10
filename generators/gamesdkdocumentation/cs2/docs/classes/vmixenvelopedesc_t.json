@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "VMixEnvelopeDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixEnvelopeDesc_t"
+    },
+    "properties": [
+        {
+            "name": "AttackTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HoldTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ReleaseTimeMS",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "kind": "type",
+    "name": "ListenOverride",
+    "description": "These are the listen overrides available.",
+    "values": {
+        "Listen_Default": "0",
+        "Listen_Mute": "1",
+        "Listen_Hear": "2"
+    },
+    "games": "all"
+}

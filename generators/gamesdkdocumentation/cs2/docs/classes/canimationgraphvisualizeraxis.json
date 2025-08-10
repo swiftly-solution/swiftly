@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CAnimationGraphVisualizerAxis",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimationGraphVisualizerAxis"
+    },
+    "properties": [
+        {
+            "name": "AxisSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimationGraphVisualizerPrimitiveBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

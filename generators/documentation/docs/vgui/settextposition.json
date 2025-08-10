@@ -1,0 +1,12 @@
+{
+    "kind": "function",
+    "function": "SetTextPosition",
+    "description": "Sets the position of a text.",
+    "arguments": {
+        "textID": "int64",
+        "posX": "float",
+        "posY": "float"
+    },
+    "return": "void",
+    "games": "all"
+}

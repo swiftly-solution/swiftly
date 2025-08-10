@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CBtActionCombatPositioning",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBtActionCombatPositioning"
+    },
+    "properties": [
+        {
+            "name": "SensorInputKey",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "IsAttackingKey",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ActionTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "Crouching",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBtNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

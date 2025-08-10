@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_auto_cstrafe_kick","description":"Whether or not to kick players when counter-strafe input automation is detected.","args":"false","flags":["gamedll","release"],"games":["cs2"]}

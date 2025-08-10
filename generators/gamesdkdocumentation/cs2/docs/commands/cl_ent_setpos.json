@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ent_setpos","description":"Move entity to position","args":"","flags":["clientdll","cheat","client_can_execute"],"games":["cs2"]}

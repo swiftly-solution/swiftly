@@ -1,0 +1,1 @@
+{"kind":"command","name":"gameinstructor_reset_counts","description":"Resets all display and success counts to zero.","args":"","flags":["developmentonly","clientdll"],"games":["cs2"]}

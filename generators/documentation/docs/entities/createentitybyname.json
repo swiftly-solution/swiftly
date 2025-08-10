@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "CreateEntityByName",
+    "override_variable": true,
+    "description": "Creates an entity by the provided class name.",
+    "arguments": {
+        "class_name": "string"
+    },
+    "return": "CEntityInstance",
+    "games": "all"
+}

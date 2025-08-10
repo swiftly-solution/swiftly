@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_game_mode_convars","description":"Display the values of the convars for the current game_mode.","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CDecoyProjectile",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDecoyProjectile"
+    },
+    "properties": [
+        {
+            "name": "DecoyShotTick",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShotsRemaining",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ExpireTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DecoyWeaponDefIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseCSGrenadeProjectile",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

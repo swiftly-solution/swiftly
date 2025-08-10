@@ -1,0 +1,1 @@
+{"kind":"command","name":"addip","description":"Add an IP address to the ban list.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

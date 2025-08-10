@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_deathcam_skippable","description":"Determines whether a player can early-out of the deathcam.","args":"true","flags":["gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

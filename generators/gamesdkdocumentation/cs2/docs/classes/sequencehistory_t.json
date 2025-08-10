@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "SequenceHistory_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SequenceHistory_t"
+    },
+    "properties": [
+        {
+            "name": "Sequence",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SeqStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SeqFixedCycle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SeqLoopMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PlaybackRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CyclesPerSecond",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

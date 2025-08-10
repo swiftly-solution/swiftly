@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_test_path_lock_start","description":"Lock the pathfinding start to the current intersection point.","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}

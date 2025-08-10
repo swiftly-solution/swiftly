@@ -1,0 +1,13 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnClientConvarQuery",
+    "description": "This game event is triggered when a player's convar is being queried.",
+    "arguments": {
+        "playerid": "int32",
+        "convar_name": "string",
+        "convar_value": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

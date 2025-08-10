@@ -1,0 +1,1 @@
+{"kind":"type","name":"NmRootMotionBlendMode_t","description":"Automatically generated game type from enum NmRootMotionBlendMode_t","values":{"Blend":0,"Additive":1,"IgnoreSource":2,"IgnoreTarget":3},"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"demo_highlight_fade_duration","description":"Duration of the fade in and of the fade out transitions (fade in + fade out is 2x this value).","args":"0.25","flags":["clientdll","release"],"games":["cs2"]}

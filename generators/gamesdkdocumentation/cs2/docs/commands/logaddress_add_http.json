@@ -1,0 +1,1 @@
+{"kind":"command","name":"logaddress_add_http","description":"Set URI of a listener to receive logs via http post. Wrap URI in double quotes.","args":"","flags":["gamedll","unlogged","release"],"games":["cs2"]}

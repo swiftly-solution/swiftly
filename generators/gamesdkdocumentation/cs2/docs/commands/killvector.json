@@ -1,0 +1,1 @@
+{"kind":"command","name":"killvector","description":"Kills a player applying force. Usage: killvector <player> <x value> <y value> <z value>","args":"","flags":["gamedll","cheat","client_can_execute"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_broadcast_keyframe_interval1","description":"The frequency, in seconds, of sending keyframes and delta fragments to the broadcast1 relay server","args":"3","flags":["release"],"games":["cs2"]}

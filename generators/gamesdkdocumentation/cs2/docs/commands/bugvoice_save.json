@@ -1,0 +1,1 @@
+{"kind":"command","name":"bugvoice_save","description":"Write buffered voice attachment data to file.","args":"","flags":["developmentonly","dontrecord","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_matchlist_controlroom_aid","description":"<no description>","args":"0","flags":["clientdll","hidden","release"],"games":["cs2"]}

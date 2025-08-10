@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"valueName","type":"string"},{"name":"valueInt","type":"int32"},{"name":"serverAddr","type":"uint32"},{"name":"serverPort","type":"uint32"},{"name":"chokedBlocks","type":"string"}],"name":"CMsgGCCStrike15_v2_ClientVarValueNotificationInfo","games":["cs2"]}

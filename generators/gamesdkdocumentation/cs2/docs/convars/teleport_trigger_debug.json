@@ -1,0 +1,1 @@
+{"kind":"command","name":"teleport_trigger_debug","description":"<no description>","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

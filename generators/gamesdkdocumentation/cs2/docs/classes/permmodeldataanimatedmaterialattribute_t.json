@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "PermModelDataAnimatedMaterialAttribute_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PermModelDataAnimatedMaterialAttribute_t"
+    },
+    "properties": [
+        {
+            "name": "AttributeName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NumChannels",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

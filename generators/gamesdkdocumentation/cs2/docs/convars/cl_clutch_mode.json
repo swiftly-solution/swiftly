@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_clutch_mode","description":"Silence voice and other distracting sounds until the end of round or next death.","args":"false","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_showimpacts_penetration","description":"Shows extra data when bullets penetrate. (use sv_showimpacts_time to increase time shown)","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

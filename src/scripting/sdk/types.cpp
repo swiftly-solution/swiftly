@@ -6,7 +6,7 @@ void DummyGetSetType(FunctionContext* context, ClassData* data) {}
 
 LoadScriptingComponent(sdktypes, [](PluginObject plugin, EContext* ctx) -> void {
     ADD_FUNCTION("IsTypeClass", [](FunctionContext* context) -> void {
-        auto types = g_sdk.GetSDKTypes();
+        auto& types = g_sdk.GetSDKTypes();
         context->SetReturn(types.find(context->GetArgumentOr<std::string>(0, "")) != types.end());
     });
 
@@ -14,7 +14,7 @@ LoadScriptingComponent(sdktypes, [](PluginObject plugin, EContext* ctx) -> void 
         context->SetReturn(MAKE_CLASS_INSTANCE("SDKType", { { "class_name", context->GetArgument<std::string>(0) } }));
     });
 
-    auto types = g_sdk.GetSDKTypes();
+    auto& types = g_sdk.GetSDKTypes();
 
     ADD_CLASS("SDKType");
 
@@ -28,7 +28,7 @@ LoadScriptingComponent(sdktypes, [](PluginObject plugin, EContext* ctx) -> void 
         auto class_name = data->GetData<std::string>("class_name");
         std::string member_name = str_split(context->GetFunctionKey(), " ")[1];
 
-        auto types = g_sdk.GetSDKTypes();
+        auto& types = g_sdk.GetSDKTypes();
 
         if (types.find(class_name) == types.end()) {
             context->StopExecution();

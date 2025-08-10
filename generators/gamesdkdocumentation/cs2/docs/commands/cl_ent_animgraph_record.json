@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ent_animgraph_record","description":"Toggles recording of animgraph replay of the given entity(s)","args":" entityName automaticallyOpenInAnimgraphEditor","flags":["clientdll","cheat"],"games":["cs2"]}

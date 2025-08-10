@@ -1,0 +1,1 @@
+{"kind":"type","name":"BlurFilterType_t","description":"Automatically generated game type from enum BlurFilterType_t","values":{"BLURFILTER_GAUSSIAN":0,"BLURFILTER_BOX":1},"games":["cs2"]}

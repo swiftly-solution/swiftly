@@ -1,0 +1,1 @@
+{"kind":"command","name":"rebuy","description":"Attempt to repurchase items with the order listed in cl_rebuy","args":"","flags":["clientdll","clientcmd_can_execute"],"games":["cs2"]}

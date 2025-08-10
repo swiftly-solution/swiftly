@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "InfoOverlayData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "InfoOverlayData_t"
+    },
+    "properties": [
+        {
+            "name": "Width",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Height",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Depth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UVStart",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "UVEnd",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "RenderOrder",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SequenceOverride",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

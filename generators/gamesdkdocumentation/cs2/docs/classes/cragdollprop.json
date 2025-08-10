@@ -1,0 +1,178 @@
+{
+    "kind": "class",
+    "name": "CRagdollProp",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRagdollProp"
+    },
+    "properties": [
+        {
+            "name": "Ragdoll",
+            "type": "ragdoll_t",
+            "writable": false
+        },
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RagEnabled",
+            "type": "Vector4D[]",
+            "writable": true
+        },
+        {
+            "name": "RagPos",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "RagAngles",
+            "type": "Color[]",
+            "writable": true
+        },
+        {
+            "name": "RagdollSource",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "LastUpdateTickCount",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AllAsleep",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FirstCollisionAfterLaunch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DamageEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Killer",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "PhysicsAttacker",
+            "type": "CBasePlayerPawn",
+            "writable": false
+        },
+        {
+            "name": "LastPhysicsInfluenceTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeOutStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AwakeTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastOriginChangeTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StrOriginClassName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrSourceClassName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "HasBeenPhysgunned",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldTeleportPhysics",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AllowStretch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BlendWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DefaultFadeScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RagdollMins",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "RagdollMaxs",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "ShouldDeleteActivationRecord",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ValidatePoweredRagdollPose",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseAnimGraph",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

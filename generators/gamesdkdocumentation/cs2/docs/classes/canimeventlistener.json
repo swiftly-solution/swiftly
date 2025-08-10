@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CAnimEventListener",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimEventListener"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CAnimEventListenerBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

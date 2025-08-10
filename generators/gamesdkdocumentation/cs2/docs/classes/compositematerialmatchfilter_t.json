@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CompositeMaterialMatchFilter_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CompositeMaterialMatchFilter_t"
+    },
+    "properties": [
+        {
+            "name": "CompositeMaterialMatchFilterType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StrMatchFilter",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrMatchValue",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PassWhenTrue",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

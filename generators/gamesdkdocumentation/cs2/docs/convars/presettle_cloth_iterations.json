@@ -1,0 +1,1 @@
+{"kind":"command","name":"presettle_cloth_iterations","description":"<no description>","args":"30","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

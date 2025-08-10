@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CInterpolatedValue",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CInterpolatedValue"
+    },
+    "properties": [
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EndTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EndValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InterpType",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

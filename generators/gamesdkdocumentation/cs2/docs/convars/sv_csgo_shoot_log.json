@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_csgo_shoot_log","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

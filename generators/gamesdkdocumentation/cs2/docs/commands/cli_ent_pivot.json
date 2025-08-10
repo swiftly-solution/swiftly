@@ -1,0 +1,1 @@
+{"kind":"command","name":"cli_ent_pivot","description":"Displays the interpolated pivot for the given entity(ies).","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

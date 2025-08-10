@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CDestructiblePartsSystemComponent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDestructiblePartsSystemComponent"
+    },
+    "properties": [
+        {
+            "name": "__pChainEntity",
+            "type": "CNetworkVarChainer",
+            "writable": false
+        },
+        {
+            "name": "DamageLevelTakenByHitGroup",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "Owner",
+            "type": "CBaseModelEntity",
+            "writable": false
+        },
+        {
+            "name": "LastHitDamageLevel",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

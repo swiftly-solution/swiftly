@@ -1,0 +1,1 @@
+{"kind":"command","name":"exec","description":"Execute a cfg file","args":"","flags":["dontrecord","release"],"games":["cs2"]}

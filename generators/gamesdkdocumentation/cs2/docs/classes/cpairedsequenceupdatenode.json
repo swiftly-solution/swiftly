@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CPairedSequenceUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPairedSequenceUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CSequenceUpdateNodeBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

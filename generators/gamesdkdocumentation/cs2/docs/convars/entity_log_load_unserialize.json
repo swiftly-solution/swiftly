@@ -1,0 +1,1 @@
+{"kind":"command","name":"entity_log_load_unserialize","description":"Output unserialization of entities on map load. 0 - off, 1 - client/server, 2 - server, 3 - client","args":"0","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

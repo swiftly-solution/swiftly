@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnWeaponZoomRifle","description":"This event is triggered when weapon_zoom_rifle is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

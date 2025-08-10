@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CAnimFoot",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimFoot"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BallOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "HeelOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AnkleBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ToeBoneIndex",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

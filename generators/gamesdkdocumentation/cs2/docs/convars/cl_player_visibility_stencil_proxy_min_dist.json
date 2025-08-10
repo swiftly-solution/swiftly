@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_player_visibility_stencil_proxy_min_dist","description":"<no description>","args":"3","flags":["developmentonly","clientdll"],"games":["cs2"]}

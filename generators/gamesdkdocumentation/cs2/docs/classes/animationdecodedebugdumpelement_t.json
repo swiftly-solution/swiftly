@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "AnimationDecodeDebugDumpElement_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "AnimationDecodeDebugDumpElement_t"
+    },
+    "properties": [
+        {
+            "name": "EntityIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ModelName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PoseParams",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "DecodeOps",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "InternalOps",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "DecodedAnims",
+            "type": "string[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

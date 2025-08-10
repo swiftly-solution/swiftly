@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"base","type":"CBaseUserCmdPB"}],"name":"CUserCmdBasePB","games":["cs2"]}

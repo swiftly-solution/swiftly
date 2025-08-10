@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CEconWearable",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEconWearable"
+    },
+    "properties": [
+        {
+            "name": "ForceSkin",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AlwaysAllow",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CEconEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

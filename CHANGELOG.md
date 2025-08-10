@@ -2,6 +2,73 @@
 
 Over here will be noted all the update change logs.
 
+## v2.0.0 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v2.0.0)
+
+### VGUI
+
+- Temporary Removal due to Counter-Strike 2's AnimGraph 2 update.
+
+### Resource Monitor
+
+- Register in stack style the usages
+
+### SDK
+
+- Access methods (functions) from parent classes (ex. EmitSound now can be called from CBaseModelEntity).
+
+### Plugins Manifest
+
+- Now there's available a plugin manifest for each plugin. Check it out!
+
+https://swiftlys2.net/plugin-docs/plugin-manifest
+
+### Plugins Runtime
+
+- Removed JavaScript plugins support due to slow runtime performance and limitations.
+
+```
+After reviewing your feedback and carefully evaluating our development goals, we’ve made the decision to officially deprecate JavaScript/TypeScript support in Swiftly moving forward.
+
+While we acknowledge the community’s mixed opinions, this choice is grounded in technical limitations we’ve encountered. JavaScript has made certain advanced implementations, like accurate crash call stack tracing and deep function-level monitoring in our Resource Monitor, either impossible or messy without resorting to unreliable workarounds.
+
+Our top priority is to deliver a stable, powerful, and developer-friendly plugin ecosystem. To achieve that, we need a more robust and introspectable language environment.  JavaScript couldn't keep up with the performance standards that we require for Swiftly so that it can run at the best performance. It also couldn't enable us to create a more developer friendly environment as how C# and Lua will make in the next version.
+
+We're actively working on better alternatives and will share more on what’s next very soon. In the meantime, we appreciate your understanding and continued support.
+
+We're terribly sorry if we've upset you, but we hope that you can understand our point of view and our concerns regarding the performance of the game servers.
+```
+
+Ref: https://discord.com/channels/1178027657594687608/1178081840616181860/1402674791974043803
+
+- Added support for C# Plugins using .NET 8.0
+
+NuGet Package: https://www.nuget.org/packages/SwiftlyS2
+Documentation: https://swiftlys2.net
+
+### GameData
+
+- Fixes for Counter-Strike 2: AnimGraph 2 update.
+
+### Files
+
+- Removal of functions which may collide with Counter-Strike 2's tier0 library.
+
+### Events
+
+- Optimized events calling from extensions. Now they can call specific plugins.
+
+### Profiler
+
+- Support for profiling API in scripting. See https://swiftlys2.net/plugin-docs/profiler
+
+### SoundEvent
+
+- Now you can send sounds using events. See https://swiftlys2.net/plugin-docs/sounds/soundevent
+
+### Garbage Collector Menu
+
+- Now you can see what elements are allocated inside the plugins using `sw gc`
+
 ## v1.6.29 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v1.6.29)
 
 ### Hooks

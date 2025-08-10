@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_matchpause_auto_5v5","description":"When enabled will automatically pause the match at next freeze time if less than 5 players are connected on each team.","args":"false","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

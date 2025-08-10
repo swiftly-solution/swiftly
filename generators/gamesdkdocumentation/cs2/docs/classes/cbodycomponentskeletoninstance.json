@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CBodyComponentSkeletonInstance",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBodyComponentSkeletonInstance"
+    },
+    "properties": [
+        {
+            "name": "SkeletonInstance",
+            "type": "CSkeletonInstance",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBodyComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

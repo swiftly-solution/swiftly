@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "RnMesh_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "RnMesh_t"
+    },
+    "properties": [
+        {
+            "name": "Min",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Max",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TriangleEdgeFlags",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "Materials",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "OrthographicAreas",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DebugFlags",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

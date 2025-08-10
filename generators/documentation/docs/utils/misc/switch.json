@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "Switch",
+    "override_variable": true,
+    "override_function": {
+        "lua": "switch"
+    },
+    "description": "Allows for a switch-like behavior in Lua, matching a value against a set of cases. It supports functions or direct values for each case and includes a default fallback.",
+    "arguments": {
+        "key": "string",
+        "switch_items": "string:any"
+    },
+    "return": "any",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"weapon_sound_falloff_multiplier","description":"Scaling for falloff of weapon firing sounds","args":"1","flags":["gamedll","clientdll","replicated","cheat","release","commandline_enforced"],"games":["cs2"]}

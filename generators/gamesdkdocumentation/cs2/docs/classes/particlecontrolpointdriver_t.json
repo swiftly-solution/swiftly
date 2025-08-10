@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "ParticleControlPointDriver_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ParticleControlPointDriver_t"
+    },
+    "properties": [
+        {
+            "name": "ControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AttachType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AttachmentName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Offset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Offset1",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "EntityName",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

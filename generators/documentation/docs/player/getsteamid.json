@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetSteamID",
+    "description": "Returns the SteamID64 of the player.",
+    "arguments": {},
+    "return": "uint64",
+    "games": "all"
+}

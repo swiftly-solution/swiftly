@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPlayerFalldamage","description":"This event is triggered when player_falldamage is triggered.","arguments":{"userid":"int32","damage":"float"},"return":"void","games":["cs2"]}

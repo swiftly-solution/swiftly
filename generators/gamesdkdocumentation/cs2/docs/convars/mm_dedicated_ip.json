@@ -1,0 +1,1 @@
+{"kind":"command","name":"mm_dedicated_ip","description":"IP address of dedicated servers to consider available","args":"\"\"","flags":["developmentonly"],"games":["cs2"]}

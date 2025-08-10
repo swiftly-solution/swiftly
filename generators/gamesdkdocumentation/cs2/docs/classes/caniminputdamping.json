@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CAnimInputDamping",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimInputDamping"
+    },
+    "properties": [
+        {
+            "name": "SpeedFunction",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SpeedScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FallingSpeedScale",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

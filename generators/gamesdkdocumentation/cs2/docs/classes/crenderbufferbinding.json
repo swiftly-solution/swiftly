@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CRenderBufferBinding",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRenderBufferBinding"
+    },
+    "properties": [
+        {
+            "name": "Buffer",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "BindOffsetBytes",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

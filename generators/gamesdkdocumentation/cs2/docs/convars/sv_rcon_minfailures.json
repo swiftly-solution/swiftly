@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_rcon_minfailures","description":"Number of times a user can fail rcon authentication in sv_rcon_minfailuretime before being banned","args":"5","flags":["min:","1,","max:","20,","developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "CCSPlayerPawnBase",
+    "description": "Returns the player's CCSPlayerPawnBase.",
+    "arguments": {},
+    "return": "CCSPlayerPawnBase",
+    "games": "all"
+}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CSosGroupActionLimitSchema",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSosGroupActionLimitSchema"
+    },
+    "properties": [
+        {
+            "name": "MaxCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StopType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SortType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSosGroupActionSchema",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

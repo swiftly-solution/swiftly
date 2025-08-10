@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_clear_debug_overlays","description":"Clears all debug overlays","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

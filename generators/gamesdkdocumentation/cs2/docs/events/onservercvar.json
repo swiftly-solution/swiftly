@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnServerCvar","description":"This event is triggered when server_cvar is triggered.","arguments":{"cvarname":"string","cvarvalue":"string"},"return":"void","games":["cs2"]}

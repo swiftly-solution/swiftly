@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Get",
+    "description": "Returns the convar value.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "any",
+    "games": "all"
+}

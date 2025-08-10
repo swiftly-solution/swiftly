@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"timeleft","type":"int32"}],"name":"CMsgGC_GlobalGame_Unsubscribe","games":["cs2"]}

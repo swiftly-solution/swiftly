@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "PostProcessingTonemapParameters_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PostProcessingTonemapParameters_t"
+    },
+    "properties": [
+        {
+            "name": "ExposureBias",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShoulderStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ToeStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ToeNum",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ToeDenom",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WhitePoint",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LuminanceSource",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExposureBiasShadows",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ExposureBiasHighlights",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinShadowLum",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxShadowLum",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinHighlightLum",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxHighlightLum",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

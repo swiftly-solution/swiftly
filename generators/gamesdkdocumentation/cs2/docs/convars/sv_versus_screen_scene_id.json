@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_versus_screen_scene_id","description":"Determines which scene is used for the versus screen.","args":"0","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

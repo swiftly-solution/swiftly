@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "CBaseEntity",
+    "description": "Returns the player's CBaseEntity based of CCSPlayerPawn.",
+    "arguments": {},
+    "return": "CBaseEntity",
+    "games": "all"
+}

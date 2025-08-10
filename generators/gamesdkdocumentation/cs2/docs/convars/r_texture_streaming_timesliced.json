@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_texture_streaming_timesliced","description":"<no description>","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

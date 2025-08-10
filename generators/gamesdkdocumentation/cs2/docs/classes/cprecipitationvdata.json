@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CPrecipitationVData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPrecipitationVData"
+    },
+    "properties": [
+        {
+            "name": "InnerDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AttachType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BatchSameVolumeType",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RTEnvCP",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RTEnvCPComponent",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Modifier",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CEntitySubclassVDataBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

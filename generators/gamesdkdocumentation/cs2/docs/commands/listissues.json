@@ -1,0 +1,1 @@
+{"kind":"command","name":"listissues","description":"List all the issues that can be voted on.","args":"","flags":["gamedll","client_can_execute"],"games":["cs2"]}

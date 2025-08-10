@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"dummy","type":"int32"}],"name":"CCSUsrMsg_StopSpectatorMode","games":["cs2"]}

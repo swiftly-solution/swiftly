@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "FeRodConstraint_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeRodConstraint_t"
+    },
+    "properties": [
+        {
+            "name": "Node",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "MaxDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinDist",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Weight0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RelaxationFactor",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

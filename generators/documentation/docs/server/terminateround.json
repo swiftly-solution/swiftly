@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "TerminateRound",
+    "description": "Ends a round with a delay and with a reason.",
+    "arguments": {
+        "delay": "float",
+        "reason": "RoundEndReason_t"
+    },
+    "return": "void",
+    "games": "all"
+}

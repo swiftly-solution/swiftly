@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "PermModelInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PermModelInfo_t"
+    },
+    "properties": [
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HullMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "HullMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ViewMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ViewMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Mass",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EyePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MaxEyeDeflection",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SurfaceProperty",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "KeyValueText",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

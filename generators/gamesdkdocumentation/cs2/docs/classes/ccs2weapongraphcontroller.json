@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CCS2WeaponGraphController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCS2WeaponGraphController"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CAnimGraphControllerBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

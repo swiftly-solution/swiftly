@@ -1,0 +1,1 @@
+{"kind":"type","name":"RenderSlotType_t","description":"Automatically generated game type from enum RenderSlotType_t","values":{"RENDER_SLOT_INVALID":-1,"RENDER_SLOT_PER_VERTEX":0,"RENDER_SLOT_PER_INSTANCE":1},"games":["cs2"]}

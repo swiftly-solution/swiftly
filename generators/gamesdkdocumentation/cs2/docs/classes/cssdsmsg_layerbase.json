@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CSSDSMsg_LayerBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSSDSMsg_LayerBase"
+    },
+    "properties": [
+        {
+            "name": "ViewId",
+            "type": "SceneViewId_t",
+            "writable": false
+        },
+        {
+            "name": "ViewName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LayerId",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "LayerName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DisplayText",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

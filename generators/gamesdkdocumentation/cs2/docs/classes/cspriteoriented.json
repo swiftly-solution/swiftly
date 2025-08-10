@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CSpriteOriented",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSpriteOriented"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CSprite",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

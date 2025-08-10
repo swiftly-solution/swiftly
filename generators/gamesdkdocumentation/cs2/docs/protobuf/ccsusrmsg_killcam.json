@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"obsMode","type":"int32"},{"name":"firstTarget","type":"int32","default":-1},{"name":"secondTarget","type":"int32","default":-1}],"name":"CCSUsrMsg_KillCam","games":["cs2"]}

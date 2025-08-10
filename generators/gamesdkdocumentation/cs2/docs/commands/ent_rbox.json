@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_rbox","description":"Displays the total bounding box for the given entity(s) in green.  Some entites will also display entity specific overlays.","args":"   \t{entity_name} / {class_name} / {entity_index} / {no argument = pick what player is looking at}","flags":["clientdll","cheat"],"games":["cs2"]}

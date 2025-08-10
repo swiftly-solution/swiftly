@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_debug_timeouts","description":"Prints time outs to the console for debugging","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

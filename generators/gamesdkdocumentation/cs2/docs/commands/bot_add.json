@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_add","description":"bot_add <t|ct> <type> <difficulty> <name> - Adds a bot matching the given criteria.","args":"","flags":["gamedll","release"],"games":["cs2"]}

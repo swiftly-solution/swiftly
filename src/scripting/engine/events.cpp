@@ -13,25 +13,45 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
     ADD_FUNCTION("AddGlobalEvents", [](FunctionContext* context) -> void {
         if (context->GetArgumentsCount() != 1) return;
 
-        auto func = context->GetArgument<EValue>(0);
-        if (!func.isFunction()) return;
+        if (context->GetPluginContext()->GetKind() == ContextKinds::Dotnet) {
+            auto func = context->GetArgument<std::string>(0);
 
-        auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
-        if (!plugin) return;
+            auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
+            if (!plugin) return;
 
-        plugin->RegisterEventHandler(new EValue(func));
+            plugin->RegisterEventHandler(new EValue(context->GetPluginContext(), (void*)strdup(func.c_str()), 17));
+        }
+        else {
+            auto func = context->GetArgument<EValue>(0);
+            if (!func.isFunction()) return;
+
+            auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
+            if (!plugin) return;
+
+            plugin->RegisterEventHandler(new EValue(func));
+        }
     });
 
     ADD_FUNCTION("AddGlobalEventsJSON", [](FunctionContext* context) -> void {
         if (context->GetArgumentsCount() != 1) return;
 
-        auto func = context->GetArgument<EValue>(0);
-        if (!func.isFunction()) return;
+        if (context->GetPluginContext()->GetKind() == ContextKinds::Dotnet) {
+            auto func = context->GetArgument<std::string>(0);
 
-        auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
-        if (!plugin) return;
+            auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
+            if (!plugin) return;
 
-        plugin->RegisterEventHandlerJSON(new EValue(func));
+            plugin->RegisterEventHandlerJSON(new EValue(context->GetPluginContext(), (void*)strdup(func.c_str()), 17));
+        }
+        else {
+            auto func = context->GetArgument<EValue>(0);
+            if (!func.isFunction()) return;
+
+            auto plugin = g_pluginManager.FetchPlugin(FetchPluginName(context->GetPluginContext()));
+            if (!plugin) return;
+
+            plugin->RegisterEventHandlerJSON(new EValue(func));
+        }
     });
 
     ADD_FUNCTION("RegisterEventHandlerPlugin", [](FunctionContext* context) -> void {
@@ -88,7 +108,7 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
     });
 
     ADD_CLASS_FUNCTION("Event", "~Event", [](FunctionContext* context, ClassData* data) -> void {
-        if (data->GetDataOr<bool>("should_free", false) && data->GetDataOr<IGameEvent*>("event_data", nullptr)) {
+        if (data->HasData("should_free") && data->GetData<bool>("should_free") && data->GetDataOr<IGameEvent*>("event_data", nullptr)) {
             g_gameEventManager->FreeEvent(data->GetData<IGameEvent*>("event_data"));
         }
     });
@@ -213,6 +233,4 @@ LoadScriptingComponent(events, [](PluginObject plugin, EContext* ctx) -> void {
     ADD_CLASS_FUNCTION("Event", "GetNoBroadcast", [](FunctionContext* context, ClassData* data) -> void {
         context->SetReturn(data->GetDataOr<bool>("dontBroadcast", false));
     });
-
-    if (ctx->GetKind() == ContextKinds::JavaScript) ADD_VARIABLE("_G", "PEvent", EValue::getGlobal(ctx, "Event"));
 })

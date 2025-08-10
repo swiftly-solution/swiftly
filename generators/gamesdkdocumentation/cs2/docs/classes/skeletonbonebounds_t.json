@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "SkeletonBoneBounds_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SkeletonBoneBounds_t"
+    },
+    "properties": [
+        {
+            "name": "Center",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Size",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,13 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnGameTick",
+    "description": "This game event is called at every server tick.",
+    "arguments": {
+        "simulating": "bool",
+        "bFirstTick": "bool",
+        "bLastTick": "bool"
+    },
+    "return": "void",
+    "games": "all"
+}

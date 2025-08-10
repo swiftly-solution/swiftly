@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_dogtag_despawn_time","description":"How many seconds dogtags should stay around before despawning automatically (0 = infinite)","args":"120","flags":["min:","0,","gamedll","replicated","release","commandline_enforced"],"games":["cs2"]}

@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CStaticPoseCache",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CStaticPoseCache"
+    },
+    "properties": [
+        {
+            "name": "BoneCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MorphCount",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

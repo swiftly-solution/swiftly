@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_switch","description":"Switches to navmesh for the specified spawngroup","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

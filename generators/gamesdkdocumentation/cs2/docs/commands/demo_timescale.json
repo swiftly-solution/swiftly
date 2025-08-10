@@ -1,0 +1,1 @@
+{"kind":"command","name":"demo_timescale","description":"Sets demo replay speed.","args":"","flags":["release"],"games":["cs2"]}

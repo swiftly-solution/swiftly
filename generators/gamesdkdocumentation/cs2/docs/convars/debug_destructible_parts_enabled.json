@@ -1,0 +1,1 @@
+{"kind":"command","name":"debug_destructible_parts_enabled","description":"Toggle enabling/disabling the destructible parts system for debug.","args":"true","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

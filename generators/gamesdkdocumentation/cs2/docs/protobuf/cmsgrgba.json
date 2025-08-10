@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"r","type":"int32"},{"name":"g","type":"int32"},{"name":"b","type":"int32"},{"name":"a","type":"int32"}],"name":"CMsgRGBA","games":["cs2"]}

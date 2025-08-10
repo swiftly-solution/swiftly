@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_knives_only","description":"Restricts the bots to only using knives","args":"","flags":["gamedll","release"],"games":["cs2"]}

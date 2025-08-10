@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CMathColorBlend",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMathColorBlend"
+    },
+    "properties": [
+        {
+            "name": "InMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OutColor1",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "OutColor2",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

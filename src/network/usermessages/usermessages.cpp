@@ -11,7 +11,7 @@
 DynLibUtils::CModule DetermineModuleByLibrary(std::string library);
 
 SH_DECL_EXTERN8_void(IGameEventSystem, PostEventAbstract, SH_NOATTRIB, 0, CSplitScreenSlot, bool, int, const uint64*, INetworkMessageInternal*, const CNetMessage*, unsigned long, NetChannelBufType_t)
-SH_DECL_MANUALHOOK2(FilterMessage, 0, 0, 0, bool, const CNetMessage*, INetChannel*);
+SH_DECL_HOOK2(CServerSideClientBase, FilterMessage, SH_NOATTRIB, 0, bool, const CNetMessage*, INetChannel*);
 
 int hookID = -1;
 
@@ -19,17 +19,15 @@ void UserMessages::Initialize()
 {
     SH_ADD_HOOK_MEMFUNC(IGameEventSystem, PostEventAbstract, g_pGameEventSystem, this, &UserMessages::PostEvent, false);
 
-    #ifndef _WIN32
     DynLibUtils::CModule eng = DetermineModuleByLibrary("engine2");
-    void* serverSideClientVTable = FindVirtTable(&eng, "CServerSideClient", g_GameData.GetOffset("INetworkMessageProcessingPreFilter"));
+    void* serverSideClientVTable = eng.GetVirtualTableByName("CServerSideClient");
 
-    hookID = SH_ADD_MANUALDVPHOOK(FilterMessage, serverSideClientVTable, SH_MEMBER(this, &UserMessages::FilterMessage), false);
-    #endif
+    hookID = SH_ADD_DVPHOOK(CServerSideClientBase, FilterMessage, (CServerSideClientBase*)serverSideClientVTable, SH_MEMBER(this, &UserMessages::FilterMessage), false);
 }
 
 bool UserMessages::FilterMessage(const CNetMessage* cMsg, INetChannel* netchan)
 {
-    auto client = META_IFACEPTR(CServerSideClient);
+    auto client = META_IFACEPTR(CServerSideClientBase);
     if (!client) RETURN_META_VALUE(MRES_IGNORED, true);
     if (!cMsg) RETURN_META_VALUE(MRES_IGNORED, true);
 
@@ -46,11 +44,11 @@ bool UserMessages::FilterMessage(const CNetMessage* cMsg, INetChannel* netchan)
 void UserMessages::Destroy()
 {
     SH_REMOVE_HOOK_MEMFUNC(IGameEventSystem, PostEventAbstract, g_pGameEventSystem, this, &UserMessages::PostEvent, false);
-    
-    #ifndef _WIN32
+
+#ifndef _WIN32
     SH_REMOVE_HOOK_ID(hookID);
     hookID = -1;
-    #endif
+#endif
 }
 
 void UserMessages::PostEvent(CSplitScreenSlot nSlot, bool bLocalOnly, int nClientCount, const uint64* clients, INetworkMessageInternal* pEvent, const CNetMessage* pData, unsigned long nSize, NetChannelBufType_t bufType)

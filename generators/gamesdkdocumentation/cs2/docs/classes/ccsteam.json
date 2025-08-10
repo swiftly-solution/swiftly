@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "CCSTeam",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSTeam"
+    },
+    "properties": [
+        {
+            "name": "LastRecievedShorthandedRoundBonus",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShorthandedRoundBonusStartRound",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Surrendered",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TeamMatchStat",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NumMapVictories",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ScoreFirstHalf",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ScoreSecondHalf",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ScoreOvertime",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ClanTeamname",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ClanID",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TeamFlagImage",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TeamLogoImage",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NextResourceTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastUpdateSentAt",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CTeam",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

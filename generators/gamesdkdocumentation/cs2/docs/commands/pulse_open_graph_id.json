@@ -1,0 +1,1 @@
+{"kind":"command","name":"pulse_open_graph_id","description":"Open a specific graph instance by id","args":"","flags":["cheat"],"games":["cs2"]}

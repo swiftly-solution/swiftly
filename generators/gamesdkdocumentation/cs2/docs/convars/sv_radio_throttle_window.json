@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_radio_throttle_window","description":"The number of seconds before radio command tokens refresh.","args":"10","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"NmTargetWarpRule_t","description":"Automatically generated game type from enum NmTargetWarpRule_t","values":{"WarpXY":0,"WarpZ":1,"WarpXYZ":2,"RotationOnly":3},"games":["cs2"]}

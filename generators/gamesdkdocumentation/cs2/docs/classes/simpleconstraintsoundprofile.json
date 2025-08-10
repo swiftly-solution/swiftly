@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "SimpleConstraintSoundProfile",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SimpleConstraintSoundProfile"
+    },
+    "properties": [
+        {
+            "name": "KeyPoints",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "ReversalSoundThresholds",
+            "type": "float[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

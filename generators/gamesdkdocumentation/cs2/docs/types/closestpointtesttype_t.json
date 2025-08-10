@@ -1,0 +1,1 @@
+{"kind":"type","name":"ClosestPointTestType_t","description":"Automatically generated game type from enum ClosestPointTestType_t","values":{"PARTICLE_CLOSEST_TYPE_BOX":0,"PARTICLE_CLOSEST_TYPE_CAPSULE":1,"PARTICLE_CLOSEST_TYPE_HYBRID":2},"games":["cs2"]}

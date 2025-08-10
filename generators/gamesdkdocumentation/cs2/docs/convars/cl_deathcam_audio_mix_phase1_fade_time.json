@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_deathcam_audio_mix_phase1_fade_time","description":"Sets the amount of time we fade out over.","args":"2","flags":["clientdll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_snipers_only","description":"Restricts the bots to only using sniper rifles","args":"","flags":["gamedll","release"],"games":["cs2"]}

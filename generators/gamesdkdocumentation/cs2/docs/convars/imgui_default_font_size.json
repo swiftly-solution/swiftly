@@ -1,0 +1,1 @@
+{"kind":"command","name":"imgui_default_font_size","description":"Default imgui font size","args":"20","flags":["archive","cheat"],"games":["cs2"]}

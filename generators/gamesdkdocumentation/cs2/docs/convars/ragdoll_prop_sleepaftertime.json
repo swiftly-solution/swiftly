@@ -1,0 +1,1 @@
+{"kind":"command","name":"ragdoll_prop_sleepaftertime","description":"After this many seconds of being basically stationary, the ragdoll will go to sleep.","args":"4","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

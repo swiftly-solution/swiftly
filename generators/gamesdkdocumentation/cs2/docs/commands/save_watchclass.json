@@ -1,0 +1,1 @@
+{"kind":"command","name":"save_watchclass","description":"Restrict spew to entities with matching classname","args":"","flags":["developmentonly","gamedll","defensive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"ChoreoLookAtMode_t","description":"Automatically generated game type from enum ChoreoLookAtMode_t","values":{"eInvalid":-1,"eChest":0,"eHead":1,"eEyesOnly":2},"games":["cs2"]}

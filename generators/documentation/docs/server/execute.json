@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Execute",
+    "description": "Executes a command in the server console.",
+    "arguments": {
+        "command": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

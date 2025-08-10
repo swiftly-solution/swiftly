@@ -23,15 +23,18 @@ public:
     };
     typedef std::vector<std::string> Row;
     TextTable()
-        : _horizontal('-'), _vertical('|'), _corner('+'), _has_ruler(true) {}
+        : _horizontal('-'), _vertical('|'), _corner('+'), _has_ruler(true) {
+    }
 
     TextTable(char horizontal, char vertical, char corner)
         : _horizontal(horizontal), _vertical(vertical), _corner(corner),
-          _has_ruler(true) {}
+        _has_ruler(true) {
+    }
 
     explicit TextTable(char vertical)
         : _horizontal('\0'), _vertical(vertical), _corner('\0'),
-          _has_ruler(false) {}
+        _has_ruler(false) {
+    }
 
     void setAlignment(unsigned i, Alignment alignment)
     {
@@ -44,7 +47,7 @@ public:
 
     char horizontal() const { return _horizontal; }
 
-    void add(const std::string &content) { _current.push_back(content); }
+    void add(const std::string& content) { _current.push_back(content); }
 
     void endOfRow()
     {
@@ -63,12 +66,12 @@ public:
     }
 
     template <typename Container>
-    void addRow(const Container &container)
+    void addRow(const Container& container)
     {
         addRow(container.begin(), container.end());
     }
 
-    const std::vector<Row> &rows() const { return _rows; }
+    const std::vector<Row>& rows() const { return _rows; }
 
     void setup() const
     {
@@ -93,10 +96,10 @@ public:
 
     bool has_ruler() const { return _has_ruler; }
 
-    int correctDistance(const std::string &string_to_correct) const
+    int correctDistance(const std::string& string_to_correct) const
     {
         return static_cast<int>(string_to_correct.size()) -
-               static_cast<int>(glyphLength(string_to_correct));
+            static_cast<int>(glyphLength(string_to_correct));
     };
 
 private:
@@ -121,7 +124,7 @@ private:
 
     unsigned columns() const { return (unsigned)_rows[0].size(); }
 
-    unsigned glyphLength(const std::string &s) const
+    unsigned glyphLength(const std::string& s) const
     {
         unsigned int _byteLength = (unsigned int)(s.length());
 #ifdef TEXTTABLE_ENCODE_MULTIBYTE_STRINGS
@@ -131,7 +134,7 @@ private:
 #error You need to specify the encoding if the TextTable library uses multybyte string encoding!
 #endif
         unsigned int u = 0;
-        const char *c_str = s.c_str();
+        const char* c_str = s.c_str();
         unsigned _glyphLength = 0;
         while (u < _byteLength)
         {
@@ -155,7 +158,7 @@ private:
         for (auto rowIterator = _rows.begin(); rowIterator != _rows.end();
              ++rowIterator)
         {
-            Row const &row = *rowIterator;
+            Row const& row = *rowIterator;
             for (unsigned i = 0; i < row.size(); ++i)
             {
                 _width[i] =
@@ -180,43 +183,43 @@ private:
     }
 };
 
-inline std::ostream &operator<<(std::ostream &stream, const TextTable &table)
+inline std::string setw_string(size_t width, const std::string& str, char fill = ' ') {
+    if (str.size() >= width) return str;
+    return std::string(width - str.size(), fill) + str;
+}
+inline std::string setw_string_left(size_t width, const std::string& str, char fill = ' ') {
+    if (str.size() >= width) return str;
+    return str + std::string(width - str.size(), fill);
+}
+
+inline std::string TableToString(TextTable table)
 {
+    std::string out;
     if (table.rows().empty())
     {
-        return stream;
+        return out;
     }
     table.setup();
     if (table.has_ruler())
     {
-        stream << table.ruler() << "\n";
+        out += table.ruler() + "\n";
     }
     for (auto rowIterator = table.rows().begin();
          rowIterator != table.rows().end(); ++rowIterator)
     {
-        TextTable::Row const &row = *rowIterator;
-        stream << table.vertical();
+        TextTable::Row const& row = *rowIterator;
+        out += table.vertical();
         for (unsigned i = 0; i < row.size(); ++i)
         {
-            auto alignment = table.alignment(i) == TextTable::Alignment::LEFT
-                                 ? std::left
-                                 : std::right;
-            // std::setw( width ) works as follows: a string which goes in the stream
-            // with byte length (!) l is filled with n spaces so that l+n=width. For a
-            // utf8 encoded string the glyph length g might be smaller than l. We need
-            // n spaces so that g+n=width which is equivalent to g+n+l-l=width ==> l+n
-            // = width+l-g l-g (that means glyph length minus byte length) has to be
-            // added to the width argument. l-g is computed by correctDistance.
-            stream << std::setw(table.width(i) + table.correctDistance(row[i]))
-                   << alignment << row[i];
-            stream << table.vertical();
+            out += (table.alignment(i) == TextTable::Alignment::LEFT ? setw_string_left(table.width(i) + table.correctDistance(row[i]), row[i]) : setw_string(table.width(i) + table.correctDistance(row[i]), row[i]));
+            out += table.vertical();
         }
-        stream << "\n";
+        out += "\n";
         if (table.has_ruler())
         {
-            stream << table.ruler() << "\n";
+            out += table.ruler() + "\n";
         }
     }
 
-    return stream;
+    return out;
 }

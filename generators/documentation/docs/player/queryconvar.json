@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "QueryConvar",
+    "description": "Queries a convar from a player.",
+    "arguments": {
+        "convar_name": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

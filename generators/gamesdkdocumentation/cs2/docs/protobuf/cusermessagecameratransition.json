@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"cameraType","type":"uint32"},{"name":"duration","type":"float"},{"name":"paramsDataDriven","type":"CUserMessageCameraTransition.Transition_DataDriven"}],"name":"CUserMessageCameraTransition","games":["cs2"]}

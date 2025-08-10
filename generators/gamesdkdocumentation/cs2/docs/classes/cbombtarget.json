@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CBombTarget",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBombTarget"
+    },
+    "properties": [
+        {
+            "name": "OnBombExplode",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnBombPlanted",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnBombDefused",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "IsBombSiteB",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsHeistBombTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BombPlantedHere",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MountTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "InstructorHint",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "BombSiteDesignation",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseTrigger",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

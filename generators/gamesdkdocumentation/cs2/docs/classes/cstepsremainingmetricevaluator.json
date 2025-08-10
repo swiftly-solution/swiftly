@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CStepsRemainingMetricEvaluator",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CStepsRemainingMetricEvaluator"
+    },
+    "properties": [
+        {
+            "name": "FootIndices",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MinStepsRemaining",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CMotionMetricEvaluator",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

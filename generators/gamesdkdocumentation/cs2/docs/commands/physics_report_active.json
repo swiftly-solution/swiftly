@@ -1,0 +1,1 @@
+{"kind":"command","name":"physics_report_active","description":"Lists all active physics objects","args":" extra info","flags":["developmentonly","gamedll"],"games":["cs2"]}

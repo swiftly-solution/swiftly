@@ -1,0 +1,12 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "FindPlayerByTarget",
+    "description": "This game event is triggered when `FindPlayersByTarget` is being called.",
+    "arguments": {
+        "playerid": "int32",
+        "target": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

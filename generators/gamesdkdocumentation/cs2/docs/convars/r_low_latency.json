@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_low_latency","description":"NVIDIA Low Latency/AMD Anti-Lag 2 (0 = off, 1 = on, 2 = NV-only, on + boost)","args":"1","flags":["developmentonly","defensive"],"games":["cs2"]}

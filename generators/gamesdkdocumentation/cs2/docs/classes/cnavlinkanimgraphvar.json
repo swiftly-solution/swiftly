@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CNavLinkAnimgraphVar",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNavLinkAnimgraphVar"
+    },
+    "properties": [
+        {
+            "name": "AlignmentDegrees",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

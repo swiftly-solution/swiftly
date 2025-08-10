@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnGrenadeThrown","description":"This event is triggered when grenade_thrown is triggered.","arguments":{"userid":"int32","weapon":"string"},"return":"void","games":["cs2"]}

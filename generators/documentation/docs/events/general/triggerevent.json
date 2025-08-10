@@ -1,0 +1,16 @@
+{
+    "kind": "function",
+    "function": "TriggerEvent",
+    "override_variable": true,
+    "override_function": {
+        "lua": "TriggerEvent",
+        "cs": "Events.TriggerEvent"
+    },
+    "description": "Triggers an event and returns the event result and the event data.",
+    "arguments": {
+        "event_name": "string",
+        "...": "any"
+    },
+    "return": "EventResult,Event",
+    "games": "all"
+}

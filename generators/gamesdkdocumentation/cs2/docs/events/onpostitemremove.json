@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostItemRemove","description":"This event is triggered after item_remove is triggered.","arguments":{"userid":"int32","item":"string","defindex":"int32"},"return":"void","games":["cs2"]}

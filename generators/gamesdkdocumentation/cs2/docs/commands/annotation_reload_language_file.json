@@ -1,0 +1,1 @@
+{"kind":"command","name":"annotation_reload_language_file","description":"Creates an annotation","args":"","flags":["clientdll","release"],"games":["cs2"]}

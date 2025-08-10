@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CTestDomainDerived_Cursor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTestDomainDerived_Cursor"
+    },
+    "properties": [
+        {
+            "name": "CursorValueA",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CursorValueB",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPulseExecCursor",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

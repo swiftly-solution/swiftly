@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CHitBox",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CHitBox"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SurfaceProperty",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MinBounds",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MaxBounds",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ShapeRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BoneNameHash",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "GroupId",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ShapeType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "TranslationOnly",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CRC",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CRenderColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "HitBoxIndex",
+            "type": "uint16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

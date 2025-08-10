@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CSpinUpdateBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSpinUpdateBase"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CParticleFunctionOperator",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

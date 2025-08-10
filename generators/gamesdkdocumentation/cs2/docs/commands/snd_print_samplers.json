@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_print_samplers","description":"List all available samplers","args":"","flags":["cheat"],"games":["cs2"]}

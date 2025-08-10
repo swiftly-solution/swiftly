@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_dm_time_between_bonus_max","description":"Maximum time a bonus time will start after the round start or after the last bonus (in seconds)","args":"40","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

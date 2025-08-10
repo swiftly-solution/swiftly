@@ -1,0 +1,1 @@
+{"kind":"command","name":"Test_Checkpoint","description":"Indicate to a test script that a checkpoint has been reached","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

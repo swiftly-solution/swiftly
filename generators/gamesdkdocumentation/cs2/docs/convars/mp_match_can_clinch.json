@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_match_can_clinch","description":"Can a team clinch and end the match by being so far ahead that the other team has no way to catching up?","args":"true","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

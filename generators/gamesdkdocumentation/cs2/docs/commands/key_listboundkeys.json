@@ -1,0 +1,1 @@
+{"kind":"command","name":"key_listboundkeys","description":"List bound keys with bindings.","args":"","flags":["release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_place","description":"bot_place - Places a bot from the map at where the local player is pointing.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

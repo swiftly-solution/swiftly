@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_instanced_mesh_gpu_vis_culling","description":"Toggles GPU vis of instanced meshes","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

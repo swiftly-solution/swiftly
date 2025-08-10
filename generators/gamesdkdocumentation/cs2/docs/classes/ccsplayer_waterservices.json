@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CCSPlayer_WaterServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayer_WaterServices"
+    },
+    "properties": [
+        {
+            "name": "NextDrownDamageTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DrownDmgRate",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AirFinishedTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WaterJumpTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WaterJumpVel",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SwimSoundTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayer_WaterServices",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

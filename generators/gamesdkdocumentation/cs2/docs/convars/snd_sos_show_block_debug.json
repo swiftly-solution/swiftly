@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_show_block_debug","description":"Spew data about the list of block entries.","args":"false","flags":["cheat"],"games":["cs2"]}

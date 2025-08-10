@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CVoiceContainerSelector",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVoiceContainerSelector"
+    },
+    "properties": [
+        {
+            "name": "Mode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SoundsToPlay",
+            "type": "CSoundContainerReferenceArray",
+            "writable": false
+        },
+        {
+            "name": "ProbabilityWeights",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CVoiceContainerBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

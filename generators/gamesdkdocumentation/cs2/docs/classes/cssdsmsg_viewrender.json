@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CSSDSMsg_ViewRender",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSSDSMsg_ViewRender"
+    },
+    "properties": [
+        {
+            "name": "ViewId",
+            "type": "SceneViewId_t",
+            "writable": false
+        },
+        {
+            "name": "ViewName",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

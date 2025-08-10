@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "VoxelVisBlockOffset_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VoxelVisBlockOffset_t"
+    },
+    "properties": [
+        {
+            "name": "Offset",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ElementCount",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

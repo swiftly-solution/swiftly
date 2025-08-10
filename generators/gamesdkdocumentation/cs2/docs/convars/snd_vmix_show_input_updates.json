@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_vmix_show_input_updates","description":"If set to 1, show all incoming updates to vmix inputs.","args":"false","flags":["cheat"],"games":["cs2"]}

@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "Drop",
+    "description": "Drops the client from the server.",
+    "arguments": {
+        "reason": "DisconnectReason",
+        "msg": "string?"
+    },
+    "return": "void",
+    "games": "all"
+}

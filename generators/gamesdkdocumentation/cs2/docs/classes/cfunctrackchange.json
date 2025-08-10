@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CFuncTrackChange",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncTrackChange"
+    },
+    "properties": [
+        {
+            "name": "TrackTop",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "TrackBottom",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Train",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "TrackTopName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TrackBottomName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TrainName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Code",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TargetState",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Use",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CFuncPlatRot",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_script_attach_debugger","description":"Connect the vscript VM to the script debugger","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

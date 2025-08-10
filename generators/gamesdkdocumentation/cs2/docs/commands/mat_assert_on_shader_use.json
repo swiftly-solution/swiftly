@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_assert_on_shader_use","description":"Assert on shader used based on substring of shader name","args":"","flags":["developmentonly"],"games":["cs2"]}

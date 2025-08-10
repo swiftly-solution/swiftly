@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_skirmish_id","description":"Dedicated server skirmish id to run","args":"0","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

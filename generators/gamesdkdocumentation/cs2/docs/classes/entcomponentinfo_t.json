@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "EntComponentInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EntComponentInfo_t"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "CPPClassname",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "NetworkDataReferencedDescription",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "NetworkDataReferencedPtrPropDescription",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "RuntimeIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BaseClassComponentHelper",
+            "type": "int32[]",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

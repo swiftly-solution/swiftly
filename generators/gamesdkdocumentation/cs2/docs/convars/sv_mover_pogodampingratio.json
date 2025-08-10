@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_mover_pogodampingratio","description":"The capsule pogo stick damping ratio [-]","args":"1","flags":["developmentonly","gamedll","clientdll","notify","replicated","defensive"],"games":["cs2"]}

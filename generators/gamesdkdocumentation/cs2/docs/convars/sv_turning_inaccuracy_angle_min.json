@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_turning_inaccuracy_angle_min","description":"<no description>","args":"4","flags":["gamedll","clientdll","replicated","cheat","release"],"games":["cs2"]}

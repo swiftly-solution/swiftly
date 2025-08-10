@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_dev_damage_use_netvars","description":"Whether we should use network vars (true) or legacy messages (false).","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

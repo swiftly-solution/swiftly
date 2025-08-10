@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_defuser_allocation","description":"How to allocate defusers to CTs at start or round: 0=none, 1=random, 2=everyone","args":"0","flags":["min:","0,","max:","2,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

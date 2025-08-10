@@ -1,0 +1,1 @@
+{"kind":"command","name":"skeleton_instance_lod_optimization","description":"Compute LOD mask internally like since 2016, i.e. force all LOD groups' bones to compute","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

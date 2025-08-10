@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CSolveIKChainUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSolveIKChainUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "OpFixedData",
+            "type": "SolveIKChainPoseOpFixedSettings_t",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

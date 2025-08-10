@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "Unregister",
+    "description": "Unregisters a command registered through Swiftly Commands.",
+    "arguments": {
+        "command_name": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

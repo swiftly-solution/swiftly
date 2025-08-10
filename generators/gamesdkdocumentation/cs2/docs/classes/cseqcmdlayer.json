@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CSeqCmdLayer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSeqCmdLayer"
+    },
+    "properties": [
+        {
+            "name": "Cmd",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "LocalReference",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "LocalBonemask",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "DstResult",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "SrcResult",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "Spline",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Var1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Var2",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LineNumber",
+            "type": "int16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

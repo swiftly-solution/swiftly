@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "GetFIrstInSlot",
+    "description": "Returns the first weapon in the specified slot.",
+    "arguments": {
+        "slot": "gear_slot_t"
+    },
+    "return": "Weapon",
+    "games": "all"
+}

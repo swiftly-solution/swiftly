@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "EventSimulate_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "EventSimulate_t"
+    },
+    "properties": [
+        {
+            "name": "LoopState",
+            "type": "EngineLoopState_t",
+            "writable": false
+        },
+        {
+            "name": "FirstTick",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastTick",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -9,8 +9,6 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
     ADD_CLASS("QAngle");
     ADD_CLASS("Color");
 
-    bool isLua = ctx->GetKind() == ContextKinds::Lua;
-
     ADD_CLASS_FUNCTION("Vector", "Vector", [](FunctionContext* context, ClassData* data) -> void {
         float x = context->GetArgumentOr<float>(0, 0.0f);
         float y = context->GetArgumentOr<float>(1, 0.0f);
@@ -50,15 +48,15 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
 
     ADD_CLASS_FUNCTION("Vector", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         Vector* vec = data->GetDataPtr<Vector>("vector_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 
-    ADD_CLASS_FUNCTION("Vector", isLua ? "__len" : "length", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector", "__len", [](FunctionContext* context, ClassData* data) -> void {
         Vector* vec = data->GetDataPtr<Vector>("vector_ptr");
         context->SetReturn(FastSqrt(vec->x * vec->x + vec->y * vec->y + vec->z * vec->z));
     });
 
-    ADD_CLASS_FUNCTION("Vector", isLua ? "__eq" : "equal", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector", "__eq", [](FunctionContext* context, ClassData* data) -> void {
         Vector vec = data->GetData<Vector>("vector_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -70,12 +68,12 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(vec == otherVec);
     });
 
-    ADD_CLASS_FUNCTION("Vector", isLua ? "__tostring" : "toString", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector", "__tostring", [](FunctionContext* context, ClassData* data) -> void {
         Vector* vec = data->GetDataPtr<Vector>("vector_ptr");
         context->SetReturn(string_format("Vector(%f,%f,%f)", vec->x, vec->y, vec->z));
     });
 
-    ADD_CLASS_FUNCTION("Vector", isLua ? "__add" : "add", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector", "__add", [](FunctionContext* context, ClassData* data) -> void {
         Vector vec = data->GetData<Vector>("vector_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -88,14 +86,14 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector", isLua ? "__unm" : "unm", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector", "__unm", [](FunctionContext* context, ClassData* data) -> void {
         Vector vec = data->GetData<Vector>("vector_ptr");
 
         data->SetData("vector_ptr", -vec);
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector", isLua ? "__sub" : "sub", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector", "__sub", [](FunctionContext* context, ClassData* data) -> void {
         Vector vec = data->GetData<Vector>("vector_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -108,7 +106,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector", isLua ? "__mul" : "mul", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector", "__mul", [](FunctionContext* context, ClassData* data) -> void {
         Vector vec = data->GetData<Vector>("vector_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -121,7 +119,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector", isLua ? "__div" : "div", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector", "__div", [](FunctionContext* context, ClassData* data) -> void {
         Vector vec = data->GetData<Vector>("vector_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -162,15 +160,15 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
 
     ADD_CLASS_FUNCTION("Vector2D", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D* vec = data->GetDataPtr<Vector2D>("Vector2D_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 
-    ADD_CLASS_FUNCTION("Vector2D", isLua ? "__len" : "length", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector2D", "__len", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D* vec = data->GetDataPtr<Vector2D>("Vector2D_ptr");
         context->SetReturn(FastSqrt(vec->x * vec->x + vec->y * vec->y));
     });
 
-    ADD_CLASS_FUNCTION("Vector2D", isLua ? "__eq" : "equal", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector2D", "__eq", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D vec = data->GetData<Vector2D>("Vector2D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -182,12 +180,12 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(vec == otherVec);
     });
 
-    ADD_CLASS_FUNCTION("Vector2D", isLua ? "__tostring" : "toString", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector2D", "__tostring", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D* vec = data->GetDataPtr<Vector2D>("Vector2D_ptr");
         context->SetReturn(string_format("Vector2D(%f,%f)", vec->x, vec->y));
     });
 
-    ADD_CLASS_FUNCTION("Vector2D", isLua ? "__add" : "add", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector2D", "__add", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D vec = data->GetData<Vector2D>("Vector2D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -200,14 +198,14 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector2D", isLua ? "__unm" : "unm", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector2D", "__unm", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D vec = data->GetData<Vector2D>("Vector2D_ptr");
 
         data->SetData("Vector2D_ptr", -vec);
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector2D", isLua ? "__sub" : "sub", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector2D", "__sub", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D vec = data->GetData<Vector2D>("Vector2D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -220,7 +218,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector2D", isLua ? "__mul" : "mul", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector2D", "__mul", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D vec = data->GetData<Vector2D>("Vector2D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -233,7 +231,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector2D", isLua ? "__div" : "div", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector2D", "__div", [](FunctionContext* context, ClassData* data) -> void {
         Vector2D vec = data->GetData<Vector2D>("Vector2D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -296,15 +294,15 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
 
     ADD_CLASS_FUNCTION("Vector4D", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D* vec = data->GetDataPtr<Vector4D>("Vector4D_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 
-    ADD_CLASS_FUNCTION("Vector4D", isLua ? "__len" : "length", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector4D", "__len", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D* vec = data->GetDataPtr<Vector4D>("Vector4D_ptr");
         context->SetReturn(FastSqrt(vec->x * vec->x + vec->y * vec->y + vec->z * vec->z + vec->w * vec->w));
     });
 
-    ADD_CLASS_FUNCTION("Vector4D", isLua ? "__eq" : "equal", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector4D", "__eq", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D vec = data->GetData<Vector4D>("Vector4D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -316,12 +314,12 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(vec == otherVec);
     });
 
-    ADD_CLASS_FUNCTION("Vector4D", isLua ? "__tostring" : "toString", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector4D", "__tostring", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D* vec = data->GetDataPtr<Vector4D>("Vector4D_ptr");
         context->SetReturn(string_format("Vector4D(%f,%f,%f,%f)", vec->x, vec->y, vec->z, vec->w));
     });
 
-    ADD_CLASS_FUNCTION("Vector4D", isLua ? "__add" : "add", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector4D", "__add", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D vec = data->GetData<Vector4D>("Vector4D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -334,14 +332,14 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector4D", isLua ? "__unm" : "unm", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector4D", "__unm", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D vec = data->GetData<Vector4D>("Vector4D_ptr");
 
         data->SetData("Vector4D_ptr", -vec);
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector4D", isLua ? "__sub" : "sub", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector4D", "__sub", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D vec = data->GetData<Vector4D>("Vector4D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -354,7 +352,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector4D", isLua ? "__mul" : "mul", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector4D", "__mul", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D vec = data->GetData<Vector4D>("Vector4D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -367,7 +365,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("Vector4D", isLua ? "__div" : "div", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Vector4D", "__div", [](FunctionContext* context, ClassData* data) -> void {
         Vector4D vec = data->GetData<Vector4D>("Vector4D_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -424,15 +422,15 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
 
     ADD_CLASS_FUNCTION("QAngle", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         QAngle* vec = data->GetDataPtr<QAngle>("QAngle_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 
-    ADD_CLASS_FUNCTION("QAngle", isLua ? "__len" : "length", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("QAngle", "__len", [](FunctionContext* context, ClassData* data) -> void {
         QAngle* vec = data->GetDataPtr<QAngle>("QAngle_ptr");
         context->SetReturn(FastSqrt(vec->x * vec->x + vec->y * vec->y + vec->z * vec->z));
     });
 
-    ADD_CLASS_FUNCTION("QAngle", isLua ? "__eq" : "equal", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("QAngle", "__eq", [](FunctionContext* context, ClassData* data) -> void {
         QAngle vec = data->GetData<QAngle>("QAngle_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -444,12 +442,12 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(vec == otherVec);
     });
 
-    ADD_CLASS_FUNCTION("QAngle", isLua ? "__tostring" : "toString", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("QAngle", "__tostring", [](FunctionContext* context, ClassData* data) -> void {
         QAngle* vec = data->GetDataPtr<QAngle>("QAngle_ptr");
         context->SetReturn(string_format("QAngle(%f,%f,%f)", vec->x, vec->y, vec->z));
     });
 
-    ADD_CLASS_FUNCTION("QAngle", isLua ? "__add" : "add", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("QAngle", "__add", [](FunctionContext* context, ClassData* data) -> void {
         QAngle vec = data->GetData<QAngle>("QAngle_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -462,14 +460,14 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("QAngle", isLua ? "__unm" : "unm", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("QAngle", "__unm", [](FunctionContext* context, ClassData* data) -> void {
         QAngle vec = data->GetData<QAngle>("QAngle_ptr");
 
         data->SetData("QAngle_ptr", -vec);
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("QAngle", isLua ? "__sub" : "sub", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("QAngle", "__sub", [](FunctionContext* context, ClassData* data) -> void {
         QAngle vec = data->GetData<QAngle>("QAngle_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -482,7 +480,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("QAngle", isLua ? "__mul" : "mul", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("QAngle", "__mul", [](FunctionContext* context, ClassData* data) -> void {
         QAngle vec = data->GetData<QAngle>("QAngle_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -499,7 +497,7 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         context->SetReturn(data);
     });
 
-    ADD_CLASS_FUNCTION("QAngle", isLua ? "__div" : "div", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("QAngle", "__div", [](FunctionContext* context, ClassData* data) -> void {
         QAngle vec = data->GetData<QAngle>("QAngle_ptr");
 
         auto otherVecData = context->GetArgumentOr<ClassData*>(0, nullptr);
@@ -564,13 +562,13 @@ LoadScriptingComponent(baseclasses, [](PluginObject plugin, EContext* ctx) -> vo
         vec->SetColor(vec->r(), vec->g(), vec->b(), context->GetArgumentOr<int>(0, 0));
         });
 
-    ADD_CLASS_FUNCTION("Color", isLua ? "__tostring" : "toString", [](FunctionContext* context, ClassData* data) -> void {
+    ADD_CLASS_FUNCTION("Color", "__tostring", [](FunctionContext* context, ClassData* data) -> void {
         Color* vec = data->GetDataPtr<Color>("Color_ptr");
         context->SetReturn(string_format("Color(%d,%d,%d,%d)", vec->r(), vec->g(), vec->b(), vec->a()));
     });
 
     ADD_CLASS_FUNCTION("Color", "GetPtr", [](FunctionContext* context, ClassData* data) -> void {
         Color* vec = data->GetDataPtr<Color>("Color_ptr");
-        context->SetReturn(string_format("%p", vec));
+        context->SetReturn(MAKE_CLASS_INSTANCE("Memory", { { "ptr", (void*)vec } }));
     });
 })

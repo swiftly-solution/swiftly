@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_visualize_sceneobjects","description":"1 = visualize bounds, 2 = visualize sceneobject mesh materials, 3 = required texture size, 4 = bounds group, 5 = LOD, 6 == LPV Binding, 7 == instancing","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

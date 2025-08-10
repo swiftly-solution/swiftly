@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CWayPointHelperUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CWayPointHelperUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "StartCycle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EndCycle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnlyGoals",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PreventOvershoot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PreventUndershoot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

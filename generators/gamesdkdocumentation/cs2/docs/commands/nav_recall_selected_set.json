@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_recall_selected_set","description":"Re-selects the stored selected set.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

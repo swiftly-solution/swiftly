@@ -1,0 +1,1 @@
+{"kind":"command","name":"spec_prev","description":"Spectate previous player","args":"","flags":["clientdll","clientcmd_can_execute"],"games":["cs2"]}

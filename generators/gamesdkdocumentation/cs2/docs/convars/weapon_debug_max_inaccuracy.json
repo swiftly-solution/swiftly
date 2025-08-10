@@ -1,0 +1,1 @@
+{"kind":"command","name":"weapon_debug_max_inaccuracy","description":"Force all shots to have maximum inaccuracy","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

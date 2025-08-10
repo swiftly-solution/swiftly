@@ -1,0 +1,1 @@
+{"kind":"command","name":"benchframe","description":"Takes a snapshot of a particular frame in a time demo.","args":"","flags":["release"],"games":["cs2"]}

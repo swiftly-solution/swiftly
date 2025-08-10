@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CAttributeContainer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAttributeContainer"
+    },
+    "properties": [
+        {
+            "name": "Item",
+            "type": "CEconItemView",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CAttributeManager",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

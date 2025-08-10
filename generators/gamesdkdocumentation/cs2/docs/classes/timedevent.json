@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "TimedEvent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "TimedEvent"
+    },
+    "properties": [
+        {
+            "name": "TimeBetweenEvents",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextEvent",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "PostProcessingLocalContrastParameters_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PostProcessingLocalContrastParameters_t"
+    },
+    "properties": [
+        {
+            "name": "LocalContrastStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LocalContrastEdgeStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LocalContrastVignetteStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LocalContrastVignetteEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LocalContrastVignetteBlur",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

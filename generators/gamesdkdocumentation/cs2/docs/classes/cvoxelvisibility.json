@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CVoxelVisibility",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CVoxelVisibility"
+    },
+    "properties": [
+        {
+            "name": "BaseClusterCount",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PVSBytesPerCluster",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MinBounds",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MaxBounds",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "GridSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SkyVisibilityCluster",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "SunVisibilityCluster",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NodeBlock",
+            "type": "VoxelVisBlockOffset_t",
+            "writable": false
+        },
+        {
+            "name": "RegionBlock",
+            "type": "VoxelVisBlockOffset_t",
+            "writable": false
+        },
+        {
+            "name": "EnclosedClusterListBlock",
+            "type": "VoxelVisBlockOffset_t",
+            "writable": false
+        },
+        {
+            "name": "EnclosedClustersBlock",
+            "type": "VoxelVisBlockOffset_t",
+            "writable": false
+        },
+        {
+            "name": "MasksBlock",
+            "type": "VoxelVisBlockOffset_t",
+            "writable": false
+        },
+        {
+            "name": "VisBlocks",
+            "type": "VoxelVisBlockOffset_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetUInt",
+    "description": "Set the number unsigned value to the memory address.",
+    "arguments": {
+        "value": "uint32"
+    },
+    "return": "void",
+    "games": "all"
+}

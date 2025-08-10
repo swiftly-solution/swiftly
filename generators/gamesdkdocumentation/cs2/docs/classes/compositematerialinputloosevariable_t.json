@@ -1,0 +1,203 @@
+{
+    "kind": "class",
+    "name": "CompositeMaterialInputLooseVariable_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CompositeMaterialInputLooseVariable_t"
+    },
+    "properties": [
+        {
+            "name": "StrName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ExposeExternally",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StrExposedFriendlyName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrExposedFriendlyGroupName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ExposedVariableIsFixedRange",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StrExposedVisibleWhenTrue",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrExposedHiddenWhenTrue",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrExposedValueList",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "VariableType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ValueBoolean",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ValueIntX",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ValueIntY",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ValueIntZ",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ValueIntW",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HasFloatBounds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatX",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatX_Min",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatX_Max",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatY",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatY_Min",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatY_Max",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatZ_Min",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatZ_Max",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatW",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatW_Min",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValueFloatW_Max",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CValueColor4",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "ValueSystemVar",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StrTextureContentAssetPath",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrTextureCompilationVtexTemplate",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TextureType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StrString",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrPanoramaPanelPath",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PanoramaRenderRes",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

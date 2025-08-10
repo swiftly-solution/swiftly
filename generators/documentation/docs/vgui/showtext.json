@@ -1,0 +1,16 @@
+{
+    "kind": "function",
+    "function": "ShowText",
+    "description": "Shows a text to a player.",
+    "arguments": {
+        "playerid": "int32",
+        "color": "Color",
+        "text": "string",
+        "posX": "float",
+        "posY": "float",
+        "font_name": "string",
+        "background": "bool?"
+    },
+    "return": "int64",
+    "games": "all"
+}

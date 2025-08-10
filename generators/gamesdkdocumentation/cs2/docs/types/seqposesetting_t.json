@@ -1,0 +1,1 @@
+{"kind":"type","name":"SeqPoseSetting_t","description":"Automatically generated game type from enum SeqPoseSetting_t","values":{"SEQ_POSE_SETTING_CONSTANT":0,"SEQ_POSE_SETTING_ROTATION":1,"SEQ_POSE_SETTING_POSITION":2,"SEQ_POSE_SETTING_VELOCITY":3},"games":["cs2"]}

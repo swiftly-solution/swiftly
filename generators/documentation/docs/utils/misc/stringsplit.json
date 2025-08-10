@@ -1,0 +1,15 @@
+{
+    "kind": "function",
+    "function": "String Split",
+    "override_variable": true,
+    "override_function": {
+        "lua": "string.split"
+    },
+    "description": "Splits a string into a list of strings.",
+    "arguments": {
+        "value": "string",
+        "delimiter": "string"
+    },
+    "return": "string[]",
+    "games": "all"
+}

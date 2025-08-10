@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CPhysicsSpring",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysicsSpring"
+    },
+    "properties": [
+        {
+            "name": "Frequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DampingRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RestLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NameAttachStart",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NameAttachEnd",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Start",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "End",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TeleportTick",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

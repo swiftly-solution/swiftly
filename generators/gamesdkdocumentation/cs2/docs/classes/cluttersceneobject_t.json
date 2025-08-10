@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "ClutterSceneObject_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ClutterSceneObject_t"
+    },
+    "properties": [
+        {
+            "name": "Bounds",
+            "type": "AABB_t",
+            "writable": false
+        },
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Layer",
+            "type": "int16",
+            "writable": true
+        },
+        {
+            "name": "InstancePositions",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "InstanceScales",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "InstanceTintSrgb",
+            "type": "double[]",
+            "writable": true
+        },
+        {
+            "name": "MaterialGroup",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BeginCullSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EndCullSize",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

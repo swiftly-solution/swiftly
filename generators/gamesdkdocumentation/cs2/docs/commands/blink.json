@@ -1,0 +1,1 @@
+{"kind":"command","name":"blink","description":"Blink specified convar value between two values at the specified duration.","args":"","flags":["developmentonly","dontrecord","defensive"],"games":["cs2"]}

@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "CBaseClientUIEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseClientUIEntity"
+    },
+    "properties": [
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DialogXMLName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PanelClassName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PanelID",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CustomOutput0",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CustomOutput1",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CustomOutput2",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CustomOutput3",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CustomOutput4",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CustomOutput5",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CustomOutput6",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CustomOutput7",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CustomOutput8",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "CustomOutput9",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

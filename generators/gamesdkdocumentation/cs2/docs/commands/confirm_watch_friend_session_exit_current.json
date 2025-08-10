@@ -1,0 +1,1 @@
+{"kind":"command","name":"confirm_watch_friend_session_exit_current","description":"Confirm that we wish to watch a friend session, destroying a previous session","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

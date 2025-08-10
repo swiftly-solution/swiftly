@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_add_t","description":"bot_add_t <type> <difficulty> <name> - Adds a terrorist bot matching the given criteria.","args":"","flags":["gamedll","release"],"games":["cs2"]}

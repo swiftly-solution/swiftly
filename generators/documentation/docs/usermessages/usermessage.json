@@ -1,0 +1,713 @@
+{
+    "kind": "class",
+    "name": "UserMessage",
+    "description": "A user message is a wrapper for protobuf messages.",
+    "constructor": {
+        "arguments": {
+            "partial_message_name": "string"
+        },
+        "return": "UserMessage"
+    },
+    "functions": [
+        {
+            "name": "IsValidMessage",
+            "arguments": {},
+            "return": "bool"
+        },
+        {
+            "name": "GetMessageName",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "GetMessageID",
+            "arguments": {},
+            "return": "int32"
+        },
+        {
+            "name": "HasField",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "bool"
+        },
+        {
+            "name": "GetInt32",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "int32"
+        },
+        {
+            "name": "SetInt32",
+            "arguments": {
+                "fieldName": "string",
+                "value": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedInt32",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "int32"
+        },
+        {
+            "name": "SetRepeatedInt32",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddInt32",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetInt64",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "int64"
+        },
+        {
+            "name": "SetInt64",
+            "arguments": {
+                "fieldName": "string",
+                "value": "int64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedInt64",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "int64"
+        },
+        {
+            "name": "SetRepeatedInt64",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "int64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddInt64",
+            "arguments": {
+                "fieldName": "string",
+                "value": "int64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetUInt32",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "uint32"
+        },
+        {
+            "name": "SetUInt32",
+            "arguments": {
+                "fieldName": "string",
+                "value": "uint32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedUInt32",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "uint32"
+        },
+        {
+            "name": "SetRepeatedUInt32",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "uint32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddUInt32",
+            "arguments": {
+                "fieldName": "string",
+                "value": "uint32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetUInt64",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "uint64"
+        },
+        {
+            "name": "SetUInt64",
+            "arguments": {
+                "fieldName": "string",
+                "value": "uint64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedUInt64",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "uint64"
+        },
+        {
+            "name": "SetRepeatedUInt64",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "uint64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddUInt64",
+            "arguments": {
+                "fieldName": "string",
+                "value": "uint64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetInt64OrUnsigned",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "int64"
+        },
+        {
+            "name": "SetInt64OrUnsigned",
+            "arguments": {
+                "fieldName": "string",
+                "value": "int64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedInt64OrUnsigned",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "int64"
+        },
+        {
+            "name": "SetRepeatedInt64OrUnsigned",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "int64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddInt64OrUnsigned",
+            "arguments": {
+                "fieldName": "string",
+                "value": "int64"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetBool",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "bool"
+        },
+        {
+            "name": "SetBool",
+            "arguments": {
+                "fieldName": "string",
+                "value": "bool"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedBool",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "bool"
+        },
+        {
+            "name": "SetRepeatedBool",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "bool"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddBool",
+            "arguments": {
+                "fieldName": "string",
+                "value": "bool"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetFloat",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "float"
+        },
+        {
+            "name": "SetFloat",
+            "arguments": {
+                "fieldName": "string",
+                "value": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedFloat",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "float"
+        },
+        {
+            "name": "SetRepeatedFloat",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddFloat",
+            "arguments": {
+                "fieldName": "string",
+                "value": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetDouble",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "double"
+        },
+        {
+            "name": "SetDouble",
+            "arguments": {
+                "fieldName": "string",
+                "value": "double"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedDouble",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "double"
+        },
+        {
+            "name": "SetRepeatedDouble",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "double"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddDouble",
+            "arguments": {
+                "fieldName": "string",
+                "value": "double"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetFloatOrDouble",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "float"
+        },
+        {
+            "name": "SetFloatOrDouble",
+            "arguments": {
+                "fieldName": "string",
+                "value": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedFloatOrDouble",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "float"
+        },
+        {
+            "name": "SetRepeatedFloatOrDouble",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddFloatOrDouble",
+            "arguments": {
+                "fieldName": "string",
+                "value": "float"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetString",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "string"
+        },
+        {
+            "name": "SetString",
+            "arguments": {
+                "fieldName": "string",
+                "value": "string"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedString",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "string"
+        },
+        {
+            "name": "SetRepeatedString",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "string"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddString",
+            "arguments": {
+                "fieldName": "string",
+                "value": "string"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetBytes",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "string"
+        },
+        {
+            "name": "SetBytes",
+            "arguments": {
+                "fieldName": "string",
+                "value": "string"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedBytes",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "string"
+        },
+        {
+            "name": "SetRepeatedBytes",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "string"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddBytes",
+            "arguments": {
+                "fieldName": "string",
+                "value": "string"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetColor",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "Color"
+        },
+        {
+            "name": "SetColor",
+            "arguments": {
+                "fieldName": "string",
+                "value": "Color"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedColor",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "Color"
+        },
+        {
+            "name": "SetRepeatedColor",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "Color"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddColor",
+            "arguments": {
+                "fieldName": "string",
+                "value": "Color"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetVector2D",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "Vector2D"
+        },
+        {
+            "name": "SetVector2D",
+            "arguments": {
+                "fieldName": "string",
+                "value": "Vector2D"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedVector2D",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "Vector2D"
+        },
+        {
+            "name": "SetRepeatedVector2D",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "Vector2D"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddVector2D",
+            "arguments": {
+                "fieldName": "string",
+                "value": "Vector2D"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetVector",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "Vector"
+        },
+        {
+            "name": "SetVector",
+            "arguments": {
+                "fieldName": "string",
+                "value": "Vector"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedVector",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "Vector"
+        },
+        {
+            "name": "SetRepeatedVector",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "Vector"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddVector",
+            "arguments": {
+                "fieldName": "string",
+                "value": "Vector"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetQAngle",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "QAngle"
+        },
+        {
+            "name": "SetQAngle",
+            "arguments": {
+                "fieldName": "string",
+                "value": "QAngle"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedQAngle",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "QAngle"
+        },
+        {
+            "name": "SetRepeatedQAngle",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32",
+                "value": "QAngle"
+            },
+            "return": "void"
+        },
+        {
+            "name": "AddQAngle",
+            "arguments": {
+                "fieldName": "string",
+                "value": "QAngle"
+            },
+            "return": "void"
+        },
+        {
+            "name": "RemoveRepeatedFieldValue",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "GetRepeatedFieldCount",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "int32"
+        },
+        {
+            "name": "GetMessage",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "UserMessage"
+        },
+        {
+            "name": "GetRepeatedMessage",
+            "arguments": {
+                "fieldName": "string",
+                "index": "int32"
+            },
+            "return": "UserMessage"
+        },
+        {
+            "name": "AddMessage",
+            "arguments": {
+                "fieldName": "string"
+            },
+            "return": "UserMessage"
+        },
+        {
+            "name": "SendToPlayer",
+            "arguments": {
+                "playerid": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "SendToAllPlayers",
+            "arguments": {},
+            "return": "void"
+        },
+        {
+            "name": "AddClient",
+            "arguments": {
+                "playerid": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "RemoveClient",
+            "arguments": {
+                "playerid": "int32"
+            },
+            "return": "void"
+        },
+        {
+            "name": "ClearClients",
+            "arguments": {},
+            "return": "void"
+        },
+        {
+            "name": "AddClients",
+            "arguments": {},
+            "return": "void"
+        },
+        {
+            "name": "GetClients",
+            "arguments": {},
+            "return": "int32[]"
+        }
+    ]
+}

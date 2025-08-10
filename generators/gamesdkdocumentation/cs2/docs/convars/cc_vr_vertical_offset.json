@@ -1,0 +1,1 @@
+{"kind":"command","name":"cc_vr_vertical_offset","description":"Subtitle vertical offset distance (positive is up)","args":"-6.5","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

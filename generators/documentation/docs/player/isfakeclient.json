@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "IsFakeClient",
+    "description": "Checks if the player is a bot.",
+    "arguments": {},
+    "return": "bool",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_shading_complexity_color","description":"<no description>","args":"[1, 0.5, 1]","flags":["cheat"],"games":["cs2"]}

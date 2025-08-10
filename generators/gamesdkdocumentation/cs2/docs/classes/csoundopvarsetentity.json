@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CSoundOpvarSetEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundOpvarSetEntity"
+    },
+    "properties": [
+        {
+            "name": "StackName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OperatorName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OpvarName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OpvarType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OpvarIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OpvarValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpvarValueString",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SetOnSpawn",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

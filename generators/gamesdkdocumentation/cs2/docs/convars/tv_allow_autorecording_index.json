@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_allow_autorecording_index","description":"When >=0 restricts autorecording only to the specified TV index","args":"-1","flags":["gamedll","release"],"games":["cs2"]}

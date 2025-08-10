@@ -1,0 +1,1 @@
+{"kind":"command","name":"playdemo","description":"Play a recorded demo file (.dem ).","args":"","flags":["release"],"games":["cs2"]}

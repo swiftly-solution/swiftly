@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CPropDoorRotatingBreakable",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPropDoorRotatingBreakable"
+    },
+    "properties": [
+        {
+            "name": "Breakable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsAbleToCloseAreaPortals",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CurrentDamageState",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DamageStates",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPropDoorRotating",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

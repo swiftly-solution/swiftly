@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_dragscroll_mintime","description":"Minimum time that the mouse button must be down before a move is treated as a drag scroll","args":"0.02","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

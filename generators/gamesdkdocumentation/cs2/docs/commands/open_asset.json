@@ -1,0 +1,1 @@
+{"kind":"command","name":"open_asset","description":"Opens an asset in it's primary editor of choice. Specify the full path to the asset from the mod directory.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,118 @@
+{
+    "kind": "class",
+    "name": "CColorCorrection",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CColorCorrection"
+    },
+    "properties": [
+        {
+            "name": "FadeInDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeOutDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartFadeInWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartFadeOutWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeStartFadeIn",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeStartFadeOut",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Master",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ClientSide",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Exclusive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinFalloff",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxFalloff",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurWeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NetlookupFilename",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LookupFilename",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

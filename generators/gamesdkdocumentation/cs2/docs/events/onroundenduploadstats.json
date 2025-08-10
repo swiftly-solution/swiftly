@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnRoundEndUploadStats","description":"This event is triggered when round_end_upload_stats is triggered.","arguments":{},"return":"void","games":["cs2"]}

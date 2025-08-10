@@ -1,0 +1,1 @@
+{"kind":"type","name":"SosActionStopType_t","description":"Automatically generated game type from enum SosActionStopType_t","values":{"SOS_STOPTYPE_NONE":0,"SOS_STOPTYPE_TIME":1,"SOS_STOPTYPE_OPVAR":2},"games":["cs2"]}

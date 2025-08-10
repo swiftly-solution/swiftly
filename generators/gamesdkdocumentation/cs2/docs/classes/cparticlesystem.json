@@ -1,0 +1,133 @@
+{
+    "kind": "class",
+    "name": "CParticleSystem",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleSystem"
+    },
+    "properties": [
+        {
+            "name": "SnapshotFileName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Frozen",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FreezeTransitionDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StopType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AnimateDuringGameplayPause",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PreSimTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ServerControlPoints",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "ServerControlPointAssignments",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "NoSave",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoFreeze",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoRamp",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartActive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EffectName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ControlPointNames",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "DataCP",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DataCPValue",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "TintCP",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Tint",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

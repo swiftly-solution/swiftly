@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CCSGO_TeamPreviewCharacterPosition",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSGO_TeamPreviewCharacterPosition"
+    },
+    "properties": [
+        {
+            "name": "Variant",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Random",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Ordinal",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "WeaponName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Xuid",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "AgentItem",
+            "type": "CEconItemView",
+            "writable": false
+        },
+        {
+            "name": "GlovesItem",
+            "type": "CEconItemView",
+            "writable": false
+        },
+        {
+            "name": "WeaponItem",
+            "type": "CEconItemView",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,5 @@
+commands:Register("settimer", function(playerid, args, argsCount, silent, prefix)
+    SetTimer(1000, function()
+        print("This runs every second!")
+    end)
+end)

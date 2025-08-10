@@ -1,0 +1,5 @@
+commands:Register("nexttick", function(playerid, args, argsCount, silent, prefix)
+    NextTick(function()
+        print("This runs at next server tick!")
+    end)
+end)

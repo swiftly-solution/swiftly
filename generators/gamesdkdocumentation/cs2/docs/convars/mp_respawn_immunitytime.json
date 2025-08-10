@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_respawn_immunitytime","description":"How many seconds after respawn immunity lasts. Set to negative value to disable warmup immunity.","args":"4","flags":["gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

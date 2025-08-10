@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_print_textures","description":"Print loaded textures in alphabetical order. Takes an optional substring as an argument.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

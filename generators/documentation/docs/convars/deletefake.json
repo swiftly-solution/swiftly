@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "DeleteFake",
+    "description": "Deletes a fake convar.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

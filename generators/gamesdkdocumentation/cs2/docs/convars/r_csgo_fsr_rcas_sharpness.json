@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_csgo_fsr_rcas_sharpness","description":"RCAS sharpness when using FSR + RCAS upsample.","args":"0.25","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

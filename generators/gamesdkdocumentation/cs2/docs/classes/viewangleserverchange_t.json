@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "ViewAngleServerChange_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ViewAngleServerChange_t"
+    },
+    "properties": [
+        {
+            "name": "Type",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Angle",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Index",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

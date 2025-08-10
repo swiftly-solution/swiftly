@@ -1,0 +1,6 @@
+{
+    "kind": "class",
+    "name": "TimerHandle",
+    "description": "This is the TimerHandle class used for some identifiers in timers.",
+    "games": "all"
+}

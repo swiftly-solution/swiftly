@@ -1,0 +1,1 @@
+{"kind":"command","name":"imgui_cycle_undocked_window_focus","description":"Cycles focus between the game window and undocked imgui windows","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

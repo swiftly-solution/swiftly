@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CBinaryUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBinaryUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Child1",
+            "type": "CAnimUpdateNodeRef",
+            "writable": false
+        },
+        {
+            "name": "Child2",
+            "type": "CAnimUpdateNodeRef",
+            "writable": false
+        },
+        {
+            "name": "TimingBehavior",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TimingBlend",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ResetChild1",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ResetChild2",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimUpdateNodeBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

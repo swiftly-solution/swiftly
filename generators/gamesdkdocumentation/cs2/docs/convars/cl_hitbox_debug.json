@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_hitbox_debug","description":"<no description>","args":"false","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

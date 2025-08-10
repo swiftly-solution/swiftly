@@ -161,7 +161,7 @@ bool EventManager::OnFireEvent(IGameEvent* pEvent, bool bDontBroadcast)
             if (player)
             {
                 player->SetFirstSpawn(false);
-                player->EnsureCustomView(1);
+                // player->EnsureCustomView(1);
             }
         }
         if (result != EventResult::Continue)

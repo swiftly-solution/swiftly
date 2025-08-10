@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CBaseProp",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseProp"
+    },
+    "properties": [
+        {
+            "name": "ModelOverrodeBlockLOS",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShapeType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ConformToCollisionBounds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseAnimGraph",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

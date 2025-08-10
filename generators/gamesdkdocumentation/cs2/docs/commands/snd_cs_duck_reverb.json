@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_cs_duck_reverb","description":"One shot trigger to duck reverb for a few seconds.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

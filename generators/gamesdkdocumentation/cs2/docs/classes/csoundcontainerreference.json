@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CSoundContainerReference",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundContainerReference"
+    },
+    "properties": [
+        {
+            "name": "UseReference",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Sound",
+            "type": "int32[]",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

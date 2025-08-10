@@ -1,0 +1,1 @@
+{"kind":"command","name":"imgui_debug_draw_dashboard_toggle_pause","description":"Dashboard/Pause Game When Activated","args":"false","flags":["developmentonly","gamedll","clientdll","archive","replicated","cheat","menubar_item"],"games":["cs2"]}

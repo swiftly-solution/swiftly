@@ -1,0 +1,12 @@
+{
+    "kind": "function",
+    "function": "RegisterCallstack",
+    "override_variable": true,
+    "description": "Registers an entry in the plugin callstack which appears in the Crash Reporter.",
+    "arguments": {
+        "plugin_name": "string",
+        "text": "string"
+    },
+    "return": "uint64",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_scrambleteams","description":"Scramble the teams and restart the game","args":"","flags":["gamedll","release"],"games":["cs2"]}

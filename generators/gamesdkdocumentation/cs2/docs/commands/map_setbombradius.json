@@ -1,0 +1,1 @@
+{"kind":"command","name":"map_setbombradius","description":"Sets the bomb radius for the map.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

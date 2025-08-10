@@ -1,0 +1,6 @@
+{
+    "kind": "class",
+    "name": "EventHandler",
+    "description": "This is the EventHandler class used for some identifiers.",
+    "games": "all"
+}

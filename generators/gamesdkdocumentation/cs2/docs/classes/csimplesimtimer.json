@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CSimpleSimTimer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSimpleSimTimer"
+    },
+    "properties": [
+        {
+            "name": "Next",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WorldGroupId",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

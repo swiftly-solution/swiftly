@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_vmix_override_mix_decay_time","description":"If set > 0, overrides how long the decay time is on all mix graphs (in seconds).","args":"-1","flags":["cheat"],"games":["cs2"]}

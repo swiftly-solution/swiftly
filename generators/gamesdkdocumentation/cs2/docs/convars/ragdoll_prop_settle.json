@@ -1,0 +1,1 @@
+{"kind":"command","name":"ragdoll_prop_settle","description":"Enable more aggressive ragdoll settling","args":"true","flags":["developmentonly","gamedll","replicated","defensive"],"games":["cs2"]}

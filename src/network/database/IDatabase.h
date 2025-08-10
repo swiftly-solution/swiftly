@@ -10,6 +10,7 @@ struct DatabaseQueryQueue
 {
     std::any query;
     std::string requestID;
+    std::string plugin_name;
 };
 
 class IDatabase

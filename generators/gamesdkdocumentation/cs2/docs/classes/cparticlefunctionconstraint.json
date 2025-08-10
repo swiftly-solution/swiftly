@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CParticleFunctionConstraint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleFunctionConstraint"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CParticleFunction",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

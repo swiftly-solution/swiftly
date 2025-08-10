@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CPointTeleport",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointTeleport"
+    },
+    "properties": [
+        {
+            "name": "SaveOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SaveAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "TeleportParentedEntities",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TeleportUseCurrentAngle",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CServerOnlyPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

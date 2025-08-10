@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "VMixDynamics3BandDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixDynamics3BandDesc_t"
+    },
+    "properties": [
+        {
+            "name": "FldbGainOutput",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RMSTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbKneeWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Depth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WetMix",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LowCutoffFreq",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HighCutoffFreq",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PeakMode",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

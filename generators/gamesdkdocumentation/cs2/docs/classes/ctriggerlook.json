@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "CTriggerLook",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTriggerLook"
+    },
+    "properties": [
+        {
+            "name": "LookTarget",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "FieldOfView",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookTimeTotal",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LookTimeLast",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeoutDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeoutFired",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsLooking",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "2DFOV",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseVelocity",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TestOcclusion",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TestAllVisibleOcclusion",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnTimeout",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnStartLook",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnEndLook",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CTriggerOnce",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_maxunlag_player","description":"If >0, maximumum lag compensation used for other human pawns. Applied after sv_maxunlag!","args":"-1","flags":["max:","1,","gamedll","release"],"games":["cs2"]}

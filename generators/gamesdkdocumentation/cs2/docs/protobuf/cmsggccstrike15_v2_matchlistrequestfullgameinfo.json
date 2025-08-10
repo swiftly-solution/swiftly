@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"matchid","type":"uint64"},{"name":"outcomeid","type":"uint64"},{"name":"token","type":"uint32"}],"name":"CMsgGCCStrike15_v2_MatchListRequestFullGameInfo","games":["cs2"]}

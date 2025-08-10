@@ -3,7 +3,6 @@
 #include "platform.h"
 #include <iostream>
 #include <iomanip>
-#include <sstream>
 #include <cassert>
 
 #include <dynohook_export.h>

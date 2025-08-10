@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_script_remove_watch","description":"Remove a watch from the game debug overlay","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

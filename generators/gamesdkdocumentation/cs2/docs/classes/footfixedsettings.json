@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "FootFixedSettings",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FootFixedSettings"
+    },
+    "properties": [
+        {
+            "name": "TraceSettings",
+            "type": "TraceSettings_t",
+            "writable": false
+        },
+        {
+            "name": "FootBaseBindPosePositionMS",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FootBaseLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxRotationLeft",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxRotationRight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FootstepLandedTagIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EnableTracing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TraceAngleBlend",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DisableTagIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FootIndex",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

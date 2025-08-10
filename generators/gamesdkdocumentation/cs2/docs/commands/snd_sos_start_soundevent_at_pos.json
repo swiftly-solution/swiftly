@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_start_soundevent_at_pos","description":"Starts a specified soundevent at the given position","args":"","flags":["cheat"],"games":["cs2"]}

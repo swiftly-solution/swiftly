@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"controlPoint","type":"int32"},{"name":"position","type":"CMsgVector"}],"name":"CUserMsg_ParticleManager.UpdateParticleFallback","games":["cs2"]}

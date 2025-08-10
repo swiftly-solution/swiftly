@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "PostProcessingResource_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PostProcessingResource_t"
+    },
+    "properties": [
+        {
+            "name": "HasTonemapParams",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ToneMapParams",
+            "type": "PostProcessingTonemapParameters_t",
+            "writable": false
+        },
+        {
+            "name": "HasBloomParams",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BloomParams",
+            "type": "PostProcessingBloomParameters_t",
+            "writable": false
+        },
+        {
+            "name": "HasVignetteParams",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "VignetteParams",
+            "type": "PostProcessingVignetteParameters_t",
+            "writable": false
+        },
+        {
+            "name": "HasLocalContrastParams",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LocalConstrastParams",
+            "type": "PostProcessingLocalContrastParameters_t",
+            "writable": false
+        },
+        {
+            "name": "ColorCorrectionVolumeDim",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HasColorCorrection",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasFogScatteringParams",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FogScatteringParams",
+            "type": "PostProcessingFogScatteringParameters_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

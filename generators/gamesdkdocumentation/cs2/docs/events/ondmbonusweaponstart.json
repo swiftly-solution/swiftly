@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnDmBonusWeaponStart","description":"This event is triggered when dm_bonus_weapon_start is triggered.","arguments":{"time":"int32","Pos":"int32"},"return":"void","games":["cs2"]}

@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "HideMenu",
+    "description": "Hides the player menu.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

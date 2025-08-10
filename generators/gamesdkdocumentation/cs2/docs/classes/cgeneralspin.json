@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CGeneralSpin",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGeneralSpin"
+    },
+    "properties": [
+        {
+            "name": "SpinRateDegrees",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpinRateMinDegrees",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpinRateStopTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CParticleFunctionOperator",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

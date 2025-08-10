@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CLogicGameEventListener",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicGameEventListener"
+    },
+    "properties": [
+        {
+            "name": "OnEventFired",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "GameEventName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "GameEventItem",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

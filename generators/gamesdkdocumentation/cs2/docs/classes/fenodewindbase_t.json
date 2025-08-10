@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "FeNodeWindBase_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeNodeWindBase_t"
+    },
+    "properties": [
+        {
+            "name": "NodeX0",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "NodeX1",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "NodeY0",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "NodeY1",
+            "type": "uint16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnEntitySpawned",
+    "description": "This game event is triggered when an entity is spawned on the server.",
+    "arguments": {
+        "entityptr": "CEntityInstance"
+    },
+    "return": "void",
+    "games": "all"
+}

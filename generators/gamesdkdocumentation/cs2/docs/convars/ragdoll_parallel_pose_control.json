@@ -1,0 +1,1 @@
+{"kind":"command","name":"ragdoll_parallel_pose_control","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

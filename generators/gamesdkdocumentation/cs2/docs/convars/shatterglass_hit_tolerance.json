@@ -1,0 +1,1 @@
+{"kind":"command","name":"shatterglass_hit_tolerance","description":"<no description>","args":"2","flags":["gamedll","clientdll","replicated","cheat"],"games":["cs2"]}

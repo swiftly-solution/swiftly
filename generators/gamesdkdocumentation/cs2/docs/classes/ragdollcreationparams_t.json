@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "RagdollCreationParams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "RagdollCreationParams_t"
+    },
+    "properties": [
+        {
+            "name": "Force",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ForceBone",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ForceCurrentWorldTransform",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseLRURetirement",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HealthToGrant",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

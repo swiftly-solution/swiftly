@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "Extent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "Extent"
+    },
+    "properties": [
+        {
+            "name": "Lo",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Hi",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

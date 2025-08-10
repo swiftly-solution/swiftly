@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_break_on_missing_resource","description":"Break in debugger when missing resource match is found.","args":" cl_break_on_missing_resource <substring> /(empty to break on all) / 0 to turn off.","flags":["developmentonly"],"games":["cs2"]}

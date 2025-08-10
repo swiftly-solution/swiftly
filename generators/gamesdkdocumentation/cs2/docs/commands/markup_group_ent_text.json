@@ -1,0 +1,1 @@
+{"kind":"command","name":"markup_group_ent_text","description":"markup_group_ent_text <markup_group name> -> toggle ent_text for all members of the named markup group","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

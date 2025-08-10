@@ -1,0 +1,1 @@
+{"kind":"command","name":"bindss","description":"Bind a key for a particular splitscreen player.","args":"","flags":["release"],"games":["cs2"]}

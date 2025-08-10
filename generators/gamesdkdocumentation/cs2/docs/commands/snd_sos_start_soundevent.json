@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_start_soundevent","description":"Starts a specified soundevent","args":"","flags":["cheat"],"games":["cs2"]}

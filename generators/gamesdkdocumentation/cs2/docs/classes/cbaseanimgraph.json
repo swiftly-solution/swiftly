@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CBaseAnimGraph",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseAnimGraph"
+    },
+    "properties": [
+        {
+            "name": "InitiallyPopulateInterpHistory",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ChoreoServices",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "AnimGraphUpdateEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MaxSlopeDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastSlopeCheckPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AnimationUpdateScheduled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Force",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ForceBone",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RagdollPose",
+            "type": "PhysicsRagdollPose_t",
+            "writable": false
+        },
+        {
+            "name": "RagdollEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RagdollClientSide",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

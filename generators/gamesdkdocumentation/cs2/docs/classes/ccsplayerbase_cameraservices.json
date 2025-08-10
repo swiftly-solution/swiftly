@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CCSPlayerBase_CameraServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayerBase_CameraServices"
+    },
+    "properties": [
+        {
+            "name": "FOV",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FOVStart",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FOVTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FOVRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ZoomOwner",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "LastFogTrigger",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayer_CameraServices",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

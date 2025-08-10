@@ -5,6 +5,7 @@ enum class PluginState_t
 {
     Started = 0,
     Stopped = 1,
+    Starting = 2,
 };
 
 #endif

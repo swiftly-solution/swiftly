@@ -1,0 +1,1 @@
+{"kind":"command","name":"unbindall","description":"Unbind all keys.","args":"","flags":["release"],"games":["cs2"]}

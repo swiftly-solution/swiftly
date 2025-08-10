@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CC4",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CC4"
+    },
+    "properties": [
+        {
+            "name": "LastValidPlayerHeldPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LastValidDroppedPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DoValidDroppedPositionCheck",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StartedArming",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ArmedTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BombPlacedAnimation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsPlantingViaUse",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EntitySpottedState",
+            "type": "EntitySpottedState_t",
+            "writable": false
+        },
+        {
+            "name": "SpotRules",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PlayedArmingBeeps",
+            "type": "bool[]",
+            "writable": true
+        },
+        {
+            "name": "BombPlanted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CCSWeaponBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

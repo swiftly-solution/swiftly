@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"accountId","type":"uint32"},{"name":"text","type":"string"}],"name":"CMsgGCCStrike15_v2_GCToClientChat","games":["cs2"]}

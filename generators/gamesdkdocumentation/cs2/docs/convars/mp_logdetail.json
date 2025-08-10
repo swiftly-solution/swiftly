@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_logdetail","description":"Logs attacks.  Values are: 0=off, 1=enemy, 2=teammate, 3=both)","args":"0","flags":["min:","0,","max:","3,","gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CFeMorphLayer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFeMorphLayer"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NameHash",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Nodes",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "InitPos",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "Gravity",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "GoalStrength",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "GoalDamping",
+            "type": "float[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_show_hair_debug_ui","description":"SceneSystem/Hair Debug UI","args":"false","flags":["developmentonly","cheat","menubar_item"],"games":["cs2"]}

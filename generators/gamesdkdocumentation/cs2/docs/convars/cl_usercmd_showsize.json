@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_usercmd_showsize","description":"<no description>","args":"false","flags":["developmentonly"],"games":["cs2"]}

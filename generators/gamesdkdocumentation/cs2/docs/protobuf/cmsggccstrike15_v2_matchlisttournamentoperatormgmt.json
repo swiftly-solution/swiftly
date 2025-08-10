@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"eventid","type":"int32"},{"name":"matches","type":"CDataGCCStrike15_v2_MatchInfo"},{"name":"accountid","type":"uint32"}],"name":"CMsgGCCStrike15_v2_MatchListTournamentOperatorMgmt","games":["cs2"]}

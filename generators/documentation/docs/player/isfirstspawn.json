@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "IsFirstSpawn",
+    "description": "Checks if the player is at the first spawn.",
+    "arguments": {},
+    "return": "bool",
+    "games": "all"
+}

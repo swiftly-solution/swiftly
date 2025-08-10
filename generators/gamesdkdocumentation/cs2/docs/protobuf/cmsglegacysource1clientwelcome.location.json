@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"latitude","type":"float"},{"name":"longitude","type":"float"},{"name":"country","type":"string"}],"name":"CMsgLegacySource1ClientWelcome.Location","games":["cs2"]}

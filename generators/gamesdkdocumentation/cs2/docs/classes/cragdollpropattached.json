@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CRagdollPropAttached",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRagdollPropAttached"
+    },
+    "properties": [
+        {
+            "name": "BoneIndexAttached",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "RagdollAttachedObjectIndex",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AttachmentPointBoneSpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AttachmentPointRagdollSpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ShouldDetach",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldDeleteAttachedActivationRecord",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CRagdollProp",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

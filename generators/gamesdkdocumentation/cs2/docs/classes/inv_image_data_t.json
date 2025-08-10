@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "inv_image_data_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "inv_image_data_t"
+    },
+    "properties": [
+        {
+            "name": "Map",
+            "type": "inv_image_map_t",
+            "writable": false
+        },
+        {
+            "name": "Item",
+            "type": "inv_image_item_t",
+            "writable": false
+        },
+        {
+            "name": "Camera",
+            "type": "inv_image_camera_t",
+            "writable": false
+        },
+        {
+            "name": "Lightsun",
+            "type": "inv_image_light_sun_t",
+            "writable": false
+        },
+        {
+            "name": "Lightfill",
+            "type": "inv_image_light_fill_t",
+            "writable": false
+        },
+        {
+            "name": "Light0",
+            "type": "inv_image_light_barn_t",
+            "writable": false
+        },
+        {
+            "name": "Light1",
+            "type": "inv_image_light_barn_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

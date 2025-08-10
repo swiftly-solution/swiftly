@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_observed_bot_crosshair","description":"Control the crosshair shown when observing a bot. 0: Show player crosshair. 1: Show player crosshair only when bot can be taken over, otherwise show default.. 2: Always show default crosshair for bots.","args":"2","flags":["clientdll","archive","release"],"games":["cs2"]}

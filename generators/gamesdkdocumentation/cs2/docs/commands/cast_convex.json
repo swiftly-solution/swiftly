@@ -1,0 +1,1 @@
+{"kind":"command","name":"cast_convex","description":"Tests convex hull collision detection","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

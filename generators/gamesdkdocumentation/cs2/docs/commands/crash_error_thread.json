@@ -1,0 +1,1 @@
+{"kind":"command","name":"crash_error_thread","description":"Cause the engine to crash by Plat_FatalError on non-main thread (Debug!!)","args":"","flags":["cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_disable_postprocessing","description":"<no description>","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

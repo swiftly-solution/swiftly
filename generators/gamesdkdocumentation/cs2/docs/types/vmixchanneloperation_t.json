@@ -1,0 +1,1 @@
+{"kind":"type","name":"VMixChannelOperation_t","description":"Automatically generated game type from enum VMixChannelOperation_t","values":{"VMIX_CHAN_STEREO":0,"VMIX_CHAN_LEFT":1,"VMIX_CHAN_RIGHT":2,"VMIX_CHAN_SWAP":3,"VMIX_CHAN_MONO":4,"VMIX_CHAN_MID_SIDE":5},"games":["cs2"]}

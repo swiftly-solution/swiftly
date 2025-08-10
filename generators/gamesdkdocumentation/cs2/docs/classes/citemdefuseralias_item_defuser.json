@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CItemDefuserAlias_item_defuser",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CItemDefuserAlias_item_defuser"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CItemDefuser",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

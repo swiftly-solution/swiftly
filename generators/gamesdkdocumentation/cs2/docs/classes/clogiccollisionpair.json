@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CLogicCollisionPair",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicCollisionPair"
+    },
+    "properties": [
+        {
+            "name": "NameAttach1",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NameAttach2",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SupportMultipleEntitiesWithSameName",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Succeeded",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

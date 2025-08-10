@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CGeneralRandomRotation",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGeneralRandomRotation"
+    },
+    "properties": [
+        {
+            "name": "FieldOutput",
+            "type": "ParticleAttributeIndex_t",
+            "writable": false
+        },
+        {
+            "name": "Degrees",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DegreesMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DegreesMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RotationRandExponent",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RandomlyFlipDirection",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CParticleFunctionInitializer",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

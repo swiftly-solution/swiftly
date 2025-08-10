@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"frameNumber","type":"int32"},{"name":"hitboxTransforms","type":"CMsgTransform"},{"name":"shootPos","type":"CMsgVector"},{"name":"shootDir","type":"CMsgQAngle"}],"name":"CCSUsrMsg_ShootInfo","games":["cs2"]}

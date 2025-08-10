@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_show_clan_in_death_notice","description":"Is set, the clan name will show next to player names in the death notices.","args":"true","flags":["clientdll","archive","release"],"games":["cs2"]}

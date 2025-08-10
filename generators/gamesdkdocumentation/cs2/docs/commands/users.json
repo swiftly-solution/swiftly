@@ -1,0 +1,1 @@
+{"kind":"command","name":"users","description":"Show user info for players on server.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

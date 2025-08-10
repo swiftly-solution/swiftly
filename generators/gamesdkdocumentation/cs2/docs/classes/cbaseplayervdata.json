@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CBasePlayerVData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBasePlayerVData"
+    },
+    "properties": [
+        {
+            "name": "HeadDamageMultiplier",
+            "type": "CSkillFloat",
+            "writable": false
+        },
+        {
+            "name": "ChestDamageMultiplier",
+            "type": "CSkillFloat",
+            "writable": false
+        },
+        {
+            "name": "StomachDamageMultiplier",
+            "type": "CSkillFloat",
+            "writable": false
+        },
+        {
+            "name": "ArmDamageMultiplier",
+            "type": "CSkillFloat",
+            "writable": false
+        },
+        {
+            "name": "LegDamageMultiplier",
+            "type": "CSkillFloat",
+            "writable": false
+        },
+        {
+            "name": "HoldBreathTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DrowningDamageInterval",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DrowningDamageInitial",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DrowningDamageMax",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "WaterSpeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "UseRange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UseAngleTolerance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CrouchTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CEntitySubclassVDataBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

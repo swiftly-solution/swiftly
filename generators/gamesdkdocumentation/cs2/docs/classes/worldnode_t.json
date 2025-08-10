@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "WorldNode_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "WorldNode_t"
+    },
+    "properties": [
+        {
+            "name": "VisClusterMembership",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "LayerNames",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "SceneObjectLayerIndices",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "OverlayLayerIndices",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "GrassFileName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NodeLightingInfo",
+            "type": "BakedLightingInfo_t",
+            "writable": false
+        },
+        {
+            "name": "HasBakedGeometryFlag",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

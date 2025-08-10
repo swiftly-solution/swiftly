@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CPlayerPawnComponent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPlayerPawnComponent"
+    },
+    "properties": [
+        {
+            "name": "__pChainEntity",
+            "type": "CNetworkVarChainer",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "GetPawn",
+            "arguments": {},
+            "return": "CBasePlayerPawn"
+        },
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

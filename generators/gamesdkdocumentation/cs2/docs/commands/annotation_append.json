@@ -1,0 +1,1 @@
+{"kind":"command","name":"annotation_append","description":"Load annotation to a file without clearing existing annotations","args":"","flags":["clientdll","release"],"games":["cs2"]}

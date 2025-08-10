@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_sos_show_mixgroup_path_errors","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

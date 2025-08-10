@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostDronegunAttack","description":"This event is triggered after dronegun_attack is triggered.","arguments":{"userid":"int32"},"return":"void","games":["cs2"]}

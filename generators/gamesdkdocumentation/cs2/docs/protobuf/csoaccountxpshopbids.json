@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"campaignId","type":"uint32"},{"name":"redeemId","type":"uint32"},{"name":"expectedCost","type":"uint32"},{"name":"generationTime","type":"uint32"}],"name":"CSOAccountXpShopBids","games":["cs2"]}

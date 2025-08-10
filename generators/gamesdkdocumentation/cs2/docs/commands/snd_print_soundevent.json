@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_print_soundevent","description":"Print the data associated with the specified soundevent.","args":"","flags":["developmentonly","vconsole_fuzzy_matching","vconsole_set_focus"],"games":["cs2"]}

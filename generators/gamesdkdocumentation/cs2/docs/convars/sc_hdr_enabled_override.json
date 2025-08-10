@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_hdr_enabled_override","description":"Override default setting for HDR rendering. -1 default, 0 NoHdr, 1 Hdr, 2 Hdr 1010102 3 Hdr 111110","args":"-1","flags":["developmentonly","defensive"],"games":["cs2"]}

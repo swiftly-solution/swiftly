@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"entryid","type":"uint32"},{"name":"defidx","type":"uint32"},{"name":"expirationDate","type":"fixed32"}],"name":"CSOEconCoupon","games":["cs2"]}

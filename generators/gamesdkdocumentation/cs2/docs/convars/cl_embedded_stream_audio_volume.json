@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_embedded_stream_audio_volume","description":"Embedded stream audio volume","args":"0","flags":["min:","0,","max:","100,","clientdll","hidden","archive"],"games":["cs2"]}

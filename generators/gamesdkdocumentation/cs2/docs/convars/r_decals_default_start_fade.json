@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_decals_default_start_fade","description":"<no description>","args":"30","flags":["developmentonly","clientdll","replicated","defensive"],"games":["cs2"]}

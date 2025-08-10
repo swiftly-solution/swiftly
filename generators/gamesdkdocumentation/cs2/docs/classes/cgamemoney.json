@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CGameMoney",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGameMoney"
+    },
+    "properties": [
+        {
+            "name": "OnMoneySpent",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMoneySpentFail",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Money",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StrAwardText",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CRulePointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

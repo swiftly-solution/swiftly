@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CFootDefinition",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFootDefinition"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AnkleBoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ToeBoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BallOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "HeelOffset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FootLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BindPoseDirectionMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TraceHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TraceRadius",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CParticleMassCalculationParameters",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleMassCalculationParameters"
+    },
+    "properties": [
+        {
+            "name": "MassMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "CPerParticleFloatInput",
+            "writable": false
+        },
+        {
+            "name": "NominalRadius",
+            "type": "CPerParticleFloatInput",
+            "writable": false
+        },
+        {
+            "name": "Scale",
+            "type": "CPerParticleFloatInput",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"base","type":"CMsgTEBaseBeam"},{"name":"startentity","type":"uint32"},{"name":"endentity","type":"uint32"},{"name":"start","type":"CMsgVector"},{"name":"end","type":"CMsgVector"}],"name":"CMsgTEBeamEntPoint","games":["cs2"]}

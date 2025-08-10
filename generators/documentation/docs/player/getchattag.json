@@ -1,0 +1,8 @@
+{
+    "kind": "function",
+    "function": "GetChatTag",
+    "description": "Returns the chat tag of the player.",
+    "arguments": {},
+    "return": "string",
+    "games": "all"
+}

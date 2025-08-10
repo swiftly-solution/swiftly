@@ -1,0 +1,1 @@
+{"kind":"command","name":"con_enable","description":"Allows the console to be activated.","args":"false","flags":["archive","per_user"],"games":["cs2"]}

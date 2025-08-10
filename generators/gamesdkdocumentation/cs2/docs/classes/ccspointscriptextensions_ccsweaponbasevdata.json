@@ -1,0 +1,27 @@
+{
+    "kind": "class",
+    "name": "CCSPointScriptExtensions_CCSWeaponBaseVData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPointScriptExtensions_CCSWeaponBaseVData"
+    },
+    "properties": [],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_extrapolate","description":"Enable/disable extrapolation if interpolation history runs out.","args":"true","flags":["clientdll","cheat"],"games":["cs2"]}

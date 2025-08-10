@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "SetBool",
+    "description": "Set the boolean value to the memory address.",
+    "arguments": {
+        "value": "bool"
+    },
+    "return": "void",
+    "games": "all"
+}

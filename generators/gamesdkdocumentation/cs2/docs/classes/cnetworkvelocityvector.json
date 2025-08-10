@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CNetworkVelocityVector",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNetworkVelocityVector"
+    },
+    "properties": [
+        {
+            "name": "X",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Y",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Z",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

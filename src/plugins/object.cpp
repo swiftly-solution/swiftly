@@ -1,6 +1,7 @@
 #include "object.h"
 #include "manager.h"
 
+#include <extensions/manager.h>
 #include <utils/common.h>
 #include <utils/utils.h>
 #include <filesystem/files/files.h>
@@ -8,13 +9,20 @@
 #include <server/commands/manager.h>
 #include <tools/crashreporter/callstack.h>
 #include <tools/resourcemonitor/monitor.h>
+#include <engine/gameevents/gameevents.h>
 
 #include <extensions/manager.h>
+#include <glob/glob.hpp>
+#include <regex>
+#include <utils/common.h>
 
-PluginObject::PluginObject(std::string m_name, ContextKinds m_kind)
+PluginObject::PluginObject(std::string m_name, ContextKinds m_kind, bool m_hasManifest, bool m_isValidManifest, std::string m_manifestPath)
 {
     name = m_name;
     kind = m_kind;
+    hasManifest = m_hasManifest;
+    isValidManifest = m_isValidManifest;
+    manifestPath = m_manifestPath;
 }
 
 PluginObject::~PluginObject()
@@ -41,6 +49,7 @@ void PluginObject::RegisterEventHandling(std::string eventName)
 {
     if (eventHandlers.find(eventName) == eventHandlers.end()) {
         eventHandlers.insert(eventName);
+        g_eventManager.RegisterGameEventListen(eventName);
     }
 }
 
@@ -61,6 +70,7 @@ EventResult PluginObject::TriggerEvent(std::string invokedBy, std::string eventN
 
     uint64_t stackid = g_callStack.RegisterPluginCallstack(GetName(), string_format("Event: %s(invokedBy=\"%s\",payloadSize=%d,event=%p)", eventName.c_str(), invokedBy.c_str(), eventPayload.size(), (void*)eventObject));
     std::string eventResmon = "event:" + eventName;
+
     g_ResourceMonitor.StartTime(GetName(), eventResmon);
 
     EventResult response = EventResult::Continue;
@@ -175,46 +185,138 @@ int64_t PluginObject::GetMemoryUsage()
 
 std::string PluginObject::GetAuthor()
 {
-    if (GetPluginState() == PluginState_t::Stopped)
-        return "";
+    if (!hasManifest) {
+        if (GetPluginState() == PluginState_t::Stopped)
+            return "";
 
-    auto func = EValue::getGlobal(ctx, "GetPluginAuthor");
-    return func().cast<std::string>();
+        auto func = EValue::getGlobal(ctx, "GetPluginAuthor");
+        return func().cast<std::string>();
+    }
+    else {
+        if (!isValidManifest) return "";
+        auto manifestDoc = encoders::json::FromString(Files::Read(manifestPath), manifestPath);
+        return manifestDoc["author"].GetString();
+    }
 }
 
 std::string PluginObject::GetWebsite()
 {
-    if (GetPluginState() == PluginState_t::Stopped)
-        return "";
+    if (!hasManifest) {
+        if (GetPluginState() == PluginState_t::Stopped)
+            return "";
 
-    auto func = EValue::getGlobal(ctx, "GetPluginWebsite");
-    return func().cast<std::string>();
+        auto func = EValue::getGlobal(ctx, "GetPluginWebsite");
+        return func().cast<std::string>();
+    }
+    else {
+        if (!isValidManifest) return "";
+        auto manifestDoc = encoders::json::FromString(Files::Read(manifestPath), manifestPath);
+        return manifestDoc["website"].GetString();
+    }
 }
 
 std::string PluginObject::GetVersion()
 {
-    if (GetPluginState() == PluginState_t::Stopped)
-        return "";
+    if (!hasManifest) {
+        if (GetPluginState() == PluginState_t::Stopped)
+            return "";
 
-    auto func = EValue::getGlobal(ctx, "GetPluginVersion");
-    return func().cast<std::string>();
+        auto func = EValue::getGlobal(ctx, "GetPluginVersion");
+        return func().cast<std::string>();
+    }
+    else {
+        if (!isValidManifest) return "";
+        auto manifestDoc = encoders::json::FromString(Files::Read(manifestPath), manifestPath);
+        return manifestDoc["version"].GetString();
+    }
 }
 
 std::string PluginObject::GetPlName()
 {
-    if (GetPluginState() == PluginState_t::Stopped)
-        return "";
+    if (!hasManifest) {
+        if (GetPluginState() == PluginState_t::Stopped)
+            return "";
 
-    auto func = EValue::getGlobal(ctx, "GetPluginName");
-    return func().cast<std::string>();
+        auto func = EValue::getGlobal(ctx, "GetPluginName");
+        return func().cast<std::string>();
+    }
+    else {
+        if (!isValidManifest) return "";
+        auto manifestDoc = encoders::json::FromString(Files::Read(manifestPath), manifestPath);
+        return manifestDoc["name"].GetString();
+    }
 }
 
 bool PluginObject::LoadScriptingEnvironment()
 {
+    if (hasManifest && !isValidManifest) return false;
+
+    SetPluginState(PluginState_t::Starting);
     SetLoadError("");
+
+    if (hasManifest) {
+        auto manifestDoc = encoders::json::FromString(Files::Read(manifestPath), manifestPath);
+        auto deps = manifestDoc["dependencies"].GetObject();
+
+        auto& depsPLArray = deps["plugins"];
+        auto& depsExtArray = deps["extensions"];
+
+        std::vector<std::string> pluginsDep;
+        std::vector<std::string> extsDep;
+
+        for (int i = 0; i < depsPLArray.Size(); i++) {
+            if (depsPLArray[i].IsString()) {
+                pluginsDep.push_back(std::string(depsPLArray[i].GetString()));
+            }
+        }
+        for (int i = 0; i < depsExtArray.Size(); i++) {
+            if (depsExtArray[i].IsString()) {
+                extsDep.push_back(std::string(depsExtArray[i].GetString()));
+            }
+        }
+
+        if (pluginsDep.size() > 0) {
+            for (std::string plugin : pluginsDep) {
+                if (!g_pluginManager.PluginExists(plugin)) {
+                    std::string error = string_format("Missing plugin dependency '%s'", plugin.c_str());
+                    PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
+                    PRINTF("Error: %s.\n", error.c_str());
+                    SetLoadError(error);
+                    return false;
+                }
+
+                auto obj = g_pluginManager.FetchPlugin(plugin);
+                if (obj->GetPluginState() == PluginState_t::Stopped) {
+                    if (!g_pluginManager.StartPlugin(plugin)) {
+                        std::string error = string_format("Missing plugin dependency '%s'", plugin.c_str());
+                        PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
+                        PRINTF("Error: %s.\n", error.c_str());
+                        SetLoadError(error);
+                        return false;
+                    }
+                }
+            }
+        }
+
+        if (extsDep.size() > 0) {
+            for (std::string ext : extsDep) {
+                if (!extManager.ExtensionExists(ext)) {
+                    std::string error = string_format("Missing extension dependency '%s'", ext.c_str());
+                    PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
+                    PRINTF("Error: %s.\n", error.c_str());
+                    SetLoadError(error);
+                    return false;
+                }
+            }
+        }
+    }
+
     ctx = new EContext(kind);
 
-    std::string fileExt = GetKind() == ContextKinds::Lua ? ".lua" : ".js";
+    std::string fileExt;
+
+    if (GetKind() == ContextKinds::Lua) fileExt = ".lua";
+    else if (GetKind() == ContextKinds::Dotnet) fileExt = ".dll";
 
     SetupScriptingEnvironment(*this, ctx);
 
@@ -225,6 +327,7 @@ bool PluginObject::LoadScriptingEnvironment()
                 PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
                 PRINTF("Error: %s.\n", error.c_str());
                 SetLoadError(error);
+                DestroyScriptingEnvironment();
                 return false;
             }
         }
@@ -246,6 +349,7 @@ bool PluginObject::LoadScriptingEnvironment()
                     PRINTF("Error: %s\n", error.c_str());
 
                     SetLoadError(error);
+                    DestroyScriptingEnvironment();
                     return false;
                 }
             }
@@ -256,19 +360,44 @@ bool PluginObject::LoadScriptingEnvironment()
                 PRINTF("Error: %s\n", error.c_str());
 
                 SetLoadError(error);
+                DestroyScriptingEnvironment();
                 return false;
             }
         }
     }
 
     std::vector<std::string> files = Files::FetchFileNames(g_pluginManager.GetPluginBasePath(GetName()) + "/" + GetName());
-    for (std::string file : files)
+    std::set<std::string> fileSet(files.begin(), files.end());
+    std::vector<std::string> toLoadFiles;
+
+    if (hasManifest) {
+        auto manifestDoc = encoders::json::FromString(Files::Read(manifestPath), manifestPath);
+        auto& filesArray = manifestDoc["files"];
+        std::vector<std::string> filesPaths;
+
+        for (int i = 0; i < filesArray.Size(); i++) {
+            if (filesArray[i].IsString()) {
+                filesPaths.push_back(std::string(filesArray[i].GetString()));
+            }
+        }
+
+        for (auto path : filesPaths) {
+            for (auto p : glob::rglob(GeneratePath(g_pluginManager.GetPluginBasePath(GetName()) + "/" + GetName() + "/" + path))) {
+                toLoadFiles.push_back(p.string());
+            }
+        }
+
+        fileExt = "";
+    }
+    else toLoadFiles = files;
+
+    for (std::string file : toLoadFiles)
     {
         if (ends_with(file, fileExt))
         {
             try
             {
-                int loadStatus = ctx->RunFile(GeneratePath(file));
+                int loadStatus = ctx->RunFile(fileExt == "" ? file : GeneratePath(file));
 
                 if (loadStatus != 0)
                 {
@@ -277,6 +406,7 @@ bool PluginObject::LoadScriptingEnvironment()
                     PRINTF("Error: %s\n", error.c_str());
 
                     SetLoadError(error);
+                    DestroyScriptingEnvironment();
                     return false;
                 }
             }
@@ -287,6 +417,7 @@ bool PluginObject::LoadScriptingEnvironment()
                 PRINTF("Error: %s\n", error.c_str());
 
                 SetLoadError(error);
+                DestroyScriptingEnvironment();
                 return false;
             }
         }
@@ -313,45 +444,50 @@ void PluginObject::DestroyScriptingEnvironment()
         eventFunctionPtrJSON = nullptr;
     }
 
-    delete ctx;
+    if (ctx) {
+        delete ctx;
+        ctx = nullptr;
+    }
 }
 
 bool PluginObject::ExecuteStart()
 {
-    auto PluginAuthor = EValue::getGlobal(ctx, "GetPluginAuthor");
-    if (!PluginAuthor.isFunction())
-    {
-        PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
-        PRINT("Error: Mandatory function 'GetPluginAuthor' is not defined.\n");
-        SetLoadError("Mandatory function 'GetPluginAuthor' is not defined.");
-        return false;
-    }
+    if (!hasManifest) {
+        auto PluginAuthor = EValue::getGlobal(ctx, "GetPluginAuthor");
+        if (!PluginAuthor.isFunction())
+        {
+            PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
+            PRINT("Error: Mandatory function 'GetPluginAuthor' is not defined.\n");
+            SetLoadError("Mandatory function 'GetPluginAuthor' is not defined.");
+            return false;
+        }
 
-    auto PluginWebsite = EValue::getGlobal(ctx, "GetPluginWebsite");
-    if (!PluginWebsite.isFunction())
-    {
-        PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
-        PRINT("Error: Mandatory function 'GetPluginWebsite' is not defined.\n");
-        SetLoadError("Mandatory function 'GetPluginWebsite' is not defined.");
-        return false;
-    }
+        auto PluginWebsite = EValue::getGlobal(ctx, "GetPluginWebsite");
+        if (!PluginWebsite.isFunction())
+        {
+            PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
+            PRINT("Error: Mandatory function 'GetPluginWebsite' is not defined.\n");
+            SetLoadError("Mandatory function 'GetPluginWebsite' is not defined.");
+            return false;
+        }
 
-    auto PluginVersion = EValue::getGlobal(ctx, "GetPluginVersion");
-    if (!PluginVersion.isFunction())
-    {
-        PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
-        PRINT("Error: Mandatory function 'GetPluginVersion' is not defined.\n");
-        SetLoadError("Mandatory function 'GetPluginVersion' is not defined.");
-        return false;
-    }
+        auto PluginVersion = EValue::getGlobal(ctx, "GetPluginVersion");
+        if (!PluginVersion.isFunction())
+        {
+            PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
+            PRINT("Error: Mandatory function 'GetPluginVersion' is not defined.\n");
+            SetLoadError("Mandatory function 'GetPluginVersion' is not defined.");
+            return false;
+        }
 
-    auto PluginName = EValue::getGlobal(ctx, "GetPluginName");
-    if (!PluginName.isFunction())
-    {
-        PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
-        PRINT("Error: Mandatory function 'GetPluginName' is not defined.\n");
-        SetLoadError("Mandatory function 'GetPluginName' is not defined.");
-        return false;
+        auto PluginName = EValue::getGlobal(ctx, "GetPluginName");
+        if (!PluginName.isFunction())
+        {
+            PRINTF("Failed to load plugin '%s'.\n", GetName().c_str());
+            PRINT("Error: Mandatory function 'GetPluginName' is not defined.\n");
+            SetLoadError("Mandatory function 'GetPluginName' is not defined.");
+            return false;
+        }
     }
 
     TriggerEvent("core", "OnPluginStart", std::vector<std::any>{}, {});

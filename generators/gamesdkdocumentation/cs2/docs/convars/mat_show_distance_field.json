@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_show_distance_field","description":"0=Off, 1=Visualize trace from camera, 2=Visualize occlusion, 3=Visualize far field trace from camera","args":"0","flags":["cheat"],"games":["cs2"]}

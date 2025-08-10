@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "BoneDemoCaptureSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "BoneDemoCaptureSettings_t"
+    },
+    "properties": [
+        {
+            "name": "BoneName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ErrorSplineRotationMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ErrorSplineTranslationMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ErrorSplineScaleMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ErrorQuantizationRotationMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ErrorQuantizationTranslationMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ErrorQuantizationScaleMax",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

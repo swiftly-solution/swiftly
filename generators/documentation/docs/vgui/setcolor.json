@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "SetColor",
+    "description": "Sets the color of a text.",
+    "arguments": {
+        "textID": "int64",
+        "color": "Color"
+    },
+    "return": "void",
+    "games": "all"
+}

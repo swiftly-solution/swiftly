@@ -1,0 +1,1 @@
+{"kind":"command","name":"apply_crosshair_code","description":"Apply a crosshair code to the current crosshair settings.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,413 @@
+{
+    "kind": "class",
+    "name": "CCSWeaponBaseVData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSWeaponBaseVData"
+    },
+    "properties": [
+        {
+            "name": "WeaponType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "WeaponCategory",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MuzzlePos0",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MuzzlePos1",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "GearSlot",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "GearSlotPosition",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DefaultLoadoutSlot",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Price",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "KillAward",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PrimaryReserveAmmoMax",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SecondaryReserveAmmoMax",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MeleeWeapon",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasBurstMode",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsRevolver",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CannotShootUnderwater",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SilencerType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CrosshairMinDistance",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CrosshairDeltaDistance",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsFullAuto",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NumBullets",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ReloadsSingleShells",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CycleTime",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "MaxSpeed",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "Spread",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "InaccuracyCrouch",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "InaccuracyStand",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "InaccuracyJump",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "InaccuracyLand",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "InaccuracyLadder",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "InaccuracyFire",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "InaccuracyMove",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "RecoilAngle",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "RecoilAngleVariance",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "RecoilMagnitude",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "RecoilMagnitudeVariance",
+            "type": "CFiringModeFloat",
+            "writable": false
+        },
+        {
+            "name": "TracerFrequency",
+            "type": "CFiringModeInt",
+            "writable": false
+        },
+        {
+            "name": "InaccuracyJumpInitial",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InaccuracyJumpApex",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InaccuracyReload",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DeployDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DisallowAttackAfterReloadStartDuration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RecoilSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpreadSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AttackMovespeedFactor",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InaccuracyPitchShift",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InaccuracyAltSoundThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "UseRadioSubtitle",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "UnzoomsAfterShot",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HideViewModelWhenZoomed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ZoomLevels",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ZoomFOV1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ZoomFOV2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ZoomTime0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ZoomTime1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ZoomTime2",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IronSightPullUpSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IronSightPutDownSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IronSightFOV",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IronSightPivotForward",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IronSightLooseness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Damage",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HeadshotMultiplier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ArmorRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Penetration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Range",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RangeModifier",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FlinchVelocityModifierLarge",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FlinchVelocityModifierSmall",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RecoveryTimeCrouch",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RecoveryTimeStand",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RecoveryTimeCrouchFinal",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RecoveryTimeStandFinal",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RecoveryTransitionStartBullet",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RecoveryTransitionEndBullet",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ThrowVelocity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SmokeColor",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBasePlayerWeaponVData",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

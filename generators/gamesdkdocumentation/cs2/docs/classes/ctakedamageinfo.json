@@ -1,0 +1,133 @@
+{
+    "kind": "class",
+    "name": "CTakeDamageInfo",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTakeDamageInfo"
+    },
+    "properties": [
+        {
+            "name": "DamageForce",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DamagePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ReportedPosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DamageDirection",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Inflictor",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Attacker",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Ability",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Damage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TotalledDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BitsDamageType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DamageCustom",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AmmoType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OriginalDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShouldBleed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ShouldSpark",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DamageAbsorbed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DamageFlags",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "HitGroupId",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NumObjectsPenetrated",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FriendlyFireDamageReductionRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InTakeDamageFlow",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

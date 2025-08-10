@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "ModelSkeletonData_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ModelSkeletonData_t"
+    },
+    "properties": [
+        {
+            "name": "BoneName",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "int16[]",
+            "writable": true
+        },
+        {
+            "name": "BoneSphere",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "Flag",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "BonePosParent",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "BoneScaleParent",
+            "type": "float[]",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

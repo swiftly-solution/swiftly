@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CLogicCase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicCase"
+    },
+    "properties": [
+        {
+            "name": "Case",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "ShuffleCases",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastShuffleCase",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "UchShuffleCaseMap",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

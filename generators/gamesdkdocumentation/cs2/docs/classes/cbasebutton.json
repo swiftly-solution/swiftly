@@ -1,0 +1,158 @@
+{
+    "kind": "class",
+    "name": "CBaseButton",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseButton"
+    },
+    "properties": [
+        {
+            "name": "MoveEntitySpace",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "StayPushed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Rotating",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Ls",
+            "type": "locksound_t",
+            "writable": false
+        },
+        {
+            "name": "UseSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "LockedSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "UnlockedSound",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "OverrideAnticipationName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Locked",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseLockedTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SolidBsp",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnDamaged",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPressed",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnUseLocked",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnIn",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnOut",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "State",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Constraint",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "ConstraintParent",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "ForceNpcExclude",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GlowEntity",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "GlowEntity1",
+            "type": "CBaseModelEntity",
+            "writable": false
+        },
+        {
+            "name": "Usable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisplayText",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseToggle",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

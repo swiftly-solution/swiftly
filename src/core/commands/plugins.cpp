@@ -11,7 +11,7 @@ void ShowSwiftlyPluginManagerHelp(CPlayerSlot slot)
     PrintToClientOrConsole(slot, "Commands", " load     - Loads a plugin\n");
     PrintToClientOrConsole(slot, "Commands", " reload   - Reloads a plugin if it was loaded\n");
     PrintToClientOrConsole(slot, "Commands", " unload   - Unloads a plugin if it was loaded\n");
-    PrintToClientOrConsole(slot, "Commands", " refresh  - Refreshes the plugin list.\n");
+    PrintToClientOrConsole(slot, "Commands", " refresh  - Refreshes the plugin list and plugin manifests.\n");
 }
 
 void SwiftlyPluginManagerList(CPlayerSlot slot)
@@ -143,6 +143,7 @@ void SwiftlyPluginManagerRefresh(CPlayerSlot slot)
 {
     auto oldPluginsAmount = g_pluginManager.GetPluginsList().size();
     g_pluginManager.LoadPlugins("");
+    g_pluginManager.ReloadManifests();
     auto newPluginsAmount = g_pluginManager.GetPluginsList().size();
     PrintToClientOrConsole(slot, "Plugin Refresh", "Plugins have been succesfully refreshed. (%d -> %d plugins)\n", oldPluginsAmount, newPluginsAmount);
 }

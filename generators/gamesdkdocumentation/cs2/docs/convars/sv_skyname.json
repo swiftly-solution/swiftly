@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_skyname","description":"Current name of the skybox texture","args":"\"sky_urb01\"","flags":["gamedll","clientdll","archive","replicated"],"games":["cs2"]}

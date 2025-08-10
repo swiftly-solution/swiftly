@@ -1,0 +1,1 @@
+{"kind":"command","name":"exec_async","description":"Execute a cfg file over time","args":"","flags":["cheat","dontrecord"],"games":["cs2"]}

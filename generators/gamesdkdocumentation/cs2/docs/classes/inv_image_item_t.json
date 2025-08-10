@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "inv_image_item_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "inv_image_item_t"
+    },
+    "properties": [
+        {
+            "name": "Position",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Angle",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "Pose_sequence",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

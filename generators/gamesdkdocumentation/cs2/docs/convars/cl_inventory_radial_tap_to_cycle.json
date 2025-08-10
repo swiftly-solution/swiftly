@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_inventory_radial_tap_to_cycle","description":"In inventory selection radials. Select weapons the moment the cursor highlights them. Otherwise, only select the selected item on exit.","args":"true","flags":["clientdll","archive","per_user"],"games":["cs2"]}

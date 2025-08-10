@@ -1,0 +1,1 @@
+{"kind":"command","name":"buyrandom","description":"Buy random primary and secondary. Primarily for deathmatch where cost is not an issue.","args":"","flags":["gamedll","client_can_execute"],"games":["cs2"]}

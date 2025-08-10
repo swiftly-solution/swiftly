@@ -1,0 +1,12 @@
+{
+    "kind": "type",
+    "name": "LogType_t",
+    "description": "These are the log types available.",
+    "values": {
+        "Debug": "1",
+        "Warning": "2",
+        "Error": "3",
+        "Common": "4"
+    },
+    "games": "all"
+}

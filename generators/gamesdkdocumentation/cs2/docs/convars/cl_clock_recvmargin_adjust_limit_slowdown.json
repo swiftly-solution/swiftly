@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_clock_recvmargin_adjust_limit_slowdown","description":"Clock sync will not slow down time slower than N%","args":"93","flags":["min:","66,","max:","100,","developmentonly"],"games":["cs2"]}

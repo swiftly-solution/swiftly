@@ -1,0 +1,1 @@
+{"kind":"command","name":"rr_forceconcept","description":"fire a response concept directly at a given character.","args":" rr_forceconcept <target name or index> <concept> \"criteria1","flags":["gamedll","cheat"],"games":["cs2"]}

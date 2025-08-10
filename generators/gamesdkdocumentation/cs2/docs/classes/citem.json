@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CItem",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CItem"
+    },
+    "properties": [
+        {
+            "name": "OnPlayerTouch",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPlayerPickup",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "ActivateWhenAtRest",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnCacheInteraction",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnGlovePulled",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OriginalSpawnOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OriginalSpawnAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "PhysStartAsleep",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseAnimGraph",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

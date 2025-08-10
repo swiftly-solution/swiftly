@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ent_pivot","description":"Displays the pivot for the given entity(ies).","args":"","flags":["clientdll","cheat"],"games":["cs2"]}

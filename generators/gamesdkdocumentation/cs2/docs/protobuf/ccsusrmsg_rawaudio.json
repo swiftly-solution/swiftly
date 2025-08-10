@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"pitch","type":"int32"},{"name":"entidx","type":"int32","default":-1},{"name":"duration","type":"float"},{"name":"voiceFilename","type":"string"}],"name":"CCSUsrMsg_RawAudio","games":["cs2"]}

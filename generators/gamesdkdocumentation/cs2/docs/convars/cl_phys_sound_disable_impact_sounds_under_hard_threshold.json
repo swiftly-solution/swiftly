@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_phys_sound_disable_impact_sounds_under_hard_threshold","description":"if true, impact sounds wont play if no soft impact sound is present and the impact is below the hard velocity threshold.","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

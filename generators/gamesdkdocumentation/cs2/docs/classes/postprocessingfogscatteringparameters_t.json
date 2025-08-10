@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "PostProcessingFogScatteringParameters_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "PostProcessingFogScatteringParameters_t"
+    },
+    "properties": [
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Scale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CubemapScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VolumetricScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GradientScale",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

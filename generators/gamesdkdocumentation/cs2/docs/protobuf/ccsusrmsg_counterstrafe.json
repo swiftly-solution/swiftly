@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"pressToReleaseNs","type":"int32"},{"name":"totalKeysDown","type":"int32"}],"name":"CCSUsrMsg_CounterStrafe","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"EMode_t","description":"Automatically generated game type from enum EMode_t","values":{"Peak":0,"RMS":1},"games":["cs2"]}

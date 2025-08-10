@@ -1,0 +1,1 @@
+{"kind":"command","name":"consoletool","description":"Open a VConsole subtool.","args":"","flags":["dontrecord","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"devonly_chicken_feeler_distance","description":"Chicken feeler distance","args":"30","flags":["developmentonly","gamedll"],"games":["cs2"]}

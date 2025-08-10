@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"pauseType","type":"RequestPause_t","default":"RP_PAUSE"},{"name":"pauseGroup","type":"int32"}],"name":"CCLCMsg_RequestPause","games":["cs2"]}

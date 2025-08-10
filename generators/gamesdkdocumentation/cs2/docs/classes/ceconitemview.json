@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CEconItemView",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEconItemView"
+    },
+    "properties": [
+        {
+            "name": "ItemDefinitionIndex",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "EntityQuality",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EntityLevel",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ItemID",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "ItemIDHigh",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ItemIDLow",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AccountID",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "InventoryPosition",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Initialized",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AttributeList",
+            "type": "CAttributeList",
+            "writable": false
+        },
+        {
+            "name": "NetworkedDynamicAttributes",
+            "type": "CAttributeList",
+            "writable": false
+        },
+        {
+            "name": "CustomName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CustomNameOverride",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "IEconItemInterface",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

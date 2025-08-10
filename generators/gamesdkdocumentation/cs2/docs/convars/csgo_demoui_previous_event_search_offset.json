@@ -1,0 +1,1 @@
+{"kind":"command","name":"csgo_demoui_previous_event_search_offset","description":"Do not consider events that happened in the last specified number of seconds when a user clicks 'previous' on the UI.","args":"2","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

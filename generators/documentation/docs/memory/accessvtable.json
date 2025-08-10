@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "AccessVTable",
+    "description": "Accesses the VTable at the specified offset.",
+    "arguments": {
+        "offset": "int64"
+    },
+    "return": "void",
+    "games": "all"
+}

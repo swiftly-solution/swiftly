@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "ExistsFake",
+    "description": "Checks if a fake convar exists.",
+    "arguments": {
+        "name": "string"
+    },
+    "return": "bool",
+    "games": "all"
+}

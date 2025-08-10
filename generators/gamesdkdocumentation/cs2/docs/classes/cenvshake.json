@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CEnvShake",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvShake"
+    },
+    "properties": [
+        {
+            "name": "LimitToEntity",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Amplitude",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Frequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Duration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StopTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextShake",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurrentAmp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxForce",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ShakeCallback",
+            "type": "CPhysicsShake",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

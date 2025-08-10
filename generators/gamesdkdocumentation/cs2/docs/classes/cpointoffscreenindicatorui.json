@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CPointOffScreenIndicatorUi",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointOffScreenIndicatorUi"
+    },
+    "properties": [
+        {
+            "name": "BeenEnabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Hide",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SeenTargetTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "C_PointClientUIWorldPanel",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

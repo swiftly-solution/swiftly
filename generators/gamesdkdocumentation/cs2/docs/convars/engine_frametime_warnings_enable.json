@@ -1,0 +1,1 @@
+{"kind":"command","name":"engine_frametime_warnings_enable","description":"Enable framerate-related warnings, such as sv_long_frame_ms.  Disabling warnings is useful when running in situations such a debug where a slow frame rate is expected","args":"true","flags":["developmentonly","defensive"],"games":["cs2"]}

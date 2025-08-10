@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CEntityIdentity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEntityIdentity"
+    },
+    "properties": [
+        {
+            "name": "NameStringableIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DesignerName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "WorldGroupId",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "DataObjectTypes",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PathIndex",
+            "type": "ChangeAccessorFieldPathIndex_t",
+            "writable": false
+        },
+        {
+            "name": "Prev",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "Next",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "PrevByClass",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "NextByClass",
+            "type": "int32[]",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

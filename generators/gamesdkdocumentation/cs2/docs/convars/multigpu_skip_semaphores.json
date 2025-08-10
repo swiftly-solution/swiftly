@@ -1,0 +1,1 @@
+{"kind":"command","name":"multigpu_skip_semaphores","description":"<no description>","args":"false","flags":["developmentonly","defensive"],"games":["cs2"]}

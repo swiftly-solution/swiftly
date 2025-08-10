@@ -1,0 +1,113 @@
+{
+    "kind": "class",
+    "name": "CPointWorldText",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointWorldText"
+    },
+    "properties": [
+        {
+            "name": "MessageText",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "FontName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BackgroundMaterialName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Fullbright",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WorldUnitsPerPx",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FontSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DepthOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DrawBackground",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BackgroundBorderWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BackgroundBorderHeight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BackgroundWorldToUV",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "JustifyHorizontal",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "JustifyVertical",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ReorientMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CModelPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

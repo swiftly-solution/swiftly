@@ -1,0 +1,1 @@
+{"kind":"command","name":"safezonex","description":"The percentage of the screen width that is considered safe from overscan. Cannot result in a width less than the height.","args":"1","flags":["min:","0,","max:","1,","clientdll","archive"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostAmmoRefill","description":"This event is triggered after ammo_refill is triggered.","arguments":{"userid":"int32","success":"bool"},"return":"void","games":["cs2"]}

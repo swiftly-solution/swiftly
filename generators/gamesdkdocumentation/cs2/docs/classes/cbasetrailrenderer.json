@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CBaseTrailRenderer",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseTrailRenderer"
+    },
+    "properties": [
+        {
+            "name": "OrientationType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OrientationControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MinSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxSize",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartFadeSize",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "EndFadeSize",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "ClampV",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseRendererSource2",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

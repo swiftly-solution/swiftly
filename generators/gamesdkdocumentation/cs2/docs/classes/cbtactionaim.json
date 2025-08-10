@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CBtActionAim",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBtActionAim"
+    },
+    "properties": [
+        {
+            "name": "SensorInputKey",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AimReadyKey",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ZoomCooldownTimestamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DoneAiming",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LerpStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextLookTargetLerpTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PenaltyReductionRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextLookTarget",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "AimTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "SniperHoldTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "FocusIntervalTimer",
+            "type": "CountdownTimer",
+            "writable": false
+        },
+        {
+            "name": "Acquired",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBtNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,12 @@
+{
+    "kind": "function",
+    "function": "UnregisterCallstack",
+    "override_variable": true,
+    "description": "Removes an entry from the Crash Reporter callstack.",
+    "arguments": {
+        "plugin_name": "string",
+        "id": "uint64"
+    },
+    "return": "void",
+    "games": "all"
+}

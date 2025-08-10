@@ -1,0 +1,128 @@
+{
+    "kind": "class",
+    "name": "CAnimGraphNetworkedVariables",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimGraphNetworkedVariables"
+    },
+    "properties": [
+        {
+            "name": "PredNetBoolVariables",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "PredNetByteVariables",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "PredNetUInt16Variables",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "PredNetIntVariables",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "PredNetUInt32Variables",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "PredNetUInt64Variables",
+            "type": "uint64[]",
+            "writable": true
+        },
+        {
+            "name": "PredNetFloatVariables",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "PredNetVectorVariables",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "OwnerOnlyPredNetBoolVariables",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "OwnerOnlyPredNetByteVariables",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "OwnerOnlyPredNetUInt16Variables",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "OwnerOnlyPredNetIntVariables",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "OwnerOnlyPredNetUInt32Variables",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "OwnerOnlyPredNetUInt64Variables",
+            "type": "uint64[]",
+            "writable": true
+        },
+        {
+            "name": "OwnerOnlyPredNetFloatVariables",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "OwnerOnlyPredNetVectorVariables",
+            "type": "QAngle[]",
+            "writable": true
+        },
+        {
+            "name": "BoolVariablesCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OwnerOnlyBoolVariablesCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RandomSeedOffset",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LastTeleportTime",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

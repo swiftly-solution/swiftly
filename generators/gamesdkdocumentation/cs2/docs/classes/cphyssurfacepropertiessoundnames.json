@@ -1,0 +1,88 @@
+{
+    "kind": "class",
+    "name": "CPhysSurfacePropertiesSoundNames",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysSurfacePropertiesSoundNames"
+    },
+    "properties": [
+        {
+            "name": "ImpactSoft",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ImpactHard",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ScrapeSmooth",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ScrapeRough",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "BulletImpact",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Rolling",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Break",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Strain",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MeleeImpact",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PushOff",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SkidStop",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Resonant",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "CParticleFunction",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleFunction"
+    },
+    "properties": [
+        {
+            "name": "OpStrength",
+            "type": "CParticleCollectionFloatInput",
+            "writable": false
+        },
+        {
+            "name": "OpEndCapState",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OpStartFadeInTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpEndFadeInTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpStartFadeOutTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpEndFadeOutTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpFadeOscillatePeriod",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NormalizeToStopTime",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OpTimeOffsetMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpTimeOffsetMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpTimeOffsetSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OpTimeScaleSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OpTimeScaleMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpTimeScaleMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DisableOperator",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Notes",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

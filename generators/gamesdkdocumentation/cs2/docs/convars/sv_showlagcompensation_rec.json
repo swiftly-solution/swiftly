@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_showlagcompensation_rec","description":"If > 0, show lag compensation hitboxes as they're recorded. Value is for how long.","args":"0","flags":["developmentonly","gamedll"],"games":["cs2"]}

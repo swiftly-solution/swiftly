@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_defer_to_human_items","description":"If nonzero and there is a human on the team, the bots will not get scenario items.","args":"true","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

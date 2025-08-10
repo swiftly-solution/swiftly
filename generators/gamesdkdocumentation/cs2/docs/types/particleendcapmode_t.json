@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleEndcapMode_t","description":"Automatically generated game type from enum ParticleEndcapMode_t","values":{"PARTICLE_ENDCAP_ALWAYS_ON":-1,"PARTICLE_ENDCAP_ENDCAP_OFF":0,"PARTICLE_ENDCAP_ENDCAP_ON":1},"games":["cs2"]}

@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CFogVolume",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFogVolume"
+    },
+    "properties": [
+        {
+            "name": "FogName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PostProcessName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ColorCorrectionName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InFogVolumesList",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CServerOnlyModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

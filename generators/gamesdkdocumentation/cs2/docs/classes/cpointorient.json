@@ -1,0 +1,68 @@
+{
+    "kind": "class",
+    "name": "CPointOrient",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPointOrient"
+    },
+    "properties": [
+        {
+            "name": "SpawnTargetName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Target",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "Active",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GoalDirection",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Constraint",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MaxTurnRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastGameTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

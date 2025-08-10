@@ -1,0 +1,9 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnPluginStop",
+    "description": "This game event is triggered when the plugin stops.",
+    "arguments": {},
+    "return": "void",
+    "games": "all"
+}

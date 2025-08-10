@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "FeWorldCollisionParams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeWorldCollisionParams_t"
+    },
+    "properties": [
+        {
+            "name": "WorldFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GroundFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ListBegin",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "ListEnd",
+            "type": "uint16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

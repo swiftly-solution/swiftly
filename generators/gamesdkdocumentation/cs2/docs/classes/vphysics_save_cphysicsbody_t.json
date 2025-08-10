@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "vphysics_save_cphysicsbody_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "vphysics_save_cphysicsbody_t"
+    },
+    "properties": [
+        {
+            "name": "OldPointer",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "RnBodyDesc_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

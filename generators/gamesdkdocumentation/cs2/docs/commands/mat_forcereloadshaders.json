@@ -1,0 +1,1 @@
+{"kind":"command","name":"mat_forcereloadshaders","description":"Force reloads all shaders (skips MD5 check). Takes optional substrings of shader names to recompile as arguments.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

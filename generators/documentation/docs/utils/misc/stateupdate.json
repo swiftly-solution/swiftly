@@ -1,0 +1,13 @@
+{
+    "kind": "function",
+    "function": "StateUpdate",
+    "override_variable": true,
+    "description": "Updates the state of a specific field.",
+    "arguments": {
+        "entity": "SDKClass",
+        "classname": "string",
+        "field": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

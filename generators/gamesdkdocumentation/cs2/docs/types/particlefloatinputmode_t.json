@@ -1,0 +1,1 @@
+{"kind":"type","name":"ParticleFloatInputMode_t","description":"Automatically generated game type from enum ParticleFloatInputMode_t","values":{"PF_INPUT_MODE_INVALID":-1,"PF_INPUT_MODE_CLAMPED":0,"PF_INPUT_MODE_LOOPED":1,"PF_INPUT_MODE_COUNT":2},"games":["cs2"]}

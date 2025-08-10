@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_mimic_spec_buttons","description":"+attack, +jump etc are used for spectator control instead of being passed on to spectated bot","args":"true","flags":["clientdll","cheat"],"games":["cs2"]}

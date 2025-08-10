@@ -4,7 +4,15 @@ on:
   push:
     branches:
       - "**"
+    paths:
+      - 'src/**'
+      - 'plugin_files/**'
+      - 'protobufs/**'
+      - 'alliedmodders/**'
+      - 'vendor/**'
+      - '.github/workflows/**'
   pull_request:
+  workflow_dispatch:
 
 jobs:
   versioning:
@@ -27,7 +35,7 @@ jobs:
         id: version
         with:
           release_branch: master
-          increment: patch
+          increment: major
           use_api: true
 
   extensions_build:
@@ -61,15 +69,10 @@ jobs:
           path: ${{ matrix.extension }}
           submodules: recursive
 
-      - name: Checkout AMBuild
-        uses: actions/checkout@v4
+      - name: Setup XMake
+        uses: xmake-io/github-action-setup-xmake@v1
         with:
-          repository: alliedmodders/ambuild
-          path: ambuild
-
-      - name: Install AMBuild
-        run: |
-          cd ambuild; python setup.py install; cd ..
+          xmake-version: latest
 
       - name: Version
         shell: bash
@@ -123,6 +126,102 @@ jobs:
           name: ${{matrix.extension}}.Extension.Windows
           path: ${{ github.workspace }}/${{ matrix.extension }}/build/package
 
+  build_managed:
+    name: Build Managed C#
+    needs: versioning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: swiftly
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Clone Extensions
+        working-directory: swiftly
+        shell: bash
+        run: |
+          extensions=("mysql-extension" "console-filter" "addons-extension" "http-extension" "ip-extension" "utils-extension" "sdktools-extension" "websocket-extension")
+
+          for repo in "${extensions[@]}"; do
+            git clone https://github.com/swiftly-solution/$repo.git
+            if [ -d $repo/managed ]; then
+              mkdir -p src/managed/API/Extensions/$repo
+              cp -rf $repo/managed/* src/managed/API/Extensions/$repo/
+            fi
+          done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: swiftlys2-managed-files-${{ needs.versioning.outputs.version }}
+          path: ${{ github.workspace }}/swiftly/src/managed
+
+      - name: Restore CSProj
+        working-directory: swiftly
+        shell: bash
+        run: dotnet restore src/managed/SwiftlyS2.csproj
+
+      - name: Build Project
+        working-directory: swiftly
+        shell: bash
+        run: |
+          dotnet publish -c Release /p:Version=${{needs.versioning.outputs.version}} src/managed
+
+          dotnet pack -c Release /p:Version=${{needs.versioning.outputs.version}} src/managed
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: swiftlys2-managed-${{ needs.versioning.outputs.version }}
+          path: ${{ github.workspace }}/swiftly/src/managed/bin/Release
+
+  build_docs:
+    name: Build Documentation
+    needs: versioning
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          path: swiftly
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Clone Extensions
+        working-directory: swiftly
+        shell: bash
+        run: |
+          extensions=("mysql-extension" "console-filter" "addons-extension" "http-extension" "ip-extension" "utils-extension" "sdktools-extension" "websocket-extension")
+
+          for repo in "${extensions[@]}"; do
+            git clone https://github.com/swiftly-solution/$repo.git
+            if [ -d $repo/documentation ]; then
+              cp -rf $repo/documentation/* generators/documentation
+            fi
+            if [ -d $repo/sdkdocumentation ]; then
+              cp -rf $repo/sdkdocumentation/* generators/sdkdocumentation
+            fi
+          done
+
+      - name: Build Documentation
+        working-directory: swiftly
+        shell: bash
+        run: |
+          cd generators/docsgen
+          node index.mjs
+
+
+      - name: Upload Pages
+        uses: actions/upload-artifact@v4
+        with:
+          name: swiftlys2-documentation
+          path: ${{ github.workspace }}/swiftly/generators/docsgen/*.json
+
   build:
     name: Build
     needs: versioning
@@ -145,15 +244,10 @@ jobs:
           path: swiftly
           submodules: recursive
 
-      - name: Checkout AMBuild
-        uses: actions/checkout@v4
+      - name: Setup XMake
+        uses: xmake-io/github-action-setup-xmake@v1
         with:
-          repository: alliedmodders/ambuild
-          path: ambuild
-
-      - name: Install AMBuild
-        run: |
-          cd ambuild; python setup.py install; cd ..
+          xmake-version: latest
 
       - name: Setup Version
         shell: bash
@@ -228,21 +322,18 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: Swiftly.Plugin.Linux
+          name: Swiftly.Core.Linux
           path: ${{ github.workspace }}/swiftly/build/package
 
       - name: Upload Artifacts Windows
         if: matrix.os == 'windows-latest'
         uses: actions/upload-artifact@v4
         with:
-          name: Swiftly.Plugin.Windows
+          name: Swiftly.Core.Windows
           path: ${{ github.workspace }}/swiftly/build/package
 
-  release:
-    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-    permissions:
-      contents: write
-    needs: ["versioning", "build", "extensions_build"]
+  packer:
+    needs: ["build", "extensions_build", "build_managed", "build_docs"]
     runs-on: ubuntu-latest
     container:
       image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
@@ -254,14 +345,81 @@ jobs:
 
       - name: Prepare ZIP Files
         run: |
-          sudo apt install p7zip-full -y;
+          sudo apt install unzip -y;
 
-          find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Plugin.Linux \;
-          find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Plugin.Windows \;
+          find build -type d -name "*Extension.Linux" -exec cp -r {}/addons build/Swiftly.Core.Linux \;
+          find build -type d -name "*Extension.Windows" -exec cp -r {}/addons build/Swiftly.Core.Windows \;
 
-          (cd build/Swiftly.Plugin.Linux; 7z a -tzip ../../../Swiftly.Plugin.Linux.zip *)
-          (cd build/Swiftly.Plugin.Windows; 7z a -tzip ../../../Swiftly.Plugin.Windows.zip *)
-          echo "PATH_ARTIFACTS=$(cd ..; pwd)" >> $GITHUB_ENV
+          find build -type d -name "swiftlys2-managed-*" -exec sh -c 'cp "$1"/net8.0/publish/* build/Swiftly.Core.Linux/addons/swiftly/bin/managed' _ {} \;
+          find build -type d -name "swiftlys2-managed-*" -exec sh -c 'cp "$1"/net8.0/publish/* build/Swiftly.Core.Windows/addons/swiftly/bin/managed' _ {} \;
+
+          mkdir -p build/Swiftly.Core.Linux/addons/swiftly/bin/managed/dotnet
+          cd build/Swiftly.Core.Linux/addons/swiftly/bin/managed/dotnet
+
+          wget https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/8.0.19/aspnetcore-runtime-8.0.19-linux-x64.tar.gz
+          tar zxvf aspnetcore-runtime-8.0.19-linux-x64.tar.gz
+          rm aspnetcore-runtime-8.0.19-linux-x64.tar.gz
+
+          cd ../../../../../../..
+
+          mkdir -p build/Swiftly.Core.Windows/addons/swiftly/bin/managed/dotnet
+          cd build/Swiftly.Core.Windows/addons/swiftly/bin/managed/dotnet
+
+          wget https://builds.dotnet.microsoft.com/dotnet/aspnetcore/Runtime/8.0.19/aspnetcore-runtime-8.0.19-win-x64.zip
+          unzip aspnetcore-runtime-8.0.19-win-x64.zip
+          rm aspnetcore-runtime-8.0.19-win-x64.zip
+
+          cd ../../../../../../..
+
+          echo "PATH_ARTIFACTS=$(pwd)" >> $GITHUB_ENV
+
+      - name: Upload Artifacts Linux
+        uses: actions/upload-artifact@v4
+        with:
+          name: Swiftly.Plugin.Linux
+          path: ${{env.PATH_ARTIFACTS}}/build/Swiftly.Core.Linux
+
+      - name: Upload Artifacts Windows
+        uses: actions/upload-artifact@v4
+        with:
+          name: Swiftly.Plugin.Windows
+          path: ${{env.PATH_ARTIFACTS}}/build/Swiftly.Core.Windows
+
+  release:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' && github.event.head_commit.verification.verified == true }}
+    permissions:
+      contents: write
+    needs: ["packer", "versioning"]
+    runs-on: ubuntu-latest
+    container:
+      image: registry.gitlab.steamos.cloud/steamrt/sniper/sdk
+    steps:
+      - uses: actions/download-artifact@v4
+        id: download-artifacts
+        with:
+          name: Swiftly.Plugin.Linux
+          path: build
+
+      - uses: actions/download-artifact@v4
+        id: download-artifacts-2
+        with:
+          name: Swiftly.Plugin.Windows
+          path: build
+
+      - uses: actions/download-artifact@v4
+        id: download-managed
+        with:
+          name: swiftlys2-managed-${{ needs.versioning.outputs.version }}
+          path: build
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Prepare ZIP Files
+        run: |
+          dotnet nuget push build/swiftlys2-managed-${{ needs.versioning.outputs.version }}/SwiftlyS2.${{ needs.versioning.outputs.version }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Release
         id: release
@@ -271,5 +429,5 @@ jobs:
           make_latest: "true"
           body: "Changelog for this version can be found inside [CHANGELOG.md](https://github.com/swiftly-solution/swiftly/blob/master/CHANGELOG.md)"
           files: |
-            ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Linux.zip
-            ${{env.PATH_ARTIFACTS}}/Swiftly.Plugin.Windows.zip
+            build/Swiftly.Plugin.Linux.zip
+            build/Swiftly.Plugin.Windows.zip

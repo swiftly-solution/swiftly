@@ -1,0 +1,1 @@
+{"kind":"command","name":"net_stats_json","description":"Output server networking statistics in json format","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

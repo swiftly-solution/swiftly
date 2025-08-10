@@ -1,0 +1,63 @@
+{
+    "kind": "class",
+    "name": "CAnimMovement",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimMovement"
+    },
+    "properties": [
+        {
+            "name": "0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Endframe",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Motionflags",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Angle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Vector",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Position",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

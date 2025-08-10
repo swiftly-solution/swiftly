@@ -1,0 +1,113 @@
+{
+    "kind": "class",
+    "name": "CCollisionProperty",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCollisionProperty"
+    },
+    "properties": [
+        {
+            "name": "CollisionAttribute",
+            "type": "VPhysicsCollisionAttribute_t",
+            "writable": false
+        },
+        {
+            "name": "Mins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Maxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SolidFlags",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "SolidType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "TriggerBloat",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "SurroundType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "CollisionGroup",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "EnablePhysics",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "BoundingRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpecifiedSurroundingMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SpecifiedSurroundingMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SurroundingMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SurroundingMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CapsuleCenter1",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CapsuleCenter2",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CapsuleRadius",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

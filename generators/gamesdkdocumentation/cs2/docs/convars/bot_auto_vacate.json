@@ -1,0 +1,1 @@
+{"kind":"command","name":"bot_auto_vacate","description":"If nonzero, bots will automatically leave to make room for human players.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

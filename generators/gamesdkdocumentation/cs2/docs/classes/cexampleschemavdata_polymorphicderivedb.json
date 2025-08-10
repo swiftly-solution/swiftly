@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CExampleSchemaVData_PolymorphicDerivedB",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CExampleSchemaVData_PolymorphicDerivedB"
+    },
+    "properties": [
+        {
+            "name": "DerivedB",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CExampleSchemaVData_PolymorphicBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

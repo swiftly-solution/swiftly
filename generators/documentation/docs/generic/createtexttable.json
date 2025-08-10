@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "CreateTextTable",
+    "override_variable": true,
+    "description": "Returns a string table generated from provided arguments.",
+    "arguments": {
+        "data": "string[][]"
+    },
+    "return": "string",
+    "games": "all"
+}

@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CFuseProgram",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuseProgram"
+    },
+    "properties": [
+        {
+            "name": "ProgramBuffer",
+            "type": "uint8[]",
+            "writable": true
+        },
+        {
+            "name": "MaxTempVarsUsed",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

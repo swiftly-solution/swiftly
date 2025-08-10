@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ent_spew_derived_classes","description":"Prints out all entity classes which inherit from a specified base class","args":"","flags":["developmentonly","clientdll"],"games":["cs2"]}

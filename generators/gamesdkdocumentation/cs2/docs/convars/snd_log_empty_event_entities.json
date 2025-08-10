@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_log_empty_event_entities","description":"Logs the sound event entities that have empty names.","args":"false","flags":["clientdll","cheat"],"games":["cs2"]}

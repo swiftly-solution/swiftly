@@ -1,0 +1,98 @@
+{
+    "kind": "class",
+    "name": "CPhysMotor",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPhysMotor"
+    },
+    "properties": [
+        {
+            "name": "NameAttach",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NameAnchor",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachedObject",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "AnchorObject",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "SpinUp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpinDown",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MotorFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AdditionalAcceleration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularAcceleration",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TorqueScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TargetSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpeedWhenSpinUpOrSpinDownStarted",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Motor",
+            "type": "CMotorController",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicalEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

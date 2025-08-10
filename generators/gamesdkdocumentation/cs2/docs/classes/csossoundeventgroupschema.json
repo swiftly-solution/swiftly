@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CSosSoundEventGroupSchema",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSosSoundEventGroupSchema"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Type",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "IsBlocking",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BlockMaxCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InvertMatch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MatchPattern",
+            "type": "CSosGroupMatchPattern",
+            "writable": false
+        },
+        {
+            "name": "BranchPattern",
+            "type": "CSosGroupBranchPattern",
+            "writable": false
+        },
+        {
+            "name": "LifeSpanTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Actions",
+            "type": "int32[]",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

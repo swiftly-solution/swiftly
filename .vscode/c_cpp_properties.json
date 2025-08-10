@@ -3,8 +3,7 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/build/swiftly/windows-x86_64/**",
-                "${workspaceFolder}/build/swiftly/linux-x86_64/**",
+                "${workspaceFolder}/build/proto/**",
                 "${workspaceFolder}/alliedmodders/hl2sdk-cs2/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
@@ -14,19 +13,20 @@
                 "${workspaceFolder}/vendor/dynohook/win64/include/**",
                 "${workspaceFolder}/vendor/dyncall/win64/include/**",
                 "${workspaceFolder}/vendor/embedder/libs/lua/**",
-                "${workspaceFolder}/vendor/embedder/libs/js/**"
+                "${workspaceFolder}/vendor/embedder/libs/js/**",
+                "${workspaceFolder}/vendor/embedder/libs/dotnet/**"
             ],
             "defines": [
                 "META_IS_SOURCE2"
             ],
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.43.34808\\bin\\Hostx64\\x64\\cl.exe"
+            "intelliSenseMode": "linux-gcc-x64"
         },
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/build/swiftly/linux-x86_64/**",
+                "${workspaceFolder}/build/proto/**",
                 "${workspaceFolder}/alliedmodders/hl2sdk/**",
                 "${workspaceFolder}/alliedmodders/metamod/**",
                 "${workspaceFolder}/alliedmodders/metamod/core/**",
@@ -36,7 +36,8 @@
                 "${workspaceFolder}/vendor/dynohook/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/dyncall/linuxsteamrt64/include/**",
                 "${workspaceFolder}/vendor/embedder/libs/lua/**",
-                "${workspaceFolder}/vendor/embedder/libs/js/**"
+                "${workspaceFolder}/vendor/embedder/libs/js/**",
+                "${workspaceFolder}/vendor/embedder/libs/dotnet/**"
             ],
             "defines": [
                 "META_IS_SOURCE2"

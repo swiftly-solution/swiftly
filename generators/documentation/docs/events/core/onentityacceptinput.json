@@ -1,0 +1,16 @@
+{
+    "kind": "event",
+    "mode": "core",
+    "event_name": "OnEntityAcceptInput",
+    "description": "This game event is triggered when an entity receives an input.",
+    "arguments": {
+        "entity": "CEntityInstance",
+        "inputname": "string",
+        "activator": "CEntityInstance",
+        "caller": "CEntityInstance",
+        "value": "string",
+        "outputID": "int32"
+    },
+    "return": "bool",
+    "games": "all"
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"load","description":"Usage:","args":"","flags":["developmentonly","dontrecord","vconsole_fuzzy_matching","defensive"],"games":["cs2"]}

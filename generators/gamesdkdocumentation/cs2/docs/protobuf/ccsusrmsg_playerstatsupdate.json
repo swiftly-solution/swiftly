@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"version","type":"int32"},{"name":"stats","type":"CCSUsrMsg_PlayerStatsUpdate.Stat"},{"name":"ehandle","type":"uint32"},{"name":"crc","type":"int32"}],"name":"CCSUsrMsg_PlayerStatsUpdate","games":["cs2"]}

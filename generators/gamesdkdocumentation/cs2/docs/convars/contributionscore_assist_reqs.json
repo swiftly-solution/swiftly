@@ -1,0 +1,1 @@
+{"kind":"command","name":"contributionscore_assist_reqs","description":"extra requirements to earn contribution score for an assist","args":"0","flags":["gamedll","release","commandline_enforced"],"games":["cs2"]}

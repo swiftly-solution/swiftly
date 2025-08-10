@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CInfoFan",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CInfoFan"
+    },
+    "properties": [
+        {
+            "name": "FanForceMaxRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FanForceMinRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CurveDistRange",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FanForceCurveString",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

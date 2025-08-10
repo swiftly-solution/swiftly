@@ -1,0 +1,1 @@
+{"kind":"command","name":"ss_add","description":"Adds a splitscreen user.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

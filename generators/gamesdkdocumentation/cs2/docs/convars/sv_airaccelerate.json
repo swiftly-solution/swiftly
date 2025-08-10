@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_airaccelerate","description":"<no description>","args":"12","flags":["gamedll","clientdll","notify","replicated","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_find","description":"Find and list all entities with classnames or targetnames that contain the specified substrings.","args":" find_ent <substring>","flags":["gamedll","cheat"],"games":["cs2"]}

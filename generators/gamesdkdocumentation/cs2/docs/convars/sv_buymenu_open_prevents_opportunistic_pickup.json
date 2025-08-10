@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_buymenu_open_prevents_opportunistic_pickup","description":"<no description>","args":"false","flags":["gamedll","release"],"games":["cs2"]}

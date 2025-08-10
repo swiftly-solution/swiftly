@@ -1,0 +1,1 @@
+{"kind":"command","name":"vulkan_vma_defrag","description":"Force defragmenting memory with VMA","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

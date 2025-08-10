@@ -1,0 +1,168 @@
+{
+    "kind": "class",
+    "name": "VPhysXJoint_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VPhysXJoint_t"
+    },
+    "properties": [
+        {
+            "name": "Type",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Body1",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Body2",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "EnableCollision",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsLinearConstraintDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsAngularConstraintDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EnableLinearLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LinearLimit",
+            "type": "VPhysXRange_t",
+            "writable": false
+        },
+        {
+            "name": "EnableLinearMotor",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LinearTargetVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MaxForce",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableSwingLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SwingLimit",
+            "type": "VPhysXRange_t",
+            "writable": false
+        },
+        {
+            "name": "EnableTwistLimit",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TwistLimit",
+            "type": "VPhysXRange_t",
+            "writable": false
+        },
+        {
+            "name": "EnableAngularMotor",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AngularTargetVelocity",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MaxTorque",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearFrequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LinearDampingRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularFrequency",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AngularDampingRatio",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Friction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Elasticity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ElasticDamping",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Plasticity",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Tag",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

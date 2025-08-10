@@ -1,0 +1,1 @@
+{"kind":"command","name":"cq_fake_starve","description":"if set, starve this many commands by discarding during process usercmds.","args":"0","flags":["developmentonly","gamedll"],"games":["cs2"]}

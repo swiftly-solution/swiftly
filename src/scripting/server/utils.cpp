@@ -1,7 +1,5 @@
 #include <scripting/core.h>
 
-#include <sstream>
-
 #include <core/entrypoint.h>
 #include <tools/crashreporter/callstack.h>
 #include <plugins/manager.h>
@@ -40,11 +38,18 @@ void GetPluginListFunc(FunctionContext* context) {
 LoadScriptingComponent(utils, [](PluginObject plugin, EContext* ctx) -> void {
     ADD_FUNCTION("AddTimeout", [](FunctionContext* context) -> void {
         int64_t delay = context->GetArgumentOr<int64_t>(0, 0);
-        EValue callback = context->GetArgument<EValue>(1);
-
-        if (!callback.isFunction()) return;
-        EValue* cb = new EValue(callback);
+        EValue* cb = nullptr;
         EContext* ctx = context->GetPluginContext();
+        if (ctx->GetKind() == ContextKinds::Dotnet) {
+            std::string callback_id = context->GetArgument<std::string>(1);
+
+            cb = new EValue(ctx, (void*)strdup(callback_id.c_str()), 17);
+        }
+        else {
+            EValue callback = context->GetArgument<EValue>(1);
+            if (!callback.isFunction()) return;
+            cb = new EValue(callback);
+        }
 
         g_Plugin.RegisterTimeout(delay, [cb, ctx]() -> void {
             auto pl = FetchPluginByState(ctx);
@@ -150,9 +155,7 @@ LoadScriptingComponent(utils, [](PluginObject plugin, EContext* ctx) -> void {
             tbl.endOfRow();
         }
 
-        std::stringstream outputTable;
-        outputTable << tbl;
-        context->SetReturn(outputTable.str());
+        context->SetReturn(TableToString(tbl));
     });
 
     ADD_FUNCTION("RegisterCallstack", [](FunctionContext* context) -> void {

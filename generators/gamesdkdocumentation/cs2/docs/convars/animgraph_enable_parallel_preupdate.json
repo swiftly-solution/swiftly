@@ -1,0 +1,1 @@
+{"kind":"command","name":"animgraph_enable_parallel_preupdate","description":"<no description>","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

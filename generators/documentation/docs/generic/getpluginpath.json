@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "GetPluginPath",
+    "override_variable": true,
+    "description": "Returns the path of a plugin.",
+    "arguments": {
+        "plugin_name": "string"
+    },
+    "return": "string",
+    "games": "all"
+}

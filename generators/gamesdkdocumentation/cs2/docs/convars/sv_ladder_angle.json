@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_ladder_angle","description":"Cos of angle of incidence to ladder perpendicular for applying ladder_dampen","args":"-0.707","flags":["min:","-1,","max:","1,","developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

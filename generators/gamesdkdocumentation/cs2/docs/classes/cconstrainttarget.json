@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CConstraintTarget",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CConstraintTarget"
+    },
+    "properties": [
+        {
+            "name": "Offset",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "BoneHash",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Weight",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsAttachment",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

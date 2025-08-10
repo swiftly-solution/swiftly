@@ -1,0 +1,1 @@
+{"kind":"command","name":"animgraph_debug_animevents","description":"Print info about animevents emitted by AnimGraph","args":"false","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}

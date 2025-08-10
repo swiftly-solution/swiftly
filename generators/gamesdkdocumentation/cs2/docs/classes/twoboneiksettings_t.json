@@ -1,0 +1,103 @@
+{
+    "kind": "class",
+    "name": "TwoBoneIKSettings_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "TwoBoneIKSettings_t"
+    },
+    "properties": [
+        {
+            "name": "EndEffectorType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "EndEffectorAttachment",
+            "type": "CAnimAttachment",
+            "writable": false
+        },
+        {
+            "name": "TargetType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TargetAttachment",
+            "type": "CAnimAttachment",
+            "writable": false
+        },
+        {
+            "name": "TargetBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PositionParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "RotationParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "AlwaysUseFallbackHinge",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LsFallbackHingeAxis",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FixedBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MiddleBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EndBoneIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MatchTargetOrientation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ConstrainTwist",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MaxTwist",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

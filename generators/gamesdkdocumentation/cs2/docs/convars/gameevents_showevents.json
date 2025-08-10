@@ -1,0 +1,1 @@
+{"kind":"command","name":"gameevents_showevents","description":"Dump game events to console. (1 = Show Signaling, 2 = Show Posting also).","args":"0","flags":["developmentonly","defensive"],"games":["cs2"]}

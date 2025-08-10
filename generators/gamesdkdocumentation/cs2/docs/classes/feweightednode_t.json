@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "FeWeightedNode_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "FeWeightedNode_t"
+    },
+    "properties": [
+        {
+            "name": "Node",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Weight",
+            "type": "uint16",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

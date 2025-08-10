@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CPlayer_ObserverServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CPlayer_ObserverServices"
+    },
+    "properties": [
+        {
+            "name": "ObserverMode",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ObserverTarget",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "ObserverLastMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ForcedObserverMode",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayerPawnComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

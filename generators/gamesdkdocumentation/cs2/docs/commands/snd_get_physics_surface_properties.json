@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_get_physics_surface_properties","description":"Get physics surface properties for all the materials.","args":"","flags":["cheat"],"games":["cs2"]}

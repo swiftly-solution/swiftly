@@ -1,0 +1,1 @@
+{"kind":"type","name":"ShatterGlassStressType","description":"Automatically generated game type from enum ShatterGlassStressType","values":{"SHATTERGLASS_BLUNT":0,"SHATTERGLASS_BALLISTIC":1,"SHATTERGLASS_PULSE":2,"SHATTERGLASS_EXPLOSIVE":3},"games":["cs2"]}

@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CAudioPhonemeTag",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAudioPhonemeTag"
+    },
+    "properties": [
+        {
+            "name": "StartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EndTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PhonemeCode",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

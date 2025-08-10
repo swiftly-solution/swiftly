@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "VMixOscDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixOscDesc_t"
+    },
+    "properties": [
+        {
+            "name": "OscType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Freq",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Phase",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

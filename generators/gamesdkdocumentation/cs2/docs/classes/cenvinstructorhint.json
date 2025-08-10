@@ -1,0 +1,153 @@
+{
+    "kind": "class",
+    "name": "CEnvInstructorHint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CEnvInstructorHint"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Replace_Key",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "HintTargetEntity",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Timeout",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DisplayLimit",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Icon_Onscreen",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Icon_Offscreen",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Caption",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ActivatorCaption",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Color",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "IconOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Range",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PulseOption",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "AlphaOption",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "ShakeOption",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Static",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoOffscreen",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ForceCaption",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "InstanceType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SuppressRest",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Binding",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AllowNoDrawTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AutoStart",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LocalPlayerOnly",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

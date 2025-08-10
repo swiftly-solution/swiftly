@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_ents_write_alarm","description":"Print callstack every time CNetworkGameServerBase::WriteEntityUpdate takes more than this amount of milliseconds","args":"0","flags":["release"],"games":["cs2"]}

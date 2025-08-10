@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CCSPlayer_UseServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayer_UseServices"
+    },
+    "properties": [
+        {
+            "name": "LastKnownUseEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "LastUseTimeStamp",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeLastUsedWindow",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayer_UseServices",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

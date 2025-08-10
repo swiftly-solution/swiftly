@@ -1,0 +1,1 @@
+{"kind":"command","name":"Test_ExitProcess","description":"Test_ExitProcess <exit code> - immediately kill the process.","args":"","flags":["cheat"],"games":["cs2"]}

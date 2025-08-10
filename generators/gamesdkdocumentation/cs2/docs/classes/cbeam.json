@@ -1,0 +1,133 @@
+{
+    "kind": "class",
+    "name": "CBeam",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBeam"
+    },
+    "properties": [
+        {
+            "name": "FrameRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HDRColorScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FireTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Damage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NumBeamEnts",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "BeamType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BeamFlags",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Width",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EndWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FadeLength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HaloScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Amplitude",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "StartFrame",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Speed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Frame",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ClipStyle",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "TurnedOff",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EndPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "EndEntity",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "DissolveType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"r_async_shader_compile_notify_frequency","description":"<no description>","args":"10","flags":["developmentonly"],"games":["cs2"]}

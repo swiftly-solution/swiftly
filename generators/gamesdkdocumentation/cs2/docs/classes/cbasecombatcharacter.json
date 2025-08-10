@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CBaseCombatCharacter",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseCombatCharacter"
+    },
+    "properties": [
+        {
+            "name": "ForceServerRagdoll",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ImpactEnergyScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MinVehicleDamageToTempRagdoll",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ApplyStressDamage",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DeathEventsDispatched",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DamageCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "StrRelationships",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Hull",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NavHullIdx",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MovementStats",
+            "type": "CMovementStatsProperty",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseFlex",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

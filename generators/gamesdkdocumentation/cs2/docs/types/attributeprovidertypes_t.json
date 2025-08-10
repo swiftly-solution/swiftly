@@ -1,0 +1,1 @@
+{"kind":"type","name":"attributeprovidertypes_t","description":"Automatically generated game type from enum attributeprovidertypes_t","values":{"PROVIDER_GENERIC":0,"PROVIDER_WEAPON":1},"games":["cs2"]}

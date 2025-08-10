@@ -1,0 +1,1 @@
+{"kind":"command","name":"glow_chickens","description":"Glow chickens with a green outline.","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}

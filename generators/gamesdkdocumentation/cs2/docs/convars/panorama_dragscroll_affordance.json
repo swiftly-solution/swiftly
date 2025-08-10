@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_dragscroll_affordance","description":"Minimum mouse movement in pixels before a move is treated as a drag scroll","args":"20","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

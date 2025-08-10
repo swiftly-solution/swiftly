@@ -1,0 +1,93 @@
+{
+    "kind": "class",
+    "name": "CMoverUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMoverUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "Damping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "FacingTarget",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "MoveVecParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "MoveHeadingParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TurnToFaceParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "TurnToFaceOffset",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TurnToFaceLimit",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Additive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ApplyMovement",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OrientMovement",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ApplyRotation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LimitOnly",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

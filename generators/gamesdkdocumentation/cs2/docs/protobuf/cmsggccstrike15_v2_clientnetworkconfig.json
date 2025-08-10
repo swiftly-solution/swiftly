@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"data","type":"bytes"}],"name":"CMsgGCCStrike15_v2_ClientNetworkConfig","games":["cs2"]}

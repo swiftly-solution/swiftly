@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_connectionretrytime_p2p","description":"Number of seconds over which to spread retry attempts for P2P.","args":"20","flags":["release"],"games":["cs2"]}

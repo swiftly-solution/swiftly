@@ -1,0 +1,83 @@
+{
+    "kind": "class",
+    "name": "CParticleAnimTag",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleAnimTag"
+    },
+    "properties": [
+        {
+            "name": "ParticleSystemName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "ConfigName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DetachFromOwner",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Aggregate",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StopWhenTagEnds",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TagEndStopIsInstant",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AttachmentName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachmentType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AttachmentCP1Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "AttachmentCP1Type",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CAnimTagBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

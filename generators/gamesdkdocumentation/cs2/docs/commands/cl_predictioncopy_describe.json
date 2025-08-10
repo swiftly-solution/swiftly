@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_predictioncopy_describe","description":"Describe datamap_t for entindex","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

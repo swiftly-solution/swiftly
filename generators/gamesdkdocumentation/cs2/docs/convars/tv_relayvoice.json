@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_relayvoice","description":"Relay voice data: 0=off, 1=on","args":"true","flags":["release"],"games":["cs2"]}

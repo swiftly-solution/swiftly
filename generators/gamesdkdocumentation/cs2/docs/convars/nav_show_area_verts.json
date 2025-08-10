@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_show_area_verts","description":"Show area vertex positions","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

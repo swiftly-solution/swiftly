@@ -1,0 +1,1 @@
+{"kind":"command","name":"ammo_556mm_box_max","description":"<no description>","args":"200","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

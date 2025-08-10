@@ -1,0 +1,1 @@
+{"kind":"type","name":"Blend2DMode","description":"Automatically generated game type from enum Blend2DMode","values":{"Blend2DMode_General":0,"Blend2DMode_Directional":1},"games":["cs2"]}

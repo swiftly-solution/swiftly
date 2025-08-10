@@ -1,0 +1,948 @@
+{
+    "kind": "class",
+    "name": "CCSGameRules",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSGameRules"
+    },
+    "properties": [
+        {
+            "name": "FreezePeriod",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WarmupPeriod",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WarmupPeriodEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WarmupPeriodStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TerroristTimeOutActive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CTTimeOutActive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TerroristTimeOutRemaining",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CTTimeOutRemaining",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TerroristTimeOuts",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CTTimeOuts",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TechnicalTimeOut",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MatchWaitingForResume",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RoundTime",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MatchStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RoundStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RestartRoundTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GameRestart",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GameStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeUntilNextPhaseStarts",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GamePhase",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TotalRoundsPlayed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundsPlayedThisPhase",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "OvertimePlaying",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HostagesRemaining",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AnyHostageReached",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MapHasBombTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MapHasRescueZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MapHasBuyZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsQueuedMatchmaking",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "QueuedMatchmakingMode",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "IsValveDS",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LogoMap",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PlayAllStepSoundsOnServer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SpectatorSlotCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MatchDevice",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HasMatchStarted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NextMapInMapgroup",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TournamentEventName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TournamentEventStage",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "MatchStatTxt",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TournamentPredictionsTxt",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TournamentPredictionsPct",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CMMItemDropRevealStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CMMItemDropRevealEndTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsDroppingItems",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsQuestEligible",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsHltvActive",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ProhibitedItemIndices",
+            "type": "uint16[]",
+            "writable": true
+        },
+        {
+            "name": "TournamentActiveCasterAccounts",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "NumBestOfMaps",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HalloweenMaskListSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "BombDropped",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BombPlanted",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RoundWinStatus",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundWinReason",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TCantBuy",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CTCantBuy",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MatchStats_RoundResults",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MatchStats_PlayersAlive_CT",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "MatchStats_PlayersAlive_T",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "TeamRespawnWaveTimes",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "NextRespawnWave",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "MinimapMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MinimapMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "MinimapVerticalSectionHeights",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "UllLocalMatchID",
+            "type": "uint64",
+            "writable": true
+        },
+        {
+            "name": "EndMatchMapGroupVoteTypes",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "EndMatchMapGroupVoteOptions",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "EndMatchMapVoteWinner",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumConsecutiveCTLoses",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumConsecutiveTerroristLoses",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HasHostageBeenTouched",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IntermissionStartTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IntermissionEndTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LevelInitialized",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TotalRoundsPlayed1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "UnBalancedRounds",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EndMatchOnRoundReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EndMatchOnThink",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FreezeTime",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumTerrorist",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumCT",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumSpawnableTerrorist",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NumSpawnableCT",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SelectedHostageSpawnIndices",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "SpawnPointsRandomSeed",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FirstConnected",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CompleteReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PickNewTeamsOnReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ScrambleTeamsOnRestart",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SwapTeamsOnRestart",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "EndMatchTiedVotes",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "NeedToAskPlayersForContinueVote",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NumQueuedMatchmakingAccounts",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AvgPlayerRank",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "QueuedMatchmakingReservationString",
+            "type": "string",
+            "writable": false
+        },
+        {
+            "name": "NumTotalTournamentDrops",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NumSpectatorsCountMax",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NumSpectatorsCountMaxTV",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "NumSpectatorsCountMaxLnk",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "CTsAliveAtFreezetimeEnd",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TerroristsAliveAtFreezetimeEnd",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "ForceTeamChangeSilent",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LoadingRoundBackupData",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MatchInfoShowType",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MatchInfoDecidedTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MTeamDMLastWinningTeamNumber",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MTeamDMLastThinkTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TeamDMLastAnnouncementTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AccountTerrorist",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "AccountCT",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpawnPointCount_Terrorist",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SpawnPointCount_CT",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxNumTerrorists",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxNumCTs",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "LoserBonusMostRecentTeam",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TmNextPeriodicThink",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "VoiceWonMatchBragFired",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WarmupNextChatNoticeTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HostagesRescued",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HostagesTouched",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NextHostageAnnouncement",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NoTerroristsKilled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoCTsKilled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NoEnemiesKilled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CanDonateWeapons",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FirstKillTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FirstBloodTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "HostageWasInjured",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HostageWasKilled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "VoteCalled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ServerVoteOnReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "VoteCheckThrottle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BuyTimeEnded",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LastFreezeEndBeep",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TargetBombed",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BombDefused",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MapHasBombZone",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MainCTSpawnPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RespawningAllRespawnablePlayers",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "NextCTSpawnPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CTSpawnPointUsedTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextTerroristSpawnPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TerroristSpawnPointUsedTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IsUnreservedGameServer",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AutobalanceDisplayTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AllowWeaponSwitch",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RoundTimeWarningTriggered",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PhaseChangeAnnouncementTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NextUpdateTeamClanNamesTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LastThinkTime",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AccumulatedRoundOffDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ShorthandedBonusLastEvalRound",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MatchAbortedEarlyReason",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "HasTriggeredRoundStartMusic",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SwitchingTeamsAtRoundReset",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "GameModeRules",
+            "type": "int32[]",
+            "writable": false
+        },
+        {
+            "name": "PlayerResource",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "RetakeRules",
+            "type": "CRetakeGameRules",
+            "writable": false
+        },
+        {
+            "name": "TeamLastKillUsedUniqueWeaponMatch",
+            "type": "bool[]",
+            "writable": true
+        },
+        {
+            "name": "MatchEndCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "TTeamIntroVariant",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CTTeamIntroVariant",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "TeamIntroPeriod",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TeamIntroPeriodEnd",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PlayedTeamIntroVO",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RoundEndWinnerTeam",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundEndReason",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundEndShowTimerDefend",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RoundEndTimerTime",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundEndFunFactToken",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "RoundEndFunFactPlayerSlot",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundEndFunFactData1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundEndFunFactData2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundEndFunFactData3",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundEndMessage",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "RoundEndPlayerCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundEndNoMusic",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RoundEndLegacy",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundEndCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "RoundStartRoundNumber",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RoundStartCount",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "LastPerfSampleTime",
+            "type": "double",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CTeamplayRules",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

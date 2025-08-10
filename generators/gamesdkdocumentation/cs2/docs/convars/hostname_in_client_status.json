@@ -1,0 +1,1 @@
+{"kind":"command","name":"hostname_in_client_status","description":"Show server hostname in client status.","args":"false","flags":["release"],"games":["cs2"]}

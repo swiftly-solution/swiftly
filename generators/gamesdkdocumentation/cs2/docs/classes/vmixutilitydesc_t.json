@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "VMixUtilityDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixUtilityDesc_t"
+    },
+    "properties": [
+        {
+            "name": "Op",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "InputPan",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OutputBalance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbOutputGain",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "BassMono",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BassFreq",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

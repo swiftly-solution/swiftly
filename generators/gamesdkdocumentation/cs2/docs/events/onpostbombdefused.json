@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostBombDefused","description":"This event is triggered after bomb_defused is triggered.","arguments":{"userid":"int32","site":"int32"},"return":"void","games":["cs2"]}

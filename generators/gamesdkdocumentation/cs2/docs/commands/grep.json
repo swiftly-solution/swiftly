@@ -1,0 +1,1 @@
+{"kind":"command","name":"grep","description":"grep line for pattern, print out matching lines only","args":"","flags":["release"],"games":["cs2"]}

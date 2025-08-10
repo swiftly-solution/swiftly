@@ -1,0 +1,1 @@
+{"kind":"command","name":"cq_dilation_percentage","description":"When speeding up slowing down, this is how much","args":"5","flags":["min:","0.1,","max:","10,","developmentonly","gamedll","clientdll","replicated","defensive"],"games":["cs2"]}

@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CCSPlayerController_InventoryServices",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CCSPlayerController_InventoryServices"
+    },
+    "properties": [
+        {
+            "name": "MusicID",
+            "type": "uint16",
+            "writable": true
+        },
+        {
+            "name": "Rank",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "PersonaDataPublicLevel",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PersonaDataPublicCommendsLeader",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PersonaDataPublicCommendsTeacher",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PersonaDataPublicCommendsFriendly",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "PersonaDataXpTrailLevel",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "EquippedPlayerSprayIDs",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPlayerControllerComponent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

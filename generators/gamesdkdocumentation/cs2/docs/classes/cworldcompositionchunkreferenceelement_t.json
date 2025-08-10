@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CWorldCompositionChunkReferenceElement_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CWorldCompositionChunkReferenceElement_t"
+    },
+    "properties": [
+        {
+            "name": "StrMapToLoad",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrLandmarkName",
+            "type": "string",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

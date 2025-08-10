@@ -1,0 +1,1 @@
+{"kind":"command","name":"timedemo_end","description":"Ends timedemo on given tick.","args":"\"-1\"","flags":["developmentonly","defensive"],"games":["cs2"]}

@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CastSphereSATParams_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CastSphereSATParams_t"
+    },
+    "properties": [
+        {
+            "name": "RayStart",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RayDelta",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxFraction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Scale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Hull",
+            "type": "int32[]",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

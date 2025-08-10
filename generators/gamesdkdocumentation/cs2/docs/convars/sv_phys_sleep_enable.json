@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_phys_sleep_enable","description":"Enable sleeping for dynamic physics bodies.","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

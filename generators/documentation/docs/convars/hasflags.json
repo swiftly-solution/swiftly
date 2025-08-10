@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "HasFlags",
+    "description": "Checks if a convar has the flags.",
+    "arguments": {
+        "name": "string",
+        "flags": "int64"
+    },
+    "return": "bool",
+    "games": "all"
+}

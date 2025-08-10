@@ -1,0 +1,1 @@
+{"kind":"command","name":"debugoverlay_show_text_outline","description":"Toggle display of box around text","args":"false","flags":["cheat"],"games":["cs2"]}

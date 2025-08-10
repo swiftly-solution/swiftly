@@ -1,0 +1,1 @@
+{"kind":"command","name":"global_set","description":"global_set <globalname> <state>: Sets the state of the given env_global (0 = OFF, 1 = ON, 2 = DEAD).","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

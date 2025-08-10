@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_prime_accounts_only","description":"When this setting is enabled only prime users can connect to this game server.","args":"false","flags":["gamedll","release"],"games":["cs2"]}

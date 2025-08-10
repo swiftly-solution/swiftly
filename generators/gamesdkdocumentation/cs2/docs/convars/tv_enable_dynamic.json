@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_enable_dynamic","description":"When enabled, changes in tv_enable convars cause immediate startup or shutdown of hltv server","args":"false","flags":["notify","release"],"games":["cs2"]}

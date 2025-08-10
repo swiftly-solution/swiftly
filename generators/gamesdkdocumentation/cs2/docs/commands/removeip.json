@@ -1,0 +1,1 @@
+{"kind":"command","name":"removeip","description":"Remove an IP address from the ban list.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

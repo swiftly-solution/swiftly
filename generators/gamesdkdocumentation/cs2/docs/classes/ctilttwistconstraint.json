@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CTiltTwistConstraint",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CTiltTwistConstraint"
+    },
+    "properties": [
+        {
+            "name": "TargetAxis",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SlaveAxis",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseConstraint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

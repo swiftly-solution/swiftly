@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_playerradio_use_allowlist","description":"playerradio commands may only use responses from an allow list of commands.","args":"true","flags":["gamedll","release"],"games":["cs2"]}

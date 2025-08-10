@@ -1,0 +1,1 @@
+{"kind":"command","name":"ss_remove","description":"Removes a splitscreen user.","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

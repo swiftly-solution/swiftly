@@ -1,0 +1,1 @@
+{"kind":"type","name":"PropDoorRotatingOpenDirection_e","description":"Automatically generated game type from enum PropDoorRotatingOpenDirection_e","values":{"DOOR_ROTATING_OPEN_BOTH_WAYS":0,"DOOR_ROTATING_OPEN_FORWARD":1,"DOOR_ROTATING_OPEN_BACKWARD":2},"games":["cs2"]}

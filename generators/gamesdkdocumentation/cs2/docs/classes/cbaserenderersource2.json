@@ -1,0 +1,353 @@
+{
+    "kind": "class",
+    "name": "CBaseRendererSource2",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CBaseRendererSource2"
+    },
+    "properties": [
+        {
+            "name": "RadiusScale",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "AlphaScale",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "RollScale",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "Alpha2Field",
+            "type": "ParticleAttributeIndex_t",
+            "writable": false
+        },
+        {
+            "name": "ColorScale",
+            "type": "CParticleCollectionRendererVecInput",
+            "writable": false
+        },
+        {
+            "name": "ColorBlendType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ShaderType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StrShaderOverride",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "CenterXOffset",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "CenterYOffset",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "BumpStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "CropTextureOverride",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AnimationRate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AnimationType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AnimateInFPS",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MotionVectorScaleU",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "MotionVectorScaleV",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "SelfIllumAmount",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "DiffuseAmount",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "DiffuseClamp",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "LightingControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "SelfIllumPerParticle",
+            "type": "ParticleAttributeIndex_t",
+            "writable": false
+        },
+        {
+            "name": "OutputBlendMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "GammaCorrectVertexColors",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SaturateColorPreAlphaBlend",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "AddSelfAmount",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "Desaturation",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "OverbrightFactor",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "HSVShiftControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "FogType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FogAmount",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "TintByFOW",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TintByGlobalLight",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PerParticleAlphaReference",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PerParticleAlphaRefWindow",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AlphaReferenceType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AlphaReferenceSoftness",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "SourceAlphaValueToMapToZero",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "SourceAlphaValueToMapToOne",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "Refract",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RefractSolid",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "RefractAmount",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "RefractBlurRadius",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RefractBlurType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "OnlyRenderInEffectsBloomPass",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnlyRenderInEffectsWaterPass",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "UseMixedResolutionRendering",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OnlyRenderInEffecsGameOverlay",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StencilTestID",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StencilTestExclude",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "StencilWriteID",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "WriteStencilOnDepthPass",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "WriteStencilOnDepthFail",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ReverseZBuffering",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DisableZBuffering",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FeatheringMode",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "FeatheringMinDist",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FeatheringMaxDist",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FeatheringFilter",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FeatheringDepthMapFilter",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "DepthBias",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "SortMethod",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "BlendFramesSeq0",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MaxLuminanceBlendingSequence0",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CParticleFunctionRenderer",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

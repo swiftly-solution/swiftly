@@ -1,0 +1,73 @@
+{
+    "kind": "class",
+    "name": "CHitReactUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CHitReactUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "OpFixedSettings",
+            "type": "HitReactFixedSettings_t",
+            "writable": false
+        },
+        {
+            "name": "TriggerParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "HitBoneParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "HitOffsetParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "HitDirectionParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "HitStrengthParam",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "MinDelayBetweenHits",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ResetChild",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CUnaryUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_dump_player_animgraph_state","description":"Dumps the local player's animgraph state to console","args":"","flags":["developmentonly","clientdll"],"games":["cs2"]}

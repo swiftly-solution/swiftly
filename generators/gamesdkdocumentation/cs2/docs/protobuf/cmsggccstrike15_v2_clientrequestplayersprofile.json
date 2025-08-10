@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"requestId_Deprecated","type":"uint32"},{"name":"accountIds_Deprecated","type":"uint32"},{"name":"accountId","type":"uint32"},{"name":"requestLevel","type":"uint32"}],"name":"CMsgGCCStrike15_v2_ClientRequestPlayersProfile","games":["cs2"]}

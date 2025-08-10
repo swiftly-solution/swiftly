@@ -1,0 +1,1 @@
+{"kind":"command","name":"hud_reloadscheme","description":"Reloads hud layout and animation scripts.","args":"","flags":["developmentonly","clientdll","defensive"],"games":["cs2"]}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CIronSightController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CIronSightController"
+    },
+    "properties": [
+        {
+            "name": "IronSightAvailable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IronSightAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IronSightAmountGained",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "IronSightAmountBiased",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

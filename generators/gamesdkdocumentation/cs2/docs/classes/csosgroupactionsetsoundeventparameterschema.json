@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CSosGroupActionSetSoundeventParameterSchema",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSosGroupActionSetSoundeventParameterSchema"
+    },
+    "properties": [
+        {
+            "name": "MaxCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MinValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "MaxValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OpvarName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "SortType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSosGroupActionSchema",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

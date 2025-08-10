@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "VMixDynamicsBand_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixDynamicsBand_t"
+    },
+    "properties": [
+        {
+            "name": "FldbGainInput",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbGainOutput",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbThresholdBelow",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbThresholdAbove",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RatioBelow",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "RatioAbove",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AttackTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ReleaseTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Enable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Solo",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_teamscore_max","description":"How many maps to win the series (bo3 max=2; bo5 max=3; bo7 max=4)","args":"0","flags":["min:","0,","max:","7,","gamedll","release"],"games":["cs2"]}

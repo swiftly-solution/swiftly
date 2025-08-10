@@ -1,0 +1,1 @@
+{"kind":"command","name":"panorama_cache_command_list_repaint_threshold","description":"<no description>","args":"0.25","flags":["developmentonly","hidden","defensive"],"games":["cs2"]}

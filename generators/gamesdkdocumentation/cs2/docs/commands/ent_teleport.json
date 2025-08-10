@@ -1,0 +1,1 @@
+{"kind":"command","name":"ent_teleport","description":"Teleport the specified entity to where the player is looking.","args":" ent_teleport <entity name>","flags":["gamedll","cheat"],"games":["cs2"]}

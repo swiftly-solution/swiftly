@@ -1,0 +1,153 @@
+{
+    "kind": "class",
+    "name": "CSoundOpvarSetPointEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CSoundOpvarSetPointEntity"
+    },
+    "properties": [
+        {
+            "name": "OnEnter",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnExit",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "AutoDisable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DistanceMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceMapMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceMapMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OcclusionRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OcclusionMin",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OcclusionMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "ValSetOnDisable",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SetValueOnDisable",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Reloading",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SimulationMode",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "VisibilitySamples",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DynamicProxyPoint",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DynamicMaximumOcclusion",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DynamicEntity",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "DynamicEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PathingDistanceNormFactor",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PathingSourcePos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PathingListenerPos",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PathingDirection",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "PathingSourceIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CSoundOpvarSetPointBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

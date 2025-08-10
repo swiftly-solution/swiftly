@@ -1,0 +1,233 @@
+{
+    "kind": "class",
+    "name": "CLogicNPCCounter",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicNPCCounter"
+    },
+    "properties": [
+        {
+            "name": "OnMinCountAll",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMaxCountAll",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMinCount_1",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMaxCount_1",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMinCount_2",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMaxCount_2",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMinCount_3",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnMaxCount_3",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Source",
+            "type": "CEntityInstance",
+            "writable": false
+        },
+        {
+            "name": "SourceEntityName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DistanceMax",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Disabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinCountAll",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxCountAll",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MinFactorAll",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxFactorAll",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "NPCClassname_1",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NPCState_1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InvertState_1",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinCount_1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxCount_1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MinFactor_1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxFactor_1",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DefaultDist_1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NPCClassname_2",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NPCState_2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InvertState_2",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinCount_2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxCount_2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MinFactor_2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxFactor_2",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DefaultDist_2",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NPCClassname_3",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NPCState_3",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InvertState_3",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "MinCount_3",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxCount_3",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MinFactor_3",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxFactor_3",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DefaultDist_3",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

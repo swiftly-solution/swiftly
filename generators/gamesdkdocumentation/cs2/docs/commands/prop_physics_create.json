@@ -1,0 +1,1 @@
+{"kind":"command","name":"prop_physics_create","description":"Creates a physics prop with a specific .vmdl aimed away from where the player is looking.","args":" {.vmdl name}","flags":["gamedll","cheat"],"games":["cs2"]}

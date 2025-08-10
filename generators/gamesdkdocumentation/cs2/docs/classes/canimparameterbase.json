@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CAnimParameterBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAnimParameterBase"
+    },
+    "properties": [
+        {
+            "name": "Comment",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Group",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Id",
+            "type": "AnimParamID",
+            "writable": false
+        },
+        {
+            "name": "ComponentName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NetworkingRequested",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsReferenced",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"nav_gen_true","description":"Always true","args":"true","flags":["gamedll","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_mainmenu_show_blog","description":"Show the blog and hide news panel","args":"","flags":["clientdll","hidden","clientcmd_can_execute"],"games":["cs2"]}

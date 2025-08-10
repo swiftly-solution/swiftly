@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"questId","type":"uint32"},{"name":"normalPoints","type":"uint32"},{"name":"bonusPoints","type":"uint32"},{"name":"isEventQuest","type":"bool"}],"name":"CCSUsrMsg_QuestProgress","games":["cs2"]}

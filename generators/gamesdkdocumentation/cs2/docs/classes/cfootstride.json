@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CFootStride",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFootStride"
+    },
+    "properties": [
+        {
+            "name": "Definition",
+            "type": "CFootCycleDefinition",
+            "writable": false
+        },
+        {
+            "name": "Trajectories",
+            "type": "CFootTrajectories",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

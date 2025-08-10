@@ -1,0 +1,108 @@
+{
+    "kind": "class",
+    "name": "TextureControls_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "TextureControls_t"
+    },
+    "properties": [
+        {
+            "name": "FinalTextureScaleU",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FinalTextureScaleV",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FinalTextureOffsetU",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FinalTextureOffsetV",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FinalTextureUVRotation",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "ZoomScale",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "Distortion",
+            "type": "CParticleCollectionRendererFloatInput",
+            "writable": false
+        },
+        {
+            "name": "RandomizeOffsets",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ClampUVs",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "PerParticleBlend",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PerParticleScale",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PerParticleOffsetU",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PerParticleOffsetV",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PerParticleRotation",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PerParticleZoom",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PerParticleDistortion",
+            "type": "uint32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

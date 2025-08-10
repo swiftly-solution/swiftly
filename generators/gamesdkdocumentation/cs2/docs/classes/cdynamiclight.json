@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CDynamicLight",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CDynamicLight"
+    },
+    "properties": [
+        {
+            "name": "ActualFlags",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Flags",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "LightStyle",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "On",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Exponent",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "InnerAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OuterAngle",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpotRadius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

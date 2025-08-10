@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CGamePlayerZone",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGamePlayerZone"
+    },
+    "properties": [
+        {
+            "name": "OnPlayerInZone",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnPlayerOutZone",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "Parent",
+            "type": "CRuleBrushEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

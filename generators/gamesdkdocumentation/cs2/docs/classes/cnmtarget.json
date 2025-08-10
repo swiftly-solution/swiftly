@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CNmTarget",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmTarget"
+    },
+    "properties": [
+        {
+            "name": "IsBoneTarget",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsUsingBoneSpaceOffsets",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "HasOffsets",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsSet",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

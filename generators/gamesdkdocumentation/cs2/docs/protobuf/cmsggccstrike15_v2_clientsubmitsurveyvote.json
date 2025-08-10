@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"surveyId","type":"uint32"},{"name":"vote","type":"uint32"}],"name":"CMsgGCCStrike15_v2_ClientSubmitSurveyVote","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"fog_override_enable","description":"Use fog_override convars instead of world fog data","args":"false","flags":["cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnBeginNewMatch","description":"This event is triggered when begin_new_match is triggered.","arguments":{},"return":"void","games":["cs2"]}

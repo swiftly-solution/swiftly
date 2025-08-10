@@ -1,0 +1,1 @@
+{"kind":"command","name":"force_fatal_error","description":"Fire a fatal error","args":"","flags":["developmentonly"],"games":["cs2"]}

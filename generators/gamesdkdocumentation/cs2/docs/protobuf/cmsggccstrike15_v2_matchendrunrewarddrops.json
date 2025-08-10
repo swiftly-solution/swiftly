@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"serverinfo","type":"CMsgGCCStrike15_v2_MatchmakingServerReservationResponse"},{"name":"matchEndQuestData","type":"CMsgGC_ServerQuestUpdateData"}],"name":"CMsgGCCStrike15_v2_MatchEndRunRewardDrops","games":["cs2"]}

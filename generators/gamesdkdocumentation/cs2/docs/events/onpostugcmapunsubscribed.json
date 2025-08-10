@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostUgcMapUnsubscribed","description":"This event is triggered after ugc_map_unsubscribed is triggered.","arguments":{"published_file_id":"uint64"},"return":"void","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_warmup_to_freezetime_delay","description":"Delay between end of warmup and start of match.","args":"4","flags":["min:","3,","max:","20,","gamedll","clientdll","replicated","release","commandline_enforced"],"games":["cs2"]}

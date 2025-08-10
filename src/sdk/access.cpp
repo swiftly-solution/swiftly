@@ -92,22 +92,22 @@ std::set<std::string> SDKAccess::GetClasses()
     return classes;
 }
 
-std::map<std::string, std::map<std::string, int64_t>> SDKAccess::GetSDKTypes()
+std::map<std::string, std::map<std::string, int64_t>>& SDKAccess::GetSDKTypes()
 {
     return sdktypes;
 }
 
-std::string SDKAccess::GetFieldName(uint64_t path)
+std::string& SDKAccess::GetFieldName(uint64_t path)
 {
     return fieldNames[path];
 }
 
-SDKFieldType_t SDKAccess::GetFieldType(uint64_t path)
+SDKFieldType_t& SDKAccess::GetFieldType(uint64_t path)
 {
     return fieldTypes[path];
 }
 
-std::string SDKAccess::GetFieldClass(uint64_t path)
+std::string& SDKAccess::GetFieldClass(uint64_t path)
 {
     return fieldClass[path];
 }

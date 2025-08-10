@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"acknowledged","type":"int32"}],"name":"CMsgGCCStrike15_v2_AcknowledgePenalty","games":["cs2"]}

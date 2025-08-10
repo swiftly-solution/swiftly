@@ -1,0 +1,1 @@
+{"kind":"command","name":"sc_aggregate_render_mesh_shader","description":"Using mesh shaders if available instead of drawcalls","args":"true","flags":["developmentonly"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPlayerRadio","description":"This event is triggered when player_radio is triggered.","arguments":{"userid":"int32","slot":"int32"},"return":"void","games":["cs2"]}

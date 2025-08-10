@@ -1,0 +1,1 @@
+{"kind":"command","name":"cs_AssistDamageThreshold","description":"cs_AssistDamageThreshold defines the amount of damage needed to score an assist","args":"25","flags":["developmentonly","gamedll"],"games":["cs2"]}

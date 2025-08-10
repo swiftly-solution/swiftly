@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_ui_particles_destroy_when_not_painting","description":"<no description>","args":"true","flags":["developmentonly","clientdll"],"games":["cs2"]}

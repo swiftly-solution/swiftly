@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "SignatureOutflow_Resume",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "SignatureOutflow_Resume"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CPulse_ResumePoint",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

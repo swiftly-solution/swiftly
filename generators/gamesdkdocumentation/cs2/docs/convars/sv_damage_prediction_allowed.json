@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_damage_prediction_allowed","description":"<no description>","args":"true","flags":["gamedll","clientdll","replicated","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_region","description":"The region of the world to report this server in.","args":"-1","flags":["release"],"games":["cs2"]}

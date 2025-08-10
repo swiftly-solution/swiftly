@@ -23,8 +23,7 @@ README is also available in [Ukrainian](https://github.com/swiftly-solution/swif
 
 - [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Downloads automatically with the git cloning using Recurse Submodules)
 - [metamod-source](https://github.com/alliedmodders/metamod-source) (Downloads automatically with the git cloning using Recurse Submodules)
-- [python3](https://www.python.org/)
-- [AMBuild](https://github.com/alliedmodders/ambuild) (Make sure `ambuild` command is available via `PATH` for Windows)
+- [XMake](https://xmake.io/)
 
 ---
 
@@ -66,6 +65,12 @@ git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
 ./setup.sh - Linux
 ```
 
+#### Build using Docker
+
+```
+docker run --rm -it -e "FOLDER=swiftly" -e "GAME=cs2" -v .:/swiftly ghcr.io/swiftly-solution/swiftly:cross-compiler
+```
+
 ---
 
 ### License
@@ -78,7 +83,7 @@ Swiftly is licensed under the GNU GPL 3 License. You can view the license in the
 
 The Schema System and the base SDK classes fields provided by [CS2Fixes](https://github.com/Source2ZE/CS2Fixes).
 
-The rest of SDK fields were provided by [Source2SDK](https://github.com/neverlosecc/source2sdk/tree/cs2/sdk).
+The rest of SDK fields were provided by [SteamDatabase](https://github.com/SteamDatabase).
 
 Thanks to GAMMACASE, Poggu, and all the people which are constantly working for the Counter Strike 2 Server Community to become better.
 

@@ -1,0 +1,1 @@
+{"kind":"command","name":"snd_headphone_eq_active","description":"Select Headphone EQ Preset","args":"0","flags":["clientdll","clientcmd_can_execute"],"games":["cs2"]}

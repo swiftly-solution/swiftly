@@ -1,0 +1,1 @@
+{"kind":"command","name":"instant_replay_skip","description":"Number of seconds to skip back to instant replay from current position","args":"","flags":["developmentonly","defensive"],"games":["cs2"]}

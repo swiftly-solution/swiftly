@@ -1,0 +1,138 @@
+{
+    "kind": "class",
+    "name": "CParticleVecInput",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CParticleVecInput"
+    },
+    "properties": [
+        {
+            "name": "Type",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "LiteralValue",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LiteralColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "FollowNamedValue",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "VectorAttribute",
+            "type": "ParticleAttributeIndex_t",
+            "writable": false
+        },
+        {
+            "name": "VectorAttributeScale",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "DeltaControlPoint",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "CPValueScale",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CPRelativePosition",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "CPRelativeDir",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "FloatComponentX",
+            "type": "CParticleFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FloatComponentY",
+            "type": "CParticleFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FloatComponentZ",
+            "type": "CParticleFloatInput",
+            "writable": false
+        },
+        {
+            "name": "FloatInterp",
+            "type": "CParticleFloatInput",
+            "writable": false
+        },
+        {
+            "name": "InterpInput0",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InterpInput1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "InterpOutput0",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "InterpOutput1",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RandomMin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "RandomMax",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CParticleInput",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

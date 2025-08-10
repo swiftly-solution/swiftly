@@ -1,0 +1,1 @@
+{"kind":"command","name":"server_snd_cast","description":"Casts a ray and starts a sound event where the ray hits. The sound event will retrigger periodically. Usage: snd_cast <eventname> [<retrigger time>] [<max distance>]. Arguments that are specified will become defaults for the remainder of the session.","args":"","flags":["gamedll","cheat"],"games":["cs2"]}

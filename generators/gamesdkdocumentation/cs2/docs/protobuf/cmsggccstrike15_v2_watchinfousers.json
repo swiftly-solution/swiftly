@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"requestId","type":"uint32"},{"name":"accountIds","type":"uint32"},{"name":"watchableMatchInfos","type":"WatchableMatchInfo"},{"name":"extendedTimeout","type":"uint32"}],"name":"CMsgGCCStrike15_v2_WatchInfoUsers","games":["cs2"]}

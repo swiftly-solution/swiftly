@@ -1,0 +1,243 @@
+{
+    "kind": "class",
+    "name": "CGlobalLightBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CGlobalLightBase"
+    },
+    "properties": [
+        {
+            "name": "SpotLight",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SpotLightOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SpotLightAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "ShadowDirection",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AmbientDirection",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SpecularDirection",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "InspectorSpecularDirection",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "SpecularPower",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpecularIndependence",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SpecularColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "StartDisabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "LightColor",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "AmbientColor1",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "AmbientColor2",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "AmbientColor3",
+            "type": "QAngle",
+            "writable": true
+        },
+        {
+            "name": "SunDistance",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FOV",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "NearZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FarZ",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableShadows",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OldEnableShadows",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BackgroundClearNotRequired",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "CloudScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Cloud1Speed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Cloud1Direction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Cloud2Speed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Cloud2Direction",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AmbientScale1",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "AmbientScale2",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "GroundScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "LightScale",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FoWDarkness",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnableSeparateSkyboxFog",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "FowColor",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ViewOrigin",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ViewAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "ViewFoV",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WorldPoints",
+            "type": "Vector[]",
+            "writable": true
+        },
+        {
+            "name": "FogOffsetLayer0",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "FogOffsetLayer1",
+            "type": "Vector4D",
+            "writable": true
+        },
+        {
+            "name": "EnvWind",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "EnvSky",
+            "type": "CBaseEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"sv_give_item","description":"Player's extra item to give","args":"\"\"","flags":["gamedll","hidden","replicated","cheat","release","commandline_enforced"],"games":["cs2"]}

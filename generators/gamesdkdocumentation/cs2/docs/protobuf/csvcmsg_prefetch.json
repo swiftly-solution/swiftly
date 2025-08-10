@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"soundIndex","type":"int32"},{"name":"resourceType","type":"PrefetchType","default":"PFT_SOUND"}],"name":"CSVCMsg_Prefetch","games":["cs2"]}

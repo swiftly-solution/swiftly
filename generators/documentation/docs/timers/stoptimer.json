@@ -1,0 +1,11 @@
+{
+    "kind": "function",
+    "function": "StopTimer",
+    "override_variable": true,
+    "description": "Stops the timer.",
+    "arguments": {
+        "timerid": "TimerHandle"
+    },
+    "return": "void",
+    "games": "all"
+}

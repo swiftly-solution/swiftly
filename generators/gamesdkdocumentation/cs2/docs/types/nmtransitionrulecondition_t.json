@@ -1,0 +1,1 @@
+{"kind":"type","name":"NmTransitionRuleCondition_t","description":"Automatically generated game type from enum NmTransitionRuleCondition_t","values":{"AnyAllowed":0,"FullyAllowed":1,"ConditionallyAllowed":2,"Blocked":3},"games":["cs2"]}

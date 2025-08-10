@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "ragdollelement_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "ragdollelement_t"
+    },
+    "properties": [
+        {
+            "name": "OriginParentSpace",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "ParentIndex",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Radius",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "Height",
+            "type": "int32",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

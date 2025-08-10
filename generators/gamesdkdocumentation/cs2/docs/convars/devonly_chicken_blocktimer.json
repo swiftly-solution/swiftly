@@ -1,0 +1,1 @@
+{"kind":"command","name":"devonly_chicken_blocktimer","description":"Chicken blockertimer","args":"0.2","flags":["developmentonly","gamedll"],"games":["cs2"]}

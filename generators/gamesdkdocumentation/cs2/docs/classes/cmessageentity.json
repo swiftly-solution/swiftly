@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "CMessageEntity",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMessageEntity"
+    },
+    "properties": [
+        {
+            "name": "Radius",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MessageText",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "DrawText",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DeveloperOnly",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Enabled",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CPointEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

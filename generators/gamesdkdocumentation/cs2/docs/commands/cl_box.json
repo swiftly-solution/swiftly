@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_box","description":"Draw a bbox","args":"  minx miny miny maxx maxy maxz <lifetime = 10.0> <r g b a>","flags":["clientdll","cheat"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"tv_include_usercommands","description":"HLTV streams will include player usercommands each tick","args":"true","flags":["gamedll","release"],"games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"type","name":"PointWorldTextJustifyHorizontal_t","description":"Automatically generated game type from enum PointWorldTextJustifyHorizontal_t","values":{"POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_LEFT":0,"POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_CENTER":1,"POINT_WORLD_TEXT_JUSTIFY_HORIZONTAL_RIGHT":2},"games":["cs2"]}

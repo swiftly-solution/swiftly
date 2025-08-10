@@ -1,0 +1,1 @@
+{"kind":"command","name":"dota_enable_spatial_audio","description":"Flag to enable spatial audio in Dota 2.","args":"false","flags":["release"],"games":["cs2"]}

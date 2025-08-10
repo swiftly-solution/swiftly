@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CRopeKeyframeAlias_move_rope",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CRopeKeyframeAlias_move_rope"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CRopeKeyframe",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "VMixDualCompressorDesc_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VMixDualCompressorDesc_t"
+    },
+    "properties": [
+        {
+            "name": "RMSTimeMS",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "FldbKneeWidth",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "WetMix",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "PeakMode",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "BandDesc",
+            "type": "VMixDynamicsBand_t",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

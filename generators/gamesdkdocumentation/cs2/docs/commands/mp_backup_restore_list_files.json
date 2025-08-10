@@ -1,0 +1,1 @@
+{"kind":"command","name":"mp_backup_restore_list_files","description":"Lists recent backup round files matching the prefix, most recent files first, accepts a numeric parameter to limit the number of files displayed","args":"","flags":["gamedll","release"],"games":["cs2"]}

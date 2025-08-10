@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CConstantForceController",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CConstantForceController"
+    },
+    "properties": [
+        {
+            "name": "Linear",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Angular",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "LinearSave",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "AngularSave",
+            "type": "Vector2D",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

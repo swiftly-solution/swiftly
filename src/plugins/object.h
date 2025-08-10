@@ -10,6 +10,7 @@
 #include <embedder/src/Embedder.h>
 #include <types/PluginState.h>
 #include <types/EventResult.h>
+#include <memory/encoders/json.h>
 
 class PluginObject
 {
@@ -20,13 +21,16 @@ private:
 
     EContext* ctx = nullptr;
     ContextKinds kind;
+    bool hasManifest = false;
+    bool isValidManifest = false;
+    std::string manifestPath;
 
     std::set<std::string> eventHandlers;
     EValue* eventFunctionPtr = nullptr;
     EValue* eventFunctionPtrJSON = nullptr;
 
 public:
-    PluginObject(std::string m_name, ContextKinds m_kind);
+    PluginObject(std::string m_name, ContextKinds m_kind, bool hasManifest, bool isValidManifest, std::string m_manifestPath);
     PluginObject() = default;
     ~PluginObject();
 

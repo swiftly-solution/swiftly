@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CompMatMutatorCondition_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CompMatMutatorCondition_t"
+    },
+    "properties": [
+        {
+            "name": "MutatorCondition",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "StrMutatorConditionContainerName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrMutatorConditionContainerVarName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "StrMutatorConditionContainerVarValue",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "PassWhenTrue",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

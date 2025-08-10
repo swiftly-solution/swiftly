@@ -1,0 +1,78 @@
+{
+    "kind": "class",
+    "name": "CLeanMatrixUpdateNode",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLeanMatrixUpdateNode"
+    },
+    "properties": [
+        {
+            "name": "FrameCorners",
+            "type": "int32[]",
+            "writable": true
+        },
+        {
+            "name": "Damping",
+            "type": "CAnimInputDamping",
+            "writable": false
+        },
+        {
+            "name": "BlendSource",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "ParamIndex",
+            "type": "CAnimParamHandle",
+            "writable": false
+        },
+        {
+            "name": "VerticalAxis",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "HorizontalAxis",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Sequence",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "MaxValue",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "SequenceMaxFrame",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLeafUpdateNode",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

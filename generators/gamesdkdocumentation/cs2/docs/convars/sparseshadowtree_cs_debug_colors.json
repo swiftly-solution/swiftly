@@ -1,0 +1,1 @@
+{"kind":"command","name":"sparseshadowtree_cs_debug_colors","description":"Output debug colors for SST CS.","args":"false","flags":["developmentonly"],"games":["cs2"]}

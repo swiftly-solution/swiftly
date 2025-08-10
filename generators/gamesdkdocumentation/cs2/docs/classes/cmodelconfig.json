@@ -1,0 +1,43 @@
+{
+    "kind": "class",
+    "name": "CModelConfig",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CModelConfig"
+    },
+    "properties": [
+        {
+            "name": "ConfigName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "TopLevel",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ActiveInEditorByDefault",
+            "type": "bool",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

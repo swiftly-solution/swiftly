@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CLogicNPCCounterAABB",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CLogicNPCCounterAABB"
+    },
+    "properties": [
+        {
+            "name": "DistanceOuterMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "DistanceOuterMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OuterMins",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "OuterMaxs",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CLogicNPCCounter",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

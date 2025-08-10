@@ -1,0 +1,1 @@
+commands:RegisterAlias("testcmd", "consolecmd")

@@ -1,0 +1,1 @@
+{"kind":"event","mode":"game","event_name":"OnPostEntityKilled","description":"This event is triggered after entity_killed is triggered.","arguments":{"entindex_killed":"int32","entindex_attacker":"int32","entindex_inflictor":"int32","damagebits":"int32"},"return":"void","games":["cs2"]}

@@ -1,0 +1,48 @@
+{
+    "kind": "class",
+    "name": "CMarkupVolumeTagged_NavGame",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CMarkupVolumeTagged_NavGame"
+    },
+    "properties": [
+        {
+            "name": "Scopes",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "FloodFillAttribute",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SplitNavSpace",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CMarkupVolumeWithRef",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "kind": "class",
+    "name": "VariableInfo_t",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "VariableInfo_t"
+    },
+    "properties": [
+        {
+            "name": "Name",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "NameToken",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "Index",
+            "type": "FuseVariableIndex_t",
+            "writable": false
+        },
+        {
+            "name": "NumComponents",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "VarType",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "Access",
+            "type": "uint8",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

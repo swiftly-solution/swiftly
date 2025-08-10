@@ -1,0 +1,1 @@
+{"kind":"command","name":"buildcubemaps_renderdoc_capture","description":"Capture a specific cubemap with RenderDoc during buildcubemaps.","args":"-1","flags":["developmentonly","clientdll"],"games":["cs2"]}

@@ -157,7 +157,6 @@
     "sfuievent": "OnSfuievent",
     "start_vote": "OnStartVote",
     "player_given_c4": "OnPlayerGivenC4",
-    "bot_takeover": "OnBotTakeover",
     "jointeam_failed": "OnJointeamFailed",
     "teamchange_pending": "OnTeamchangePending",
     "material_default_complete": "OnMaterialDefaultComplete",
@@ -269,5 +268,6 @@
     "instructor_close_lesson": "OnInstructorCloseLesson",
     "set_instructor_group_enabled": "OnSetInstructorGroupEnabled",
     "clientside_lesson_closed": "OnClientsideLessonClosed",
-    "dynamic_shadow_light_changed": "OnDynamicShadowLightChanged"
+    "dynamic_shadow_light_changed": "OnDynamicShadowLightChanged",
+    "bot_takeover": "OnBotTakeover"
 }

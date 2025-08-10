@@ -1,0 +1,10 @@
+{
+    "kind": "function",
+    "function": "UnregisterAlias",
+    "description": "Unregisters an alias for a command registered through Swiftly Commands.",
+    "arguments": {
+        "alias": "string"
+    },
+    "return": "void",
+    "games": "all"
+}

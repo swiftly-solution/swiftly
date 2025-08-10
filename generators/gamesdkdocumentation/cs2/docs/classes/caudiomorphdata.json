@@ -1,0 +1,53 @@
+{
+    "kind": "class",
+    "name": "CAudioMorphData",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CAudioMorphData"
+    },
+    "properties": [
+        {
+            "name": "Times",
+            "type": "float[]",
+            "writable": true
+        },
+        {
+            "name": "NameHashCodes",
+            "type": "uint32[]",
+            "writable": true
+        },
+        {
+            "name": "NameStrings",
+            "type": "string[]",
+            "writable": true
+        },
+        {
+            "name": "EaseIn",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EaseOut",
+            "type": "float",
+            "writable": true
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

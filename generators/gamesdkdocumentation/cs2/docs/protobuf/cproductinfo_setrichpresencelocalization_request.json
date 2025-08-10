@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"appid","type":"uint32"},{"name":"languages","type":"CProductInfo_SetRichPresenceLocalization_Request.LanguageSection"},{"name":"steamid","type":"uint64"}],"name":"CProductInfo_SetRichPresenceLocalization_Request","games":["cs2"]}

@@ -1,0 +1,1 @@
+{"kind":"command","name":"props_break_apply_radial_forces","description":"<no description>","args":"true","flags":["developmentonly","gamedll","clientdll","replicated"],"games":["cs2"]}
