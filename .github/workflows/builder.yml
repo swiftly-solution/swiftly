@@ -417,9 +417,11 @@ jobs:
         with:
           dotnet-version: "8.0.x"
 
-      - name: Prepare ZIP Files
+      - name: Nuget Publish
         run: |
-          dotnet nuget push build/swiftlys2-managed-${{ needs.versioning.outputs.version }}/SwiftlyS2.${{ needs.versioning.outputs.version }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+          ls -lah build
+          cd build/swiftlys2-managed*
+          dotnet nuget push SwiftlyS2.${{ needs.versioning.outputs.version }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Release
         id: release
