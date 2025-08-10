@@ -27,7 +27,15 @@ namespace SwiftlyS2.API.Events
                         if (functionParams.Length == j + 1) break;
                         Type t = functionParams[j + 1].ParameterType;
                         byte* arg = (byte*)args[j];
-                        a.Add(Internal_API.CallContext.ReadValue(ref t, ref arg));
+                        if(Cacher.ConsiderTypeAPointer(ref t))
+                        {
+                            byte* marg = (byte*)&arg;
+                            a.Add(Internal_API.CallContext.ReadValue(ref t, ref marg));
+                        }
+                        else
+                        {
+                            a.Add(Internal_API.CallContext.ReadValue(ref t, ref arg));
+                        }
                     }
                     returnValue = eventInfo.Callback(eventInfo.TargetInstance, a.ToArray()) ?? EventResult.Continue;
                 }

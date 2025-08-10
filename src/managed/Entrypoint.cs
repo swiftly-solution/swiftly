@@ -107,10 +107,15 @@ namespace SwiftlyS2
 
             IntPtr old_ctx = Plugin.PluginContext;
             Plugin.PluginContext = plugin_ctx;
+            try
+            {
+                string functionName = Encoding.UTF8.GetString(new ReadOnlySpan<byte>((void*)ct->func_ptr, ct->func_length));
+                FunctionCallers.GetActionCaller(plugin_ctx, functionName)(ctx);
 
-            string functionName = Encoding.UTF8.GetString(new ReadOnlySpan<byte>((void*)ct->func_ptr, ct->func_length));
-            FunctionCallers.GetActionCaller(plugin_ctx, functionName)(ctx);
-
+            } catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
             Plugin.PluginContext = old_ctx;
         }
     }

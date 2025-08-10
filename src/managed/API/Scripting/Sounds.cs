@@ -1,4 +1,4 @@
-using SwiftlyS2.API.SDK;
+﻿using SwiftlyS2.API.SDK;
 using SwiftlyS2.Internal_API;
 
 namespace SwiftlyS2.API.Scripting

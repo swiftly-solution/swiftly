@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Concurrent;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Security;
@@ -55,6 +56,13 @@ namespace SwiftlyS2.Internal_API
         public byte* Elements;
         public int Length;
         public int type;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public unsafe struct StringData
+    {
+        public byte* ptr;
+        public int len;
     }
 
     [StructLayout(LayoutKind.Sequential)]
@@ -144,7 +152,7 @@ namespace SwiftlyS2.Internal_API
             m_cdata.args_count = 0;
             m_cdata.has_return = 0;
 
-            if(!isCleanupLocked)
+            if (!isCleanupLocked)
             {
                 while (finalizers.TryDequeue(out var cb))
                 {
@@ -505,6 +513,9 @@ namespace SwiftlyS2.Internal_API
         {
             if(str == null) return IntPtr.Zero;
 
+            IntPtr strPtr = (nint)NativeMemory.Alloc((nuint)Cacher.GetTypeSize<StringData>());
+            StringData* p = (StringData*)strPtr.ToPointer();
+
             var b = Encoding.UTF8.GetBytes(str + "\0");
             void* ptr = NativeMemory.Alloc((nuint)b.Length);
 
@@ -513,8 +524,12 @@ namespace SwiftlyS2.Internal_API
                 Buffer.MemoryCopy(src, ptr, b.Length, b.Length);
             }
 
+            p->ptr = (byte*)ptr;
+            p->len = b.Length;
+
             finalizers.Enqueue(() => NativeMemory.Free(ptr));
-            return (nint)ptr;
+            finalizers.Enqueue(() => NativeMemory.Free((void*)strPtr));
+            return strPtr;
         }
 
         [SecuritySafeCritical]
@@ -636,15 +651,11 @@ namespace SwiftlyS2.Internal_API
             if (ptr == null) return null;
             if (type == typeof(string))
             {
-                var natUTF8 = *(IntPtr*)&ptr[0];
+                IntPtr p = *(IntPtr*)ptr;
+                StringData* data = (StringData*)p;
 
-                if (natUTF8 == IntPtr.Zero) return null;
-                byte* str = (byte*)natUTF8;
-
-                var len = 0;
-                while (str[len++] != 0) { }
-
-                return Encoding.UTF8.GetString(new ReadOnlySpan<byte>((void*)natUTF8, len));
+                if (data->len == 0) return "";
+                return Encoding.UTF8.GetString(new ReadOnlySpan<byte>(data->ptr, data->len));
             }
             else if(type == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(type))
             {

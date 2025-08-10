@@ -2,6 +2,17 @@
 {
     public static class Exports
     {
+        [AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = true)]
+        public sealed class RegisterAttribute : Attribute
+        {
+            public string ExportName { get; }
+
+            public RegisterAttribute(string ExportName)
+            {
+                this.ExportName = ExportName;
+            }
+        }
+
         public static void Call(string plugin_name, string name, params object[] args)
         {
             var output = Events.TriggerEvent($"export:{plugin_name}:{name}", args);

@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
+using System.Text;
 using System.Text.Json;
-using SwiftlyS2.API.Events;
 using SwiftlyS2.Internal_API;
 
 namespace SwiftlyS2.API.Scripting

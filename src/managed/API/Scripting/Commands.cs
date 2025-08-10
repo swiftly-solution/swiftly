@@ -5,7 +5,18 @@ namespace SwiftlyS2.API.Scripting
     public class Commands
     {
         private static IntPtr _ctx = IntPtr.Zero;
-    
+
+        [AttributeUsage(AttributeTargets.Method, Inherited = false, AllowMultiple = true)]
+        public sealed class RegisterAttribute : Attribute
+        {
+            public string CommandName { get; }
+
+            public RegisterAttribute(string CommandName)
+            {
+                this.CommandName = CommandName;
+            }
+        }
+
         private static void InitializeContext()
         {
             if (_ctx != IntPtr.Zero) return;
