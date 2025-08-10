@@ -33,6 +33,10 @@ namespace SwiftlyS2.API.Scripting
         {
             return Internal_API.Invoker.CallNative<CEntityInstance[]>("_G", "FindEntitiesByClassname", Internal_API.CallKind.Function, class_name);
         }
+        public static CEntityInstance[] GetAllEntities()
+        {
+            return Internal_API.Invoker.CallNative<CEntityInstance[]>("_G", "GetAllEntities", Internal_API.CallKind.Function);
+        }
         public static string CreateTextTable(string[][] data)
         {
             return Internal_API.Invoker.CallNative<string>("_G", "CreateTextTable", Internal_API.CallKind.Function, (object)data);
