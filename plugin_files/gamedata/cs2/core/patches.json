@@ -13,10 +13,5 @@
         "signature": "BotNavIgnore3",
         "windows": "E9 2C 00 00 00 90",
         "linux": "E9 25 00 00 00 90"
-    },
-    "EmitSoundVolumePatch": {
-        "signature": "CSoundOpGameSystem_SetSoundEventParam_BadVolumeHash",
-        "windows": "41 B9 E9 54 60 BD",
-        "linux": "B8 E9 54 60 BD"
     }
 }
