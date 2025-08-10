@@ -419,9 +419,7 @@ jobs:
 
       - name: Nuget Publish
         run: |
-          ls -lah build
-          cd build/swiftlys2-managed*
-          dotnet nuget push SwiftlyS2.${{ needs.versioning.outputs.version }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
+          dotnet nuget push build/SwiftlyS2.${{ needs.versioning.outputs.version }}.nupkg --api-key ${{ secrets.NUGET_API_KEY }} --source https://api.nuget.org/v3/index.json --skip-duplicate
 
       - name: Release
         id: release
