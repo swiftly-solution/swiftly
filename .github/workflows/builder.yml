@@ -424,6 +424,8 @@ jobs:
 
       - name: Archive Files
         run: |
+          sudo apt install p7zip-full -y;
+          
           (cd buildlin; 7z a -tzip Swiftly.Plugin.Linux.zip *)
           (cd buildwin; 7z a -tzip Swiftly.Plugin.Windows.zip *)
 
