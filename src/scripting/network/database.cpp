@@ -41,8 +41,10 @@ LoadScriptingComponent(database, [](PluginObject plugin, EContext* ctx) -> void 
             if (!shouldSkipDefaultConnection) db = g_dbManager.GetDatabase("default_connection");
         }
 
-        if (!db->Connect()) {
-            PRINTF("An error has occured while trying to connect to database \"%s\":\nError: %s\n", connection_name.c_str(), db->GetError().c_str());
+        if (db) {
+            if (!db->Connect()) {
+                PRINTF("An error has occured while trying to connect to database \"%s\":\nError: %s\n", connection_name.c_str(), db->GetError().c_str());
+            }
         }
 
         data->SetData("db", db);
