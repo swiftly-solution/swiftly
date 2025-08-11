@@ -275,22 +275,20 @@ namespace SwiftlyS2.Internal_API
 
         internal static unsafe object ReadPointerToPrimitive(ref byte* ptr, ref Type type)
         {
-            ref byte start = ref ptr[0];
-
-            if (type == typeof(bool)) return (Unsafe.ReadUnaligned<bool>(ref start));
-            if (type == typeof(char)) return Unsafe.ReadUnaligned<char>(ref start);
-            if (type == typeof(sbyte)) return Unsafe.ReadUnaligned<sbyte>(ref start);
-            if (type == typeof(byte)) return Unsafe.ReadUnaligned<byte>(ref start);
-            if (type == typeof(short)) return Unsafe.ReadUnaligned<short>(ref start);
-            if (type == typeof(ushort)) return Unsafe.ReadUnaligned<ushort>(ref start);
-            if (type == typeof(int)) return Unsafe.ReadUnaligned<int>(ref start);
-            if (type == typeof(uint)) return Unsafe.ReadUnaligned<uint>(ref start);
-            if (type == typeof(long)) return Unsafe.ReadUnaligned<long>(ref start);
-            if (type == typeof(ulong)) return Unsafe.ReadUnaligned<ulong>(ref start);
-            if (type == typeof(float)) return Unsafe.ReadUnaligned<float>(ref start);
-            if (type == typeof(double)) return Unsafe.ReadUnaligned<double>(ref start);
-            if (type == typeof(decimal)) return Unsafe.ReadUnaligned<decimal>(ref start);
-            return IntPtr.Zero;
+            if (type == typeof(bool)) return (Unsafe.Read<bool>(ptr));
+            if (type == typeof(char)) return Unsafe.Read<char>(ptr);
+            if (type == typeof(sbyte)) return Unsafe.Read<sbyte>(ptr);
+            if (type == typeof(byte)) return Unsafe.Read<byte>(ptr);
+            if (type == typeof(short)) return Unsafe.Read<short>(ptr);
+            if (type == typeof(ushort)) return Unsafe.Read<ushort>(ptr);
+            if (type == typeof(int)) return Unsafe.Read<int>(ptr);
+            if (type == typeof(uint)) return Unsafe.Read<uint>(ptr);
+            if (type == typeof(long)) return Unsafe.Read<long>(ptr);
+            if (type == typeof(ulong)) return Unsafe.Read<ulong>(ptr);
+            if (type == typeof(float)) return Unsafe.Read<float>(ptr);
+            if (type == typeof(double)) return Unsafe.Read<double>(ptr);
+            if (type == typeof(decimal)) return Unsafe.Read<decimal>(ptr);
+            return null;
         }
 
         [SecurityCritical]
@@ -656,6 +654,7 @@ namespace SwiftlyS2.Internal_API
             if (type == typeof(string))
             {
                 IntPtr p = *(IntPtr*)ptr;
+                if (p == IntPtr.Zero) return null;
                 StringData* data = (StringData*)p;
 
                 if (data->len == 0) return "";
@@ -693,7 +692,9 @@ namespace SwiftlyS2.Internal_API
             else if(type.IsArray)
             {
                 IntPtr p = *(IntPtr*)ptr;
-                ArrayData *data = (ArrayData*)p;
+                if (p == IntPtr.Zero) return null;
+
+                ArrayData* data = (ArrayData*)p;
 
                 Type t = type.GetElementType()!;
                 Array? arr = Cacher.CreateArray(t, data->Length);
@@ -718,6 +719,8 @@ namespace SwiftlyS2.Internal_API
                 if (dict == null) return null;
 
                 IntPtr p = *(IntPtr*)ptr;
+                if (p == IntPtr.Zero) return null;
+
                 MapData* data = (MapData*)p;
 
                 IntPtr* keys = (IntPtr*)data->Keys;
@@ -744,6 +747,7 @@ namespace SwiftlyS2.Internal_API
             }
             else if(type == typeof(IntPtr))
             {
+                if ((IntPtr)ptr == IntPtr.Zero) return null;
                 return *(IntPtr*)ptr;
             }
 
