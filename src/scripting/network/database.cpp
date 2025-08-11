@@ -36,19 +36,17 @@ LoadScriptingComponent(database, [](PluginObject plugin, EContext* ctx) -> void 
         bool shouldSkipDefaultConnection = context->GetArgumentOr<bool>(1, false);
 
         auto db = g_dbManager.GetDatabase(connection_name);
-        if (!db && connection_name != "default_connection") {
+        if (!db && connection_name != "default_connection" && g_dbManager.GetDatabaseKind(connection_name) != "unknown") {
             PRINTF("Database connection \"%s\" doesn't exists inside the database configurations. Automatically falling back to \"default_connection\".\n", connection_name.c_str());
             if (!shouldSkipDefaultConnection) db = g_dbManager.GetDatabase("default_connection");
         }
 
-        if (!db) {
-            PRINTF("An error has occured while trying to connect to database \"%s\":\nError: Invalid connection inside `addons/swiftly/configs/databases.json`\n", connection_name.c_str());
-        }
-        else if (!db->Connect()) {
+        if (!db->Connect()) {
             PRINTF("An error has occured while trying to connect to database \"%s\":\nError: %s\n", connection_name.c_str(), db->GetError().c_str());
         }
 
         data->SetData("db", db);
+        data->SetData("connection_name", connection_name);
     });
 
     ADD_CLASS_FUNCTION("DB", "IsConnected", [](FunctionContext* context, ClassData* data) -> void {
@@ -62,21 +60,24 @@ LoadScriptingComponent(database, [](PluginObject plugin, EContext* ctx) -> void 
         IDatabase* db = data->GetData<IDatabase*>("db");
         std::string str = context->GetArgumentOr<std::string>(0, "");
 
-        if (!db || !db->IsConnected()) return context->SetReturn(str);
+        if (!db) return context->SetReturn(str);
+        if (!db->IsConnected()) return context->SetReturn(str);
 
         context->SetReturn(db->EscapeValue(str));
     });
 
     ADD_CLASS_FUNCTION("DB", "GetVersion", [](FunctionContext* context, ClassData* data) -> void {
         IDatabase* db = data->GetData<IDatabase*>("db");
-        if (!db || !db->IsConnected()) return context->SetReturn("");
+        if (!db) return context->SetReturn("");
+        if (!db->IsConnected()) return context->SetReturn("");
 
         context->SetReturn(db->GetVersion());
     });
 
     ADD_CLASS_FUNCTION("DB", "Query", [](FunctionContext* context, ClassData* data) -> void {
         IDatabase* db = data->GetData<IDatabase*>("db");
-        if (!db || !db->IsConnected()) return;
+        if (!db) return;
+        if (!db->IsConnected()) return;
 
         std::string query = context->GetArgumentOr<std::string>(0, "");
         if (query == "") return;
@@ -87,8 +88,19 @@ LoadScriptingComponent(database, [](PluginObject plugin, EContext* ctx) -> void 
 
     ADD_CLASS_FUNCTION("DB", "QueryBuilder", [](FunctionContext* context, ClassData* data) -> void {
         IDatabase* db = data->GetData<IDatabase*>("db");
-        if (!db || !db->IsConnected()) return context->SetReturn(nullptr);
+        if (!db) return context->SetReturn(nullptr);
+        if (!db->IsConnected()) return context->SetReturn(nullptr);
 
         context->SetReturn(db->ProvideQueryBuilderTable());
+    });
+
+    ADD_CLASS_FUNCTION("DB", "GetCredentials", [](FunctionContext* context, ClassData* data) -> void {
+        std::string connection_name = data->GetData<std::string>("connection_name");
+        context->SetReturn(g_dbManager.GetDatabaseCredentials(connection_name));
+    });
+
+    ADD_CLASS_FUNCTION("DB", "GetKind", [](FunctionContext* context, ClassData* data) -> void {
+        std::string connection_name = data->GetData<std::string>("connection_name");
+        context->SetReturn(g_dbManager.GetDatabaseKind(connection_name));
     });
 })

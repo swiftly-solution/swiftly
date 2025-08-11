@@ -1,10 +1,15 @@
 {
     "kind": "class",
     "name": "Database",
+    "override_class": {
+        "lua": "Database",
+        "cs": "Database.DB"
+    },
     "description": "This is the Database class.",
     "constructor": {
         "arguments": {
-            "connection_name": "string"
+            "connection_name": "string",
+            "skip_default_connection": "bool?"
         },
         "return": "Database"
     },
@@ -58,6 +63,16 @@
                 }
             },
             "return": "void"
+        },
+        {
+            "name": "GetCredentials",
+            "arguments": {},
+            "return": "string:string"
+        },
+        {
+            "name": "GetKind",
+            "arguments": {},
+            "return": "string"
         }
     ]
 }

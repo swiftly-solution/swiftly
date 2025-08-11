@@ -60,12 +60,16 @@ void DatabaseManager::LoadDatabases()
         }
 
         if (!db) {
-            PLUGIN_PRINTF("Database", "Invalid database kind for \"%s\": %s.\n", connectionName, connection_details["kind"].c_str());
-            continue;
+            PLUGIN_PRINTF("Database", "Database kind %s used by \"%s\" doesn't have an extension. It will be registered but queries will not be executed.\n", connection_details["kind"].c_str(), connectionName);
+            databases.insert({ connectionName, nullptr });
+        }
+        else {
+            db->SetConnectionConfig(connection_details);
+            databases.insert({ connectionName, db });
         }
 
-        db->SetConnectionConfig(connection_details);
-        databases.insert({ connectionName, db });
+        databases_credentials.insert({ connectionName, connection_details });
+        database_kind.insert({ connectionName, connection_details["kind"] });
     }
 
     if (modified) {
@@ -81,6 +85,20 @@ IDatabase* DatabaseManager::GetDatabase(std::string name)
         return nullptr;
 
     return databases.at(name);
+}
+
+std::map<std::string, std::string> DatabaseManager::GetDatabaseCredentials(std::string name)
+{
+    if (databases.find(name) == databases.end()) return {};
+
+    return databases_credentials[name];
+}
+
+std::string DatabaseManager::GetDatabaseKind(std::string name)
+{
+    if (databases.find(name) == databases.end()) return "unknown";
+
+    return database_kind[name];
 }
 
 EXT_API void swiftly_RegisterDBDriver(void* driverPtr)

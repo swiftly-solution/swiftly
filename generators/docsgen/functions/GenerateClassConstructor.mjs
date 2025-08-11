@@ -13,7 +13,7 @@ ${lang == "cs" ? `using SwiftlyS2.API.${category.category.includes("sdk") ? cate
     if (lang == "cs") {
         let cls = category.data.title.split(" ").join("")
 
-        outString += `var ${pageContent.name.toLowerCase()} = new ${cls}.${pageContent.name}`
+        outString += `var ${pageContent.name.toLowerCase()} = new ${pageContent.override_class ? pageContent.override_class["cs"] : `${cls}.${pageContent.name}`}`
     } else if (lang == "lua") {
         if (pageContent.override_variable) v = ""
         outString += `local ${pageContent.name.toLowerCase()} = ${v}${v == "" ? "" : ":"}${pageContent.name}`
