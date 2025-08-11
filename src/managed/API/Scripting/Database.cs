@@ -30,7 +30,11 @@ namespace SwiftlyS2.API.Scripting
 
         public class DB : ClassData
         {
-            public DB(string connection_name, bool? skip_default_connection): base(Internal_API.Invoker.CallNative<IntPtr>("DB", "DB", CallKind.ClassFunction, connection_name, skip_default_connection))
+            public DB(string connection_name): base(Internal_API.Invoker.CallNative<IntPtr>("DB", "DB", CallKind.ClassFunction, connection_name, false))
+            {
+                InitializeContext();
+            }
+            public DB(string connection_name, bool skip_default_connection) : base(Internal_API.Invoker.CallNative<IntPtr>("DB", "DB", CallKind.ClassFunction, connection_name, skip_default_connection))
             {
                 InitializeContext();
             }
@@ -78,6 +82,15 @@ namespace SwiftlyS2.API.Scripting
                 }
 
                 Query(query, callback);
+            }
+
+            public Dictionary<string, string> GetCredentials()
+            {
+                return Internal_API.Invoker.CallNative<Dictionary<string, string>>("DB", "GetCredentials", CallKind.CoreClassFunction, m_classData) ?? [];
+            }
+            public string GetKind()
+            {
+                return Internal_API.Invoker.CallNative<string>("DB", "GetKind", CallKind.CoreClassFunction, m_classData) ?? "";
             }
         }
     }
