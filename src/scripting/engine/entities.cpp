@@ -23,4 +23,14 @@ LoadScriptingComponent(entities, [](PluginObject plugin, EContext* ctx) -> void 
 
         context->SetReturn(entities);
     });
+
+    ADD_FUNCTION("GetAllEntities", [](FunctionContext* context) -> void {
+        std::vector<EValue> entities;
+        CEntityIdentity* pEntity = g_pEntitySystem->m_EntityList.m_pFirstActiveEntity;
+
+        for (; pEntity; pEntity = pEntity->m_pNext)
+            entities.push_back(MakeSDKClassInstance("CEntityInstance", pEntity->m_pInstance, context->GetPluginContext()));
+
+        context->SetReturn(entities);
+    });
 })

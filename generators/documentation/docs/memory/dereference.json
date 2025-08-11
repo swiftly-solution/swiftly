@@ -1,6 +1,6 @@
 {
     "kind": "function",
-    "function": "Dereferance",
+    "function": "Dereference",
     "description": "Dereferences the pointer.",
     "arguments": {},
     "return": "void",

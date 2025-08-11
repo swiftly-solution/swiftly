@@ -48,9 +48,9 @@ namespace SwiftlyS2.API.Scripting
         {
             Internal_API.Invoker.CallNative("Memory", "Deallocate", Internal_API.CallKind.ClassFunction, m_classData);
         }
-        public void Dereferance()
+        public void Dereference()
         {
-            Internal_API.Invoker.CallNative("Memory", "Dereferance", Internal_API.CallKind.ClassFunction, m_classData);
+            Internal_API.Invoker.CallNative("Memory", "Dereference", Internal_API.CallKind.ClassFunction, m_classData);
         }
         public bool GetBool()
         {

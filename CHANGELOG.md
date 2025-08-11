@@ -364,7 +364,7 @@ Documentation: https://swiftlys2.net
 
 ### Memory
 
-- [+] memory:Dereferance()
+- [+] memory:Dereference()
 
 ### CCheckTransmitInfo
 

@@ -1,0 +1,9 @@
+{
+    "kind": "function",
+    "function": "GetAllEntities",
+    "override_variable": true,
+    "description": "Returns all the `CEntityInstance` for all the entities available.",
+    "arguments": {},
+    "return": "CEntityInstance[]",
+    "games": "all"
+}
