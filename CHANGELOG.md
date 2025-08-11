@@ -2,6 +2,34 @@
 
 Over here will be noted all the update change logs.
 
+## v2.0.1 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v2.0.1)
+
+### C# Plugins
+
+- Crashes on plugin load, missing location in elf
+
+### SDK
+
+- Brought back documentation for fields with numbers and SDK for those is available for both languages now
+
+### Exports
+
+- Fixed getting the return value in C# Plugins
+
+### Events
+
+- Fixed getting the return value in C# Plugins
+
+### Configuration
+
+- Fixed getting the return value in C# Plugins
+
+### Database
+
+- Queries can be called now even without a callback
+- Added: GetCredentials
+- Added: GetKind
+
 ## v2.0.0 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v2.0.0)
 
 ### VGUI
