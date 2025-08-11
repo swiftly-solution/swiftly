@@ -84,9 +84,8 @@ jobs:
         shell: bash
         run: |
           sudo apt update
-          sudo apt install -y libreadline-dev libboost-all-dev patchelf
+          sudo apt install -y libreadline-dev libboost-all-dev
           bash ./setup.sh
-          patchelf --set-rpath '$ORIGIN' build/package/addons/swiftly/bin/linuxsteamrt64/swiftly.so
 
       - name: Build - Windows
         if: matrix.os == 'windows-latest'
@@ -260,8 +259,9 @@ jobs:
         shell: bash
         run: |
           sudo apt update
-          sudo apt install -y libreadline-dev libboost-all-dev unzip
+          sudo apt install -y libreadline-dev libboost-all-dev unzip patchelf
           bash ./setup.sh
+          patchelf --set-rpath '$ORIGIN' build/package/addons/swiftly/bin/linuxsteamrt64/swiftly.so
 
           echo "[Builder] Setting up default plugins"
           cp -r build/package build/package2
