@@ -2,6 +2,20 @@
 
 Over here will be noted all the update change logs.
 
+## v2.0.2 & v2.0.3 & v2.0.4 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v2.0.4)
+
+### SDK
+
+- Fixed an issue when setting values
+
+### Database
+
+- Added option in C# to skip default connection
+
+### C# Managed
+
+- Fixed an unhandled edge case when pointers are being null
+
 ## v2.0.1 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v2.0.1)
 
 ### C# Plugins
