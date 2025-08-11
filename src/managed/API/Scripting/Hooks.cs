@@ -63,10 +63,14 @@ namespace SwiftlyS2.API.Scripting
             Invoker.CallNative("Hooks", "Call", Internal_API.CallKind.CoreClassFunction, _ctx, hookHandler.HookId, (object)args);
         }
 
-        public static T? CallHook<T>(HookHandler hookHandler, params object[] args)
+        public static unsafe T? CallHook<T>(HookHandler hookHandler, params object[] args)
         {
             InitializeContext();
-            return Invoker.CallNative<T>("Hooks", "Call", Internal_API.CallKind.CoreClassFunction, _ctx, hookHandler.HookId, (object)args);
+            IntPtr val = Internal_API.Invoker.CallNative<IntPtr>("Hooks", "Call", Internal_API.CallKind.CoreClassFunction, _ctx, hookHandler.HookId, (object)args);
+            byte* p = (byte*)val;
+            byte* tp = (byte*)&p;
+            Type t = typeof(T);
+            return (T?)CallContext.ReadValue(ref t, ref tp);
         }
     }
 }

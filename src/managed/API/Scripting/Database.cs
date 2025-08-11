@@ -30,7 +30,7 @@ namespace SwiftlyS2.API.Scripting
 
         public class DB : ClassData
         {
-            public DB(string connection_name): base(Internal_API.Invoker.CallNative<IntPtr>("DB", "DB", CallKind.ClassFunction, connection_name))
+            public DB(string connection_name, bool? skip_default_connection): base(Internal_API.Invoker.CallNative<IntPtr>("DB", "DB", CallKind.ClassFunction, connection_name, skip_default_connection))
             {
                 InitializeContext();
             }

@@ -141,10 +141,14 @@ namespace SwiftlyS2.Internal_API
         private readonly object ms_lock = new();
         internal object Lock => ms_lock;
         internal bool isCleanupLocked = false;
+        internal int lockedCount = 0;
 
         public void SetCleanupLock(bool state)
         {
-            isCleanupLocked = state;
+            if (state) lockedCount++;
+            else lockedCount--;
+
+            isCleanupLocked = (lockedCount > 0);
         }
 
         public void Reset()
@@ -629,17 +633,17 @@ namespace SwiftlyS2.Internal_API
         }
 
         [SecuritySafeCritical]
-        public T GetReturn<T>()
+        public T? GetReturn<T>()
         {
-            return (T)GetReturn(typeof(T));
+            return (T?)GetReturn(typeof(T));
         }
 
         [SecurityCritical]
-        internal unsafe object GetReturn(Type type)
+        internal unsafe object? GetReturn(Type type)
         {
             fixed (CallData* data = &m_cdata)
             {
-                if (data->has_return == 0) return null;
+                if (data->has_return == 0) return Activator.CreateInstance(type);
                 byte* p = data->return_value;
                 return ReadValue(ref type, ref p);
             }
@@ -655,7 +659,8 @@ namespace SwiftlyS2.Internal_API
                 StringData* data = (StringData*)p;
 
                 if (data->len == 0) return "";
-                return Encoding.UTF8.GetString(new ReadOnlySpan<byte>(data->ptr, data->len));
+                string outs = Encoding.UTF8.GetString(new ReadOnlySpan<byte>(data->ptr, data->len));
+                return outs;
             }
             else if(type == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(type))
             {
@@ -739,8 +744,7 @@ namespace SwiftlyS2.Internal_API
             }
             else if(type == typeof(IntPtr))
             {
-                ref byte start = ref ptr[0];
-                return Unsafe.ReadUnaligned<IntPtr>(ref start);
+                return *(IntPtr*)ptr;
             }
 
             return ReadPointerToPrimitive(ref ptr, ref type);

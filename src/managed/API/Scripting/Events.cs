@@ -81,11 +81,12 @@ namespace SwiftlyS2.API.Scripting
 
         public static unsafe (EventResult, Event) TriggerEvent(string event_name, params object[] args)
         {
-            IntPtr[] a = Invoker.CallNative<IntPtr[]>("_G", "TriggerEventInternal", CallKind.Function, event_name, JsonSerializer.Serialize(args));
+            IntPtr[] a = Invoker.CallNative<IntPtr[]>("_G", "TriggerEventInternal", CallKind.Function, event_name, JsonSerializer.Serialize(args)) ?? [IntPtr.Zero, IntPtr.Zero];
 
             byte* p = (byte*)a[0];
+            byte* pptr = (byte*)&p;
             Type evResult = typeof(EventResult);
-            EventResult res = (EventResult)CallContext.ReadValue(ref evResult, ref p);
+            EventResult res = (EventResult)CallContext.ReadValue(ref evResult, ref pptr);
             Event ev = new(a[1]);
 
             return (res, ev);
@@ -154,9 +155,13 @@ namespace SwiftlyS2.API.Scripting
             {
                 return Internal_API.Invoker.CallNative<string>("Event", "GetString", Internal_API.CallKind.ClassFunction, m_classData, key) ?? "";
             }
-            public T? GetReturn<T>()
+            public unsafe T? GetReturn<T>()
             {
-                return Internal_API.Invoker.CallNative<T>("Event", "GetReturn", Internal_API.CallKind.ClassFunction, m_classData);
+                IntPtr val = Internal_API.Invoker.CallNative<IntPtr>("Event", "GetReturn", Internal_API.CallKind.ClassFunction, m_classData);
+                byte* p = (byte*)val;
+                byte* tp = (byte*)&p;
+                Type t = typeof(T);
+                return (T?)CallContext.ReadValue(ref t, ref tp);
             }
             public void SetReturn(object value)
             {
@@ -242,9 +247,13 @@ namespace SwiftlyS2.API.Scripting
             {
                 return Internal_API.Invoker.CallNative<Memory>("Event", "GetHookPointer", Internal_API.CallKind.ClassFunction, m_classData, index) ?? new();
             }
-            public T? GetHookReturn<T>()
+            public unsafe T? GetHookReturn<T>()
             {
-                return Internal_API.Invoker.CallNative<T>("Event", "GetHookReturn", Internal_API.CallKind.ClassFunction, m_classData);
+                IntPtr val = Internal_API.Invoker.CallNative<IntPtr>("Event", "GetHookReturn", Internal_API.CallKind.ClassFunction, m_classData);
+                byte* p = (byte*)val;
+                byte* tp = (byte*)&p;
+                Type t = typeof(T);
+                return (T?)CallContext.ReadValue(ref t, ref tp);
             }
             public void SetHookReturn(object value)
             {

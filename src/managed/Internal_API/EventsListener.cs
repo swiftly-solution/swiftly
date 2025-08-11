@@ -1,16 +1,16 @@
 ﻿using System.Text.Json;
+using SwiftlyS2.API;
 using SwiftlyS2.API.Scripting;
-using SwiftlyS2.Internal_API;
 
-namespace SwiftlyS2.API.Events
+namespace SwiftlyS2.Internal_API
 {
-    static class Listener
+    static class EventsListener
     {
-        private static unsafe EventResult CallEventHandlers(ref List<Scripting.EventHandler> events, Scripting.Events.Event ev, ref IntPtr[] args)
+        private static unsafe EventResult CallEventHandlers(ref List<API.Scripting.EventHandler> events, API.Scripting.Events.Event ev, ref nint[] args)
         {
             for (int i = 0; i < events.Count; i++)
             {
-                Scripting.EventHandler eventInfo = events[i];
+                API.Scripting.EventHandler eventInfo = events[i];
 
                 var functionParams = eventInfo.Parameters;
 
@@ -30,11 +30,11 @@ namespace SwiftlyS2.API.Events
                         if(Cacher.ConsiderTypeAPointer(ref t))
                         {
                             byte* marg = (byte*)&arg;
-                            a.Add(Internal_API.CallContext.ReadValue(ref t, ref marg));
+                            a.Add(CallContext.ReadValue(ref t, ref marg));
                         }
                         else
                         {
-                            a.Add(Internal_API.CallContext.ReadValue(ref t, ref arg));
+                            a.Add(CallContext.ReadValue(ref t, ref arg));
                         }
                     }
                     returnValue = eventInfo.Callback(eventInfo.TargetInstance, a.ToArray()) ?? EventResult.Continue;
@@ -48,11 +48,11 @@ namespace SwiftlyS2.API.Events
             return EventResult.Continue;
         }
 
-        private static EventResult CallEventHandlersJSON(ref List<Scripting.EventHandler> events, Scripting.Events.Event ev, ref object[] args)
+        private static EventResult CallEventHandlersJSON(ref List<API.Scripting.EventHandler> events, API.Scripting.Events.Event ev, ref object[] args)
         {
             for (int i = 0; i < events.Count; i++)
             {
-                Scripting.EventHandler eventInfo = events[i];
+                API.Scripting.EventHandler eventInfo = events[i];
 
                 var functionParams = eventInfo.Parameters;
                 List<object> a = [ev];
@@ -71,35 +71,35 @@ namespace SwiftlyS2.API.Events
         {
             FunctionCallers.AddFunctionCaller(Plugin.PluginContext, "AddGlobalEvents", (ctx) =>
             {
-                IntPtr eventObject = ctx.GetArgument<IntPtr>(0);
+                nint eventObject = ctx.GetArgument<nint>(0);
                 string eventName = ctx.GetArgument<string>(1);
-                IntPtr[] arguments = ctx.GetArgument<IntPtr[]>(2);
+                nint[] arguments = ctx.GetArgument<nint[]>(2);
 
-                List<Scripting.EventHandler> callbacks = Scripting.Events.GetEventCallbacks(eventName);
+                List<API.Scripting.EventHandler> callbacks = API.Scripting.Events.GetEventCallbacks(eventName);
                 if (callbacks.Count == 0)
                 {
                     ctx.SetReturn(EventResult.Continue);
                     return;
                 }
 
-                ctx.SetReturn(CallEventHandlers(ref callbacks, new Scripting.Events.Event(eventObject), ref arguments));
+                ctx.SetReturn(CallEventHandlers(ref callbacks, new API.Scripting.Events.Event(eventObject), ref arguments));
             });
 
             FunctionCallers.AddFunctionCaller(Plugin.PluginContext, "AddGlobalEventsJSON", (ctx) =>
             {
-                IntPtr eventObject = ctx.GetArgument<IntPtr>(0);
+                nint eventObject = ctx.GetArgument<nint>(0);
                 string eventName = ctx.GetArgument<string>(1);
                 string arguments = ctx.GetArgument<string>(2);
                 object[] parsedArgs = JsonSerializer.Deserialize<object[]>(arguments) ?? [];
 
-                List<Scripting.EventHandler> callbacks = Scripting.Events.GetEventCallbacks(eventName);
+                List<API.Scripting.EventHandler> callbacks = API.Scripting.Events.GetEventCallbacks(eventName);
                 if (callbacks.Count == 0)
                 {
                     ctx.SetReturn(EventResult.Continue);
                     return;
                 }
 
-                ctx.SetReturn(CallEventHandlersJSON(ref callbacks, new Scripting.Events.Event(eventObject), ref parsedArgs));
+                ctx.SetReturn(CallEventHandlersJSON(ref callbacks, new API.Scripting.Events.Event(eventObject), ref parsedArgs));
             });
 
             Invoker.CallNative("_G", "AddGlobalEvents", CallKind.Function, "AddGlobalEvents");

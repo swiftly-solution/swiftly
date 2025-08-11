@@ -18,7 +18,7 @@
             var output = Events.TriggerEvent($"export:{plugin_name}:{name}", args);
             if (output.Item1 != EventResult.Stop)
             {
-                Console.WriteLine($"Export '{name}' is '{plugin_name}' doesn't exists.");
+                Console.WriteLine($"Export '{name}' in '{plugin_name}' doesn't exists.");
             }
         }
 
@@ -27,7 +27,7 @@
             var output = Events.TriggerEvent($"export:{plugin_name}:{name}", args);
             if (output.Item1 != EventResult.Stop)
             {
-                Console.WriteLine($"Export '{name}' is '{plugin_name}' doesn't exists.");
+                Console.WriteLine($"Export '{name}' in '{plugin_name}' doesn't exists.");
             }
             return output.Item2.GetReturn<T>();
         }

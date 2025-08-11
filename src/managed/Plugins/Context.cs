@@ -3,6 +3,7 @@ using McMaster.NETCore.Plugins;
 using Microsoft.Extensions.DependencyInjection;
 using SwiftlyS2.API;
 using SwiftlyS2.API.Scripting;
+using SwiftlyS2.Internal_API;
 using static SwiftlyS2.API.Scripting.Events;
 
 namespace SwiftlyS2.Plugins

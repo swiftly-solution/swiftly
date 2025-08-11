@@ -21,10 +21,14 @@ namespace SwiftlyS2.API.Scripting
             InitializeContext();
             return Internal_API.Invoker.CallNative<bool>("Configuration", "Exists", Internal_API.CallKind.CoreClassFunction, _ctx, key);
         }
-        public static T? Fetch<T>(string key)
+        public static unsafe T? Fetch<T>(string key)
         {
             InitializeContext();
-            return Internal_API.Invoker.CallNative<T>("Configuration", "Fetch", Internal_API.CallKind.CoreClassFunction, _ctx, key);
+            IntPtr val = Internal_API.Invoker.CallNative<IntPtr>("Configuration", "Fetch", Internal_API.CallKind.CoreClassFunction, _ctx, key);
+            byte* p = (byte*)val;
+            byte* tp = (byte*)&p;
+            Type t = typeof(T);
+            return (T?)CallContext.ReadValue(ref t, ref tp);
         }
         public static int FetchArraySize(string key)
         {

@@ -27,7 +27,7 @@ namespace SwiftlyS2.API
             PluginContext = ctx;
             Cacher.PrepareCache();
             Console.SetOut(new Scripting.ConsoleWriter(Console.Out));
-            Events.Listener.StartListening();
+            EventsListener.StartListening();
 
             RegisterEventAttribute();
             RegisterCommandAttribute();

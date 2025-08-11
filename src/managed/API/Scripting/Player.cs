@@ -107,9 +107,13 @@ namespace SwiftlyS2.API.Scripting
             
             return Internal_API.Invoker.CallNative<string>("Player", "GetSteamID2", Internal_API.CallKind.ClassFunction, m_classData) ?? "";
         }
-        public T? GetVar<T>(string key)
+        public unsafe T? GetVar<T>(string key)
         {
-            return Internal_API.Invoker.CallNative<T>("Player", "GetVar", Internal_API.CallKind.ClassFunction, m_classData, key);
+            IntPtr val = Internal_API.Invoker.CallNative<IntPtr>("Player", "GetVar", Internal_API.CallKind.CoreClassFunction, m_classData, key);
+            byte* p = (byte*)val;
+            byte* tp = (byte*)&p;
+            Type t = typeof(T);
+            return (T?)CallContext.ReadValue(ref t, ref tp);
         }
         public ulong GetVoiceFlags()
         {
