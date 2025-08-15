@@ -65,11 +65,6 @@ public:
     int m_nCurBit;
 }; // sizeof 40
 
-abstract_class INetworkChannelNotify
-{
-public:
-    virtual void OnShutdownChannel(INetChannel * pChannel) = 0;
-};
 
 enum CopiedLockState_t : int32
 {

@@ -62,7 +62,7 @@
     "CTakeDamageInfo_Constructor": {
         "lib": "server",
         "windows": "40 53 48 83 EC 60 48 C7 41 38 FF FF FF FF",
-        "linux": "49 BB 2A 2A 2A 2A 2A 2A 2A 2A 55 66 0F EF C9 48 89 E5"
+        "linux": "49 BB ? ? ? ? ? ? ? ? 55 66 0F EF C9 48 89 E5"
     },
     "FireOutputInternal": {
         "lib": "server",
