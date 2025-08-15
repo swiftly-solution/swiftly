@@ -8,32 +8,32 @@
         "linux": 404
     },
     "CCSPlayerController_ChangeTeam": {
-        "windows": 107,
-        "linux": 106
+        "windows": 106,
+        "linux": 105
     },
     "CBaseEntity_Teleport": {
-        "windows": 166,
-        "linux": 165
+        "windows": 165,
+        "linux": 164
     },
     "CCSPlayerController_Respawn": {
-        "windows": 276,
-        "linux": 278
+        "windows": 275,
+        "linux": 277
     },
     "CollisionRulesChanged": {
-        "windows": 190,
-        "linux": 189
+        "windows": 189,
+        "linux": 188
     },
     "CCSPlayer_WeaponServices_DropWeapon": {
-        "windows": 22,
-        "linux": 23
+        "windows": 23,
+        "linux": 24
     },
     "CGameSceneNode_GetSkeletonInstance": {
         "windows": 8,
         "linux": 8
     },
     "GetHammerUniqueID": {
-        "windows": 116,
-        "linux": 115
+        "windows": 115,
+        "linux": 114
     },
     "CEntityResourceManifest_AddResource": {
         "windows": 2,

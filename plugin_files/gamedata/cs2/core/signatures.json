@@ -62,7 +62,7 @@
     "CTakeDamageInfo_Constructor": {
         "lib": "server",
         "windows": "40 53 48 83 EC 60 48 C7 41 38 FF FF FF FF",
-        "linux": "55 48 89 E5 48 83 EC 10 4C 8D 15 ? ? ? ?"
+        "linux": "49 BB 2A 2A 2A 2A 2A 2A 2A 2A 55 66 0F EF C9 48 89 E5"
     },
     "FireOutputInternal": {
         "lib": "server",
@@ -96,8 +96,8 @@
     },
     "CBaseEntity_TakeDamage": {
         "lib": "server",
-        "windows": "48 89 74 24 ? 57 48 81 EC ? ? ? ? 48 8B 41 ? 48 8B FA",
-        "linux": "55 48 89 E5 41 57 49 89 F7 41 56 41 55 41 54 53 48 89 FB 48 81 EC ? ? ? ? F6 46"
+        "windows": "4C 8B DC 56 57 48 81 EC ? ? ? ? 48 8B 41",
+        "linux": "55 48 89 E5 41 57 41 56 41 55 41 54 53 48 89 FB 48 81 EC ? ? ? ? 4C 8D 25 ? ? ? ? 49 8B 3C 24"
     },
     "BotNavIgnore1": {
         "lib": "server",
