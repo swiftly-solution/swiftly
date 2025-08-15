@@ -307,7 +307,7 @@ void SchemaCallback(PluginObject plugin, EContext* ctx) {
 
     ADD_CLASS_FUNCTION("SDKClass", "GetPawn", [](FunctionContext* context, ClassData* data) -> void {
         CPlayerPawnComponent* instance = (CPlayerPawnComponent*)data->GetData<void*>("class_ptr");
-        context->SetReturn(MakeSDKClassInstance("CBasePlayerPawn", instance->m_pPawn, context->GetPluginContext()));
+        context->SetReturn(MakeSDKClassInstance("CBasePlayerPawn", instance->GetPawn(), context->GetPluginContext()));
     });
 
     auto fields = g_sdk.GetProcessedFieldNames();

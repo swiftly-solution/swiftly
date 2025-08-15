@@ -322,8 +322,9 @@ void UpdatePlayers()
         if (steamId)
         {
             auto controller = g_pEntitySystem->GetEntityInstance(CEntityIndex(i + 1));
-            if (controller)
+            if (controller) {
                 g_SteamAPI.SteamGameServer()->BUpdateUserData(*steamId, schema::GetPropPtr<char>(controller, "CBasePlayerController", "m_iszPlayerName"), gameclients->GetPlayerScore(CPlayerSlot(i)));
+            }
         }
     }
 }
