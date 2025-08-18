@@ -9,28 +9,22 @@
 #include <utils/utils.h>
 #include <sdk/components/EmitSound_t.h>
 #include <sdk/components/CSingleRecipientFilter.h>
+#include <network/soundevents/soundevent.h>
 
 typedef IGameEventListener2* (*GetLegacyGameEventListener)(CPlayerSlot slot);
-
-typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
 
 void EmitSoundFilter(int playerid, std::string sound_name, float pitch, float volume)
 {
     auto player = g_playerManager.GetPlayer(playerid);
     if (!player) return;
 
-    CEntityInstance* instance = (CEntityInstance*)player->GetController();
-    if (!instance) return;
+    Soundevent sound;
+    sound.SetName(sound_name);
+    sound.SetFloat("public.volume", volume);
+    sound.SetFloat("public.pitch", pitch);
 
-    EmitSound_t params;
-    params.m_pSoundName = sound_name.c_str();
-    params.m_flVolume = volume;
-    params.m_nPitch = pitch;
-
-    CBaseEntity_EmitSoundFilter filter = g_GameData.FetchSignature<CBaseEntity_EmitSoundFilter>("CBaseEntity_EmitSoundFilter");
-
-    CSingleRecipientFilter playerfilter(playerid);
-    filter(playerfilter, instance->m_pEntity->m_EHandle.GetEntryIndex(), params);
+    sound.AddClient(playerid);
+    sound.Emit();
 }
 
 MenuRenderer::MenuRenderer(Player* player)
