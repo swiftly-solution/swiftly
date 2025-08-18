@@ -2,6 +2,12 @@
 
 Over here will be noted all the update change logs.
 
+## v2.0.5 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v2.0.5)
+
+### GameData
+
+- Fixes related to signatures
+
 ## v2.0.2 & v2.0.3 & v2.0.4 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v2.0.4)
 
 ### SDK
