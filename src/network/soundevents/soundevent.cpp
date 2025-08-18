@@ -73,6 +73,10 @@ uint32_t Soundevent::Emit()
 	
 	g_pGameEventSystem->PostEventAbstract(-1, false, &this->clients, pNetMsg, data, 0);
 
+#ifndef _WIN32
+    delete data;
+#endif
+
 	return guid;
 }
 
