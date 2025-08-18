@@ -36,9 +36,11 @@ LoadScriptingComponent(database, [](PluginObject plugin, EContext* ctx) -> void 
         bool shouldSkipDefaultConnection = context->GetArgumentOr<bool>(1, false);
 
         auto db = g_dbManager.GetDatabase(connection_name);
-        if (!db && connection_name != "default_connection" && g_dbManager.GetDatabaseKind(connection_name) != "unknown") {
-            PRINTF("Database connection \"%s\" doesn't exists inside the database configurations. Automatically falling back to \"default_connection\".\n", connection_name.c_str());
-            if (!shouldSkipDefaultConnection) db = g_dbManager.GetDatabase("default_connection");
+        if (!db && connection_name != "default_connection" && !g_dbManager.DatabaseExists(connection_name)) {
+            if (!shouldSkipDefaultConnection) {
+                PRINTF("Database connection \"%s\" doesn't exists inside the database configurations. Automatically falling back to \"default_connection\".\n", connection_name.c_str());
+                db = g_dbManager.GetDatabase("default_connection");
+            }
         }
 
         if (db) {

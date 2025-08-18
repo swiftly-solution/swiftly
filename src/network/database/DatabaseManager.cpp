@@ -94,6 +94,11 @@ std::map<std::string, std::string> DatabaseManager::GetDatabaseCredentials(std::
     return databases_credentials[name];
 }
 
+bool DatabaseManager::DatabaseExists(std::string name)
+{
+    return (databases.find(name) != databases.end());
+}
+
 std::string DatabaseManager::GetDatabaseKind(std::string name)
 {
     if (databases.find(name) == databases.end()) return "unknown";

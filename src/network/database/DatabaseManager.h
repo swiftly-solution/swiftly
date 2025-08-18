@@ -18,6 +18,7 @@ public:
 
     std::map<std::string, std::string> GetDatabaseCredentials(std::string name);
     std::string GetDatabaseKind(std::string name);
+    bool DatabaseExists(std::string name);
 };
 
 extern DatabaseManager g_dbManager;

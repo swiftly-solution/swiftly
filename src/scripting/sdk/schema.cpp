@@ -22,8 +22,6 @@ typedef void (*CAttributeList_SetOrAddAttributeValueByName_t)(void*, const char*
 typedef void (*CBaseModelEntity_SetBodygroup_t)(void*, const char*, ...);
 typedef void (*CBaseModelEntity_SetModel_t)(void*, const char*);
 typedef void (*CBaseEntity_TakeDamage)(void*, CTakeDamageInfo*);
-typedef SndOpEventGuid_t(*CBaseEntity_EmitSoundFilter)(IRecipientFilter& filter, CEntityIndex ent, const EmitSound_t& params);
-typedef void (*CBaseEntity_EmitSoundParams)(void*, const char*, int, float, float);
 
 std::set<std::string> skipFunctions = {
     "__call",
