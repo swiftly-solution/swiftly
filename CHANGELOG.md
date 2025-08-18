@@ -2,6 +2,20 @@
 
 Over here will be noted all the update change logs.
 
+## v2.0.6 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v2.0.6)
+
+### GameData
+
+- Some Cleanup
+
+### Database
+
+- Fixing a check in database existance
+
+### Windows
+
+- Load issue in which you cannot start the server.
+
 ## v2.0.5 - [Release](https://github.com/swiftly-solution/swiftly/releases/tag/v2.0.5)
 
 ### GameData
