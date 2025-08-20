@@ -189,7 +189,7 @@ namespace SwiftlyS2.API.Scripting
                 Player? player = GetPlayer(i);
                 if (player == null) continue;
 
-                if (player.IsFakeClient() && !matchbots) continue;
+                if (!matchbots && player.IsFakeClient()) continue;
 
                 if(target == "@all")
                 {
