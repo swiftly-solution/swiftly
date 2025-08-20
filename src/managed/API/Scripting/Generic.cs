@@ -189,7 +189,7 @@ namespace SwiftlyS2.API.Scripting
                 Player? player = GetPlayer(i);
                 if (player == null) continue;
 
-                if (player.IsFakeClient() && !matchbots) continue;
+                if (!matchbots && player.IsFakeClient()) continue;
 
                 if(target == "@all")
                 {
@@ -273,7 +273,7 @@ namespace SwiftlyS2.API.Scripting
         }
         public static Player? GetPlayer(int playerid)
         {
-            return Internal_API.Invoker.CallNative<Player?>("_G", "GetPlayer", Internal_API.CallKind.Function, playerid);
+            return Internal_API.Invoker.CallNative<Player>("_G", "GetPlayer", Internal_API.CallKind.Function, playerid);
         }
         public static ulong GetTime()
         {

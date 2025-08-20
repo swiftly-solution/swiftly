@@ -641,7 +641,17 @@ namespace SwiftlyS2.Internal_API
         {
             fixed (CallData* data = &m_cdata)
             {
-                if (data->has_return == 0) return Activator.CreateInstance(type);
+                if (data->has_return == 0)
+                {
+                    if (type == typeof(ClassData) || typeof(ClassData).IsAssignableFrom(type))
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        return Activator.CreateInstance(type);
+                    }
+                }
                 byte* p = data->return_value;
                 return ReadValue(ref type, ref p);
             }
