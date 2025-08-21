@@ -115,6 +115,11 @@
             "writable": true
         },
         {
+            "name": "LastBurn",
+            "type": "float",
+            "writable": true
+        },
+        {
             "name": "DynamicContinuousContactBehavior",
             "type": "uint8",
             "writable": true

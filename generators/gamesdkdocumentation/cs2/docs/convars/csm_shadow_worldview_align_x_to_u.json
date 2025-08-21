@@ -1,1 +1,1 @@
-{"kind":"command","name":"csm_shadow_worldview_align_x_to_u","description":"<no description>","args":"true","flags":["cheat"],"games":["cs2"]}
+{"kind":"command","name":"csm_shadow_worldview_align_x_to_u","description":"<no description>","args":"false","flags":["cheat"],"games":["cs2"]}

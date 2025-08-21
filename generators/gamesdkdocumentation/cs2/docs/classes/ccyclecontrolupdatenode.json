@@ -20,6 +20,11 @@
             "writable": false
         },
         {
+            "name": "LockWhenWaning",
+            "type": "bool",
+            "writable": true
+        },
+        {
             "name": "Parent",
             "type": "CUnaryUpdateNode",
             "writable": false

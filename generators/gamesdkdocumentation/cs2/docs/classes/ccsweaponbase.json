@@ -145,11 +145,6 @@
             "writable": true
         },
         {
-            "name": "DisallowAttackAfterReloadStartUntilTime",
-            "type": "float",
-            "writable": true
-        },
-        {
             "name": "DroppedAtTime",
             "type": "float",
             "writable": true

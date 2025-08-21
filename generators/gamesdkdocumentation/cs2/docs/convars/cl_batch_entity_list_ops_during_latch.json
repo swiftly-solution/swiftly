@@ -1,0 +1,1 @@
+{"kind":"command","name":"cl_batch_entity_list_ops_during_latch","description":"Batch entity list adds / removes while latching interpolated variables to avoid mutex contention.","args":"false","flags":["developmentonly","clientdll"],"games":["cs2"]}

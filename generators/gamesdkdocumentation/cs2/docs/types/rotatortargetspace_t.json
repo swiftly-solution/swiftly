@@ -1,0 +1,1 @@
+{"kind":"type","name":"RotatorTargetSpace_t","description":"Automatically generated game type from enum RotatorTargetSpace_t","values":{"ROTATOR_TARGET_WORLDSPACE":0,"ROTATOR_TARGET_LOCALSPACE":1},"games":["cs2"]}

@@ -1,1 +1,1 @@
-{"kind":"command","name":"r_csgo_shader_feature_test_value","description":"<no description>","args":"1","flags":["developmentonly","clientdll"],"games":["cs2"]}
+{"kind":"command","name":"r_csgo_shader_feature_test_value","description":"<no description>","args":"0","flags":["developmentonly","clientdll"],"games":["cs2"]}

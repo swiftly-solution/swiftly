@@ -20,6 +20,11 @@
             "writable": true
         },
         {
+            "name": "MuzzleFlashParticleConfig",
+            "type": "string",
+            "writable": true
+        },
+        {
             "name": "MuzzleSmokeShotThreshold",
             "type": "uint8",
             "writable": true

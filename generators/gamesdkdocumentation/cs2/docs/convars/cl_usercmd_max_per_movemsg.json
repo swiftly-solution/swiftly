@@ -1,1 +1,1 @@
-{"kind":"command","name":"cl_usercmd_max_per_movemsg","description":"max number of CUserCmds to send in one client move message","args":" 4","flags":["min:","4,","release"],"games":["cs2"]}
+{"kind":"command","name":"cl_usercmd_max_per_movemsg","description":"max number of CUserCmds to send in one client move message","args":"4","flags":["min:","4,","release"],"games":["cs2"]}

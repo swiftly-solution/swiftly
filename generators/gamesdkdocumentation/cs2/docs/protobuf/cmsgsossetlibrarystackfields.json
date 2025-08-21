@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"stackHash","type":"fixed32"},{"name":"packedFields","type":"bytes"}],"name":"CMsgSosSetLibraryStackFields","games":["cs2"]}

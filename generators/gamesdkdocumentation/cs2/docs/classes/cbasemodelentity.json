@@ -190,6 +190,16 @@
             "writable": true
         },
         {
+            "name": "DecalMode",
+            "type": "uint8",
+            "writable": true
+        },
+        {
+            "name": "RequiredDecalMode",
+            "type": "uint8",
+            "writable": true
+        },
+        {
             "name": "ViewOffset",
             "type": "CNetworkViewOffsetVector",
             "writable": false

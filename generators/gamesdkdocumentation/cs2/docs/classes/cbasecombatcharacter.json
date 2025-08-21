@@ -35,11 +35,6 @@
             "writable": true
         },
         {
-            "name": "DamageCount",
-            "type": "int32",
-            "writable": true
-        },
-        {
             "name": "StrRelationships",
             "type": "string",
             "writable": true

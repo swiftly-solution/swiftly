@@ -1,1 +1,1 @@
-{"kind":"type","name":"EDestructiblePartDamagePassThroughType","description":"Automatically generated game type from enum EDestructiblePartDamagePassThroughType","values":{"Normal":0,"Absorb":1,"InvinciblePassthrough":2},"games":["cs2"]}
+{"kind":"type","name":"EDestructiblePartDamagePassThroughType","description":"Automatically generated game type from enum EDestructiblePartDamagePassThroughType","values":{"Normal":0,"Absorb":1,"InvincibleAbsorb":2,"InvinciblePassthrough":3},"games":["cs2"]}

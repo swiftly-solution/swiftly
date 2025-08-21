@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"soundeventHash","type":"fixed32"},{"name":"sourceEntityIndex","type":"int32","default":-1}],"name":"CMsgSosStopSoundEventHash","games":["cs2"]}

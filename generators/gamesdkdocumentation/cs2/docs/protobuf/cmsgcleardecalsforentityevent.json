@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"flagstoclear","type":"uint32"},{"name":"entityhandle","type":"uint32","default":16777215}],"name":"CMsgClearDecalsForEntityEvent","games":["cs2"]}

@@ -1,0 +1,163 @@
+{
+    "kind": "class",
+    "name": "CFuncRotator",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CFuncRotator"
+    },
+    "properties": [
+        {
+            "name": "RotatorTarget",
+            "type": "CBaseEntity",
+            "writable": false
+        },
+        {
+            "name": "IsRotating",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "IsReversing",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "TimeToReachMaxSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeToReachZeroSpeed",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "DistanceAlongArcTraveled",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeToWaitOscillate",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "TimeRotationStart",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "OnRotationStarted",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnRotationCompleted",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnOscillate",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnOscillateStartArrive",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnOscillateStartDepart",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnOscillateEndArrive",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OnOscillateEndDepart",
+            "type": "CEntityIOOutput",
+            "writable": false
+        },
+        {
+            "name": "OscillateDepart",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "OscillateCount",
+            "type": "int32",
+            "writable": true
+        },
+        {
+            "name": "RotateType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "PrevRotateType",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "HasTargetOverride",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "SpaceOverride",
+            "type": "uint32",
+            "writable": true
+        },
+        {
+            "name": "AngularVelocity",
+            "type": "Vector",
+            "writable": true
+        },
+        {
+            "name": "LookAtForcedUp",
+            "type": "Vector2D",
+            "writable": true
+        },
+        {
+            "name": "StrRotatorTarget",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "RecordHistory",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "ReturningToPreviousOrientation",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CBaseModelEntity",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

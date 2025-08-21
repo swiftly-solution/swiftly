@@ -1,0 +1,1 @@
+{"kind":"type","name":"DecalMode_t","description":"Automatically generated game type from enum DecalMode_t","values":{"kDecalBlood":0,"kDecalCloak":1,"kDecalMax":2,"kDecalDefault":0},"games":["cs2"]}

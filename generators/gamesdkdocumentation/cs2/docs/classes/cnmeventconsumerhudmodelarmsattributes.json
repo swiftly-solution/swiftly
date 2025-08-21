@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CNmEventConsumerHudModelArmsAttributes",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmEventConsumerHudModelArmsAttributes"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CNmEventConsumerAttributes",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}
