@@ -76,7 +76,7 @@
         },
         {
             "name": "HitBox",
-            "type": "uint16",
+            "type": "int16",
             "writable": true
         },
         {

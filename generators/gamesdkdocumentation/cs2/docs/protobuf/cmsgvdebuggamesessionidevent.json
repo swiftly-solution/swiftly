@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"clientid","type":"int32"},{"name":"gamesessionid","type":"string"}],"name":"CMsgVDebugGameSessionIDEvent","games":["cs2"]}

@@ -40,8 +40,8 @@
             "writable": true
         },
         {
-            "name": "SequenceOverride",
-            "type": "int32",
+            "name": "SequenceOverrideName",
+            "type": "uint32",
             "writable": true
         }
     ],

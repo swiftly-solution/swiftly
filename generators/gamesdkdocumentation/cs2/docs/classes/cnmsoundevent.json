@@ -45,6 +45,16 @@
             "writable": true
         },
         {
+            "name": "ContinuePlayingSoundAtDurationEnd",
+            "type": "bool",
+            "writable": true
+        },
+        {
+            "name": "DurationInterruptionThreshold",
+            "type": "float",
+            "writable": true
+        },
+        {
             "name": "Parent",
             "type": "CNmEvent",
             "writable": false

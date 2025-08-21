@@ -25,18 +25,18 @@
             "writable": true
         },
         {
+            "name": "PreModifiedDamage",
+            "type": "float",
+            "writable": true
+        },
+        {
             "name": "TotalledHealthLost",
             "type": "int32",
             "writable": true
         },
         {
-            "name": "TotalledDamageTaken",
+            "name": "TotalledDamageDealt",
             "type": "int32",
-            "writable": true
-        },
-        {
-            "name": "TotalledDamageAbsorbed",
-            "type": "float",
             "writable": true
         }
     ],

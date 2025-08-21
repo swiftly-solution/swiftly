@@ -55,6 +55,31 @@
             "writable": true
         },
         {
+            "name": "EnvRainStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnvPuddleRippleStrength",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnvPuddleRippleDirection",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnvWetnessCoverage",
+            "type": "float",
+            "writable": true
+        },
+        {
+            "name": "EnvWetnessDryingAmount",
+            "type": "float",
+            "writable": true
+        },
+        {
             "name": "Parent",
             "type": "CPointEntity",
             "writable": false

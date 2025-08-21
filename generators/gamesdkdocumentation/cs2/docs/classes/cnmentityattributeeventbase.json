@@ -1,0 +1,38 @@
+{
+    "kind": "class",
+    "name": "CNmEntityAttributeEventBase",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmEntityAttributeEventBase"
+    },
+    "properties": [
+        {
+            "name": "AttributeName",
+            "type": "string",
+            "writable": true
+        },
+        {
+            "name": "Parent",
+            "type": "CNmEvent",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

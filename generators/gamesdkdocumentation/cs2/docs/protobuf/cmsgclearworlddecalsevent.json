@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"flagstoclear","type":"uint32"}],"name":"CMsgClearWorldDecalsEvent","games":["cs2"]}

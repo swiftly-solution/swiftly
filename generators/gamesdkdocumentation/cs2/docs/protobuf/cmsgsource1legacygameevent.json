@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"eventName","type":"string"},{"name":"eventid","type":"int32"},{"name":"keys","type":"CMsgSource1LegacyGameEvent.key_t"},{"name":"serverTick","type":"int32"},{"name":"passthrough","type":"int32"}],"name":"CMsgSource1LegacyGameEvent","games":["cs2"]}

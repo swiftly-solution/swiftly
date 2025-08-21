@@ -85,11 +85,6 @@
             "writable": true
         },
         {
-            "name": "DamageAbsorbed",
-            "type": "float",
-            "writable": true
-        },
-        {
             "name": "DamageFlags",
             "type": "uint64",
             "writable": true

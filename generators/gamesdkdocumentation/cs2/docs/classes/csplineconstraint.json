@@ -55,6 +55,11 @@
             "writable": true
         },
         {
+            "name": "JointFriction",
+            "type": "float",
+            "writable": true
+        },
+        {
             "name": "PreSolveAnchorPos",
             "type": "Vector2D",
             "writable": true

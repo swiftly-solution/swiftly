@@ -610,6 +610,11 @@
             "writable": true
         },
         {
+            "name": "EyeAngles",
+            "type": "Vector",
+            "writable": true
+        },
+        {
             "name": "Parent",
             "type": "CCSPlayerPawnBase",
             "writable": false

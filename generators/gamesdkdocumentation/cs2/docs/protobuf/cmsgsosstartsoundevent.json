@@ -1,0 +1,1 @@
+{"kind":"protobuf","fields":[{"name":"soundeventGuid","type":"int32"},{"name":"soundeventHash","type":"fixed32"},{"name":"sourceEntityIndex","type":"int32","default":-1},{"name":"seed","type":"int32"},{"name":"packedParams","type":"bytes"},{"name":"startTime","type":"float"}],"name":"CMsgSosStartSoundEvent","games":["cs2"]}

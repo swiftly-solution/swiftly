@@ -479,6 +479,11 @@
             "return": "void"
         },
         {
+            "name": "EntityIndex",
+            "arguments": {},
+            "return": "int32"
+        },
+        {
             "name": "ToPtr",
             "arguments": {},
             "return": "string"

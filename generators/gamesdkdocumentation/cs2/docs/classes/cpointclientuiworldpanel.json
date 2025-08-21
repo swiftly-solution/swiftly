@@ -90,6 +90,11 @@
             "writable": true
         },
         {
+            "name": "VisibleWhenParentNoDraw",
+            "type": "bool",
+            "writable": true
+        },
+        {
             "name": "RenderBackface",
             "type": "bool",
             "writable": true

@@ -1,0 +1,33 @@
+{
+    "kind": "class",
+    "name": "CNmEntityAttributeFloatEvent",
+    "description": "",
+    "constructor": {
+        "arguments": {
+            "ptr_or_class": "SDKClass|string"
+        },
+        "return": "CNmEntityAttributeFloatEvent"
+    },
+    "properties": [
+        {
+            "name": "Parent",
+            "type": "CNmEntityAttributeEventBase",
+            "writable": false
+        }
+    ],
+    "functions": [
+        {
+            "name": "ToPtr",
+            "arguments": {},
+            "return": "string"
+        },
+        {
+            "name": "IsValid",
+            "arguments": {},
+            "return": "bool"
+        }
+    ],
+    "games": [
+        "cs2"
+    ]
+}

@@ -1,1 +1,1 @@
-{"kind":"command","name":"nav_attribute_obstacle_draw","description":"<no description>","args":"false","flags":["gamedll","cheat"],"games":["cs2"]}
+{"kind":"command","name":"nav_attribute_obstacle_draw","description":"<no description>","args":"false","flags":["developmentonly","gamedll"],"games":["cs2"]}
