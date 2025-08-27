@@ -207,7 +207,6 @@ target(PROJECT_NAME.."-CS2")
     --[[ Protobuf Section ]]
 
     on_load(function(target)
-    
         if os.exists("build/proto") then
             return
         end

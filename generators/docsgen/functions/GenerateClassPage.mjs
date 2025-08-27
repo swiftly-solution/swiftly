@@ -6,7 +6,7 @@ import GenerateClassFunctions from './GenerateClassFunctions.mjs'
 import GenerateClassConstructor from './GenerateClassConstructor.mjs'
 
 export default function GenerateClassPage(pageKey, pageContent, category) {
-    let page = readFileSync("templates/types.tpl").toString()
+    let page = readFileSync("templates/class.tpl").toString()
     let path = currentPath.split("/").slice(0, -1).join("/")
 
     page = page.replace("{title}", pageContent.name)
