@@ -105,7 +105,7 @@ dyno::ReturnAction Hook_CEntityIdentity_AcceptInput(dyno::CallbackType type, dyn
 
 FunctionHook CEntityIdentity_AcceptInput("CEntityIdentity_AcceptInput", dyno::CallbackType::Pre, Hook_CEntityIdentity_AcceptInput, "pppppi", 'v');
 
-dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IHook& hook)
+dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IHook& hook, void* nullptr)
 {
     void* _this = hook.getArgument<void*>(0);
     CTakeDamageInfo* info = hook.getArgument<CTakeDamageInfo*>(1);
@@ -150,7 +150,7 @@ dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IH
     return dyno::ReturnAction::Ignored;
 }
 
-FunctionHook CBaseEntity_TakeDamage("CBaseEntity_TakeDamage", dyno::CallbackType::Pre, Hook_CBaseEntity_TakeDamage, "pp", 'v');
+FunctionHook CBaseEntity_TakeDamage("CBaseEntity_TakeDamage", dyno::CallbackType::Pre, Hook_CBaseEntity_TakeDamage, "ppp", 'v');
 
 class CUserCmd
 {
