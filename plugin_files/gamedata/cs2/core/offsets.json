@@ -8,20 +8,20 @@
         "linux": 408
     },
     "CCSPlayerController_ChangeTeam": {
-        "windows": 106,
-        "linux": 105
+        "windows": 109,
+        "linux": 108
     },
     "CBaseEntity_Teleport": {
-        "windows": 165,
-        "linux": 164
+        "windows": 168,
+        "linux": 167
     },
     "CCSPlayerController_Respawn": {
-        "windows": 275,
-        "linux": 277
+        "windows": 277,
+        "linux": 279
     },
     "CollisionRulesChanged": {
-        "windows": 189,
-        "linux": 188
+        "windows": 191,
+        "linux": 190
     },
     "CCSPlayer_WeaponServices_DropWeapon": {
         "windows": 23,
@@ -32,8 +32,8 @@
         "linux": 8
     },
     "GetHammerUniqueID": {
-        "windows": 115,
-        "linux": 114
+        "windows": 118,
+        "linux": 117
     },
     "CEntityResourceManifest_AddResource": {
         "windows": 2,
