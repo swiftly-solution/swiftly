@@ -105,7 +105,7 @@ dyno::ReturnAction Hook_CEntityIdentity_AcceptInput(dyno::CallbackType type, dyn
 
 FunctionHook CEntityIdentity_AcceptInput("CEntityIdentity_AcceptInput", dyno::CallbackType::Pre, Hook_CEntityIdentity_AcceptInput, "pppppi", 'v');
 
-dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IHook& hook, void* nullptr)
+dyno::ReturnAction Hook_CBaseEntity_TakeDamage(dyno::CallbackType type, dyno::IHook& hook)
 {
     void* _this = hook.getArgument<void*>(0);
     CTakeDamageInfo* info = hook.getArgument<CTakeDamageInfo*>(1);
