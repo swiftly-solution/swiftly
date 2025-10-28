@@ -17,6 +17,12 @@ README is also available in [Ukrainian](https://github.com/swiftly-solution/swif
 
 </div>
 
+### Notice
+
+This project is in maintenance-only mode since the date of 10th of October 2025. The project will be discontinued after 6 months from this date, meaning 10th of April 2026.
+This mode is meant to keep the project functional until people using it will migrate to the new variant of the framework.
+Check out [SwiftlyS2](https://github.com/swiftly-solution/swiftlys2) and it's new features at https://swiftlys2.net
+
 ---
 
 ### Build Requirements
