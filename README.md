@@ -13,7 +13,7 @@ The new version of the framework is available at https://swiftlys2.net.
 
 As originally announced, the project entered maintenance-only mode on **October 10, 2025**, with the intention of giving server owners and developers time to migrate to the next generation framework.
 
-Swiftly officially reaches **End-of-Life on April 10, 2026**.
+Swiftly Lua officially reaches **End-of-Life on April 10, 2026**.
 
 No further development, features, or fixes will be provided.
 
@@ -32,19 +32,19 @@ Many late nights where the only thing on my mind was **one more bug**, **one mor
 
 And slowly, over time, it did.
 
-Swiftly started as a simple **experiment** to improve the ecosystem of Counter-Strike 2 server development using **Lua**, a dynamic scripting language. The goal was to give server developers something powerful but easy to extend.
+Swiftly Lua started as a simple **experiment** to improve the ecosystem of Counter-Strike 2 server development using **Lua**, a dynamic scripting language. The goal was to give server developers something powerful but easy to extend.
 
 What started as a small experiment slowly turned into a **full framework** used by developers building plugins and extensions for Source 2 servers.
 
 And that was something I never expected when writing the first lines of code.
 
-If you used Swiftly, contributed to it, built plugins for it, reported bugs, suggested features, or even just tried it once — **thank you**.
+If you used Swiftly Lua, contributed to it, built plugins for it, reported bugs, suggested features, or even just tried it once — **thank you**.
 
 Discontinuing this project was a very difficult decision. Not only because of the time invested in it, but because **other people invested their time in it too**. People built plugins, servers, ideas, and communities around it.
 
 And that meant a lot.
 
-## Why Swiftly Is Ending
+## Why Swiftly Lua Is Ending
 
 Over time, the limitations of the original design started to appear.
 
@@ -85,7 +85,7 @@ To everyone who opened issues, suggested improvements, or reported bugs.
 
 Thank you.
 
-Swiftly may be ending, but what it helped create will continue to evolve.
+Swiftly Lua may be ending, but what it helped create will continue to evolve.
 
 And that's what open source is really about.
 
