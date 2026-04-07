@@ -1,100 +1,94 @@
 <br/>
 <p align="center">
     <img src="https://sttci.b-cdn.net/status.swiftlycs2.net/2105/logo.png" alt="Swiftly Private Message Logo" width="600" height="131">
-  <p align="center">
-    Swiftly is a server modification plugin for Counter Strike 2 servers which is based on Metamod:Source 2.x.
-    <br/>
-    <a href="https://github.com/swiftly-solution/swiftly/issues">Report Bug</a>
-    <a href="https://swiftlycs2.net/discord">Discord Server</a>
-  </p>
 </p>
 
-<div align="center">
+## New Version: SwiftlyS2
 
-README is also available in [Ukrainian](https://github.com/swiftly-solution/swiftly/blob/master/README-UA.md) ![ua](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/ua.png) and [Russian](https://github.com/swiftly-solution/swiftly/blob/master/README-RU.md) ![ru](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/ru.png) and [Chinese](https://github.com/swiftly-solution/swiftly/blob/master/README-CN.md) ![ru](https://raw.githubusercontent.com/stevenrskelton/flag-icon/master/png/16/country-4x3/cn.png)
+SwiftlyS2 is a powerful scripting framework for Source 2 games, built in C++ with C# plugin support. It provides developers with a comprehensive API to create plugins for Source 2-based games like Counter-Strike 2.
 
-![Downloads](https://img.shields.io/github/downloads/swiftly-solution/swiftly/total) ![Contributors](https://img.shields.io/github/contributors/swiftly-solution/swiftly?color=dark-green) ![Issues](https://img.shields.io/github/issues/swiftly-solution/swiftly) ![License](https://img.shields.io/github/license/swiftly-solution/swiftly)
+The new version of the framework is available at https://swiftlys2.net.
 
-</div>
+## Status
 
-### Notice
+As originally announced, the project entered maintenance-only mode on **October 10, 2025**, with the intention of giving server owners and developers time to migrate to the next generation framework.
 
-This project is in maintenance-only mode since the date of 10th of October 2025. The project will be discontinued after 6 months from this date, meaning 10th of April 2026.
-This mode is meant to keep the project functional until people using it will migrate to the new variant of the framework.
-Check out [SwiftlyS2](https://github.com/swiftly-solution/swiftlys2) and it's new features at https://swiftlys2.net
+Swiftly Lua officially reaches **End-of-Life on April 10, 2026**.
 
----
+No further development, features, or fixes will be provided.
 
-### Build Requirements
+This repository will remain public as a historical reference for the work that has been done.
 
-- [hl2sdk](https://github.com/alliedmodders/hl2sdk/tree/cs2) (Downloads automatically with the git cloning using Recurse Submodules)
-- [metamod-source](https://github.com/alliedmodders/metamod-source) (Downloads automatically with the git cloning using Recurse Submodules)
-- [XMake](https://xmake.io/)
+## Personal Note
 
----
+This project wasn't built overnight.
 
-### Downloads
+For **two years**, Swiftly was developed almost **every single day**.  
+Days and nights were spent staring at the screen, rewriting systems, debugging crashes, and sometimes just sitting there wondering if the framework would ever become what it was supposed to be.
 
-- [Public Releases (recomended)](https://github.com/swiftly-solution/swiftly/releases)
-- [Builds (use at your own risk)](https://github.com/swiftly-solution/swiftly/actions)
+There were many moments where it felt impossible.
 
----
+Many late nights where the only thing on my mind was **one more bug**, **one more feature**, **one more rewrite that might finally make everything click**.
 
-### Get Plugins
+And slowly, over time, it did.
 
-- [Discord (recomended)](https://swiftlycs2.net/discord)
-- [GitHub Topic](https://github.com/topics/swiftly-solution)
+Swiftly Lua started as a simple **experiment** to improve the ecosystem of Counter-Strike 2 server development using **Lua**, a dynamic scripting language. The goal was to give server developers something powerful but easy to extend.
 
----
+What started as a small experiment slowly turned into a **full framework** used by developers building plugins and extensions for Source 2 servers.
 
-### For Developers
+And that was something I never expected when writing the first lines of code.
 
-- [Beginners](https://swiftlycs2.net/for-beginners)
-- [Plugin Docs](https://swiftlycs2.net/plugin-docs)
-- [Extension Docs](https://swiftlycs2.net/ext-docs)
-- [SDK Docs](https://swiftlycs2.net/sdk)
+If you used Swiftly Lua, contributed to it, built plugins for it, reported bugs, suggested features, or even just tried it once — **thank you**.
 
----
+Discontinuing this project was a very difficult decision. Not only because of the time invested in it, but because **other people invested their time in it too**. People built plugins, servers, ideas, and communities around it.
 
-### Building Commands
+And that meant a lot.
 
-#### Clone Repository
+## Why Swiftly Lua Is Ending
 
-```
-git clone --recurse-submodules https://github.com/swiftly-solution/swiftly
-```
+Over time, the limitations of the original design started to appear.
 
-#### Build
+Lua, while flexible and easy to use, proved to be **not the best choice for a modern Source 2 server framework**. It lacks strong type safety and doesn't provide a native asynchronous environment that allows operations to run safely across threads.
 
-```
-./setup.ps1 - Windows
-./setup.sh - Linux
-```
+These limitations became especially clear when trying to implement features like:
 
-#### Build using Docker
+- HTTP requests  
+- multi-threaded game hooks  
+- more advanced server integrations  
 
-```
-docker run --rm -it -e "FOLDER=swiftly" -e "GAME=cs2" -v .:/swiftly ghcr.io/swiftly-solution/swiftly:cross-compiler
-```
+The architecture started fighting the future instead of enabling it.
 
----
+We explored alternatives.
 
-### License
+At one point we experimented with **JavaScript**. It's a language many developers already know and use daily. Unfortunately the engine used to embed it (**QuickJS**) was too slow for the needs of the framework, and embedding **V8** turned out to be an extremely complex task for a project mostly maintained by a single developer.
 
-Swiftly is licensed under the GNU GPL 3 License. You can view the license in the LICENSE file.
+Later, when a new developer joined the team, we began exploring **C#**.
 
----
+And everything suddenly made sense.
 
-### Credits
+C# provided:
 
-The Schema System and the base SDK classes fields provided by [CS2Fixes](https://github.com/Source2ZE/CS2Fixes).
+- a modern type-safe environment  
+- strong tooling  
+- excellent performance through .NET  
+- asynchronous programming built into the language  
 
-The rest of SDK fields were provided by [SteamDatabase](https://github.com/SteamDatabase).
+Today, it works **beautifully** in SwiftlyS2.
 
-Thanks to GAMMACASE, Poggu, and all the people which are constantly working for the Counter Strike 2 Server Community to become better.
+## Thank You
 
----
+To everyone who believed in the project.
 
-### Statistics
+To everyone who ran it on their servers.  
+To everyone who wrote plugins for it.  
+To everyone who opened issues, suggested improvements, or reported bugs.
 
-![Alt](https://repobeats.axiom.co/api/embed/742f846684c4bb9f8314c0a43c2a6b314fc63b6b.svg "Repobeats analytics image")
+Thank you.
+
+Swiftly Lua may be ending, but what it helped create will continue to evolve.
+
+And that's what open source is really about.
+
+## Memorial Page
+
+You can check the memorial of the Swiftly Lua version here: [https://swiftlys2.net/memorial](https://swiftlys2.net/memorial)
